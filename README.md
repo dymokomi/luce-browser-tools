@@ -16,6 +16,7 @@ the agent briefs, so the work can move between machines.
 | `oracles/luce-browser-html/tokenizer/` | HTMLTokenizer oracle and the expected outputs pinned in html_syntax's tests. |
 | `oracles/luce-browser-render/` | `fonts/` (Skia/FreeType/HarfBuzz metrics, shaping and glyph paths via Ladybird's LibGfx), `player/` (DisplayListPlayerSkia scenes), `filters/` (Skia image filters), `text_path/`. |
 | `oracles/raster-skia/` | Renders the raster module's scenes with Skia m144 (the version Ladybird builds) to produce the reference PNGs. |
+| `oracles/luce-regex/` | Drivers comparing luce-regex (the RegExp engine luce-js uses) with QuickJS's C libregexp/libunicode (`oracle_driver.c` builds against a QuickJS checkout). |
 | `compiler-issues/` | Minimal `.lucb` reductions of luce-base bugs found by the browser ports. The tracked list is luce-js's `docs/COMPILER-REQUESTS.md`. |
 | `briefs/` | The brief every region agent was given (`region-brief-template.md`) and the integration notes of the second wave (css/html/render). |
 
