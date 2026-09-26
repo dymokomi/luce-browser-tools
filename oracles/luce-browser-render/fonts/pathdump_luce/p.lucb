@@ -1,0 +1,50 @@
+import ak
+import c
+import web_fonts
+
+extern func fopen(path: c.str, mode: c.str) -> void*?
+extern func fclose(stream: void*) -> i32
+extern func fread(buffer: void*, size: usize, count: usize, stream: void*) -> usize
+extern func strtoul(text: c.str, end: void*?, base: i32) -> u64
+
+pub func main(arguments: c.str[]) -> i32:
+    let stream = fopen(arguments[1], "rb") else return 1
+    var buffer: ak.ByteBuffer
+    var chunk: u8[65536]
+    while true:
+        let count = fread(&chunk[0], 1, chunk.length, stream)
+        if count == 0:
+            break
+        ak.byte_buffer_try_append_span_u8(&buffer, chunk[0..<count]) else return 1
+    discard(fclose(stream))
+    let tf = web_fonts.typeface_try_load_from_temporary_memory(ak.byte_buffer_bytes_const(&buffer)) else return 1
+    let font = web_fonts.typeface_font(tf, 12.0)
+    let cp = (u32)strtoul(arguments[2], none, 16)
+    let path = web_fonts.font_glyph_path(font, web_fonts.typeface_glyph_id_for_code_point(tf, cp), 1.0)
+    var point: usize = 0
+    let points = ak.vector_span_const(&path.points)
+    for verb in ak.vector_span_const(&path.verbs):
+        let count: usize = match verb:
+            .move => 1
+            .line => 1
+            .quad => 2
+            .cubic => 3
+            _ => 0
+        let code: u32 = match verb:
+            .move => 0
+            .line => 1
+            .quad => 2
+            .cubic => 4
+            _ => 5
+        var line: ak.StringBuilder
+        ak.string_builder_construct(&line)
+        var text: u8[256]
+        var length: usize = 0
+        let head = format(text, f"{code}") else ""
+        length = head.length
+        for i in 0..<count:
+            let part = format(text[length..], f" {points[point + i].m_x.bits()},{points[point + i].m_y.bits()}") else ""
+            length += part.length
+        print((str)text[0..<length])
+        point += count
+    return 0

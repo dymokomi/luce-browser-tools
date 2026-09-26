@@ -1,0 +1,144 @@
+whole	-	<!DOCTYPE html>
+whole	-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+whole	-	<!doctype html system 'about:legacy-compat'>
+whole	-	<!DOCTYPE>
+whole	-	<!DOCTYPE
+whole	-	<!DOCTYPEhtml>
+whole	-	<!DOCTYPE html PUBLIC>
+whole	-	<!DOCTYPE html PUBLIC"x"'y'>
+whole	-	<!DOCTYPE html PUBLIC 'x' "y" z>
+whole	-	<!DOCTYPE html public "a>
+whole	-	<!DOCTYPE html bogus>
+whole	-	<!DOCTYPE html SYSTEM "a" junk\0>
+whole	-	<!DOCTYPE html SYSTEM>
+whole	-	<!DOCTYPE html SYSTEM"a
+whole	-	<!DOCTYPE HTML\0x\0>
+whole	-	<!DOCTYPE \0>
+whole	-	<!DOCTYPE html PUB
+whole	-	<!DOCTYPE html PUBLIC "a" 'b
+whole	-	<!DOCTYPE html PUBLIC 'a'>
+whole	-	<!DOCTYPE html PUBLIC "a\0b" 'c\0d'>
+whole	-	<!---->
+whole	-	<!-->
+whole	-	<!--->
+whole	-	<!-- a -- b --!>
+whole	-	<!--<!-- nested -->
+whole	-	<!--<!--->
+whole	-	<!--<!---->
+whole	-	<!--<!-x-->
+whole	-	<!--<<!--a-->
+whole	-	<!-- unterminated
+whole	-	<!--a--!b-->
+whole	-	<!--a--!-->
+whole	-	<!--a--!
+whole	-	<!--a---->
+whole	-	<!--a--
+whole	-	<!--a-
+whole	-	<!---
+whole	-	<!--
+whole	-	<!--\0-->
+whole	-	<?php bogus \0 ?>
+whole	-	<?php
+whole	-	</>
+whole	-	</3>
+whole	-	</
+whole	-	<!x>
+whole	-	<!
+whole	-	<!-
+whole	-	<!DOC
+whole	-	<![CDATA[x]]>
+whole	-	<![CDA
+whole	-	<a b=c d='e' f="g" h>
+whole	-	<A HREF=X>
+whole	-	<br/>
+whole	-	<br />
+whole	-	<br/x>
+whole	-	<p a=1 a=2 A=3>
+whole	-	<p a="x"b>
+whole	-	<p =a>
+whole	-	<p "a" 'b' <c>
+whole	-	<a b=c`=d"e'f<g>
+whole	-	<a\0b c\0=d\0 e='\0' f="\0">
+whole	-	<a
+whole	-	<a b
+whole	-	<a b=
+whole	-	<a b="c
+whole	-	<a b='c
+whole	-	<a b=c
+whole	-	<a b="c"
+whole	-	<a b/
+whole	-	<a b="c"d>
+whole	-	</a b=c>
+whole	-	</A>
+whole	-	< p>
+whole	-	<3
+whole	-	<
+whole	-	a<b\tc=d\ne=f\fg=h>
+whole	-	<a b = "c" >
+whole	-	<a b=>
+whole	-	<abc\0DEF>
+whole	-	&amp; &AMP &amp &ampx &amp=
+whole	-	&notin; &notindot; &notinvc;
+whole	-	&NotEqualTilde; &fjlig; &nGt; &acE;
+whole	-	&#0; &#x110000; &#xD800; &#128; &#x9F; &#13; &#x81;
+whole	-	&#99999999999; &#xFFFFFFFFF;
+whole	-	&#; &#x; &#xZ &#a &# &#x
+whole	-	&unknown; &am &; & &
+whole	-	&#65&#x41&#X41;&#x0041;
+whole	-	&#xFDD0; &#xFFFE; &#x1FFFF; &#x7F; &#x0B;
+whole	-	<a href="?a=1&amp=2&amp;b&copy=3&copy;&copyx&copy">
+whole	-	<a x=&notit; y=&amp z='&amp' w="&#65;&#x42&q;">
+whole	-	<a x="&" y=& z='&#'>
+whole	-	&Aacute&aacute;&Aacut
+whole	-	&ThickSpace;&NotSquareSubset;&bne;
+whole	-	a\r\nb\rc\n\r\nd\r
+whole	-	<p\nclass=x\r\nid='y'>\n</p\r>
+whole	-	\r\n<a>\r\r\n
+whole	-	a\0b
+whole	-	é<é>&eacute;<p é=é>
+whole	-	x<b>y
+whole	1	<title>a &lt; b</tit</title >x
+whole	1	<title>a</TITLE>
+whole	1	<title>a</title/>
+whole	1	<title>a</title x>
+whole	1	<title>a</titles>
+whole	1	<title>a</x>b<\0c
+whole	1	<title>a</
+whole	1	<title>a</ti
+whole	1	<title>a<
+whole	1	<textarea>&amp&amp;x</textarea>
+whole	2	<style>a</b><</style/>
+whole	2	<style>a</STYLE>b
+whole	2	<style>a</style\t>
+whole	2	<style>\0</stylex></style>
+whole	2	<xmp>a</xm
+whole	2	<xmp>&amp;</
+whole	3	<script>if (a<b) x = "<!--"; <!-- <script> </script> --> </script>
+whole	3	<script><!--<script>a</script>--></script>
+whole	3	<script>a\0b</SCRIPT>
+whole	3	<script><!-- -\0- --\0 --><!--<sCrIpT>-\0--\0</ScRiPt>x</script>
+whole	3	<script><!--<script>-<-</script>-</script>--></script>
+whole	3	<script><!--<script>--<\0</script </script/</script>
+whole	3	<script><!-</script>
+whole	3	<script><!--a</SCRIPT x>b
+whole	3	<script><!--a</scr
+whole	3	<script><!--a<
+whole	3	<script><!--a-
+whole	3	<script><!--a--
+whole	3	<script><!--<script>a
+whole	3	<script><!--<script>a-
+whole	3	<script><!--<script>a--
+whole	3	<script><!--<script>a<
+whole	3	<script><!--<script>a</script
+whole	3	<script><!--<scripta>x</script>
+whole	3	<script><!--<script/>--></script>
+whole	3	<script></script
+whole	3	<script></scriptx>
+whole	3	<script></script/>
+whole	3	<script><!--x--!>
+whole	4	<plaintext>a</plaintext>&amp;\0
+whole	68	<x>a]b]]c]]]>d
+whole	68	<x>]]]]>
+whole	68	<x>a]
+whole	68	<x>a]]
+whole	68	<x>a

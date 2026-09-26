@@ -1,0 +1,24 @@
+# compiler issue: every `for (i, x) in span.indexed()` loop leaks a 48-byte heap block.
+#
+# luce-base 0.23.0 (native backend, arm64 macOS): `leaks --atExit -- ./program` reports
+#     Process N: 5 leaks for 240 total leaked bytes.
+# one 48-byte block per call of `count_large`, allocated through memory.heap (CAllocator) by
+# the loop, whether the loop runs to the end (as here) or is left by `return`. The same loop
+# written `for i in 0..<values.length: let v = values[i]` leaks nothing. Found in
+# luce-browser-render's raster module (tiny-skia port): StrokeDash.new_ -> find_first_interval.
+#
+# Expected: no leak.
+
+func count_large(values: const f32[]) -> usize:
+    var n: usize = 0
+    for (i, v) in values.indexed():
+        if v > 5.0:
+            n += i
+    return n
+
+pub func main(arguments: str[]) -> i32:
+    var total: usize = 0
+    for i in 0..<5:
+        total += count_large([0.0, 2.0])
+    print(f"{total}")
+    return 0

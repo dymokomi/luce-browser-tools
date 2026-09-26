@@ -1,0 +1,28 @@
+# Compiler issue (found by region r01, luce-base 0.23.0): a generic function cannot be used as
+# a function value. Neither the expected type nor an explicit instantiation selects an
+# instance.
+#
+# Expected: both tests pass (`negate` is instantiated at T = i64 by the expected type, or by
+#           `negate[i64]`), as a non-generic function converts to a function pointer (§5.6).
+# Actual:   genfp.lucb:17: expected `func(void*?, const i64*) -> bool`, got
+#           `func(void*?, const T*) -> bool`; inside a generic function the message is
+#           "expected `func(void*?, const T*) -> bool`, got `func(void*?, const T*) -> bool`".
+#           Writing `negate[i64]` is parsed as indexing: "indexing needs a span, an array, or
+#           a pointer".
+# Workaround: a static method of a generic struct converts (`Matcher[T].matches`); r01 writes
+#           its generic callbacks that way (`# workaround: compiler-issues/generic_function_value`).
+
+func negate[T](context: void*?, value: const T*) -> bool:
+    return context == none
+
+func outer[T](value: T) -> bool:
+    let callback: func(void*?, const T*) -> bool = negate
+    return callback(none, &value)
+
+test "generic function value at a concrete type":
+    let callback: func(void*?, const i64*) -> bool = negate
+    var v: i64 = 3
+    assert(callback(none, &v))
+
+test "generic function value inside a generic function":
+    assert(outer[i64](3))

@@ -1,0 +1,25 @@
+# Compiler issue: in a generic function, an `if` whose condition is a constant expression over
+# `sizeof(T)` is folded as if `sizeof(T)` were 0 (at declaration-check time), so the wrong
+# branch is taken for every instantiation. The same expression bound to a local first works.
+#
+# Expected: pick(u32) = 2, pick(u64) = 1
+# Actual:   pick(u32) = 1, pick(u64) = 1   (luce-base 0.23.0)
+# Workaround: `let size = sizeof(T)` and test `size`.
+
+func pick[T](value: const T*) -> usize:
+    if sizeof(T) % 8 == 0:
+        return 1
+    else:
+        return 2
+
+func pick_workaround[T](value: const T*) -> usize:
+    let size = sizeof(T)
+    if size % 8 == 0:
+        return 1
+    return 2
+
+test "sizeof(T) in a generic if condition":
+    let a = 1u32
+    let b = 1u64
+    print(f"pick u32 = {pick(&a)} (expected 2), pick u64 = {pick(&b)} (expected 1)")
+    print(f"workaround u32 = {pick_workaround(&a)} (expected 2), u64 = {pick_workaround(&b)} (expected 1)")

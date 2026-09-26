@@ -1,0 +1,32 @@
+# Compiler issue (luce-base 0.23.0), found by region r05 (web_url).
+#
+# An `else` fallback on a fallible call that sits under a surrounding `try` is (rightly) rejected:
+# the `try` consumes the failure, so the `else` sees a non-fallible operand. But after that
+# diagnostic the checker keeps rejecting every later `f() else ...` on a fallible call in the
+# module with the same message, although those are valid (see `second`, which checks alone).
+# In a directory module the spurious errors land in later fragments and hide where the one
+# real error is.
+#
+# Expected: one error, at line 29 (the `else` under `try`).
+# Actual:
+#   luce-base: else_under_try_leaks.lucb:29:28: `else` needs an optional or a fallible result
+#   luce-base: else_under_try_leaks.lucb:32:16: `else` needs an optional or a fallible result
+#
+# Workaround in the port: compute the fallible value into a `let` before the `try` call
+# (web_url's pattern_throw_builder).
+
+let code: ErrorCode = ErrorCode.package(1)
+
+func make(v: i32) -> i32!:
+    if v < 0: error(code, "neg")
+    return v
+
+func throw_with(v: i32) -> never!:
+    error(code, "thrown")
+
+pub func first(v: i32) -> !:
+    if v > 10:
+        try throw_with(make(v) else trap("MUST"))
+
+pub func second(v: i32) -> i32:
+    return make(v) else trap("MUST")

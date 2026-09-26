@@ -1,0 +1,32 @@
+# Compiler issue (found by region r04, luce-base 0.23.0, native arm64 backend): an `asm` block
+# that declares a callee-saved register destroyed (`out("x19") _`) does not make the function
+# save and restore that register. The caller's value in x19 (here the loop's `total`) is lost.
+#
+# Expected: the test passes (total == 45).
+# Actual:   `luce-base test` stops with a signal; as a program (`main` with the same loop) it
+#           prints total == 57014 (0xdead + 9): write_x19's prologue/epilogue does not save x19:
+#               _lb_..._write_x19:
+#                   stp x29, x30, [sp, #-16]!
+#                   ...
+#                   mov x19, x9
+#                   mov sp, x29
+#                   ldp x29, x30, [sp], #16
+#                   ret
+#           (the same holds for rbx and r12..r15 on x86-64 by the spec of §8.9; not checked).
+# Workaround: do not write callee-saved registers from `asm`; the gc test of the register spill
+#           checks the values the registers already hold (`# workaround:
+#           compiler-issues/asm_callee_saved_clobber` in luce-browser-foundation
+#           gc/tests_conservative.lucb).
+
+noinline func write_x19(marker: usize):
+    asm arm64 (in("x9") marker, out("x19") _):
+        mov x19, x9
+    asm x86_64 (in("rax") marker, out("rbx") _):
+        mov %rax, %rbx
+
+test "a destroyed callee-saved register is preserved for the caller":
+    var total: usize = 0
+    for i in 0..<10:
+        write_x19(0xdead)
+        total += (usize)i
+    assert(total == 45)

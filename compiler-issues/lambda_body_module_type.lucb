@@ -1,0 +1,25 @@
+# Compiler issue (found by region r12c, luce-base 0.23.0 / Luce 0.8.12): a lambda body does not
+# see the types its module declares. A cast to the module's enum inside a capture-free lambda is
+# rejected, although the same cast in a named function compiles. A second symptom: a lambda that
+# calls a module function draws the diagnostic "a lambda captures nothing; pass the value as a
+# parameter (§9.6)", which describes nothing wrong (the program still builds and runs); after the
+# unknown-type error the same message is repeated for unrelated lines of the module.
+#
+# Expected: `luce-base test` passes (the lambda answers Color.green for 1).
+# Actual:   lambda_body_module_type.lucb:24:41: unknown type `Color`
+# Workaround: named functions instead of the lambdas (luce-browser-css
+#           tests/css_data_dump: `<enum>_from_int` and `<enum>_to_int`).
+
+enum Color as u8:
+    red = 0
+    green = 1
+
+func apply(convert: func(u64) -> Color, value: u64) -> Color:
+    return convert(value)
+
+func to_int(color: Color) -> u64:
+    return (u64)(u8)color
+
+test "a lambda casts to its module's enum":
+    let color = apply((v: u64) => (Color)(u8)v, 1)
+    assert(to_int(color) == 1)

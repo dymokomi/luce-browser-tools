@@ -1,0 +1,16 @@
+# Reduction (luce-browser region r02): a `#` comment at the end of a `catch failure:` line
+# inside parentheses (where the handler suite opens on the next line) does not parse.
+# Expected: passes (a trailing comment should not change where the suite starts).
+# Actual:   luce-base: comment_on_catch_line_in_parens.lucb:15:9: expected the end of the line
+# The same comment on its own line inside the handler parses. luce-base 0.23.0.
+pub let failing: ErrorCode = ErrorCode.package(1)
+
+func fail() -> i64!:
+    error(failing, "no")
+
+test "comment after catch in parentheses":
+    var failed = false
+    discard(fail() catch failure: # comment on the catch line
+        failed = true
+        recover 0)
+    assert(failed)

@@ -1,0 +1,13 @@
+# compiler issue: `luce-base fmt` refuses a pointer to a fixed array written without parentheses.
+#
+# luce-base 0.23.0: `luce-base check` accepts this file, but `luce-base fmt` answers
+#     luce-base: the layout reads back as a different tree; the formatter is wrong for this file
+# and exits 1. The parenthesised spelling `(u8[128])*` formats fine and checks the same, so the
+# formatter's printed form of `u8[128]*` must parse back as a different type (likely `u8*[128]`
+# or a span). Found on the parameter `char (&buffer)[128]` of AK/Format.cpp's
+# convert_unsigned_to_string in the luce-browser skeleton.
+#
+# Expected: `fmt` prints `u8[128]*` (or normalises to `(u8[128])*`) and succeeds.
+
+func convert_unsigned_to_string(value: u64, buffer: u8[128]*) -> usize:
+    return 0

@@ -1,0 +1,27 @@
+# const_array_pointer_drops_const - `const T[N]*` loses its `const`
+#
+# Found by region r08 (luce-browser-render gfx, Matrix::elements() const), luce-base 0.23.0
+# (the 0.8.12 build).
+#
+# Expected: `const f32[4]*` is a pointer to a read-only f32[4] (the qualifier prefixes the
+# pointee, base.md §5.3), so `&this.v` through a `const M*` converts to it, as it does for the
+# parenthesised spelling `const (f32[4])*`.
+# Actual: the written type is read as `f32[4]*` (the `const` silently disappears), and the
+# return is rejected:
+#     constarr.lucb:9:12: expected `f32[4]*`, got `const f32[4]*`
+# (the error message prints the value's type as `const f32[4]*`, the same spelling that the
+# declaration failed to mean).
+#
+# Workaround: spell it `const (f32[4])*`.
+
+struct M:
+    var v: f32[4]
+
+func row(this: const M*) -> const f32[4]*:
+    return &this.v
+
+pub func main(arguments: str[]) -> i32:
+    var x: M
+    x.v[1] = 3.0
+    let q = row(&x)
+    return (i32)(*q)[1]

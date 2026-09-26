@@ -1,0 +1,22 @@
+# Compiler issue (found by region r01, luce-base 0.23.0, native arm64 backend): calling
+# `.bits()` on a float reached through a pointer (auto-dereference) emits `mov s16, w14`
+# (a GPR moved into an FP register with `mov`), which the assembler rejects.
+#
+# Expected: the test passes (0x3fc00000 is the bits of 1.5f32).
+# Actual:   gen.s: error: invalid operand for instruction
+#               mov s16, w14
+#           luce-base: the assembler rejected the generated code
+#           (the f64 form emits `mov d16, x14`.)
+# Workaround: load the value into a local first (`let value = *key; value.bits()`); r01's
+#           F32Traits/F64Traits do (`# workaround: compiler-issues/float_bits_through_pointer`).
+
+func h(key: const f32*) -> u32:
+    return key.bits()
+
+test "bits through a pointer":
+    var x: f32 = 1.5
+    assert(h(&x) == 0x3fc00000)
+
+# The same happens for any method of a float called through a pointer, e.g. the compiler-supplied
+# Comparable.compare in a generic body instantiated at f64 (`lhs.compare(*rhs)` with
+# `lhs: const T*`): gen.s: `mov d16, x14`.

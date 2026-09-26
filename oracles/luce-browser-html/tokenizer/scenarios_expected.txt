@@ -1,0 +1,75 @@
+== streaming
+(none)
+unparsed= defined=0 reached=0 closed=0 eof_inserted=0 blocked=0
+StartTag p self_closing=0 dup=0 attributes=1 [class=x 0:3-0:8 0:9-0:10] @0:1-0:10
+Character U+0061 @0:12-0:0
+(none)
+Character U+000A @1:0-0:0
+Character U+0062 @1:1-0:0
+(none)
+Character U+00AC @1:6-0:0
+Character U+0063 @1:7-0:0
+(none)
+Character U+00AC @0:0-0:0
+Character U+0069 @0:0-0:0
+Character U+006E @0:0-0:0
+Character U+0064 @0:0-0:0
+Character U+00E9 @0:0-0:0
+(none)
+unparsed= defined=0 reached=0 closed=0 eof_inserted=0 blocked=0
+EOF @0:0-0:0
+unparsed= defined=0 reached=0 closed=1 eof_inserted=0 blocked=0
+--
+== insertion point
+StartTag a self_closing=0 dup=0 attributes=0 @0:1-0:2
+unparsed=12<b>tail</b> defined=1 reached=1 closed=0 eof_inserted=0 blocked=0
+unparsed=<i>w&amp</i>12<b>tail</b> defined=1 reached=0 closed=0 eof_inserted=0 blocked=0
+StartTag i self_closing=0 dup=0 attributes=0 @0:4-0:5
+Character U+0077 @0:7-0:0
+Character U+0026 @0:11-0:0
+EndTag i self_closing=0 dup=0 attributes=0 @0:13-0:14
+(none)
+unparsed=12<b>tail</b> defined=1 reached=1 closed=0 eof_inserted=0 blocked=0
+unparsed=12<b>tail</b> defined=0 reached=0 closed=0 eof_inserted=0 blocked=0
+Character U+0031 @0:16-0:0
+Character U+0032 @0:17-0:0
+StartTag b self_closing=0 dup=0 attributes=0 @0:18-0:19
+Character U+0074 @0:21-0:0
+Character U+0061 @0:22-0:0
+Character U+0069 @0:23-0:0
+Character U+006C @0:24-0:0
+EndTag b self_closing=0 dup=0 attributes=0 @0:26-0:27
+(none)
+unparsed= defined=1 reached=1 closed=0 eof_inserted=0 blocked=0
+EOF @0:28-0:28
+unparsed= defined=1 reached=1 closed=1 eof_inserted=0 blocked=0
+unparsed= defined=1 reached=1 closed=1 eof_inserted=0 blocked=0
+--
+== nested insertion points
+Character U+0078 @0:1-0:0
+StartTag y self_closing=0 dup=0 attributes=0 @0:2-0:3
+unparsed=ABz defined=1 reached=0 closed=0 eof_inserted=0 blocked=0
+unparsed=AB€\rz defined=1 reached=0 closed=0 eof_inserted=0 blocked=0
+Character U+0041 @0:5-0:0
+Character U+0042 @0:6-0:0
+Character U+20AC @0:7-0:0
+(none)
+Character U+000A @1:0-0:0
+(none)
+unparsed=z defined=1 reached=1 closed=0 eof_inserted=0 blocked=0
+unparsed=z defined=1 reached=1 closed=0 eof_inserted=0 blocked=0
+unparsed=z defined=1 reached=1 closed=1 eof_inserted=1 blocked=1
+Character U+007A @1:1-0:0
+EOF @1:1-1:1
+--
+== abort
+StartTag a self_closing=0 dup=0 attributes=0 @0:1-0:2
+(none)
+--
+== windows-1252
+StartTag p self_closing=0 dup=0 attributes=1 [title=“q” 0:3-0:8 0:9-0:12] @0:1-0:12
+Character U+20AC @0:14-0:0
+Character U+00E9 @0:15-0:0
+EOF @0:15-0:15
+source=<p title=“q”>€é
+--

@@ -1,0 +1,1177 @@
+== 0
+DOCTYPE name=html public=<missing> system=<missing> quirks=0 @0:11-0:15
+EOF @0:15-0:15
+--
+== 1
+DOCTYPE name=html public=-//W3C//DTD XHTML 1.0 Strict//EN system=http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd quirks=0 @0:11-0:109
+EOF @0:109-0:109
+--
+== 2
+DOCTYPE name=html public=<missing> system=about:legacy-compat quirks=0 @0:11-0:44
+EOF @0:44-0:44
+--
+== 3
+DOCTYPE name=<missing> public=<missing> system=<missing> quirks=1 @0:10-0:10
+EOF @0:10-0:10
+--
+== 4
+DOCTYPE name=<missing> public=<missing> system=<missing> quirks=1 @0:9-0:0
+EOF @0:9-0:9
+--
+== 5
+DOCTYPE name=html public=<missing> system=<missing> quirks=0 @0:10-0:14
+EOF @0:14-0:14
+--
+== 6
+DOCTYPE name=html public=<missing> system=<missing> quirks=1 @0:11-0:22
+EOF @0:22-0:22
+--
+== 7
+DOCTYPE name=html public=x system=y quirks=0 @0:11-0:28
+EOF @0:28-0:28
+--
+== 8
+DOCTYPE name=html public=x system=y quirks=0 @0:11-0:32
+EOF @0:32-0:32
+--
+== 9
+DOCTYPE name=html public=a system=<missing> quirks=1 @0:11-0:25
+EOF @0:25-0:25
+--
+== 10
+DOCTYPE name=html public=<missing> system=<missing> quirks=1 @0:11-0:21
+EOF @0:21-0:21
+--
+== 11
+DOCTYPE name=html public=<missing> system=a quirks=0 @0:11-0:32
+EOF @0:32-0:32
+--
+== 12
+DOCTYPE name=html public=<missing> system=<missing> quirks=1 @0:11-0:22
+EOF @0:22-0:22
+--
+== 13
+DOCTYPE name=html public=<missing> system= quirks=1 @0:11-0:0
+EOF @0:23-0:23
+--
+== 14
+DOCTYPE name=html�x� public=<missing> system=<missing> quirks=0 @0:11-0:18
+EOF @0:18-0:18
+--
+== 15
+DOCTYPE name=� public=<missing> system=<missing> quirks=0 @0:11-0:12
+EOF @0:12-0:12
+--
+== 16
+DOCTYPE name=html public=<missing> system=<missing> quirks=1 @0:11-0:0
+EOF @0:18-0:18
+--
+== 17
+DOCTYPE name=html public=a system= quirks=1 @0:11-0:0
+EOF @0:28-0:28
+--
+== 18
+DOCTYPE name=html public=a system=<missing> quirks=0 @0:11-0:26
+EOF @0:26-0:26
+--
+== 19
+DOCTYPE name=html public=a�b system=c�d quirks=0 @0:11-0:34
+EOF @0:34-0:34
+--
+== 20
+Comment  @0:0-0:7
+EOF @0:7-0:7
+--
+== 21
+Comment  @0:0-0:5
+EOF @0:5-0:5
+--
+== 22
+Comment  @0:0-0:6
+EOF @0:6-0:6
+--
+== 23
+Comment  a -- b  @0:0-0:16
+EOF @0:16-0:16
+--
+== 24
+Comment <!-- nested  @0:0-0:19
+EOF @0:19-0:19
+--
+== 25
+Comment <!- @0:0-0:10
+EOF @0:10-0:10
+--
+== 26
+Comment <!-- @0:0-0:11
+EOF @0:11-0:11
+--
+== 27
+Comment <!-x @0:0-0:11
+EOF @0:11-0:11
+--
+== 28
+Comment <<!--a @0:0-0:13
+EOF @0:13-0:13
+--
+== 29
+Comment  unterminated @0:0-0:17
+EOF @0:17-0:17
+--
+== 30
+Comment a--!b @0:0-0:12
+EOF @0:12-0:12
+--
+== 31
+Comment a--! @0:0-0:11
+EOF @0:11-0:11
+--
+== 32
+Comment a @0:0-0:8
+EOF @0:8-0:8
+--
+== 33
+Comment a-- @0:0-0:10
+EOF @0:10-0:10
+--
+== 34
+Comment a @0:0-0:7
+EOF @0:7-0:7
+--
+== 35
+Comment a @0:0-0:6
+EOF @0:6-0:6
+--
+== 36
+Comment  @0:0-0:5
+EOF @0:5-0:5
+--
+== 37
+Comment  @0:0-0:4
+EOF @0:4-0:4
+--
+== 38
+Comment � @0:0-0:8
+EOF @0:8-0:8
+--
+== 39
+Comment ?php bogus � ? @0:0-0:16
+EOF @0:16-0:16
+--
+== 40
+Comment ?php @0:0-0:5
+EOF @0:5-0:5
+--
+== 41
+EOF @0:3-0:3
+--
+== 42
+Comment 3 @0:3-0:4
+EOF @0:4-0:4
+--
+== 43
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+EOF @0:2-0:2
+--
+== 44
+Comment x @0:2-0:4
+EOF @0:4-0:4
+--
+== 45
+Comment  @0:2-0:2
+EOF @0:2-0:2
+--
+== 46
+Comment - @0:2-0:3
+EOF @0:3-0:3
+--
+== 47
+Comment DOC @0:2-0:5
+EOF @0:5-0:5
+--
+== 48
+Comment [CDATA[x]] @0:9-0:13
+EOF @0:13-0:13
+--
+== 49
+Comment [CDA @0:2-0:6
+EOF @0:6-0:6
+--
+== 50
+StartTag a self_closing=0 dup=0 attributes=4 [b=c 0:3-0:4 0:5-0:6] [d=e 0:7-0:8 0:9-0:12] [f=g 0:13-0:14 0:15-0:18] [h= 0:19-0:20 0:0-0:0] @0:1-0:20
+EOF @0:21-0:21
+--
+== 51
+StartTag a self_closing=0 dup=0 attributes=1 [href=X 0:3-0:7 0:8-0:9] @0:1-0:9
+EOF @0:10-0:10
+--
+== 52
+StartTag br self_closing=1 dup=0 attributes=0 @0:1-0:4
+EOF @0:5-0:5
+--
+== 53
+StartTag br self_closing=1 dup=0 attributes=0 @0:1-0:5
+EOF @0:6-0:6
+--
+== 54
+StartTag br self_closing=0 dup=0 attributes=1 [x= 0:4-0:5 0:0-0:0] @0:1-0:5
+EOF @0:6-0:6
+--
+== 55
+StartTag p self_closing=0 dup=1 attributes=1 [a=1 0:3-0:4 0:5-0:6] @0:1-0:14
+EOF @0:15-0:15
+--
+== 56
+StartTag p self_closing=0 dup=0 attributes=2 [a=x 0:3-0:4 0:5-0:8] [b= 0:8-0:9 0:0-0:0] @0:1-0:9
+EOF @0:10-0:10
+--
+== 57
+StartTag p self_closing=0 dup=0 attributes=1 [=a= 0:3-0:5 0:0-0:0] @0:1-0:5
+EOF @0:6-0:6
+--
+== 58
+StartTag p self_closing=0 dup=0 attributes=3 ["a"= 0:3-0:6 0:0-0:0] ['b'= 0:7-0:10 0:0-0:0] [<c= 0:11-0:13 0:0-0:0] @0:1-0:13
+EOF @0:14-0:14
+--
+== 59
+StartTag a self_closing=0 dup=0 attributes=1 [b=c`=d"e'f<g 0:3-0:4 0:5-0:15] @0:1-0:15
+EOF @0:16-0:16
+--
+== 60
+StartTag a�b self_closing=0 dup=0 attributes=3 [c�=d� 0:5-0:7 0:8-0:10] [e=� 0:11-0:12 0:13-0:16] [f=� 0:17-0:18 0:19-0:22] @0:1-0:22
+EOF @0:23-0:23
+--
+== 61
+EOF @0:2-0:2
+--
+== 62
+EOF @0:4-0:4
+--
+== 63
+EOF @0:5-0:5
+--
+== 64
+EOF @0:7-0:7
+--
+== 65
+EOF @0:7-0:7
+--
+== 66
+EOF @0:6-0:6
+--
+== 67
+EOF @0:8-0:8
+--
+== 68
+EOF @0:5-0:5
+--
+== 69
+StartTag a self_closing=0 dup=0 attributes=2 [b=c 0:3-0:4 0:5-0:8] [d= 0:8-0:9 0:0-0:0] @0:1-0:9
+EOF @0:10-0:10
+--
+== 70
+EndTag a self_closing=0 dup=0 attributes=1 [b=c 0:4-0:5 0:6-0:7] @0:2-0:7
+EOF @0:8-0:8
+--
+== 71
+EndTag a self_closing=0 dup=0 attributes=0 @0:2-0:3
+EOF @0:4-0:4
+--
+== 72
+Character U+003C @0:0-0:0
+Character U+0020 @0:2-0:0
+Character U+0070 @0:3-0:0
+Character U+003E @0:4-0:0
+EOF @0:4-0:4
+--
+== 73
+Character U+003C @0:0-0:0
+Character U+0033 @0:2-0:0
+EOF @0:2-0:2
+--
+== 74
+Character U+003C @0:0-0:0
+EOF @0:1-0:1
+--
+== 75
+Character U+0061 @0:1-0:0
+StartTag b self_closing=0 dup=0 attributes=3 [c=d 0:4-0:5 0:6-0:7] [e=f 1:0-1:1 1:2-1:3] [g=h 1:4-1:5 1:6-1:7] @0:2-1:7
+EOF @1:8-1:8
+--
+== 76
+StartTag a self_closing=0 dup=0 attributes=1 [b=c 0:3-0:5 0:7-0:10] @0:1-0:11
+EOF @0:12-0:12
+--
+== 77
+StartTag a self_closing=0 dup=0 attributes=1 [b= 0:3-0:4 0:5-0:0] @0:1-0:5
+EOF @0:6-0:6
+--
+== 78
+StartTag abc�def self_closing=0 dup=0 attributes=0 @0:1-0:8
+EOF @0:9-0:9
+--
+== 79
+Character U+0026 @0:5-0:0
+Character U+0020 @0:6-0:0
+Character U+0026 @0:10-0:0
+Character U+0020 @0:11-0:0
+Character U+0026 @0:15-0:0
+Character U+0020 @0:16-0:0
+Character U+0026 @0:20-0:0
+Character U+0078 @0:21-0:0
+Character U+0020 @0:22-0:0
+Character U+0026 @0:26-0:0
+Character U+003D @0:27-0:0
+EOF @0:27-0:27
+--
+== 80
+Character U+2209 @0:7-0:0
+Character U+0020 @0:8-0:0
+Character U+22F5 @0:18-0:0
+Character U+0338 @0:18-0:0
+Character U+0020 @0:19-0:0
+Character U+22F6 @0:28-0:0
+EOF @0:28-0:28
+--
+== 81
+Character U+2242 @0:15-0:0
+Character U+0338 @0:15-0:0
+Character U+0020 @0:16-0:0
+Character U+0066 @0:23-0:0
+Character U+006A @0:23-0:0
+Character U+0020 @0:24-0:0
+Character U+226B @0:29-0:0
+Character U+20D2 @0:29-0:0
+Character U+0020 @0:30-0:0
+Character U+223E @0:35-0:0
+Character U+0333 @0:35-0:0
+EOF @0:35-0:35
+--
+== 82
+Character U+FFFD @0:4-0:0
+Character U+0020 @0:5-0:0
+Character U+FFFD @0:15-0:0
+Character U+0020 @0:16-0:0
+Character U+FFFD @0:24-0:0
+Character U+0020 @0:25-0:0
+Character U+20AC @0:31-0:0
+Character U+0020 @0:32-0:0
+Character U+0178 @0:38-0:0
+Character U+0020 @0:39-0:0
+Character U+000D @0:44-0:0
+Character U+0020 @0:45-0:0
+Character U+0081 @0:51-0:0
+EOF @0:51-0:51
+--
+== 83
+Character U+FFFD @0:14-0:0
+Character U+0020 @0:15-0:0
+Character U+FFFD @0:28-0:0
+EOF @0:28-0:28
+--
+== 84
+Character U+0026 @0:3-0:0
+Character U+0023 @0:3-0:0
+Character U+003B @0:3-0:0
+Character U+0020 @0:4-0:0
+Character U+0026 @0:8-0:0
+Character U+0023 @0:8-0:0
+Character U+0078 @0:8-0:0
+Character U+003B @0:8-0:0
+Character U+0020 @0:9-0:0
+Character U+0026 @0:13-0:0
+Character U+0023 @0:13-0:0
+Character U+0078 @0:13-0:0
+Character U+005A @0:13-0:0
+Character U+0020 @0:14-0:0
+Character U+0026 @0:17-0:0
+Character U+0023 @0:17-0:0
+Character U+0061 @0:17-0:0
+Character U+0020 @0:18-0:0
+Character U+0026 @0:21-0:0
+Character U+0023 @0:21-0:0
+Character U+0020 @0:21-0:0
+Character U+0026 @0:24-0:0
+Character U+0023 @0:24-0:0
+Character U+0078 @0:24-0:0
+EOF @0:24-0:24
+--
+== 85
+Character U+0026 @0:1-0:0
+Character U+0075 @0:2-0:0
+Character U+006E @0:3-0:0
+Character U+006B @0:4-0:0
+Character U+006E @0:5-0:0
+Character U+006F @0:6-0:0
+Character U+0077 @0:7-0:0
+Character U+006E @0:8-0:0
+Character U+003B @0:9-0:0
+Character U+0020 @0:10-0:0
+Character U+0026 @0:11-0:0
+Character U+0061 @0:12-0:0
+Character U+006D @0:13-0:0
+Character U+0020 @0:14-0:0
+Character U+0026 @0:16-0:0
+Character U+003B @0:16-0:0
+Character U+0020 @0:17-0:0
+Character U+0026 @0:19-0:0
+Character U+0020 @0:19-0:0
+Character U+0026 @0:20-0:0
+EOF @0:20-0:20
+--
+== 86
+Character U+0041 @0:4-0:0
+Character U+0041 @0:9-0:0
+Character U+0041 @0:15-0:0
+Character U+0041 @0:23-0:0
+EOF @0:23-0:23
+--
+== 87
+Character U+FDD0 @0:8-0:0
+Character U+0020 @0:9-0:0
+Character U+FFFE @0:17-0:0
+Character U+0020 @0:18-0:0
+Character U+1FFFF @0:27-0:0
+Character U+0020 @0:28-0:0
+Character U+007F @0:34-0:0
+Character U+0020 @0:35-0:0
+Character U+000B @0:41-0:0
+EOF @0:41-0:41
+--
+== 88
+StartTag a self_closing=0 dup=0 attributes=1 [href=?a=1&amp=2&b&copy=3©&copyx© 0:3-0:7 0:8-0:50] @0:1-0:50
+EOF @0:51-0:51
+--
+== 89
+StartTag a self_closing=0 dup=0 attributes=4 [x=&notit; 0:3-0:4 0:5-0:10] [y=& 0:11-0:12 0:13-0:17] [z=& 0:18-0:19 0:20-0:26] [w=AB&q; 0:27-0:28 0:29-0:44] @0:1-0:44
+EOF @0:45-0:45
+--
+== 90
+StartTag a self_closing=0 dup=0 attributes=3 [x=& 0:3-0:4 0:5-0:8] [y=& 0:9-0:10 0:11-0:12] [z=&# 0:13-0:14 0:15-0:19] @0:1-0:19
+EOF @0:20-0:20
+--
+== 91
+Character U+00C1 @0:7-0:0
+Character U+00E1 @0:15-0:0
+Character U+0026 @0:0-0:0
+Character U+0041 @0:0-0:0
+Character U+0061 @0:0-0:0
+Character U+0063 @0:0-0:0
+Character U+0075 @0:0-0:0
+Character U+0074 @0:0-0:0
+EOF @0:0-0:0
+--
+== 92
+Character U+205F @0:12-0:0
+Character U+200A @0:12-0:0
+Character U+228F @0:29-0:0
+Character U+0338 @0:29-0:0
+Character U+003D @0:34-0:0
+Character U+20E5 @0:34-0:0
+EOF @0:34-0:34
+--
+== 93
+Character U+0061 @0:1-0:0
+Character U+000A @1:0-0:0
+Character U+0062 @1:1-0:0
+Character U+000A @1:2-0:0
+Character U+0063 @1:3-0:0
+Character U+000A @2:0-0:0
+Character U+000A @3:0-0:0
+Character U+0064 @3:1-0:0
+Character U+000A @3:2-0:0
+EOF @3:2-3:2
+--
+== 94
+StartTag p self_closing=0 dup=0 attributes=2 [class=x 1:0-1:5 1:6-1:7] [id=y 2:0-2:2 2:3-2:6] @0:1-2:6
+Character U+000A @3:0-0:0
+EndTag p self_closing=0 dup=0 attributes=0 @3:2-3:4
+EOF @3:5-3:5
+--
+== 95
+Character U+000A @1:0-0:0
+StartTag a self_closing=0 dup=0 attributes=0 @1:1-1:2
+Character U+000A @1:4-0:0
+Character U+000A @2:0-0:0
+EOF @2:0-2:0
+--
+== 96
+Character U+0061 @0:1-0:0
+Character U+0000 @0:2-0:0
+Character U+0062 @0:3-0:0
+EOF @0:3-0:3
+--
+== 97
+Character U+00E9 @0:1-0:0
+Character U+003C @0:0-0:0
+Character U+00E9 @0:3-0:0
+Character U+003E @0:4-0:0
+Character U+00E9 @0:12-0:0
+StartTag p self_closing=0 dup=0 attributes=1 [é=é 0:15-0:16 0:17-0:18] @0:13-0:18
+EOF @0:19-0:19
+--
+== 98
+Character U+0078 @0:1-0:0
+StartTag b self_closing=0 dup=0 attributes=0 @0:2-0:3
+Character U+0079 @0:5-0:0
+EOF @0:5-0:5
+--
+== 99
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+Character U+0020 @0:9-0:0
+Character U+003C @0:13-0:0
+Character U+0020 @0:14-0:0
+Character U+0062 @0:15-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0074 @0:0-0:0
+Character U+0069 @0:0-0:0
+Character U+0074 @0:0-0:0
+EndTag title self_closing=0 dup=0 attributes=0 @0:22-0:28
+Character U+0078 @0:30-0:0
+EOF @0:30-0:30
+--
+== 100
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+EndTag title self_closing=0 dup=0 attributes=0 @0:10-0:15
+EOF @0:16-0:16
+--
+== 101
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+EndTag title self_closing=1 dup=0 attributes=0 @0:10-0:16
+EOF @0:17-0:17
+--
+== 102
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+EndTag title self_closing=0 dup=0 attributes=1 [x= 0:16-0:17 0:0-0:0] @0:10-0:17
+EOF @0:18-0:18
+--
+== 103
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0074 @0:0-0:0
+Character U+0069 @0:0-0:0
+Character U+0074 @0:0-0:0
+Character U+006C @0:0-0:0
+Character U+0065 @0:0-0:0
+Character U+0073 @0:0-0:0
+Character U+003E @0:17-0:0
+EOF @0:17-0:17
+--
+== 104
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0078 @0:0-0:0
+Character U+003E @0:12-0:0
+Character U+0062 @0:13-0:0
+Character U+003C @0:0-0:0
+Character U+FFFD @0:15-0:0
+Character U+0063 @0:16-0:0
+EOF @0:16-0:16
+--
+== 105
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+EOF @0:10-0:10
+--
+== 106
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0074 @0:0-0:0
+Character U+0069 @0:0-0:0
+EOF @0:12-0:12
+--
+== 107
+StartTag title self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+Character U+003C @0:0-0:0
+EOF @0:9-0:9
+--
+== 108
+StartTag textarea self_closing=0 dup=0 attributes=0 @0:1-0:9
+Character U+0026 @0:14-0:0
+Character U+0026 @0:19-0:0
+Character U+0078 @0:20-0:0
+EndTag textarea self_closing=0 dup=0 attributes=0 @0:22-0:30
+EOF @0:31-0:31
+--
+== 109
+StartTag style self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0062 @0:0-0:0
+Character U+003E @0:12-0:0
+Character U+003C @0:0-0:0
+EndTag style self_closing=1 dup=0 attributes=0 @0:15-0:21
+EOF @0:22-0:22
+--
+== 110
+StartTag style self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+EndTag style self_closing=0 dup=0 attributes=0 @0:10-0:15
+Character U+0062 @0:17-0:0
+EOF @0:17-0:17
+--
+== 111
+StartTag style self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+0061 @0:8-0:0
+EndTag style self_closing=0 dup=0 attributes=0 @0:10-0:16
+EOF @0:17-0:17
+--
+== 112
+StartTag style self_closing=0 dup=0 attributes=0 @0:1-0:6
+Character U+FFFD @0:8-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0073 @0:0-0:0
+Character U+0074 @0:0-0:0
+Character U+0079 @0:0-0:0
+Character U+006C @0:0-0:0
+Character U+0065 @0:0-0:0
+Character U+0078 @0:0-0:0
+Character U+003E @0:17-0:0
+EndTag style self_closing=0 dup=0 attributes=0 @0:19-0:24
+EOF @0:25-0:25
+--
+== 113
+StartTag xmp self_closing=0 dup=0 attributes=0 @0:1-0:4
+Character U+0061 @0:6-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0078 @0:0-0:0
+Character U+006D @0:0-0:0
+EOF @0:10-0:10
+--
+== 114
+StartTag xmp self_closing=0 dup=0 attributes=0 @0:1-0:4
+Character U+0026 @0:6-0:0
+Character U+0061 @0:7-0:0
+Character U+006D @0:8-0:0
+Character U+0070 @0:9-0:0
+Character U+003B @0:10-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+EOF @0:12-0:12
+--
+== 115
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+0069 @0:9-0:0
+Character U+0066 @0:10-0:0
+Character U+0020 @0:11-0:0
+Character U+0028 @0:12-0:0
+Character U+0061 @0:13-0:0
+Character U+003C @0:0-0:0
+Character U+0062 @0:15-0:0
+Character U+0029 @0:16-0:0
+Character U+0020 @0:17-0:0
+Character U+0078 @0:18-0:0
+Character U+0020 @0:19-0:0
+Character U+003D @0:20-0:0
+Character U+0020 @0:21-0:0
+Character U+0022 @0:22-0:0
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:25-0:0
+Character U+002D @0:26-0:0
+Character U+0022 @0:27-0:0
+Character U+003B @0:28-0:0
+Character U+0020 @0:29-0:0
+Character U+003C @0:0-0:0
+Character U+0021 @0:31-0:0
+Character U+002D @0:32-0:0
+Character U+002D @0:33-0:0
+Character U+0020 @0:34-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:36-0:0
+Character U+0063 @0:37-0:0
+Character U+0072 @0:38-0:0
+Character U+0069 @0:39-0:0
+Character U+0070 @0:40-0:0
+Character U+0074 @0:41-0:0
+Character U+003E @0:42-0:0
+Character U+0020 @0:43-0:0
+Character U+003C @0:44-0:0
+Character U+002F @0:45-0:0
+Character U+0073 @0:46-0:0
+Character U+0063 @0:47-0:0
+Character U+0072 @0:48-0:0
+Character U+0069 @0:49-0:0
+Character U+0070 @0:50-0:0
+Character U+0074 @0:51-0:0
+Character U+003E @0:52-0:0
+Character U+0020 @0:53-0:0
+Character U+002D @0:54-0:0
+Character U+002D @0:55-0:0
+Character U+003E @0:56-0:0
+Character U+0020 @0:57-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:59-0:65
+EOF @0:66-0:66
+--
+== 116
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+003E @0:20-0:0
+Character U+0061 @0:21-0:0
+Character U+003C @0:22-0:0
+Character U+002F @0:23-0:0
+Character U+0073 @0:24-0:0
+Character U+0063 @0:25-0:0
+Character U+0072 @0:26-0:0
+Character U+0069 @0:27-0:0
+Character U+0070 @0:28-0:0
+Character U+0074 @0:29-0:0
+Character U+003E @0:30-0:0
+Character U+002D @0:31-0:0
+Character U+002D @0:32-0:0
+Character U+003E @0:33-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:35-0:41
+EOF @0:42-0:42
+--
+== 117
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+0061 @0:9-0:0
+Character U+FFFD @0:10-0:0
+Character U+0062 @0:11-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:13-0:19
+EOF @0:20-0:20
+--
+== 118
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+0020 @0:13-0:0
+Character U+002D @0:14-0:0
+Character U+FFFD @0:15-0:0
+Character U+002D @0:16-0:0
+Character U+0020 @0:17-0:0
+Character U+002D @0:18-0:0
+Character U+002D @0:19-0:0
+Character U+FFFD @0:20-0:0
+Character U+0020 @0:21-0:0
+Character U+002D @0:22-0:0
+Character U+002D @0:23-0:0
+Character U+003E @0:24-0:0
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:27-0:0
+Character U+002D @0:28-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:30-0:0
+Character U+0043 @0:31-0:0
+Character U+0072 @0:32-0:0
+Character U+0049 @0:33-0:0
+Character U+0070 @0:34-0:0
+Character U+0054 @0:35-0:0
+Character U+003E @0:36-0:0
+Character U+002D @0:37-0:0
+Character U+FFFD @0:38-0:0
+Character U+002D @0:39-0:0
+Character U+002D @0:40-0:0
+Character U+FFFD @0:41-0:0
+Character U+003C @0:42-0:0
+Character U+002F @0:43-0:0
+Character U+0053 @0:44-0:0
+Character U+0063 @0:45-0:0
+Character U+0052 @0:46-0:0
+Character U+0069 @0:47-0:0
+Character U+0050 @0:48-0:0
+Character U+0074 @0:49-0:0
+Character U+003E @0:50-0:0
+Character U+0078 @0:51-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:53-0:59
+EOF @0:60-0:60
+--
+== 119
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+003E @0:20-0:0
+Character U+002D @0:21-0:0
+Character U+003C @0:22-0:0
+Character U+002D @0:23-0:0
+Character U+003C @0:24-0:0
+Character U+002F @0:25-0:0
+Character U+0073 @0:26-0:0
+Character U+0063 @0:27-0:0
+Character U+0072 @0:28-0:0
+Character U+0069 @0:29-0:0
+Character U+0070 @0:30-0:0
+Character U+0074 @0:31-0:0
+Character U+003E @0:32-0:0
+Character U+002D @0:33-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:35-0:41
+Character U+002D @0:43-0:0
+Character U+002D @0:44-0:0
+Character U+003E @0:45-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:47-0:53
+EOF @0:54-0:54
+--
+== 120
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+003E @0:20-0:0
+Character U+002D @0:21-0:0
+Character U+002D @0:22-0:0
+Character U+003C @0:23-0:0
+Character U+FFFD @0:24-0:0
+Character U+003C @0:25-0:0
+Character U+002F @0:26-0:0
+Character U+0073 @0:27-0:0
+Character U+0063 @0:28-0:0
+Character U+0072 @0:29-0:0
+Character U+0069 @0:30-0:0
+Character U+0070 @0:31-0:0
+Character U+0074 @0:32-0:0
+Character U+0020 @0:33-0:0
+EndTag script self_closing=0 dup=0 attributes=2 [<= 0:42-0:43 0:0-0:0] [script= 0:44-0:50 0:0-0:0] @0:35-0:50
+EOF @0:51-0:51
+--
+== 121
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:13-0:19
+EOF @0:20-0:20
+--
+== 122
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+0061 @0:13-0:0
+EndTag script self_closing=0 dup=0 attributes=1 [x= 0:22-0:23 0:0-0:0] @0:15-0:23
+Character U+0062 @0:25-0:0
+EOF @0:25-0:25
+--
+== 123
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+0061 @0:13-0:0
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0073 @0:0-0:0
+Character U+0063 @0:0-0:0
+Character U+0072 @0:0-0:0
+EOF @0:18-0:18
+--
+== 124
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+0061 @0:13-0:0
+Character U+003C @0:0-0:0
+EOF @0:14-0:14
+--
+== 125
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+0061 @0:13-0:0
+Character U+002D @0:14-0:0
+EOF @0:14-0:14
+--
+== 126
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+0061 @0:13-0:0
+Character U+002D @0:14-0:0
+Character U+002D @0:15-0:0
+EOF @0:15-0:15
+--
+== 127
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+003E @0:20-0:0
+Character U+0061 @0:21-0:0
+EOF @0:21-0:21
+--
+== 128
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+003E @0:20-0:0
+Character U+0061 @0:21-0:0
+Character U+002D @0:22-0:0
+EOF @0:22-0:22
+--
+== 129
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+003E @0:20-0:0
+Character U+0061 @0:21-0:0
+Character U+002D @0:22-0:0
+Character U+002D @0:23-0:0
+EOF @0:23-0:23
+--
+== 130
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+003E @0:20-0:0
+Character U+0061 @0:21-0:0
+Character U+003C @0:22-0:0
+EOF @0:22-0:22
+--
+== 131
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+003E @0:20-0:0
+Character U+0061 @0:21-0:0
+Character U+003C @0:22-0:0
+Character U+002F @0:23-0:0
+Character U+0073 @0:24-0:0
+Character U+0063 @0:25-0:0
+Character U+0072 @0:26-0:0
+Character U+0069 @0:27-0:0
+Character U+0070 @0:28-0:0
+Character U+0074 @0:29-0:0
+EOF @0:29-0:29
+--
+== 132
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+0061 @0:20-0:0
+Character U+003E @0:21-0:0
+Character U+0078 @0:22-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:24-0:30
+EOF @0:31-0:31
+--
+== 133
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+003C @0:0-0:0
+Character U+0073 @0:14-0:0
+Character U+0063 @0:15-0:0
+Character U+0072 @0:16-0:0
+Character U+0069 @0:17-0:0
+Character U+0070 @0:18-0:0
+Character U+0074 @0:19-0:0
+Character U+002F @0:20-0:0
+Character U+003E @0:21-0:0
+Character U+002D @0:22-0:0
+Character U+002D @0:23-0:0
+Character U+003E @0:24-0:0
+EndTag script self_closing=0 dup=0 attributes=0 @0:26-0:32
+EOF @0:33-0:33
+--
+== 134
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0073 @0:0-0:0
+Character U+0063 @0:0-0:0
+Character U+0072 @0:0-0:0
+Character U+0069 @0:0-0:0
+Character U+0070 @0:0-0:0
+Character U+0074 @0:0-0:0
+EOF @0:16-0:16
+--
+== 135
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+002F @0:0-0:0
+Character U+0073 @0:0-0:0
+Character U+0063 @0:0-0:0
+Character U+0072 @0:0-0:0
+Character U+0069 @0:0-0:0
+Character U+0070 @0:0-0:0
+Character U+0074 @0:0-0:0
+Character U+0078 @0:0-0:0
+Character U+003E @0:18-0:0
+EOF @0:18-0:18
+--
+== 136
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+EndTag script self_closing=1 dup=0 attributes=0 @0:10-0:17
+EOF @0:18-0:18
+--
+== 137
+StartTag script self_closing=0 dup=0 attributes=0 @0:1-0:7
+Character U+003C @0:0-0:0
+Character U+0021 @0:0-0:0
+Character U+002D @0:11-0:0
+Character U+002D @0:12-0:0
+Character U+0078 @0:13-0:0
+Character U+002D @0:14-0:0
+Character U+002D @0:15-0:0
+Character U+0021 @0:16-0:0
+Character U+003E @0:17-0:0
+EOF @0:17-0:17
+--
+== 138
+StartTag plaintext self_closing=0 dup=0 attributes=0 @0:1-0:10
+Character U+0061 @0:12-0:0
+Character U+003C @0:13-0:0
+Character U+002F @0:14-0:0
+Character U+0070 @0:15-0:0
+Character U+006C @0:16-0:0
+Character U+0061 @0:17-0:0
+Character U+0069 @0:18-0:0
+Character U+006E @0:19-0:0
+Character U+0074 @0:20-0:0
+Character U+0065 @0:21-0:0
+Character U+0078 @0:22-0:0
+Character U+0074 @0:23-0:0
+Character U+003E @0:24-0:0
+Character U+0026 @0:25-0:0
+Character U+0061 @0:26-0:0
+Character U+006D @0:27-0:0
+Character U+0070 @0:28-0:0
+Character U+003B @0:29-0:0
+Character U+FFFD @0:30-0:0
+EOF @0:30-0:30
+--
+== 139
+StartTag x self_closing=0 dup=0 attributes=0 @0:1-0:2
+Character U+0061 @0:4-0:0
+Character U+005D @0:0-0:0
+Character U+0062 @0:6-0:0
+Character U+005D @0:0-0:0
+Character U+005D @0:0-0:0
+Character U+0063 @0:9-0:0
+Character U+005D @0:12-0:0
+Character U+0064 @0:14-0:0
+EOF @0:14-0:14
+--
+== 140
+StartTag x self_closing=0 dup=0 attributes=0 @0:1-0:2
+Character U+005D @0:6-0:0
+Character U+005D @0:7-0:0
+EOF @0:8-0:8
+--
+== 141
+StartTag x self_closing=0 dup=0 attributes=0 @0:1-0:2
+Character U+0061 @0:4-0:0
+Character U+005D @0:0-0:0
+EOF @0:5-0:5
+--
+== 142
+StartTag x self_closing=0 dup=0 attributes=0 @0:1-0:2
+Character U+0061 @0:4-0:0
+Character U+005D @0:0-0:0
+Character U+005D @0:0-0:0
+EOF @0:6-0:6
+--
+== 143
+StartTag x self_closing=0 dup=0 attributes=0 @0:1-0:2
+Character U+0061 @0:4-0:0
+EOF @0:4-0:4
+--

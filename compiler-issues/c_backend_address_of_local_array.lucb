@@ -1,0 +1,22 @@
+# compiler issue: the C backend decays `&array` of a local array to the array's first element.
+#
+# luce-base 0.23.0: `luce-base build` (native) prints 5. With `--backend=c` the C compiler
+# rejects the generated code:
+#     gen.c: error: incompatible pointer types passing 'int32_t[2]' (aka 'int[2]') to
+#     parameter of type 'lb_a_i32_0a2 *' [-Werror,-Wincompatible-pointer-types]
+# The address of a local of array type `i32[2]` is emitted as the local's array member (which
+# decays to `int32_t*`) instead of the address of the array wrapper struct. Taking the
+# address of an array-typed *struct field* (`&regs.r`) compiles fine. Found in
+# luce-browser-render's raster module (tiny-skia port): `set_sat(&rr, &gg, &bb, ...)` with
+# `var rr: F8` where `F8 = f32[4][2]`.
+#
+# Expected: prints 5 in both backends.
+
+func fill(r: i32[2]*):
+    (*r)[1] = 5
+
+pub func main(arguments: str[]) -> i32:
+    var value: i32[2] = [0, 0]
+    fill(&value)
+    print(f"{value[1]}")
+    return 0

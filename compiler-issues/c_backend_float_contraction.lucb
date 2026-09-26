@@ -1,0 +1,22 @@
+# compiler issue: the C backend contracts `a * b + c` into a fused multiply-add.
+#
+# luce-base 0.23.0 on arm64 macOS: the native backend prints 0; with `--backend=c` the program
+# prints 864026624 (the bits of 2^-24). Base promises "IEEE 754 with no contraction or
+# reassociation" (language §7.2), but the generated C is compiled with clang's default
+# -ffp-contract=on, which fuses the multiply and the add, so the product is not rounded to
+# f32 before the addition. Found in luce-browser-render's raster module (tiny-skia port),
+# whose results must be bit-exact with tiny-skia: its unit test "find cubic max curvature 1"
+# fails under --backend=c only.
+#
+# Expected: prints 0 in both backends (compile the generated C with -ffp-contract=off).
+
+func muladd(a: f32, b: f32, c: f32) -> f32:
+    return a * b + c
+
+pub func main(arguments: str[]) -> i32:
+    # (1 + 2^-12)^2 = 1 + 2^-11 + 2^-24: the last term is lost when a*b rounds to f32 first;
+    # fused, it survives.
+    let a: f32 = 1.000244140625
+    let r = muladd(a, a, -1.00048828125)
+    print(f"{r.bits()}")
+    return 0
