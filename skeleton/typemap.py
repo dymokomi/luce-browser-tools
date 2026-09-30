@@ -389,8 +389,9 @@ def render(ref, module, names, top=True):
         return s
     if k == 'ptr':
         inner = render(ref.inner, module, names, False)
-        if ref.inner.kind in ('func', 'opt', 'arr', 'span') or (ref.inner.kind == 'ptr' and ref.inner.nullable):
-            # (u8[4])*: `luce-base fmt` misreads u8[4]* (compiler-issues/fmt_pointer_to_array.lucb)
+        if ref.inner.kind in ('func', 'opt', 'span') or (ref.inner.kind == 'ptr' and ref.inner.nullable):
+            # a function, optional or span pointed to reads as one only in parentheses;
+            # an array does not need them (u8[4]*)
             inner = f'({inner})'
         s = ('const ' if ref.const else '') + inner + '*'
         if ref.const and (ref.inner.kind == 'ptr'):
