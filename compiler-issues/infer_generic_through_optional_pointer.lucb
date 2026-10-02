@@ -1,0 +1,24 @@
+# infer_generic_through_optional_pointer - `T` is not inferred when a `U*` argument meets a `T*?` parameter
+#
+# Found by region r13 (luce-browser-engine, TreeNode.h traverse_preorder(T root, Callback)), Luce
+# 0.8.30 (luce-base 0.32.6).
+#
+# Expected: a `Node*` argument converts implicitly to `Node*?` (base.md §5: `T` to `T?`), so a
+# call of `first_or_zero[T](node: T*?)` with a `Node*` infers `T = Node`, as a `Node*?` argument
+# does.
+# Actual:
+#     infer_generic_through_optional_pointer.lucb:24:29: a type argument could not be inferred; write it
+#
+# Workaround: write the type argument, `first_or_zero[Node](p)`.
+
+struct Node:
+    var value: i64
+
+func first_or_zero[T](node: T*?) -> i64:
+    if node == none: return 0
+    return 1
+
+pub func main(arguments: str[]) -> i32:
+    var n = Node(value = 1)
+    let p: Node* = &n
+    return i32(first_or_zero(p))
