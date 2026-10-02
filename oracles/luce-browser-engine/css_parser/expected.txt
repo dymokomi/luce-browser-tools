@@ -1,0 +1,526 @@
+case cv	a {b} (c) f(x)
+  Token: Ident(value="a", source="a", start=0:0, end=0:1)
+  Token: Whitespace(source=" ", start=0:1, end=0:2)
+  Block: {b}
+  Token: Whitespace(source=" ", start=0:5, end=0:6)
+  Block: (c)
+  Token: Whitespace(source=" ", start=0:9, end=0:10)
+  Function: f(x)
+  = a {b} (c) f(x)
+case cv	foo(bar, baz) [1 2] {x: y}
+  Function: foo(bar, baz)
+  Token: Whitespace(source=" ", start=0:13, end=0:14)
+  Block: [1 2]
+  Token: Whitespace(source=" ", start=0:19, end=0:20)
+  Block: {x: y}
+  = foo(bar, baz) [1 2] {x: y}
+case cv	1px+2 -3e2% #fff #-a
+  Token: Dimension(value=1, number_type=Integer, unit="px", source="1px", start=0:0, end=0:3)
+  Token: Number(value=2, number_type=IntegerWithExplicitSign, source="+2", start=0:3, end=0:5)
+  Token: Whitespace(source=" ", start=0:5, end=0:6)
+  Token: Percentage(value=-300, number_type=Number, source="-3e2%", start=0:6, end=0:11)
+  Token: Whitespace(source=" ", start=0:11, end=0:12)
+  Token: Hash(value="fff", hash_type=Id, source="#fff", start=0:12, end=0:16)
+  Token: Whitespace(source=" ", start=0:16, end=0:17)
+  Token: Hash(value="-a", hash_type=Id, source="#-a", start=0:17, end=0:20)
+  = 1px/**/2 -300% #fff #-a
+case cv	a}b
+  Token: Ident(value="a", source="a", start=0:0, end=0:1)
+  Token: CloseCurly(source="}", start=0:1, end=0:2)
+  Token: Ident(value="b", source="b", start=0:2, end=0:3)
+  = a}b
+case cv	)]}
+  Token: CloseParen(source=")", start=0:0, end=0:1)
+  Token: CloseSquare(source="]", start=0:1, end=0:2)
+  Token: CloseCurly(source="}", start=0:2, end=0:3)
+  Token: __EOF__(source="", start=0:3, end=0:3)
+  = )]}
+case cv	f(a(b)c
+  Function: f(a(b)c)
+  = f(a(b)c)
+case cv	[unterminated (
+  Block: [unterminated ()]
+  = [unterminated ()]
+case cv	url(x.png) url( "y" ) bad url(a b)
+  Token: Url(value="x.png", source="url(x.png)", start=0:0, end=0:10)
+  Token: Whitespace(source=" ", start=0:10, end=0:11)
+  Function: url( "y" )
+  Token: Whitespace(source=" ", start=0:21, end=0:22)
+  Token: Ident(value="bad", source="bad", start=0:22, end=0:25)
+  Token: Whitespace(source=" ", start=0:25, end=0:26)
+  Token: BadUrl(source="url(a b)", start=0:26, end=0:34)
+  = url("x.png") url( "y" ) bad url()
+case cv	"str" 'other' "bad\nstring"
+  Token: String(value="str", source="\"str\"", start=0:0, end=0:5)
+  Token: Whitespace(source=" ", start=0:5, end=0:6)
+  Token: String(value="other", source="'other'", start=0:6, end=0:13)
+  Token: Whitespace(source=" ", start=0:13, end=0:14)
+  Token: BadString(source="\"bad", start=0:14, end=0:18)
+  Token: Whitespace(source="\n", start=0:18, end=1:0)
+  Token: Ident(value="string", source="string", start=1:0, end=1:6)
+  Token: String(value="", source="\"", start=1:6, end=1:7)
+  = "str" "other"  string""
+case cv	@media .5em 10% -.5 +1 1e3 u+1-2
+  Token: AtKeyword(value="media", source="@media", start=0:0, end=0:6)
+  Token: Whitespace(source=" ", start=0:6, end=0:7)
+  Token: Dimension(value=0.5, number_type=Number, unit="em", source=".5em", start=0:7, end=0:11)
+  Token: Whitespace(source=" ", start=0:11, end=0:12)
+  Token: Percentage(value=10, number_type=Integer, source="10%", start=0:12, end=0:15)
+  Token: Whitespace(source=" ", start=0:15, end=0:16)
+  Token: Number(value=-0.5, number_type=Number, source="-.5", start=0:16, end=0:19)
+  Token: Whitespace(source=" ", start=0:19, end=0:20)
+  Token: Number(value=1, number_type=IntegerWithExplicitSign, source="+1", start=0:20, end=0:22)
+  Token: Whitespace(source=" ", start=0:22, end=0:23)
+  Token: Number(value=1000, number_type=Number, source="1e3", start=0:23, end=0:26)
+  Token: Whitespace(source=" ", start=0:26, end=0:27)
+  Token: Ident(value="u", source="u", start=0:27, end=0:28)
+  Token: Number(value=1, number_type=IntegerWithExplicitSign, source="+1", start=0:28, end=0:30)
+  Token: Number(value=-2, number_type=IntegerWithExplicitSign, source="-2", start=0:30, end=0:32)
+  = @media 0.5em 10% -0.5 1 1000 u/**/1/**/-2
+case cv	<!-- --> a|b ~= *= ^= $= || :: ; ,
+  Token: CDO(source="<!--", start=0:0, end=0:4)
+  Token: Whitespace(source=" ", start=0:4, end=0:5)
+  Token: CDC(source="-->", start=0:5, end=0:8)
+  Token: Whitespace(source=" ", start=0:8, end=0:9)
+  Token: Ident(value="a", source="a", start=0:9, end=0:10)
+  Token: Delim(value="|", code_point=U+007C, source="|", start=0:10, end=0:11)
+  Token: Ident(value="b", source="b", start=0:11, end=0:12)
+  Token: Whitespace(source=" ", start=0:12, end=0:13)
+  Token: Delim(value="~", code_point=U+007E, source="~", start=0:13, end=0:14)
+  Token: Delim(value="=", code_point=U+003D, source="=", start=0:14, end=0:15)
+  Token: Whitespace(source=" ", start=0:15, end=0:16)
+  Token: Delim(value="*", code_point=U+002A, source="*", start=0:16, end=0:17)
+  Token: Delim(value="=", code_point=U+003D, source="=", start=0:17, end=0:18)
+  Token: Whitespace(source=" ", start=0:18, end=0:19)
+  Token: Delim(value="^", code_point=U+005E, source="^", start=0:19, end=0:20)
+  Token: Delim(value="=", code_point=U+003D, source="=", start=0:20, end=0:21)
+  Token: Whitespace(source=" ", start=0:21, end=0:22)
+  Token: Delim(value="$", code_point=U+0024, source="$", start=0:22, end=0:23)
+  Token: Delim(value="=", code_point=U+003D, source="=", start=0:23, end=0:24)
+  Token: Whitespace(source=" ", start=0:24, end=0:25)
+  Token: Delim(value="|", code_point=U+007C, source="|", start=0:25, end=0:26)
+  Token: Delim(value="|", code_point=U+007C, source="|", start=0:26, end=0:27)
+  Token: Whitespace(source=" ", start=0:27, end=0:28)
+  Token: Colon(source=":", start=0:28, end=0:29)
+  Token: Colon(source=":", start=0:29, end=0:30)
+  Token: Whitespace(source=" ", start=0:30, end=0:31)
+  Token: Semicolon(source=";", start=0:31, end=0:32)
+  Token: Whitespace(source=" ", start=0:32, end=0:33)
+  Token: Comma(source=",", start=0:33, end=0:34)
+  = <!-- --> a|b ~= *= ^= $= || :: ; ,
+case cv	a-b -a --x a1 1a #1 a#b
+  Token: Ident(value="a-b", source="a-b", start=0:0, end=0:3)
+  Token: Whitespace(source=" ", start=0:3, end=0:4)
+  Token: Ident(value="-a", source="-a", start=0:4, end=0:6)
+  Token: Whitespace(source=" ", start=0:6, end=0:7)
+  Token: Ident(value="--x", source="--x", start=0:7, end=0:10)
+  Token: Whitespace(source=" ", start=0:10, end=0:11)
+  Token: Ident(value="a1", source="a1", start=0:11, end=0:13)
+  Token: Whitespace(source=" ", start=0:13, end=0:14)
+  Token: Dimension(value=1, number_type=Integer, unit="a", source="1a", start=0:14, end=0:16)
+  Token: Whitespace(source=" ", start=0:16, end=0:17)
+  Token: Hash(value="1", hash_type=Unrestricted, source="#1", start=0:17, end=0:19)
+  Token: Whitespace(source=" ", start=0:19, end=0:20)
+  Token: Ident(value="a", source="a", start=0:20, end=0:21)
+  Token: Hash(value="b", hash_type=Id, source="#b", start=0:21, end=0:23)
+  = a-b -a --x a1 1a #1 a#b
+case cv	/* comment */ a /**/ b
+  Token: Whitespace(source="/* comment */", start=0:0, end=0:13)
+  Token: Whitespace(source=" ", start=0:13, end=0:14)
+  Token: Ident(value="a", source="a", start=0:14, end=0:15)
+  Token: Whitespace(source=" ", start=0:15, end=0:16)
+  Token: Whitespace(source="/**/", start=0:16, end=0:20)
+  Token: Whitespace(source=" ", start=0:20, end=0:21)
+  Token: Ident(value="b", source="b", start=0:21, end=0:22)
+  =   a   b
+case cv	1 2 a b 1a-b a( b-( -1 .1 +.1 @a- #a- 1% %
+  Token: Number(value=1, number_type=Integer, source="1", start=0:0, end=0:1)
+  Token: Whitespace(source=" ", start=0:1, end=0:2)
+  Token: Number(value=2, number_type=Integer, source="2", start=0:2, end=0:3)
+  Token: Whitespace(source=" ", start=0:3, end=0:4)
+  Token: Ident(value="a", source="a", start=0:4, end=0:5)
+  Token: Whitespace(source=" ", start=0:5, end=0:6)
+  Token: Ident(value="b", source="b", start=0:6, end=0:7)
+  Token: Whitespace(source=" ", start=0:7, end=0:8)
+  Token: Dimension(value=1, number_type=Integer, unit="a-b", source="1a-b", start=0:8, end=0:12)
+  Token: Whitespace(source=" ", start=0:12, end=0:13)
+  Function: a( b-( -1 0.1 0.1 @a- #a- 1% %))
+  = 1 2 a b 1a-b a( b-( -1 0.1 0.1 @a- #a- 1% %))
+case cv	\\41 b\\ c \\
+  Token: Ident(value="Ab c", source="\\41 b\\ c", start=0:0, end=0:8)
+  Token: Whitespace(source=" ", start=0:8, end=0:9)
+  Token: Ident(value="�", source="\\", start=0:9, end=0:10)
+  = Ab\ c �
+case cv	
+  = 
+case one	  a  
+  Token: Ident(value="a", source="a", start=0:2, end=0:3)
+case one	f(1, 2)  
+  Function: f(1, 2)
+case one	{a}
+  Block: {a}
+case one	a b
+  none
+case one	
+  none
+case csv	a, b ,c
+  group:
+    Token: Ident(value="a", source="a", start=0:0, end=0:1)
+    = a
+  group:
+    Token: Whitespace(source=" ", start=0:2, end=0:3)
+    Token: Ident(value="b", source="b", start=0:3, end=0:4)
+    Token: Whitespace(source=" ", start=0:4, end=0:5)
+    =  b 
+  group:
+    Token: Ident(value="c", source="c", start=0:6, end=0:7)
+    = c
+case csv	a,,b,
+  group:
+    Token: Ident(value="a", source="a", start=0:0, end=0:1)
+    = a
+  group:
+    = 
+  group:
+    Token: Ident(value="b", source="b", start=0:3, end=0:4)
+    = b
+  group:
+    = 
+case csv	f(a, b), [c, d]
+  group:
+    Function: f(a, b)
+    = f(a, b)
+  group:
+    Token: Whitespace(source=" ", start=0:8, end=0:9)
+    Block: [c, d]
+    =  [c, d]
+case csv	
+case csv	,
+  group:
+    = 
+  group:
+    = 
+case sheet	a { color: red; }
+  qualified prelude:[a ]
+    color: [red] important:0 original:-
+case sheet	a, b > c { color: red !important; margin : 0 1px  ! IMPORTANT ; }
+  qualified prelude:[a, b > c ]
+    color: [red] important:1 original:-
+    margin: [0 1px] important:1 original:-
+case sheet	<!-- a { x: y } --> b {}
+  qualified prelude:[a ]
+    x: [y] important:0 original:-
+  qualified prelude:[b ]
+case sheet	a { color: red; b { color: blue } c: d; }
+  qualified prelude:[a ]
+    color: [red] important:0 original:-
+    qualified prelude:[b ]
+      color: [blue] important:0 original:-
+    declarations:
+      c: [d] important:0 original:-
+case sheet	a { --x: { y } ; --y:  a  b ; --: z; }
+  qualified prelude:[a ]
+    --x: [{ y }] important:0 original:{ y }
+    --y: [a b] important:0 original:a  b
+case sheet	a { color: {red} x; width: {1px}; }
+  qualified prelude:[a ]
+    qualified prelude:[color: ]
+    declarations:
+      width: [{1px}] important:0 original:-
+case sheet	a { @media screen { b: c } d: e }
+  qualified prelude:[a ]
+    @media prelude:[ screen ] block:1
+      declarations:
+        b: [c] important:0 original:-
+    declarations:
+      d: [e] important:0 original:-
+case sheet	a { @media x { @container y { z: w } } }
+  qualified prelude:[a ]
+    @media prelude:[ x ] block:1
+      @container prelude:[ y ] block:1
+        declarations:
+          z: [w] important:0 original:-
+case sheet	a { @media print; b: c; @foo; }
+  qualified prelude:[a ]
+    @media prelude:[ print] block:0
+    declarations:
+      b: [c] important:0 original:-
+case sheet	a { b: c } }
+  qualified prelude:[a ]
+    b: [c] important:0 original:-
+case sheet	a { b: c
+  qualified prelude:[a ]
+    b: [c] important:0 original:-
+case sheet	a { --x: 1 } { y }
+  qualified prelude:[a ]
+    --x: [1] important:0 original:1
+  qualified prelude:[]
+case sheet	--x: y { z }
+case sheet	a { b c; d: e; f }
+  qualified prelude:[a ]
+    d: [e] important:0 original:-
+case sheet	a { b: !important; c: x ! important; d: x !important !important }
+  qualified prelude:[a ]
+    b: [!important] important:0 original:-
+    c: [x] important:1 original:-
+    d: [x !important] important:1 original:-
+case sheet	a { e:f(1)   ; g: h  /* c */ ; }
+  qualified prelude:[a ]
+    e: [f(1)] important:0 original:-
+    g: [h] important:0 original:-
+case sheet	a {;;;  ;b:c;;}
+  qualified prelude:[a ]
+    b: [c] important:0 original:-
+case sheet	a { b:c }  d { e:f } 
+  qualified prelude:[a ]
+    b: [c] important:0 original:-
+  qualified prelude:[d ]
+    e: [f] important:0 original:-
+case sheet	a { b: url(x) "s" 1px }
+  qualified prelude:[a ]
+    b: [url("x") "s" 1px] important:0 original:-
+case sheet	a { b { c { d: e } } }
+  qualified prelude:[a ]
+    qualified prelude:[b ]
+      qualified prelude:[c ]
+        d: [e] important:0 original:-
+case sheet	a { b: c; d: e; @media x { f: g } h: i; j: k }
+  qualified prelude:[a ]
+    b: [c] important:0 original:-
+    d: [e] important:0 original:-
+    @media prelude:[ x ] block:1
+      declarations:
+        f: [g] important:0 original:-
+    declarations:
+      h: [i] important:0 original:-
+      j: [k] important:0 original:-
+case sheet	a { b: c; ;d e { } f: g }
+  qualified prelude:[a ]
+    b: [c] important:0 original:-
+    qualified prelude:[d e ]
+    declarations:
+      f: [g] important:0 original:-
+case sheet	a { x:1; y }
+  qualified prelude:[a ]
+    x: [1] important:0 original:-
+case sheet	{ a: b }
+  qualified prelude:[]
+    a: [b] important:0 original:-
+case sheet	a } b { c: d }
+  qualified prelude:[a } b ]
+    c: [d] important:0 original:-
+case sheet	a { unicode-range: U+0-7F; }
+  qualified prelude:[a ]
+    unicode-range: [U/**/0/**/-7F] important:0 original:-
+case sheet	a { --a-b: [1]; --c:(2) }
+  qualified prelude:[a ]
+    --a-b: [[1]] important:0 original:[1]
+    --c: [(2)] important:0 original:(2)
+case block	color: red; margin: 0
+case style	color: red; margin: 0
+  declarations:
+    color: [red] important:0 original:-
+    margin: [0] important:0 original:-
+case style	color: red !important; --x: { a } ; --y: 1px
+  declarations:
+    color: [red] important:1 original:-
+    --x: [{ a }] important:0 original:{ a }
+    --y: [1px] important:0 original:1px
+case style	a b; c: d; e { f: g } h: i
+  declarations:
+    c: [d] important:0 original:-
+  qualified prelude:[e ]
+    f: [g] important:0 original:-
+  declarations:
+    h: [i] important:0 original:-
+case style	@media x { a: b } c: d
+  @media prelude:[ x ] block:1
+    declarations:
+      a: [b] important:0 original:-
+  declarations:
+    c: [d] important:0 original:-
+case style	  
+case style	x: y; }
+  declarations:
+    x: [y] important:0 original:-
+case style	--x:a}b
+  declarations:
+    --x: [a] important:0 original:a
+case style	--: a
+case style	a: b; c
+  declarations:
+    a: [b] important:0 original:-
+case style	a {} b: c
+  qualified prelude:[a ]
+  declarations:
+    b: [c] important:0 original:-
+case style	a: {} ; b: {c} d
+  declarations:
+    a: [{}] important:0 original:-
+  qualified prelude:[b: ]
+case rule	a { b: c }
+  qualified prelude:[a ]
+    b: [c] important:0 original:-
+case rule	  a { b: c }  
+  qualified prelude:[a ]
+    b: [c] important:0 original:-
+case rule	a { b: c } d
+  none
+case rule	
+  none
+case rule	a
+  none
+case rule	a { --x: y }
+  qualified prelude:[a ]
+    --x: [y] important:0 original:y
+case decl	color: red
+  color: [red] important:0 original:-
+case decl	  color :  red  !important  
+  color: [red] important:1 original:-
+case decl	--x:  a b  
+  --x: [a b] important:0 original:a b
+case decl	color
+  none
+case decl	1: red
+  none
+case decl	color: red; more: x
+  color: [red] important:0 original:-
+case decl	a: {b}
+  a: [{b}] important:0 original:-
+case decl	a: b {c}
+  none
+case fulltext	color : red !important
+  color : red !important
+case fulltext	--x: a  b;  c
+  --x: a b
+case fulltext	a: f( b )   
+  a: f( b ) 
+case vendor	color
+  false
+case vendor	-webkit-box
+  true
+case vendor	--custom
+  false
+case vendor	-libweb-thing
+  false
+case vendor	-foo
+  false
+case vendor	-
+  false
+case vendor	-x-y-z
+  true
+case ident	foo
+  true
+case ident	inherit
+  false
+case ident	INITIAL
+  false
+case ident	unset
+  false
+case ident	revert
+  false
+case ident	revert-layer
+  false
+case ident	default
+  false
+case ident	DeFault
+  false
+case ident	auto
+  false
+case ident	NONE
+  false
+case ident	nonee
+  true
+case decldecl	color
+  color:  red ;
+  color:  !important;
+case decldecl	--my-prop
+  --my-prop:  red ;
+  --my-prop:  !important;
+case decldecl	1a
+  \31 a:  red ;
+  \31 a:  !important;
+case decldecl	a b
+  a\ b:  red ;
+  a\ b:  !important;
+case decode	a { b: c }
+  a { b: c }
+case decode	@charset "utf-8"; a {}
+  @charset "utf-8"; a {}
+case decode	@charset "iso-8859-2"; a {}
+  @charset "iso-8859-2"; a {}
+case decode	@charset "UTF-16BE"; a {}
+  @charset "UTF-16BE"; a {}
+case decode	@charset "bogus"; a {}
+  @charset "bogus"; a {}
+case decode	@charset 'utf-8'; a {}
+  @charset 'utf-8'; a {}
+case decode	@charset "x
+  @charset "x
+case atctx	media
+  4
+case atctx	MeDiA
+  4
+case atctx	container
+  2
+case atctx	counter-style
+  3
+case atctx	font-face
+  5
+case atctx	keyframes
+  9
+case atctx	-WEBKIT-keyframes
+  9
+case atctx	font-feature-values
+  6
+case atctx	function
+  8
+case errors	foo
+  Unknown property 'foo' in style rule. 1533009893
+  Unknown rule 'foo'. 596015325
+  Unknown media feature 'foo'. 596015325
+  Unknown pseudo class or element 'foo' in style selector. 1533009893
+  Property 'foo' in style rule has invalid value `foo`. 678408216
+  Unable to parse foo from `foo`: desc 4100412113
+  'foo' rule with prelude `foo` is invalid: desc 4100412113
+  '@media' query `foo` is invalid: desc 2326993833
+  style selector `foo` is invalid: desc 3245717461
+  Pseudo 'foo' value `foo` is invalid: desc 4100412113
+  '@inner' rule is invalid inside foo 2200082966
+case errors	--very-long-property-name
+  Unknown property '--very-long-property-name' in style rule. 2958661350
+  Unknown rule '--very-long-property-name'. 1403431146
+  Unknown media feature '--very-long-property-name'. 1403431146
+  Unknown pseudo class or element '--very-long-property-name' in style selector. 2958661350
+  Property '--very-long-property-name' in style rule has invalid value `--very-long-property-name`. 2967521318
+  Unable to parse --very-long-property-name from `--very-long-property-name`: desc 3729903561
+  '--very-long-property-name' rule with prelude `--very-long-property-name` is invalid: desc 3729903561
+  '@media' query `--very-long-property-name` is invalid: desc 158489689
+  style selector `--very-long-property-name` is invalid: desc 2374164425
+  Pseudo '--very-long-property-name' value `--very-long-property-name` is invalid: desc 3729903561
+  '@inner' rule is invalid inside --very-long-property-name 3805925766
+case math	abs()
+  none
+  Unable to parse abs() from ``: Wrong number of arguments 0, expected between 1 and 1 inclusive. (1)
+case math	ABS()
+  none
+  Unable to parse abs() from ``: Wrong number of arguments 0, expected between 1 and 1 inclusive. (1)
+case math	sign(1, 2)
+  none
+  Unable to parse sign() from `1, 2`: Wrong number of arguments 2, expected between 1 and 1 inclusive. (1)
+case math	clamp(1, 2)
+  none
+  Unable to parse clamp() from `1, 2`: Wrong number of arguments 2, expected between 3 and 3 inclusive. (1)
+case math	round(a, b, c, d)
+  none
+  Unable to parse round() from `a, b, c, d`: Wrong number of arguments 4, expected between 2 and 3 inclusive. (1)
+case math	log()
+  none
+  Unable to parse log() from ``: Wrong number of arguments 0, expected between 1 and 2 inclusive. (1)
+case math	pow(1, 2, 3)
+  none
+  Unable to parse pow() from `1, 2, 3`: Wrong number of arguments 3, expected between 2 and 2 inclusive. (1)
+case math	foo(1)
+  none
+case math	calc(1)
+  none

@@ -1,0 +1,147 @@
+# Component values (Parser::parse_as_list_of_component_values) and their serialization.
+cv	a {b} (c) f(x)
+cv	foo(bar, baz) [1 2] {x: y}
+cv	1px+2 -3e2% #fff #-a
+cv	a}b
+cv	)]}
+cv	f(a(b)c
+cv	[unterminated (
+cv	url(x.png) url( "y" ) bad url(a b)
+cv	"str" 'other' "bad\nstring"
+cv	@media .5em 10% -.5 +1 1e3 u+1-2
+cv	<!-- --> a|b ~= *= ^= $= || :: ; ,
+cv	a-b -a --x a1 1a #1 a#b
+cv	/* comment */ a /**/ b
+cv	1 2 a b 1a-b a( b-( -1 .1 +.1 @a- #a- 1% %
+cv	\\41 b\\ c \\
+cv	
+# Single component values.
+one	  a  
+one	f(1, 2)  
+one	{a}
+one	a b
+one	
+# Comma-separated lists.
+csv	a, b ,c
+csv	a,,b,
+csv	f(a, b), [c, d]
+csv	
+csv	,
+# Stylesheets' raw rules (Parser::parse_a_stylesheets_contents).
+sheet	a { color: red; }
+sheet	a, b > c { color: red !important; margin : 0 1px  ! IMPORTANT ; }
+sheet	<!-- a { x: y } --> b {}
+sheet	a { color: red; b { color: blue } c: d; }
+sheet	a { --x: { y } ; --y:  a  b ; --: z; }
+sheet	a { color: {red} x; width: {1px}; }
+sheet	a { @media screen { b: c } d: e }
+sheet	a { @media x { @container y { z: w } } }
+sheet	a { @media print; b: c; @foo; }
+sheet	a { b: c } }
+sheet	a { b: c
+sheet	a { --x: 1 } { y }
+sheet	--x: y { z }
+sheet	a { b c; d: e; f }
+sheet	a { b: !important; c: x ! important; d: x !important !important }
+sheet	a { e:f(1)   ; g: h  /* c */ ; }
+sheet	a {;;;  ;b:c;;}
+sheet	a { b:c }  d { e:f } 
+sheet	a { b: url(x) "s" 1px }
+sheet	a { b { c { d: e } } }
+sheet	a { b: c; d: e; @media x { f: g } h: i; j: k }
+sheet	a { b: c; ;d e { } f: g }
+sheet	a { x:1; y }
+sheet	{ a: b }
+sheet	a } b { c: d }
+sheet	a { unicode-range: U+0-7F; }
+sheet	a { --a-b: [1]; --c:(2) }
+# Block contents without and with a style rule context (style attributes, CSSOM).
+block	color: red; margin: 0
+style	color: red; margin: 0
+style	color: red !important; --x: { a } ; --y: 1px
+style	a b; c: d; e { f: g } h: i
+style	@media x { a: b } c: d
+style	  
+style	x: y; }
+style	--x:a}b
+style	--: a
+style	a: b; c
+style	a {} b: c
+style	a: {} ; b: {c} d
+# A single rule (Parser::parse_a_rule).
+rule	a { b: c }
+rule	  a { b: c }  
+rule	a { b: c } d
+rule	
+rule	a
+rule	a { --x: y }
+# A single declaration in a style rule context (Parser::parse_a_declaration).
+decl	color: red
+decl	  color :  red  !important  
+decl	--x:  a b  
+decl	color
+decl	1: red
+decl	color: red; more: x
+decl	a: {b}
+decl	a: b {c}
+# A declaration's original full text (SaveOriginalText::Yes).
+fulltext	color : red !important
+fulltext	--x: a  b;  c
+fulltext	a: f( b )   
+# Parser::has_ignored_vendor_prefix.
+vendor	color
+vendor	-webkit-box
+vendor	--custom
+vendor	-libweb-thing
+vendor	-foo
+vendor	-
+vendor	-x-y-z
+# Web::is_valid_custom_ident with the blacklist {auto, none}.
+ident	foo
+ident	inherit
+ident	INITIAL
+ident	unset
+ident	revert
+ident	revert-layer
+ident	default
+ident	DeFault
+ident	auto
+ident	NONE
+ident	nonee
+# serialize_a_css_declaration (the value " red " then "  " with !important).
+decldecl	color
+decldecl	--my-prop
+decldecl	1a
+decldecl	a b
+# css_decode_bytes without an environment encoding or a charset.
+decode	a { b: c }
+decode	@charset "utf-8"; a {}
+decode	@charset "iso-8859-2"; a {}
+decode	@charset "UTF-16BE"; a {}
+decode	@charset "bogus"; a {}
+decode	@charset 'utf-8'; a {}
+decode	@charset "x
+# rule_context_type_for_at_rule for the names it answers before CSSFontFeatureValuesRule's check.
+atctx	media
+atctx	MeDiA
+atctx	container
+atctx	counter-style
+atctx	font-face
+atctx	keyframes
+atctx	-WEBKIT-keyframes
+atctx	font-feature-values
+atctx	function
+# serialize_parsing_error and the ParsingError hash of each kind of error.
+errors	foo
+errors	--very-long-property-name
+# Parser::parse_math_function where it does not reach a calculation: unknown names, the argument
+# count.
+math	abs()
+math	ABS()
+math	sign(1, 2)
+math	clamp(1, 2)
+math	round(a, b, c, d)
+math	log()
+math	pow(1, 2, 3)
+math	foo(1)
+math	calc(1)

@@ -1,0 +1,23 @@
+# const_span_of_pointer_diagnostic - a type mismatch diagnostic prints two different types alike
+#
+# Found by region r30b (luce-browser-engine, CSSRuleList::create's ReadonlySpan<GC::Ref<CSSRule>>
+# parameter), Luce 0.8.31 / 0.8.32.
+#
+# `const Rule*[]` is a span of pointers to const Rule; `const (Rule*)[]` (what vector_span_const
+# of a vector of `Rule*` gives) is a read-only span of pointers to Rule. Passing the second where
+# the first is expected is rightly rejected, but the message prints both types the same way.
+#
+# Expected: expected `const Rule*[]`, got `const (Rule*)[]` (or any spelling that tells them apart)
+# Actual:   const_span_of_pointer_diagnostic.lucb:23:22: expected `const Rule*[]`, got `const Rule*[]`
+
+struct Rule:
+    var id: i32
+
+func count(rules: const Rule*[]) -> usize:
+    return rules.length
+
+pub func main(arguments: str[]) -> i32:
+    var rule = Rule(id = 1)
+    let pointers: Rule*[1] = [&rule]
+    let view: const (Rule*)[] = pointers
+    return i32(count(view))
