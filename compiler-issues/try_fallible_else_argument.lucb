@@ -1,0 +1,25 @@
+# try_fallible_else_argument - `else` on a fallible argument is rejected inside `try`
+#
+# Found by region r18 (luce-browser-engine), Luce 0.8.31 (luce-base 0.33.0); 0.8.30 too.
+#
+# Expected: `try f(g() else trap("x"))` checks, because the argument `g() else trap("x")` is a
+# full expression of type i32 (g is fallible), and `try` covers only f's failure; the same
+# argument outside `try` (no_try below) checks.
+# Actual:
+#     try_fallible_else_argument.lucb:18:19: `else` needs an optional or a fallible result
+
+func g() -> i32!:
+    return 1
+
+func f(x: i32) -> i32!:
+    return x
+
+func with_try() -> i32!:
+    return try f(g() else trap("x"))
+
+func no_try() -> i32:
+    let x = g() else trap("x")
+    return f(x) else trap("f")
+
+pub func main(arguments: str[]) -> i32:
+    return (with_try() else trap("h")) - no_try()
