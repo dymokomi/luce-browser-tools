@@ -1,0 +1,24 @@
+## Reduction (found by luce-browser-engine region r22): a `.case` argument whose parameter type is a
+## generic parameter already fixed by an earlier argument gets no enum context.
+##
+## Expected: `put(&box, .number(1))` checks, T = Item from `&box` (a Box[Item]*),
+##           and the program prints 1.
+## Actual (luce-base 0.33.0 / Luce 0.8.31 and 0.8.32): "`.case` needs an enum type from the context".
+
+enum Item:
+    number(value: i64)
+    nothing
+
+struct Box[T]:
+    var value: T
+
+func put[T](this: Box[T]*, value: T):
+    this.value = value
+
+pub func main(arguments: str[]) -> i32:
+    var box = Box[Item](value = Item.nothing)
+    put(&box, .number(1))
+    match box.value:
+        .number(value): print(f"{value}")
+        .nothing: print("nothing")
+    return 0
