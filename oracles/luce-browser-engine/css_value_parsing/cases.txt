@@ -1,0 +1,462 @@
+# Cases for the r32 value-parsing oracle: "<mode>\t<input>". Lines starting with "!" wait for other
+# regions (r33's parse_all_as_single_keyword_value / parse_symbol_value / PropertyParsing, r35's
+# CalculatedStyleValue, EasingStyleValue, BasicShapeStyleValue, counters, fonts, grid placement,
+# TransformationStyleValue): the oracle runs them; gen_luce_cases.py leaves them out.
+# <integer>, <number>, <percentage>
+type:integer	12
+type:integer	  -7  
+type:integer	1.5
+type:integer	+3
+type:integer	2147483648
+type:integer	foo
+type:integer	
+!type:integer	calc(1 + 2)
+type:number	1.5
+type:number	-0.25e2
+type:number	12px
+type:number	3 4
+!type:number	calc(2 * 3)
+!type:number	min(1, 2)
+type:number	sibling-count()
+type:number	sibling-index( )
+type:number	sibling-index(1)
+type:percentage	50%
+type:percentage	-12.5%
+type:percentage	50
+!type:percentage	calc(10% + 5%)
+type:opacity-value	0.5
+type:opacity-value	50%
+type:opacity-value	none
+# dimensions
+type:length	10px
+type:length	1.5em
+type:length	0
+type:length	-3rem
+type:length	5
+type:length	10deg
+type:length	10foo
+svg+type:length	12.3456
+svg+type:length	0
+!type:length	calc(10px + 1em)
+type:length	anchor-size(width)
+prop=width+type:length	anchor-size(width)
+prop=width+type:length	anchor-size(--foo height, 10px)
+prop=width+type:length	anchor-size(--foo)
+prop=width+type:length	anchor-size(10px)
+prop=width+type:length	anchor-size(width, 10px)
+prop=width+type:length	anchor-size(width 10px)
+prop=width+type:length	anchor-size(, 10px)
+prop=width+type:length	anchor-size(width width)
+prop=width+type:length	anchor-size(foo)
+prop=color+type:length	anchor-size(width)
+type:length-percentage	10%
+type:length-percentage	10px
+type:length-percentage	0
+type:length-percentage	auto
+type:angle	45deg
+type:angle	1.5turn
+type:angle	-100grad
+type:angle	2rad
+type:angle	0
+svg+type:angle	45
+type:angle	45px
+type:angle-percentage	10%
+type:angle-percentage	10deg
+type:flex	1fr
+type:flex	2.5fr
+type:flex	1px
+type:flex	1
+type:frequency	10hz
+type:frequency	2kHz
+type:frequency-percentage	50%
+type:resolution	2dppx
+type:resolution	96dpi
+type:resolution	-1x
+type:resolution	1x
+type:time	1s
+type:time	250ms
+type:time	1
+type:time-percentage	10%
+# keywords and identifiers
+keyword	auto
+keyword	  BLOCK
+keyword	notakeyword
+keyword	12
+builtin	inherit
+builtin	INITIAL
+builtin	unset
+builtin	revert
+builtin	revert-layer
+builtin	auto
+customident	foo
+customident	none
+customident	inherit
+customident	default
+customident	12
+type:custom-ident	bar
+type:custom-ident	initial
+dashedident	--foo
+dashedident	-foo
+dashedident	foo
+type:dashed-ident	  --x
+type:string	"hello"
+type:string	'a\"b'
+type:string	hello
+type:opentype-tag	"liga"
+type:opentype-tag	"lig"
+type:opentype-tag	"ligat"
+type:opentype-tag	"l\9 ga"
+family	"Times New Roman"
+family	Times New Roman
+family	  Arial  
+family	serif
+family	sans-serif foo
+family	inherit
+family	default
+family	foo "bar"
+family	12
+type:url	url(foo.png)
+type:url	url("foo.png")
+type:url	url( "a b.png" )
+type:url	src("x")
+type:url	url(foo.png) bar
+type:url	foo
+url	url("a.png" cross-origin(anonymous))
+url	url("a.png" referrer-policy(no-referrer) integrity("sha") cross-origin(use-credentials))
+url	url("a.png" cross-origin(anonymous) cross-origin(anonymous))
+url	url("a.png" cross-origin(bogus))
+url	url("a.png" integrity(foo))
+url	url("a.png" bogus(1))
+url	url("a.png" cross-origin())
+url	url(a.png)
+url	src("b.png")
+url	url()
+url	url(12)
+# colors
+type:color	red
+type:color	ReD
+type:color	transparent
+type:color	currentcolor
+type:color	canvastext
+type:color	#abc
+type:color	#aabbcc
+type:color	#aabbccdd
+type:color	#abcd
+type:color	#ab
+type:color	#ggg
+type:color	abc
+type:color	notacolor
+type:color	rgb(1, 2, 3)
+type:color	rgba(1, 2, 3, 0.5)
+type:color	rgb(10%, 20%, 30%)
+type:color	rgb(10%, 20, 30%)
+type:color	rgb(1 2 3)
+type:color	rgb(1 2 3 / 50%)
+type:color	rgb(none 2 3)
+type:color	rgb(none, 2, 3)
+type:color	rgb(1, 2)
+type:color	rgb(1 2 3 4)
+type:color	rgb(1, 2, 3, 4, 5)
+type:color	rgb(1 2 3 / none)
+type:color	rgba(255 0 0 / 0.25)
+type:color	hsl(120, 50%, 50%)
+type:color	hsla(120deg, 50%, 50%, 0.3)
+type:color	hsl(120 50% 50%)
+type:color	hsl(120 50 50 / 10%)
+type:color	hsl(none 50% 50%)
+type:color	hsl(120, 50, 50%)
+type:color	hsl(1turn, 10%, 20%)
+type:color	hwb(120 10% 20%)
+type:color	hwb(120 10% 20% / 0.5)
+type:color	hwb(120, 10%, 20%)
+type:color	lab(50% 20 30)
+type:color	lab(50 20 30 / 0.5)
+type:color	oklab(0.5 0.1 0.1)
+type:color	lch(50% 30 120)
+type:color	lch(50% 30 120deg / 50%)
+type:color	oklch(0.5 0.1 30)
+type:color	oklch(0.5 0.1)
+type:color	color(srgb 0.1 0.2 0.3)
+type:color	color(display-p3 1 0 0 / 0.5)
+type:color	color(XYZ-D65 0.1 0.2 0.3)
+type:color	color(foo 1 2 3)
+type:color	color(srgb 1 2)
+type:color	color-mix(in srgb, red, blue)
+type:color	color-mix(in oklch longer hue, red 20%, blue)
+type:color	color-mix(red 0%, blue 0%)
+type:color	color-mix(red, blue)
+type:color	color-mix(in hsl, red 30%, 40% blue)
+type:color	color-mix(in foo, red, blue)
+type:color	light-dark(red, blue)
+type:color	light-dark(red)
+type:color	light-dark(red, blue, green)
+type:color	rgb(1 2 3) foo
+cim	in srgb
+cim	in xyz
+cim	in hsl
+cim	in hsl longer hue
+cim	in hsl shorter
+cim	in oklch increasing HUE
+cim	in hsl foo hue
+cim	in foo
+cim	srgb
+cim	in --custom
+# images and gradients
+type:image	url(a.png)
+type:image	url(#mask)
+type:image	image-set("a.png" 1x, "b.png" 2x)
+type:image	image-set("a.png" 1x type("image/png"))
+type:image	image-set(url(a.png) 2dppx)
+type:image	-webkit-image-set("a.png")
+type:image	image-set()
+type:image	image-set("a.png" 1x 2x)
+type:image	image-set("a.png" foo)
+type:image	linear-gradient(red, blue)
+type:image	linear-gradient(to right, red, blue)
+type:image	linear-gradient(to top left, red, blue)
+type:image	linear-gradient(to left top, red, blue)
+type:image	linear-gradient(to top bottom, red, blue)
+type:image	linear-gradient(45deg, red 10%, blue 90%)
+type:image	linear-gradient(0, red, blue)
+type:image	linear-gradient(in oklab, red, blue)
+type:image	linear-gradient(90deg in hsl longer hue, red, blue)
+type:image	linear-gradient(red 10% 20%, blue)
+type:image	linear-gradient(red, 30%, blue)
+type:image	linear-gradient(red, 30%, 40%, blue)
+type:image	linear-gradient(red)
+type:image	linear-gradient(to, red, blue)
+type:image	linear-gradient()
+type:image	repeating-linear-gradient(red 0px, blue 10px)
+type:image	-webkit-linear-gradient(top, red, blue)
+type:image	-webkit-linear-gradient(left top, red, blue)
+type:image	-webkit-repeating-linear-gradient(red, blue)
+type:image	LINEAR-GRADIENT(red, blue)
+type:image	conic-gradient(red, blue)
+type:image	conic-gradient(from 45deg, red, blue)
+type:image	conic-gradient(from 0, red, blue)
+type:image	conic-gradient(at center, red, blue)
+type:image	conic-gradient(from 10deg at left top, red, blue)
+type:image	conic-gradient(in hsl, red, blue)
+type:image	conic-gradient(red 0deg, blue 90deg, green 50%)
+type:image	conic-gradient(red 0, blue)
+type:image	conic-gradient(at center from 10deg, red, blue)
+type:image	conic-gradient(from, red, blue)
+type:image	repeating-conic-gradient(red, blue 20deg)
+type:image	radial-gradient(red, blue)
+type:image	radial-gradient(circle, red, blue)
+type:image	radial-gradient(ellipse, red, blue)
+type:image	radial-gradient(circle 10px, red, blue)
+type:image	radial-gradient(10px circle, red, blue)
+type:image	radial-gradient(10px, red, blue)
+type:image	radial-gradient(10px 20px, red, blue)
+type:image	radial-gradient(ellipse 10px, red, blue)
+type:image	radial-gradient(circle 10px 20px, red, blue)
+type:image	radial-gradient(closest-side, red, blue)
+type:image	radial-gradient(ellipse farthest-side at left, red, blue)
+type:image	radial-gradient(at 10px 20px, red, blue)
+type:image	radial-gradient(in srgb, red, blue)
+type:image	radial-gradient(circle in hsl, red, blue)
+type:image	repeating-radial-gradient(red, blue 10px)
+type:image	radial-gradient(circle red, blue)
+type:image	foo(red)
+type:image	none
+# position
+type:position	left
+type:position	center
+type:position	top
+type:position	10px
+type:position	left top
+type:position	top left
+type:position	center center
+type:position	10px 20%
+type:position	left 10px top 20px
+type:position	top 10px left 20px
+type:position	left top 10px
+type:position	right 10px center
+type:position	left left
+type:position	10px top
+type:position	top 10px
+type:background-position	left 10px top
+type:background-position	center top 10px
+type:background-position	right 5px center
+type:background-position	center 10px top
+type:background-position	left top
+# paint
+type:paint	red
+type:paint	none
+type:paint	context-fill
+type:paint	url(#grad)
+type:paint	url(#grad) red
+type:paint	url(#grad) none
+type:paint	url(#grad) bogus
+type:paint	12
+# rect(), ratio, scroll(), view(), insets
+type:rect	rect(1px, 2px, 3px, 4px)
+type:rect	rect(1px 2px 3px 4px)
+type:rect	rect(auto, auto, 3px, auto)
+type:rect	rect(1px, 2px 3px, 4px)
+type:rect	rect(1px, 2px, 3px)
+type:rect	rect(1px, 2px, 3px, 4px, 5px)
+type:rect	rect(1%, 2px, 3px, 4px)
+type:ratio	16 / 9
+type:ratio	2
+type:ratio	16/9
+type:ratio	-1
+type:ratio	1 /
+type:scroll-function	scroll()
+type:scroll-function	scroll(root)
+type:scroll-function	scroll(nearest block)
+type:scroll-function	scroll(inline self)
+type:scroll-function	scroll(root root)
+type:scroll-function	scroll(foo)
+type:view-function	view()
+type:view-function	view(inline)
+type:view-function	view(10px)
+type:view-function	view(auto auto)
+type:view-function	view(10px 20% x)
+type:view-function	view(block block)
+type:view-timeline-inset	auto
+type:view-timeline-inset	10px auto
+type:view-timeline-inset	10px 20px 30px
+type:fit-content	fit-content
+type:fit-content	fit-content(10px)
+type:fit-content	fit-content(10%)
+type:fit-content	FIT-CONTENT(10px)
+type:fit-content	fit-content(10px 20px)
+type:anchor	anchor(top)
+type:anchor	anchor(--foo bottom)
+type:anchor	anchor(left --bar, 10px)
+type:anchor	anchor(50%)
+type:anchor	anchor(10px)
+type:anchor	anchor(foo)
+type:anchor	anchor(--a --b top)
+type:anchor	anchor(top, anchor(bottom))
+type:anchor	anchor(--x)
+# radial sizes, radii, unicode ranges, declaration values
+radialsize	closest-side
+radialsize	10px 20%
+radialsize	farthest-corner 10px
+radialsize	-10px
+radialsize	foo
+borderradius	10px
+borderradius	10px 20px
+borderradius	1px 2px 3px
+borderradius	1px 2px 3px 4px
+borderradius	1px / 2px
+borderradius	1px 2px / 3px 4px 5px
+borderradius	/ 2px
+borderradius	1px /
+borderradius	1px / 2px / 3px
+borderradius	1px 2px 3px 4px 5px
+borderradius	-1px
+urange	U+26
+urange	u+0-7F
+urange	U+0025-00FF
+urange	U+4??
+urange	u+1e1ee
+urange	u+1e-1f
+urange	U+ABCDEF0
+urange	U+110000
+urange	U+20-10
+urange	foo
+urange	U+?? 
+urange	u+0?-ff
+urange	u+1-
+urange	u1
+urangetext	+1F-2F
+urangetext	-1F
+urangetext	+
+urangetext	+12345678
+urangetext	+1??x
+urangetext	+1-x
+urangetext	+1-1234567
+urangetext	+1-2x
+uranges	U+0-7F, U+100-17F
+uranges	U+0-7F, foo
+uranges	
+urangevalue	U+0-7F
+declvalue	foo bar
+declvalue	a; b
+declvalue	a ! b
+declvalue	(a; b) c
+declvalue	[a ! b]
+declvalue	f(x; y)
+declvalue	a ) b
+declvalue	
+declvalue:comma	a, b
+declvalue:comma	(a, b), c
+counterstylename	decimal
+counterstylename	DECIMAL
+counterstylename	Disc
+counterstylename	my-style
+counterstylename	none
+linenames	[a b]
+linenames	[]
+linenames	[span]
+linenames	[a 1]
+linenames	a
+tracklist	10px 1fr
+tracklist	[a] 10px [b c] auto [d]
+tracklist	minmax(10px, 1fr) fit-content(20px)
+tracklist	repeat(2, 10px [x] 20px)
+tracklist	repeat(auto-fill, 10px)
+tracklist	min-content max-content auto
+tracklist	-1px
+tracklist	minmax(1fr, 10px)
+autotracklist	10px repeat(auto-fill, 20px) 30px
+autotracklist	repeat(auto-fit, minmax(10px, 1fr))
+autotracklist	repeat(auto-fit, [a] 10px [b])
+autotracklist	10px repeat(2, 20px)
+autotracklist	repeat(auto-fill, 1fr)
+explicittracklist	10px [a] 20%
+explicittracklist	repeat(2, 10px)
+# font-variant values, corner shapes, random value sharing, comma-separated lists
+type:font-variant-east-asian	jis78 full-width ruby
+type:font-variant-east-asian	ruby ruby
+type:font-variant-east-asian	normal
+type:font-variant-numeric	ordinal slashed-zero lining-nums tabular-nums diagonal-fractions
+type:font-variant-numeric	oldstyle-nums lining-nums
+type:font-variant-ligatures	no-common-ligatures contextual
+type:font-variant-ligatures	historical-ligatures discretionary-ligatures no-historical-ligatures
+type:font-variant-alternates	historical-forms stylistic(foo)
+type:font-variant-alternates	styleset(a, b) character-variant(c) swash(d) ornaments(e) annotation(f)
+type:font-variant-alternates	stylistic(a, b)
+type:font-variant-alternates	historical-forms historical-forms
+type:font-variant-alternates	swash()
+type:font-variant-alternates	foo
+type:corner-shape	round
+type:corner-shape	SQUIRCLE
+type:corner-shape	foo
+type:corner-shape	auto
+prop=width+random	auto
+prop=width+random	--foo element-shared
+prop=width+random	element-shared
+prop=width+random	element-shared auto
+prop=width+random	--a --b
+prop=width+random	auto --a
+prop=width+random	fixed 0.5
+prop=width+random	fixed 1
+prop=width+random	fixed 0.5 x
+prop=width+random	12
+prop=width+random	
+numberlist	1, 2, 3
+numberlist	1 , 2
+numberlist	1, x
+numberlist	1 2
+numberlist	x
+# waiting for other regions
+!type:color	rgb(calc(10 + 20) 2 3)
+!type:easing-function	ease-in
+!type:easing-function	step-start
+!type:easing-function	cubic-bezier(0.1, 0.2, 0.3, 0.4)
+!type:easing-function	steps(3, jump-none)
+!type:easing-function	linear(0, 0.5 50%, 1)
+!type:transform-function	rotate(45deg)
+!type:transform-list	translate(10px, 20%) scale(2)
+!type:basic-shape	circle(10px at center)
+!type:basic-shape	inset(10px round 5px)
+!type:basic-shape	polygon(evenodd, 0 0, 10px 10px)
+!type:font-style	oblique 10deg
+!type:counter	counter(foo)
+!type:corner-shape	superellipse(2)
+!type:counter-style	symbols(cyclic "a" "b")

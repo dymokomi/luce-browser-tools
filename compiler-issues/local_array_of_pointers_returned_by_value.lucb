@@ -1,0 +1,39 @@
+# Compiler issue (found by luce-browser-engine region r32, Luce 0.8.32 / luce-base 0.33.0):
+#
+# Returning a local ARRAY of pointers by value is rejected by the escape check, although the
+# pointers point into the heap (no local escapes; an array is a value, base.md §5.4). Returning
+# the same array literal directly is accepted. Related to local_array_of_views_returned_by_value
+# (there the elements hold views; here they are plain heap pointers).
+#
+# Expected: `luce-base test` passes.
+# Actual:
+#   local_array_of_pointers_returned_by_value.lucb:28:12: this pointer or view names a local and must not escape the function
+#   local_array_of_pointers_returned_by_value.lucb:34:12: this pointer or view names a local and must not escape the function
+#
+# In the port: ValueParsing.cpp's parse_lab_like_color_value / parse_lch_like_color_value return
+# `Array { move(l), move(a), move(b), move(alpha) }`; the port returns the array literal directly
+# (`return [l, a, b, alpha]`), which compiles, so no workaround is needed there.
+
+struct Node:
+    var value: i64
+
+func make(value: i64) -> Node*:
+    return new Node(value = value) else trap("out of memory")
+
+func pair_literal() -> (Node*?)[2]:
+    return [make(1), make(2)]
+
+func pair_named() -> (Node*?)[2]:
+    let values: (Node*?)[2] = [make(1), make(2)]
+    return values
+
+func pair_filled() -> (Node*?)[2]:
+    var values: (Node*?)[2]
+    values[0] = make(1)
+    values[1] = make(2)
+    return values
+
+test "arrays of heap pointers returned by value":
+    assert((pair_literal()[0] else trap("none")).value == 1)
+    assert((pair_named()[1] else trap("none")).value == 2)
+    assert((pair_filled()[1] else trap("none")).value == 2)

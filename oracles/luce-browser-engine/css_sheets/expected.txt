@@ -82,27 +82,27 @@ case sheet	@layer a, b; @layer a { x {} } @layer { y {} }
   y { }
 }
       CSSStyleRule type=1 internal=1 text=y { }
-later sheet	@namespace url(http://www.w3.org/2000/svg);
+case sheet	@namespace url(http://www.w3.org/2000/svg);
   rules 1
     CSSNamespaceRule type=10 internal=10 text=@namespace url("http://www.w3.org/2000/svg");
-later sheet	@namespace svg url(http://www.w3.org/2000/svg);
+case sheet	@namespace svg url(http://www.w3.org/2000/svg);
   rules 1
     CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
-later sheet	@namespace svg "http://www.w3.org/2000/svg";
+case sheet	@namespace svg "http://www.w3.org/2000/svg";
   rules 1
     CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
-later sheet	@namespace svg url(http://www.w3.org/2000/svg); svg|rect {}
+case sheet	@namespace svg url(http://www.w3.org/2000/svg); svg|rect {}
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
     CSSStyleRule type=1 internal=1 text=svg|rect { }
-later sheet	@namespace a url(x); @namespace b url(y); a|p {} b|q {} *|r {}
+case sheet	@namespace a url(x); @namespace b url(y); a|p {} b|q {} *|r {}
   rules 5
     CSSNamespaceRule type=10 internal=10 text=@namespace a url("x");
     CSSNamespaceRule type=10 internal=10 text=@namespace b url("y");
     CSSStyleRule type=1 internal=1 text=a|p { }
     CSSStyleRule type=1 internal=1 text=b|q { }
     CSSStyleRule type=1 internal=1 text=r { }
-later sheet	a {} @namespace x url(y);
+case sheet	a {} @namespace x url(y);
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
 case sheet	@page {}
@@ -127,7 +127,7 @@ case sheet	@keyframes "bar" {}
 case sheet	@function --foo() {}
   rules 1
     CSSFunctionRule type=0 internal=104 text=@function --foo() { }
-later sheet	@function --foo(--a, --b) {}
+case sheet	@function --foo(--a, --b) {}
   rules 1
     CSSFunctionRule type=0 internal=104 text=@function --foo(--a, --b) { }
 case sheet	@function --foo() { @layer x {} }
@@ -192,7 +192,7 @@ case dump	@layer x { a {} }
   dump:           {None} TagName:NamespaceType=Default, Namespace='', Name='a'
   dump:         Declarations (0):
   dump:         Child rules (0):
-later dump	@namespace svg url(http://www.w3.org/2000/svg);
+case dump	@namespace svg url(http://www.w3.org/2000/svg);
   dump:   CSSNamespaceRule:
   dump:     Namespace: http://www.w3.org/2000/svg
   dump:     Prefix: svg
@@ -215,7 +215,7 @@ later insert	a {}	b {}	1
   rules 2
     CSSStyleRule type=1 internal=1 text=a { }
     CSSStyleRule type=1 internal=1 text=b { }
-later insert	a {}	b {}	2
+case insert	a {}	b {}	2
   exception IndexSizeError: CSS rule index out of bounds.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
@@ -229,11 +229,11 @@ later insert	a {}	@layer x;	0
   rules 2
     CSSLayerStatementRule type=0 internal=101 text=@layer x;
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	a {}	@namespace x url(y);	0
+case insert	a {}	@namespace x url(y);	0
   exception InvalidStateError: Cannot insert @namespace rule into a stylesheet with non-namespace/import rules
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	a {}	@namespace x url(y);	1
+case insert	a {}	@namespace x url(y);	1
   exception HierarchyRequestError: Cannot insert rule at specified index.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
@@ -252,7 +252,7 @@ later insert	@namespace x url(y);	a {}	1
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	@namespace x url(y);	a {}	0
+case insert	@namespace x url(y);	a {}	0
   exception HierarchyRequestError: Cannot insert rule at specified index.
   rules 1
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
@@ -262,7 +262,7 @@ later insert	@layer a; a {}	@layer b;	1
     CSSLayerStatementRule type=0 internal=101 text=@layer a;
     CSSLayerStatementRule type=0 internal=101 text=@layer b;
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	a {}	b {} c {}	0
+case insert	a {}	b {} c {}	0
   exception SyntaxError: Unable to parse CSS rule.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
@@ -279,7 +279,7 @@ later insert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
     CSSStyleRule type=1 internal=1 text=svg|a { }
-later insert	a {}	q|a {}	1
+case insert	a {}	q|a {}	1
   exception SyntaxError: Unable to parse CSS rule.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
@@ -318,11 +318,11 @@ later addrule	a {}	b	-	0
   rules 2
     CSSStyleRule type=1 internal=1 text=b { }
     CSSStyleRule type=1 internal=1 text=a { }
-later addrule	a {}	-	-	-
+case addrule	a {}	-	-	-
   exception SyntaxError: Unable to parse CSS rule.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later addrule	a {}	b	-	5
+case addrule	a {}	b	-	5
   exception IndexSizeError: CSS rule index out of bounds.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
@@ -349,7 +349,7 @@ case ginsert	a { c {} }	b {}	2
   & c { }
 }
       CSSStyleRule type=1 internal=1 text=& c { }
-later ginsert	a {}	@namespace x url(y);	0
+case ginsert	a {}	@namespace x url(y);	0
   exception HierarchyRequestError: Cannot insert rule at specified index.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
@@ -416,11 +416,11 @@ later selector	a {}	b, c > d
   selectorText b, c > d
   rules 1
     CSSStyleRule type=1 internal=1 text=b, c > d { }
-later selector	a {}	!!!
+case selector	a {}	!!!
   selectorText a
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later selector	a {}	
+case selector	a {}	
   selectorText a
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
@@ -443,32 +443,32 @@ case pageselector	@page :left {}	!!
   selectorText :left
   rules 1
     CSSPageRule type=6 internal=6 text=@page :left { }
-later namespace	@namespace url(http://example.com/default);	
+case namespace	@namespace url(http://example.com/default);	
   namespace_uri 'http://example.com/default'
   default 'http://example.com/default'
   declared '' 
   imports 0
-later namespace	@namespace svg url(http://www.w3.org/2000/svg);	svg
+case namespace	@namespace svg url(http://www.w3.org/2000/svg);	svg
   namespace_uri 'http://www.w3.org/2000/svg'
   default none
   declared 'svg' 
   imports 0
-later namespace	@namespace svg url(http://www.w3.org/2000/svg);	html
+case namespace	@namespace svg url(http://www.w3.org/2000/svg);	html
   namespace_uri none
   default none
   declared 'svg' 
   imports 0
-later namespace	@namespace svg url(x); @namespace url(y); @namespace svg url(z);	svg
+case namespace	@namespace svg url(x); @namespace url(y); @namespace svg url(z);	svg
   namespace_uri 'z'
   default 'y'
   declared '' 'svg' 
   imports 0
-later namespace	a {} @namespace svg url(x);	svg
+case namespace	a {} @namespace svg url(x);	svg
   namespace_uri none
   default none
   declared 
   imports 0
-later namespace	@layer a; @namespace svg url(x);	svg
+case namespace	@layer a; @namespace svg url(x);	svg
   namespace_uri none
   default none
   declared 
@@ -550,20 +550,20 @@ case listinsert	a {}	q|a {}	1
   exception SyntaxError: Unable to parse CSS rule.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later listinsert	a {}	@namespace x url(y);	0
+case listinsert	a {}	@namespace x url(y);	0
   exception InvalidStateError: Cannot insert @namespace rule into a stylesheet with non-namespace/import rules
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later listinsert	@namespace x url(y);	a {}	0
+case listinsert	@namespace x url(y);	a {}	0
   exception HierarchyRequestError: Cannot insert rule at specified index.
   rules 1
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
-later listinsert	@namespace x url(y);	@namespace z url(w);	1
+case listinsert	@namespace x url(y);	@namespace z url(w);	1
   inserted at 1
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
     CSSNamespaceRule type=10 internal=10 text=@namespace z url("w");
-later listinsert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
+case listinsert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
   inserted at 1
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
@@ -585,12 +585,12 @@ case listremove	@layer x; a {}	0
   deleted
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later listremove	@namespace x url(y); a {}	0
+case listremove	@namespace x url(y); a {}	0
   exception InvalidStateError: Cannot remove @namespace rule from a stylesheet with non-namespace/import rules.
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
     CSSStyleRule type=1 internal=1 text=a { }
-later listremove	@namespace x url(y);	0
+case listremove	@namespace x url(y);	0
   deleted
   rules 0
 case selectorfree	a {}	b

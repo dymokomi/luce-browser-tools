@@ -1,0 +1,1357 @@
+case type:integer	12
+  value: 12
+  rest: 0
+case type:integer	  -7  
+  value: -7
+  rest: 1
+case type:integer	1.5
+  none
+  rest: 1
+case type:integer	+3
+  value: 3
+  rest: 0
+case type:integer	2147483648
+  value: 2147483647
+  rest: 0
+case type:integer	foo
+  none
+  rest: 1
+case type:integer	
+  none
+  rest: 0
+case !type:integer	calc(1 + 2)
+  value: calc(3)
+  rest: 0
+case type:number	1.5
+  value: 1.5
+  rest: 0
+case type:number	-0.25e2
+  value: -25
+  rest: 0
+case type:number	12px
+  none
+  rest: 1
+case type:number	3 4
+  value: 3
+  rest: 2
+case !type:number	calc(2 * 3)
+  value: calc(6)
+  rest: 0
+case !type:number	min(1, 2)
+  value: calc(1)
+  rest: 0
+case type:number	sibling-count()
+  value: sibling-count()
+  rest: 0
+case type:number	sibling-index( )
+  value: sibling-index()
+  rest: 0
+case type:number	sibling-index(1)
+  none
+  rest: 1
+case type:percentage	50%
+  value: 50%
+  rest: 0
+case type:percentage	-12.5%
+  value: -12.5%
+  rest: 0
+case type:percentage	50
+  none
+  rest: 1
+case !type:percentage	calc(10% + 5%)
+  value: calc(15%)
+  rest: 0
+case type:opacity-value	0.5
+  value: 0.5
+  rest: 0
+case type:opacity-value	50%
+  value: 0.5
+  rest: 0
+case type:opacity-value	none
+  none
+  rest: 1
+case type:length	10px
+  value: 10px
+  rest: 0
+case type:length	1.5em
+  value: 1.5em
+  rest: 0
+case type:length	0
+  value: 0px
+  rest: 0
+case type:length	-3rem
+  value: -3rem
+  rest: 0
+case type:length	5
+  none
+  rest: 1
+case type:length	10deg
+  none
+  rest: 1
+case type:length	10foo
+  none
+  rest: 1
+case svg+type:length	12.3456
+  value: 12.34375px
+  rest: 0
+case svg+type:length	0
+  value: 0px
+  rest: 0
+case !type:length	calc(10px + 1em)
+  value: calc(1em + 10px)
+  rest: 0
+case type:length	anchor-size(width)
+  none
+  rest: 1
+case prop=width+type:length	anchor-size(width)
+  value: anchor-size(width)
+  rest: 0
+case prop=width+type:length	anchor-size(--foo height, 10px)
+  value: anchor-size(--foo height, 10px)
+  rest: 0
+case prop=width+type:length	anchor-size(--foo)
+  value: anchor-size(--foo)
+  rest: 0
+case prop=width+type:length	anchor-size(10px)
+  value: anchor-size(10px)
+  rest: 0
+case prop=width+type:length	anchor-size(width, 10px)
+  value: anchor-size(width, 10px)
+  rest: 0
+case prop=width+type:length	anchor-size(width 10px)
+  none
+  rest: 1
+case prop=width+type:length	anchor-size(, 10px)
+  none
+  rest: 1
+case prop=width+type:length	anchor-size(width width)
+  none
+  rest: 1
+case prop=width+type:length	anchor-size(foo)
+  none
+  rest: 1
+case prop=color+type:length	anchor-size(width)
+  none
+  rest: 1
+case type:length-percentage	10%
+  value: 10%
+  rest: 0
+case type:length-percentage	10px
+  value: 10px
+  rest: 0
+case type:length-percentage	0
+  value: 0px
+  rest: 0
+case type:length-percentage	auto
+  none
+  rest: 1
+case type:angle	45deg
+  value: 45deg
+  rest: 0
+case type:angle	1.5turn
+  value: 1.5turn
+  rest: 0
+case type:angle	-100grad
+  value: -100grad
+  rest: 0
+case type:angle	2rad
+  value: 2rad
+  rest: 0
+case type:angle	0
+  none
+  rest: 1
+case svg+type:angle	45
+  value: 45deg
+  rest: 0
+case type:angle	45px
+  none
+  rest: 1
+case type:angle-percentage	10%
+  value: 10%
+  rest: 0
+case type:angle-percentage	10deg
+  value: 10deg
+  rest: 0
+case type:flex	1fr
+  value: 1fr
+  rest: 0
+case type:flex	2.5fr
+  value: 2.5fr
+  rest: 0
+case type:flex	1px
+  none
+  rest: 1
+case type:flex	1
+  none
+  rest: 1
+case type:frequency	10hz
+  value: 10Hz
+  rest: 0
+case type:frequency	2kHz
+  value: 2kHz
+  rest: 0
+case type:frequency-percentage	50%
+  value: 50%
+  rest: 0
+case type:resolution	2dppx
+  value: 2dppx
+  rest: 0
+case type:resolution	96dpi
+  value: 96dpi
+  rest: 0
+case type:resolution	-1x
+  none
+  rest: 1
+case type:resolution	1x
+  value: 1x
+  rest: 0
+case type:time	1s
+  value: 1s
+  rest: 0
+case type:time	250ms
+  value: 250ms
+  rest: 0
+case type:time	1
+  none
+  rest: 1
+case type:time-percentage	10%
+  value: 10%
+  rest: 0
+case keyword	auto
+  value: auto
+  rest: 0
+case keyword	  BLOCK
+  value: block
+  rest: 0
+case keyword	notakeyword
+  none
+  rest: 1
+case keyword	12
+  none
+  rest: 1
+case builtin	inherit
+  value: inherit
+  rest: 0
+case builtin	INITIAL
+  value: initial
+  rest: 0
+case builtin	unset
+  value: unset
+  rest: 0
+case builtin	revert
+  value: revert
+  rest: 0
+case builtin	revert-layer
+  value: revert-layer
+  rest: 0
+case builtin	auto
+  none
+  rest: 1
+case customident	foo
+  'foo'
+  rest: 0
+case customident	none
+  none
+  rest: 1
+case customident	inherit
+  none
+  rest: 1
+case customident	default
+  none
+  rest: 1
+case customident	12
+  none
+  rest: 1
+case type:custom-ident	bar
+  value: bar
+  rest: 0
+case type:custom-ident	initial
+  none
+  rest: 1
+case dashedident	--foo
+  '--foo'
+  rest: 0
+case dashedident	-foo
+  none
+  rest: 1
+case dashedident	foo
+  none
+  rest: 1
+case type:dashed-ident	  --x
+  value: --x
+  rest: 0
+case type:string	"hello"
+  value: "hello"
+  rest: 0
+case type:string	'a\"b'
+  value: "a\"b"
+  rest: 0
+case type:string	hello
+  none
+  rest: 1
+case type:opentype-tag	"liga"
+  value: "liga"
+  rest: 0
+case type:opentype-tag	"lig"
+  none
+  rest: 1
+case type:opentype-tag	"ligat"
+  none
+  rest: 1
+case type:opentype-tag	"l\9 ga"
+  none
+  rest: 1
+case family	"Times New Roman"
+  value: "Times New Roman"
+  rest: 0
+case family	Times New Roman
+  value: Times\ New\ Roman
+  rest: 0
+case family	  Arial  
+  value: Arial
+  rest: 0
+case family	serif
+  none
+  rest: 1
+case family	sans-serif foo
+  value: sans-serif\ foo
+  rest: 0
+case family	inherit
+  none
+  rest: 1
+case family	default
+  none
+  rest: 1
+case family	foo "bar"
+  none
+  rest: 3
+case family	12
+  none
+  rest: 1
+case type:url	url(foo.png)
+  value: url("foo.png")
+  rest: 0
+case type:url	url("foo.png")
+  value: url("foo.png")
+  rest: 0
+case type:url	url( "a b.png" )
+  value: url("a b.png")
+  rest: 0
+case type:url	src("x")
+  value: src("x")
+  rest: 0
+case type:url	url(foo.png) bar
+  value: url("foo.png")
+  rest: 2
+case type:url	foo
+  none
+  rest: 1
+case url	url("a.png" cross-origin(anonymous))
+  url: url("a.png" cross-origin(anonymous)) / a.png
+  rest: 0
+case url	url("a.png" referrer-policy(no-referrer) integrity("sha") cross-origin(use-credentials))
+  url: url("a.png" cross-origin(use-credentials) integrity("sha") referrer-policy(no-referrer)) / a.png
+  rest: 0
+case url	url("a.png" cross-origin(anonymous) cross-origin(anonymous))
+  none
+  rest: 1
+case url	url("a.png" cross-origin(bogus))
+  none
+  rest: 1
+case url	url("a.png" integrity(foo))
+  none
+  rest: 1
+case url	url("a.png" bogus(1))
+  none
+  rest: 1
+  error: Unable to parse <url> from `url("a.png" bogus(1))`: Unrecognized URL modifier: bogus(1) (1)
+case url	url("a.png" cross-origin())
+  none
+  rest: 1
+case url	url(a.png)
+  url: url("a.png") / a.png
+  rest: 0
+case url	src("b.png")
+  url: src("b.png") / b.png
+  rest: 0
+case url	url()
+  url: url("") / 
+  rest: 0
+case url	url(12)
+  url: url("12") / 12
+  rest: 0
+case type:color	red
+  value: red
+  rest: 0
+case type:color	ReD
+  value: red
+  rest: 0
+case type:color	transparent
+  value: transparent
+  rest: 0
+case type:color	currentcolor
+  value: currentcolor
+  rest: 0
+case type:color	canvastext
+  value: canvastext
+  rest: 0
+case type:color	#abc
+  value: rgb(170, 187, 204)
+  rest: 0
+case type:color	#aabbcc
+  value: rgb(170, 187, 204)
+  rest: 0
+case type:color	#aabbccdd
+  value: rgba(170, 187, 204, 0.867)
+  rest: 0
+case type:color	#abcd
+  value: rgba(170, 187, 204, 0.867)
+  rest: 0
+case type:color	#ab
+  none
+  rest: 1
+case type:color	#ggg
+  none
+  rest: 1
+case type:color	abc
+  none
+  rest: 1
+case type:color	notacolor
+  none
+  rest: 1
+case type:color	rgb(1, 2, 3)
+  value: rgb(1, 2, 3)
+  rest: 0
+case type:color	rgba(1, 2, 3, 0.5)
+  value: rgba(1, 2, 3, 0.5)
+  rest: 0
+case type:color	rgb(10%, 20%, 30%)
+  value: rgb(26, 51, 77)
+  rest: 0
+case type:color	rgb(10%, 20, 30%)
+  none
+  rest: 1
+case type:color	rgb(1 2 3)
+  value: rgb(1, 2, 3)
+  rest: 0
+case type:color	rgb(1 2 3 / 50%)
+  value: rgba(1, 2, 3, 0.5)
+  rest: 0
+case type:color	rgb(none 2 3)
+  value: rgb(0, 2, 3)
+  rest: 0
+case type:color	rgb(none, 2, 3)
+  none
+  rest: 1
+case type:color	rgb(1, 2)
+  none
+  rest: 1
+case type:color	rgb(1 2 3 4)
+  none
+  rest: 1
+case type:color	rgb(1, 2, 3, 4, 5)
+  none
+  rest: 1
+case type:color	rgb(1 2 3 / none)
+  value: rgba(1, 2, 3, 0)
+  rest: 0
+case type:color	rgba(255 0 0 / 0.25)
+  value: rgba(255, 0, 0, 0.25)
+  rest: 0
+case type:color	hsl(120, 50%, 50%)
+  value: rgb(64, 191, 64)
+  rest: 0
+case type:color	hsla(120deg, 50%, 50%, 0.3)
+  value: rgba(64, 191, 64, 0.3)
+  rest: 0
+case type:color	hsl(120 50% 50%)
+  value: rgb(64, 191, 64)
+  rest: 0
+case type:color	hsl(120 50 50 / 10%)
+  value: rgba(64, 191, 64, 0.1)
+  rest: 0
+case type:color	hsl(none 50% 50%)
+  value: rgb(191, 64, 64)
+  rest: 0
+case type:color	hsl(120, 50, 50%)
+  none
+  rest: 1
+case type:color	hsl(1turn, 10%, 20%)
+  value: rgb(56, 46, 46)
+  rest: 0
+case type:color	hwb(120 10% 20%)
+  value: rgb(26, 204, 26)
+  rest: 0
+case type:color	hwb(120 10% 20% / 0.5)
+  value: rgba(26, 204, 26, 0.5)
+  rest: 0
+case type:color	hwb(120, 10%, 20%)
+  none
+  rest: 1
+case type:color	lab(50% 20 30)
+  value: lab(50 20 30)
+  rest: 0
+case type:color	lab(50 20 30 / 0.5)
+  value: lab(50 20 30 / 0.5)
+  rest: 0
+case type:color	oklab(0.5 0.1 0.1)
+  value: oklab(0.5 0.1 0.1)
+  rest: 0
+case type:color	lch(50% 30 120)
+  value: lch(50 30 120)
+  rest: 0
+case type:color	lch(50% 30 120deg / 50%)
+  value: lch(50 30 120 / 0.5)
+  rest: 0
+case type:color	oklch(0.5 0.1 30)
+  value: oklch(0.5 0.1 30)
+  rest: 0
+case type:color	oklch(0.5 0.1)
+  none
+  rest: 1
+case type:color	color(srgb 0.1 0.2 0.3)
+  value: color(srgb 0.1 0.2 0.3)
+  rest: 0
+case type:color	color(display-p3 1 0 0 / 0.5)
+  value: color(display-p3 1 0 0 / 0.5)
+  rest: 0
+case type:color	color(XYZ-D65 0.1 0.2 0.3)
+  value: color(xyz-d65 0.1 0.2 0.3)
+  rest: 0
+case type:color	color(foo 1 2 3)
+  none
+  rest: 1
+case type:color	color(srgb 1 2)
+  none
+  rest: 1
+case type:color	color-mix(in srgb, red, blue)
+  value: color-mix(in srgb, red, blue)
+  rest: 0
+case type:color	color-mix(in oklch longer hue, red 20%, blue)
+  value: color-mix(in oklch longer hue, red 20%, blue)
+  rest: 0
+case type:color	color-mix(red 0%, blue 0%)
+  none
+  rest: 1
+case type:color	color-mix(red, blue)
+  value: color-mix(red, blue)
+  rest: 0
+case type:color	color-mix(in hsl, red 30%, 40% blue)
+  value: color-mix(in hsl, red 30%, blue 40%)
+  rest: 0
+case type:color	color-mix(in foo, red, blue)
+  none
+  rest: 1
+case type:color	light-dark(red, blue)
+  value: light-dark(red, blue)
+  rest: 0
+case type:color	light-dark(red)
+  none
+  rest: 1
+case type:color	light-dark(red, blue, green)
+  none
+  rest: 1
+case type:color	rgb(1 2 3) foo
+  value: rgb(1, 2, 3)
+  rest: 2
+case cim	in srgb
+  value: in srgb
+  rest: 0
+case cim	in xyz
+  value: in xyz-d65
+  rest: 0
+case cim	in hsl
+  value: in hsl
+  rest: 0
+case cim	in hsl longer hue
+  value: in hsl longer hue
+  rest: 0
+case cim	in hsl shorter
+  none
+  rest: 5
+case cim	in oklch increasing HUE
+  value: in oklch increasing hue
+  rest: 0
+case cim	in hsl foo hue
+  value: in hsl
+  rest: 3
+case cim	in foo
+  none
+  rest: 3
+case cim	srgb
+  none
+  rest: 1
+case cim	in --custom
+  none
+  rest: 3
+case type:image	url(a.png)
+  value: url("a.png")
+  rest: 0
+case type:image	url(#mask)
+  none
+  rest: 1
+case type:image	image-set("a.png" 1x, "b.png" 2x)
+  value: image-set(url("a.png") 1x, url("b.png") 2x)
+  rest: 0
+case type:image	image-set("a.png" 1x type("image/png"))
+  value: image-set(url("a.png") 1x type("image/png"))
+  rest: 0
+case type:image	image-set(url(a.png) 2dppx)
+  value: image-set(url("a.png") 2dppx)
+  rest: 0
+case type:image	-webkit-image-set("a.png")
+  value: image-set(url("a.png") 1x)
+  rest: 0
+case type:image	image-set()
+  none
+  rest: 1
+case type:image	image-set("a.png" 1x 2x)
+  none
+  rest: 1
+case type:image	image-set("a.png" foo)
+  none
+  rest: 1
+case type:image	linear-gradient(red, blue)
+  value: linear-gradient(red, blue)
+  rest: 0
+case type:image	linear-gradient(to right, red, blue)
+  value: linear-gradient(to right, red, blue)
+  rest: 0
+case type:image	linear-gradient(to top left, red, blue)
+  value: linear-gradient(to left top, red, blue)
+  rest: 0
+case type:image	linear-gradient(to left top, red, blue)
+  value: linear-gradient(to left top, red, blue)
+  rest: 0
+case type:image	linear-gradient(to top bottom, red, blue)
+  none
+  rest: 1
+case type:image	linear-gradient(45deg, red 10%, blue 90%)
+  value: linear-gradient(45deg, red 10%, blue 90%)
+  rest: 0
+case type:image	linear-gradient(0, red, blue)
+  value: linear-gradient(0deg, red, blue)
+  rest: 0
+case type:image	linear-gradient(in oklab, red, blue)
+  value: linear-gradient(in oklab, red, blue)
+  rest: 0
+case type:image	linear-gradient(90deg in hsl longer hue, red, blue)
+  value: linear-gradient(90deg in hsl longer hue, red, blue)
+  rest: 0
+case type:image	linear-gradient(red 10% 20%, blue)
+  value: linear-gradient(red 10% 20%, blue)
+  rest: 0
+case type:image	linear-gradient(red, 30%, blue)
+  value: linear-gradient(red, 30%, blue)
+  rest: 0
+case type:image	linear-gradient(red, 30%, 40%, blue)
+  none
+  rest: 1
+case type:image	linear-gradient(red)
+  value: linear-gradient(red)
+  rest: 0
+case type:image	linear-gradient(to, red, blue)
+  none
+  rest: 1
+case type:image	linear-gradient()
+  none
+  rest: 1
+case type:image	repeating-linear-gradient(red 0px, blue 10px)
+  value: repeating-linear-gradient(red 0px, blue 10px)
+  rest: 0
+case type:image	-webkit-linear-gradient(top, red, blue)
+  value: -webkit-linear-gradient(red, blue)
+  rest: 0
+case type:image	-webkit-linear-gradient(left top, red, blue)
+  value: -webkit-linear-gradient(left top, red, blue)
+  rest: 0
+case type:image	-webkit-repeating-linear-gradient(red, blue)
+  value: -webkit-repeating-linear-gradient(red, blue)
+  rest: 0
+case type:image	LINEAR-GRADIENT(red, blue)
+  value: linear-gradient(red, blue)
+  rest: 0
+case type:image	conic-gradient(red, blue)
+  value: conic-gradient(red, blue)
+  rest: 0
+case type:image	conic-gradient(from 45deg, red, blue)
+  value: conic-gradient(from 45deg, red, blue)
+  rest: 0
+case type:image	conic-gradient(from 0, red, blue)
+  value: conic-gradient(from 0deg, red, blue)
+  rest: 0
+case type:image	conic-gradient(at center, red, blue)
+  value: conic-gradient(red, blue)
+  rest: 0
+case type:image	conic-gradient(from 10deg at left top, red, blue)
+  value: conic-gradient(from 10deg at left top, red, blue)
+  rest: 0
+case type:image	conic-gradient(in hsl, red, blue)
+  value: conic-gradient(in hsl, red, blue)
+  rest: 0
+case type:image	conic-gradient(red 0deg, blue 90deg, green 50%)
+  value: conic-gradient(red 0deg, blue 90deg, green 50%)
+  rest: 0
+case type:image	conic-gradient(red 0, blue)
+  value: conic-gradient(red 0deg, blue)
+  rest: 0
+case type:image	conic-gradient(at center from 10deg, red, blue)
+  none
+  rest: 1
+case type:image	conic-gradient(from, red, blue)
+  none
+  rest: 1
+case type:image	repeating-conic-gradient(red, blue 20deg)
+  value: repeating-conic-gradient(red, blue 20deg)
+  rest: 0
+case type:image	radial-gradient(red, blue)
+  value: radial-gradient(red, blue)
+  rest: 0
+case type:image	radial-gradient(circle, red, blue)
+  value: radial-gradient(red, blue)
+  rest: 0
+case type:image	radial-gradient(ellipse, red, blue)
+  value: radial-gradient(red, blue)
+  rest: 0
+case type:image	radial-gradient(circle 10px, red, blue)
+  value: radial-gradient(10px, red, blue)
+  rest: 0
+case type:image	radial-gradient(10px circle, red, blue)
+  value: radial-gradient(10px, red, blue)
+  rest: 0
+case type:image	radial-gradient(10px, red, blue)
+  value: radial-gradient(10px, red, blue)
+  rest: 0
+case type:image	radial-gradient(10px 20px, red, blue)
+  value: radial-gradient(10px 20px, red, blue)
+  rest: 0
+case type:image	radial-gradient(ellipse 10px, red, blue)
+  none
+  rest: 1
+case type:image	radial-gradient(circle 10px 20px, red, blue)
+  none
+  rest: 1
+case type:image	radial-gradient(closest-side, red, blue)
+  value: radial-gradient(closest-side, red, blue)
+  rest: 0
+case type:image	radial-gradient(ellipse farthest-side at left, red, blue)
+  value: radial-gradient(farthest-side at left center, red, blue)
+  rest: 0
+case type:image	radial-gradient(at 10px 20px, red, blue)
+  value: radial-gradient(at 10px 20px, red, blue)
+  rest: 0
+case type:image	radial-gradient(in srgb, red, blue)
+  value: radial-gradient(red, blue)
+  rest: 0
+case type:image	radial-gradient(circle in hsl, red, blue)
+  value: radial-gradient(in hsl, red, blue)
+  rest: 0
+case type:image	repeating-radial-gradient(red, blue 10px)
+  value: repeating-radial-gradient(red, blue 10px)
+  rest: 0
+case type:image	radial-gradient(circle red, blue)
+  none
+  rest: 1
+case type:image	foo(red)
+  none
+  rest: 1
+case type:image	none
+  none
+  rest: 1
+case type:position	left
+  value: left center
+  rest: 0
+case type:position	center
+  value: center center
+  rest: 0
+case type:position	top
+  value: center top
+  rest: 0
+case type:position	10px
+  value: 10px center
+  rest: 0
+case type:position	left top
+  value: left top
+  rest: 0
+case type:position	top left
+  value: left top
+  rest: 0
+case type:position	center center
+  value: center center
+  rest: 0
+case type:position	10px 20%
+  value: 10px 20%
+  rest: 0
+case type:position	left 10px top 20px
+  value: left 10px top 20px
+  rest: 0
+case type:position	top 10px left 20px
+  value: left 20px top 10px
+  rest: 0
+case type:position	left top 10px
+  value: left top
+  rest: 2
+case type:position	right 10px center
+  value: right 10px
+  rest: 2
+case type:position	left left
+  value: left center
+  rest: 2
+case type:position	10px top
+  value: 10px top
+  rest: 0
+case type:position	top 10px
+  value: center top
+  rest: 2
+case type:background-position	left 10px top
+  value: left 10px top
+  rest: 0
+case type:background-position	center top 10px
+  value: center top 10px
+  rest: 0
+case type:background-position	right 5px center
+  value: right 5px center
+  rest: 0
+case type:background-position	center 10px top
+  value: center 10px
+  rest: 2
+case type:background-position	left top
+  value: left top
+  rest: 0
+case type:paint	red
+  value: red
+  rest: 0
+case type:paint	none
+  value: none
+  rest: 0
+case type:paint	context-fill
+  none
+  rest: 1
+case type:paint	url(#grad)
+  value: url("#grad")
+  rest: 0
+case type:paint	url(#grad) red
+  value: url("#grad") red
+  rest: 0
+case type:paint	url(#grad) none
+  value: url("#grad")
+  rest: 0
+case type:paint	url(#grad) bogus
+  value: url("#grad")
+  rest: 1
+case type:paint	12
+  none
+  rest: 1
+case type:rect	rect(1px, 2px, 3px, 4px)
+  value: rect(1px, 2px, 3px, 4px)
+  rest: 0
+case type:rect	rect(1px 2px 3px 4px)
+  value: rect(1px, 2px, 3px, 4px)
+  rest: 0
+case type:rect	rect(auto, auto, 3px, auto)
+  value: rect(auto, auto, 3px, auto)
+  rest: 0
+case type:rect	rect(1px, 2px 3px, 4px)
+  none
+  rest: 1
+case type:rect	rect(1px, 2px, 3px)
+  none
+  rest: 1
+case type:rect	rect(1px, 2px, 3px, 4px, 5px)
+  none
+  rest: 1
+case type:rect	rect(1%, 2px, 3px, 4px)
+  none
+  rest: 1
+case type:ratio	16 / 9
+  value: 16 / 9
+  rest: 0
+case type:ratio	2
+  value: 2 / 1
+  rest: 0
+case type:ratio	16/9
+  value: 16 / 9
+  rest: 0
+case type:ratio	-1
+  none
+  rest: 1
+case type:ratio	1 /
+  none
+  rest: 3
+case type:scroll-function	scroll()
+  value: scroll()
+  rest: 0
+case type:scroll-function	scroll(root)
+  value: scroll(root)
+  rest: 0
+case type:scroll-function	scroll(nearest block)
+  value: scroll()
+  rest: 0
+case type:scroll-function	scroll(inline self)
+  value: scroll(self inline)
+  rest: 0
+case type:scroll-function	scroll(root root)
+  none
+  rest: 1
+case type:scroll-function	scroll(foo)
+  none
+  rest: 1
+case type:view-function	view()
+  value: view()
+  rest: 0
+case type:view-function	view(inline)
+  value: view(inline)
+  rest: 0
+case type:view-function	view(10px)
+  value: view(10px)
+  rest: 0
+case type:view-function	view(auto auto)
+  value: view()
+  rest: 0
+case type:view-function	view(10px 20% x)
+  value: view(x 10px 20%)
+  rest: 0
+case type:view-function	view(block block)
+  none
+  rest: 1
+case type:view-timeline-inset	auto
+  value: auto
+  rest: 0
+case type:view-timeline-inset	10px auto
+  value: 10px auto
+  rest: 0
+case type:view-timeline-inset	10px 20px 30px
+  value: 10px 20px
+  rest: 2
+case type:fit-content	fit-content
+  value: fit-content
+  rest: 0
+case type:fit-content	fit-content(10px)
+  value: fit-content(10px)
+  rest: 0
+case type:fit-content	fit-content(10%)
+  value: fit-content(10%)
+  rest: 0
+case type:fit-content	FIT-CONTENT(10px)
+  none
+  rest: 1
+case type:fit-content	fit-content(10px 20px)
+  none
+  rest: 1
+case type:anchor	anchor(top)
+  value: anchor(top)
+  rest: 0
+case type:anchor	anchor(--foo bottom)
+  value: anchor(--foo bottom)
+  rest: 0
+case type:anchor	anchor(left --bar, 10px)
+  value: anchor(--bar left, 10px)
+  rest: 0
+case type:anchor	anchor(50%)
+  value: anchor(50%)
+  rest: 0
+case type:anchor	anchor(10px)
+  none
+  rest: 1
+case type:anchor	anchor(foo)
+  none
+  rest: 1
+case type:anchor	anchor(--a --b top)
+  none
+  rest: 1
+case type:anchor	anchor(top, anchor(bottom))
+  value: anchor(top, anchor(bottom))
+  rest: 0
+case type:anchor	anchor(--x)
+  none
+  rest: 1
+case radialsize	closest-side
+  value: closest-side
+  rest: 0
+case radialsize	10px 20%
+  value: 10px 20%
+  rest: 0
+case radialsize	farthest-corner 10px
+  value: farthest-corner 10px
+  rest: 0
+case radialsize	-10px
+  none
+  rest: 1
+case radialsize	foo
+  none
+  rest: 1
+case borderradius	10px
+  value: 10px
+  rest: 0
+case borderradius	10px 20px
+  value: 10px 20px
+  rest: 0
+case borderradius	1px 2px 3px
+  value: 1px 2px 3px
+  rest: 0
+case borderradius	1px 2px 3px 4px
+  value: 1px 2px 3px 4px
+  rest: 0
+case borderradius	1px / 2px
+  value: 1px / 2px
+  rest: 0
+case borderradius	1px 2px / 3px 4px 5px
+  value: 1px 2px / 3px 4px 5px
+  rest: 0
+case borderradius	/ 2px
+  none
+  rest: 3
+case borderradius	1px /
+  none
+  rest: 3
+case borderradius	1px / 2px / 3px
+  none
+  rest: 9
+case borderradius	1px 2px 3px 4px 5px
+  none
+  rest: 9
+case borderradius	-1px
+  none
+  rest: 1
+case urange	U+26
+  38-38
+  rest: 0
+case urange	u+0-7F
+  0-127
+  rest: 0
+case urange	U+0025-00FF
+  37-255
+  rest: 0
+case urange	U+4??
+  1024-1279
+  rest: 0
+case urange	u+1e1ee
+  123374-123374
+  rest: 0
+case urange	u+1e-1f
+  30-31
+  rest: 0
+case urange	U+ABCDEF0
+  none
+  rest: 3
+  error: Unable to parse <urange> from `+ABCDEF0`: Start value had 7 digits/?s, expected between 1 and 6. (1)
+case urange	U+110000
+  none
+  rest: 2
+  error: Unable to parse <urange> from `+110000`: end_value (1114112) > maximum (1114111) (1)
+case urange	U+20-10
+  none
+  rest: 3
+  error: Unable to parse <urange> from `+20-10`: start_value (32) > end_value (16) (1)
+case urange	foo
+  none
+  rest: 1
+  error: Unable to parse <urange> from `foo`: Doesn't start with 'u'. (1)
+case urange	U+?? 
+  0-255
+  rest: 1
+case urange	u+0?-ff
+  none
+  rest: 4
+  error: Unable to parse <urange> from `u0?-ff`: Did not match grammar. (1)
+case urange	u+1-
+  none
+  rest: 3
+  error: Unable to parse <urange> from `u1-`: Did not match grammar. (1)
+case urange	u1
+  none
+  rest: 1
+  error: Unable to parse <urange> from `u1`: Doesn't start with 'u'. (1)
+case urangetext	+1F-2F
+  31-47
+  rest: 1
+case urangetext	-1F
+  none
+  rest: 1
+  error: Unable to parse <urange> from `-1F`: Second character was '-', expected '+'. (1)
+case urangetext	+
+  none
+  rest: 1
+  error: Unable to parse <urange> from `+`: Start value had 0 digits/?s, expected between 1 and 6. (1)
+case urangetext	+12345678
+  none
+  rest: 1
+  error: Unable to parse <urange> from `+12345678`: Start value had 8 digits/?s, expected between 1 and 6. (1)
+case urangetext	+1??x
+  none
+  rest: 4
+  error: Unable to parse <urange> from `+1??x`: Has 1 trailing unused code points. (1)
+case urangetext	+1-x
+  none
+  rest: 1
+  error: Unable to parse <urange> from `+1-x`: End value had 0 digits, expected between 1 and 6. (1)
+case urangetext	+1-1234567
+  none
+  rest: 2
+  error: Unable to parse <urange> from `+1-1234567`: End value had 7 digits, expected between 1 and 6. (1)
+case urangetext	+1-2x
+  none
+  rest: 2
+  error: Unable to parse <urange> from `+1-2x`: Has 1 trailing unused code points. (1)
+case uranges	U+0-7F, U+100-17F
+  2 ranges: 0-127 256-383 
+  rest: 0
+case uranges	U+0-7F, foo
+  0 ranges: 
+  rest: 0
+  error: Unable to parse <urange> from ` foo`: Doesn't start with 'u'. (1)
+case uranges	
+  0 ranges: 
+  rest: 0
+case urangevalue	U+0-7F
+  value: U+0-7F
+  rest: 0
+case declvalue	foo bar
+  3: [foo][ ][bar]
+  rest: 0
+case declvalue	a; b
+  1: [a]
+  rest: 3
+case declvalue	a ! b
+  2: [a][ ]
+  rest: 3
+case declvalue	(a; b) c
+  3: [(a; b)][ ][c]
+  rest: 0
+case declvalue	[a ! b]
+  1: [[a ! b]]
+  rest: 0
+case declvalue	f(x; y)
+  1: [f(x; y)]
+  rest: 0
+case declvalue	a ) b
+  2: [a][ ]
+  rest: 3
+case declvalue	
+  none
+  rest: 0
+case declvalue:comma	a, b
+  1: [a]
+  rest: 3
+case declvalue:comma	(a, b), c
+  1: [(a, b)]
+  rest: 3
+case counterstylename	decimal
+  'decimal'
+  rest: 0
+case counterstylename	DECIMAL
+  'decimal'
+  rest: 0
+case counterstylename	Disc
+  'disc'
+  rest: 0
+case counterstylename	my-style
+  'my-style'
+  rest: 0
+case counterstylename	none
+  none
+  rest: 1
+case linenames	[a b]
+  names: '[a b]'
+  rest: 0
+case linenames	[]
+  names: '[]'
+  rest: 0
+case linenames	[span]
+  none
+  rest: 1
+case linenames	[a 1]
+  none
+  rest: 1
+case linenames	a
+  names: '[]'
+  rest: 1
+case tracklist	10px 1fr
+  list: '10px 1fr'
+  rest: 0
+case tracklist	[a] 10px [b c] auto [d]
+  list: '[a] 10px [b c] auto [d]'
+  rest: 0
+case tracklist	minmax(10px, 1fr) fit-content(20px)
+  list: 'minmax(10px, 1fr) fit-content(20px)'
+  rest: 0
+case tracklist	repeat(2, 10px [x] 20px)
+  list: 'repeat(2, 10px [x] 20px)'
+  rest: 0
+case tracklist	repeat(auto-fill, 10px)
+  list: 'none'
+  rest: 1
+case tracklist	min-content max-content auto
+  list: 'min-content max-content auto'
+  rest: 0
+case tracklist	-1px
+  list: 'none'
+  rest: 1
+case tracklist	minmax(1fr, 10px)
+  list: 'none'
+  rest: 1
+case autotracklist	10px repeat(auto-fill, 20px) 30px
+  list: '10px repeat(auto-fill, 20px) 30px'
+  rest: 0
+case autotracklist	repeat(auto-fit, minmax(10px, 1fr))
+  list: 'repeat(auto-fit, minmax(10px, 1fr))'
+  rest: 0
+case autotracklist	repeat(auto-fit, [a] 10px [b])
+  list: 'repeat(auto-fit, [a] 10px [b])'
+  rest: 0
+case autotracklist	10px repeat(2, 20px)
+  list: '10px repeat(2, 20px)'
+  rest: 0
+case autotracklist	repeat(auto-fill, 1fr)
+  list: 'none'
+  rest: 1
+case explicittracklist	10px [a] 20%
+  list: '10px [a] 20%'
+  rest: 0
+case explicittracklist	repeat(2, 10px)
+  list: 'none'
+  rest: 1
+case type:font-variant-east-asian	jis78 full-width ruby
+  value: jis78 full-width ruby
+  rest: 0
+case type:font-variant-east-asian	ruby ruby
+  none
+  rest: 2
+case type:font-variant-east-asian	normal
+  none
+  rest: 1
+case type:font-variant-numeric	ordinal slashed-zero lining-nums tabular-nums diagonal-fractions
+  value: lining-nums tabular-nums diagonal-fractions ordinal slashed-zero
+  rest: 0
+case type:font-variant-numeric	oldstyle-nums lining-nums
+  none
+  rest: 2
+case type:font-variant-ligatures	no-common-ligatures contextual
+  value: no-common-ligatures contextual
+  rest: 0
+case type:font-variant-ligatures	historical-ligatures discretionary-ligatures no-historical-ligatures
+  none
+  rest: 2
+case type:font-variant-alternates	historical-forms stylistic(foo)
+  value: stylistic(foo) historical-forms
+  rest: 0
+case type:font-variant-alternates	styleset(a, b) character-variant(c) swash(d) ornaments(e) annotation(f)
+  value: styleset(a, b) character-variant(c) swash(d) ornaments(e) annotation(f)
+  rest: 0
+case type:font-variant-alternates	stylistic(a, b)
+  none
+  rest: 1
+case type:font-variant-alternates	historical-forms historical-forms
+  none
+  rest: 0
+case type:font-variant-alternates	swash()
+  none
+  rest: 1
+case type:font-variant-alternates	foo
+  none
+  rest: 1
+case type:corner-shape	round
+  value: round
+  rest: 0
+case type:corner-shape	SQUIRCLE
+  value: squircle
+  rest: 0
+case type:corner-shape	foo
+  none
+  rest: 1
+case type:corner-shape	auto
+  none
+  rest: 1
+case prop=width+random	auto
+  value: 
+  rest: 1
+case prop=width+random	--foo element-shared
+  value: --foo element-shared
+  rest: 3
+case prop=width+random	element-shared
+  value: element-shared
+  rest: 1
+case prop=width+random	element-shared auto
+  value: element-shared
+  rest: 3
+case prop=width+random	--a --b
+  none
+  rest: 3
+case prop=width+random	auto --a
+  none
+  rest: 3
+case prop=width+random	fixed 0.5
+  value: fixed 0.5
+  rest: 0
+case prop=width+random	fixed 1
+  none
+  rest: 3
+case prop=width+random	fixed 0.5 x
+  none
+  rest: 5
+case prop=width+random	12
+  none
+  rest: 1
+case prop=width+random	
+  none
+  rest: 0
+case numberlist	1, 2, 3
+  value: 1, 2, 3
+  rest: 0
+case numberlist	1 , 2
+  value: 1, 2
+  rest: 0
+case numberlist	1, x
+  none
+  rest: 1
+case numberlist	1 2
+  none
+  rest: 0
+case numberlist	x
+  none
+  rest: 1
+case !type:color	rgb(calc(10 + 20) 2 3)
+  value: rgb(30, 2, 3)
+  rest: 0
+case !type:easing-function	ease-in
+  none
+  rest: 1
+case !type:easing-function	step-start
+  value: steps(1, start)
+  rest: 0
+case !type:easing-function	cubic-bezier(0.1, 0.2, 0.3, 0.4)
+  value: cubic-bezier(0.1, 0.2, 0.3, 0.4)
+  rest: 0
+case !type:easing-function	steps(3, jump-none)
+  value: steps(3, jump-none)
+  rest: 0
+case !type:easing-function	linear(0, 0.5 50%, 1)
+  value: linear(0, 0.5 50%, 1)
+  rest: 0
+case !type:transform-function	rotate(45deg)
+  value: rotate(45deg)
+  rest: 0
+case !type:transform-list	translate(10px, 20%) scale(2)
+  value: translate(10px, 20%) scale(2)
+  rest: 0
+case !type:basic-shape	circle(10px at center)
+  value: circle(10px at center center)
+  rest: 0
+case !type:basic-shape	inset(10px round 5px)
+  value: inset(10px round 5px)
+  rest: 0
+case !type:basic-shape	polygon(evenodd, 0 0, 10px 10px)
+  value: polygon(evenodd, 0px 0px, 10px 10px)
+  rest: 0
+case !type:font-style	oblique 10deg
+  value: oblique 10deg
+  rest: 0
+case !type:counter	counter(foo)
+  value: counter(foo)
+  rest: 0
+case !type:corner-shape	superellipse(2)
+  value: superellipse(2)
+  rest: 0
+case !type:counter-style	symbols(cyclic "a" "b")
+  value: symbols(cyclic "a" "b")
+  rest: 0
