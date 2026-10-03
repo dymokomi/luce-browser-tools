@@ -5,7 +5,7 @@ closing delimiter is in column 0; backslashes escaped)."""
 import sys, os
 here = os.path.dirname(os.path.abspath(__file__))
 expected = sys.argv[1] if len(sys.argv) > 1 else os.path.join(here, 'expected.txt')
-output = sys.argv[2] if len(sys.argv) > 2 else '/Users/sedov/Dev/luce_dev/luce-browser-engine-r36/src/luce_browser_engine/web/css/tests_css_values_units_expected.lucb'
+output = sys.argv[2] if len(sys.argv) > 2 else '/Users/sedov/Dev/luce_dev/luce-browser-engine-r36/src/web/css/tests_css_values_units_expected.lucb'
 text = open(expected, encoding='utf-8').read()
 assert '"""' not in text and '\t' not in text and '\r' not in text
 body = text.replace('\\', '\\\\')
