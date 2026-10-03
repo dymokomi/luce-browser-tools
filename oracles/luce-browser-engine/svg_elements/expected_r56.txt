@@ -1,0 +1,758 @@
+case grad	<!DOCTYPE html><svg><linearGradient id="a"><stop offset="0"/><stop offset="0.5"/><stop offset="100%"/></linearGradient><radialGradient id="b"/></svg>
+linearGradient#a units 0 spread 0
+  transform none
+  linear 00000000% 00000000% 3f800000% 00000000%
+  stops 00000000 3f000000 3f800000
+  href 
+radialGradient#b units 0 spread 0
+  transform none
+  radial 3f000000% 3f000000% 00000000% 3f000000% 3f000000% 3f000000%
+  stops
+  href 
+case grad	<!DOCTYPE html><svg><linearGradient id="a" gradientUnits="userSpaceOnUse" spreadMethod="reflect" gradientTransform="translate(10 20) scale(2)" x1="10%" y1="5" x2="0.75" y2="80%"><stop offset="-1"/><stop offset="2"/></linearGradient><radialGradient id="b" gradientUnits="objectBoundingBox" spreadMethod="repeat" cx="30%" cy="0.4" r="25%" fx="10" fy="20%" fr="5%"/></svg>
+linearGradient#a units 1 spread 2
+  transform 40000000 00000000 00000000 40000000 41200000 41a00000
+  linear 3dcccccd% 40a00000n 3f400000n 3f4ccccd%
+  stops bf800000 40000000
+  href 
+radialGradient#b units 0 spread 1
+  transform none
+  radial 41200000n 3e4ccccd% 3d4ccccd% 3e99999a% 3ecccccdn 3e800000%
+  stops
+  href 
+case grad	<!DOCTYPE html><svg><linearGradient id="base" x1="1" y1="2" x2="3" y2="4" spreadMethod="repeat" gradientUnits="userSpaceOnUse" gradientTransform="rotate(45)"><stop offset="0.25"/><stop offset="0.75"/></linearGradient><linearGradient id="child" href="#base"/><linearGradient id="grandchild" xlink:href="#child" x2="50%"/><radialGradient id="radial" href="#base" r="10"/><linearGradient id="other" href="#radial"/></svg>
+linearGradient#base units 1 spread 1
+  transform 3f3504f3 3f3504f3 bf3504f3 3f3504f3 00000000 00000000
+  linear 3f800000n 40000000n 40400000n 40800000n
+  stops 3e800000 3f400000
+  href 
+linearGradient#child units 1 spread 1
+  transform 3f3504f3 3f3504f3 bf3504f3 3f3504f3 00000000 00000000
+  linear 3f800000n 40000000n 40400000n 40800000n
+  stops 3e800000 3f400000
+  href #base
+linearGradient#grandchild units 1 spread 1
+  transform 3f3504f3 3f3504f3 bf3504f3 3f3504f3 00000000 00000000
+  linear 3f800000n 40000000n 3f000000% 40800000n
+  stops 3e800000 3f400000
+  href #child
+radialGradient#radial units 1 spread 1
+  transform 3f3504f3 3f3504f3 bf3504f3 3f3504f3 00000000 00000000
+  radial 3f000000% 3f000000% 00000000% 3f000000% 3f000000% 41200000n
+  stops 3e800000 3f400000
+  href #base
+linearGradient#other units 1 spread 1
+  transform 3f3504f3 3f3504f3 bf3504f3 3f3504f3 00000000 00000000
+  linear 00000000% 00000000% 3f800000% 00000000%
+  stops 3e800000 3f400000
+  href #radial
+case grad	<!DOCTYPE html><svg><linearGradient id="p" href="#q" x1="1"/><linearGradient id="q" href="#p" y1="2"/><linearGradient id="self" href="#self"/><radialGradient id="r1" href="#r2" fr="-5"/><radialGradient id="r2" r="-1" fr="3"/></svg>
+linearGradient#p units 0 spread 0
+  transform none
+  linear 3f800000n 40000000n 3f800000% 00000000%
+  stops
+  href #q
+linearGradient#q units 0 spread 0
+  transform none
+  linear 3f800000n 40000000n 3f800000% 00000000%
+  stops
+  href #p
+linearGradient#self units 0 spread 0
+  transform none
+  linear 00000000% 00000000% 3f800000% 00000000%
+  stops
+  href #self
+radialGradient#r1 units 0 spread 0
+  transform none
+  radial 3f000000% 3f000000% 40400000n 3f000000% 3f000000% 3f000000%
+  stops
+  href #r2
+radialGradient#r2 units 0 spread 0
+  transform none
+  radial 3f000000% 3f000000% 40400000n 3f000000% 3f000000% 3f000000%
+  stops
+  href 
+case grad	<!DOCTYPE html><svg><linearGradient id="bad" gradientUnits="bogus" spreadMethod="nope" gradientTransform="translate(1" x1="x" y1="" x2="1e400"/><linearGradient id="empty" href=""/><linearGradient id="missing" href="#nothing"/><linearGradient id="notgrad" href="#rect"/><rect id="rect"/></svg>
+linearGradient#bad units 0 spread 0
+  transform none
+  linear 00000000% 00000000% 7f800000n 00000000%
+  stops
+  href 
+linearGradient#empty units 0 spread 0
+  transform none
+  linear 00000000% 00000000% 3f800000% 00000000%
+  stops
+  href 
+linearGradient#missing units 0 spread 0
+  transform none
+  linear 00000000% 00000000% 3f800000% 00000000%
+  stops
+  href #nothing
+linearGradient#notgrad units 0 spread 0
+  transform none
+  linear 00000000% 00000000% 3f800000% 00000000%
+  stops
+  href #rect
+case grad	<!DOCTYPE html><svg><linearGradient id="stops"><stop offset="0.1"/><g><stop offset="0.9"/></g><stop offset="30%"/><stop/><stop offset="junk"/></linearGradient><linearGradient id="noStops" href="#stops"/><radialGradient id="r" href="#noStops"><stop offset="1"/></radialGradient></svg>
+linearGradient#stops units 0 spread 0
+  transform none
+  linear 00000000% 00000000% 3f800000% 00000000%
+  stops 3dcccccd 3e99999a 00000000 00000000
+  href 
+linearGradient#noStops units 0 spread 0
+  transform none
+  linear 00000000% 00000000% 3f800000% 00000000%
+  stops 3dcccccd 3e99999a 00000000 00000000
+  href #stops
+radialGradient#r units 0 spread 0
+  transform none
+  radial 3f000000% 3f000000% 00000000% 3f000000% 3f000000% 3f000000%
+  stops 3f800000
+  href #noStops
+case pattern	<!DOCTYPE html><svg><pattern id="a"/><pattern id="b" patternUnits="userSpaceOnUse" patternContentUnits="objectBoundingBox" patternTransform="skewX(30)" x="5" y="10%" width="0.5" height="20" viewBox="0 0 10 20"><rect/></pattern></svg>
+pattern#a units 0 content 1
+  transform none
+  rect 00000000n 00000000n 00000000n 00000000n
+  content none
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  viewbox none
+pattern#b units 1 content 0
+  transform 3f800000 00000000 3f13cd3a 3f800000 00000000 00000000
+  rect 40a00000n 3dcccccd% 3f000000n 41a00000n
+  content pattern#b
+  x 40a00000 0 40a00000
+  y 3dcccccd 0 3dcccccd
+  width 3f000000 0 3f000000
+  height 41a00000 0 41a00000
+  viewbox 0000000000000000 0000000000000000 4024000000000000 4034000000000000
+case pattern	<!DOCTYPE html><svg><pattern id="base" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="scale(3)"><rect/></pattern><pattern id="child" href="#base" x="2"/><pattern id="grand" xlink:href="#child" height="50%"/><pattern id="cycle1" href="#cycle2"/><pattern id="cycle2" href="#cycle1"/><pattern id="bad" patternUnits="x" patternTransform="nope" width="-"/></svg>
+pattern#base units 1 content 1
+  transform 40400000 00000000 00000000 40400000 00000000 00000000
+  rect 00000000n 00000000n 41200000n 41200000n
+  content pattern#base
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 41200000 0 41200000
+  height 41200000 0 41200000
+  viewbox none
+pattern#child units 1 content 1
+  transform 40400000 00000000 00000000 40400000 00000000 00000000
+  rect 40000000n 00000000n 41200000n 41200000n
+  content pattern#base
+  x 40000000 0 40000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  viewbox none
+pattern#grand units 1 content 1
+  transform 40400000 00000000 00000000 40400000 00000000 00000000
+  rect 40000000n 00000000n 41200000n 3f000000%
+  content pattern#base
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 3f000000 0 3f000000
+  viewbox none
+pattern#cycle1 units 0 content 1
+  transform none
+  rect 00000000n 00000000n 00000000n 00000000n
+  content none
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  viewbox none
+pattern#cycle2 units 0 content 1
+  transform none
+  rect 00000000n 00000000n 00000000n 00000000n
+  content none
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  viewbox none
+pattern#bad units 0 content 1
+  transform none
+  rect 00000000n 00000000n 00000000n 00000000n
+  content none
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  viewbox none
+case maskclip	<!DOCTYPE html><svg><mask id="m1"/><mask id="m2" maskUnits="userSpaceOnUse" maskContentUnits="objectBoundingBox"/><mask id="m3" maskUnits="bogus" maskContentUnits="userSpaceOnUse"/><clipPath id="c1"/><clipPath id="c2" clipPathUnits="objectBoundingBox"/><clipPath id="c3" clipPathUnits="userSpaceOnUse"/></svg>
+mask#m1 units 0 content 1
+  active none
+  area 40 980 7600 3800
+mask#m2 units 1 content 0
+  active 0000000000000000 0000000000000000 3ff0000000000000 3ff0000000000000
+  area 40 980 7600 3800
+mask#m3 units 0 content 1
+  active none
+  area 40 980 7600 3800
+clipPath#c1 units 1
+  active none
+clipPath#c2 units 0
+  active 0000000000000000 0000000000000000 3ff0000000000000 3ff0000000000000
+clipPath#c3 units 1
+  active none
+case fe	<!DOCTYPE html><svg><filter id="f"><feBlend in="SourceGraphic" in2="a" mode="multiply" result="b"/><feBlend mode="bogus"/><feBlend mode="color-dodge"/><feColorMatrix type="saturate" values="0.5"/><feColorMatrix/><feColorMatrix type="hueRotate"/><feColorMatrix type="LUMINANCEtoALPHA"/><feColorMatrix type="nope"/><feComponentTransfer in="x"><feFuncR/></feComponentTransfer></filter></svg>
+filter#f units 0 primitive 1
+  x 00000000 0 00000000
+  width 00000000 0 00000000
+feBlend
+  in [SourceGraphic]
+  in2 [a]
+  mode 2 2
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result [b]
+feBlend
+  in []
+  in2 []
+  mode 1 1
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feBlend
+  in []
+  in2 []
+  mode 7 7
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feColorMatrix
+  in []
+  type 2
+  values [0.5]
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feColorMatrix
+  in []
+  type 1
+  values []
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feColorMatrix
+  in []
+  type 3
+  values []
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feColorMatrix
+  in []
+  type 4
+  values []
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feColorMatrix
+  in []
+  type 0
+  values []
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feComponentTransfer
+  in [x]
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+case fe	<!DOCTYPE html><svg><filter id="g" filterUnits="userSpaceOnUse" primitiveUnits="objectBoundingBox" x="10" width="50%"><feComposite in="a" in2="b" operator="arithmetic" k1="1" k2="-0.5" k3="2e1" k4="x"/><feComposite operator="xor"/><feComposite operator="lighter"/><feComposite operator="in"/><feComposite/><feDisplacementMap in="a" in2="b" scale="10" xChannelSelector="R" yChannelSelector="G"/><feDisplacementMap xChannelSelector="b" yChannelSelector="A"/><feDropShadow dx="3" dy="-4" stdDeviation="5 6"/><feDropShadow stdDeviation="7"/><feFlood/></filter></svg>
+filter#g units 1 primitive 0
+  x 00000000 0 00000000
+  width 00000000 0 00000000
+feComposite
+  in [a]
+  in2 [b]
+  k 3f800000 bf000000 41a00000 00000000
+  operator 6 6
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feComposite
+  in []
+  in2 []
+  k 00000000 00000000 00000000 00000000
+  operator 5 5
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feComposite
+  in []
+  in2 []
+  k 00000000 00000000 00000000 00000000
+  operator 0 0
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feComposite
+  in []
+  in2 []
+  k 00000000 00000000 00000000 00000000
+  operator 2 2
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feComposite
+  in []
+  in2 []
+  k 00000000 00000000 00000000 00000000
+  operator 1 1
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feDisplacementMap
+  in [a]
+  in2 [b]
+  scale 41200000
+  channels 1 2
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feDisplacementMap
+  in []
+  in2 []
+  scale 00000000
+  channels 4 4
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feDropShadow
+  in []
+  d 40400000 c0800000
+  std 40a00000 40c00000
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+  set [1.25 0.1] 3fa00000 3dcccccd
+feDropShadow
+  in []
+  d 40000000 40000000
+  std 40e00000 40e00000
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+  set [1.25 0.1] 3fa00000 3dcccccd
+feFlood
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+case fe	<!DOCTYPE html><svg><filter><feGaussianBlur in="SourceAlpha" stdDeviation="2.5" edgeMode="wrap"/><feGaussianBlur stdDeviation="1 3"/><feImage result="img"/><feMerge><feMergeNode in="a"/><feMergeNode/></feMerge><feMorphology operator="dilate" radius="2 4"/><feMorphology operator="ERODE" radius="3"/><feMorphology/><feMorphology operator="x"/><feOffset dx="1.5"/><feOffset dy="2" dx="-1"/><feTurbulence baseFrequency="0.05 0.1" numOctaves="3" seed="7.5" stitchTiles="stitch" type="fractalNoise"/><feTurbulence baseFrequency="0.2" stitchTiles="x" type="y"/></filter></svg>
+filter units 0 primitive 1
+  x 00000000 0 00000000
+  width 00000000 0 00000000
+feGaussianBlur
+  in [SourceAlpha]
+  std 40200000 40200000 edge 0
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feGaussianBlur
+  in []
+  std 3f800000 40400000 edge 0
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feImage
+  href []
+  bitmap none
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result [img]
+feMerge
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feMergeNode
+  in [a]
+feMergeNode
+  in []
+feMorphology
+  in []
+  operator 2 2
+  radius 40000000 40800000
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feMorphology
+  in []
+  operator 1 1
+  radius 40400000 40400000
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feMorphology
+  in []
+  operator 1 1
+  radius 00000000 00000000
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feMorphology
+  in []
+  operator 2 2
+  radius 00000000 00000000
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feOffset
+  in []
+  d 3fc00000 00000000
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feOffset
+  in []
+  d bf800000 40000000
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feTurbulence
+  frequency 3d4ccccd 3dcccccd
+  octaves 3 seed 40f00000
+  stitch 1 type 1
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+feTurbulence
+  frequency 3e4ccccd 3e4ccccd
+  octaves 1 seed 00000000
+  stitch 2 type 2
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  result []
+case use	<!DOCTYPE html><svg><defs><symbol id="ref" viewBox="0 0 10 10"><rect width="5" height="5"/></symbol></defs><use href="#ref" x="10" y="20" width="30"/><use href="#ref" height="7" transform="scale(2)"/></svg>
+use use
+  x 41200000 0 41200000
+  y 41a00000 0 41a00000
+  matrix 3f800000 00000000 00000000 3f800000 41200000 41a00000
+  instance symbol#ref
+  shadow 1 sheets 1
+    symbol#ref
+    rect width=5
+use use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 40000000 00000000 00000000 40000000 00000000 00000000
+  instance symbol#ref
+  shadow 1 sheets 1
+    symbol#ref
+    rect width=5
+removed use
+  x 41200000 0 41200000
+  y 41a00000 0 41a00000
+  matrix 3f800000 00000000 00000000 3f800000 41200000 41a00000
+  instance none
+  shadow 0 sheets 1
+removed use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 40000000 00000000 00000000 40000000 00000000 00000000
+  instance none
+  shadow 0 sheets 1
+case use	<!DOCTYPE html><svg><svg id="ref" width="1" height="2"><circle r="1"/></svg><g id="g"><rect id="inner"/></g><use xlink:href="#ref" x="1.5"/><use href="#g"/><use href="#missing"/><use href="#later"/><g id="later"/><use href="#notsvg"/></svg><div id="notsvg"></div>
+use use
+  x 3fc00000 0 3fc00000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 3fc00000 00000000
+  instance svg#ref
+  shadow 1 sheets 1
+    svg#ref width=1
+    circle
+use use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance g#g
+  shadow 1 sheets 1
+    g#g
+    rect#inner
+use use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+use use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+use use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+removed use
+  x 3fc00000 0 3fc00000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 3fc00000 00000000
+  instance none
+  shadow 0 sheets 1
+removed use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance g#g
+  shadow 1 sheets 1
+    g#g
+    rect#inner
+removed use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+removed use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+removed use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+case use	<!DOCTYPE html><svg><g id="a"><use href="#b"/></g><g id="b"><use href="#a"/></g><use id="self" href="#self"/><g id="ref"><use href="#a"/></g><use href="#ref" x="x" y="-3"/></svg>
+use use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+use use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance g#a
+  shadow 1 sheets 1
+    g#a
+    use
+use use#self
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+use use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 1
+use use
+  x 00000000 0 00000000
+  y c0400000 0 c0400000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 c0400000
+  instance none
+  shadow 0 sheets 1
+removed use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+removed use
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance g#a
+  shadow 1 sheets 1
+    g#a
+    use
+removed use#self
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+  instance none
+  shadow 0 sheets 0
+removed use
+  x 00000000 0 00000000
+  y c0400000 0 c0400000
+  matrix 3f800000 00000000 00000000 3f800000 00000000 c0400000
+  instance none
+  shadow 0 sheets 1
+case text	<!DOCTYPE html><svg><text x="10" y="20px" dx="5%" dy="2em" rotate="45">  Hello  <tspan x="1 2" dy="-3">span</tspan></text><text x="bogus" rotate="10%">été</text><text/></svg>
+text chars 5 [Hello]
+  x n4024000000000000
+  y l20px
+  dx l5%
+  dy l2em
+  list x 41200000/1
+  list y 00000000/1
+  list dx 3d4ccccd/1
+  list dy 00000000/1
+  rotate 42340000
+tspan chars 4 [span]
+  x n3ff0000000000000
+  y
+  dx
+  dy nc008000000000000
+  list x 00000000/1
+  list y 00000000/1
+  list dx 00000000/1
+  list dy c0400000/1
+  rotate 00000000
+text chars 3 [été]
+  x
+  y
+  dx
+  dy
+  list x 00000000/1
+  list y 00000000/1
+  list dx 00000000/1
+  list dy 00000000/1
+  rotate 00000000
+text chars 0 []
+  x
+  y
+  dx
+  dy
+  list x 00000000/1
+  list y 00000000/1
+  list dx 00000000/1
+  list dy 00000000/1
+  rotate 00000000
+case text	<!DOCTYPE html><svg><path id="p" d="M0 0 L10 10"/><rect id="r"/><text><textPath href="#p">along</textPath><textPath xlink:href="#r">rect</textPath><textPath href="#none">x</textPath><textPath>y</textPath><textPath href="#t">z</textPath></text><g id="t"/></svg>
+text chars 0 []
+  x
+  y
+  dx
+  dy
+  list x 00000000/1
+  list y 00000000/1
+  list dx 00000000/1
+  list dy 00000000/1
+  rotate 00000000
+textPath chars 5 [along]
+  path path#p
+textPath chars 4 [rect]
+  path none
+textPath chars 1 [x]
+  path none
+textPath chars 1 [y]
+  path none
+textPath chars 1 [z]
+  path none
+case a	<!DOCTYPE html><svg><a href="x" target="_blank" rel="noopener  nofollow"><rect/></a><a xlink:href="y"/><a/></svg>
+a
+  target [_blank]
+  rel 2 [noopener  nofollow]
+  tabindex 0 activation 1
+  href [x]
+a
+  target []
+  rel 0 []
+  tabindex 0 activation 1
+  href [y]
+a
+  target []
+  rel 0 []
+  tabindex 0 activation 1
+  href []
+case image	<!DOCTYPE html><svg><image x="5" y="6" width="70" height="80"/><image width="10"/><image/><image x="bogus" height="-2"/></svg>
+image
+  x 40a00000 1 00000000
+  y 40c00000 1 00000000
+  width 428c0000 1 00000000
+  height 42a00000 1 00000000
+  box 40a00000 40c00000 428c0000 42a00000
+  available 0
+image
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 41200000 1 00000000
+  height 00000000 0 00000000
+  box 00000000 00000000 41200000 00000000
+  available 0
+image
+  x 00000000 0 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height 00000000 0 00000000
+  box 00000000 00000000 00000000 00000000
+  available 0
+image
+  x 00000000 1 00000000
+  y 00000000 0 00000000
+  width 00000000 0 00000000
+  height c0000000 1 00000000
+  box 00000000 00000000 00000000 c0000000
+  available 0
+case fo	<!DOCTYPE html><svg><foreignObject x="5" width="10"></foreignObject></svg>
+foreignObject
+  x 00000000 0 00000000
+  height 00000000 0 00000000

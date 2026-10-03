@@ -38,3 +38,7 @@ details-summary-default-ua-style stay marked: the unit harness's document has no
   python3 own_svg_cases.py; ./oracle cases_svg.txt > expected_svg.txt
   python3 compare_ladybird.py --full cases_svg.txt expected_svg.txt
   python3 gen_luce_cases.py svg > .../web/layout/tests_layout_svg_cases.lucb
+r56 (SVG II): own_svg_cases.py no longer marks the cases with r56's elements; a case still waits ("!") when it fetches
+(an <image>, a <use> of another document) or has a <style> element (the unit harness has no CSP list). 18 r56 cases
+(masks, clip paths, use/symbol, text, textPath, foreignObject, patterns, gradients, filters, a) in layout and svg modes.
+  python3 own_svg_cases.py; ./oracle cases_svg.txt > expected_svg.txt; python3 gen_luce_cases.py svg > .../layout/tests_layout_svg_cases.lucb

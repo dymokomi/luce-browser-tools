@@ -1,7 +1,9 @@
 # Writes the Luce case table (svg/tests_svg_cases.lucb) from the oracle's expected.txt.
 # Usage: ./build.sh; ./oracle cases.txt > expected.txt; python3 gen_luce_cases.py > OUT.lucb
+#        r56: ./oracle cases_r56.txt > expected_r56.txt; python3 gen_luce_cases.py r56 > .../web/svg/tests_svg_ii_cases.lucb
 import sys
-src = open('expected.txt', encoding='utf-8').read().split('\n')
+r56 = len(sys.argv) > 1 and sys.argv[1] == 'r56'
+src = open('expected_r56.txt' if r56 else 'expected.txt', encoding='utf-8').read().split('\n')
 cases = []
 later = 0
 skipping = False
@@ -36,6 +38,36 @@ def lit(s):
     return '"' + ''.join(r) + '"'
 
 out = sys.stdout
+if r56:
+    out.write('''#==============================================================================================
+#
+#   tests_svg_ii_cases - SVG II elements (gradients, patterns, masks, clip paths, filter
+#                        primitives, use, text, a, image, foreignObject) pinned to the reference
+#                        build
+#
+#   DESCRIPTION:
+#       Generated (a test vector table) from the output of a local oracle that runs the
+#       reference Ladybird build's LibWeb on the same documents (luce-browser-tools,
+#       oracles/luce-browser-engine/svg_elements: own_r56_cases.py, cases_r56.txt, oracle.cpp,
+#       gen_luce_cases.py r56, build.sh). tests_svg_ii runs each case through the port and
+#       compares the output; floats are their bits.
+#
+#==============================================================================================
+
+## One oracle case: the mode, the document, and the reference build's output.
+struct TestSvgIiCase:
+    let mode: str
+    let html: str
+    let expected: str
+
+''')
+    out.write('## Every oracle case, in cases_r56.txt order.\n')
+    out.write('let test_svg_ii_cases: TestSvgIiCase[%d] = [\n' % len(cases))
+    for fields, lines in cases:
+        expected = ''.join(l + '\n' for l in lines)
+        out.write('    TestSvgIiCase(mode = %s, html = %s, expected = %s),\n' % (lit(fields[0]), lit(unescape(fields[1])), lit(expected)))
+    out.write(']\n')
+    sys.exit(0)
 out.write('''#==============================================================================================
 #
 #   tests_svg_cases - SVG attribute parsing, paths and SVG element cases pinned to the

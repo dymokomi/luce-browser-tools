@@ -54,14 +54,17 @@ svg/use-honor-outer-viewBox
 treat-intrinsic-sizing-keywords-as-auto-when-aspect-ratio-cant-be-resolved
 zero-height-replaced-box-with-aspect-ratio
 zero-size-replaced-box-with-aspect-ratio'''.split()
-# Elements whose constructors are region r56's (not ported yet): a case using one waits ("!").
-r56 = ['<text', '<tspan', '<textPath', '<mask', '<clipPath', '<pattern', '<foreignObject', '<symbol', '<use', '<image',
-       '<linearGradient', '<radialGradient', '<filter', '<a ', '<a>', '<stop', '<marker']
+# r56 ported the SVG II elements (text, mask, clipPath, pattern, foreignObject, symbol, use, image, gradients, filters,
+# a); a case still waits ("!") when it needs a resource fetched (P2): an <image>, or a <use> of another document.
+r56 = ['<image', 'href="../']
 
 def waits(line):
-    return any(tag.lower() in line.lower() for tag in r56)
+    # A <style> element in the document waits too: the unit harness's document has no CSP list, which a connected
+    # style element asks for (web_test runs these tests).
+    html = line.split('\t')[1] if '\t' in line else line
+    return any(tag.lower() in line.lower() for tag in r56) or '<style' in html
 
-out = ['# r49+r53 SVG oracle cases: <mode>\t<html>[\t<css>]; "!" = waits for other regions (r56: SVG II elements).',
+out = ['# r49+r53 SVG oracle cases: <mode>\t<html>[\t<css>]; "!" = waits for other regions (P2: fetched resources).',
        "# Ladybird's Tests/LibWeb/Layout/input tests with SVG (from_ladybird.py):"]
 conv = subprocess.run(['python3', 'from_ladybird.py'] + ladybird, capture_output=True, text=True, check=True).stdout.split('\n')
 for l in conv:
@@ -112,5 +115,21 @@ out.append('# (without arcs, whose points come from libm and differ in the last 
 case('svg', '<!DOCTYPE html><svg width="200" height="100" viewBox="0 0 100 50"><g transform="translate(10 5)"><rect x="5" y="5" width="20" height="10" stroke="black" stroke-width="2"/><g transform="scale(2 0.5)"><polygon points="16,16 24,16 20,24"/></g></g><path d="M 0 0 L 50 25 H 80 V 40 Z" shape-rendering="crispEdges"/><line x1="0" y1="50" x2="100" y2="0" stroke="red" shape-rendering="optimizeSpeed"/></svg>')
 case('svg', '<!DOCTYPE html><div style="padding: 13px"><svg width="150" height="150" viewBox="10 20 30 30" preserveAspectRatio="xMaxYMax slice"><polygon points="10,20 40,20 25,50"/><polyline points="12,22 14,30 30,25" fill="none" stroke="blue"/><svg x="20" y="30" width="10" height="10" viewBox="0 0 4 4"><rect width="2" height="2" style="visibility: hidden"/><rect x="2" y="2" width="2" height="2"/></svg></svg></div>')
 case('svg', '<!DOCTYPE html><svg width="120" height="80"><polygon points="10,10 110,10 60,70" transform="matrix(1 0 0 1 3 4)"/><rect x="25%" y="25%" width="50%" height="50%"/><g style="display: none"><rect width="10" height="10"/></g><path d=""/></svg>')
+out.append('# Written for r56 (SVG II): masks and clip paths in both unit systems, use and symbol, text, tspan and textPath,')
+out.append('# foreignObject, patterns, gradients and filters (layout and the "svg" mode)')
+r56_cases = [
+    '<!DOCTYPE html><svg width="200" height="150"><mask id="m1"><rect x="10" y="10" width="50" height="40" fill="white"/></mask><mask id="m2" maskUnits="userSpaceOnUse" maskContentUnits="objectBoundingBox" x="0" y="0" width="200" height="150"><rect width="0.5" height="0.5" fill="white"/></mask><rect x="5" y="5" width="80" height="60" mask="url(#m1)"/><rect x="100" y="20" width="60" height="100" mask="url(#m2)"/></svg>',
+    '<!DOCTYPE html><svg width="200" height="150" viewBox="0 0 100 75"><clipPath id="c1"><rect x="10" y="10" width="30" height="20"/><polygon points="50,5 90,5 70,40"/></clipPath><clipPath id="c2" clipPathUnits="objectBoundingBox"><rect x="0.25" y="0.25" width="0.5" height="0.5"/></clipPath><g clip-path="url(#c1)"><rect width="100" height="75" fill="green"/></g><rect x="10" y="45" width="40" height="20" clip-path="url(#c2)"/></svg>',
+    '<!DOCTYPE html><svg width="300" height="200"><defs><symbol id="s" viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8"/></symbol><g id="g"><rect width="20" height="10"/><polygon points="25,0 35,0 30,10"/></g></defs><use href="#s" x="10" y="10" width="50" height="50"/><use href="#s" x="100" y="10" width="80" height="40"/><use href="#g" x="10" y="100" transform="scale(2)"/><use xlink:href="#g" x="150" y="150"/></svg>',
+    '<!DOCTYPE html><svg width="200" height="100"><g id="a"><use href="#b"/></g><g id="b"><use href="#a"/><rect width="10" height="10"/></g><use href="#missing" x="5"/><use href="#b" x="50" y="20"/></svg>',
+    '<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290.953125" y="140" text-anchor="end">end</text></svg>',
+    '<!DOCTYPE html><svg width="300" height="150" style="font: 12px SerenitySans"><path id="p" d="M 10 100 L 150 20 L 290 100" fill="none" stroke="black"/><text><textPath href="#p">along the path</textPath></text></svg>',
+    '<!DOCTYPE html><svg width="200" height="200"><foreignObject x="20" y="30" width="150" height="80"><div style="width: 100px; height: 40px; background: red">box</div></foreignObject><g transform="translate(10 10)"><foreignObject width="50" height="50"><span>t</span></foreignObject></g></svg>',
+    '<!DOCTYPE html><svg width="200" height="120"><defs><pattern id="pt" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="red"/><polygon points="11,11 19,11 15,19"/></pattern><pattern id="pt2" href="#pt" x="5" patternTransform="rotate(0)"/><linearGradient id="lg"><stop offset="0" stop-color="red"/><stop offset="1" stop-color="blue"/></linearGradient><radialGradient id="rg" href="#lg"/></defs><rect width="90" height="50" fill="url(#pt)"/><rect x="100" width="90" height="50" fill="url(#pt2)" stroke="url(#lg)"/><rect y="60" width="90" height="50" fill="url(#lg)"/><rect x="100" y="60" width="90" height="50" fill="url(#rg)"/></svg>',
+    '<!DOCTYPE html><svg width="200" height="100"><filter id="f"><feFlood flood-color="green" result="fl"/><feGaussianBlur in="SourceGraphic" stdDeviation="2"/><feOffset dx="3" dy="4"/><feMerge><feMergeNode in="fl"/><feMergeNode/></feMerge></filter><rect x="10" y="10" width="50" height="50" filter="url(#f)"/><a href="#x"><rect x="100" y="10" width="40" height="40"/></a></svg>',
+]
+for html in r56_cases:
+    case('layout', html)
+    case('svg', html)
 open('cases_svg.txt', 'w').write('\n'.join(out) + '\n')
 print(len(out), 'lines;', sum(1 for l in out if l.startswith('!')), 'waiting')

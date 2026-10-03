@@ -20,6 +20,21 @@
 //   animnum <value> <second> <first|second>  an SVGAnimatedNumber of "stdDeviation" on a <g>:
 //                         baseVal, then the attribute after setting baseVal to 7.5
 //   animint <value> <second> <first|second>  the same with an SVGAnimatedInteger and 7
+// r56 (SVG II), cases_r56.txt:
+//   grad <html>           every gradient: units, spread method, transform, the linear/radial geometry (through
+//                         the href chain) and the offsets of the stops for_each_color_stop finds
+//   pattern <html>        every pattern: units, content units, transform, x/y/width/height, the content element
+//                         and the SVGAnimatedLength reflections
+//   maskclip <html>       every mask and clipPath: units, content units, active viewBox; the masking area of
+//                         a 100x50 target at 10,20
+//   fe <html>             every filter and filter primitive: their attribute reflections
+//   use <html>            every use: x, y, element_transform, the instance root, the shadow tree's children
+//                         and its use-document-style-sheets flag; then the same after removing #ref
+//   text <html>           every text, tspan and textPath: text_positioning, text_contents, getNumberOfChars,
+//                         the x/y/dx/dy/rotate lists, the textPath's path or shape
+//   a <html>              every SVG a: target, relList, the default tab index
+//   image <html>          every image: x/y/width/height and the bounding box (no image data in phase 1)
+//   fo <html>             every foreignObject: its placeholder lengths
 #define private public
 #define protected public
 #include <LibWeb/Bindings/MainThreadVM.h>
@@ -57,6 +72,41 @@
 #include <LibWeb/SVG/SVGRectElement.h>
 #include <LibWeb/SVG/SVGSVGElement.h>
 #include <LibWeb/SVG/SVGScriptElement.h>
+#include <LibWeb/SVG/SVGAElement.h>
+#include <LibWeb/SVG/SVGAnimatedLengthList.h>
+#include <LibWeb/SVG/SVGClipPathElement.h>
+#include <LibWeb/SVG/SVGFEBlendElement.h>
+#include <LibWeb/SVG/SVGFEColorMatrixElement.h>
+#include <LibWeb/SVG/SVGFEComponentTransferElement.h>
+#include <LibWeb/SVG/SVGFECompositeElement.h>
+#include <LibWeb/SVG/SVGFEDisplacementMapElement.h>
+#include <LibWeb/SVG/SVGFEDropShadowElement.h>
+#include <LibWeb/SVG/SVGFEFloodElement.h>
+#include <LibWeb/SVG/SVGFEGaussianBlurElement.h>
+#include <LibWeb/SVG/SVGFEImageElement.h>
+#include <LibWeb/SVG/SVGFEMergeElement.h>
+#include <LibWeb/SVG/SVGFEMergeNodeElement.h>
+#include <LibWeb/SVG/SVGFEMorphologyElement.h>
+#include <LibWeb/SVG/SVGFEOffsetElement.h>
+#include <LibWeb/SVG/SVGFETurbulenceElement.h>
+#include <LibWeb/SVG/SVGFilterElement.h>
+#include <LibWeb/SVG/SVGForeignObjectElement.h>
+#include <LibWeb/SVG/SVGGradientElement.h>
+#include <LibWeb/SVG/SVGImageElement.h>
+#include <LibWeb/SVG/SVGLengthList.h>
+#include <LibWeb/SVG/SVGLinearGradientElement.h>
+#include <LibWeb/SVG/SVGMaskElement.h>
+#include <LibWeb/SVG/SVGPatternElement.h>
+#include <LibWeb/SVG/SVGRadialGradientElement.h>
+#include <LibWeb/SVG/SVGStopElement.h>
+#include <LibWeb/SVG/SVGTextContentElement.h>
+#include <LibWeb/SVG/SVGTextPathElement.h>
+#include <LibWeb/SVG/SVGTextPositioningElement.h>
+#include <LibWeb/SVG/SVGUseElement.h>
+#include <LibWeb/SVG/SVGNumber.h>
+#include <LibGfx/ImmutableBitmap.h>
+#include <LibWeb/DOM/DOMTokenList.h>
+#include <LibWeb/DOM/ShadowRoot.h>
 #include <LibGfx/PathSkia.h>
 #include <LibCore/EventLoop.h>
 #include <core/SkPath.h>
@@ -202,6 +252,287 @@ static void put_floats(std::string const& label, Vector<float> const& values)
 static void put_optional_style_value(std::string const& label, RefPtr<CSS::StyleValue const> const& value)
 {
     g_out += label + " " + (value ? str(value->to_string(CSS::SerializationMode::Normal)) : std::string("none")) + "\n";
+}
+
+
+// r56: the elements of a document in tree order whose class is T.
+template<typename T>
+static Vector<T*> all_of(DOM::Document& document)
+{
+    Vector<T*> found;
+    document.for_each_in_subtree_of_type<DOM::Element>([&](DOM::Element& element) {
+        if (auto* typed = as_if<T>(element))
+            found.append(typed);
+        return TraversalDecision::Continue;
+    });
+    return found;
+}
+
+static std::string numpct(SVG::NumberPercentage const& value)
+{
+    return bits(value.value()) + (value.is_percentage() ? "%" : "n");
+}
+
+static void put_optional_matrix(std::string const& label, Optional<Gfx::AffineTransform> const& matrix)
+{
+    if (!matrix.has_value()) {
+        g_out += label + " none\n";
+        return;
+    }
+    g_out += label + " " + bits(matrix->a()) + " " + bits(matrix->b()) + " " + bits(matrix->c()) + " " + bits(matrix->d()) + " " + bits(matrix->e()) + " " + bits(matrix->f()) + "\n";
+}
+
+static void put_view_box_line(std::string const& label, Optional<SVG::ViewBox> const& view_box)
+{
+    g_out += label + " " + (view_box.has_value() ? bits64(view_box->min_x) + " " + bits64(view_box->min_y) + " " + bits64(view_box->width) + " " + bits64(view_box->height) : std::string("none")) + "\n";
+}
+
+static void put_animated_length(std::string const& label, GC::Ref<SVG::SVGAnimatedLength> length)
+{
+    g_out += label + " " + bits(length->base_val()->value()) + " " + std::to_string(length->base_val()->unit_type()) + " " + bits(length->anim_val()->value()) + "\n";
+}
+
+static void put_string(std::string const& label, String const& value)
+{
+    g_out += label + " [" + str(value) + "]\n";
+}
+
+static void put_number(std::string const& label, float value)
+{
+    g_out += label + " " + bits(value) + "\n";
+}
+
+static std::string element_name(DOM::Element const* element)
+{
+    if (!element)
+        return "none";
+    auto id = element->get_attribute(HTML::AttributeNames::id);
+    return str(element->local_name()) + (id.has_value() ? "#" + str(*id) : std::string());
+}
+
+template<typename T>
+static void put_fpsa(T& element)
+{
+    put_animated_length("  x", element.x());
+    put_animated_length("  y", element.y());
+    put_animated_length("  width", element.width());
+    put_animated_length("  height", element.height());
+    put_string("  result", element.result()->base_val());
+}
+
+static void run_r56(std::vector<std::string> const& args)
+{
+    auto const& mode = args[0];
+    auto document = parse(args[1]);
+    if (mode == "grad") {
+        for (auto* gradient : all_of<SVG::SVGGradientElement>(*document)) {
+            g_out += element_name(gradient) + " units " + std::to_string(to_underlying(gradient->gradient_units())) + " spread " + std::to_string(to_underlying(gradient->spread_method())) + "\n";
+            put_optional_matrix("  transform", gradient->gradient_transform());
+            if (auto* linear = as_if<SVG::SVGLinearGradientElement>(*gradient))
+                g_out += "  linear " + numpct(linear->start_x()) + " " + numpct(linear->start_y()) + " " + numpct(linear->end_x()) + " " + numpct(linear->end_y()) + "\n";
+            if (auto* radial = as_if<SVG::SVGRadialGradientElement>(*gradient))
+                g_out += "  radial " + numpct(radial->start_circle_x()) + " " + numpct(radial->start_circle_y()) + " " + numpct(radial->start_circle_radius()) + " " + numpct(radial->end_circle_x()) + " " + numpct(radial->end_circle_y()) + " " + numpct(radial->end_circle_radius()) + "\n";
+            g_out += "  stops";
+            gradient->for_each_color_stop([&](SVG::SVGStopElement& stop) {
+                g_out += " " + bits(stop.stop_offset());
+            });
+            g_out += "\n";
+            g_out += "  href " + str(gradient->href()->base_val()) + "\n";
+        }
+    } else if (mode == "pattern") {
+        for (auto* pattern : all_of<SVG::SVGPatternElement>(*document)) {
+            g_out += element_name(pattern) + " units " + std::to_string(to_underlying(pattern->pattern_units())) + " content " + std::to_string(to_underlying(pattern->pattern_content_units())) + "\n";
+            put_optional_matrix("  transform", pattern->pattern_transform());
+            g_out += "  rect " + numpct(pattern->pattern_x()) + " " + numpct(pattern->pattern_y()) + " " + numpct(pattern->pattern_width()) + " " + numpct(pattern->pattern_height()) + "\n";
+            g_out += "  content " + element_name(pattern->pattern_content_element().ptr()) + "\n";
+            put_animated_length("  x", pattern->x());
+            put_animated_length("  y", pattern->y());
+            put_animated_length("  width", pattern->width());
+            put_animated_length("  height", pattern->height());
+            put_view_box_line("  viewbox", pattern->view_box());
+        }
+    } else if (mode == "maskclip") {
+        CSSPixelRect target { 10, 20, 100, 50 };
+        for (auto* mask : all_of<SVG::SVGMaskElement>(*document)) {
+            g_out += element_name(mask) + " units " + std::to_string(to_underlying(mask->mask_units())) + " content " + std::to_string(to_underlying(mask->mask_content_units())) + "\n";
+            put_view_box_line("  active", mask->active_view_box());
+            auto area = mask->resolve_masking_area(target);
+            g_out += "  area " + std::to_string(area.x().raw_value()) + " " + std::to_string(area.y().raw_value()) + " " + std::to_string(area.width().raw_value()) + " " + std::to_string(area.height().raw_value()) + "\n";
+        }
+        for (auto* clip : all_of<SVG::SVGClipPathElement>(*document)) {
+            g_out += element_name(clip) + " units " + std::to_string(to_underlying(clip->clip_path_units())) + "\n";
+            put_view_box_line("  active", clip->active_view_box());
+        }
+    } else if (mode == "fe") {
+        for (auto* filter : all_of<SVG::SVGFilterElement>(*document)) {
+            g_out += element_name(filter) + " units " + std::to_string(filter->filter_units()->base_val()) + " primitive " + std::to_string(filter->primitive_units()->base_val()) + "\n";
+            put_animated_length("  x", filter->x());
+            put_animated_length("  width", filter->width());
+        }
+        for (auto* element : all_of<SVG::SVGElement>(*document)) {
+            if (auto* blend = as_if<SVG::SVGFEBlendElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", blend->in1()->base_val());
+                put_string("  in2", blend->in2()->base_val());
+                g_out += "  mode " + std::to_string(to_underlying(blend->mode())) + " " + std::to_string(blend->mode_for_bindings()->base_val()) + "\n";
+                put_fpsa(*blend);
+            } else if (auto* matrix = as_if<SVG::SVGFEColorMatrixElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", matrix->in1()->base_val());
+                g_out += "  type " + std::to_string(matrix->type()->base_val()) + "\n";
+                put_string("  values", matrix->values()->base_val());
+                put_fpsa(*matrix);
+            } else if (auto* transfer = as_if<SVG::SVGFEComponentTransferElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", transfer->in1()->base_val());
+                put_fpsa(*transfer);
+            } else if (auto* composite = as_if<SVG::SVGFECompositeElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", composite->in1()->base_val());
+                put_string("  in2", composite->in2()->base_val());
+                g_out += "  k " + bits(composite->k1()->base_val()) + " " + bits(composite->k2()->base_val()) + " " + bits(composite->k3()->base_val()) + " " + bits(composite->k4()->base_val()) + "\n";
+                g_out += "  operator " + std::to_string(to_underlying(composite->operator_())) + " " + std::to_string(composite->operator_for_bindings()->base_val()) + "\n";
+                put_fpsa(*composite);
+            } else if (auto* displacement = as_if<SVG::SVGFEDisplacementMapElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", displacement->in1()->base_val());
+                put_string("  in2", displacement->in2()->base_val());
+                put_number("  scale", displacement->scale()->base_val());
+                g_out += "  channels " + std::to_string(displacement->x_channel_selector()->base_val()) + " " + std::to_string(displacement->y_channel_selector()->base_val()) + "\n";
+                put_fpsa(*displacement);
+            } else if (auto* shadow = as_if<SVG::SVGFEDropShadowElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", shadow->in1()->base_val());
+                g_out += "  d " + bits(shadow->dx()->base_val()) + " " + bits(shadow->dy()->base_val()) + "\n";
+                g_out += "  std " + bits(shadow->std_deviation_x()->base_val()) + " " + bits(shadow->std_deviation_y()->base_val()) + "\n";
+                put_fpsa(*shadow);
+                shadow->set_std_deviation(1.25f, 0.1f);
+                g_out += "  set [" + str(shadow->get_attribute_value("stdDeviation"_fly_string)) + "] " + bits(shadow->std_deviation_x()->base_val()) + " " + bits(shadow->std_deviation_y()->base_val()) + "\n";
+            } else if (auto* flood = as_if<SVG::SVGFEFloodElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_fpsa(*flood);
+            } else if (auto* blur = as_if<SVG::SVGFEGaussianBlurElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", blur->in1()->base_val());
+                g_out += "  std " + bits(blur->std_deviation_x()->base_val()) + " " + bits(blur->std_deviation_y()->base_val()) + " edge " + std::to_string(blur->edge_mode()->base_val()) + "\n";
+                put_fpsa(*blur);
+            } else if (auto* image = as_if<SVG::SVGFEImageElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  href", image->href()->base_val());
+                g_out += "  bitmap " + std::string(image->current_image_bitmap() ? "yes" : "none") + "\n";
+                put_fpsa(*image);
+            } else if (auto* merge = as_if<SVG::SVGFEMergeElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_fpsa(*merge);
+            } else if (auto* merge_node = as_if<SVG::SVGFEMergeNodeElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", merge_node->in1()->base_val());
+            } else if (auto* morphology = as_if<SVG::SVGFEMorphologyElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", morphology->in1()->base_val());
+                g_out += "  operator " + std::to_string(to_underlying(morphology->morphology_operator())) + " " + std::to_string(morphology->operator_for_bindings()->base_val()) + "\n";
+                g_out += "  radius " + bits(morphology->radius_x()->base_val()) + " " + bits(morphology->radius_y()->base_val()) + "\n";
+                put_fpsa(*morphology);
+            } else if (auto* offset = as_if<SVG::SVGFEOffsetElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                put_string("  in", offset->in1()->base_val());
+                g_out += "  d " + bits(offset->dx()->base_val()) + " " + bits(offset->dy()->base_val()) + "\n";
+                put_fpsa(*offset);
+            } else if (auto* turbulence = as_if<SVG::SVGFETurbulenceElement>(*element)) {
+                g_out += element_name(element) + "\n";
+                g_out += "  frequency " + bits(turbulence->base_frequency_x()->base_val()) + " " + bits(turbulence->base_frequency_y()->base_val()) + "\n";
+                g_out += "  octaves " + std::to_string(turbulence->num_octaves()->base_val()) + " seed " + bits(turbulence->seed()->base_val()) + "\n";
+                g_out += "  stitch " + std::to_string(turbulence->stitch_tiles()->base_val()) + " type " + std::to_string(turbulence->type()->base_val()) + "\n";
+                put_fpsa(*turbulence);
+            }
+        }
+    } else if (mode == "use") {
+        auto put_uses = [&](char const* label) {
+            for (auto* use : all_of<SVG::SVGUseElement>(*document)) {
+                g_out += std::string(label) + " " + element_name(use) + "\n";
+                put_animated_length("  x", use->x());
+                put_animated_length("  y", use->y());
+                auto matrix = use->element_transform();
+                g_out += "  matrix " + bits(matrix.a()) + " " + bits(matrix.b()) + " " + bits(matrix.c()) + " " + bits(matrix.d()) + " " + bits(matrix.e()) + " " + bits(matrix.f()) + "\n";
+                g_out += "  instance " + element_name(use->instance_root().ptr()) + "\n";
+                auto shadow = use->shadow_root();
+                g_out += "  shadow " + std::to_string(shadow->child_count()) + " sheets " + std::to_string(shadow->uses_document_style_sheets()) + "\n";
+                shadow->for_each_in_subtree_of_type<DOM::Element>([&](DOM::Element& element) {
+                    auto width = element.get_attribute(HTML::AttributeNames::width);
+                    g_out += "    " + element_name(&element) + (width.has_value() ? " width=" + str(*width) : std::string()) + "\n";
+                    return TraversalDecision::Continue;
+                });
+            }
+        };
+        put_uses("use");
+        if (auto ref = document->get_element_by_id("ref"_fly_string)) {
+            ref->remove();
+            put_uses("removed");
+        }
+    } else if (mode == "text") {
+        for (auto* text : all_of<SVG::SVGTextContentElement>(*document)) {
+            g_out += element_name(text) + " chars " + std::to_string(MUST(text->get_number_of_chars())) + " [" + str(text->text_contents().to_utf8()) + "]\n";
+            if (auto* positioning = as_if<SVG::SVGTextPositioningElement>(*text)) {
+                auto put_positions = [&](char const* name, Vector<SVG::TextPositioning::Position> const& positions) {
+                    g_out += std::string("  ") + name;
+                    for (auto const& position : positions) {
+                        position.visit(
+                            [&](CSS::Number const& number) { g_out += " n" + bits64(number.value()); },
+                            [&](CSS::LengthPercentage const& length_percentage) { g_out += " l" + str(length_percentage.to_string(CSS::SerializationMode::Normal)); });
+                    }
+                    g_out += "\n";
+                };
+                auto positioning_values = positioning->text_positioning();
+                put_positions("x", positioning_values.x);
+                put_positions("y", positioning_values.y);
+                put_positions("dx", positioning_values.dx);
+                put_positions("dy", positioning_values.dy);
+                auto put_list = [&](char const* name, GC::Ref<SVG::SVGAnimatedLengthList> list) {
+                    g_out += std::string("  list ") + name;
+                    for (auto const& item : list->base_val()->items())
+                        g_out += " " + bits(item->value()) + "/" + std::to_string(item->unit_type());
+                    g_out += "\n";
+                };
+                put_list("x", positioning->x());
+                put_list("y", positioning->y());
+                put_list("dx", positioning->dx());
+                put_list("dy", positioning->dy());
+                g_out += "  rotate";
+                for (auto const& item : positioning->rotate()->base_val()->items())
+                    g_out += " " + bits(item->value());
+                g_out += "\n";
+            }
+            if (auto* text_path = as_if<SVG::SVGTextPathElement>(*text))
+                g_out += "  path " + element_name(text_path->path_or_shape().ptr()) + "\n";
+        }
+    } else if (mode == "a") {
+        for (auto* a : all_of<SVG::SVGAElement>(*document)) {
+            g_out += element_name(a) + "\n";
+            put_string("  target", a->target()->base_val());
+            g_out += "  rel " + std::to_string(a->rel_list()->length()) + " [" + str(a->rel_list()->value()) + "]\n";
+            g_out += "  tabindex " + std::to_string(a->default_tab_index_value()) + " activation " + std::to_string(a->has_activation_behavior()) + "\n";
+            put_string("  href", a->href()->base_val());
+        }
+    } else if (mode == "image") {
+        for (auto* image : all_of<SVG::SVGImageElement>(*document)) {
+            g_out += element_name(image) + "\n";
+            put_animated_length("  x", image->x());
+            put_animated_length("  y", image->y());
+            put_animated_length("  width", image->width());
+            put_animated_length("  height", image->height());
+            auto box = image->bounding_box();
+            g_out += "  box " + bits(box.x()) + " " + bits(box.y()) + " " + bits(box.width()) + " " + bits(box.height()) + "\n";
+            g_out += "  available " + std::to_string(image->is_image_available()) + "\n";
+        }
+    } else if (mode == "fo") {
+        for (auto* fo : all_of<SVG::SVGForeignObjectElement>(*document)) {
+            g_out += element_name(fo) + "\n";
+            put_animated_length("  x", fo->x());
+            put_animated_length("  height", fo->height());
+        }
+    } else {
+        g_out += "unknown mode\n";
+    }
 }
 
 static void run(std::vector<std::string> const& args)
@@ -384,6 +715,8 @@ static void run(std::vector<std::string> const& args)
             integer->set_base_val(7);
         }
         g_out += "attribute " + str(g.get_attribute_value("stdDeviation"_fly_string)) + "\n";
+    } else if (mode == "grad" || mode == "pattern" || mode == "maskclip" || mode == "fe" || mode == "use" || mode == "text" || mode == "a" || mode == "image" || mode == "fo") {
+        run_r56(args);
     } else {
         g_out += "unknown mode\n";
     }

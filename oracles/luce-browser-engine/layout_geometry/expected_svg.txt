@@ -78,7 +78,7 @@ case layout	<!DOCTYPE html><body><svg viewBox="0 0 24 24"><rect x=0 y=0 width=12
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x800] [children: 0] (z-index: auto)
-later layout	<!doctype html><body><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none"><symbol id="icon-cart" viewBox="0 0 10 10"><rect x=0 y=0 width=10 height=10 fill=green></symbol></svg><div><svg class="c-ico"><use xlink:href="#icon-cart"></use></svg>	\n    * {\n        outline: 1px solid black !important;\n    }\n    svg {\n        max-height: 100%;\n        max-width: 100%;\n        height: 100px;\n        width: 100px;\n    }\n    body {\n        display: flex;\n    }\n    div {\n        display: flex;\n    }\n
+case layout	<!doctype html><body><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display: none"><symbol id="icon-cart" viewBox="0 0 10 10"><rect x=0 y=0 width=10 height=10 fill=green></symbol></svg><div><svg class="c-ico"><use xlink:href="#icon-cart"></use></svg>	\n    * {\n        outline: 1px solid black !important;\n    }\n    svg {\n        max-height: 100%;\n        max-width: 100%;\n        height: 100px;\n        width: 100px;\n    }\n    body {\n        display: flex;\n    }\n    div {\n        display: flex;\n    }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 116 0+0+0] [BFC] children: not-inline
       Box <body> at [8,8] flex-container(row) [8+0+0 784 0+0+8] [8+0+0 100 0+0+8] [FFC] children: not-inline
@@ -122,7 +122,7 @@ case layout	<!DOCTYPE html>\n\n\n<div class="grid">\n\t<!--\n\t\tThis SVG has an
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x200] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n\n<svg width="200" height="200">\n  <foreignObject width="100" height="100" x="50" y="50">\n    <div>I am offset!</div>\n  </foreignObject>\n</svg>\n	\n  div {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100px;\n    height: 100px;\n  }\n
+case layout	<!DOCTYPE html>\n\n<svg width="200" height="200">\n  <foreignObject width="100" height="100" x="50" y="50">\n    <div>I am offset!</div>\n  </foreignObject>\n</svg>\n	\n  div {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100px;\n    height: 100px;\n  }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 216 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 200 0+0+8] children: inline
@@ -300,7 +300,7 @@ case layout	<!DOCTYPE html>\n\n<svg\n  viewBox="0 0 100 100"\n  width="100"\n  h
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x274] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">\n  <line x1="0" y1="50" x2="400" y2="50" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="100" x2="400" y2="100" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="150" x2="400" y2="150" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="200" x2="400" y2="200" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="250" x2="400" y2="250" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="300" x2="400" y2="300" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="350" x2="400" y2="350" stroke="gray" stroke-width="0.5"/>\n  <text x="10" y="50" font-size="20" font-family="SerenitySans" dominant-baseline="auto">auto</text>\n  <text x="10" y="100" font-size="20" font-family="SerenitySans" dominant-baseline="alphabetic">alphabetic</text>\n  <text x="10" y="150" font-size="20" font-family="SerenitySans" dominant-baseline="central">central</text>\n  <text x="10" y="200" font-size="20" font-family="SerenitySans" dominant-baseline="middle">middle</text>\n  <text x="10" y="250" font-size="20" font-family="SerenitySans" dominant-baseline="hanging">hanging</text>\n  <text x="10" y="300" font-size="20" font-family="SerenitySans" dominant-baseline="ideographic">ideographic</text>\n  <text x="10" y="350" font-size="20" font-family="SerenitySans" dominant-baseline="mathematical">mathematical</text>\n</svg>\n	
+case layout	<!DOCTYPE html>\n<svg viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">\n  <line x1="0" y1="50" x2="400" y2="50" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="100" x2="400" y2="100" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="150" x2="400" y2="150" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="200" x2="400" y2="200" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="250" x2="400" y2="250" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="300" x2="400" y2="300" stroke="gray" stroke-width="0.5"/>\n  <line x1="0" y1="350" x2="400" y2="350" stroke="gray" stroke-width="0.5"/>\n  <text x="10" y="50" font-size="20" font-family="SerenitySans" dominant-baseline="auto">auto</text>\n  <text x="10" y="100" font-size="20" font-family="SerenitySans" dominant-baseline="alphabetic">alphabetic</text>\n  <text x="10" y="150" font-size="20" font-family="SerenitySans" dominant-baseline="central">central</text>\n  <text x="10" y="200" font-size="20" font-family="SerenitySans" dominant-baseline="middle">middle</text>\n  <text x="10" y="250" font-size="20" font-family="SerenitySans" dominant-baseline="hanging">hanging</text>\n  <text x="10" y="300" font-size="20" font-family="SerenitySans" dominant-baseline="ideographic">ideographic</text>\n  <text x="10" y="350" font-size="20" font-family="SerenitySans" dominant-baseline="mathematical">mathematical</text>\n</svg>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 416 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 400 0+0+8] children: inline
@@ -365,7 +365,7 @@ later layout	<!DOCTYPE html>\n<svg viewBox="0 0 400 400" width="400" height="400
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x416] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">\n  \n\n  <text x="10%" y="35%" class="small">My</text>\n  <text x="17%" y="35%" class="heavy">cat</text>\n  <text x="25%" y="55%" class="small">is</text>\n  <text x="30%" y="55%" class="Rrrrr">Grumpy!</text>\n</svg>\n	\n    .small {\n      font: italic 13px sans-serif;\n    }\n    .heavy {\n      font: bold 30px sans-serif;\n    }\n\n    .Rrrrr {\n      font: italic 40px serif;\n      fill: red;\n    }\n  
+case layout	<!DOCTYPE html>\n<svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">\n  \n\n  <text x="10%" y="35%" class="small">My</text>\n  <text x="17%" y="35%" class="heavy">cat</text>\n  <text x="25%" y="55%" class="small">is</text>\n  <text x="30%" y="55%" class="Rrrrr">Grumpy!</text>\n</svg>\n	\n    .small {\n      font: italic 13px sans-serif;\n    }\n    .heavy {\n      font: bold 30px sans-serif;\n    }\n\n    .Rrrrr {\n      font: italic 40px serif;\n      fill: red;\n    }\n  
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 277.328125 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 261.328125 0+0+8] children: inline
@@ -397,7 +397,7 @@ later layout	<!DOCTYPE html>\n<svg viewBox="0 0 240 80" xmlns="http://www.w3.org
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x277.328125] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">\n  \n\n  <text x="20" y="35" class="small">My</text>\n  <text x="40" y="35" class="heavy">cat</text>\n  <text x="55" y="55" class="small">is</text>\n  <text x="65" y="55" class="Rrrrr">Grumpy!</text>\n</svg>\n	\n    .small {\n      font: italic 13px sans-serif;\n    }\n    .heavy {\n      font: bold 30px sans-serif;\n    }\n\n    .Rrrrr {\n      font: italic 40px serif;\n      fill: red;\n    }\n  
+case layout	<!DOCTYPE html>\n<svg viewBox="0 0 240 80" xmlns="http://www.w3.org/2000/svg">\n  \n\n  <text x="20" y="35" class="small">My</text>\n  <text x="40" y="35" class="heavy">cat</text>\n  <text x="55" y="55" class="small">is</text>\n  <text x="65" y="55" class="Rrrrr">Grumpy!</text>\n</svg>\n	\n    .small {\n      font: italic 13px sans-serif;\n    }\n    .heavy {\n      font: bold 30px sans-serif;\n    }\n\n    .Rrrrr {\n      font: italic 40px serif;\n      fill: red;\n    }\n  
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 277.328125 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 261.328125 0+0+8] children: inline
@@ -594,7 +594,7 @@ case layout	<!doctype html><body><svg viewBox="0 0 10 10"></svg>	\nbody { width:
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x34] [children: 0] (z-index: auto)
-later layout	<!doctype html><body><svg viewBox="0 0 1 1" style="position:absolute;"><mask id="theMask" maskContentUnits="objectBoundingBox"><circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle></mask></svg><svg width="100" height="100" viewBox="0 0 100 100"><foreignObject x="0" y="0" width="40" height="40" mask="url(#theMask)"><div id="lol"></div></foreignObject></svg>	\n* { outline: 1px solid black; }\n#lol {\n    width: 100px;\n    height: 100px;\n    background: orange;\n}\n
+case layout	<!doctype html><body><svg viewBox="0 0 1 1" style="position:absolute;"><mask id="theMask" maskContentUnits="objectBoundingBox"><circle fill="white" cx="0.5" cy="0.5" r="0.5"></circle></mask></svg><svg width="100" height="100" viewBox="0 0 100 100"><foreignObject x="0" y="0" width="40" height="40" mask="url(#theMask)"><div id="lol"></div></foreignObject></svg>	\n* { outline: 1px solid black; }\n#lol {\n    width: 100px;\n    height: 100px;\n    background: orange;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 116 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 100 0+0+8] children: inline
@@ -617,7 +617,7 @@ later layout	<!doctype html><body><svg viewBox="0 0 1 1" style="position:absolut
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x116] [children: 1] (z-index: auto)
     SC for SVGForeignObjectBox<foreignObject> [8,8 40x40] [children: 0] (z-index: auto)
-later layout	<!doctype html>\n<svg width="48" height="48" viewBox="0 0 48 48"><foreignObject x="0" y="0" width="30" height="30"><div></div></foreignObject></svg>\n	\n    * { outline: 1px solid black; }\n    div {\n        width: 40px;\n        height: 40px;\n        background: orange;\n        border: 5px solid red;\n    }\n    svg {\n        display: block;\n    }\n
+case layout	<!doctype html>\n<svg width="48" height="48" viewBox="0 0 48 48"><foreignObject x="0" y="0" width="30" height="30"><div></div></foreignObject></svg>\n	\n    * { outline: 1px solid black; }\n    div {\n        width: 40px;\n        height: 40px;\n        background: orange;\n        border: 5px solid red;\n    }\n    svg {\n        display: block;\n    }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 64 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 48 0+0+8] children: not-inline
@@ -638,7 +638,7 @@ later layout	<!doctype html>\n<svg width="48" height="48" viewBox="0 0 48 48"><f
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x64] [children: 1] (z-index: auto)
     SC for SVGForeignObjectBox<foreignObject> [8,8 30x30] [children: 0] (z-index: auto)
-later layout	<!doctype HTML>\n\n<svg style="display: block">\n  <foreignObject width=100 height=200>\n    <div class="el"></div>\n  </foreignObject>\n</svg>\n	\n  .el {\n    width: 50px;\n    height: 60px;\n    position: absolute;\n  }\n\n
+case layout	<!doctype HTML>\n\n<svg style="display: block">\n  <foreignObject width=100 height=200>\n    <div class="el"></div>\n  </foreignObject>\n</svg>\n	\n  .el {\n    width: 50px;\n    height: 60px;\n    position: absolute;\n  }\n\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: not-inline
@@ -745,7 +745,7 @@ case layout	<!DOCTYPE html>\n<svg id="a" viewBox="0 0 10 10" width="200" height=
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x216] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg width="400" height="400">\n    <mask id="myMask" maskContentUnits="objectBoundingBox">\n        <rect x="0" y="0" width="1" height="1" fill="white"/>\n        <circle cx="0.5" cy="0.5" r="0.4" fill="black"/>\n    </mask>\n    <rect x="0" y="0" width="200" height="200" fill="green" mask="url(#myMask)"/>\n    <rect x="200" y="200" width="200" height="100" fill="red" mask="url(#myMask)"/>\n</svg>\n	
+case layout	<!DOCTYPE html>\n<svg width="400" height="400">\n    <mask id="myMask" maskContentUnits="objectBoundingBox">\n        <rect x="0" y="0" width="1" height="1" fill="white"/>\n        <circle cx="0.5" cy="0.5" r="0.4" fill="black"/>\n    </mask>\n    <rect x="0" y="0" width="200" height="200" fill="green" mask="url(#myMask)"/>\n    <rect x="200" y="200" width="200" height="100" fill="red" mask="url(#myMask)"/>\n</svg>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 416 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 400 0+0+8] children: inline
@@ -849,7 +849,7 @@ case layout	<!doctype html><svg viewBox="0 0 100 100"><rect x=0 y=0 width=100 he
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x800] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg width="100" height="100"><foreignObject width="100" height="100"><div>foo\n	
+case layout	<!DOCTYPE html>\n<svg width="100" height="100"><foreignObject width="100" height="100"><div>foo\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 116 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 100 0+0+8] children: inline
@@ -1045,7 +1045,7 @@ case layout	<!doctype html>\n<svg viewbox="0 0 200 100" xmlns="http://www.w3.org
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x408] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<html>\n    <svg width="48" height="48" viewBox="-4 -4 48 48">\n        <defs>\n            <path\n                d="M0 17.4545C0 11.3449 0 8.29005 1.18902 5.95647C2.23491 3.90379 3.90379 2.23491 5.95647 1.18902C8.29005 0 11.3449 0 17.4545 0H22.5455C28.6551 0 31.71 0 34.0435 1.18902C36.0962 2.23491 37.7651 3.90379 38.811 5.95647C40 8.29005 40 11.3449 40 17.4545V22.5455C40 28.6551 40 31.71 38.811 34.0435C37.7651 36.0962 36.0962 37.7651 34.0435 38.811C31.71 40 28.6551 40 22.5455 40H17.4545C11.3449 40 8.29005 40 5.95647 38.811C3.90379 37.7651 2.23491 36.0962 1.18902 34.0435C0 31.71 0 28.6551 0 22.5455V17.4545Z"\n                id="«r1»-blob_mask"\n            ></path>\n        </defs>\n        <mask id="«r1»" fill="black" x="0" y="0" width="40" height="40"><use href="#«r1»-blob_mask" fill="white" class=""></use></mask>\n        <foreignobject mask="url(#«r1»)" x="0" y="0" width="40" height="40">\n            <div style="width: 100px; height: 100px; background-color: magenta"></div>\n        </foreignobject>\n    </svg>\n</html>\n	
+case layout	<!DOCTYPE html>\n<html>\n    <svg width="48" height="48" viewBox="-4 -4 48 48">\n        <defs>\n            <path\n                d="M0 17.4545C0 11.3449 0 8.29005 1.18902 5.95647C2.23491 3.90379 3.90379 2.23491 5.95647 1.18902C8.29005 0 11.3449 0 17.4545 0H22.5455C28.6551 0 31.71 0 34.0435 1.18902C36.0962 2.23491 37.7651 3.90379 38.811 5.95647C40 8.29005 40 11.3449 40 17.4545V22.5455C40 28.6551 40 31.71 38.811 34.0435C37.7651 36.0962 36.0962 37.7651 34.0435 38.811C31.71 40 28.6551 40 22.5455 40H17.4545C11.3449 40 8.29005 40 5.95647 38.811C3.90379 37.7651 2.23491 36.0962 1.18902 34.0435C0 31.71 0 28.6551 0 22.5455V17.4545Z"\n                id="«r1»-blob_mask"\n            ></path>\n        </defs>\n        <mask id="«r1»" fill="black" x="0" y="0" width="40" height="40"><use href="#«r1»-blob_mask" fill="white" class=""></use></mask>\n        <foreignobject mask="url(#«r1»)" x="0" y="0" width="40" height="40">\n            <div style="width: 100px; height: 100px; background-color: magenta"></div>\n        </foreignobject>\n    </svg>\n</html>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 64 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 48 0+0+8] children: inline
@@ -1129,7 +1129,7 @@ case layout	<!DOCTYPE html><html><body><svg\n          xmlns="http://www.w3.org/
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x116] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<body>\n  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">\n    <symbol id="braces" viewBox="0 0 16 16">\n      <path\n        d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z">\n      </path>\n    </symbol>\n  </svg>\n\n  <div>\n    <svg>\n      <use xlink:href="#braces"></use>\n    </svg>\n	
+case layout	<!DOCTYPE html>\n<body>\n  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">\n    <symbol id="braces" viewBox="0 0 16 16">\n      <path\n        d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z">\n      </path>\n    </symbol>\n  </svg>\n\n  <div>\n    <svg>\n      <use xlink:href="#braces"></use>\n    </svg>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: not-inline
@@ -1162,7 +1162,7 @@ later layout	<!DOCTYPE html>\n<body>\n  <svg xmlns="http://www.w3.org/2000/svg" 
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x166] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg xmlns="http://www.w3.org/2000/svg">\n    <symbol viewBox="0 0 16 16">\n        <rect x="1" y="1" width="14" height="14" fill="red" />\n    </symbol>\n</svg>\n	
+case layout	<!DOCTYPE html>\n<svg xmlns="http://www.w3.org/2000/svg">\n    <symbol viewBox="0 0 16 16">\n        <rect x="1" y="1" width="14" height="14" fill="red" />\n    </symbol>\n</svg>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: inline
@@ -1179,7 +1179,7 @@ later layout	<!DOCTYPE html>\n<svg xmlns="http://www.w3.org/2000/svg">\n    <sym
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x166] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg width="300" height="120" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">\n    <rect width="100%" height="100%" fill="black" />\n    <text x="20" y="30%" fill="white" font-family="sans-serif" font-size="28">\n        <tspan dx="20" dy="0">foo</tspan>\n        <tspan dx="20" dy="20%">bar</tspan>\n        <tspan dx="10%" dy="35">baz</tspan>\n    </text>\n</svg>\n	
+case layout	<!DOCTYPE html>\n<svg width="300" height="120" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">\n    <rect width="100%" height="100%" fill="black" />\n    <text x="20" y="30%" fill="white" font-family="sans-serif" font-size="28">\n        <tspan dx="20" dy="0">foo</tspan>\n        <tspan dx="20" dy="20%">bar</tspan>\n        <tspan dx="10%" dy="35">baz</tspan>\n    </text>\n</svg>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 136 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 120 0+0+8] children: inline
@@ -1278,7 +1278,7 @@ case layout	<!doctype html><svg viewBox="0 0 10 10"><rect x=0 y=0 width=10 heigh
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x800] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg width="100" height="100" viewBox="0 0 0 0">\n  <text>Hello!</text>\n</svg>\n	
+case layout	<!DOCTYPE html>\n<svg width="100" height="100" viewBox="0 0 0 0">\n  <text>Hello!</text>\n</svg>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 116 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 100 0+0+8] children: inline
@@ -1297,7 +1297,7 @@ later layout	<!DOCTYPE html>\n<svg width="100" height="100" viewBox="0 0 0 0">\n
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x116] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg><text fill="none"></text></svg>\n	
+case layout	<!DOCTYPE html>\n<svg><text fill="none"></text></svg>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: inline
@@ -1314,7 +1314,7 @@ later layout	<!DOCTYPE html>\n<svg><text fill="none"></text></svg>\n
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x166] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<svg id="outer" viewBox="0 0 10 10">\n  <use href="#whee"></use>\n</svg>\n\n<div style="display: none">\n  <svg width="10" height="10" id="whee">\n    <rect x="0" y="0" width="5" height="5" fill="#0062FF">\n  </svg>\n	\n  #outer { width: 100px; }\n  svg { border: 1px solid black; }\n
+case layout	<!DOCTYPE html>\n<svg id="outer" viewBox="0 0 10 10">\n  <use href="#whee"></use>\n</svg>\n\n<div style="display: none">\n  <svg width="10" height="10" id="whee">\n    <rect x="0" y="0" width="5" height="5" fill="#0062FF">\n  </svg>\n	\n  #outer { width: 100px; }\n  svg { border: 1px solid black; }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 118 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 102 0+0+8] children: inline
@@ -2161,3 +2161,591 @@ case svg	<!DOCTYPE html><svg width="120" height="80"><polygon points="10,10 110,
     path 
     bbox [0,0 0x0]
     contributes true bounds [0,0 0x0] anti-alias true
+case layout	<!DOCTYPE html><svg width="200" height="150"><mask id="m1"><rect x="10" y="10" width="50" height="40" fill="white"/></mask><mask id="m2" maskUnits="userSpaceOnUse" maskContentUnits="objectBoundingBox" x="0" y="0" width="200" height="150"><rect width="0.5" height="0.5" fill="white"/></mask><rect x="5" y="5" width="80" height="60" mask="url(#m1)"/><rect x="100" y="20" width="60" height="100" mask="url(#m2)"/></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 200x150] baseline: 150
+        SVGSVGBox <svg> at [8,8] [0+0+0 200 0+0+0] [0+0+0 150 0+0+0] [SVG] children: not-inline
+          SVGGeometryBox <rect> at [13,13] [0+0+0 80 0+0+0] [0+0+0 60 0+0+0] children: not-inline
+            SVGMaskBox <mask#m1> at [8,8] [0+0+0 200 0+0+0] [0+0+0 150 0+0+0] children: not-inline
+              SVGGeometryBox <rect> at [18,18] [0+0+0 50 0+0+0] [0+0+0 40 0+0+0] children: not-inline
+          SVGGeometryBox <rect> at [108,28] [0+0+0 60 0+0+0] [0+0+0 100 0+0+0] children: not-inline
+            SVGMaskBox <mask#m2> at [108,28] [0+0+0 60 0+0+0] [0+0+0 100 0+0+0] children: not-inline
+              SVGGeometryBox <rect> at [108,28] [0+0+0 30 0+0+0] [0+0+0 50 0+0+0] children: not-inline
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x166]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x150]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 200x150]
+          SVGPathPaintable (SVGGeometryBox<rect>) [13,13 80x60]
+          SVGPathPaintable (SVGGeometryBox<rect>) [108,28 60x100]
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x166] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="200" height="150"><mask id="m1"><rect x="10" y="10" width="50" height="40" fill="white"/></mask><mask id="m2" maskUnits="userSpaceOnUse" maskContentUnits="objectBoundingBox" x="0" y="0" width="200" height="150"><rect width="0.5" height="0.5" fill="white"/></mask><rect x="5" y="5" width="80" height="60" mask="url(#m1)"/><rect x="100" y="20" width="60" height="100" mask="url(#m2)"/></svg>
+  #3 SVGSVGPaintable rect [8,8 200x150]
+  #4 SVGPathPaintable rect [13,13 80x60]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask [-10.75,-6.0625 237.5x178.125] clip none
+    path M5 5L85 5L85 65L5 65L5 5Z
+    bbox [5,5 80x60]
+    contributes true bounds [13,13 80x60] anti-alias true
+  #5 SVGMaskPaintable rect [8,8 200x150]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds [18,18 50x40] anti-alias true
+  #6 SVGPathPaintable rect [18,18 50x40]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M10 10L60 10L60 50L10 50L10 10Z
+    bbox [10,10 50x40]
+    contributes true bounds [18,18 50x40] anti-alias true
+  #7 SVGPathPaintable rect [108,28 60x100]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask [102.375,18.625 71.25x118.75] clip none
+    path M100 20L160 20L160 120L100 120L100 20Z
+    bbox [100,20 60x100]
+    contributes true bounds [108,28 60x100] anti-alias true
+  #8 SVGMaskPaintable rect [108,28 60x100]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds [108,28 30x50] anti-alias true
+  #9 SVGPathPaintable rect [108,28 30x50]
+    transforms viewbox [60 0 0 100 100 20] svg [1 0 0 1 0 0] css [60 0 0 100 100 20]
+    mask none clip none
+    path M0 0L0.5 0L0.5 0.5L0 0.5L0 0Z
+    bbox [0,0 0.5x0.5]
+    contributes true bounds [108,28 30x50] anti-alias true
+case layout	<!DOCTYPE html><svg width="200" height="150" viewBox="0 0 100 75"><clipPath id="c1"><rect x="10" y="10" width="30" height="20"/><polygon points="50,5 90,5 70,40"/></clipPath><clipPath id="c2" clipPathUnits="objectBoundingBox"><rect x="0.25" y="0.25" width="0.5" height="0.5"/></clipPath><g clip-path="url(#c1)"><rect width="100" height="75" fill="green"/></g><rect x="10" y="45" width="40" height="20" clip-path="url(#c2)"/></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 200x150] baseline: 150
+        SVGSVGBox <svg> at [8,8] [0+0+0 200 0+0+0] [0+0+0 150 0+0+0] [SVG] children: not-inline
+          SVGGraphicsBox <g> at [8,8] [0+0+0 200 0+0+0] [0+0+0 150 0+0+0] children: not-inline
+            SVGGeometryBox <rect> at [8,8] [0+0+0 200 0+0+0] [0+0+0 150 0+0+0] children: not-inline
+            SVGClipBox <clipPath#c1> at [8,8] [0+0+0 200 0+0+0] [0+0+0 150 0+0+0] children: not-inline
+              SVGGeometryBox <rect> at [28,28] [0+0+0 60 0+0+0] [0+0+0 40 0+0+0] children: not-inline
+              SVGGeometryBox <polygon> at [108,18] [0+0+0 80 0+0+0] [0+0+0 70 0+0+0] children: not-inline
+          SVGGeometryBox <rect> at [28,98] [0+0+0 80 0+0+0] [0+0+0 40 0+0+0] children: not-inline
+            SVGClipBox <clipPath#c2> at [28,98] [0+0+0 80 0+0+0] [0+0+0 40 0+0+0] children: not-inline
+              SVGGeometryBox <rect> at [48,108] [0+0+0 40 0+0+0] [0+0+0 20 0+0+0] children: not-inline
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x166]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x150]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 200x150]
+          SVGGraphicsPaintable (SVGGraphicsBox<g>) [8,8 200x150]
+            SVGPathPaintable (SVGGeometryBox<rect>) [8,8 200x150]
+          SVGPathPaintable (SVGGeometryBox<rect>) [28,98 80x40]
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x166] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="200" height="150" viewBox="0 0 100 75"><clipPath id="c1"><rect x="10" y="10" width="30" height="20"/><polygon points="50,5 90,5 70,40"/></clipPath><clipPath id="c2" clipPathUnits="objectBoundingBox"><rect x="0.25" y="0.25" width="0.5" height="0.5"/></clipPath><g clip-path="url(#c1)"><rect width="100" height="75" fill="green"/></g><rect x="10" y="45" width="40" height="20" clip-path="url(#c2)"/></svg>
+  #3 SVGSVGPaintable rect [8,8 200x150]
+  #4 SVGGraphicsPaintable rect [8,8 200x150]
+    transforms viewbox [2 0 0 2 0 0] svg [1 0 0 1 0 0] css [2 0 0 2 0 0]
+    mask none clip [28,18 160x70]
+    contributes true bounds [8,8 200x150] anti-alias true
+  #5 SVGPathPaintable rect [8,8 200x150]
+    transforms viewbox [2 0 0 2 0 0] svg [1 0 0 1 0 0] css [2 0 0 2 0 0]
+    mask none clip none
+    path M0 0L100 0L100 75L0 75L0 0Z
+    bbox [0,0 100x75]
+    contributes true bounds [8,8 200x150] anti-alias true
+  #6 SVGClipPaintable rect [8,8 200x150]
+    contributes true bounds [28,18 160x70] anti-alias true
+  #7 SVGPathPaintable rect [28,28 60x40]
+    transforms viewbox [2 0 0 2 0 0] svg [1 0 0 1 0 0] css [2 0 0 2 0 0]
+    mask none clip none
+    path M10 10L40 10L40 30L10 30L10 10Z
+    bbox [10,10 30x20]
+    contributes true bounds [28,28 60x40] anti-alias true
+  #8 SVGPathPaintable rect [108,18 80x70]
+    transforms viewbox [2 0 0 2 0 0] svg [1 0 0 1 0 0] css [2 0 0 2 0 0]
+    mask none clip none
+    path M50 5L90 5L70 40L50 5Z
+    bbox [50,5 40x35]
+    contributes true bounds [108,18 80x70] anti-alias true
+  #9 SVGPathPaintable rect [28,98 80x40]
+    transforms viewbox [2 0 0 2 0 0] svg [1 0 0 1 0 0] css [2 0 0 2 0 0]
+    mask none clip [48,108 40x20]
+    path M10 45L50 45L50 65L10 65L10 45Z
+    bbox [10,45 40x20]
+    contributes true bounds [28,98 80x40] anti-alias true
+  #10 SVGClipPaintable rect [28,98 80x40]
+    contributes true bounds [48,108 40x20] anti-alias true
+  #11 SVGPathPaintable rect [48,108 40x20]
+    transforms viewbox [80 0 0 40 20 90] svg [1 0 0 1 0 0] css [80 0 0 40 20 90]
+    mask none clip none
+    path M0.25 0.25L0.75 0.25L0.75 0.75L0.25 0.75L0.25 0.25Z
+    bbox [0.25,0.25 0.5x0.5]
+    contributes true bounds [48,108 40x20] anti-alias true
+case layout	<!DOCTYPE html><svg width="300" height="200"><defs><symbol id="s" viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8"/></symbol><g id="g"><rect width="20" height="10"/><polygon points="25,0 35,0 30,10"/></g></defs><use href="#s" x="10" y="10" width="50" height="50"/><use href="#s" x="100" y="10" width="80" height="40"/><use href="#g" x="10" y="100" transform="scale(2)"/><use xlink:href="#g" x="150" y="150"/></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 216 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 200 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 300x200] baseline: 200
+        SVGSVGBox <svg> at [8,8] [0+0+0 300 0+0+0] [0+0+0 200 0+0+0] [SVG] children: not-inline
+          SVGGraphicsBox <use> at [8,8] [0+0+0 300 0+0+0] [0+0+0 200 0+0+0] children: not-inline
+            SVGGraphicsBox <symbol#s> at [8,8] [0+0+0 300 0+0+0] [0+0+0 200 0+0+0] [BFC] children: not-inline
+              SVGGeometryBox <rect> at [278,228] [0+0+0 160 0+0+0] [0+0+0 160 0+0+0] children: not-inline
+          SVGGraphicsBox <use> at [8,8] [0+0+0 300 0+0+0] [0+0+0 200 0+0+0] children: not-inline
+            SVGGraphicsBox <symbol#s> at [8,8] [0+0+0 300 0+0+0] [0+0+0 200 0+0+0] [BFC] children: not-inline
+              SVGGeometryBox <rect> at [2078,228] [0+0+0 160 0+0+0] [0+0+0 160 0+0+0] children: not-inline
+          SVGGraphicsBox <use> at [28,208] [0+0+0 70 0+0+0] [0+0+0 20 0+0+0] children: not-inline
+            SVGGraphicsBox <g#g> at [28,208] [0+0+0 70 0+0+0] [0+0+0 20 0+0+0] children: not-inline
+              SVGGeometryBox <rect> at [28,208] [0+0+0 40 0+0+0] [0+0+0 20 0+0+0] children: not-inline
+              SVGGeometryBox <polygon> at [78,208] [0+0+0 20 0+0+0] [0+0+0 20 0+0+0] children: not-inline
+          SVGGraphicsBox <use> at [158,158] [0+0+0 35 0+0+0] [0+0+0 10 0+0+0] children: not-inline
+            SVGGraphicsBox <g#g> at [158,158] [0+0+0 35 0+0+0] [0+0+0 10 0+0+0] children: not-inline
+              SVGGeometryBox <rect> at [158,158] [0+0+0 20 0+0+0] [0+0+0 10 0+0+0] children: not-inline
+              SVGGeometryBox <polygon> at [183,158] [0+0+0 10 0+0+0] [0+0+0 10 0+0+0] children: not-inline
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x216]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x200]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 300x200] overflow: [8,8 2230x380]
+          SVGGraphicsPaintable (SVGGraphicsBox<use>) [8,8 300x200]
+            SVGGraphicsPaintable (SVGGraphicsBox<symbol>#s) [8,8 300x200]
+              SVGPathPaintable (SVGGeometryBox<rect>) [278,228 160x160]
+          SVGGraphicsPaintable (SVGGraphicsBox<use>) [8,8 300x200]
+            SVGGraphicsPaintable (SVGGraphicsBox<symbol>#s) [8,8 300x200]
+              SVGPathPaintable (SVGGeometryBox<rect>) [2078,228 160x160]
+          SVGGraphicsPaintable (SVGGraphicsBox<use>) [28,208 70x20]
+            SVGGraphicsPaintable (SVGGraphicsBox<g>#g) [28,208 70x20]
+              SVGPathPaintable (SVGGeometryBox<rect>) [28,208 40x20]
+              SVGPathPaintable (SVGGeometryBox<polygon>) [78,208 20x20]
+          SVGGraphicsPaintable (SVGGraphicsBox<use>) [158,158 35x10]
+            SVGGraphicsPaintable (SVGGraphicsBox<g>#g) [158,158 35x10]
+              SVGPathPaintable (SVGGeometryBox<rect>) [158,158 20x10]
+              SVGPathPaintable (SVGGeometryBox<polygon>) [183,158 10x10]
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x216] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="300" height="200"><defs><symbol id="s" viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8"/></symbol><g id="g"><rect width="20" height="10"/><polygon points="25,0 35,0 30,10"/></g></defs><use href="#s" x="10" y="10" width="50" height="50"/><use href="#s" x="100" y="10" width="80" height="40"/><use href="#g" x="10" y="100" transform="scale(2)"/><use xlink:href="#g" x="150" y="150"/></svg>
+  #3 SVGSVGPaintable rect [8,8 300x200]
+  #4 SVGGraphicsPaintable rect [8,8 300x200]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 10 10] css [1 0 0 1 10 10]
+    mask none clip none
+    contributes true bounds [278,228 160x160] anti-alias true
+  #5 SVGGraphicsPaintable rect [8,8 300x200]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds [278,228 160x160] anti-alias true
+  #6 SVGPathPaintable rect [278,228 160x160]
+    transforms viewbox [20 0 0 20 50 0] svg [1 0 0 1 10 10] css [20 0 0 20 250 200]
+    mask none clip none
+    path M1 1L9 1L9 9L1 9L1 1Z
+    bbox [1,1 8x8]
+    contributes true bounds [278,228 160x160] anti-alias true
+  #7 SVGGraphicsPaintable rect [8,8 300x200]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 100 10] css [1 0 0 1 100 10]
+    mask none clip none
+    contributes true bounds [2078,228 160x160] anti-alias true
+  #8 SVGGraphicsPaintable rect [8,8 300x200]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds [2078,228 160x160] anti-alias true
+  #9 SVGPathPaintable rect [2078,228 160x160]
+    transforms viewbox [20 0 0 20 50 0] svg [1 0 0 1 100 10] css [20 0 0 20 2050 200]
+    mask none clip none
+    path M1 1L9 1L9 9L1 9L1 1Z
+    bbox [1,1 8x8]
+    contributes true bounds [2078,228 160x160] anti-alias true
+  #10 SVGGraphicsPaintable rect [28,208 70x20]
+    transforms viewbox [1 0 0 1 0 0] svg [2 0 0 2 20 200] css [2 0 0 2 20 200]
+    mask none clip none
+    contributes true bounds [28,208 70x20] anti-alias true
+  #11 SVGGraphicsPaintable rect [28,208 70x20]
+    transforms viewbox [1 0 0 1 0 0] svg [2 0 0 2 20 200] css [2 0 0 2 20 200]
+    mask none clip none
+    contributes true bounds [28,208 70x20] anti-alias true
+  #12 SVGPathPaintable rect [28,208 40x20]
+    transforms viewbox [1 0 0 1 0 0] svg [2 0 0 2 20 200] css [2 0 0 2 20 200]
+    mask none clip none
+    path M0 0L20 0L20 10L0 10L0 0Z
+    bbox [0,0 20x10]
+    contributes true bounds [28,208 40x20] anti-alias true
+  #13 SVGPathPaintable rect [78,208 20x20]
+    transforms viewbox [1 0 0 1 0 0] svg [2 0 0 2 20 200] css [2 0 0 2 20 200]
+    mask none clip none
+    path M25 0L35 0L30 10L25 0Z
+    bbox [25,0 10x10]
+    contributes true bounds [78,208 20x20] anti-alias true
+  #14 SVGGraphicsPaintable rect [158,158 35x10]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 150 150] css [1 0 0 1 150 150]
+    mask none clip none
+    contributes true bounds [158,158 35x10] anti-alias true
+  #15 SVGGraphicsPaintable rect [158,158 35x10]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 150 150] css [1 0 0 1 150 150]
+    mask none clip none
+    contributes true bounds [158,158 35x10] anti-alias true
+  #16 SVGPathPaintable rect [158,158 20x10]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 150 150] css [1 0 0 1 150 150]
+    mask none clip none
+    path M0 0L20 0L20 10L0 10L0 0Z
+    bbox [0,0 20x10]
+    contributes true bounds [158,158 20x10] anti-alias true
+  #17 SVGPathPaintable rect [183,158 10x10]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 150 150] css [1 0 0 1 150 150]
+    mask none clip none
+    path M25 0L35 0L30 10L25 0Z
+    bbox [25,0 10x10]
+    contributes true bounds [183,158 10x10] anti-alias true
+case layout	<!DOCTYPE html><svg width="200" height="100"><g id="a"><use href="#b"/></g><g id="b"><use href="#a"/><rect width="10" height="10"/></g><use href="#missing" x="5"/><use href="#b" x="50" y="20"/></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 116 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 100 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 200x100] baseline: 100
+        SVGSVGBox <svg> at [8,8] [0+0+0 200 0+0+0] [0+0+0 100 0+0+0] [SVG] children: not-inline
+          SVGGraphicsBox <g#a> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+            SVGGraphicsBox <use> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+          SVGGraphicsBox <g#b> at [8,8] [0+0+0 10 0+0+0] [0+0+0 10 0+0+0] children: not-inline
+            SVGGraphicsBox <use> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+              SVGGraphicsBox <g#a> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+                SVGGraphicsBox <use> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+                  SVGGraphicsBox <g#b> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+            SVGGeometryBox <rect> at [8,8] [0+0+0 10 0+0+0] [0+0+0 10 0+0+0] children: not-inline
+          SVGGraphicsBox <use> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+          SVGGraphicsBox <use> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x116]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x100]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 200x100]
+          SVGGraphicsPaintable (SVGGraphicsBox<g>#a) [8,8 0x0]
+            SVGGraphicsPaintable (SVGGraphicsBox<use>) [8,8 0x0]
+          SVGGraphicsPaintable (SVGGraphicsBox<g>#b) [8,8 10x10]
+            SVGGraphicsPaintable (SVGGraphicsBox<use>) [8,8 0x0]
+              SVGGraphicsPaintable (SVGGraphicsBox<g>#a) [8,8 0x0]
+                SVGGraphicsPaintable (SVGGraphicsBox<use>) [8,8 0x0]
+                  SVGGraphicsPaintable (SVGGraphicsBox<g>#b) [8,8 0x0]
+            SVGPathPaintable (SVGGeometryBox<rect>) [8,8 10x10]
+          SVGGraphicsPaintable (SVGGraphicsBox<use>) [8,8 0x0]
+          SVGGraphicsPaintable (SVGGraphicsBox<use>) [8,8 0x0]
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x116] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="200" height="100"><g id="a"><use href="#b"/></g><g id="b"><use href="#a"/><rect width="10" height="10"/></g><use href="#missing" x="5"/><use href="#b" x="50" y="20"/></svg>
+  #3 SVGSVGPaintable rect [8,8 200x100]
+  #4 SVGGraphicsPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds none anti-alias true
+  #5 SVGGraphicsPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds none anti-alias true
+  #6 SVGGraphicsPaintable rect [8,8 10x10]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds [8,8 10x10] anti-alias true
+  #7 SVGGraphicsPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds none anti-alias true
+  #8 SVGGraphicsPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds none anti-alias true
+  #9 SVGGraphicsPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds none anti-alias true
+  #10 SVGGraphicsPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds none anti-alias true
+  #11 SVGPathPaintable rect [8,8 10x10]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M0 0L10 0L10 10L0 10L0 0Z
+    bbox [0,0 10x10]
+    contributes true bounds [8,8 10x10] anti-alias true
+  #12 SVGGraphicsPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 5 0] css [1 0 0 1 5 0]
+    mask none clip none
+    contributes true bounds none anti-alias true
+  #13 SVGGraphicsPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 50 20] css [1 0 0 1 50 20]
+    mask none clip none
+    contributes true bounds none anti-alias true
+case layout	<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290.953125" y="140" text-anchor="end">end</text></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 300x150] baseline: 150
+        SVGSVGBox <svg> at [8,8] [0+0+0 300 0+0+0] [0+0+0 150 0+0+0] [SVG] children: not-inline
+          SVGTextBox <text> at [18.953125,26.6875] [0+0+0 37.34375 0+0+0] [0+0+0 12.03125 0+0+0] children: inline
+            TextNode <#text> (not painted)
+          SVGTextBox <text> at [23.78125,52.96875] [0+0+0 51 0+0+0] [0+0+0 12.3125 0+0+0] children: inline
+            TextNode <#text> (not painted)
+            SVGTextBox <tspan> at [128.78125,64.6875] [0+0+0 34.8125 0+0+0] [0+0+0 11.0625 0+0+0] children: inline
+              TextNode <#text> (not painted)
+          SVGTextBox <text> at [121.328125,55.96875] [0+0+0 43.78125 0+0+0] [0+0+0 12.375 0+0+0] children: inline
+            TextNode <#text> (not painted)
+          SVGTextBox <text> at [273.59375,139.21875] [0+0+0 24.953125 0+0+0] [0+0+0 9.53125 0+0+0] children: inline
+            TextNode <#text> (not painted)
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x166]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x150]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 300x150]
+          SVGPathPaintable (SVGTextBox<text>) [18.953125,26.6875 37.34375x12.03125]
+          SVGPathPaintable (SVGTextBox<text>) [23.78125,52.96875 51x12.3125]
+            SVGPathPaintable (SVGTextBox<tspan>) [128.78125,64.6875 34.8125x11.0625]
+          SVGPathPaintable (SVGTextBox<text>) [121.328125,55.96875 43.78125x12.375]
+          SVGPathPaintable (SVGTextBox<text>) [273.59375,139.21875 24.953125x9.53125]
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x166] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290.953125" y="140" text-anchor="end">end</text></svg>
+  #3 SVGSVGPaintable rect [8,8 300x150]
+  #4 SVGPathPaintable rect [18.953125,26.6875 37.34375x12.03125]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M11.34375 28.6875L10.953125 18.8125L13.328125 18.6875L13.609375 23.3125L18.640625 23.1875L18.234375 18.78125L20.859375 18.8125L21.171875 28.40625L18.796875 28.4375L18.609375 24.71875L13.859375 24.90625L13.875 29.5L11.34375 28.6875ZM25.453125 23.125L25.328125 24.84375L27.921875 24.75L27.421875 23.34375L25.453125 23.125ZM22.828125 25.15625L23.703125 21.921875L27.765625 21.296875L29.828125 24.0625L29.359375 25.71875L25.359375 26.21875L25.46875 27.671875L26.625 28.234375L29.53125 28.234375L29.25 29.640625L25.53125 29.828125L23.578125 28.84375L22.828125 25.15625ZM32.25 21.921875L31.59375 21.90625L31.5 19.890625L33.9375 19.9375L34.125 30L32 29.90625L32.25 21.921875ZM36.25 21.921875L35.59375 21.90625L35.5 19.890625L37.9375 19.9375L38.125 30L36 29.90625L36.25 21.921875ZM41.984375 24.78125L42.984375 28.4375L45.421875 28.96875L46.078125 24.03125L43.734375 22.84375L41.984375 24.78125ZM40.015625 28.5625L40.078125 22.34375L44.015625 20.9375L48.296875 22.90625L48.046875 30.125L45.546875 30.71875L40.015625 28.5625Z
+    bbox [10.953125,18.6875 37.34375x12.03125]
+    contributes true bounds [18.953125,26.6875 37.34375x12.03125] anti-alias true
+  #6 SVGPathPaintable rect [23.78125,52.96875 51x12.3125]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M22.46875 48.515625L22.46875 51.09375L18.6875 50.078125L17.796875 51.53125L18.734375 52.84375L22.5 53.46875L23.375 54.84375L23.46875 56.78125L21.65625 57.28125L17.40625 57.1875L17.34375 55.84375L21.21875 55.46875L20.09375 54.296875L17.21875 54.3125L15.78125 51.84375L16.90625 48.578125L22.46875 48.515625ZM25.0625 56.75L24.6875 45.015625L26.875 46.046875L27.25 50.390625L29.1875 48.640625L30.90625 48.640625L32.3125 51.203125L32.1875 56.625L30.8125 57L30.0625 51.578125L28.96875 50.890625L27.125 52.140625L27.3125 56.75L25.0625 56.75ZM34.046875 46.875L34.078125 44.96875L36.109375 45L36.515625 47.21875L34.046875 46.875ZM34.015625 56.875L34.046875 48.875L36.265625 48.90625L36.234375 57L34.015625 56.875ZM39.875 56.75L39.921875 50.609375L38.453125 50.546875L38.484375 49.015625L39.921875 48.953125L40.890625 46L43.015625 45.078125L44.421875 45.171875L43.890625 47.40625L42.734375 47.046875L42.140625 48.890625L43.453125 49.078125L43.328125 50.578125L42.015625 50.640625L41.96875 57L39.875 56.75ZM46.4375 48.78125L46.5625 46.53125L48.59375 46.59375L48.34375 48.8125L49.96875 48.96875L49.875 50.40625L48.21875 50.1875L48.3125 57L45.5 57.21875L46.34375 50.625L44.78125 50.15625L44.78125 49.21875L46.4375 48.78125ZM54.453125 50.125L54.328125 51.84375L56.921875 51.75L56.421875 50.34375L54.453125 50.125ZM51.828125 52.15625L52.703125 48.921875L56.765625 48.296875L58.828125 51.0625L58.359375 52.71875L54.359375 53.21875L54.46875 54.671875L55.625 55.234375L58.53125 55.234375L58.25 56.640625L54.53125 56.828125L52.578125 55.84375L51.828125 52.15625ZM62.71875 53.03125L62.59375 55.21875L63.84375 55.21875L64.578125 53.78125L62.71875 53.03125ZM64.5625 51.6875L65.46875 48.34375L66.78125 48.3125L66.5 57L65.375 57L65.34375 56.15625L62.96875 56.8125L60.84375 55.8125L61.46875 51.6875L62.6875 50.6875L64.5625 51.6875Z
+    bbox [15.78125,44.96875 51x12.3125]
+    contributes true bounds [23.78125,52.96875 51x12.3125] anti-alias true
+  #8 SVGPathPaintable rect [128.78125,64.6875 34.8125x11.0625]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M127.46875 58.515625L127.46875 61.09375L123.6875 60.078125L122.79688 61.53125L123.73438 62.84375L127.5 63.46875L128.375 64.84375L128.46875 66.78125L126.65625 67.28125L122.40625 67.1875L122.34375 65.84375L126.21875 65.46875L125.09375 64.296875L122.21875 64.3125L120.78125 61.84375L121.90625 58.578125L127.46875 58.515625ZM133.46875 62.53125L134.90625 63.5L135.75 60.5L133.9375 60.34375L133.46875 62.53125ZM130.25 67L130 58.3125L132.125 58.25L132.42188 59.703125L135.5625 58.3125L137.1875 60.5L137.5 63.375L135.53125 64.59375L132.6875 64.03125L132.09375 67.53125L130.25 67ZM140.42188 62.546875L140.45312 65.4375L142.42188 65.625L142.90625 62.1875L140.42188 62.546875ZM140.5625 58.953125L140.21875 58.078125L142.17188 56.6875L144.82812 57.640625L145.8125 59.609375L146.26562 67L144.73438 67.125L144.48438 66L142.54688 67.0625L139.92188 67.03125L138.14062 65.375L138.82812 61.015625L142.1875 59.796875L143.6875 60.671875L143.59375 59.390625L142.76562 58.3125L140.5625 58.953125ZM148.5 66.71875L147.89062 58.21875L150.04688 58.3125L150.76562 60.21875L153.07812 58.8125L155.29688 59.59375L155.59375 67.75L153.96875 67.4375L153.04688 60.40625L150.89062 61.875L150.84375 67L148.5 66.71875Z
+    bbox [120.78125,56.6875 34.8125x11.0625]
+    contributes true bounds [128.78125,64.6875 34.8125x11.0625] anti-alias true
+  #10 SVGPathPaintable rect [121.328125,55.96875 43.78125x12.375]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M121.60938 54.25L120.35938 54.1875L119.9375 60L118.15625 59.9375L117.42188 53.90625L115.54688 54.5625L114.73438 60L113.32812 59.59375L113.45312 51.40625L115.17188 51.40625L115.35938 53.4375L116.48438 51.96875L117.85938 51.8125L118.85938 53.1875L120.70312 52.125L121.73438 52.15625L122.89062 53.8125L123.65625 60.34375L121.78125 60.125L121.60938 54.25ZM125.32812 49.875L125.35938 47.96875L127.39062 48L127.79688 50.21875L125.32812 49.875ZM125.29688 59.875L125.32812 51.875L127.54688 51.90625L127.51562 60L125.29688 59.875ZM132 56.03125L131.875 58.21875L133.125 58.21875L133.85938 56.78125L132 56.03125ZM133.84375 54.6875L134.75 51.34375L136.0625 51.3125L135.78125 60L134.65625 60L134.625 59.15625L132.25 59.8125L130.125 58.8125L130.75 54.6875L131.96875 53.6875L133.84375 54.6875ZM140 56.03125L139.875 58.21875L141.125 58.21875L141.85938 56.78125L140 56.03125ZM141.84375 54.6875L142.75 51.34375L144.0625 51.3125L143.78125 60L142.65625 60L142.625 59.15625L140.25 59.8125L138.125 58.8125L138.75 54.6875L139.96875 53.6875L141.84375 54.6875ZM146.53125 51.921875L145.875 51.90625L145.78125 49.890625L148.21875 49.9375L148.40625 60L146.28125 59.90625L146.53125 51.921875ZM152.73438 53.125L152.60938 54.84375L155.20312 54.75L154.70312 53.34375L152.73438 53.125ZM150.10938 55.15625L150.98438 51.921875L155.04688 51.296875L157.10938 54.0625L156.64062 55.71875L152.64062 56.21875L152.75 57.671875L153.90625 58.234375L156.8125 58.234375L156.53125 59.640625L152.8125 59.828125L150.85938 58.84375L150.10938 55.15625Z
+    bbox [113.328125,47.96875 43.78125x12.375]
+    contributes true bounds [121.328125,55.96875 43.78125x12.375] anti-alias true
+  #12 SVGPathPaintable rect [273.59375,139.21875 24.953125x9.53125]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M268.21875 133.125L268.09375 134.84375L270.6875 134.75L270.1875 133.34375L268.21875 133.125ZM265.59375 135.15625L266.46875 131.92188L270.53125 131.29688L272.59375 134.0625L272.125 135.71875L268.125 136.21875L268.23438 137.67188L269.39062 138.23438L272.29688 138.23438L272.01562 139.64062L268.29688 139.82812L266.34375 138.84375L265.59375 135.15625ZM275.26562 139.71875L274.65625 131.21875L276.8125 131.3125L277.53125 133.21875L279.84375 131.8125L282.0625 132.59375L282.35938 140.75L280.73438 140.4375L279.8125 133.40625L277.65625 134.875L277.60938 140L275.26562 139.71875ZM286.48438 136.03125L286.35938 138.21875L287.60938 138.21875L288.34375 136.78125L286.48438 136.03125ZM288.32812 134.6875L289.23438 131.34375L290.54688 131.3125L290.26562 140L289.14062 140L289.10938 139.15625L286.73438 139.8125L284.60938 138.8125L285.23438 134.6875L286.45312 133.6875L288.32812 134.6875Z
+    bbox [265.59375,131.21875 24.953125x9.53125]
+    contributes true bounds [273.59375,139.21875 24.953125x9.53125] anti-alias true
+case layout	<!DOCTYPE html><svg width="300" height="150" style="font: 12px SerenitySans"><path id="p" d="M 10 100 L 150 20 L 290 100" fill="none" stroke="black"/><text><textPath href="#p">along the path</textPath></text></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 300x150] baseline: 150
+        SVGSVGBox <svg> at [8,8] [0+0+0 300 0+0+0] [0+0+0 150 0+0+0] [SVG] children: not-inline
+          SVGGeometryBox <path#p> at [17.5,27.5] [0+0+0 281 0+0+0] [0+0+0 81 0+0+0] children: not-inline
+          SVGTextBox <text> at [8,8] [0+0+0 0 0+0+0] [0+0+0 0 0+0+0] children: not-inline
+            SVGTextPathBox <textPath> at [16.125,59.609375] [0+0+0 77.390625 0+0+0] [0+0+0 47.6875 0+0+0] children: inline
+              TextNode <#text> (not painted)
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x166]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x150]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 300x150]
+          SVGPathPaintable (SVGGeometryBox<path>#p) [17.5,27.5 281x81]
+          SVGPathPaintable (SVGTextBox<text>) [8,8 0x0]
+            SVGPathPaintable (SVGTextPathBox<textPath>) [16.125,59.609375 77.390625x47.6875]
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x166] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="300" height="150" style="font: 12px SerenitySans"><path id="p" d="M 10 100 L 150 20 L 290 100" fill="none" stroke="black"/><text><textPath href="#p">along the path</textPath></text></svg>
+  #3 SVGSVGPaintable rect [8,8 300x150]
+  #4 SVGPathPaintable rect [17.5,27.5 281x81]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M10 100L150 20L290 100
+    bbox [10,20 280x80]
+    contributes true bounds [18,28 280x80] anti-alias true
+  #5 SVGPathPaintable rect [8,8 0x0]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path 
+    bbox [0,0 0x0]
+    contributes true bounds [0,0 0x0] anti-alias true
+  #6 SVGPathPaintable rect [16.125,59.609375 77.390625x47.6875]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M9.9200554 96.199013L11.016019 98.06971L12.367804 97.459229L11.404112 95.04055L9.9200554 96.199013ZM8.6743793 93.806503L8.1249437 93.364624L8.8793268 91.732307L10.963692 91.364563L12.33728 92.280289L15.382429 96.924324L14.43182 97.575508L13.850407 96.935951L12.984101 98.348785L11.26312 99.305214L9.4869032 98.889503L8.3124495 95.79493L10.046514 93.751266L11.348878 93.762894L10.811071 92.963455L9.870636 92.569542L8.6743793 93.806503ZM13.885776 90.801559L13.452623 91.035576L12.641552 89.757927L14.246252 88.881447L18.112646 95.364197L16.693998 96.093872L13.885776 90.801559ZM18.683886 90.529755L20.695574 92.538536L22.480511 91.977478L21.070585 88.518066L19.102503 88.616905L18.683886 90.529755ZM18.808889 93.724617L16.535566 89.651825L18.576324 87.270935L22.096779 86.959885L24.62011 91.753632L23.213091 93.070534L18.808889 93.724617ZM26.500496 90.328194L22.940796 85.019897L24.379791 84.278595L25.557154 85.252457L26.539742 83.476242L28.275257 83.159378L31.503551 88.360115L30.329098 88.761284L27.112432 84.525696L26.254848 86.28447L28.131359 89.639221L26.500496 90.328194ZM31.165365 83.62693L32.954662 83.900192L33.123272 82.305672L31.470608 82.602188L31.165365 83.62693ZM32.396507 80.939346L32.687214 80.125374L33.773003 80.962608L35.509972 85.301399L35.399506 86.525276L34.937283 87.464256L32.774426 88.592194L32.536045 88.080551L34.347149 86.856682L34.623318 85.970024L33.658173 84.469978L32.948849 85.118256L30.921173 85.183662L29.322287 82.952492L31.300545 80.86377L32.396507 80.939346ZM40.654022 75.383949L39.898186 73.872276L41.244156 73.157143L41.906967 74.694977L43.023277 74.192055L43.497131 75.163017L42.337212 75.636864L44.93322 80.038162L43.183167 81.22715L41.279041 76.619453L40.087143 76.895622L39.738297 76.285141L40.654022 75.383949ZM47.065067 78.604004L42.454464 71.102325L44.262657 70.959885L46.12318 73.648918L46.733665 71.788391L47.852882 71.148842L49.722126 72.29422L51.65823 75.871368L50.902393 76.627205L48.396503 73.375648L47.428452 73.334953L46.692963 74.834999L48.530228 77.766769L47.065067 78.604004ZM52.234314 69.927391L52.792469 71.093124L54.446587 70.066933L53.597725 69.337257L52.234314 69.927391ZM51.280796 72.226883L50.647057 69.79512L53.059917 67.876457L55.432083 68.90992L55.743141 70.162865L53.324463 71.976875L53.936398 72.882423L54.898636 72.818466L56.791138 71.737038L57.131264 72.757423L54.779446 74.263275L53.141315 74.349037L51.280796 72.226883ZM65.078209 64.666573L66.374756 64.762512L65.807884 62.494999L64.569473 63.067692L65.078209 64.666573ZM64.645058 68.774254L61.249603 63.210136L62.610111 62.378716L63.344143 63.214497L64.871803 61.140305L66.743958 61.960098L68.01725 63.715965L67.188736 65.242172L65.127625 65.934059L66.04335 68.434128L64.645058 68.774254ZM69.828842 61.965424L70.924805 63.836121L72.276588 63.225636L71.312897 60.806961L69.828842 61.965424ZM68.58316 59.57291L68.03373 59.131035L68.788109 57.498718L70.872475 57.130978L72.246063 58.046703L75.291214 62.690739L74.340599 63.341919L73.759186 62.702366L72.892883 64.115196L71.171906 65.071625L69.395683 64.655914L68.22123 61.561344L69.955299 59.517677L71.25766 59.529305L70.719856 58.729862L69.779419 58.335953L68.58316 59.57291ZM74.515503 56.034531L73.759666 54.522858L75.105644 53.807716L75.768448 55.345554L76.884766 54.842632L77.358612 55.813591L76.1987 56.287445L78.794708 60.68874L77.044655 61.877728L75.140526 57.270031L73.948631 57.546204L73.599785 56.935719L74.515503 56.034531ZM80.926552 59.254589L76.315948 51.752907L78.124146 51.610462L79.984665 54.299496L80.595146 52.438976L81.714371 51.799423L83.583611 52.944805L85.519714 56.52195L84.763878 57.277786L82.257988 54.026234L81.289932 53.985535L80.554451 55.48558L82.391716 58.417355L80.926552 59.254589Z
+    bbox [8.124944,51.610462 77.39477x47.69475]
+    contributes true bounds [16.125,59.609375 77.390625x47.6875] anti-alias true
+case layout	<!DOCTYPE html><svg width="200" height="200"><foreignObject x="20" y="30" width="150" height="80"><div style="width: 100px; height: 40px; background: red">box</div></foreignObject><g transform="translate(10 10)"><foreignObject width="50" height="50"><span>t</span></foreignObject></g></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 216 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 200 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 200x200] baseline: 200
+        SVGSVGBox <svg> at [8,8] [0+0+0 200 0+0+0] [0+0+0 200 0+0+0] [SVG] children: not-inline
+          SVGForeignObjectBox <foreignObject> at [28,38] [0+0+0 150 0+0+0] [0+0+0 80 0+0+0] [BFC] children: not-inline
+            BlockContainer <div> at [28,38] [0+0+0 100 0+0+50] [0+0+0 40 0+0+0] children: inline
+              frag 0 from TextNode start: 0, length: 3, rect: [28,38 29.53125x18] baseline: 13.796875
+                  "box"
+              TextNode <#text> (not painted)
+          SVGGraphicsBox <g> at [8,8] [0+0+0 50 0+0+0] [0+0+0 50 0+0+0] children: not-inline
+            SVGForeignObjectBox <foreignObject> at [8,8] [0+0+0 50 0+0+0] [0+0+0 50 0+0+0] [BFC] children: not-inline
+              BlockContainer <(anonymous)> at [8,8] [0+0+0 50 0+0+0] [0+0+0 18 0+0+0] children: inline
+                InlineNode <span> at [8,8] [0+0+0 6.859375 0+0+0] [0+0+0 18 0+0+0]
+                  frag 0 from TextNode start: 0, length: 1, rect: [8,8 6.859375x18] baseline: 13.796875
+                      "t"
+                  TextNode <#text> (not painted)
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x216]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x200]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 200x200]
+          SVGForeignObjectPaintable (SVGForeignObjectBox<foreignObject>) [28,38 150x80]
+            PaintableWithLines (BlockContainer<DIV>) [28,38 100x40]
+              TextPaintable (TextNode<#text>)
+          SVGGraphicsPaintable (SVGGraphicsBox<g>) [8,8 50x50]
+            SVGForeignObjectPaintable (SVGForeignObjectBox<foreignObject>) [8,8 50x50]
+              PaintableWithLines (BlockContainer(anonymous)) [8,8 50x18]
+                PaintableWithLines (InlineNode<SPAN>) [8,8 6.859375x18]
+                  TextPaintable (TextNode<#text>)
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x216] [children: 2] (z-index: auto)
+    SC for SVGForeignObjectBox<foreignObject> [28,38 150x80] [children: 0] (z-index: auto)
+    SC for SVGForeignObjectBox<foreignObject> [8,8 50x50] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="200" height="200"><foreignObject x="20" y="30" width="150" height="80"><div style="width: 100px; height: 40px; background: red">box</div></foreignObject><g transform="translate(10 10)"><foreignObject width="50" height="50"><span>t</span></foreignObject></g></svg>
+  #3 SVGSVGPaintable rect [8,8 200x200]
+  #7 SVGGraphicsPaintable rect [8,8 50x50]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 10 10] css [1 0 0 1 10 10]
+    mask none clip none
+    contributes true bounds none anti-alias true
+case layout	<!DOCTYPE html><svg width="200" height="120"><defs><pattern id="pt" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="red"/><polygon points="11,11 19,11 15,19"/></pattern><pattern id="pt2" href="#pt" x="5" patternTransform="rotate(0)"/><linearGradient id="lg"><stop offset="0" stop-color="red"/><stop offset="1" stop-color="blue"/></linearGradient><radialGradient id="rg" href="#lg"/></defs><rect width="90" height="50" fill="url(#pt)"/><rect x="100" width="90" height="50" fill="url(#pt2)" stroke="url(#lg)"/><rect y="60" width="90" height="50" fill="url(#lg)"/><rect x="100" y="60" width="90" height="50" fill="url(#rg)"/></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 136 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 120 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 200x120] baseline: 120
+        SVGSVGBox <svg> at [8,8] [0+0+0 200 0+0+0] [0+0+0 120 0+0+0] [SVG] children: not-inline
+          SVGGeometryBox <rect> at [8,8] [0+0+0 90 0+0+0] [0+0+0 50 0+0+0] children: not-inline
+            SVGPatternBox <pattern#pt> at [8,8] [0+0+0 200 0+0+0] [0+0+0 120 0+0+0] [BFC] children: not-inline
+              SVGGeometryBox <rect> at [8,8] [0+0+0 10 0+0+0] [0+0+0 10 0+0+0] children: not-inline
+              SVGGeometryBox <polygon> at [19,19] [0+0+0 8 0+0+0] [0+0+0 8 0+0+0] children: not-inline
+          SVGGeometryBox <rect> at [108,8] [0+0+0 90 0+0+0] [0+0+0 50 0+0+0] children: not-inline
+            SVGPatternBox <pattern#pt> at [8,8] [0+0+0 200 0+0+0] [0+0+0 120 0+0+0] [BFC] children: not-inline
+              SVGGeometryBox <rect> at [8,8] [0+0+0 10 0+0+0] [0+0+0 10 0+0+0] children: not-inline
+              SVGGeometryBox <polygon> at [19,19] [0+0+0 8 0+0+0] [0+0+0 8 0+0+0] children: not-inline
+          SVGGeometryBox <rect> at [8,68] [0+0+0 90 0+0+0] [0+0+0 50 0+0+0] children: not-inline
+          SVGGeometryBox <rect> at [108,68] [0+0+0 90 0+0+0] [0+0+0 50 0+0+0] children: not-inline
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x136]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x120]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 200x120]
+          SVGPathPaintable (SVGGeometryBox<rect>) [8,8 90x50]
+          SVGPathPaintable (SVGGeometryBox<rect>) [108,8 90x50]
+          SVGPathPaintable (SVGGeometryBox<rect>) [8,68 90x50]
+          SVGPathPaintable (SVGGeometryBox<rect>) [108,68 90x50]
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x136] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="200" height="120"><defs><pattern id="pt" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="red"/><polygon points="11,11 19,11 15,19"/></pattern><pattern id="pt2" href="#pt" x="5" patternTransform="rotate(0)"/><linearGradient id="lg"><stop offset="0" stop-color="red"/><stop offset="1" stop-color="blue"/></linearGradient><radialGradient id="rg" href="#lg"/></defs><rect width="90" height="50" fill="url(#pt)"/><rect x="100" width="90" height="50" fill="url(#pt2)" stroke="url(#lg)"/><rect y="60" width="90" height="50" fill="url(#lg)"/><rect x="100" y="60" width="90" height="50" fill="url(#rg)"/></svg>
+  #3 SVGSVGPaintable rect [8,8 200x120]
+  #4 SVGPathPaintable rect [8,8 90x50]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M0 0L90 0L90 50L0 50L0 0Z
+    bbox [0,0 90x50]
+    contributes true bounds [8,8 90x50] anti-alias true
+  #5 SVGPatternPaintable rect [8,8 200x120]
+    contributes true bounds [8,8 19x19] anti-alias true
+  #6 SVGPathPaintable rect [8,8 10x10]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M0 0L10 0L10 10L0 10L0 0Z
+    bbox [0,0 10x10]
+    contributes true bounds [8,8 10x10] anti-alias true
+  #7 SVGPathPaintable rect [19,19 8x8]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M11 11L19 11L15 19L11 11Z
+    bbox [11,11 8x8]
+    contributes true bounds [19,19 8x8] anti-alias true
+  #8 SVGPathPaintable rect [108,8 90x50]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M100 0L190 0L190 50L100 50L100 0Z
+    bbox [100,0 90x50]
+    contributes true bounds [108,8 90x50] anti-alias true
+  #9 SVGPatternPaintable rect [8,8 200x120]
+    contributes true bounds [8,8 19x19] anti-alias true
+  #10 SVGPathPaintable rect [8,8 10x10]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M0 0L10 0L10 10L0 10L0 0Z
+    bbox [0,0 10x10]
+    contributes true bounds [8,8 10x10] anti-alias true
+  #11 SVGPathPaintable rect [19,19 8x8]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M11 11L19 11L15 19L11 11Z
+    bbox [11,11 8x8]
+    contributes true bounds [19,19 8x8] anti-alias true
+  #12 SVGPathPaintable rect [8,68 90x50]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M0 60L90 60L90 110L0 110L0 60Z
+    bbox [0,60 90x50]
+    contributes true bounds [8,68 90x50] anti-alias true
+  #13 SVGPathPaintable rect [108,68 90x50]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M100 60L190 60L190 110L100 110L100 60Z
+    bbox [100,60 90x50]
+    contributes true bounds [108,68 90x50] anti-alias true
+case layout	<!DOCTYPE html><svg width="200" height="100"><filter id="f"><feFlood flood-color="green" result="fl"/><feGaussianBlur in="SourceGraphic" stdDeviation="2"/><feOffset dx="3" dy="4"/><feMerge><feMergeNode in="fl"/><feMergeNode/></feMerge></filter><rect x="10" y="10" width="50" height="50" filter="url(#f)"/><a href="#x"><rect x="100" y="10" width="40" height="40"/></a></svg>
+  Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
+    BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 116 0+0+0] [BFC] children: not-inline
+      BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 100 0+0+8] children: inline
+        frag 0 from SVGSVGBox start: 0, length: 0, rect: [8,8 200x100] baseline: 100
+        SVGSVGBox <svg> at [8,8] [0+0+0 200 0+0+0] [0+0+0 100 0+0+0] [SVG] children: inline
+          InlineNode <filter#f> at [8,8] [0+0+0 0 0+0+0] [0+0+0 18 0+0+0]
+            SVGBox <feFlood> (not painted) children: not-inline
+            InlineNode <feGaussianBlur> at [8,8] [0+0+0 0 0+0+0] [0+0+0 18 0+0+0]
+            InlineNode <feOffset> at [8,8] [0+0+0 0 0+0+0] [0+0+0 18 0+0+0]
+            InlineNode <feMerge> at [8,8] [0+0+0 0 0+0+0] [0+0+0 18 0+0+0]
+              InlineNode <feMergeNode> at [8,8] [0+0+0 0 0+0+0] [0+0+0 18 0+0+0]
+              InlineNode <feMergeNode> at [8,8] [0+0+0 0 0+0+0] [0+0+0 18 0+0+0]
+          SVGGeometryBox <rect> at [18,18] [0+0+0 50 0+0+0] [0+0+0 50 0+0+0] children: not-inline
+          SVGGraphicsBox <a> at [108,18] [0+0+0 40 0+0+0] [0+0+0 40 0+0+0] children: not-inline
+            SVGGeometryBox <rect> at [108,18] [0+0+0 40 0+0+0] [0+0+0 40 0+0+0] children: not-inline
+  
+  ViewportPaintable (Viewport<#document>) [0,0 800x600]
+    PaintableWithLines (BlockContainer<HTML>) [0,0 800x116]
+      PaintableWithLines (BlockContainer<BODY>) [8,8 784x100]
+        SVGSVGPaintable (SVGSVGBox<svg>) [8,8 200x100]
+          PaintableWithLines (InlineNode<filter>#f) [8,8 0x18]
+            PaintableWithLines (InlineNode<feGaussianBlur>) [8,8 0x18]
+            PaintableWithLines (InlineNode<feOffset>) [8,8 0x18]
+            PaintableWithLines (InlineNode<feMerge>) [8,8 0x18]
+              PaintableWithLines (InlineNode<feMergeNode>) [8,8 0x18]
+              PaintableWithLines (InlineNode<feMergeNode>) [8,8 0x18]
+          SVGPathPaintable (SVGGeometryBox<rect>) [18,18 50x50]
+          SVGGraphicsPaintable (SVGGraphicsBox<a>) [108,18 40x40]
+            SVGPathPaintable (SVGGeometryBox<rect>) [108,18 40x40]
+  
+  SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
+   SC for BlockContainer<HTML> [0,0 800x116] [children: 0] (z-index: auto)
+case svg	<!DOCTYPE html><svg width="200" height="100"><filter id="f"><feFlood flood-color="green" result="fl"/><feGaussianBlur in="SourceGraphic" stdDeviation="2"/><feOffset dx="3" dy="4"/><feMerge><feMergeNode in="fl"/><feMergeNode/></feMerge></filter><rect x="10" y="10" width="50" height="50" filter="url(#f)"/><a href="#x"><rect x="100" y="10" width="40" height="40"/></a></svg>
+  #3 SVGSVGPaintable rect [8,8 200x100]
+  #11 SVGPathPaintable rect [18,18 50x50]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M10 10L60 10L60 60L10 60L10 10Z
+    bbox [10,10 50x50]
+    contributes true bounds [18,18 50x50] anti-alias true
+  #12 SVGGraphicsPaintable rect [108,18 40x40]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    contributes true bounds [108,18 40x40] anti-alias true
+  #13 SVGPathPaintable rect [108,18 40x40]
+    transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
+    mask none clip none
+    path M100 10L140 10L140 50L100 50L100 10Z
+    bbox [100,10 40x40]
+    contributes true bounds [108,18 40x40] anti-alias true
