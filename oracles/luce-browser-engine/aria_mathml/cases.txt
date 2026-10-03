@@ -1,0 +1,137 @@
+# r13b oracle cases: <mode>\t<argument>... "!" marks a case that waits for another region in the port.
+rolename	button
+rolename	BuTtOn
+rolename	none
+rolename	switch
+rolename	sectionhead
+rolename	bogus
+rolename	
+roles
+classes
+role	div	<div role=button>
+role	div	<div role="foo button">
+role	div	<div role="BUTTON link">
+role	div	<div role="\tlink\nbutton">
+role	div	<div role="  ">
+role	div	<div role=directory>
+role	img	<img role=img alt=x>
+role	div	<div role=presentation>
+role	div	<div role=none>
+role	div	<div role=presentation aria-label=x>
+role	div	<div role="none link" aria-busy=true>
+role	div	<div role=none tabindex=0>
+role	span	<span role=presentation tabindex=-1>
+role	div	<div role=listitem>
+role	span	<div role=list><span role=listitem>
+role	span	<ul><span role=listitem>
+role	span	<div role=directory><span role=listitem>
+role	span	<span role=gridcell>
+role	span	<div role=row><span role=gridcell>
+role	span	<div role=row><p><span role=columnheader>
+role	span	<div role=row><span role=rowheader>
+role	span	<div><span role="rowheader cell">
+role	span	<div role=table><span role=row>
+role	span	<div role=grid><span role=rowgroup>
+role	span	<div role=treegrid><span role=row>
+role	span	<span role=row>
+role	span	<div role=grid><div role=row><span role=gridcell>
+role	span	<div role=grid><div role=row><span role=columnheader>
+role	span	<table><tr><td><span role=rowheader>
+role	div	<menu><li><div role=menuitem>
+role	span	<div role=treegrid><div role=row><span role="gridcell row">
+role	span	<div role=menu><span role=menuitem>
+role	span	<div role=menubar><span role=menuitemcheckbox>
+role	span	<div role=menu><span role=menuitemradio>
+role	span	<span role="menuitem button">
+role	span	<div role=listbox><span role=option>
+role	span	<span role=option>
+role	span	<div role=tablist><span role=tab>
+role	span	<span role=tab>
+role	span	<div role=tree><span role=treeitem>
+role	span	<span role=treeitem>
+role	div	<div role=form>
+role	div	<div role=form aria-label=Search>
+role	div	<div role=region title=Area>
+role	div	<div role=region>
+role	section	<section role=region>
+role	div	<div role=widget>
+role	div	<div role="widget button">
+role	span	<span role=switch>
+role	math	<math></math>
+role	mrow	<math><mrow role=group></mrow></math>
+role	mi	<math><mi>x</mi></math>
+role	li	<ul><li>
+role	li	<li>
+role	li	<ol><li role=presentation>
+role	td	<table><tr><td>
+role	th	<table><thead><tr><th>
+role	div	<div role=img>
+role	h2	<h2 role=heading>
+defaultrole	math	<math></math>
+defaultrole	mi	<math><mi>x</mi></math>
+defaultrole	div	<div role=button>
+global	div	<div>
+global	div	<div aria-label=x>
+global	div	<div aria-label="">
+global	div	<div aria-level=2 aria-checked=true>
+global	div	<div aria-relevant=all>
+idrefs	span	aria-labelledby	<div id=a></div><span aria-labelledby="a  b\ta">
+idrefs	span	aria-owns	<span aria-owns="">
+idrefs	span	aria-owns	<span>
+states	div	<div>
+states	div	<div aria-atomic=true aria-busy=true aria-checked=mixed aria-colcount=5 aria-colindex=x aria-current=page aria-dropeffect="copy move" aria-expanded=false aria-haspopup=menu aria-hidden=true aria-invalid=spelling aria-label=Hi aria-level=3 aria-live=polite aria-modal=true aria-orientation=vertical aria-pressed=true aria-relevant="additions text" aria-selected=undefined aria-sort=ascending aria-valuemax=10.5 aria-valuemin=-3 aria-valuenow=" 7 " aria-valuetext=seven>
+states	span	<div id=a></div><div id=b></div><span aria-controls="a c b" aria-details=b aria-errormessage=zz aria-labelledby=" b  a " aria-describedby=a aria-owns=c aria-flowto=a aria-activedescendant=zz>
+states	div	<div aria-atomic=TRUE aria-busy=yes aria-checked=TRUE aria-autocomplete=list aria-current=true aria-dropeffect=none aria-relevant="additions removals text" aria-haspopup=listbox aria-invalid=true aria-live=off aria-orientation=undefined aria-sort=other aria-rowcount=" 3" aria-rowindex=3x aria-rowspan=+4 aria-colspan=-2 aria-setsize=2147483648 aria-posinset=0>
+states	div	<div aria-dropeffect="bogus" aria-relevant="text additions" aria-autocomplete=both aria-current=step aria-haspopup=tree aria-invalid=grammar aria-live=assertive aria-orientation=horizontal aria-sort=descending aria-valuemax=1e2 aria-valuemin=abc aria-valuenow="" aria-pressed=false aria-grabbed=true aria-required=true aria-readonly=true aria-multiline=true aria-multiselectable=true aria-disabled=true>
+states	div	<div aria-dropeffect="execute link popup" aria-relevant="additions removals" aria-autocomplete=inline aria-current=location aria-haspopup=grid aria-invalid=false aria-live=nonsense aria-orientation=diagonal aria-sort=none aria-valuemax="+3.25" aria-valuemin=".5" aria-valuenow="-0" aria-checked=false aria-expanded=undefined aria-selected=true>
+states	div	<div aria-dropeffect="" aria-relevant="" aria-autocomplete=none aria-current=date aria-haspopup=dialog aria-current=time aria-braillelabel=b aria-brailleroledescription=r aria-colindextext=c aria-rowindextext=r aria-description=d aria-keyshortcuts=k aria-placeholder=p aria-roledescription=rd>
+states	div	<div aria-relevant="all removals bogus additions" aria-haspopup=true aria-current=false aria-valuenow=1e400 aria-valuemax=0.1 aria-valuemin=123456789.125>
+rolejson	div	<div>
+rolejson	p	<p>
+rolejson	button	<button>
+rolejson	div	<div role=slider aria-valuenow=5>
+rolejson	div	<div role=separator tabindex=0>
+rolejson	div	<div role=separator aria-orientation=vertical>
+rolejson	div	<div role=alertdialog aria-modal=true>
+rolejson	div	<div role=combobox aria-expanded=true>
+rolejson	div	<div role=progressbar>
+rolejson	div	<div role=scrollbar aria-valuenow=3>
+rolejson	div	<div role=heading aria-level=2>
+rolejson	span	<div role=tablist><span role=tab aria-selected=true>
+rolejson	div	<div role=log>
+rolejson	div	<div role=alert>
+rolejson	div	<div role=marquee aria-live=assertive>
+rolejson	div	<div role=menubar>
+rolejson	div	<div role=treegrid>
+rolejson	div	<div role=grid aria-multiselectable=true>
+rolejson	span	<div role=listbox><span role=option aria-selected=false>
+rolejson	span	<div role=menu><span role=menuitemradio aria-checked=true>
+rolejson	div	<div role=switch aria-checked=true>
+rolejson	div	<div role=spinbutton>
+rolejson	div	<div role=img>
+rolejson	math	<math></math>
+rolejson	mi	<math><mi>x</mi></math>
+rolejson	div	<div role=none>
+rolejson	div	<div role=searchbox aria-placeholder=Find>
+rolejson	div	<div role=status aria-atomic=false>
+rolejson	div	<div role=timer>
+class	math	<math></math>
+class	mi	<math><mi>x</mi></math>
+class	mspace	<math><mspace></mspace></math>
+class	mrow	<math><mrow></mrow></math>
+class	mo	<math><mo>+</mo></math>
+hints	math	<math dir=RTL mathcolor=red mathbackground="#00f" mathsize=2em displaystyle=false scriptlevel=+2></math>
+hints	math	<math dir=auto mathcolor=notacolor mathsize=-1px displaystyle=TRUE scriptlevel=-1></math>
+hints	mrow	<math><mrow mathsize=150% scriptlevel=3 dir=Ltr></mrow></math>
+hints	mrow	<math><mrow mathsize="calc(1em + 2px)" scriptlevel=" 4"></mrow></math>
+hints	mrow	<math><mrow scriptlevel=abc mathsize=small></mrow></math>
+hints	mrow	<math><mrow scriptlevel=+-1 displaystyle=maybe></mrow></math>
+hints	mrow	<math><mrow scriptlevel=-0 width=3px autofocus></mrow></math>
+hints	mi	<math><mi mathvariant=NORMAL dir=ltr>x</mi></math>
+hints	mi	<math><mi mathvariant=bold>x</mi></math>
+hints	mspace	<math><mspace width=10px height=5px depth=3px></mspace></math>
+hints	mspace	<math><mspace height=5px></mspace></math>
+hints	mspace	<math><mspace depth=3px></mspace></math>
+hints	mspace	<math><mspace width=50% height=-2px depth=1em></mspace></math>
+hints	mspace	<math><mspace height=1em depth=2em width=3></mspace></math>
+hints	mspace	<math><mspace height=1em depth=20%></mspace></math>

@@ -163,14 +163,14 @@ hints	svg	<svg width=200 height=100 x=5 display=none font-stretch=condensed></sv
 hints	g	<svg><g transform="rotate(10)" fill="url(#x)" visibility=hidden FILL=green></g></svg>
 hints	g	<svg><g circle=7 r=3 cx=1></g></svg>
 hints	path	<svg><path d="M0 0" stroke-dasharray="1 2" stroke-linecap=round stroke-linejoin=bevel fill-rule=evenodd mask=url(#m) clip-path=url(#c)></path></svg>
-!role	g	<svg><g></g></svg>
+role	g	<svg><g></g></svg>
 !role	g	<svg><g><title>Hi</title></g></svg>
 !role	g	<svg><g><title>   </title></g></svg>
-!role	circle	<svg><circle aria-label="dot"></circle></svg>
-!role	path	<svg><path><desc>d</desc></path></svg>
+role	circle	<svg><circle aria-label="dot"></circle></svg>
+role	path	<svg><path><desc>d</desc></path></svg>
 role	rect	<svg><rect><desc>r</desc></rect></svg>
 role	svg	<svg></svg>
-!role	polygon	<svg><polygon role=presentation aria-labelledby=" "></polygon></svg>
+role	polygon	<svg><polygon role=presentation aria-labelledby=" "></polygon></svg>
 lengths	rect	<svg><rect x=10 y=20% width=30 height=40 rx=5></rect></svg>
 lengths	ellipse	<svg><ellipse cx=1.5 cy=-2 rx=3 ry=-4></ellipse></svg>
 lengths	line	<svg><line x1=1 y1=50% x2=bogus></line></svg>

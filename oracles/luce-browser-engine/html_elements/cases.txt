@@ -53,7 +53,7 @@ doc	<div><table><tr><td>x</td></tr></table></div>
 doc	<table>a<tr><td>b</table>
 doc	<ul><li>a<li>b</ul>
 !doc	<svg><circle/></svg>
-!doc	<math><mi>x</mi></math>
+doc	<math><mi>x</mi></math>
 doc	<template><p>t</p></template>
 !doc	<select><option>a</select>
 !doc	<textarea>\nx</textarea>
@@ -235,7 +235,7 @@ role	dialog	<dialog>
 role	img	<img alt=x>
 role	img	<img>
 role	img	<img alt="">
-!role	li	<ul><li>
-!role	li	<li>
-!role	td	<table><tr><td>
-!role	th	<table><thead><tr><th>
+role	li	<ul><li>
+role	li	<li>
+role	td	<table><tr><td>
+role	th	<table><thead><tr><th>

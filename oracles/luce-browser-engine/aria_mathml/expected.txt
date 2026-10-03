@@ -1,0 +1,928 @@
+case rolename	button
+button
+case rolename	BuTtOn
+button
+case rolename	none
+none
+case rolename	switch
+switch
+case rolename	sectionhead
+sectionhead
+case rolename	bogus
+none
+case rolename	
+none
+case roles
+alert 0000100
+alertdialog 0000010
+application 0010000
+article 0010000
+banner 0001000
+blockquote 0010000
+button 0100001
+caption 0010000
+cell 0010001
+checkbox 0100001
+code 0010000
+columnheader 0010001
+combobox 0100000
+command 1000000
+complementary 0001000
+composite 1000000
+contentinfo 0001000
+definition 0010000
+deletion 0010000
+dialog 0000010
+directory 0010000
+document 0010000
+emphasis 0010000
+feed 0010000
+figure 0010000
+form 0001000
+generic 0010000
+graphics-document 0000000
+graphics-object 0000000
+graphics-symbol 0000000
+grid 0100000
+gridcell 0100001
+group 0010000
+heading 0010001
+image 0000000
+img 0010000
+input 1000000
+insertion 0010000
+landmark 1000000
+link 0100001
+list 0010000
+listbox 0100000
+listitem 0010000
+log 0000100
+main 0001000
+mark 0000000
+marquee 0000100
+math 0010000
+meter 0010000
+menu 0100000
+menubar 0100000
+menuitem 0100001
+menuitemcheckbox 0100001
+menuitemradio 0100001
+navigation 0001000
+none 0010000
+note 0010000
+option 0100001
+paragraph 0010000
+presentation 0010000
+progressbar 0100000
+radio 0100001
+radiogroup 0100000
+range 1000000
+region 0001000
+roletype 1000000
+row 0010001
+rowgroup 0010000
+rowheader 0010001
+scrollbar 0100000
+search 0001000
+searchbox 0100000
+section 1000000
+sectionfooter 0000000
+sectionhead 1000001
+sectionheader 0000000
+select 1000000
+separator 0110000
+slider 0100000
+spinbutton 0100000
+status 0000100
+strong 0010000
+structure 1000000
+subscript 0010000
+suggestion 0010000
+superscript 0010000
+switch 0100001
+tab 0100001
+table 0010000
+tablist 0100000
+tabpanel 0100000
+term 0010000
+textbox 0100000
+time 0010000
+timer 0000100
+toolbar 0010000
+tooltip 0010001
+tree 0100000
+treegrid 0100000
+treeitem 0100001
+widget 1000000
+window 1000000
+case classes
+alert 00 0 4,16,0,0,0,0 context owned defaults aria-atomic=true aria-live=live0
+alertdialog 10 0 4,17,0,0,0,0 context owned defaults
+application 10 0 7,19,0,0,0,0 context owned defaults
+article 00 0 4,18,0,0,0,0 context owned defaults
+banner 00 0 4,16,0,0,0,0 context owned defaults
+blockquote 00 0 4,16,0,0,0,0 context owned defaults
+button 11 2 7,17,0,0,0,0 context owned defaults
+caption 00 3 4,13,0,0,0,3 context treegrid radiogroup group table grid figure owned defaults
+cell 00 2 4,22,0,0,0,0 context row owned defaults
+checkbox 11 2 7,19,1,0,0,0 context owned defaults
+code 00 3 4,13,0,0,0,3 context owned defaults
+columnheader 10 2 8,27,0,0,0,0 context row owned defaults
+combobox 10 0 5,22,1,0,0,0 context owned defaults aria-haspopup=haspopup3
+complementary 00 0 4,16,0,0,0,0 context owned defaults
+contentinfo 00 0 4,16,0,0,0,0 context owned defaults
+definition 00 0 4,15,0,0,0,3 context owned defaults
+deletion 00 3 4,13,0,0,0,3 context owned defaults
+dialog 10 0 4,17,0,0,0,0 context owned defaults
+directory 00 0 4,16,0,0,0,0 context owned defaults
+document 00 0 4,16,0,0,0,0 context owned defaults
+emphasis 00 3 4,13,0,0,0,3 context owned defaults
+feed 00 0 4,16,0,0,0,0 context owned article defaults
+figure 00 0 4,16,0,0,0,0 context owned defaults
+form 10 0 4,16,0,0,0,0 context owned defaults
+generic 00 3 4,11,0,0,0,5 context owned defaults
+graphics-document 10 0 4,16,0,0,0,0 context owned defaults
+graphics-object 00 0 4,17,0,0,0,0 context owned defaults
+graphics-symbol 11 0 4,16,0,0,0,0 context owned defaults
+grid 10 0 5,20,0,0,0,0 context owned rowgroup caption row defaults
+gridcell 00 2 8,26,0,0,0,0 context row owned defaults
+group 00 0 5,17,0,0,0,0 context owned defaults
+heading 10 2 4,17,0,1,0,0 context owned defaults
+image 11 0 4,16,0,0,0,0 context owned defaults
+img 11 0 4,16,0,0,0,0 context owned defaults
+insertion 00 3 4,13,0,0,0,3 context owned defaults
+link 10 2 6,17,0,0,0,0 context owned defaults
+list 00 0 4,16,0,0,0,0 context owned listitem defaults
+listbox 10 0 7,23,0,0,0,0 context owned group option defaults aria-orientation=orientation2
+listitem 00 0 4,19,0,0,0,0 context directory list owned defaults
+log 00 0 4,16,0,0,0,0 context owned defaults aria-live=live2
+main 00 0 4,16,0,0,0,0 context owned defaults
+mark 00 3 4,13,0,0,0,3 context owned defaults
+marquee 00 0 4,16,0,0,0,0 context owned defaults
+math 00 0 4,16,0,0,0,0 context owned defaults
+meter 11 0 4,19,0,1,0,0 context owned defaults aria-valuemax=100 aria-valuemin=0
+menu 00 0 5,18,0,0,0,0 context owned group menuitem menuitemradio menuitemcheckbox separator defaults aria-orientation=orientation2
+menubar 00 0 5,17,0,0,0,0 context owned group menuitem menuitemradio menuitemcheckbox separator defaults aria-orientation=orientation0
+menuitem 10 2 6,19,0,0,0,0 context group menu menubar owned defaults
+menuitemcheckbox 11 2 6,19,1,0,0,0 context group menu menubar owned defaults
+menuitemradio 11 2 5,19,1,0,0,0 context group menu menubar owned defaults
+navigation 00 0 4,16,0,0,0,0 context owned defaults
+none 00 3 4,14,0,0,0,3 context owned defaults
+note 00 0 4,16,0,0,0,0 context owned defaults
+option 11 2 6,18,1,0,0,0 context group listbox owned defaults
+paragraph 00 3 4,13,0,0,0,3 context owned defaults
+presentation 00 3 4,14,0,0,0,3 context owned defaults
+progressbar 11 0 4,20,0,0,0,0 context owned defaults aria-valuemax=100 aria-valuemin=0
+radio 11 2 5,18,1,0,0,0 context owned defaults
+radiogroup 10 0 6,21,0,0,0,0 context owned defaults
+region 10 0 4,16,0,0,0,0 context owned defaults
+row 00 2 7,24,0,0,0,0 context rowgroup table grid treegrid owned cell gridcell columnheader rowheader defaults
+rowgroup 00 0 4,16,0,0,0,0 context table grid treegrid owned row defaults
+rowheader 10 2 8,23,0,0,0,0 context row owned defaults
+scrollbar 01 0 5,20,0,2,0,0 context owned defaults aria-orientation=orientation2 aria-valuemax=100 aria-valuemin=0
+search 00 0 4,16,0,0,0,0 context owned defaults
+searchbox 10 0 6,24,0,0,0,0 context owned defaults
+sectionfooter 00 0 4,16,0,0,0,0 context owned defaults
+sectionheader 00 0 4,16,0,0,0,0 context owned defaults
+separator 01 0 4,17,0,0,0,0 context owned defaults aria-orientation=orientation0
+separator 01 0 5,20,0,1,0,0 context owned defaults aria-orientation=orientation0 aria-valuemax=100 aria-valuemin=0
+slider 11 0 5,22,0,1,0,0 context owned defaults aria-orientation=orientation0 aria-valuemax=100 aria-valuemin=0
+spinbutton 10 0 5,23,0,0,0,0 context owned defaults aria-valuenow=0
+status 00 0 4,16,0,0,0,0 context owned defaults aria-atomic=true aria-live=live2
+strong 00 3 4,13,0,0,0,3 context owned defaults
+subscript 00 3 4,13,0,0,0,3 context owned defaults
+suggestion 00 3 4,13,0,0,0,3 context owned deletion insertion defaults
+superscript 00 3 4,13,0,0,0,3 context owned defaults
+switch 11 2 7,18,1,0,0,0 context owned defaults
+tab 11 2 7,19,0,0,0,0 context tablist owned defaults aria-selected=false
+table 10 0 4,18,0,0,0,0 context owned rowgroup caption row defaults
+tablist 00 0 5,19,0,0,0,0 context owned tab defaults aria-orientation=orientation0
+tabpanel 10 0 4,16,0,0,0,0 context owned defaults
+term 00 3 4,15,0,0,0,3 context owned defaults
+textbox 10 0 6,24,0,0,0,0 context owned defaults
+time 00 3 4,15,0,0,0,3 context owned defaults
+timer 00 0 4,16,0,0,0,0 context owned defaults aria-live=live1
+toolbar 00 0 5,18,0,0,0,0 context owned defaults aria-orientation=orientation0
+tooltip 00 2 4,16,0,0,0,0 context owned defaults
+tree 10 0 6,21,0,0,0,0 context owned group treeitem defaults aria-orientation=orientation2
+treegrid 10 0 6,23,0,0,0,0 context owned rowgroup caption row defaults
+treeitem 10 2 8,19,0,0,0,0 context group tree owned defaults
+case role	div	<div role=button>
+button
+case role	div	<div role="foo button">
+button
+case role	div	<div role="BUTTON link">
+button
+case role	div	<div role="\tlink\nbutton">
+link
+case role	div	<div role="  ">
+generic
+case role	div	<div role=directory>
+list
+case role	img	<img role=img alt=x>
+image
+case role	div	<div role=presentation>
+none
+case role	div	<div role=none>
+none
+case role	div	<div role=presentation aria-label=x>
+generic
+case role	div	<div role="none link" aria-busy=true>
+link
+case role	div	<div role=none tabindex=0>
+generic
+case role	span	<span role=presentation tabindex=-1>
+generic
+case role	div	<div role=listitem>
+generic
+case role	span	<div role=list><span role=listitem>
+listitem
+case role	span	<ul><span role=listitem>
+listitem
+case role	span	<div role=directory><span role=listitem>
+listitem
+case role	span	<span role=gridcell>
+generic
+case role	span	<div role=row><span role=gridcell>
+generic
+case role	span	<div role=row><p><span role=columnheader>
+generic
+case role	span	<div role=row><span role=rowheader>
+generic
+case role	span	<div><span role="rowheader cell">
+cell
+case role	span	<div role=table><span role=row>
+row
+case role	span	<div role=grid><span role=rowgroup>
+rowgroup
+case role	span	<div role=treegrid><span role=row>
+row
+case role	span	<span role=row>
+generic
+case role	span	<div role=grid><div role=row><span role=gridcell>
+gridcell
+case role	span	<div role=grid><div role=row><span role=columnheader>
+columnheader
+case role	span	<table><tr><td><span role=rowheader>
+rowheader
+case role	div	<menu><li><div role=menuitem>
+generic
+case role	span	<div role=treegrid><div role=row><span role="gridcell row">
+gridcell
+case role	span	<div role=menu><span role=menuitem>
+menuitem
+case role	span	<div role=menubar><span role=menuitemcheckbox>
+menuitemcheckbox
+case role	span	<div role=menu><span role=menuitemradio>
+menuitemradio
+case role	span	<span role="menuitem button">
+button
+case role	span	<div role=listbox><span role=option>
+option
+case role	span	<span role=option>
+generic
+case role	span	<div role=tablist><span role=tab>
+tab
+case role	span	<span role=tab>
+generic
+case role	span	<div role=tree><span role=treeitem>
+treeitem
+case role	span	<span role=treeitem>
+generic
+case role	div	<div role=form>
+generic
+case role	div	<div role=form aria-label=Search>
+form
+case role	div	<div role=region title=Area>
+region
+case role	div	<div role=region>
+generic
+case role	section	<section role=region>
+generic
+case role	div	<div role=widget>
+generic
+case role	div	<div role="widget button">
+button
+case role	span	<span role=switch>
+switch
+case role	math	<math></math>
+math
+case role	mrow	<math><mrow role=group></mrow></math>
+group
+case role	mi	<math><mi>x</mi></math>
+none
+case role	li	<ul><li>
+listitem
+case role	li	<li>
+none
+case role	li	<ol><li role=presentation>
+none
+case role	td	<table><tr><td>
+cell
+case role	th	<table><thead><tr><th>
+columnheader
+case role	div	<div role=img>
+image
+case role	h2	<h2 role=heading>
+heading
+case defaultrole	math	<math></math>
+math
+case defaultrole	mi	<math><mi>x</mi></math>
+none
+case defaultrole	div	<div role=button>
+generic
+case global	div	<div>
+0
+case global	div	<div aria-label=x>
+1
+case global	div	<div aria-label="">
+1
+case global	div	<div aria-level=2 aria-checked=true>
+0
+case global	div	<div aria-relevant=all>
+1
+case idrefs	span	aria-labelledby	<div id=a></div><span aria-labelledby="a  b\ta">
+a
+a
+end
+case idrefs	span	aria-owns	<span aria-owns="">
+end
+case idrefs	span	aria-owns	<span>
+end
+case states	div	<div>
+aria-activedescendant=
+aria-atomic=false
+aria-autocomplete=none
+aria-braillelabel=
+aria-brailleroledescription=
+aria-busy=false
+aria-checked=undefined
+aria-colcount=
+aria-colindex=
+aria-colindextext=
+aria-colspan=
+aria-controls=
+aria-current=false
+aria-describedby=
+aria-description=
+aria-details=
+aria-disabled=false
+aria-dropeffect=
+aria-errormessage=
+aria-expanded=undefined
+aria-flowto=
+aria-grabbed=undefined
+aria-haspopup=false
+aria-hidden=undefined
+aria-invalid=false
+aria-keyshortcuts=
+aria-label=
+aria-labelledby=
+aria-level=
+aria-live=off
+aria-modal=false
+aria-multiline=false
+aria-multiselectable=false
+aria-orientation=undefined
+aria-owns=
+aria-placeholder=
+aria-posinset=
+aria-pressed=undefined
+aria-readonly=false
+aria-relevant=
+aria-required=false
+aria-roledescription=
+aria-rowcount=
+aria-rowindex=
+aria-rowindextext=
+aria-rowspan=
+aria-selected=undefined
+aria-setsize=
+aria-sort=none
+aria-valuemax=undefined
+aria-valuemin=undefined
+aria-valuenow=undefined
+aria-valuetext=
+case states	div	<div aria-atomic=true aria-busy=true aria-checked=mixed aria-colcount=5 aria-colindex=x aria-current=page aria-dropeffect="copy move" aria-expanded=false aria-haspopup=menu aria-hidden=true aria-invalid=spelling aria-label=Hi aria-level=3 aria-live=polite aria-modal=true aria-orientation=vertical aria-pressed=true aria-relevant="additions text" aria-selected=undefined aria-sort=ascending aria-valuemax=10.5 aria-valuemin=-3 aria-valuenow=" 7 " aria-valuetext=seven>
+aria-activedescendant=
+aria-atomic=true
+aria-autocomplete=none
+aria-braillelabel=
+aria-brailleroledescription=
+aria-busy=true
+aria-checked=mixed
+aria-colcount=5
+aria-colindex=
+aria-colindextext=
+aria-colspan=
+aria-controls=
+aria-current=page
+aria-describedby=
+aria-description=
+aria-details=
+aria-disabled=false
+aria-dropeffect=copy move
+aria-errormessage=
+aria-expanded=false
+aria-flowto=
+aria-grabbed=undefined
+aria-haspopup=menu
+aria-hidden=true
+aria-invalid=spelling
+aria-keyshortcuts=
+aria-label=Hi
+aria-labelledby=
+aria-level=3
+aria-live=polite
+aria-modal=true
+aria-multiline=false
+aria-multiselectable=false
+aria-orientation=vertical
+aria-owns=
+aria-placeholder=
+aria-posinset=
+aria-pressed=true
+aria-readonly=false
+aria-relevant=additions text
+aria-required=false
+aria-roledescription=
+aria-rowcount=
+aria-rowindex=
+aria-rowindextext=
+aria-rowspan=
+aria-selected=undefined
+aria-setsize=
+aria-sort=ascending
+aria-valuemax=10.5
+aria-valuemin=-3
+aria-valuenow=7
+aria-valuetext=seven
+case states	span	<div id=a></div><div id=b></div><span aria-controls="a c b" aria-details=b aria-errormessage=zz aria-labelledby=" b  a " aria-describedby=a aria-owns=c aria-flowto=a aria-activedescendant=zz>
+aria-activedescendant=zz
+aria-atomic=false
+aria-autocomplete=none
+aria-braillelabel=
+aria-brailleroledescription=
+aria-busy=false
+aria-checked=undefined
+aria-colcount=
+aria-colindex=
+aria-colindextext=
+aria-colspan=
+aria-controls=a b
+aria-current=false
+aria-describedby=a
+aria-description=
+aria-details=b
+aria-disabled=false
+aria-dropeffect=
+aria-errormessage=
+aria-expanded=undefined
+aria-flowto=a
+aria-grabbed=undefined
+aria-haspopup=false
+aria-hidden=undefined
+aria-invalid=false
+aria-keyshortcuts=
+aria-label=
+aria-labelledby=b a
+aria-level=
+aria-live=off
+aria-modal=false
+aria-multiline=false
+aria-multiselectable=false
+aria-orientation=undefined
+aria-owns=
+aria-placeholder=
+aria-posinset=
+aria-pressed=undefined
+aria-readonly=false
+aria-relevant=
+aria-required=false
+aria-roledescription=
+aria-rowcount=
+aria-rowindex=
+aria-rowindextext=
+aria-rowspan=
+aria-selected=undefined
+aria-setsize=
+aria-sort=none
+aria-valuemax=undefined
+aria-valuemin=undefined
+aria-valuenow=undefined
+aria-valuetext=
+case states	div	<div aria-atomic=TRUE aria-busy=yes aria-checked=TRUE aria-autocomplete=list aria-current=true aria-dropeffect=none aria-relevant="additions removals text" aria-haspopup=listbox aria-invalid=true aria-live=off aria-orientation=undefined aria-sort=other aria-rowcount=" 3" aria-rowindex=3x aria-rowspan=+4 aria-colspan=-2 aria-setsize=2147483648 aria-posinset=0>
+aria-activedescendant=
+aria-atomic=false
+aria-autocomplete=list
+aria-braillelabel=
+aria-brailleroledescription=
+aria-busy=false
+aria-checked=undefined
+aria-colcount=
+aria-colindex=
+aria-colindextext=
+aria-colspan=-2
+aria-controls=
+aria-current=true
+aria-describedby=
+aria-description=
+aria-details=
+aria-disabled=false
+aria-dropeffect=none
+aria-errormessage=
+aria-expanded=undefined
+aria-flowto=
+aria-grabbed=undefined
+aria-haspopup=listbox
+aria-hidden=undefined
+aria-invalid=true
+aria-keyshortcuts=
+aria-label=
+aria-labelledby=
+aria-level=
+aria-live=off
+aria-modal=false
+aria-multiline=false
+aria-multiselectable=false
+aria-orientation=undefined
+aria-owns=
+aria-placeholder=
+aria-posinset=0
+aria-pressed=undefined
+aria-readonly=false
+aria-relevant=all
+aria-required=false
+aria-roledescription=
+aria-rowcount=3
+aria-rowindex=
+aria-rowindextext=
+aria-rowspan=4
+aria-selected=undefined
+aria-setsize=
+aria-sort=other
+aria-valuemax=undefined
+aria-valuemin=undefined
+aria-valuenow=undefined
+aria-valuetext=
+case states	div	<div aria-dropeffect="bogus" aria-relevant="text additions" aria-autocomplete=both aria-current=step aria-haspopup=tree aria-invalid=grammar aria-live=assertive aria-orientation=horizontal aria-sort=descending aria-valuemax=1e2 aria-valuemin=abc aria-valuenow="" aria-pressed=false aria-grabbed=true aria-required=true aria-readonly=true aria-multiline=true aria-multiselectable=true aria-disabled=true>
+aria-activedescendant=
+aria-atomic=false
+aria-autocomplete=both
+aria-braillelabel=
+aria-brailleroledescription=
+aria-busy=false
+aria-checked=undefined
+aria-colcount=
+aria-colindex=
+aria-colindextext=
+aria-colspan=
+aria-controls=
+aria-current=step
+aria-describedby=
+aria-description=
+aria-details=
+aria-disabled=true
+aria-dropeffect=none
+aria-errormessage=
+aria-expanded=undefined
+aria-flowto=
+aria-grabbed=true
+aria-haspopup=tree
+aria-hidden=undefined
+aria-invalid=grammar
+aria-keyshortcuts=
+aria-label=
+aria-labelledby=
+aria-level=
+aria-live=assertive
+aria-modal=false
+aria-multiline=true
+aria-multiselectable=true
+aria-orientation=horizontal
+aria-owns=
+aria-placeholder=
+aria-posinset=
+aria-pressed=false
+aria-readonly=true
+aria-relevant=text additions
+aria-required=true
+aria-roledescription=
+aria-rowcount=
+aria-rowindex=
+aria-rowindextext=
+aria-rowspan=
+aria-selected=undefined
+aria-setsize=
+aria-sort=descending
+aria-valuemax=100
+aria-valuemin=undefined
+aria-valuenow=undefined
+aria-valuetext=
+case states	div	<div aria-dropeffect="execute link popup" aria-relevant="additions removals" aria-autocomplete=inline aria-current=location aria-haspopup=grid aria-invalid=false aria-live=nonsense aria-orientation=diagonal aria-sort=none aria-valuemax="+3.25" aria-valuemin=".5" aria-valuenow="-0" aria-checked=false aria-expanded=undefined aria-selected=true>
+aria-activedescendant=
+aria-atomic=false
+aria-autocomplete=inline
+aria-braillelabel=
+aria-brailleroledescription=
+aria-busy=false
+aria-checked=false
+aria-colcount=
+aria-colindex=
+aria-colindextext=
+aria-colspan=
+aria-controls=
+aria-current=location
+aria-describedby=
+aria-description=
+aria-details=
+aria-disabled=false
+aria-dropeffect=execute link popup
+aria-errormessage=
+aria-expanded=undefined
+aria-flowto=
+aria-grabbed=undefined
+aria-haspopup=grid
+aria-hidden=undefined
+aria-invalid=false
+aria-keyshortcuts=
+aria-label=
+aria-labelledby=
+aria-level=
+aria-live=off
+aria-modal=false
+aria-multiline=false
+aria-multiselectable=false
+aria-orientation=undefined
+aria-owns=
+aria-placeholder=
+aria-posinset=
+aria-pressed=undefined
+aria-readonly=false
+aria-relevant=additions removals
+aria-required=false
+aria-roledescription=
+aria-rowcount=
+aria-rowindex=
+aria-rowindextext=
+aria-rowspan=
+aria-selected=true
+aria-setsize=
+aria-sort=none
+aria-valuemax=3.25
+aria-valuemin=0.5
+aria-valuenow=0
+aria-valuetext=
+case states	div	<div aria-dropeffect="" aria-relevant="" aria-autocomplete=none aria-current=date aria-haspopup=dialog aria-current=time aria-braillelabel=b aria-brailleroledescription=r aria-colindextext=c aria-rowindextext=r aria-description=d aria-keyshortcuts=k aria-placeholder=p aria-roledescription=rd>
+aria-activedescendant=
+aria-atomic=false
+aria-autocomplete=none
+aria-braillelabel=b
+aria-brailleroledescription=r
+aria-busy=false
+aria-checked=undefined
+aria-colcount=
+aria-colindex=
+aria-colindextext=c
+aria-colspan=
+aria-controls=
+aria-current=date
+aria-describedby=
+aria-description=d
+aria-details=
+aria-disabled=false
+aria-dropeffect=none
+aria-errormessage=
+aria-expanded=undefined
+aria-flowto=
+aria-grabbed=undefined
+aria-haspopup=dialog
+aria-hidden=undefined
+aria-invalid=false
+aria-keyshortcuts=k
+aria-label=
+aria-labelledby=
+aria-level=
+aria-live=off
+aria-modal=false
+aria-multiline=false
+aria-multiselectable=false
+aria-orientation=undefined
+aria-owns=
+aria-placeholder=p
+aria-posinset=
+aria-pressed=undefined
+aria-readonly=false
+aria-relevant=additions text
+aria-required=false
+aria-roledescription=rd
+aria-rowcount=
+aria-rowindex=
+aria-rowindextext=r
+aria-rowspan=
+aria-selected=undefined
+aria-setsize=
+aria-sort=none
+aria-valuemax=undefined
+aria-valuemin=undefined
+aria-valuenow=undefined
+aria-valuetext=
+case states	div	<div aria-relevant="all removals bogus additions" aria-haspopup=true aria-current=false aria-valuenow=1e400 aria-valuemax=0.1 aria-valuemin=123456789.125>
+aria-activedescendant=
+aria-atomic=false
+aria-autocomplete=none
+aria-braillelabel=
+aria-brailleroledescription=
+aria-busy=false
+aria-checked=undefined
+aria-colcount=
+aria-colindex=
+aria-colindextext=
+aria-colspan=
+aria-controls=
+aria-current=false
+aria-describedby=
+aria-description=
+aria-details=
+aria-disabled=false
+aria-dropeffect=
+aria-errormessage=
+aria-expanded=undefined
+aria-flowto=
+aria-grabbed=undefined
+aria-haspopup=true
+aria-hidden=undefined
+aria-invalid=false
+aria-keyshortcuts=
+aria-label=
+aria-labelledby=
+aria-level=
+aria-live=off
+aria-modal=false
+aria-multiline=false
+aria-multiselectable=false
+aria-orientation=undefined
+aria-owns=
+aria-placeholder=
+aria-posinset=
+aria-pressed=undefined
+aria-readonly=false
+aria-relevant=all removals additions
+aria-required=false
+aria-roledescription=
+aria-rowcount=
+aria-rowindex=
+aria-rowindextext=
+aria-rowspan=
+aria-selected=undefined
+aria-setsize=
+aria-sort=none
+aria-valuemax=0.1
+aria-valuemin=123456789.125
+aria-valuenow=inf
+aria-valuetext=
+case rolejson	div	<div>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-description":"","aria-flowto":"","aria-describedby":"","aria-controls":"","aria-details":"","aria-atomic":"false","aria-dropeffect":"","aria-relevant":"","aria-keyshortcuts":"","aria-live":"off","aria-owns":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	p	<p>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-dropeffect":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off"},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	button	<button>
+{"state":{"aria-current":"false","aria-expanded":"undefined","aria-grabbed":"undefined","aria-disabled":"false","aria-hidden":"undefined","aria-busy":"false","aria-pressed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-haspopup":"false","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=slider aria-valuenow=5>
+{"state":{"aria-current":"false","aria-disabled":"false","aria-hidden":"undefined","aria-grabbed":"undefined","aria-busy":"false"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-valuemax":"100","aria-owns":"","aria-description":"","aria-readonly":"false","aria-orientation":"horizontal","aria-describedby":"","aria-valuemin":"0","aria-haspopup":"false","aria-atomic":"false","aria-errormessage":"","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{"aria-valuenow":"5"},"prohibited_state":{},"prohibited_properties":{"aria-valuenow":"5"}}
+case rolejson	div	<div role=separator tabindex=0>
+{"state":{"aria-current":"false","aria-disabled":"false","aria-hidden":"undefined","aria-grabbed":"undefined","aria-busy":"false"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-valuemax":"100","aria-owns":"","aria-description":"","aria-describedby":"","aria-orientation":"horizontal","aria-valuetext":"","aria-valuemin":"0","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{"aria-valuenow":"undefined"},"prohibited_state":{},"prohibited_properties":{"aria-valuenow":"undefined"}}
+case rolejson	div	<div role=separator aria-orientation=vertical>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-orientation":"vertical","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=alertdialog aria-modal=true>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-modal":"true","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=combobox aria-expanded=true>
+{"state":{"aria-current":"false","aria-disabled":"false","aria-hidden":"undefined","aria-grabbed":"undefined","aria-busy":"false"},"properties":{"aria-activedescendant":"","aria-flowto":"","aria-required":"false","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-autocomplete":"none","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-readonly":"false","aria-describedby":"","aria-haspopup":"false","aria-atomic":"false","aria-errormessage":"","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{"aria-expanded":"true"},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=progressbar>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-valuemax":"100","aria-owns":"","aria-description":"","aria-describedby":"","aria-valuetext":"","aria-valuemin":"0","aria-atomic":"false","aria-roledescription":"","aria-valuenow":"undefined","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=scrollbar aria-valuenow=3>
+{"state":{"aria-current":"false","aria-disabled":"false","aria-hidden":"undefined","aria-grabbed":"undefined","aria-busy":"false"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-valuemax":"100","aria-owns":"","aria-description":"","aria-describedby":"","aria-orientation":"vertical","aria-valuetext":"","aria-valuemin":"0","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{"aria-controls":"","aria-valuenow":"3"},"prohibited_state":{},"prohibited_properties":{"aria-controls":"","aria-valuenow":"3"}}
+case rolejson	div	<div role=heading aria-level=2>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-level":"2","aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{"aria-level":"2"},"prohibited_state":{},"prohibited_properties":{"aria-level":"2"}}
+case rolejson	span	<div role=tablist><span role=tab aria-selected=true>
+{"state":{"aria-current":"false","aria-expanded":"undefined","aria-grabbed":"undefined","aria-selected":"true","aria-disabled":"false","aria-hidden":"undefined","aria-busy":"false"},"properties":{"aria-posinset":"","aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-setsize":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-haspopup":"false","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=log>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"polite","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=alert>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"true","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"assertive","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=marquee aria-live=assertive>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"assertive","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=menubar>
+{"state":{"aria-current":"false","aria-disabled":"false","aria-hidden":"undefined","aria-grabbed":"undefined","aria-busy":"false"},"properties":{"aria-activedescendant":"","aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=treegrid>
+{"state":{"aria-current":"false","aria-grabbed":"undefined","aria-disabled":"false","aria-hidden":"undefined","aria-busy":"false","aria-invalid":"false"},"properties":{"aria-activedescendant":"","aria-required":"false","aria-colcount":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-relevant":"","aria-owns":"","aria-describedby":"","aria-orientation":"undefined","aria-roledescription":"","aria-live":"off","aria-rowcount":"","aria-label":"","aria-flowto":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-description":"","aria-readonly":"false","aria-atomic":"false","aria-multiselectable":"false","aria-keyshortcuts":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=grid aria-multiselectable=true>
+{"state":{"aria-current":"false","aria-disabled":"false","aria-hidden":"undefined","aria-grabbed":"undefined","aria-busy":"false"},"properties":{"aria-activedescendant":"","aria-flowto":"","aria-colcount":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-readonly":"false","aria-describedby":"","aria-atomic":"false","aria-multiselectable":"true","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	span	<div role=listbox><span role=option aria-selected=false>
+{"state":{"aria-current":"false","aria-grabbed":"undefined","aria-checked":"undefined","aria-disabled":"false","aria-hidden":"undefined","aria-busy":"false"},"properties":{"aria-posinset":"","aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-setsize":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{"aria-selected":"false"},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	span	<div role=menu><span role=menuitemradio aria-checked=true>
+{"state":{"aria-current":"false","aria-disabled":"false","aria-hidden":"undefined","aria-grabbed":"undefined","aria-busy":"false"},"properties":{"aria-posinset":"","aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-setsize":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-haspopup":"false","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{"aria-checked":"true"},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=switch aria-checked=true>
+{"state":{"aria-current":"false","aria-expanded":"undefined","aria-grabbed":"undefined","aria-disabled":"false","aria-hidden":"undefined","aria-busy":"false","aria-invalid":"false"},"properties":{"aria-flowto":"","aria-required":"false","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-errormessage":"","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{"aria-checked":"true"},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=spinbutton>
+{"state":{"aria-current":"false","aria-disabled":"false","aria-hidden":"undefined","aria-grabbed":"undefined","aria-busy":"false"},"properties":{"aria-required":"false","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-relevant":"","aria-valuemax":"undefined","aria-owns":"","aria-describedby":"","aria-valuetext":"","aria-errormessage":"","aria-roledescription":"","aria-live":"off","aria-label":"","aria-flowto":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-description":"","aria-readonly":"false","aria-valuemin":"undefined","aria-atomic":"false","aria-valuenow":"undefined","aria-keyshortcuts":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=img>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	math	<math></math>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	mi	<math><mi>x</mi></math>
+none
+case rolejson	div	<div role=none>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off"},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=searchbox aria-placeholder=Find>
+{"state":{"aria-current":"false","aria-grabbed":"undefined","aria-disabled":"false","aria-hidden":"undefined","aria-busy":"false","aria-invalid":"false"},"properties":{"aria-activedescendant":"","aria-required":"false","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-autocomplete":"none","aria-relevant":"","aria-owns":"","aria-describedby":"","aria-errormessage":"","aria-roledescription":"","aria-live":"off","aria-multiline":"false","aria-label":"","aria-flowto":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-placeholder":"Find","aria-description":"","aria-readonly":"false","aria-haspopup":"false","aria-atomic":"false","aria-keyshortcuts":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=status aria-atomic=false>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"polite","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case rolejson	div	<div role=timer>
+{"state":{"aria-current":"false","aria-hidden":"undefined","aria-busy":"false","aria-grabbed":"undefined"},"properties":{"aria-flowto":"","aria-controls":"","aria-brailleroledescription":"","aria-details":"","aria-braillelabel":"","aria-dropeffect":"","aria-labelledby":"","aria-relevant":"","aria-owns":"","aria-description":"","aria-describedby":"","aria-atomic":"false","aria-roledescription":"","aria-keyshortcuts":"","aria-live":"off","aria-label":""},"required_state":{},"required_properties":{},"prohibited_state":{},"prohibited_properties":{}}
+case class	math	<math></math>
+MathMLElement
+case class	mi	<math><mi>x</mi></math>
+MathMLMiElement
+case class	mspace	<math><mspace></mspace></math>
+MathMLMspaceElement
+case class	mrow	<math><mrow></mrow></math>
+MathMLElement
+case class	mo	<math><mo>+</mo></math>
+MathMLElement
+case hints	math	<math dir=RTL mathcolor=red mathbackground="#00f" mathsize=2em displaystyle=false scriptlevel=+2></math>
+hint dir 1
+hint mathcolor 1
+hint mathbackground 1
+hint mathsize 1
+hint displaystyle 1
+hint scriptlevel 1
+direction: rtl
+color: red
+background-color: rgb(0, 0, 255)
+font-size: 2em
+math-style: compact
+math-depth: add(2)
+case hints	math	<math dir=auto mathcolor=notacolor mathsize=-1px displaystyle=TRUE scriptlevel=-1></math>
+hint dir 1
+hint mathcolor 1
+hint mathsize 1
+hint displaystyle 1
+hint scriptlevel 1
+math-style: normal
+math-depth: add(-1)
+case hints	mrow	<math><mrow mathsize=150% scriptlevel=3 dir=Ltr></mrow></math>
+hint mathsize 1
+hint scriptlevel 1
+hint dir 1
+font-size: 150%
+math-depth: 3
+direction: ltr
+case hints	mrow	<math><mrow mathsize="calc(1em + 2px)" scriptlevel=" 4"></mrow></math>
+hint mathsize 1
+hint scriptlevel 1
+font-size: calc(1em + 2px)
+math-depth: 4
+case hints	mrow	<math><mrow scriptlevel=abc mathsize=small></mrow></math>
+hint scriptlevel 1
+hint mathsize 1
+case hints	mrow	<math><mrow scriptlevel=+-1 displaystyle=maybe></mrow></math>
+hint scriptlevel 1
+hint displaystyle 1
+case hints	mrow	<math><mrow scriptlevel=-0 width=3px autofocus></mrow></math>
+hint scriptlevel 1
+hint width 0
+hint autofocus 0
+math-depth: add(0)
+case hints	mi	<math><mi mathvariant=NORMAL dir=ltr>x</mi></math>
+hint mathvariant 1
+hint dir 1
+direction: ltr
+text-transform: none
+case hints	mi	<math><mi mathvariant=bold>x</mi></math>
+hint mathvariant 1
+case hints	mspace	<math><mspace width=10px height=5px depth=3px></mspace></math>
+hint width 1
+hint height 1
+hint depth 1
+width: 10px
+height: calc(8px)
+case hints	mspace	<math><mspace height=5px></mspace></math>
+hint height 1
+height: 5px
+case hints	mspace	<math><mspace depth=3px></mspace></math>
+hint depth 1
+height: 3px
+case hints	mspace	<math><mspace width=50% height=-2px depth=1em></mspace></math>
+hint width 1
+hint height 1
+hint depth 1
+height: calc(1em - 2px)
+case hints	mspace	<math><mspace height=1em depth=2em width=3></mspace></math>
+hint height 1
+hint depth 1
+hint width 1
+height: calc(3em)
+case hints	mspace	<math><mspace height=1em depth=20%></mspace></math>
+hint height 1
+hint depth 1
+height: 1em

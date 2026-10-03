@@ -1,0 +1,23 @@
+# compiler issue: writing a formatted string to a Writer silently truncates it at 1024 bytes.
+#
+# luce-base 0.35.0 (e7baf89): `builder.write(f"[{text}]")` on a strings.Builder appends only the first
+# 1024 bytes of the formatted text when it is longer, and the last three of those are "..."; no
+# failure is reported. base.md §5.5 says interpolation lowers to appends on the sink with no
+# intermediate string, so the whole text should arrive. Found in luce-browser-engine's
+# tools/gen_aria_roles, whose generated lines of the long ARIA role tables (a `[...]` of 17 enum
+# cases, ~1500 bytes) came out cut with "...".
+#
+# Expected: "field 1500 bytes, written 1502 bytes".
+# Actual:   "field 1500 bytes, written 1024 bytes".
+
+import strings
+
+func main(arguments: str[]) -> i32!:
+    var long = try strings.Builder.create()
+    for index in 0..<300:
+        try long.put("abcde")
+    let text = long.view()
+    var out = try strings.Builder.create()
+    discard(try out.write(f"[{text}]"))
+    print(f"field {text.length} bytes, written {out.view().length} bytes\n")
+    return 0

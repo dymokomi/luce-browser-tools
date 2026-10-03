@@ -469,7 +469,7 @@ later doc	<svg><circle/></svg>
 |   <body>
 |     <svg svg>
 |       <svg circle>
-later doc	<math><mi>x</mi></math>
+case doc	<math><mi>x</mi></math>
 | <html>
 |   <head>
 |   <body>
@@ -1253,11 +1253,11 @@ case role	img	<img>
 55
 case role	img	<img alt="">
 55
-later role	li	<ul><li>
+case role	li	<ul><li>
 42
-later role	li	<li>
+case role	li	<li>
 55
-later role	td	<table><tr><td>
+case role	td	<table><tr><td>
 8
-later role	th	<table><thead><tr><th>
+case role	th	<table><thead><tr><th>
 11
