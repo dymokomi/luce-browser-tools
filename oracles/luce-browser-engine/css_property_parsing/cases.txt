@@ -1,0 +1,1306 @@
+# The generated data of every property (PropertyID.cpp): accepted types, ranges, percentage basis, range checks.
+property	custom
+property	-webkit-text-fill-color
+property	accent-color
+property	align-content
+property	align-items
+property	align-self
+property	all
+property	anchor-name
+property	anchor-scope
+property	animation
+property	animation-composition
+property	animation-delay
+property	animation-direction
+property	animation-duration
+property	animation-fill-mode
+property	animation-iteration-count
+property	animation-name
+property	animation-play-state
+property	animation-timeline
+property	animation-timing-function
+property	appearance
+property	aspect-ratio
+property	backdrop-filter
+property	background
+property	background-attachment
+property	background-blend-mode
+property	background-clip
+property	background-color
+property	background-image
+property	background-origin
+property	background-position
+property	background-position-x
+property	background-position-y
+property	background-repeat
+property	background-size
+property	block-size
+property	border
+property	border-block
+property	border-block-color
+property	border-block-end
+property	border-block-end-color
+property	border-block-end-style
+property	border-block-end-width
+property	border-block-start
+property	border-block-start-color
+property	border-block-start-style
+property	border-block-start-width
+property	border-block-style
+property	border-block-width
+property	border-bottom
+property	border-bottom-color
+property	border-bottom-left-radius
+property	border-bottom-right-radius
+property	border-bottom-style
+property	border-bottom-width
+property	border-collapse
+property	border-color
+property	border-end-end-radius
+property	border-end-start-radius
+property	border-image
+property	border-image-outset
+property	border-image-repeat
+property	border-image-slice
+property	border-image-source
+property	border-image-width
+property	border-inline
+property	border-inline-color
+property	border-inline-end
+property	border-inline-end-color
+property	border-inline-end-style
+property	border-inline-end-width
+property	border-inline-start
+property	border-inline-start-color
+property	border-inline-start-style
+property	border-inline-start-width
+property	border-inline-style
+property	border-inline-width
+property	border-left
+property	border-left-color
+property	border-left-style
+property	border-left-width
+property	border-radius
+property	border-right
+property	border-right-color
+property	border-right-style
+property	border-right-width
+property	border-spacing
+property	border-start-end-radius
+property	border-start-start-radius
+property	border-style
+property	border-top
+property	border-top-color
+property	border-top-left-radius
+property	border-top-right-radius
+property	border-top-style
+property	border-top-width
+property	border-width
+property	bottom
+property	box-shadow
+property	box-sizing
+property	caption-side
+property	caret-color
+property	clear
+property	clip
+property	clip-path
+property	clip-rule
+property	color
+property	color-interpolation
+property	color-scheme
+property	column-count
+property	column-gap
+property	column-height
+property	column-span
+property	column-width
+property	columns
+property	contain
+property	container-type
+property	content
+property	content-visibility
+property	corner-block-end-shape
+property	corner-block-start-shape
+property	corner-bottom-left-shape
+property	corner-bottom-right-shape
+property	corner-bottom-shape
+property	corner-end-end-shape
+property	corner-end-start-shape
+property	corner-inline-end-shape
+property	corner-inline-start-shape
+property	corner-left-shape
+property	corner-right-shape
+property	corner-shape
+property	corner-start-end-shape
+property	corner-start-start-shape
+property	corner-top-left-shape
+property	corner-top-right-shape
+property	corner-top-shape
+property	counter-increment
+property	counter-reset
+property	counter-set
+property	cursor
+property	cx
+property	cy
+property	direction
+property	display
+property	dominant-baseline
+property	empty-cells
+property	fill
+property	fill-opacity
+property	fill-rule
+property	filter
+property	flex
+property	flex-basis
+property	flex-direction
+property	flex-flow
+property	flex-grow
+property	flex-shrink
+property	flex-wrap
+property	float
+property	flood-color
+property	flood-opacity
+property	font
+property	font-family
+property	font-feature-settings
+property	font-kerning
+property	font-language-override
+property	font-optical-sizing
+property	font-size
+property	font-style
+property	font-variant
+property	font-variant-alternates
+property	font-variant-caps
+property	font-variant-east-asian
+property	font-variant-emoji
+property	font-variant-ligatures
+property	font-variant-numeric
+property	font-variant-position
+property	font-variation-settings
+property	font-weight
+property	font-width
+property	gap
+property	grid
+property	grid-area
+property	grid-auto-columns
+property	grid-auto-flow
+property	grid-auto-rows
+property	grid-column
+property	grid-column-end
+property	grid-column-start
+property	grid-row
+property	grid-row-end
+property	grid-row-start
+property	grid-template
+property	grid-template-areas
+property	grid-template-columns
+property	grid-template-rows
+property	height
+property	image-rendering
+property	inline-size
+property	inset
+property	inset-block
+property	inset-block-end
+property	inset-block-start
+property	inset-inline
+property	inset-inline-end
+property	inset-inline-start
+property	isolation
+property	justify-content
+property	justify-items
+property	justify-self
+property	left
+property	letter-spacing
+property	line-height
+property	list-style
+property	list-style-image
+property	list-style-position
+property	list-style-type
+property	margin
+property	margin-block
+property	margin-block-end
+property	margin-block-start
+property	margin-bottom
+property	margin-inline
+property	margin-inline-end
+property	margin-inline-start
+property	margin-left
+property	margin-right
+property	margin-top
+property	mask
+property	mask-clip
+property	mask-composite
+property	mask-image
+property	mask-mode
+property	mask-origin
+property	mask-position
+property	mask-repeat
+property	mask-size
+property	mask-type
+property	math-depth
+property	math-shift
+property	math-style
+property	max-block-size
+property	max-height
+property	max-inline-size
+property	max-width
+property	min-block-size
+property	min-height
+property	min-inline-size
+property	min-width
+property	mix-blend-mode
+property	object-fit
+property	object-position
+property	opacity
+property	order
+property	orphans
+property	outline
+property	outline-color
+property	outline-offset
+property	outline-style
+property	outline-width
+property	overflow
+property	overflow-block
+property	overflow-clip-margin
+property	overflow-clip-margin-block
+property	overflow-clip-margin-block-end
+property	overflow-clip-margin-block-start
+property	overflow-clip-margin-bottom
+property	overflow-clip-margin-inline
+property	overflow-clip-margin-inline-end
+property	overflow-clip-margin-inline-start
+property	overflow-clip-margin-left
+property	overflow-clip-margin-right
+property	overflow-clip-margin-top
+property	overflow-inline
+property	overflow-wrap
+property	overflow-x
+property	overflow-y
+property	padding
+property	padding-block
+property	padding-block-end
+property	padding-block-start
+property	padding-bottom
+property	padding-inline
+property	padding-inline-end
+property	padding-inline-start
+property	padding-left
+property	padding-right
+property	padding-top
+property	paint-order
+property	perspective
+property	perspective-origin
+property	place-content
+property	place-items
+property	place-self
+property	pointer-events
+property	position
+property	position-anchor
+property	position-area
+property	position-try-fallbacks
+property	position-try-order
+property	position-visibility
+property	quotes
+property	r
+property	resize
+property	right
+property	rotate
+property	row-gap
+property	rx
+property	ry
+property	scale
+property	scroll-behavior
+property	scroll-timeline
+property	scroll-timeline-axis
+property	scroll-timeline-name
+property	scrollbar-color
+property	scrollbar-gutter
+property	scrollbar-width
+property	shape-image-threshold
+property	shape-margin
+property	shape-outside
+property	shape-rendering
+property	stop-color
+property	stop-opacity
+property	stroke
+property	stroke-dasharray
+property	stroke-dashoffset
+property	stroke-linecap
+property	stroke-linejoin
+property	stroke-miterlimit
+property	stroke-opacity
+property	stroke-width
+property	tab-size
+property	table-layout
+property	text-align
+property	text-anchor
+property	text-decoration
+property	text-decoration-color
+property	text-decoration-line
+property	text-decoration-skip-ink
+property	text-decoration-style
+property	text-decoration-thickness
+property	text-indent
+property	text-justify
+property	text-overflow
+property	text-rendering
+property	text-shadow
+property	text-transform
+property	text-underline-offset
+property	text-underline-position
+property	text-wrap
+property	text-wrap-mode
+property	text-wrap-style
+property	timeline-scope
+property	top
+property	touch-action
+property	transform
+property	transform-box
+property	transform-origin
+property	transform-style
+property	transition
+property	transition-behavior
+property	transition-delay
+property	transition-duration
+property	transition-property
+property	transition-timing-function
+property	translate
+property	unicode-bidi
+property	user-select
+property	vertical-align
+property	view-timeline
+property	view-timeline-axis
+property	view-timeline-inset
+property	view-timeline-name
+property	view-transition-name
+property	visibility
+property	white-space
+property	white-space-collapse
+property	white-space-trim
+property	widows
+property	width
+property	will-change
+property	word-break
+property	word-spacing
+property	writing-mode
+property	x
+property	y
+property	z-index
+# The value type of every environment variable (EnvironmentVariable.cpp).
+envvar	preferred-text-scale
+envvar	safe-area-inset-bottom
+envvar	safe-area-inset-left
+envvar	safe-area-inset-right
+envvar	safe-area-inset-top
+envvar	safe-area-max-inset-bottom
+envvar	safe-area-max-inset-left
+envvar	safe-area-max-inset-right
+envvar	safe-area-max-inset-top
+envvar	viewport-segment-bottom
+envvar	viewport-segment-height
+envvar	viewport-segment-left
+envvar	viewport-segment-right
+envvar	viewport-segment-top
+envvar	viewport-segment-width
+# Every initial value (PropertyID.cpp property_initial_value).
+initial	-webkit-text-fill-color
+initial	accent-color
+initial	align-content
+initial	align-items
+initial	align-self
+initial	all
+initial	anchor-name
+initial	anchor-scope
+initial	animation
+initial	animation-composition
+initial	animation-delay
+initial	animation-direction
+initial	animation-duration
+initial	animation-fill-mode
+initial	animation-iteration-count
+initial	animation-name
+initial	animation-play-state
+initial	animation-timeline
+initial	animation-timing-function
+initial	appearance
+initial	aspect-ratio
+initial	backdrop-filter
+initial	background
+initial	background-attachment
+initial	background-blend-mode
+initial	background-clip
+initial	background-color
+initial	background-image
+initial	background-origin
+initial	background-position
+initial	background-position-x
+initial	background-position-y
+initial	background-repeat
+initial	background-size
+initial	block-size
+initial	border
+initial	border-block
+initial	border-block-color
+initial	border-block-end
+initial	border-block-end-color
+initial	border-block-end-style
+initial	border-block-end-width
+initial	border-block-start
+initial	border-block-start-color
+initial	border-block-start-style
+initial	border-block-start-width
+initial	border-block-style
+initial	border-block-width
+initial	border-bottom
+initial	border-bottom-color
+initial	border-bottom-left-radius
+initial	border-bottom-right-radius
+initial	border-bottom-style
+initial	border-bottom-width
+initial	border-collapse
+initial	border-color
+initial	border-end-end-radius
+initial	border-end-start-radius
+initial	border-image
+initial	border-image-outset
+initial	border-image-repeat
+initial	border-image-slice
+initial	border-image-source
+initial	border-image-width
+initial	border-inline
+initial	border-inline-color
+initial	border-inline-end
+initial	border-inline-end-color
+initial	border-inline-end-style
+initial	border-inline-end-width
+initial	border-inline-start
+initial	border-inline-start-color
+initial	border-inline-start-style
+initial	border-inline-start-width
+initial	border-inline-style
+initial	border-inline-width
+initial	border-left
+initial	border-left-color
+initial	border-left-style
+initial	border-left-width
+initial	border-radius
+initial	border-right
+initial	border-right-color
+initial	border-right-style
+initial	border-right-width
+initial	border-spacing
+initial	border-start-end-radius
+initial	border-start-start-radius
+initial	border-style
+initial	border-top
+initial	border-top-color
+initial	border-top-left-radius
+initial	border-top-right-radius
+initial	border-top-style
+initial	border-top-width
+initial	border-width
+initial	bottom
+initial	box-shadow
+initial	box-sizing
+initial	caption-side
+initial	caret-color
+initial	clear
+initial	clip
+initial	clip-path
+initial	clip-rule
+initial	color
+initial	color-interpolation
+initial	color-scheme
+initial	column-count
+initial	column-gap
+initial	column-height
+initial	column-span
+initial	column-width
+initial	columns
+initial	contain
+initial	container-type
+initial	content
+initial	content-visibility
+initial	corner-block-end-shape
+initial	corner-block-start-shape
+initial	corner-bottom-left-shape
+initial	corner-bottom-right-shape
+initial	corner-bottom-shape
+initial	corner-end-end-shape
+initial	corner-end-start-shape
+initial	corner-inline-end-shape
+initial	corner-inline-start-shape
+initial	corner-left-shape
+initial	corner-right-shape
+initial	corner-shape
+initial	corner-start-end-shape
+initial	corner-start-start-shape
+initial	corner-top-left-shape
+initial	corner-top-right-shape
+initial	corner-top-shape
+initial	counter-increment
+initial	counter-reset
+initial	counter-set
+initial	cursor
+initial	cx
+initial	cy
+initial	direction
+initial	display
+initial	dominant-baseline
+initial	empty-cells
+initial	fill
+initial	fill-opacity
+initial	fill-rule
+initial	filter
+initial	flex
+initial	flex-basis
+initial	flex-direction
+initial	flex-flow
+initial	flex-grow
+initial	flex-shrink
+initial	flex-wrap
+initial	float
+initial	flood-color
+initial	flood-opacity
+!initial	font
+initial	font-family
+initial	font-feature-settings
+initial	font-kerning
+initial	font-language-override
+initial	font-optical-sizing
+initial	font-size
+!initial	font-style
+initial	font-variant
+initial	font-variant-alternates
+initial	font-variant-caps
+initial	font-variant-east-asian
+initial	font-variant-emoji
+initial	font-variant-ligatures
+initial	font-variant-numeric
+initial	font-variant-position
+initial	font-variation-settings
+initial	font-weight
+initial	font-width
+initial	gap
+!initial	grid-area
+!initial	grid-auto-columns
+!initial	grid-auto-flow
+!initial	grid-auto-rows
+!initial	grid-column
+!initial	grid-column-end
+!initial	grid-column-start
+!initial	grid-row
+!initial	grid-row-end
+!initial	grid-row-start
+!initial	grid-template-areas
+!initial	grid-template-columns
+!initial	grid-template-rows
+initial	height
+initial	image-rendering
+initial	inline-size
+initial	inset
+initial	inset-block
+initial	inset-block-end
+initial	inset-block-start
+initial	inset-inline
+initial	inset-inline-end
+initial	inset-inline-start
+initial	isolation
+initial	justify-content
+initial	justify-items
+initial	justify-self
+initial	left
+initial	letter-spacing
+initial	line-height
+!initial	list-style
+initial	list-style-image
+initial	list-style-position
+!initial	list-style-type
+initial	margin
+initial	margin-block
+initial	margin-block-end
+initial	margin-block-start
+initial	margin-bottom
+initial	margin-inline
+initial	margin-inline-end
+initial	margin-inline-start
+initial	margin-left
+initial	margin-right
+initial	margin-top
+initial	mask
+initial	mask-clip
+initial	mask-composite
+initial	mask-image
+initial	mask-mode
+initial	mask-origin
+initial	mask-position
+initial	mask-repeat
+initial	mask-size
+initial	mask-type
+initial	math-depth
+initial	math-shift
+initial	math-style
+initial	max-block-size
+initial	max-height
+initial	max-inline-size
+initial	max-width
+initial	min-block-size
+initial	min-height
+initial	min-inline-size
+initial	min-width
+initial	mix-blend-mode
+initial	object-fit
+initial	object-position
+initial	opacity
+initial	order
+initial	orphans
+initial	outline
+initial	outline-color
+initial	outline-offset
+initial	outline-style
+initial	outline-width
+initial	overflow
+initial	overflow-block
+initial	overflow-clip-margin
+initial	overflow-clip-margin-block
+initial	overflow-clip-margin-block-end
+initial	overflow-clip-margin-block-start
+initial	overflow-clip-margin-bottom
+initial	overflow-clip-margin-inline
+initial	overflow-clip-margin-inline-end
+initial	overflow-clip-margin-inline-start
+initial	overflow-clip-margin-left
+initial	overflow-clip-margin-right
+initial	overflow-clip-margin-top
+initial	overflow-inline
+initial	overflow-wrap
+initial	overflow-x
+initial	overflow-y
+initial	padding
+initial	padding-block
+initial	padding-block-end
+initial	padding-block-start
+initial	padding-bottom
+initial	padding-inline
+initial	padding-inline-end
+initial	padding-inline-start
+initial	padding-left
+initial	padding-right
+initial	padding-top
+initial	paint-order
+initial	perspective
+initial	perspective-origin
+initial	place-content
+initial	place-items
+initial	place-self
+initial	pointer-events
+initial	position
+initial	position-anchor
+initial	position-area
+initial	position-try-fallbacks
+initial	position-try-order
+initial	position-visibility
+initial	quotes
+initial	r
+initial	resize
+initial	right
+initial	rotate
+initial	row-gap
+initial	rx
+initial	ry
+initial	scale
+initial	scroll-behavior
+initial	scroll-timeline
+initial	scroll-timeline-axis
+initial	scroll-timeline-name
+initial	scrollbar-color
+initial	scrollbar-gutter
+initial	scrollbar-width
+initial	shape-image-threshold
+initial	shape-margin
+initial	shape-outside
+initial	shape-rendering
+initial	stop-color
+initial	stop-opacity
+initial	stroke
+initial	stroke-dasharray
+initial	stroke-dashoffset
+initial	stroke-linecap
+initial	stroke-linejoin
+initial	stroke-miterlimit
+initial	stroke-opacity
+initial	stroke-width
+initial	tab-size
+initial	table-layout
+initial	text-align
+initial	text-anchor
+initial	text-decoration
+initial	text-decoration-color
+initial	text-decoration-line
+initial	text-decoration-skip-ink
+initial	text-decoration-style
+initial	text-decoration-thickness
+initial	text-indent
+initial	text-justify
+initial	text-overflow
+initial	text-rendering
+initial	text-shadow
+initial	text-transform
+initial	text-underline-offset
+initial	text-underline-position
+initial	text-wrap
+initial	text-wrap-mode
+initial	text-wrap-style
+initial	timeline-scope
+initial	top
+initial	touch-action
+initial	transform
+initial	transform-box
+initial	transform-origin
+initial	transform-style
+initial	transition
+initial	transition-behavior
+initial	transition-delay
+initial	transition-duration
+initial	transition-property
+initial	transition-timing-function
+initial	translate
+initial	unicode-bidi
+initial	user-select
+initial	vertical-align
+initial	view-timeline
+initial	view-timeline-axis
+initial	view-timeline-inset
+initial	view-timeline-name
+initial	view-transition-name
+initial	visibility
+initial	white-space
+initial	white-space-collapse
+initial	white-space-trim
+initial	widows
+initial	width
+initial	will-change
+initial	word-break
+initial	word-spacing
+initial	writing-mode
+initial	x
+initial	y
+initial	z-index
+# Every descriptor initial value (DescriptorID.cpp descriptor_initial_value).
+descriptor_initial	@font-face	ascent-override
+descriptor_initial	@font-face	descent-override
+descriptor_initial	@font-face	font-display
+descriptor_initial	@font-face	font-family
+descriptor_initial	@font-face	font-feature-settings
+descriptor_initial	@font-face	font-language-override
+descriptor_initial	@font-face	font-named-instance
+descriptor_initial	@font-face	font-style
+descriptor_initial	@font-face	font-variation-settings
+descriptor_initial	@font-face	font-weight
+descriptor_initial	@font-face	font-width
+descriptor_initial	@font-face	line-gap-override
+descriptor_initial	@font-face	src
+descriptor_initial	@font-face	unicode-range
+descriptor_initial	@page	bleed
+descriptor_initial	@page	margin
+descriptor_initial	@page	margin-bottom
+descriptor_initial	@page	margin-left
+descriptor_initial	@page	margin-right
+descriptor_initial	@page	margin-top
+descriptor_initial	@page	marks
+descriptor_initial	@page	page-orientation
+descriptor_initial	@page	size
+descriptor_initial	@property	inherits
+descriptor_initial	@property	initial-value
+descriptor_initial	@property	syntax
+!descriptor_initial	@counter-style	system
+descriptor_initial	@counter-style	range
+descriptor_initial	@counter-style	fallback
+descriptor_initial	@counter-style	symbols
+descriptor_initial	@counter-style	additive-symbols
+descriptor_initial	@counter-style	speak-as
+descriptor_initial	@function	result
+# Values of properties: parse_css_value (Parser::parse_css_value over the component values of the text).
+# Generic longhands, CSS-wide keywords, substitution functions and errors.
+value	width	10px
+value	width	auto
+value	width	  10%  
+value	width	10px 20px
+value	width	
+value	width	10px;
+value	width	inherit
+value	width	INITIAL
+value	width	unset
+value	width	revert
+value	width	revert-layer
+value	width	inherit 10px
+value	width	var(--x)
+value	width	calc(1px + var(--y, 2px))
+value	width	attr(data-w px)
+value	width	env(safe-area-inset-top, 4px)
+value	width	if(media(width > 1px): 1px; else: 2px)
+value	width	var()
+value	custom	  foo bar  
+value	custom	
+value	custom	{ a: b }
+value	custom	var(--a) 1px
+value	color	red
+value	color	#ff0000
+value	color	currentcolor
+value	opacity	0.5
+value	opacity	50%
+value	z-index	5
+value	z-index	auto
+value	z-index	1.5
+value	line-height	normal
+value	line-height	1.5
+value	line-height	2em
+value	float	left
+value	float	LEFT
+value	float	left right
+value	position	sticky
+value	overflow-x	overlay
+value	text-justify	distribute
+value	visibility	collapse
+value	all	inherit
+value	all	foo
+value	border-spacing	1px 2px
+value	border-spacing	1px 2px 3px
+value	transition-duration	1s, 2s
+value	background-attachment	fixed, scroll
+value	background-attachment	fixed,
+value	animation-name	foo, none
+# Positional shorthands.
+value	margin	1px
+value	margin	1px 2px
+value	margin	1px 2px 3px
+value	margin	1px 2px 3px 4px
+value	margin	1px 2px 3px 4px 5px
+value	padding	1px auto
+value	border-style	solid dashed
+value	border-width	thin thick medium
+value	border-color	red
+value	inset	auto 1px
+value	overflow	hidden scroll
+value	overflow	overlay
+value	gap	1px 2px
+value	margin-block	1px 2px
+# Generic shorthand expansion.
+value	border-top	1px solid
+value	border-top	solid 1px red
+value	border-top	red
+value	border-top	red red
+value	outline	red dotted
+value	border-left	1px solid red
+value	border-block-end	dashed thin
+# Special-cased properties.
+value	anchor-name	none
+value	anchor-name	--a, --b
+value	anchor-name	a
+value	anchor-scope	all
+value	anchor-scope	--a
+value	aspect-ratio	auto
+value	aspect-ratio	16 / 9
+value	aspect-ratio	auto 1/2
+value	aspect-ratio	1/2 auto
+value	aspect-ratio	auto auto
+value	animation	none
+value	animation	1s ease-in 2s infinite alternate both paused foo
+value	animation	foo 1s, bar 2s
+value	animation	1s 2s
+value	backdrop-filter	none
+!value	filter	blur(2px)
+!value	filter	blur()
+!value	filter	brightness(50%) contrast(2)
+!value	filter	drop-shadow(1px 2px 3px red)
+!value	filter	drop-shadow(red 1px 2px)
+!value	filter	drop-shadow(1px 2px red)
+!value	filter	hue-rotate(0)
+!value	filter	hue-rotate(90deg)
+!value	filter	grayscale(150%) opacity(2) sepia()
+!value	filter	url(#f) invert(1)
+value	filter	blur(-1px)
+value	filter	foo(1)
+value	background	red
+value	background	none
+value	background	url(a.png) no-repeat center / cover
+value	background	none, red
+value	background	red, none
+value	background	top left / 10px 20px repeat-x fixed padding-box content-box
+value	background	border-box
+value	background	repeat space
+value	background	center /
+value	background-position	center
+value	background-position	left 10px top 20px
+value	background-position	10% 20%, right
+value	background-position-x	left
+value	background-position-x	right 10px
+value	background-position-x	center, 10px
+value	background-position-y	top 5%
+value	background-repeat	repeat-x
+value	background-repeat	space round
+value	background-repeat	no-repeat, repeat
+value	background-size	cover
+value	background-size	10px
+value	background-size	10px auto
+value	background-size	50% 25%, contain
+value	border	1px solid red
+value	border	solid
+value	border	thick dashed
+value	border	none
+value	border	1px 2px
+value	border-block	1px solid
+value	border-inline	dotted blue
+value	border-image	url(a.png) 30 round
+value	border-image	none
+value	border-image	10% fill / 2px / 3px stretch
+value	border-image	30 / 1 / 2 space repeat
+value	border-image	30 // 2
+value	border-image-slice	10
+value	border-image-slice	10% 20
+value	border-image-slice	1 2 3 fill
+value	border-image-slice	fill 1 2 3 4
+value	border-image-slice	1 2 3 4 5
+value	border-image-slice	fill 1 fill
+value	border-top-left-radius	10px
+value	border-top-left-radius	10px 20px
+value	border-top-left-radius	10px / 20%
+value	border-top-left-radius	-1px
+value	border-radius	10px
+value	border-radius	1px 2px 3px 4px / 5px
+value	box-shadow	none
+value	box-shadow	1px 2px
+value	box-shadow	1px 2px 3px 4px red inset
+value	box-shadow	inset red 1px 2px, 2px 3px blue
+value	box-shadow	1px
+value	box-shadow	inset inset 1px 2px
+value	text-shadow	1px 1px 2px black
+value	text-shadow	1px 1px 2px 3px
+value	color-scheme	normal
+value	color-scheme	light dark
+value	color-scheme	only light
+value	color-scheme	dark only
+value	color-scheme	only
+value	color-scheme	normal only
+value	columns	auto
+value	columns	3
+value	columns	100px
+value	columns	3 100px
+value	columns	auto auto
+value	columns	auto 3
+value	columns	3 / 10px
+value	columns	/ 10px
+value	contain	none
+value	contain	strict
+value	contain	size layout
+value	contain	paint style inline-size
+value	contain	size inline-size
+value	container-type	normal
+value	container-type	inline-size scroll-state
+value	container-type	size size
+value	content	none
+!value	content	"a" counter(x)
+value	content	"a" / "alt"
+value	content	"a" /
+value	content	none "a"
+value	content	/ "x"
+value	counter-increment	none
+!value	counter-increment	foo
+!value	counter-increment	foo 2 bar
+!value	counter-reset	foo -1
+value	counter-reset	reversed(foo)
+!value	counter-set	a 5
+value	cursor	pointer
+value	cursor	url(a.png), auto
+value	cursor	url(a.png) 1 2, pointer
+value	cursor	url(a.png)
+value	cursor	foo
+value	display	block
+value	display	inline flex
+value	display	list-item
+value	display	inline list-item
+value	display	flow-root list-item
+value	display	table-row
+value	display	none
+value	display	contents
+value	display	inline-block
+value	display	grid list-item
+value	display	block block
+value	display	foo
+value	flex	none
+value	flex	1
+value	flex	auto
+value	flex	10px
+value	flex	1 2
+value	flex	1 2 10px
+value	flex	1 10px
+value	flex	10px 1
+value	flex	0
+value	flex-flow	row wrap
+value	flex-flow	column
+value	flex-flow	wrap row
+!value	font	12px serif
+!value	font	italic bold 12px/30px Georgia, serif
+!value	font	small-caps 1em sans-serif
+!value	font	normal normal normal 12px x
+!value	font	condensed 12px a
+value	font	12px
+value	font	normal normal normal normal normal 12px x
+value	font-family	serif
+value	font-family	Arial, "Times New Roman", monospace
+value	font-family	a b c
+value	font-feature-settings	normal
+value	font-feature-settings	"liga" 0
+value	font-feature-settings	"kern" on, "smcp"
+value	font-feature-settings	"liga" off
+value	font-feature-settings	"liga" foo
+value	font-language-override	normal
+value	font-language-override	"TRK"
+value	font-language-override	"TRK  "
+value	font-language-override	""
+value	font-language-override	"TOOLONG"
+value	font-language-override	"   "
+value	font-language-override	"é"
+value	font-variation-settings	normal
+value	font-variation-settings	"wght" 400, "wdth" 75
+value	font-variant	normal
+value	font-variant	none
+value	font-variant	small-caps
+value	font-variant	common-ligatures small-caps slashed-zero
+value	font-variant	historical-forms
+value	font-variant	jis78 ruby
+value	font-variant	sub emoji
+value	font-variant	small-caps small-caps
+!value	grid-area	a
+!value	grid-area	1 / 2 / 3 / 4
+!value	grid-area	a / b
+!value	grid-area	auto / span 2
+!value	grid-auto-flow	row
+!value	grid-auto-flow	column dense
+!value	grid-auto-flow	dense
+!value	grid-auto-flow	dense row
+value	grid-auto-flow	row column
+!value	grid-column	1 / 3
+!value	grid-column	a
+!value	grid-column	span 2
+!value	grid-row	1
+value	grid-row	2 /
+!value	grid-column-start	auto
+!value	grid-row-end	3
+!value	grid	none
+!value	grid	auto-flow / 100px
+!value	grid	100px / auto-flow dense 50px
+!value	grid	"a b" 10px / 1fr 1fr
+!value	grid-template	none
+!value	grid-template	100px 1fr / 50px
+!value	grid-template	"a a" "b c"
+!value	grid-template	[x] "a" 10px [y] / 1fr
+!value	grid-template-areas	none
+!value	grid-template-areas	"a b" "c d"
+!value	grid-template-areas	"a a" "a a"
+!value	grid-template-areas	"a ." "b ."
+value	grid-template-areas	"a b" "c"
+value	grid-template-areas	"a b" "b a"
+value	grid-template-areas	"a$"
+!value	grid-template-columns	none
+!value	grid-template-columns	100px 1fr
+!value	grid-template-columns	repeat(2, 1fr)
+!value	grid-template-rows	[a] 10px [b]
+!value	grid-auto-rows	100px
+!value	grid-auto-columns	auto 1fr
+value	list-style	none
+!value	list-style	square inside
+!value	list-style	url(a.png)
+value	list-style	none none
+!value	list-style	none disc
+value	list-style	none none none
+value	math-depth	auto-add
+value	math-depth	add(2)
+value	math-depth	3
+value	math-depth	add(a)
+value	mask	none
+value	mask	url(m.svg)
+value	mask	url(m.svg) center / contain no-repeat border-box no-clip add luminance
+value	mask	url(a.svg), url(b.svg) repeat-x
+value	mask-position	center
+value	mask-position	left 10px top, right
+value	mask-repeat	repeat-x
+value	mask-size	cover, 10px
+value	overflow-clip-margin	10px
+value	overflow-clip-margin	-1px
+value	overflow-clip-margin-top	5px
+value	overflow-clip-margin-block	2px
+value	paint-order	normal
+value	paint-order	fill
+value	paint-order	stroke fill
+value	paint-order	fill stroke
+value	paint-order	markers stroke fill
+value	paint-order	fill fill
+value	paint-order	stroke markers fill
+value	place-content	center
+value	place-content	center start
+value	place-content	baseline
+value	place-items	center
+value	place-items	start end
+value	place-self	auto
+value	place-self	center stretch
+value	position-anchor	auto
+value	position-anchor	--a
+value	position-anchor	foo
+value	position-area	none
+value	position-area	top
+value	position-area	top left
+value	position-area	left top
+value	position-area	span-all
+value	position-area	top span-all
+value	position-area	block-start inline-end
+value	position-area	start end
+value	position-area	self-start self-end
+value	position-area	top bottom
+value	position-try-fallbacks	none
+value	position-try-fallbacks	--a
+value	position-try-fallbacks	flip-block
+value	position-try-fallbacks	--a flip-inline flip-start
+value	position-try-fallbacks	top left, --b
+value	position-visibility	always
+value	position-visibility	anchors-valid no-overflow
+value	position-visibility	no-overflow anchors-visible
+value	position-visibility	anchors-valid anchors-valid
+value	quotes	auto
+value	quotes	none
+value	quotes	"«" "»"
+value	quotes	"a" "b" "c" "d"
+value	quotes	"a"
+value	rotate	none
+!value	rotate	45deg
+!value	rotate	x 45deg
+!value	rotate	45deg y
+!value	rotate	1 2 3 45deg
+!value	rotate	45deg 1 2 3
+value	rotate	z
+value	scale	none
+!value	scale	2
+!value	scale	2 50%
+!value	scale	1 2 3
+value	translate	none
+!value	translate	10px
+!value	translate	10px 20%
+!value	translate	10px 20px 30px
+value	translate	10px 20px 30%
+value	scrollbar-color	auto
+value	scrollbar-color	red blue
+value	scrollbar-color	red
+value	scrollbar-gutter	auto
+value	scrollbar-gutter	stable
+value	scrollbar-gutter	stable both-edges
+value	scrollbar-gutter	both-edges stable
+value	scrollbar-gutter	both-edges
+value	scrollbar-gutter	auto both-edges
+value	shape-outside	none
+!value	shape-outside	circle(50%)
+value	shape-outside	margin-box
+!value	shape-outside	circle(50%) border-box
+value	shape-outside	linear-gradient(red, blue)
+value	stroke-dasharray	none
+value	stroke-dasharray	1 2 3
+value	stroke-dasharray	1px, 2%
+value	stroke-dasharray	-1
+value	text-decoration	underline
+value	text-decoration	underline dotted red
+value	text-decoration	line-through 2px
+value	text-decoration	none
+value	text-decoration	underline overline
+value	text-decoration-line	none
+value	text-decoration-line	underline overline
+value	text-decoration-line	overline underline
+value	text-decoration-line	spelling-error
+value	text-decoration-line	underline underline
+value	text-decoration-line	underline spelling-error
+value	text-indent	10px
+value	text-indent	10px hanging
+value	text-indent	each-line 5% hanging
+value	text-indent	hanging
+value	text-underline-position	auto
+value	text-underline-position	under
+value	text-underline-position	from-font right
+value	text-underline-position	left under
+value	text-underline-position	auto under
+value	timeline-scope	none
+value	timeline-scope	all
+value	timeline-scope	--a, --b
+value	touch-action	auto
+value	touch-action	manipulation
+value	touch-action	pan-x
+value	touch-action	pan-y pan-left
+value	touch-action	pan-x pan-left
+value	touch-action	pan-x auto
+value	transform-origin	center
+value	transform-origin	top
+value	transform-origin	left
+value	transform-origin	10px
+value	transform-origin	left top
+value	transform-origin	top left
+value	transform-origin	10px 20px 30px
+value	transform-origin	center bottom
+value	transform-origin	20% top 5px
+value	transform-origin	top 10px
+value	transform-origin	left right
+value	transition	none
+value	transition	opacity 1s
+value	transition	all 1s ease, none
+value	transition	1s
+value	transition	opacity 1s, transform 2s linear 1s
+value	transition-property	none
+value	transition-property	opacity, transform
+value	transition-property	none, a
+value	scroll-timeline	--a
+value	scroll-timeline	--a block
+value	scroll-timeline	--a x, --b
+value	scroll-timeline	--a,
+value	view-timeline	--a
+value	view-timeline	--a block 10px
+value	view-timeline	--a auto, --b x
+value	view-timeline	--a,
+value	white-space	normal
+value	white-space	pre
+value	white-space	pre-wrap
+value	white-space	pre-line
+value	white-space	nowrap
+value	white-space	preserve nowrap
+value	white-space	discard-before
+value	white-space	collapse discard-after discard-inner
+value	white-space-trim	none
+value	white-space-trim	discard-before discard-after
+value	white-space-trim	discard-after discard-before
+value	will-change	auto
+value	will-change	scroll-position
+value	will-change	transform, opacity
+value	will-change	auto, a
+# parse_css_value_for_properties: the first property that takes the next value.
+for	flex-grow flex-basis	auto
+for	flex-grow flex-basis	2
+for	float clear	left
+for	float clear	both
+for	overflow-x overflow-y	overlay
+for	display	foo
+for	text-justify	distribute rest
+for	animation-name	foo
+# Arbitrary substitution functions: the function names and the argument grammars.
+asf	var
+asf	VAR
+asf	attr
+asf	env
+asf	if
+asf	inherit
+asf	calc
+grammar	var	--x
+grammar	var	--x, 1px 2px
+grammar	var	--x,
+grammar	var	
+grammar	attr	data-x type(<length>), 3px
+grammar	env	safe-area-inset-top
+grammar	inherit	--y, a , b
+grammar	if	media(a): 1; else: 2
+grammar	if	media(a): ; else
+grammar	if	media(a)
+grammar	if	
+grammar	var	--x; y

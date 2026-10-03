@@ -1,0 +1,172 @@
+# Web::CSS::FontStyleStyleValue::create
+initial	font	
+# Web::CSS::FontStyleStyleValue::create
+initial	font-style	
+# Web::CSS::GridTrackPlacementStyleValue::create
+initial	grid-area	
+# Web::CSS::GridTrackSizeListStyleValue::create
+initial	grid-auto-columns	
+# Web::CSS::GridAutoFlowStyleValue::create
+initial	grid-auto-flow	
+# Web::CSS::GridTrackSizeListStyleValue::create
+initial	grid-auto-rows	
+# Web::CSS::GridTrackPlacementStyleValue::create
+initial	grid-column	
+# Web::CSS::GridTrackPlacementStyleValue::create
+initial	grid-column-end	
+# Web::CSS::GridTrackPlacementStyleValue::create
+initial	grid-column-start	
+# Web::CSS::GridTrackPlacementStyleValue::create
+initial	grid-row	
+# Web::CSS::GridTrackPlacementStyleValue::create
+initial	grid-row-end	
+# Web::CSS::GridTrackPlacementStyleValue::create
+initial	grid-row-start	
+# Web::CSS::GridTemplateAreaStyleValue::create
+initial	grid-template-areas	
+# Web::CSS::GridTrackSizeListStyleValue::make_none
+initial	grid-template-columns	
+# Web::CSS::GridTrackSizeListStyleValue::make_none
+initial	grid-template-rows	
+# r35: counter_style style values
+initial	list-style
+# r35: counter_style style values
+initial	list-style-type
+# r35: counter_style_system style values
+descriptor_initial	@counter-style	system
+# r35: filter_value_list style values
+value	filter	blur(2px)
+# r35: filter_value_list style values
+value	filter	blur()
+# r35: filter_value_list style values
+value	filter	brightness(50%) contrast(2)
+# r35: filter_value_list style values
+value	filter	drop-shadow(1px 2px 3px red)
+# r35: filter_value_list style values
+value	filter	drop-shadow(red 1px 2px)
+# r35: filter_value_list style values
+value	filter	drop-shadow(1px 2px red)
+# r35: filter_value_list style values
+value	filter	hue-rotate(0)
+# r35: filter_value_list style values
+value	filter	hue-rotate(90deg)
+# r35: filter_value_list style values
+value	filter	grayscale(150%) opacity(2) sepia()
+# r35: filter_value_list style values
+value	filter	url(#f) invert(1)
+# r35: counter_definitions style values
+value	counter-increment	foo
+# r35: counter_definitions style values
+value	counter-increment	foo 2 bar
+# r35: counter_definitions style values
+value	counter-reset	foo -1
+# r35: counter_definitions style values
+value	counter-set	a 5
+# r35: font_style style values
+value	font	12px serif
+# r35: font_style style values
+value	font	italic bold 12px/30px Georgia, serif
+# r35: font_style style values
+value	font	small-caps 1em sans-serif
+# r35: font_style style values
+value	font	normal normal normal 12px x
+# r35: font_style style values
+value	font	condensed 12px a
+# r35: grid_track_placement style values
+value	grid-area	a
+# r35: grid_track_placement style values
+value	grid-area	1 / 2 / 3 / 4
+# r35: grid_track_placement style values
+value	grid-area	a / b
+# r35: grid_track_placement style values
+value	grid-area	auto / span 2
+# r35: grid_auto_flow style values
+value	grid-auto-flow	row
+# r35: grid_auto_flow style values
+value	grid-auto-flow	column dense
+# r35: grid_auto_flow style values
+value	grid-auto-flow	dense
+# r35: grid_auto_flow style values
+value	grid-auto-flow	dense row
+# r35: grid_track_placement style values
+value	grid-column	1 / 3
+# r35: grid_track_placement style values
+value	grid-column	a
+# r35: grid_track_placement style values
+value	grid-column	span 2
+# r35: grid_track_placement style values
+value	grid-row	1
+# r35: grid_track_placement style values
+value	grid-column-start	auto
+# r35: grid_track_placement style values
+value	grid-row-end	3
+# r35: grid_auto_flow style values
+value	grid	none
+# r35: grid_auto_flow style values
+value	grid	auto-flow / 100px
+# r35: grid_auto_flow style values
+value	grid	100px / auto-flow dense 50px
+# r35: grid_auto_flow style values
+value	grid	"a b" 10px / 1fr 1fr
+# r35: grid_template_area style values
+value	grid-template	none
+# r35: grid_template_area style values
+value	grid-template	100px 1fr / 50px
+# r35: grid_template_area style values
+value	grid-template	"a a" "b c"
+# r35: grid_template_area style values
+value	grid-template	[x] "a" 10px [y] / 1fr
+# r35: grid_template_area style values
+value	grid-template-areas	none
+# r35: grid_template_area style values
+value	grid-template-areas	"a b" "c d"
+# r35: grid_template_area style values
+value	grid-template-areas	"a a" "a a"
+# r35: grid_template_area style values
+value	grid-template-areas	"a ." "b ."
+# r35: grid_track_size_list style values
+value	grid-template-columns	none
+# r35: grid_track_size_list style values
+value	grid-template-columns	100px 1fr
+# r35: grid_track_size_list style values
+value	grid-template-columns	repeat(2, 1fr)
+# r35: grid_track_size_list style values
+value	grid-template-rows	[a] 10px [b]
+# r35: grid_track_size_list style values
+value	grid-auto-rows	100px
+# r35: grid_track_size_list style values
+value	grid-auto-columns	auto 1fr
+# r35: counter_style style values
+value	list-style	square inside
+# r35: counter_style style values
+value	list-style	url(a.png)
+# r35: counter_style style values
+value	list-style	none disc
+# r35: transformation style values
+value	rotate	45deg
+# r35: transformation style values
+value	rotate	x 45deg
+# r35: transformation style values
+value	rotate	45deg y
+# r35: transformation style values
+value	rotate	1 2 3 45deg
+# r35: transformation style values
+value	rotate	45deg 1 2 3
+# r35: transformation style values
+value	scale	2
+# r35: transformation style values
+value	scale	2 50%
+# r35: transformation style values
+value	scale	1 2 3
+# r35: transformation style values
+value	translate	10px
+# r35: transformation style values
+value	translate	10px 20%
+# r35: transformation style values
+value	translate	10px 20px 30px
+# r35: basic_shape style values
+value	shape-outside	circle(50%)
+# r35: basic_shape style values
+value	shape-outside	circle(50%) border-box
+# Web::CSS::CounterStyleStyleValue::create
+value	content	"a" counter(x)

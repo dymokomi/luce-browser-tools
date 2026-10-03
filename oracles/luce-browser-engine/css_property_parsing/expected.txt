@@ -1,0 +1,6499 @@
+case property	custom
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	-webkit-text-fill-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	accent-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	align-content
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	align-items
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	align-self
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	all
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	anchor-name
+  accepts DashedIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	anchor-scope
+  accepts DashedIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation-composition
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation-delay
+  accepts Time
+  ranges Time=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=111111
+case property	animation-direction
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation-duration
+  accepts Time
+  ranges Time=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=011111
+case property	animation-fill-mode
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation-iteration-count
+  accepts Number
+  ranges Number=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation-name
+  accepts CustomIdent String
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation-play-state
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation-timeline
+  accepts DashedIdent ScrollFunction ViewFunction
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	animation-timing-function
+  accepts EasingFunction
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	appearance
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	aspect-ratio
+  accepts Ratio
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	backdrop-filter
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-attachment
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-blend-mode
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-clip
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-image
+  accepts Image
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-origin
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-position
+  accepts BackgroundPosition
+  ranges
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-position-x
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	background-position-y
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	background-repeat
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	background-size
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	block-size
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-end
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-end-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-end-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-end-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-block-start
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-start-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-start-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-start-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-block-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-block-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-bottom
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-bottom-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-bottom-left-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-bottom-right-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-bottom-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-bottom-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-collapse
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-end-end-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-end-start-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-image
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-image-outset
+  accepts Length Number
+  ranges Length=0,3.4028234663852886e+38 Number=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-image-repeat
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-image-slice
+  accepts Number Percentage
+  ranges Number=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=011111 resolution=000000 time=000000
+case property	border-image-source
+  accepts Image
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-image-width
+  accepts Length Number Percentage
+  ranges Length=0,3.4028234663852886e+38 Number=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-inline
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-end
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-end-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-end-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-end-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-inline-start
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-start-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-start-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-start-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-inline-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-inline-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-left
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-left-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-left-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-left-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-right
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-right-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-right-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-right-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-spacing
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-start-end-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-start-start-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-top
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-top-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-top-left-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-top-right-radius
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	border-top-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	border-top-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	border-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	bottom
+  accepts Anchor Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	box-shadow
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	box-sizing
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	caption-side
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	caret-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	clear
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	clip
+  accepts Rect
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	clip-path
+  accepts BasicShape Url
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	clip-rule
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	color-interpolation
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	color-scheme
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	column-count
+  accepts Integer
+  ranges Integer=1,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	column-gap
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	column-height
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	column-span
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	column-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	columns
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	contain
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	container-type
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	content
+  accepts Counter Image String
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	content-visibility
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-block-end-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-block-start-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-bottom-left-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-bottom-right-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-bottom-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-end-end-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-end-start-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-inline-end-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-inline-start-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-left-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-right-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-start-end-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-start-start-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-top-left-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-top-right-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	corner-top-shape
+  accepts CornerShape
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	counter-increment
+  accepts CustomIdent Integer
+  ranges Integer=-2147483648,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	counter-reset
+  accepts CustomIdent Integer
+  ranges Integer=-2147483648,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	counter-set
+  accepts CustomIdent Integer
+  ranges Integer=-2147483648,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	cursor
+  accepts Number Url
+  ranges Number=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	cx
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	cy
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	direction
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	display
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	dominant-baseline
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	empty-cells
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	fill
+  accepts Paint
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	fill-opacity
+  accepts OpacityValue
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	fill-rule
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	filter
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	flex
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	flex-basis
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	flex-direction
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	flex-flow
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	flex-grow
+  accepts Number
+  ranges Number=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	flex-shrink
+  accepts Number
+  ranges Number=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	flex-wrap
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	float
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	flood-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	flood-opacity
+  accepts OpacityValue
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-family
+  accepts CustomIdent String
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-feature-settings
+  accepts Integer OpenTypeTag
+  ranges Integer=0,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-kerning
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-language-override
+  accepts String
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-optical-sizing
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-size
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	font-style
+  accepts FontStyle
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variant
+  accepts String
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variant-alternates
+  accepts FontVariantAlternates
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variant-caps
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variant-east-asian
+  accepts FontVariantEastAsian
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variant-emoji
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variant-ligatures
+  accepts FontVariantLigatures
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variant-numeric
+  accepts FontVariantNumeric
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variant-position
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-variation-settings
+  accepts Number OpenTypeTag
+  ranges Number=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-weight
+  accepts Number
+  ranges Number=1,1000
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	font-width
+  accepts Percentage
+  ranges Percentage=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=011111 resolution=000000 time=000000
+case property	gap
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	grid
+  accepts Length Percentage String
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	grid-area
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-auto-columns
+  accepts Length Percentage String
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	grid-auto-flow
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-auto-rows
+  accepts Length Percentage String
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	grid-column
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-column-end
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-column-start
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-row
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-row-end
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-row-start
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-template
+  accepts Length Percentage String
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	grid-template-areas
+  accepts String
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	grid-template-columns
+  accepts Length Percentage String
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	grid-template-rows
+  accepts Length Percentage String
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	height
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	image-rendering
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	inline-size
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	inset
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	inset-block
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	inset-block-end
+  accepts Anchor Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	inset-block-start
+  accepts Anchor Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	inset-inline
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	inset-inline-end
+  accepts Anchor Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	inset-inline-start
+  accepts Anchor Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	isolation
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	justify-content
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	justify-items
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	justify-self
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	left
+  accepts Anchor Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	letter-spacing
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	line-height
+  accepts Length Number Percentage
+  ranges Length=0,3.4028234663852886e+38 Number=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	list-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	list-style-image
+  accepts Image
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	list-style-position
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	list-style-type
+  accepts CounterStyle String
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	margin
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-block
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-block-end
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-block-start
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-bottom
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-inline
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-inline-end
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-inline-start
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-left
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-right
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	margin-top
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	mask
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	mask-clip
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	mask-composite
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	mask-image
+  accepts Image Url
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	mask-mode
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	mask-origin
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	mask-position
+  accepts Position
+  ranges
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	mask-repeat
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	mask-size
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	mask-type
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	math-depth
+  accepts Integer
+  ranges Integer=-2147483648,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	math-shift
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	math-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	max-block-size
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	max-height
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	max-inline-size
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	max-width
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	min-block-size
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	min-height
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	min-inline-size
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	min-width
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	mix-blend-mode
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	object-fit
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	object-position
+  accepts Position
+  ranges
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	opacity
+  accepts OpacityValue
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	order
+  accepts Integer
+  ranges Integer=-2147483648,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	orphans
+  accepts Integer
+  ranges Integer=1,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	outline
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	outline-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	outline-offset
+  accepts Length
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=000000 resolution=000000 time=000000
+case property	outline-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	outline-width
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	overflow-block
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-block
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-block-end
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-block-start
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-bottom
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-inline
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-inline-end
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-inline-start
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-left
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-right
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-clip-margin-top
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	overflow-inline
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	overflow-wrap
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	overflow-x
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	overflow-y
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	padding
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-block
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-block-end
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-block-start
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-bottom
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-inline
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-inline-end
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-inline-start
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-left
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-right
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	padding-top
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	paint-order
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	perspective
+  accepts Length
+  ranges Length=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	perspective-origin
+  accepts Position
+  ranges
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	place-content
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	place-items
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	place-self
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	pointer-events
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	position
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	position-anchor
+  accepts DashedIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	position-area
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	position-try-fallbacks
+  accepts DashedIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	position-try-order
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	position-visibility
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	quotes
+  accepts String
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	r
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	resize
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	right
+  accepts Anchor Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	rotate
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	row-gap
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	rx
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	ry
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	scale
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	scroll-behavior
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	scroll-timeline
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	scroll-timeline-axis
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	scroll-timeline-name
+  accepts DashedIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	scrollbar-color
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	scrollbar-gutter
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	scrollbar-width
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	shape-image-threshold
+  accepts OpacityValue
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	shape-margin
+  accepts Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	shape-outside
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	shape-rendering
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stop-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stop-opacity
+  accepts OpacityValue
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stroke
+  accepts Paint
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stroke-dasharray
+  accepts
+  ranges
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stroke-dashoffset
+  accepts Length Number Percentage
+  ranges Length=0,3.4028234663852886e+38 Number=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	stroke-linecap
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stroke-linejoin
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stroke-miterlimit
+  accepts Number
+  ranges Number=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stroke-opacity
+  accepts OpacityValue
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	stroke-width
+  accepts Length Number Percentage
+  ranges Length=0,3.4028234663852886e+38 Number=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	tab-size
+  accepts Length Number
+  ranges Length=0,3.4028234663852886e+38 Number=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=000000 resolution=000000 time=000000
+case property	table-layout
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-align
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-anchor
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-decoration
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-decoration-color
+  accepts Color
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-decoration-line
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-decoration-skip-ink
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-decoration-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-decoration-thickness
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	text-indent
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	text-justify
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-overflow
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-rendering
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-shadow
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-transform
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-underline-offset
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	text-underline-position
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-wrap
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-wrap-mode
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	text-wrap-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	timeline-scope
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	top
+  accepts Anchor Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	touch-action
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	transform
+  accepts TransformList
+  ranges
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	transform-box
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	transform-origin
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	transform-style
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	transition
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	transition-behavior
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	transition-delay
+  accepts Time
+  ranges Time=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=111111
+case property	transition-duration
+  accepts Time
+  ranges Time=0,3.4028234663852886e+38
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=011111
+case property	transition-property
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	transition-timing-function
+  accepts EasingFunction
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	translate
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	unicode-bidi
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	user-select
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	vertical-align
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	view-timeline
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	view-timeline-axis
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	view-timeline-inset
+  accepts ViewTimelineInset
+  ranges
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	view-timeline-name
+  accepts DashedIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	view-transition-name
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	visibility
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	white-space
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	white-space-collapse
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	white-space-trim
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	widows
+  accepts Integer
+  ranges Integer=1,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	width
+  accepts FitContent Length Percentage
+  ranges Length=0,3.4028234663852886e+38 Percentage=0,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=011111 percentage=011111 resolution=000000 time=000000
+case property	will-change
+  accepts CustomIdent
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	word-break
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	word-spacing
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	writing-mode
+  accepts
+  ranges
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case property	x
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	y
+  accepts Length Percentage
+  ranges Length=-3.4028234663852886e+38,3.4028234663852886e+38 Percentage=-3.4028234663852886e+38,3.4028234663852886e+38
+  percentages Length
+  bounds angle=000000 flex=000000 frequency=000000 length=111111 percentage=111111 resolution=000000 time=000000
+case property	z-index
+  accepts Integer
+  ranges Integer=-2147483648,2147483647
+  percentages none
+  bounds angle=000000 flex=000000 frequency=000000 length=000000 percentage=000000 resolution=000000 time=000000
+case envvar	preferred-text-scale
+  type Number
+case envvar	safe-area-inset-bottom
+  type Length
+case envvar	safe-area-inset-left
+  type Length
+case envvar	safe-area-inset-right
+  type Length
+case envvar	safe-area-inset-top
+  type Length
+case envvar	safe-area-max-inset-bottom
+  type Length
+case envvar	safe-area-max-inset-left
+  type Length
+case envvar	safe-area-max-inset-right
+  type Length
+case envvar	safe-area-max-inset-top
+  type Length
+case envvar	viewport-segment-bottom
+  type Length
+case envvar	viewport-segment-height
+  type Length
+case envvar	viewport-segment-left
+  type Length
+case envvar	viewport-segment-right
+  type Length
+case envvar	viewport-segment-top
+  type Length
+case envvar	viewport-segment-width
+  type Length
+case initial	-webkit-text-fill-color
+  keyword currentcolor
+case initial	accent-color
+  keyword auto
+case initial	align-content
+  keyword normal
+case initial	align-items
+  keyword normal
+case initial	align-self
+  keyword auto
+case initial	all
+  keyword initial
+case initial	anchor-name
+  keyword none
+case initial	anchor-scope
+  keyword none
+case initial	animation
+  shorthand animation
+    animation-duration
+      value_list comma 1 0s
+        time 0s
+    animation-timing-function
+      value_list comma 1 ease
+        keyword ease
+    animation-delay
+      value_list comma 1 0s
+        time 0s
+    animation-iteration-count
+      value_list comma 1 1
+        number 1
+    animation-direction
+      value_list comma 1 normal
+        keyword normal
+    animation-fill-mode
+      value_list comma 1 none
+        keyword none
+    animation-play-state
+      value_list comma 1 running
+        keyword running
+    animation-name
+      value_list comma 1 none
+        keyword none
+    animation-timeline
+      value_list comma 1 auto
+        keyword auto
+case initial	animation-composition
+  value_list comma 1 replace
+    keyword replace
+case initial	animation-delay
+  value_list comma 1 0s
+    time 0s
+case initial	animation-direction
+  value_list comma 1 normal
+    keyword normal
+case initial	animation-duration
+  value_list comma 1 0s
+    time 0s
+case initial	animation-fill-mode
+  value_list comma 1 none
+    keyword none
+case initial	animation-iteration-count
+  value_list comma 1 1
+    number 1
+case initial	animation-name
+  value_list comma 1 none
+    keyword none
+case initial	animation-play-state
+  value_list comma 1 running
+    keyword running
+case initial	animation-timeline
+  value_list comma 1 auto
+    keyword auto
+case initial	animation-timing-function
+  value_list comma 1 ease
+    keyword ease
+case initial	appearance
+  keyword none
+case initial	aspect-ratio
+  keyword auto
+case initial	backdrop-filter
+  keyword none
+case initial	background
+  shorthand background
+    background-color
+      color transparent
+    background-image
+      value_list comma 1 none
+        keyword none
+    background-position
+      shorthand background-position
+        background-position-x
+          value_list comma 1 0%
+            edge 0%
+        background-position-y
+          value_list comma 1 0%
+            edge 0%
+    background-size
+      value_list comma 1 auto
+        background_size auto
+    background-repeat
+      value_list comma 1 repeat
+        repeat_style repeat
+    background-attachment
+      value_list comma 1 scroll
+        keyword scroll
+    background-origin
+      value_list comma 1 padding-box
+        keyword padding-box
+    background-clip
+      value_list comma 1 border-box
+        keyword border-box
+case initial	background-attachment
+  value_list comma 1 scroll
+    keyword scroll
+case initial	background-blend-mode
+  value_list comma 1 normal
+    keyword normal
+case initial	background-clip
+  value_list comma 1 border-box
+    keyword border-box
+case initial	background-color
+  color transparent
+case initial	background-image
+  value_list comma 1 none
+    keyword none
+case initial	background-origin
+  value_list comma 1 padding-box
+    keyword padding-box
+case initial	background-position
+  shorthand background-position
+    background-position-x
+      value_list comma 1 0%
+        edge 0%
+    background-position-y
+      value_list comma 1 0%
+        edge 0%
+case initial	background-position-x
+  value_list comma 1 0%
+    edge 0%
+case initial	background-position-y
+  value_list comma 1 0%
+    edge 0%
+case initial	background-repeat
+  value_list comma 1 repeat
+    repeat_style repeat
+case initial	background-size
+  value_list comma 1 auto
+    background_size auto
+case initial	block-size
+  keyword auto
+case initial	border
+  shorthand border
+    border-width
+      shorthand border-width
+        border-top-width
+          keyword medium
+        border-right-width
+          keyword medium
+        border-bottom-width
+          keyword medium
+        border-left-width
+          keyword medium
+    border-style
+      shorthand border-style
+        border-top-style
+          keyword none
+        border-right-style
+          keyword none
+        border-bottom-style
+          keyword none
+        border-left-style
+          keyword none
+    border-color
+      shorthand border-color
+        border-top-color
+          keyword currentcolor
+        border-right-color
+          keyword currentcolor
+        border-bottom-color
+          keyword currentcolor
+        border-left-color
+          keyword currentcolor
+    border-image
+      shorthand border-image
+        border-image-source
+          keyword none
+        border-image-slice
+          border_image_slice 100%
+        border-image-width
+          number 1
+        border-image-outset
+          number 0
+        border-image-repeat
+          keyword stretch
+case initial	border-block
+  shorthand border-block
+    border-block-width
+      shorthand border-block-width
+        border-block-start-width
+          keyword medium
+        border-block-end-width
+          keyword medium
+    border-block-style
+      shorthand border-block-style
+        border-block-start-style
+          keyword none
+        border-block-end-style
+          keyword none
+    border-block-color
+      shorthand border-block-color
+        border-block-start-color
+          keyword currentcolor
+        border-block-end-color
+          keyword currentcolor
+case initial	border-block-color
+  shorthand border-block-color
+    border-block-start-color
+      keyword currentcolor
+    border-block-end-color
+      keyword currentcolor
+case initial	border-block-end
+  shorthand border-block-end
+    border-block-end-width
+      keyword medium
+    border-block-end-color
+      keyword currentcolor
+    border-block-end-style
+      keyword none
+case initial	border-block-end-color
+  keyword currentcolor
+case initial	border-block-end-style
+  keyword none
+case initial	border-block-end-width
+  keyword medium
+case initial	border-block-start
+  shorthand border-block-start
+    border-block-start-width
+      keyword medium
+    border-block-start-color
+      keyword currentcolor
+    border-block-start-style
+      keyword none
+case initial	border-block-start-color
+  keyword currentcolor
+case initial	border-block-start-style
+  keyword none
+case initial	border-block-start-width
+  keyword medium
+case initial	border-block-style
+  shorthand border-block-style
+    border-block-start-style
+      keyword none
+    border-block-end-style
+      keyword none
+case initial	border-block-width
+  shorthand border-block-width
+    border-block-start-width
+      keyword medium
+    border-block-end-width
+      keyword medium
+case initial	border-bottom
+  shorthand border-bottom
+    border-bottom-width
+      keyword medium
+    border-bottom-color
+      keyword currentcolor
+    border-bottom-style
+      keyword none
+case initial	border-bottom-color
+  keyword currentcolor
+case initial	border-bottom-left-radius
+  border_radius 0px
+case initial	border-bottom-right-radius
+  border_radius 0px
+case initial	border-bottom-style
+  keyword none
+case initial	border-bottom-width
+  keyword medium
+case initial	border-collapse
+  keyword separate
+case initial	border-color
+  shorthand border-color
+    border-top-color
+      keyword currentcolor
+    border-right-color
+      keyword currentcolor
+    border-bottom-color
+      keyword currentcolor
+    border-left-color
+      keyword currentcolor
+case initial	border-end-end-radius
+  border_radius 0px
+case initial	border-end-start-radius
+  border_radius 0px
+case initial	border-image
+  shorthand border-image
+    border-image-source
+      keyword none
+    border-image-slice
+      border_image_slice 100%
+    border-image-width
+      number 1
+    border-image-outset
+      number 0
+    border-image-repeat
+      keyword stretch
+case initial	border-image-outset
+  number 0
+case initial	border-image-repeat
+  keyword stretch
+case initial	border-image-slice
+  border_image_slice 100%
+case initial	border-image-source
+  keyword none
+case initial	border-image-width
+  number 1
+case initial	border-inline
+  shorthand border-inline
+    border-inline-width
+      shorthand border-inline-width
+        border-inline-start-width
+          keyword medium
+        border-inline-end-width
+          keyword medium
+    border-inline-style
+      shorthand border-inline-style
+        border-inline-start-style
+          keyword none
+        border-inline-end-style
+          keyword none
+    border-inline-color
+      shorthand border-inline-color
+        border-inline-start-color
+          keyword currentcolor
+        border-inline-end-color
+          keyword currentcolor
+case initial	border-inline-color
+  shorthand border-inline-color
+    border-inline-start-color
+      keyword currentcolor
+    border-inline-end-color
+      keyword currentcolor
+case initial	border-inline-end
+  shorthand border-inline-end
+    border-inline-end-width
+      keyword medium
+    border-inline-end-color
+      keyword currentcolor
+    border-inline-end-style
+      keyword none
+case initial	border-inline-end-color
+  keyword currentcolor
+case initial	border-inline-end-style
+  keyword none
+case initial	border-inline-end-width
+  keyword medium
+case initial	border-inline-start
+  shorthand border-inline-start
+    border-inline-start-width
+      keyword medium
+    border-inline-start-color
+      keyword currentcolor
+    border-inline-start-style
+      keyword none
+case initial	border-inline-start-color
+  keyword currentcolor
+case initial	border-inline-start-style
+  keyword none
+case initial	border-inline-start-width
+  keyword medium
+case initial	border-inline-style
+  shorthand border-inline-style
+    border-inline-start-style
+      keyword none
+    border-inline-end-style
+      keyword none
+case initial	border-inline-width
+  shorthand border-inline-width
+    border-inline-start-width
+      keyword medium
+    border-inline-end-width
+      keyword medium
+case initial	border-left
+  shorthand border-left
+    border-left-width
+      keyword medium
+    border-left-color
+      keyword currentcolor
+    border-left-style
+      keyword none
+case initial	border-left-color
+  keyword currentcolor
+case initial	border-left-style
+  keyword none
+case initial	border-left-width
+  keyword medium
+case initial	border-radius
+  shorthand border-radius
+    border-top-left-radius
+      border_radius 0px
+    border-top-right-radius
+      border_radius 0px
+    border-bottom-right-radius
+      border_radius 0px
+    border-bottom-left-radius
+      border_radius 0px
+case initial	border-right
+  shorthand border-right
+    border-right-width
+      keyword medium
+    border-right-color
+      keyword currentcolor
+    border-right-style
+      keyword none
+case initial	border-right-color
+  keyword currentcolor
+case initial	border-right-style
+  keyword none
+case initial	border-right-width
+  keyword medium
+case initial	border-spacing
+  length 0px
+case initial	border-start-end-radius
+  border_radius 0px
+case initial	border-start-start-radius
+  border_radius 0px
+case initial	border-style
+  shorthand border-style
+    border-top-style
+      keyword none
+    border-right-style
+      keyword none
+    border-bottom-style
+      keyword none
+    border-left-style
+      keyword none
+case initial	border-top
+  shorthand border-top
+    border-top-width
+      keyword medium
+    border-top-color
+      keyword currentcolor
+    border-top-style
+      keyword none
+case initial	border-top-color
+  keyword currentcolor
+case initial	border-top-left-radius
+  border_radius 0px
+case initial	border-top-right-radius
+  border_radius 0px
+case initial	border-top-style
+  keyword none
+case initial	border-top-width
+  keyword medium
+case initial	border-width
+  shorthand border-width
+    border-top-width
+      keyword medium
+    border-right-width
+      keyword medium
+    border-bottom-width
+      keyword medium
+    border-left-width
+      keyword medium
+case initial	bottom
+  keyword auto
+case initial	box-shadow
+  keyword none
+case initial	box-sizing
+  keyword content-box
+case initial	caption-side
+  keyword top
+case initial	caret-color
+  keyword auto
+case initial	clear
+  keyword none
+case initial	clip
+  keyword auto
+case initial	clip-path
+  keyword none
+case initial	clip-rule
+  keyword nonzero
+case initial	color
+  keyword canvastext
+case initial	color-interpolation
+  keyword srgb
+case initial	color-scheme
+  color_scheme normal
+case initial	column-count
+  keyword auto
+case initial	column-gap
+  keyword normal
+case initial	column-height
+  keyword auto
+case initial	column-span
+  keyword none
+case initial	column-width
+  keyword auto
+case initial	columns
+  shorthand columns
+    column-count
+      keyword auto
+    column-width
+      keyword auto
+    column-height
+      keyword auto
+case initial	contain
+  keyword none
+case initial	container-type
+  keyword normal
+case initial	content
+  keyword normal
+case initial	content-visibility
+  keyword visible
+case initial	corner-block-end-shape
+  shorthand corner-block-end-shape
+    corner-end-start-shape
+      keyword round
+    corner-end-end-shape
+      keyword round
+case initial	corner-block-start-shape
+  shorthand corner-block-start-shape
+    corner-start-start-shape
+      keyword round
+    corner-start-end-shape
+      keyword round
+case initial	corner-bottom-left-shape
+  keyword round
+case initial	corner-bottom-right-shape
+  keyword round
+case initial	corner-bottom-shape
+  shorthand corner-bottom-shape
+    corner-bottom-left-shape
+      keyword round
+    corner-bottom-right-shape
+      keyword round
+case initial	corner-end-end-shape
+  keyword round
+case initial	corner-end-start-shape
+  keyword round
+case initial	corner-inline-end-shape
+  shorthand corner-inline-end-shape
+    corner-start-end-shape
+      keyword round
+    corner-end-end-shape
+      keyword round
+case initial	corner-inline-start-shape
+  shorthand corner-inline-start-shape
+    corner-start-start-shape
+      keyword round
+    corner-end-start-shape
+      keyword round
+case initial	corner-left-shape
+  shorthand corner-left-shape
+    corner-top-left-shape
+      keyword round
+    corner-bottom-left-shape
+      keyword round
+case initial	corner-right-shape
+  shorthand corner-right-shape
+    corner-top-right-shape
+      keyword round
+    corner-bottom-right-shape
+      keyword round
+case initial	corner-shape
+  shorthand corner-shape
+    corner-top-left-shape
+      keyword round
+    corner-top-right-shape
+      keyword round
+    corner-bottom-right-shape
+      keyword round
+    corner-bottom-left-shape
+      keyword round
+case initial	corner-start-end-shape
+  keyword round
+case initial	corner-start-start-shape
+  keyword round
+case initial	corner-top-left-shape
+  keyword round
+case initial	corner-top-right-shape
+  keyword round
+case initial	corner-top-shape
+  shorthand corner-top-shape
+    corner-top-left-shape
+      keyword round
+    corner-top-right-shape
+      keyword round
+case initial	counter-increment
+  keyword none
+case initial	counter-reset
+  keyword none
+case initial	counter-set
+  keyword none
+case initial	cursor
+  keyword auto
+case initial	cx
+  length 0px
+case initial	cy
+  length 0px
+case initial	direction
+  keyword ltr
+case initial	display
+  display inline
+case initial	dominant-baseline
+  keyword auto
+case initial	empty-cells
+  keyword show
+case initial	fill
+  color black
+case initial	fill-opacity
+  opacity_value 1
+case initial	fill-rule
+  keyword nonzero
+case initial	filter
+  keyword none
+case initial	flex
+  shorthand flex
+    flex-grow
+      number 0
+    flex-shrink
+      number 1
+    flex-basis
+      keyword auto
+case initial	flex-basis
+  keyword auto
+case initial	flex-direction
+  keyword row
+case initial	flex-flow
+  shorthand flex-flow
+    flex-direction
+      keyword row
+    flex-wrap
+      keyword nowrap
+case initial	flex-grow
+  number 0
+case initial	flex-shrink
+  number 1
+case initial	flex-wrap
+  keyword nowrap
+case initial	float
+  keyword none
+case initial	flood-color
+  color black
+case initial	flood-opacity
+  opacity_value 1
+later initial	font
+  shorthand font
+    font-family
+      value_list comma 1 serif
+        keyword serif
+    font-size
+      keyword medium
+    font-width
+      keyword normal
+    font-style
+      font_style normal
+    font-variant
+      shorthand font-variant
+        font-variant-alternates
+          keyword normal
+        font-variant-caps
+          keyword normal
+        font-variant-east-asian
+          keyword normal
+        font-variant-emoji
+          keyword normal
+        font-variant-ligatures
+          keyword normal
+        font-variant-numeric
+          keyword normal
+        font-variant-position
+          keyword normal
+    font-weight
+      keyword normal
+    line-height
+      keyword normal
+    font-feature-settings
+      keyword normal
+    font-kerning
+      keyword auto
+    font-language-override
+      keyword normal
+    font-optical-sizing
+      keyword auto
+    font-variation-settings
+      keyword normal
+case initial	font-family
+  value_list comma 1 serif
+    keyword serif
+case initial	font-feature-settings
+  keyword normal
+case initial	font-kerning
+  keyword auto
+case initial	font-language-override
+  keyword normal
+case initial	font-optical-sizing
+  keyword auto
+case initial	font-size
+  keyword medium
+later initial	font-style
+  font_style normal
+case initial	font-variant
+  shorthand font-variant
+    font-variant-alternates
+      keyword normal
+    font-variant-caps
+      keyword normal
+    font-variant-east-asian
+      keyword normal
+    font-variant-emoji
+      keyword normal
+    font-variant-ligatures
+      keyword normal
+    font-variant-numeric
+      keyword normal
+    font-variant-position
+      keyword normal
+case initial	font-variant-alternates
+  keyword normal
+case initial	font-variant-caps
+  keyword normal
+case initial	font-variant-east-asian
+  keyword normal
+case initial	font-variant-emoji
+  keyword normal
+case initial	font-variant-ligatures
+  keyword normal
+case initial	font-variant-numeric
+  keyword normal
+case initial	font-variant-position
+  keyword normal
+case initial	font-variation-settings
+  keyword normal
+case initial	font-weight
+  keyword normal
+case initial	font-width
+  keyword normal
+case initial	gap
+  shorthand gap
+    row-gap
+      keyword normal
+    column-gap
+      keyword normal
+later initial	grid-area
+  shorthand grid-area
+    grid-row-start
+      grid_track_placement auto
+    grid-column-start
+      grid_track_placement auto
+    grid-row-end
+      grid_track_placement auto
+    grid-column-end
+      grid_track_placement auto
+later initial	grid-auto-columns
+  grid_track_size_list auto
+later initial	grid-auto-flow
+  grid_auto_flow row
+later initial	grid-auto-rows
+  grid_track_size_list auto
+later initial	grid-column
+  shorthand grid-column
+    grid-column-start
+      grid_track_placement auto
+    grid-column-end
+      grid_track_placement auto
+later initial	grid-column-end
+  grid_track_placement auto
+later initial	grid-column-start
+  grid_track_placement auto
+later initial	grid-row
+  shorthand grid-row
+    grid-row-start
+      grid_track_placement auto
+    grid-row-end
+      grid_track_placement auto
+later initial	grid-row-end
+  grid_track_placement auto
+later initial	grid-row-start
+  grid_track_placement auto
+later initial	grid-template-areas
+  grid_template_area none
+later initial	grid-template-columns
+  grid_track_size_list none
+later initial	grid-template-rows
+  grid_track_size_list none
+case initial	height
+  keyword auto
+case initial	image-rendering
+  keyword auto
+case initial	inline-size
+  keyword auto
+case initial	inset
+  shorthand inset
+    top
+      keyword auto
+    right
+      keyword auto
+    bottom
+      keyword auto
+    left
+      keyword auto
+case initial	inset-block
+  shorthand inset-block
+    inset-block-start
+      keyword auto
+    inset-block-end
+      keyword auto
+case initial	inset-block-end
+  keyword auto
+case initial	inset-block-start
+  keyword auto
+case initial	inset-inline
+  shorthand inset-inline
+    inset-inline-start
+      keyword auto
+    inset-inline-end
+      keyword auto
+case initial	inset-inline-end
+  keyword auto
+case initial	inset-inline-start
+  keyword auto
+case initial	isolation
+  keyword auto
+case initial	justify-content
+  keyword normal
+case initial	justify-items
+  keyword legacy
+case initial	justify-self
+  keyword auto
+case initial	left
+  keyword auto
+case initial	letter-spacing
+  keyword normal
+case initial	line-height
+  keyword normal
+later initial	list-style
+  shorthand list-style
+    list-style-position
+      keyword outside
+    list-style-image
+      keyword none
+    list-style-type
+      counter_style disc
+case initial	list-style-image
+  keyword none
+case initial	list-style-position
+  keyword outside
+later initial	list-style-type
+  counter_style disc
+case initial	margin
+  shorthand margin
+    margin-top
+      length 0px
+    margin-right
+      length 0px
+    margin-bottom
+      length 0px
+    margin-left
+      length 0px
+case initial	margin-block
+  shorthand margin-block
+    margin-block-start
+      length 0px
+    margin-block-end
+      length 0px
+case initial	margin-block-end
+  length 0px
+case initial	margin-block-start
+  length 0px
+case initial	margin-bottom
+  length 0px
+case initial	margin-inline
+  shorthand margin-inline
+    margin-inline-start
+      length 0px
+    margin-inline-end
+      length 0px
+case initial	margin-inline-end
+  length 0px
+case initial	margin-inline-start
+  length 0px
+case initial	margin-left
+  length 0px
+case initial	margin-right
+  length 0px
+case initial	margin-top
+  length 0px
+case initial	mask
+  shorthand mask
+    mask-image
+      keyword none
+    mask-position
+      position 0% 0%
+    mask-size
+      background_size auto
+    mask-repeat
+      repeat_style repeat
+    mask-origin
+      keyword border-box
+    mask-clip
+      keyword border-box
+    mask-composite
+      keyword add
+    mask-mode
+      keyword match-source
+case initial	mask-clip
+  value_list comma 1 border-box
+    keyword border-box
+case initial	mask-composite
+  value_list comma 1 add
+    keyword add
+case initial	mask-image
+  value_list comma 1 none
+    keyword none
+case initial	mask-mode
+  value_list comma 1 match-source
+    keyword match-source
+case initial	mask-origin
+  value_list comma 1 border-box
+    keyword border-box
+case initial	mask-position
+  value_list comma 1 0% 0%
+    position 0% 0%
+case initial	mask-repeat
+  value_list comma 1 repeat
+    repeat_style repeat
+case initial	mask-size
+  value_list comma 1 auto
+    background_size auto
+case initial	mask-type
+  keyword luminance
+case initial	math-depth
+  integer 0
+case initial	math-shift
+  keyword normal
+case initial	math-style
+  keyword normal
+case initial	max-block-size
+  keyword none
+case initial	max-height
+  keyword none
+case initial	max-inline-size
+  keyword none
+case initial	max-width
+  keyword none
+case initial	min-block-size
+  length 0px
+case initial	min-height
+  keyword auto
+case initial	min-inline-size
+  length 0px
+case initial	min-width
+  keyword auto
+case initial	mix-blend-mode
+  keyword normal
+case initial	object-fit
+  keyword fill
+case initial	object-position
+  position 50% 50%
+case initial	opacity
+  opacity_value 1
+case initial	order
+  integer 0
+case initial	orphans
+  integer 2
+case initial	outline
+  shorthand outline
+    outline-width
+      keyword medium
+    outline-color
+      keyword currentcolor
+    outline-style
+      keyword none
+case initial	outline-color
+  keyword currentcolor
+case initial	outline-offset
+  length 0px
+case initial	outline-style
+  keyword none
+case initial	outline-width
+  keyword medium
+case initial	overflow
+  shorthand overflow
+    overflow-x
+      keyword visible
+    overflow-y
+      keyword visible
+case initial	overflow-block
+  keyword visible
+case initial	overflow-clip-margin
+  shorthand overflow-clip-margin
+    overflow-clip-margin-top
+      length 0px
+    overflow-clip-margin-right
+      length 0px
+    overflow-clip-margin-bottom
+      length 0px
+    overflow-clip-margin-left
+      length 0px
+case initial	overflow-clip-margin-block
+  shorthand overflow-clip-margin-block
+    overflow-clip-margin-block-start
+      length 0px
+    overflow-clip-margin-block-end
+      length 0px
+case initial	overflow-clip-margin-block-end
+  length 0px
+case initial	overflow-clip-margin-block-start
+  length 0px
+case initial	overflow-clip-margin-bottom
+  length 0px
+case initial	overflow-clip-margin-inline
+  shorthand overflow-clip-margin-inline
+    overflow-clip-margin-inline-start
+      length 0px
+    overflow-clip-margin-inline-end
+      length 0px
+case initial	overflow-clip-margin-inline-end
+  length 0px
+case initial	overflow-clip-margin-inline-start
+  length 0px
+case initial	overflow-clip-margin-left
+  length 0px
+case initial	overflow-clip-margin-right
+  length 0px
+case initial	overflow-clip-margin-top
+  length 0px
+case initial	overflow-inline
+  keyword visible
+case initial	overflow-wrap
+  keyword normal
+case initial	overflow-x
+  keyword visible
+case initial	overflow-y
+  keyword visible
+case initial	padding
+  shorthand padding
+    padding-top
+      length 0px
+    padding-right
+      length 0px
+    padding-bottom
+      length 0px
+    padding-left
+      length 0px
+case initial	padding-block
+  shorthand padding-block
+    padding-block-start
+      length 0px
+    padding-block-end
+      length 0px
+case initial	padding-block-end
+  length 0px
+case initial	padding-block-start
+  length 0px
+case initial	padding-bottom
+  length 0px
+case initial	padding-inline
+  shorthand padding-inline
+    padding-inline-start
+      length 0px
+    padding-inline-end
+      length 0px
+case initial	padding-inline-end
+  length 0px
+case initial	padding-inline-start
+  length 0px
+case initial	padding-left
+  length 0px
+case initial	padding-right
+  length 0px
+case initial	padding-top
+  length 0px
+case initial	paint-order
+  keyword normal
+case initial	perspective
+  keyword none
+case initial	perspective-origin
+  position 50% 50%
+case initial	place-content
+  shorthand place-content
+    align-content
+      keyword normal
+    justify-content
+      keyword normal
+case initial	place-items
+  shorthand place-items
+    align-items
+      keyword normal
+    justify-items
+      keyword normal
+case initial	place-self
+  shorthand place-self
+    align-self
+      keyword normal
+    justify-self
+      keyword normal
+case initial	pointer-events
+  keyword auto
+case initial	position
+  keyword static
+case initial	position-anchor
+  keyword normal
+case initial	position-area
+  keyword none
+case initial	position-try-fallbacks
+  keyword none
+case initial	position-try-order
+  keyword normal
+case initial	position-visibility
+  value_list space 1 anchors-visible
+    keyword anchors-visible
+case initial	quotes
+  keyword auto
+case initial	r
+  length 0px
+case initial	resize
+  keyword none
+case initial	right
+  keyword auto
+case initial	rotate
+  keyword none
+case initial	row-gap
+  keyword normal
+case initial	rx
+  keyword auto
+case initial	ry
+  keyword auto
+case initial	scale
+  keyword none
+case initial	scroll-behavior
+  keyword auto
+case initial	scroll-timeline
+  shorthand scroll-timeline
+    scroll-timeline-name
+      value_list comma 1 none
+        keyword none
+    scroll-timeline-axis
+      value_list comma 1 block
+        keyword block
+case initial	scroll-timeline-axis
+  value_list comma 1 block
+    keyword block
+case initial	scroll-timeline-name
+  value_list comma 1 none
+    keyword none
+case initial	scrollbar-color
+  keyword auto
+case initial	scrollbar-gutter
+  scrollbar_gutter auto
+case initial	scrollbar-width
+  keyword auto
+case initial	shape-image-threshold
+  opacity_value 0
+case initial	shape-margin
+  length 0px
+case initial	shape-outside
+  keyword none
+case initial	shape-rendering
+  keyword auto
+case initial	stop-color
+  color black
+case initial	stop-opacity
+  opacity_value 1
+case initial	stroke
+  keyword none
+case initial	stroke-dasharray
+  keyword none
+case initial	stroke-dashoffset
+  length 0px
+case initial	stroke-linecap
+  keyword butt
+case initial	stroke-linejoin
+  keyword miter
+case initial	stroke-miterlimit
+  number 4
+case initial	stroke-opacity
+  opacity_value 1
+case initial	stroke-width
+  length 1px
+case initial	tab-size
+  number 8
+case initial	table-layout
+  keyword auto
+case initial	text-align
+  keyword start
+case initial	text-anchor
+  keyword start
+case initial	text-decoration
+  shorthand text-decoration
+    text-decoration-line
+      keyword none
+    text-decoration-thickness
+      keyword auto
+    text-decoration-style
+      keyword solid
+    text-decoration-color
+      keyword currentcolor
+case initial	text-decoration-color
+  keyword currentcolor
+case initial	text-decoration-line
+  keyword none
+case initial	text-decoration-skip-ink
+  keyword auto
+case initial	text-decoration-style
+  keyword solid
+case initial	text-decoration-thickness
+  keyword auto
+case initial	text-indent
+  text_indent 0px
+case initial	text-justify
+  keyword auto
+case initial	text-overflow
+  keyword clip
+case initial	text-rendering
+  keyword auto
+case initial	text-shadow
+  keyword none
+case initial	text-transform
+  keyword none
+case initial	text-underline-offset
+  keyword auto
+case initial	text-underline-position
+  text_underline_position auto
+case initial	text-wrap
+  shorthand text-wrap
+    text-wrap-mode
+      keyword wrap
+    text-wrap-style
+      keyword auto
+case initial	text-wrap-mode
+  keyword wrap
+case initial	text-wrap-style
+  keyword auto
+case initial	timeline-scope
+  keyword none
+case initial	top
+  keyword auto
+case initial	touch-action
+  keyword auto
+case initial	transform
+  keyword none
+case initial	transform-box
+  keyword view-box
+case initial	transform-origin
+  value_list space 3 50% 50% 0px
+    percentage 50%
+    percentage 50%
+    length 0px
+case initial	transform-style
+  keyword flat
+case initial	transition
+  shorthand transition
+    transition-property
+      value_list comma 1 none
+        keyword none
+    transition-duration
+      value_list comma 1 0s
+        time 0s
+    transition-timing-function
+      value_list comma 1 ease
+        keyword ease
+    transition-delay
+      value_list comma 1 0s
+        time 0s
+    transition-behavior
+      value_list comma 1 normal
+        keyword normal
+case initial	transition-behavior
+  value_list comma 1 normal
+    keyword normal
+case initial	transition-delay
+  value_list comma 1 0s
+    time 0s
+case initial	transition-duration
+  value_list comma 1 0s
+    time 0s
+case initial	transition-property
+  value_list comma 1 all
+    custom_ident all
+case initial	transition-timing-function
+  value_list comma 1 ease
+    keyword ease
+case initial	translate
+  keyword none
+case initial	unicode-bidi
+  keyword normal
+case initial	user-select
+  keyword auto
+case initial	vertical-align
+  keyword baseline
+case initial	view-timeline
+  shorthand view-timeline
+    view-timeline-name
+      value_list comma 1 none
+        keyword none
+    view-timeline-axis
+      value_list comma 1 block
+        keyword block
+    view-timeline-inset
+      value_list comma 1 auto
+        value_list space 2 auto
+          keyword auto
+          keyword auto
+case initial	view-timeline-axis
+  value_list comma 1 block
+    keyword block
+case initial	view-timeline-inset
+  value_list comma 1 auto
+    value_list space 2 auto
+      keyword auto
+      keyword auto
+case initial	view-timeline-name
+  value_list comma 1 none
+    keyword none
+case initial	view-transition-name
+  keyword none
+case initial	visibility
+  keyword visible
+case initial	white-space
+  shorthand white-space
+    white-space-collapse
+      keyword collapse
+    text-wrap-mode
+      keyword wrap
+    white-space-trim
+      keyword none
+case initial	white-space-collapse
+  keyword collapse
+case initial	white-space-trim
+  keyword none
+case initial	widows
+  integer 2
+case initial	width
+  keyword auto
+case initial	will-change
+  keyword auto
+case initial	word-break
+  keyword normal
+case initial	word-spacing
+  keyword normal
+case initial	writing-mode
+  keyword horizontal-tb
+case initial	x
+  length 0px
+case initial	y
+  length 0px
+case initial	z-index
+  keyword auto
+case descriptor_initial	@font-face	ascent-override
+  keyword normal
+case descriptor_initial	@font-face	descent-override
+  keyword normal
+case descriptor_initial	@font-face	font-display
+  keyword auto
+case descriptor_initial	@font-face	font-family
+  null
+case descriptor_initial	@font-face	font-feature-settings
+  keyword normal
+case descriptor_initial	@font-face	font-language-override
+  keyword normal
+case descriptor_initial	@font-face	font-named-instance
+  keyword auto
+case descriptor_initial	@font-face	font-style
+  keyword auto
+case descriptor_initial	@font-face	font-variation-settings
+  keyword normal
+case descriptor_initial	@font-face	font-weight
+  keyword auto
+case descriptor_initial	@font-face	font-width
+  keyword auto
+case descriptor_initial	@font-face	line-gap-override
+  keyword normal
+case descriptor_initial	@font-face	src
+  null
+case descriptor_initial	@font-face	unicode-range
+  value_list comma 1 U+0-10FFFF
+    unicode_range U+0-10FFFF
+case descriptor_initial	@page	bleed
+  keyword auto
+case descriptor_initial	@page	margin
+  shorthand margin
+    margin-top
+      length 0px
+    margin-right
+      length 0px
+    margin-bottom
+      length 0px
+    margin-left
+      length 0px
+case descriptor_initial	@page	margin-bottom
+  length 0px
+case descriptor_initial	@page	margin-left
+  length 0px
+case descriptor_initial	@page	margin-right
+  length 0px
+case descriptor_initial	@page	margin-top
+  length 0px
+case descriptor_initial	@page	marks
+  keyword none
+case descriptor_initial	@page	page-orientation
+  keyword upright
+case descriptor_initial	@page	size
+  keyword auto
+case descriptor_initial	@property	inherits
+  null
+case descriptor_initial	@property	initial-value
+  null
+case descriptor_initial	@property	syntax
+  null
+later descriptor_initial	@counter-style	system
+  counter_style_system symbolic
+case descriptor_initial	@counter-style	range
+  keyword auto
+case descriptor_initial	@counter-style	fallback
+  custom_ident decimal
+case descriptor_initial	@counter-style	symbols
+  null
+case descriptor_initial	@counter-style	additive-symbols
+  null
+case descriptor_initial	@counter-style	speak-as
+  keyword auto
+case descriptor_initial	@function	result
+  null
+case value	width	10px
+  length 10px
+  rest 0
+case value	width	auto
+  keyword auto
+  rest 0
+case value	width	  10%  
+  percentage 10%
+  rest 0
+case value	width	10px 20px
+  error SyntaxError
+case value	width	
+  error SyntaxError
+case value	width	10px;
+  error SyntaxError
+case value	width	inherit
+  keyword inherit
+  rest 0
+case value	width	INITIAL
+  keyword initial
+  rest 0
+case value	width	unset
+  keyword unset
+  rest 0
+case value	width	revert
+  keyword revert
+  rest 0
+case value	width	revert-layer
+  keyword revert-layer
+  rest 0
+case value	width	inherit 10px
+  error SyntaxError
+case value	width	var(--x)
+  unresolved var(--x)
+  rest 0
+case value	width	calc(1px + var(--y, 2px))
+  unresolved calc(1px + var(--y, 2px))
+  rest 0
+case value	width	attr(data-w px)
+  unresolved attr(data-w px)
+  rest 0
+case value	width	env(safe-area-inset-top, 4px)
+  unresolved env(safe-area-inset-top, 4px)
+  rest 0
+case value	width	if(media(width > 1px): 1px; else: 2px)
+  unresolved if(media(width > 1px): 1px; else: 2px)
+  rest 0
+case value	width	var()
+  error SyntaxError
+case value	custom	  foo bar  
+  unresolved foo bar
+  rest 0
+case value	custom	
+  unresolved 
+  rest 0
+case value	custom	{ a: b }
+  unresolved { a: b }
+  rest 0
+case value	custom	var(--a) 1px
+  unresolved var(--a) 1px
+  rest 0
+case value	color	red
+  color red
+  rest 0
+case value	color	#ff0000
+  color rgb(255, 0, 0)
+  rest 0
+case value	color	currentcolor
+  keyword currentcolor
+  rest 0
+case value	opacity	0.5
+  opacity_value 0.5
+  rest 0
+case value	opacity	50%
+  opacity_value 0.5
+  rest 0
+case value	z-index	5
+  integer 5
+  rest 0
+case value	z-index	auto
+  keyword auto
+  rest 0
+case value	z-index	1.5
+  error SyntaxError
+case value	line-height	normal
+  keyword normal
+  rest 0
+case value	line-height	1.5
+  number 1.5
+  rest 0
+case value	line-height	2em
+  length 2em
+  rest 0
+case value	float	left
+  keyword left
+  rest 0
+case value	float	LEFT
+  keyword left
+  rest 0
+case value	float	left right
+  error SyntaxError
+case value	position	sticky
+  keyword sticky
+  rest 0
+case value	overflow-x	overlay
+  keyword auto
+  rest 0
+case value	text-justify	distribute
+  keyword inter-character
+  rest 0
+case value	visibility	collapse
+  keyword collapse
+  rest 0
+case value	all	inherit
+  keyword inherit
+  rest 0
+case value	all	foo
+  error SyntaxError
+case value	border-spacing	1px 2px
+  value_list space 2 1px 2px
+    length 1px
+    length 2px
+  rest 0
+case value	border-spacing	1px 2px 3px
+  error SyntaxError
+case value	transition-duration	1s, 2s
+  value_list comma 2 1s, 2s
+    time 1s
+    time 2s
+  rest 0
+case value	background-attachment	fixed, scroll
+  value_list comma 2 fixed, scroll
+    keyword fixed
+    keyword scroll
+  rest 0
+case value	background-attachment	fixed,
+  error SyntaxError
+case value	animation-name	foo, none
+  value_list comma 2 foo, none
+    custom_ident foo
+    keyword none
+  rest 0
+case value	margin	1px
+  shorthand margin
+    margin-top
+      length 1px
+    margin-right
+      length 1px
+    margin-bottom
+      length 1px
+    margin-left
+      length 1px
+  rest 0
+case value	margin	1px 2px
+  shorthand margin
+    margin-top
+      length 1px
+    margin-right
+      length 2px
+    margin-bottom
+      length 1px
+    margin-left
+      length 2px
+  rest 0
+case value	margin	1px 2px 3px
+  shorthand margin
+    margin-top
+      length 1px
+    margin-right
+      length 2px
+    margin-bottom
+      length 3px
+    margin-left
+      length 2px
+  rest 0
+case value	margin	1px 2px 3px 4px
+  shorthand margin
+    margin-top
+      length 1px
+    margin-right
+      length 2px
+    margin-bottom
+      length 3px
+    margin-left
+      length 4px
+  rest 0
+case value	margin	1px 2px 3px 4px 5px
+  error SyntaxError
+case value	padding	1px auto
+  error SyntaxError
+case value	border-style	solid dashed
+  shorthand border-style
+    border-top-style
+      keyword solid
+    border-right-style
+      keyword dashed
+    border-bottom-style
+      keyword solid
+    border-left-style
+      keyword dashed
+  rest 0
+case value	border-width	thin thick medium
+  shorthand border-width
+    border-top-width
+      keyword thin
+    border-right-width
+      keyword thick
+    border-bottom-width
+      keyword medium
+    border-left-width
+      keyword thick
+  rest 0
+case value	border-color	red
+  shorthand border-color
+    border-top-color
+      color red
+    border-right-color
+      color red
+    border-bottom-color
+      color red
+    border-left-color
+      color red
+  rest 0
+case value	inset	auto 1px
+  shorthand inset
+    top
+      keyword auto
+    right
+      length 1px
+    bottom
+      keyword auto
+    left
+      length 1px
+  rest 0
+case value	overflow	hidden scroll
+  shorthand overflow
+    overflow-x
+      keyword hidden
+    overflow-y
+      keyword scroll
+  rest 0
+case value	overflow	overlay
+  shorthand overflow
+    overflow-x
+      keyword auto
+    overflow-y
+      keyword auto
+  rest 0
+case value	gap	1px 2px
+  shorthand gap
+    row-gap
+      length 1px
+    column-gap
+      length 2px
+  rest 0
+case value	margin-block	1px 2px
+  shorthand margin-block
+    margin-block-start
+      length 1px
+    margin-block-end
+      length 2px
+  rest 0
+case value	border-top	1px solid
+  shorthand border-top
+    border-top-width
+      length 1px
+    border-top-style
+      keyword solid
+    border-top-color
+      keyword currentcolor
+  rest 0
+case value	border-top	solid 1px red
+  shorthand border-top
+    border-top-style
+      keyword solid
+    border-top-width
+      length 1px
+    border-top-color
+      color red
+  rest 0
+case value	border-top	red
+  shorthand border-top
+    border-top-color
+      color red
+    border-top-width
+      keyword medium
+    border-top-style
+      keyword none
+  rest 0
+case value	border-top	red red
+  error SyntaxError
+case value	outline	red dotted
+  shorthand outline
+    outline-color
+      color red
+    outline-style
+      keyword dotted
+    outline-width
+      keyword medium
+  rest 0
+case value	border-left	1px solid red
+  shorthand border-left
+    border-left-width
+      length 1px
+    border-left-style
+      keyword solid
+    border-left-color
+      color red
+  rest 0
+case value	border-block-end	dashed thin
+  shorthand border-block-end
+    border-block-end-style
+      keyword dashed
+    border-block-end-width
+      keyword thin
+    border-block-end-color
+      keyword currentcolor
+  rest 0
+case value	anchor-name	none
+  keyword none
+  rest 0
+case value	anchor-name	--a, --b
+  value_list comma 2 --a, --b
+    custom_ident --a
+    custom_ident --b
+  rest 0
+case value	anchor-name	a
+  error SyntaxError
+case value	anchor-scope	all
+  keyword all
+  rest 0
+case value	anchor-scope	--a
+  value_list comma 1 --a
+    custom_ident --a
+  rest 0
+case value	aspect-ratio	auto
+  keyword auto
+  rest 0
+case value	aspect-ratio	16 / 9
+  ratio 16 / 9
+  rest 0
+case value	aspect-ratio	auto 1/2
+  value_list space 2 auto 1 / 2
+    keyword auto
+    ratio 1 / 2
+  rest 0
+case value	aspect-ratio	1/2 auto
+  value_list space 2 auto 1 / 2
+    keyword auto
+    ratio 1 / 2
+  rest 0
+case value	aspect-ratio	auto auto
+  error SyntaxError
+case value	animation	none
+  shorthand animation
+    animation-duration
+      value_list comma 1 0s
+        time 0s
+    animation-timing-function
+      value_list comma 1 ease
+        keyword ease
+    animation-delay
+      value_list comma 1 0s
+        time 0s
+    animation-iteration-count
+      value_list comma 1 1
+        number 1
+    animation-direction
+      value_list comma 1 normal
+        keyword normal
+    animation-fill-mode
+      value_list comma 1 none
+        keyword none
+    animation-play-state
+      value_list comma 1 running
+        keyword running
+    animation-name
+      value_list comma 1 none
+        keyword none
+    animation-timeline
+      value_list comma 1 auto
+        keyword auto
+  rest 0
+case value	animation	1s ease-in 2s infinite alternate both paused foo
+  shorthand animation
+    animation-duration
+      value_list comma 1 1s
+        time 1s
+    animation-timing-function
+      value_list comma 1 ease-in
+        keyword ease-in
+    animation-delay
+      value_list comma 1 2s
+        time 2s
+    animation-iteration-count
+      value_list comma 1 infinite
+        keyword infinite
+    animation-direction
+      value_list comma 1 alternate
+        keyword alternate
+    animation-fill-mode
+      value_list comma 1 both
+        keyword both
+    animation-play-state
+      value_list comma 1 paused
+        keyword paused
+    animation-name
+      value_list comma 1 foo
+        custom_ident foo
+    animation-timeline
+      value_list comma 1 auto
+        keyword auto
+  rest 0
+case value	animation	foo 1s, bar 2s
+  shorthand animation
+    animation-duration
+      value_list comma 2 1s, 2s
+        time 1s
+        time 2s
+    animation-timing-function
+      value_list comma 2 ease, ease
+        keyword ease
+        keyword ease
+    animation-delay
+      value_list comma 2 0s, 0s
+        time 0s
+        time 0s
+    animation-iteration-count
+      value_list comma 2 1, 1
+        number 1
+        number 1
+    animation-direction
+      value_list comma 2 normal, normal
+        keyword normal
+        keyword normal
+    animation-fill-mode
+      value_list comma 2 none, none
+        keyword none
+        keyword none
+    animation-play-state
+      value_list comma 2 running, running
+        keyword running
+        keyword running
+    animation-name
+      value_list comma 2 foo, bar
+        custom_ident foo
+        custom_ident bar
+    animation-timeline
+      value_list comma 1 auto
+        keyword auto
+  rest 0
+case value	animation	1s 2s
+  shorthand animation
+    animation-duration
+      value_list comma 1 1s
+        time 1s
+    animation-timing-function
+      value_list comma 1 ease
+        keyword ease
+    animation-delay
+      value_list comma 1 2s
+        time 2s
+    animation-iteration-count
+      value_list comma 1 1
+        number 1
+    animation-direction
+      value_list comma 1 normal
+        keyword normal
+    animation-fill-mode
+      value_list comma 1 none
+        keyword none
+    animation-play-state
+      value_list comma 1 running
+        keyword running
+    animation-name
+      value_list comma 1 none
+        keyword none
+    animation-timeline
+      value_list comma 1 auto
+        keyword auto
+  rest 0
+case value	backdrop-filter	none
+  keyword none
+  rest 0
+later value	filter	blur(2px)
+  filter_value_list blur(2px)
+  rest 0
+later value	filter	blur()
+  filter_value_list blur(0px)
+  rest 0
+later value	filter	brightness(50%) contrast(2)
+  filter_value_list brightness(50%) contrast(2)
+  rest 0
+later value	filter	drop-shadow(1px 2px 3px red)
+  filter_value_list drop-shadow(red 1px 2px 3px)
+  rest 0
+later value	filter	drop-shadow(red 1px 2px)
+  filter_value_list drop-shadow(red 1px 2px)
+  rest 0
+later value	filter	drop-shadow(1px 2px red)
+  filter_value_list drop-shadow(red 1px 2px)
+  rest 0
+later value	filter	hue-rotate(0)
+  filter_value_list hue-rotate(0deg)
+  rest 0
+later value	filter	hue-rotate(90deg)
+  filter_value_list hue-rotate(90deg)
+  rest 0
+later value	filter	grayscale(150%) opacity(2) sepia()
+  filter_value_list grayscale(100%) opacity(1) sepia(1)
+  rest 0
+later value	filter	url(#f) invert(1)
+  filter_value_list url("#f") invert(1)
+  rest 0
+case value	filter	blur(-1px)
+  error SyntaxError
+case value	filter	foo(1)
+  error SyntaxError
+case value	background	red
+  shorthand background
+    background-color
+      color red
+    background-image
+      value_list comma 1 none
+        keyword none
+    background-position
+      shorthand background-position
+        background-position-x
+          value_list comma 1 0%
+            edge 0%
+        background-position-y
+          value_list comma 1 0%
+            edge 0%
+    background-size
+      value_list comma 1 auto
+        background_size auto
+    background-repeat
+      value_list comma 1 repeat
+        repeat_style repeat
+    background-attachment
+      value_list comma 1 scroll
+        keyword scroll
+    background-origin
+      value_list comma 1 padding-box
+        keyword padding-box
+    background-clip
+      value_list comma 1 border-box
+        keyword border-box
+  rest 0
+case value	background	none
+  shorthand background
+    background-color
+      color transparent
+    background-image
+      value_list comma 1 none
+        keyword none
+    background-position
+      shorthand background-position
+        background-position-x
+          value_list comma 1 0%
+            edge 0%
+        background-position-y
+          value_list comma 1 0%
+            edge 0%
+    background-size
+      value_list comma 1 auto
+        background_size auto
+    background-repeat
+      value_list comma 1 repeat
+        repeat_style repeat
+    background-attachment
+      value_list comma 1 scroll
+        keyword scroll
+    background-origin
+      value_list comma 1 padding-box
+        keyword padding-box
+    background-clip
+      value_list comma 1 border-box
+        keyword border-box
+  rest 0
+case value	background	url(a.png) no-repeat center / cover
+  shorthand background
+    background-color
+      color transparent
+    background-image
+      value_list comma 1 url("a.png")
+        image url("a.png")
+    background-position
+      shorthand background-position
+        background-position-x
+          value_list comma 1 center
+            edge center
+        background-position-y
+          value_list comma 1 center
+            edge center
+    background-size
+      value_list comma 1 cover
+        keyword cover
+    background-repeat
+      value_list comma 1 no-repeat
+        repeat_style no-repeat
+    background-attachment
+      value_list comma 1 scroll
+        keyword scroll
+    background-origin
+      value_list comma 1 padding-box
+        keyword padding-box
+    background-clip
+      value_list comma 1 border-box
+        keyword border-box
+  rest 0
+case value	background	none, red
+  shorthand background
+    background-color
+      color red
+    background-image
+      value_list comma 2 none, none
+        keyword none
+        keyword none
+    background-position
+      shorthand background-position
+        background-position-x
+          value_list comma 2 0%, 0%
+            edge 0%
+            edge 0%
+        background-position-y
+          value_list comma 2 0%, 0%
+            edge 0%
+            edge 0%
+    background-size
+      value_list comma 2 auto, auto
+        background_size auto
+        background_size auto
+    background-repeat
+      value_list comma 2 repeat, repeat
+        repeat_style repeat
+        repeat_style repeat
+    background-attachment
+      value_list comma 2 scroll, scroll
+        keyword scroll
+        keyword scroll
+    background-origin
+      value_list comma 2 padding-box, padding-box
+        keyword padding-box
+        keyword padding-box
+    background-clip
+      value_list comma 2 border-box, border-box
+        keyword border-box
+        keyword border-box
+  rest 0
+case value	background	red, none
+  error SyntaxError
+case value	background	top left / 10px 20px repeat-x fixed padding-box content-box
+  shorthand background
+    background-color
+      color transparent
+    background-image
+      value_list comma 1 none
+        keyword none
+    background-position
+      shorthand background-position
+        background-position-x
+          value_list comma 1 left
+            edge left
+        background-position-y
+          value_list comma 1 top
+            edge top
+    background-size
+      value_list comma 1 10px 20px
+        background_size 10px 20px
+    background-repeat
+      value_list comma 1 repeat-x
+        repeat_style repeat-x
+    background-attachment
+      value_list comma 1 fixed
+        keyword fixed
+    background-origin
+      value_list comma 1 padding-box
+        keyword padding-box
+    background-clip
+      value_list comma 1 content-box
+        keyword content-box
+  rest 0
+case value	background	border-box
+  shorthand background
+    background-color
+      color transparent
+    background-image
+      value_list comma 1 none
+        keyword none
+    background-position
+      shorthand background-position
+        background-position-x
+          value_list comma 1 0%
+            edge 0%
+        background-position-y
+          value_list comma 1 0%
+            edge 0%
+    background-size
+      value_list comma 1 auto
+        background_size auto
+    background-repeat
+      value_list comma 1 repeat
+        repeat_style repeat
+    background-attachment
+      value_list comma 1 scroll
+        keyword scroll
+    background-origin
+      value_list comma 1 border-box
+        keyword border-box
+    background-clip
+      value_list comma 1 border-box
+        keyword border-box
+  rest 0
+case value	background	repeat space
+  shorthand background
+    background-color
+      color transparent
+    background-image
+      value_list comma 1 none
+        keyword none
+    background-position
+      shorthand background-position
+        background-position-x
+          value_list comma 1 0%
+            edge 0%
+        background-position-y
+          value_list comma 1 0%
+            edge 0%
+    background-size
+      value_list comma 1 auto
+        background_size auto
+    background-repeat
+      value_list comma 1 repeat space
+        repeat_style repeat space
+    background-attachment
+      value_list comma 1 scroll
+        keyword scroll
+    background-origin
+      value_list comma 1 padding-box
+        keyword padding-box
+    background-clip
+      value_list comma 1 border-box
+        keyword border-box
+  rest 0
+case value	background	center /
+  error SyntaxError
+case value	background-position	center
+  shorthand background-position
+    background-position-x
+      value_list comma 1 center
+        edge center
+    background-position-y
+      value_list comma 1 center
+        edge center
+  rest 0
+case value	background-position	left 10px top 20px
+  shorthand background-position
+    background-position-x
+      value_list comma 1 left 10px
+        edge left 10px
+    background-position-y
+      value_list comma 1 top 20px
+        edge top 20px
+  rest 0
+case value	background-position	10% 20%, right
+  shorthand background-position
+    background-position-x
+      value_list comma 2 10%, right
+        edge 10%
+        edge right
+    background-position-y
+      value_list comma 2 20%, center
+        edge 20%
+        edge center
+  rest 0
+case value	background-position-x	left
+  value_list comma 1 left
+    edge left
+  rest 0
+case value	background-position-x	right 10px
+  value_list comma 1 right 10px
+    edge right 10px
+  rest 0
+case value	background-position-x	center, 10px
+  value_list comma 2 center, 10px
+    edge center
+    edge 10px
+  rest 0
+case value	background-position-y	top 5%
+  value_list comma 1 top 5%
+    edge top 5%
+  rest 0
+case value	background-repeat	repeat-x
+  value_list comma 1 repeat-x
+    repeat_style repeat-x
+  rest 0
+case value	background-repeat	space round
+  value_list comma 1 space round
+    repeat_style space round
+  rest 0
+case value	background-repeat	no-repeat, repeat
+  value_list comma 2 no-repeat, repeat
+    repeat_style no-repeat
+    repeat_style repeat
+  rest 0
+case value	background-size	cover
+  value_list comma 1 cover
+    keyword cover
+  rest 0
+case value	background-size	10px
+  value_list comma 1 10px auto
+    background_size 10px auto
+  rest 0
+case value	background-size	10px auto
+  value_list comma 1 10px auto
+    background_size 10px auto
+  rest 0
+case value	background-size	50% 25%, contain
+  value_list comma 2 50% 25%, contain
+    background_size 50% 25%
+    keyword contain
+  rest 0
+case value	border	1px solid red
+  shorthand border
+    border-width
+      shorthand border-width
+        border-top-width
+          length 1px
+        border-right-width
+          length 1px
+        border-bottom-width
+          length 1px
+        border-left-width
+          length 1px
+    border-style
+      shorthand border-style
+        border-top-style
+          keyword solid
+        border-right-style
+          keyword solid
+        border-bottom-style
+          keyword solid
+        border-left-style
+          keyword solid
+    border-color
+      shorthand border-color
+        border-top-color
+          color red
+        border-right-color
+          color red
+        border-bottom-color
+          color red
+        border-left-color
+          color red
+    border-image
+      shorthand border-image
+        border-image-source
+          keyword none
+        border-image-slice
+          border_image_slice 100%
+        border-image-width
+          number 1
+        border-image-outset
+          number 0
+        border-image-repeat
+          keyword stretch
+  rest 0
+case value	border	solid
+  shorthand border
+    border-width
+      shorthand border-width
+        border-top-width
+          keyword medium
+        border-right-width
+          keyword medium
+        border-bottom-width
+          keyword medium
+        border-left-width
+          keyword medium
+    border-style
+      shorthand border-style
+        border-top-style
+          keyword solid
+        border-right-style
+          keyword solid
+        border-bottom-style
+          keyword solid
+        border-left-style
+          keyword solid
+    border-color
+      shorthand border-color
+        border-top-color
+          keyword currentcolor
+        border-right-color
+          keyword currentcolor
+        border-bottom-color
+          keyword currentcolor
+        border-left-color
+          keyword currentcolor
+    border-image
+      shorthand border-image
+        border-image-source
+          keyword none
+        border-image-slice
+          border_image_slice 100%
+        border-image-width
+          number 1
+        border-image-outset
+          number 0
+        border-image-repeat
+          keyword stretch
+  rest 0
+case value	border	thick dashed
+  shorthand border
+    border-width
+      shorthand border-width
+        border-top-width
+          keyword thick
+        border-right-width
+          keyword thick
+        border-bottom-width
+          keyword thick
+        border-left-width
+          keyword thick
+    border-style
+      shorthand border-style
+        border-top-style
+          keyword dashed
+        border-right-style
+          keyword dashed
+        border-bottom-style
+          keyword dashed
+        border-left-style
+          keyword dashed
+    border-color
+      shorthand border-color
+        border-top-color
+          keyword currentcolor
+        border-right-color
+          keyword currentcolor
+        border-bottom-color
+          keyword currentcolor
+        border-left-color
+          keyword currentcolor
+    border-image
+      shorthand border-image
+        border-image-source
+          keyword none
+        border-image-slice
+          border_image_slice 100%
+        border-image-width
+          number 1
+        border-image-outset
+          number 0
+        border-image-repeat
+          keyword stretch
+  rest 0
+case value	border	none
+  shorthand border
+    border-width
+      shorthand border-width
+        border-top-width
+          keyword medium
+        border-right-width
+          keyword medium
+        border-bottom-width
+          keyword medium
+        border-left-width
+          keyword medium
+    border-style
+      shorthand border-style
+        border-top-style
+          keyword none
+        border-right-style
+          keyword none
+        border-bottom-style
+          keyword none
+        border-left-style
+          keyword none
+    border-color
+      shorthand border-color
+        border-top-color
+          keyword currentcolor
+        border-right-color
+          keyword currentcolor
+        border-bottom-color
+          keyword currentcolor
+        border-left-color
+          keyword currentcolor
+    border-image
+      shorthand border-image
+        border-image-source
+          keyword none
+        border-image-slice
+          border_image_slice 100%
+        border-image-width
+          number 1
+        border-image-outset
+          number 0
+        border-image-repeat
+          keyword stretch
+  rest 0
+case value	border	1px 2px
+  error SyntaxError
+case value	border-block	1px solid
+  shorthand border-block
+    border-block-width
+      shorthand border-block-width
+        border-block-start-width
+          length 1px
+        border-block-end-width
+          length 1px
+    border-block-style
+      shorthand border-block-style
+        border-block-start-style
+          keyword solid
+        border-block-end-style
+          keyword solid
+    border-block-color
+      shorthand border-block-color
+        border-block-start-color
+          keyword currentcolor
+        border-block-end-color
+          keyword currentcolor
+  rest 0
+case value	border-inline	dotted blue
+  shorthand border-inline
+    border-inline-width
+      shorthand border-inline-width
+        border-inline-start-width
+          keyword medium
+        border-inline-end-width
+          keyword medium
+    border-inline-style
+      shorthand border-inline-style
+        border-inline-start-style
+          keyword dotted
+        border-inline-end-style
+          keyword dotted
+    border-inline-color
+      shorthand border-inline-color
+        border-inline-start-color
+          color blue
+        border-inline-end-color
+          color blue
+  rest 0
+case value	border-image	url(a.png) 30 round
+  shorthand border-image
+    border-image-source
+      image url("a.png")
+    border-image-slice
+      border_image_slice 30
+    border-image-width
+      number 1
+    border-image-outset
+      number 0
+    border-image-repeat
+      keyword round
+  rest 0
+case value	border-image	none
+  shorthand border-image
+    border-image-source
+      keyword none
+    border-image-slice
+      border_image_slice 100%
+    border-image-width
+      number 1
+    border-image-outset
+      number 0
+    border-image-repeat
+      keyword stretch
+  rest 0
+case value	border-image	10% fill / 2px / 3px stretch
+  shorthand border-image
+    border-image-source
+      keyword none
+    border-image-slice
+      border_image_slice 10% fill
+    border-image-width
+      length 2px
+    border-image-outset
+      length 3px
+    border-image-repeat
+      keyword stretch
+  rest 0
+case value	border-image	30 / 1 / 2 space repeat
+  shorthand border-image
+    border-image-source
+      keyword none
+    border-image-slice
+      border_image_slice 30
+    border-image-width
+      number 1
+    border-image-outset
+      number 2
+    border-image-repeat
+      value_list space 2 space repeat
+        keyword space
+        keyword repeat
+  rest 0
+case value	border-image	30 // 2
+  shorthand border-image
+    border-image-source
+      keyword none
+    border-image-slice
+      border_image_slice 30
+    border-image-width
+      number 1
+    border-image-outset
+      number 2
+    border-image-repeat
+      keyword stretch
+  rest 0
+case value	border-image-slice	10
+  border_image_slice 10
+  rest 0
+case value	border-image-slice	10% 20
+  border_image_slice 10% 20
+  rest 0
+case value	border-image-slice	1 2 3 fill
+  border_image_slice 1 2 3 fill
+  rest 0
+case value	border-image-slice	fill 1 2 3 4
+  border_image_slice 1 2 3 4 fill
+  rest 0
+case value	border-image-slice	1 2 3 4 5
+  error SyntaxError
+case value	border-image-slice	fill 1 fill
+  error SyntaxError
+case value	border-top-left-radius	10px
+  border_radius 10px
+  rest 0
+case value	border-top-left-radius	10px 20px
+  border_radius 10px 20px
+  rest 0
+case value	border-top-left-radius	10px / 20%
+  border_radius 10px 20%
+  rest 0
+case value	border-top-left-radius	-1px
+  error SyntaxError
+case value	border-radius	10px
+  shorthand border-radius
+    border-top-left-radius
+      border_radius 10px
+    border-top-right-radius
+      border_radius 10px
+    border-bottom-right-radius
+      border_radius 10px
+    border-bottom-left-radius
+      border_radius 10px
+  rest 0
+case value	border-radius	1px 2px 3px 4px / 5px
+  shorthand border-radius
+    border-top-left-radius
+      border_radius 1px 5px
+    border-top-right-radius
+      border_radius 2px 5px
+    border-bottom-right-radius
+      border_radius 3px 5px
+    border-bottom-left-radius
+      border_radius 4px 5px
+  rest 0
+case value	box-shadow	none
+  keyword none
+  rest 0
+case value	box-shadow	1px 2px
+  value_list comma 1 1px 2px
+    shadow 1px 2px
+  rest 0
+case value	box-shadow	1px 2px 3px 4px red inset
+  value_list comma 1 red 1px 2px 3px 4px inset
+    shadow red 1px 2px 3px 4px inset
+  rest 0
+case value	box-shadow	inset red 1px 2px, 2px 3px blue
+  value_list comma 2 red 1px 2px inset, blue 2px 3px
+    shadow red 1px 2px inset
+    shadow blue 2px 3px
+  rest 0
+case value	box-shadow	1px
+  error SyntaxError
+case value	box-shadow	inset inset 1px 2px
+  error SyntaxError
+case value	text-shadow	1px 1px 2px black
+  value_list comma 1 black 1px 1px 2px
+    shadow black 1px 1px 2px
+  rest 0
+case value	text-shadow	1px 1px 2px 3px
+  error SyntaxError
+case value	color-scheme	normal
+  color_scheme normal
+  rest 0
+case value	color-scheme	light dark
+  color_scheme light dark
+  rest 0
+case value	color-scheme	only light
+  color_scheme light only
+  rest 0
+case value	color-scheme	dark only
+  color_scheme dark only
+  rest 0
+case value	color-scheme	only
+  error SyntaxError
+case value	color-scheme	normal only
+  error SyntaxError
+case value	columns	auto
+  shorthand columns
+    column-count
+      keyword auto
+    column-width
+      keyword auto
+    column-height
+      keyword auto
+  rest 0
+case value	columns	3
+  shorthand columns
+    column-count
+      integer 3
+    column-width
+      keyword auto
+    column-height
+      keyword auto
+  rest 0
+case value	columns	100px
+  shorthand columns
+    column-count
+      keyword auto
+    column-width
+      length 100px
+    column-height
+      keyword auto
+  rest 0
+case value	columns	3 100px
+  shorthand columns
+    column-count
+      integer 3
+    column-width
+      length 100px
+    column-height
+      keyword auto
+  rest 0
+case value	columns	auto auto
+  shorthand columns
+    column-count
+      keyword auto
+    column-width
+      keyword auto
+    column-height
+      keyword auto
+  rest 0
+case value	columns	auto 3
+  shorthand columns
+    column-count
+      integer 3
+    column-width
+      keyword auto
+    column-height
+      keyword auto
+  rest 0
+case value	columns	3 / 10px
+  shorthand columns
+    column-count
+      integer 3
+    column-width
+      keyword auto
+    column-height
+      length 10px
+  rest 0
+case value	columns	/ 10px
+  error SyntaxError
+case value	contain	none
+  keyword none
+  rest 0
+case value	contain	strict
+  keyword strict
+  rest 0
+case value	contain	size layout
+  value_list space 2 size layout
+    keyword size
+    keyword layout
+  rest 0
+case value	contain	paint style inline-size
+  value_list space 3 inline-size style paint
+    keyword inline-size
+    keyword style
+    keyword paint
+  rest 0
+case value	contain	size inline-size
+  error SyntaxError
+case value	container-type	normal
+  keyword normal
+  rest 0
+case value	container-type	inline-size scroll-state
+  value_list space 2 inline-size scroll-state
+    keyword inline-size
+    keyword scroll-state
+  rest 0
+case value	container-type	size size
+  error SyntaxError
+case value	content	none
+  keyword none
+  rest 0
+later value	content	"a" counter(x)
+  content "a" counter(x)
+  rest 0
+case value	content	"a" / "alt"
+  content "a" / "alt"
+  rest 0
+case value	content	"a" /
+  error SyntaxError
+case value	content	none "a"
+  error SyntaxError
+case value	content	/ "x"
+  error SyntaxError
+case value	counter-increment	none
+  keyword none
+  rest 0
+later value	counter-increment	foo
+  counter_definitions foo 1
+  rest 0
+later value	counter-increment	foo 2 bar
+  counter_definitions foo 2 bar 1
+  rest 0
+later value	counter-reset	foo -1
+  counter_definitions foo -1
+  rest 0
+case value	counter-reset	reversed(foo)
+  error SyntaxError
+later value	counter-set	a 5
+  counter_definitions a 5
+  rest 0
+case value	cursor	pointer
+  keyword pointer
+  rest 0
+case value	cursor	url(a.png), auto
+  value_list comma 2 url("a.png"), auto
+    cursor url("a.png")
+    keyword auto
+  rest 0
+case value	cursor	url(a.png) 1 2, pointer
+  value_list comma 2 url("a.png") 1 2, pointer
+    cursor url("a.png") 1 2
+    keyword pointer
+  rest 0
+case value	cursor	url(a.png)
+  error SyntaxError
+case value	cursor	foo
+  error SyntaxError
+case value	display	block
+  display block
+  rest 0
+case value	display	inline flex
+  display inline-flex
+  rest 0
+case value	display	list-item
+  display list-item
+  rest 0
+case value	display	inline list-item
+  display inline list-item
+  rest 0
+case value	display	flow-root list-item
+  display flow-root list-item
+  rest 0
+case value	display	table-row
+  display table-row
+  rest 0
+case value	display	none
+  display none
+  rest 0
+case value	display	contents
+  display contents
+  rest 0
+case value	display	inline-block
+  display inline-block
+  rest 0
+case value	display	grid list-item
+  error SyntaxError
+case value	display	block block
+  error SyntaxError
+case value	display	foo
+  error SyntaxError
+case value	flex	none
+  shorthand flex
+    flex-grow
+      number 0
+    flex-shrink
+      number 0
+    flex-basis
+      keyword auto
+  rest 0
+case value	flex	1
+  shorthand flex
+    flex-grow
+      number 1
+    flex-shrink
+      number 1
+    flex-basis
+      percentage 0%
+  rest 0
+case value	flex	auto
+  shorthand flex
+    flex-grow
+      number 1
+    flex-shrink
+      number 1
+    flex-basis
+      keyword auto
+  rest 0
+case value	flex	10px
+  shorthand flex
+    flex-grow
+      number 1
+    flex-shrink
+      number 1
+    flex-basis
+      length 10px
+  rest 0
+case value	flex	1 2
+  shorthand flex
+    flex-grow
+      number 1
+    flex-shrink
+      number 2
+    flex-basis
+      percentage 0%
+  rest 0
+case value	flex	1 2 10px
+  shorthand flex
+    flex-grow
+      number 1
+    flex-shrink
+      number 2
+    flex-basis
+      length 10px
+  rest 0
+case value	flex	1 10px
+  shorthand flex
+    flex-grow
+      number 1
+    flex-shrink
+      number 1
+    flex-basis
+      length 10px
+  rest 0
+case value	flex	10px 1
+  shorthand flex
+    flex-grow
+      number 1
+    flex-shrink
+      number 1
+    flex-basis
+      length 10px
+  rest 0
+case value	flex	0
+  shorthand flex
+    flex-grow
+      number 0
+    flex-shrink
+      number 1
+    flex-basis
+      percentage 0%
+  rest 0
+case value	flex-flow	row wrap
+  shorthand flex-flow
+    flex-direction
+      keyword row
+    flex-wrap
+      keyword wrap
+  rest 0
+case value	flex-flow	column
+  shorthand flex-flow
+    flex-direction
+      keyword column
+    flex-wrap
+      keyword nowrap
+  rest 0
+case value	flex-flow	wrap row
+  shorthand flex-flow
+    flex-direction
+      keyword row
+    flex-wrap
+      keyword wrap
+  rest 0
+later value	font	12px serif
+  shorthand font
+    font-family
+      value_list comma 1 serif
+        keyword serif
+    font-size
+      length 12px
+    font-width
+      keyword normal
+    font-style
+      font_style normal
+    font-variant
+      shorthand font-variant
+        font-variant-alternates
+          keyword normal
+        font-variant-caps
+          keyword normal
+        font-variant-east-asian
+          keyword normal
+        font-variant-emoji
+          keyword normal
+        font-variant-ligatures
+          keyword normal
+        font-variant-numeric
+          keyword normal
+        font-variant-position
+          keyword normal
+    font-weight
+      keyword normal
+    line-height
+      keyword normal
+    font-feature-settings
+      keyword normal
+    font-kerning
+      keyword auto
+    font-language-override
+      keyword normal
+    font-optical-sizing
+      keyword auto
+    font-variation-settings
+      keyword normal
+  rest 0
+later value	font	italic bold 12px/30px Georgia, serif
+  shorthand font
+    font-family
+      value_list comma 2 Georgia, serif
+        custom_ident Georgia
+        keyword serif
+    font-size
+      length 12px
+    font-width
+      keyword normal
+    font-style
+      font_style italic
+    font-variant
+      shorthand font-variant
+        font-variant-alternates
+          keyword normal
+        font-variant-caps
+          keyword normal
+        font-variant-east-asian
+          keyword normal
+        font-variant-emoji
+          keyword normal
+        font-variant-ligatures
+          keyword normal
+        font-variant-numeric
+          keyword normal
+        font-variant-position
+          keyword normal
+    font-weight
+      keyword bold
+    line-height
+      length 30px
+    font-feature-settings
+      keyword normal
+    font-kerning
+      keyword auto
+    font-language-override
+      keyword normal
+    font-optical-sizing
+      keyword auto
+    font-variation-settings
+      keyword normal
+  rest 0
+later value	font	small-caps 1em sans-serif
+  shorthand font
+    font-family
+      value_list comma 1 sans-serif
+        keyword sans-serif
+    font-size
+      length 1em
+    font-width
+      keyword normal
+    font-style
+      font_style normal
+    font-variant
+      shorthand font-variant
+        font-variant-alternates
+          keyword normal
+        font-variant-caps
+          keyword small-caps
+        font-variant-east-asian
+          keyword normal
+        font-variant-emoji
+          keyword normal
+        font-variant-ligatures
+          keyword normal
+        font-variant-numeric
+          keyword normal
+        font-variant-position
+          keyword normal
+    font-weight
+      keyword normal
+    line-height
+      keyword normal
+    font-feature-settings
+      keyword normal
+    font-kerning
+      keyword auto
+    font-language-override
+      keyword normal
+    font-optical-sizing
+      keyword auto
+    font-variation-settings
+      keyword normal
+  rest 0
+later value	font	normal normal normal 12px x
+  shorthand font
+    font-family
+      value_list comma 1 x
+        custom_ident x
+    font-size
+      length 12px
+    font-width
+      keyword normal
+    font-style
+      font_style normal
+    font-variant
+      shorthand font-variant
+        font-variant-alternates
+          keyword normal
+        font-variant-caps
+          keyword normal
+        font-variant-east-asian
+          keyword normal
+        font-variant-emoji
+          keyword normal
+        font-variant-ligatures
+          keyword normal
+        font-variant-numeric
+          keyword normal
+        font-variant-position
+          keyword normal
+    font-weight
+      keyword normal
+    line-height
+      keyword normal
+    font-feature-settings
+      keyword normal
+    font-kerning
+      keyword auto
+    font-language-override
+      keyword normal
+    font-optical-sizing
+      keyword auto
+    font-variation-settings
+      keyword normal
+  rest 0
+later value	font	condensed 12px a
+  shorthand font
+    font-family
+      value_list comma 1 a
+        custom_ident a
+    font-size
+      length 12px
+    font-width
+      keyword condensed
+    font-style
+      font_style normal
+    font-variant
+      shorthand font-variant
+        font-variant-alternates
+          keyword normal
+        font-variant-caps
+          keyword normal
+        font-variant-east-asian
+          keyword normal
+        font-variant-emoji
+          keyword normal
+        font-variant-ligatures
+          keyword normal
+        font-variant-numeric
+          keyword normal
+        font-variant-position
+          keyword normal
+    font-weight
+      keyword normal
+    line-height
+      keyword normal
+    font-feature-settings
+      keyword normal
+    font-kerning
+      keyword auto
+    font-language-override
+      keyword normal
+    font-optical-sizing
+      keyword auto
+    font-variation-settings
+      keyword normal
+  rest 0
+case value	font	12px
+  error SyntaxError
+case value	font	normal normal normal normal normal 12px x
+  error SyntaxError
+case value	font-family	serif
+  value_list comma 1 serif
+    keyword serif
+  rest 0
+case value	font-family	Arial, "Times New Roman", monospace
+  value_list comma 3 Arial, "Times New Roman", monospace
+    custom_ident Arial
+    string "Times New Roman"
+    keyword monospace
+  rest 0
+case value	font-family	a b c
+  value_list comma 1 a\ b\ c
+    custom_ident a\ b\ c
+  rest 0
+case value	font-feature-settings	normal
+  keyword normal
+  rest 0
+case value	font-feature-settings	"liga" 0
+  value_list comma 1 "liga" 0
+    open_type_tagged "liga" 0
+  rest 0
+case value	font-feature-settings	"kern" on, "smcp"
+  value_list comma 2 "kern", "smcp"
+    open_type_tagged "kern"
+    open_type_tagged "smcp"
+  rest 0
+case value	font-feature-settings	"liga" off
+  value_list comma 1 "liga" 0
+    open_type_tagged "liga" 0
+  rest 0
+case value	font-feature-settings	"liga" foo
+  error SyntaxError
+case value	font-language-override	normal
+  keyword normal
+  rest 0
+case value	font-language-override	"TRK"
+  string "TRK"
+  rest 0
+case value	font-language-override	"TRK  "
+  error SyntaxError
+case value	font-language-override	""
+  error SyntaxError
+case value	font-language-override	"TOOLONG"
+  error SyntaxError
+case value	font-language-override	"   "
+  error SyntaxError
+case value	font-language-override	"é"
+  error SyntaxError
+case value	font-variation-settings	normal
+  keyword normal
+  rest 0
+case value	font-variation-settings	"wght" 400, "wdth" 75
+  value_list comma 2 "wght" 400, "wdth" 75
+    open_type_tagged "wght" 400
+    open_type_tagged "wdth" 75
+  rest 0
+case value	font-variant	normal
+  shorthand font-variant
+    font-variant-alternates
+      keyword normal
+    font-variant-caps
+      keyword normal
+    font-variant-east-asian
+      keyword normal
+    font-variant-emoji
+      keyword normal
+    font-variant-ligatures
+      keyword normal
+    font-variant-numeric
+      keyword normal
+    font-variant-position
+      keyword normal
+  rest 0
+case value	font-variant	none
+  shorthand font-variant
+    font-variant-alternates
+      keyword normal
+    font-variant-caps
+      keyword normal
+    font-variant-east-asian
+      keyword normal
+    font-variant-emoji
+      keyword normal
+    font-variant-ligatures
+      keyword none
+    font-variant-numeric
+      keyword normal
+    font-variant-position
+      keyword normal
+  rest 0
+case value	font-variant	small-caps
+  shorthand font-variant
+    font-variant-alternates
+      keyword normal
+    font-variant-caps
+      keyword small-caps
+    font-variant-east-asian
+      keyword normal
+    font-variant-emoji
+      keyword normal
+    font-variant-ligatures
+      keyword normal
+    font-variant-numeric
+      keyword normal
+    font-variant-position
+      keyword normal
+  rest 0
+case value	font-variant	common-ligatures small-caps slashed-zero
+  shorthand font-variant
+    font-variant-alternates
+      keyword normal
+    font-variant-caps
+      keyword small-caps
+    font-variant-east-asian
+      keyword normal
+    font-variant-emoji
+      keyword normal
+    font-variant-ligatures
+      tuple common-ligatures
+    font-variant-numeric
+      tuple slashed-zero
+    font-variant-position
+      keyword normal
+  rest 0
+case value	font-variant	historical-forms
+  shorthand font-variant
+    font-variant-alternates
+      value_list space 1 historical-forms
+        keyword historical-forms
+    font-variant-caps
+      keyword normal
+    font-variant-east-asian
+      keyword normal
+    font-variant-emoji
+      keyword normal
+    font-variant-ligatures
+      keyword normal
+    font-variant-numeric
+      keyword normal
+    font-variant-position
+      keyword normal
+  rest 0
+case value	font-variant	jis78 ruby
+  shorthand font-variant
+    font-variant-alternates
+      keyword normal
+    font-variant-caps
+      keyword normal
+    font-variant-east-asian
+      tuple jis78 ruby
+    font-variant-emoji
+      keyword normal
+    font-variant-ligatures
+      keyword normal
+    font-variant-numeric
+      keyword normal
+    font-variant-position
+      keyword normal
+  rest 0
+case value	font-variant	sub emoji
+  shorthand font-variant
+    font-variant-alternates
+      keyword normal
+    font-variant-caps
+      keyword normal
+    font-variant-east-asian
+      keyword normal
+    font-variant-emoji
+      keyword emoji
+    font-variant-ligatures
+      keyword normal
+    font-variant-numeric
+      keyword normal
+    font-variant-position
+      keyword sub
+  rest 0
+case value	font-variant	small-caps small-caps
+  error SyntaxError
+later value	grid-area	a
+  shorthand grid-area
+    grid-row-start
+      grid_track_placement a
+    grid-column-start
+      grid_track_placement a
+    grid-row-end
+      grid_track_placement a
+    grid-column-end
+      grid_track_placement a
+  rest 0
+later value	grid-area	1 / 2 / 3 / 4
+  shorthand grid-area
+    grid-row-start
+      grid_track_placement 1
+    grid-column-start
+      grid_track_placement 2
+    grid-row-end
+      grid_track_placement 3
+    grid-column-end
+      grid_track_placement 4
+  rest 0
+later value	grid-area	a / b
+  shorthand grid-area
+    grid-row-start
+      grid_track_placement a
+    grid-column-start
+      grid_track_placement b
+    grid-row-end
+      grid_track_placement a
+    grid-column-end
+      grid_track_placement b
+  rest 0
+later value	grid-area	auto / span 2
+  shorthand grid-area
+    grid-row-start
+      grid_track_placement auto
+    grid-column-start
+      grid_track_placement span 2
+    grid-row-end
+      grid_track_placement auto
+    grid-column-end
+      grid_track_placement auto
+  rest 0
+later value	grid-auto-flow	row
+  grid_auto_flow row
+  rest 0
+later value	grid-auto-flow	column dense
+  grid_auto_flow column dense
+  rest 0
+later value	grid-auto-flow	dense
+  grid_auto_flow dense
+  rest 0
+later value	grid-auto-flow	dense row
+  grid_auto_flow dense
+  rest 0
+case value	grid-auto-flow	row column
+  error SyntaxError
+later value	grid-column	1 / 3
+  shorthand grid-column
+    grid-column-start
+      grid_track_placement 1
+    grid-column-end
+      grid_track_placement 3
+  rest 0
+later value	grid-column	a
+  shorthand grid-column
+    grid-column-start
+      grid_track_placement a
+    grid-column-end
+      grid_track_placement a
+  rest 0
+later value	grid-column	span 2
+  shorthand grid-column
+    grid-column-start
+      grid_track_placement span 2
+    grid-column-end
+      grid_track_placement auto
+  rest 0
+later value	grid-row	1
+  shorthand grid-row
+    grid-row-start
+      grid_track_placement 1
+    grid-row-end
+      grid_track_placement auto
+  rest 0
+case value	grid-row	2 /
+  error SyntaxError
+later value	grid-column-start	auto
+  grid_track_placement auto
+  rest 0
+later value	grid-row-end	3
+  grid_track_placement 3
+  rest 0
+later value	grid	none
+  shorthand grid
+    grid-auto-flow
+      grid_auto_flow row
+    grid-auto-rows
+      grid_track_size_list auto
+    grid-auto-columns
+      grid_track_size_list auto
+    grid-template-areas
+      grid_template_area none
+    grid-template-rows
+      grid_track_size_list none
+    grid-template-columns
+      grid_track_size_list none
+  rest 0
+later value	grid	auto-flow / 100px
+  shorthand grid
+    grid-auto-flow
+      grid_auto_flow row
+    grid-auto-rows
+      grid_track_size_list auto
+    grid-auto-columns
+      grid_track_size_list auto
+    grid-template-areas
+      grid_template_area none
+    grid-template-rows
+      grid_track_size_list none
+    grid-template-columns
+      grid_track_size_list 100px
+  rest 0
+later value	grid	100px / auto-flow dense 50px
+  shorthand grid
+    grid-auto-flow
+      grid_auto_flow column dense
+    grid-auto-rows
+      grid_track_size_list auto
+    grid-auto-columns
+      grid_track_size_list 50px
+    grid-template-areas
+      grid_template_area none
+    grid-template-rows
+      grid_track_size_list 100px
+    grid-template-columns
+      grid_track_size_list none
+  rest 0
+later value	grid	"a b" 10px / 1fr 1fr
+  shorthand grid
+    grid-auto-flow
+      grid_auto_flow row
+    grid-auto-rows
+      grid_track_size_list auto
+    grid-auto-columns
+      grid_track_size_list auto
+    grid-template-areas
+      grid_template_area "a b"
+    grid-template-rows
+      grid_track_size_list 10px
+    grid-template-columns
+      grid_track_size_list 1fr 1fr
+  rest 0
+later value	grid-template	none
+  shorthand grid-template
+    grid-template-areas
+      grid_template_area none
+    grid-template-rows
+      grid_track_size_list none
+    grid-template-columns
+      grid_track_size_list none
+  rest 0
+later value	grid-template	100px 1fr / 50px
+  shorthand grid-template
+    grid-template-areas
+      grid_template_area none
+    grid-template-rows
+      grid_track_size_list 100px 1fr
+    grid-template-columns
+      grid_track_size_list 50px
+  rest 0
+later value	grid-template	"a a" "b c"
+  shorthand grid-template
+    grid-template-areas
+      grid_template_area "a a" "b c"
+    grid-template-rows
+      grid_track_size_list auto auto
+    grid-template-columns
+      grid_track_size_list none
+  rest 0
+later value	grid-template	[x] "a" 10px [y] / 1fr
+  shorthand grid-template
+    grid-template-areas
+      grid_template_area "a"
+    grid-template-rows
+      grid_track_size_list [x] 10px [y]
+    grid-template-columns
+      grid_track_size_list 1fr
+  rest 0
+later value	grid-template-areas	none
+  grid_template_area none
+  rest 0
+later value	grid-template-areas	"a b" "c d"
+  grid_template_area "a b" "c d"
+  rest 0
+later value	grid-template-areas	"a a" "a a"
+  grid_template_area "a a" "a a"
+  rest 0
+later value	grid-template-areas	"a ." "b ."
+  grid_template_area "a ." "b ."
+  rest 0
+case value	grid-template-areas	"a b" "c"
+  error SyntaxError
+case value	grid-template-areas	"a b" "b a"
+  error SyntaxError
+case value	grid-template-areas	"a$"
+  error SyntaxError
+later value	grid-template-columns	none
+  grid_track_size_list none
+  rest 0
+later value	grid-template-columns	100px 1fr
+  grid_track_size_list 100px 1fr
+  rest 0
+later value	grid-template-columns	repeat(2, 1fr)
+  grid_track_size_list repeat(2, 1fr)
+  rest 0
+later value	grid-template-rows	[a] 10px [b]
+  grid_track_size_list [a] 10px [b]
+  rest 0
+later value	grid-auto-rows	100px
+  grid_track_size_list 100px
+  rest 0
+later value	grid-auto-columns	auto 1fr
+  grid_track_size_list auto 1fr
+  rest 0
+case value	list-style	none
+  shorthand list-style
+    list-style-position
+      keyword outside
+    list-style-image
+      keyword none
+    list-style-type
+      keyword none
+  rest 0
+later value	list-style	square inside
+  shorthand list-style
+    list-style-position
+      keyword inside
+    list-style-image
+      keyword none
+    list-style-type
+      counter_style square
+  rest 0
+later value	list-style	url(a.png)
+  shorthand list-style
+    list-style-position
+      keyword outside
+    list-style-image
+      image url("a.png")
+    list-style-type
+      counter_style disc
+  rest 0
+case value	list-style	none none
+  shorthand list-style
+    list-style-position
+      keyword outside
+    list-style-image
+      keyword none
+    list-style-type
+      keyword none
+  rest 0
+later value	list-style	none disc
+  shorthand list-style
+    list-style-position
+      keyword outside
+    list-style-image
+      keyword none
+    list-style-type
+      counter_style disc
+  rest 0
+case value	list-style	none none none
+  error SyntaxError
+case value	math-depth	auto-add
+  keyword auto-add
+  rest 0
+case value	math-depth	add(2)
+  function add(2)
+  rest 0
+case value	math-depth	3
+  integer 3
+  rest 0
+case value	math-depth	add(a)
+  error SyntaxError
+case value	mask	none
+  shorthand mask
+    mask-image
+      keyword none
+    mask-position
+      position 0% 0%
+    mask-size
+      background_size auto
+    mask-repeat
+      repeat_style repeat
+    mask-origin
+      keyword border-box
+    mask-clip
+      keyword border-box
+    mask-composite
+      keyword add
+    mask-mode
+      keyword match-source
+  rest 0
+case value	mask	url(m.svg)
+  shorthand mask
+    mask-image
+      image url("m.svg")
+    mask-position
+      position 0% 0%
+    mask-size
+      background_size auto
+    mask-repeat
+      repeat_style repeat
+    mask-origin
+      keyword border-box
+    mask-clip
+      keyword border-box
+    mask-composite
+      keyword add
+    mask-mode
+      keyword match-source
+  rest 0
+case value	mask	url(m.svg) center / contain no-repeat border-box no-clip add luminance
+  shorthand mask
+    mask-image
+      image url("m.svg")
+    mask-position
+      position center center
+    mask-size
+      keyword contain
+    mask-repeat
+      repeat_style no-repeat
+    mask-origin
+      keyword border-box
+    mask-clip
+      keyword no-clip
+    mask-composite
+      keyword add
+    mask-mode
+      keyword luminance
+  rest 0
+case value	mask	url(a.svg), url(b.svg) repeat-x
+  shorthand mask
+    mask-image
+      value_list comma 2 url("a.svg"), url("b.svg")
+        image url("a.svg")
+        image url("b.svg")
+    mask-position
+      value_list comma 2 0% 0%, 0% 0%
+        position 0% 0%
+        position 0% 0%
+    mask-size
+      value_list comma 2 auto, auto
+        background_size auto
+        background_size auto
+    mask-repeat
+      value_list comma 2 repeat, repeat-x
+        repeat_style repeat
+        repeat_style repeat-x
+    mask-origin
+      value_list comma 2 border-box, border-box
+        keyword border-box
+        keyword border-box
+    mask-clip
+      value_list comma 2 border-box, border-box
+        keyword border-box
+        keyword border-box
+    mask-composite
+      value_list comma 2 add, add
+        keyword add
+        keyword add
+    mask-mode
+      value_list comma 2 match-source, match-source
+        keyword match-source
+        keyword match-source
+  rest 0
+case value	mask-position	center
+  value_list comma 1 center center
+    position center center
+  rest 0
+case value	mask-position	left 10px top, right
+  error SyntaxError
+case value	mask-repeat	repeat-x
+  value_list comma 1 repeat-x
+    repeat_style repeat-x
+  rest 0
+case value	mask-size	cover, 10px
+  value_list comma 2 cover, 10px auto
+    keyword cover
+    background_size 10px auto
+  rest 0
+case value	overflow-clip-margin	10px
+  shorthand overflow-clip-margin
+    overflow-clip-margin-top
+      length 10px
+    overflow-clip-margin-right
+      length 10px
+    overflow-clip-margin-bottom
+      length 10px
+    overflow-clip-margin-left
+      length 10px
+  rest 0
+case value	overflow-clip-margin	-1px
+  error SyntaxError
+case value	overflow-clip-margin-top	5px
+  length 5px
+  rest 0
+case value	overflow-clip-margin-block	2px
+  shorthand overflow-clip-margin-block
+    overflow-clip-margin-block-start
+      length 2px
+    overflow-clip-margin-block-end
+      length 2px
+  rest 0
+case value	paint-order	normal
+  keyword normal
+  rest 0
+case value	paint-order	fill
+  keyword fill
+  rest 0
+case value	paint-order	stroke fill
+  keyword stroke
+  rest 0
+case value	paint-order	fill stroke
+  keyword fill
+  rest 0
+case value	paint-order	markers stroke fill
+  value_list space 2 markers stroke
+    keyword markers
+    keyword stroke
+  rest 0
+case value	paint-order	fill fill
+  error SyntaxError
+case value	paint-order	stroke markers fill
+  value_list space 2 stroke markers
+    keyword stroke
+    keyword markers
+  rest 0
+case value	place-content	center
+  shorthand place-content
+    align-content
+      keyword center
+    justify-content
+      keyword center
+  rest 0
+case value	place-content	center start
+  shorthand place-content
+    align-content
+      keyword center
+    justify-content
+      keyword start
+  rest 0
+case value	place-content	baseline
+  error SyntaxError
+case value	place-items	center
+  shorthand place-items
+    align-items
+      keyword center
+    justify-items
+      keyword center
+  rest 0
+case value	place-items	start end
+  shorthand place-items
+    align-items
+      keyword start
+    justify-items
+      keyword end
+  rest 0
+case value	place-self	auto
+  shorthand place-self
+    align-self
+      keyword auto
+    justify-self
+      keyword auto
+  rest 0
+case value	place-self	center stretch
+  shorthand place-self
+    align-self
+      keyword center
+    justify-self
+      keyword stretch
+  rest 0
+case value	position-anchor	auto
+  keyword auto
+  rest 0
+case value	position-anchor	--a
+  custom_ident --a
+  rest 0
+case value	position-anchor	foo
+  error SyntaxError
+case value	position-area	none
+  keyword none
+  rest 0
+case value	position-area	top
+  keyword top
+  rest 0
+case value	position-area	top left
+  value_list space 2 left top
+    keyword left
+    keyword top
+  rest 0
+case value	position-area	left top
+  value_list space 2 left top
+    keyword left
+    keyword top
+  rest 0
+case value	position-area	span-all
+  keyword span-all
+  rest 0
+case value	position-area	top span-all
+  keyword top
+  rest 0
+case value	position-area	block-start inline-end
+  value_list space 2 block-start inline-end
+    keyword block-start
+    keyword inline-end
+  rest 0
+case value	position-area	start end
+  value_list space 2 start end
+    keyword start
+    keyword end
+  rest 0
+case value	position-area	self-start self-end
+  value_list space 2 self-start self-end
+    keyword self-start
+    keyword self-end
+  rest 0
+case value	position-area	top bottom
+  error SyntaxError
+case value	position-try-fallbacks	none
+  keyword none
+  rest 0
+case value	position-try-fallbacks	--a
+  value_list comma 1 --a
+    value_list space 1 --a
+      custom_ident --a
+  rest 0
+case value	position-try-fallbacks	flip-block
+  value_list comma 1 flip-block
+    value_list space 1 flip-block
+      value_list space 1 flip-block
+        keyword flip-block
+  rest 0
+case value	position-try-fallbacks	--a flip-inline flip-start
+  value_list comma 1 --a flip-inline flip-start
+    value_list space 2 --a flip-inline flip-start
+      custom_ident --a
+      value_list space 2 flip-inline flip-start
+        keyword flip-inline
+        keyword flip-start
+  rest 0
+case value	position-try-fallbacks	top left, --b
+  value_list comma 2 left top, --b
+    value_list space 2 left top
+      keyword left
+      keyword top
+    value_list space 1 --b
+      custom_ident --b
+  rest 0
+case value	position-visibility	always
+  keyword always
+  rest 0
+case value	position-visibility	anchors-valid no-overflow
+  value_list space 2 anchors-valid no-overflow
+    keyword anchors-valid
+    keyword no-overflow
+  rest 0
+case value	position-visibility	no-overflow anchors-visible
+  value_list space 2 anchors-visible no-overflow
+    keyword anchors-visible
+    keyword no-overflow
+  rest 0
+case value	position-visibility	anchors-valid anchors-valid
+  error SyntaxError
+case value	quotes	auto
+  keyword auto
+  rest 0
+case value	quotes	none
+  keyword none
+  rest 0
+case value	quotes	"«" "»"
+  value_list space 2 "«" "»"
+    string "«"
+    string "»"
+  rest 0
+case value	quotes	"a" "b" "c" "d"
+  value_list space 4 "a" "b" "c" "d"
+    string "a"
+    string "b"
+    string "c"
+    string "d"
+  rest 0
+case value	quotes	"a"
+  error SyntaxError
+case value	rotate	none
+  keyword none
+  rest 0
+later value	rotate	45deg
+  transformation 45deg
+  rest 0
+later value	rotate	x 45deg
+  transformation x 45deg
+  rest 0
+later value	rotate	45deg y
+  transformation y 45deg
+  rest 0
+later value	rotate	1 2 3 45deg
+  transformation 1 2 3 45deg
+  rest 0
+later value	rotate	45deg 1 2 3
+  transformation 1 2 3 45deg
+  rest 0
+case value	rotate	z
+  error SyntaxError
+case value	scale	none
+  keyword none
+  rest 0
+later value	scale	2
+  transformation 2
+  rest 0
+later value	scale	2 50%
+  transformation 2 0.5
+  rest 0
+later value	scale	1 2 3
+  transformation 1 2 3
+  rest 0
+case value	translate	none
+  keyword none
+  rest 0
+later value	translate	10px
+  transformation 10px
+  rest 0
+later value	translate	10px 20%
+  transformation 10px 20%
+  rest 0
+later value	translate	10px 20px 30px
+  transformation 10px 20px 30px
+  rest 0
+case value	translate	10px 20px 30%
+  error SyntaxError
+case value	scrollbar-color	auto
+  keyword auto
+  rest 0
+case value	scrollbar-color	red blue
+  scrollbar_color red blue
+  rest 0
+case value	scrollbar-color	red
+  error SyntaxError
+case value	scrollbar-gutter	auto
+  scrollbar_gutter auto
+  rest 0
+case value	scrollbar-gutter	stable
+  scrollbar_gutter stable
+  rest 0
+case value	scrollbar-gutter	stable both-edges
+  scrollbar_gutter stable both-edges
+  rest 0
+case value	scrollbar-gutter	both-edges stable
+  scrollbar_gutter stable both-edges
+  rest 0
+case value	scrollbar-gutter	both-edges
+  error SyntaxError
+case value	scrollbar-gutter	auto both-edges
+  error SyntaxError
+case value	shape-outside	none
+  keyword none
+  rest 0
+later value	shape-outside	circle(50%)
+  basic_shape circle(50%)
+  rest 0
+case value	shape-outside	margin-box
+  keyword margin-box
+  rest 0
+later value	shape-outside	circle(50%) border-box
+  value_list space 2 circle(50%) border-box
+    basic_shape circle(50%)
+    keyword border-box
+  rest 0
+case value	shape-outside	linear-gradient(red, blue)
+  linear_gradient linear-gradient(red, blue)
+  rest 0
+case value	stroke-dasharray	none
+  keyword none
+  rest 0
+case value	stroke-dasharray	1 2 3
+  value_list comma 3 1, 2, 3
+    number 1
+    number 2
+    number 3
+  rest 0
+case value	stroke-dasharray	1px, 2%
+  value_list comma 2 1px, 2%
+    length 1px
+    percentage 2%
+  rest 0
+case value	stroke-dasharray	-1
+  error SyntaxError
+case value	text-decoration	underline
+  shorthand text-decoration
+    text-decoration-line
+      value_list space 1 underline
+        keyword underline
+    text-decoration-thickness
+      keyword auto
+    text-decoration-style
+      keyword solid
+    text-decoration-color
+      keyword currentcolor
+  rest 0
+case value	text-decoration	underline dotted red
+  shorthand text-decoration
+    text-decoration-line
+      value_list space 1 underline
+        keyword underline
+    text-decoration-thickness
+      keyword auto
+    text-decoration-style
+      keyword dotted
+    text-decoration-color
+      color red
+  rest 0
+case value	text-decoration	line-through 2px
+  shorthand text-decoration
+    text-decoration-line
+      value_list space 1 line-through
+        keyword line-through
+    text-decoration-thickness
+      length 2px
+    text-decoration-style
+      keyword solid
+    text-decoration-color
+      keyword currentcolor
+  rest 0
+case value	text-decoration	none
+  shorthand text-decoration
+    text-decoration-line
+      keyword none
+    text-decoration-thickness
+      keyword auto
+    text-decoration-style
+      keyword solid
+    text-decoration-color
+      keyword currentcolor
+  rest 0
+case value	text-decoration	underline overline
+  shorthand text-decoration
+    text-decoration-line
+      value_list space 2 underline overline
+        keyword underline
+        keyword overline
+    text-decoration-thickness
+      keyword auto
+    text-decoration-style
+      keyword solid
+    text-decoration-color
+      keyword currentcolor
+  rest 0
+case value	text-decoration-line	none
+  keyword none
+  rest 0
+case value	text-decoration-line	underline overline
+  value_list space 2 underline overline
+    keyword underline
+    keyword overline
+  rest 0
+case value	text-decoration-line	overline underline
+  value_list space 2 underline overline
+    keyword underline
+    keyword overline
+  rest 0
+case value	text-decoration-line	spelling-error
+  value_list space 1 spelling-error
+    keyword spelling-error
+  rest 0
+case value	text-decoration-line	underline underline
+  error SyntaxError
+case value	text-decoration-line	underline spelling-error
+  error SyntaxError
+case value	text-indent	10px
+  text_indent 10px
+  rest 0
+case value	text-indent	10px hanging
+  text_indent 10px hanging
+  rest 0
+case value	text-indent	each-line 5% hanging
+  text_indent 5% each-line hanging
+  rest 0
+case value	text-indent	hanging
+  error SyntaxError
+case value	text-underline-position	auto
+  text_underline_position auto
+  rest 0
+case value	text-underline-position	under
+  text_underline_position under
+  rest 0
+case value	text-underline-position	from-font right
+  text_underline_position from-font right
+  rest 0
+case value	text-underline-position	left under
+  text_underline_position under left
+  rest 0
+case value	text-underline-position	auto under
+  error SyntaxError
+case value	timeline-scope	none
+  keyword none
+  rest 0
+case value	timeline-scope	all
+  keyword all
+  rest 0
+case value	timeline-scope	--a, --b
+  value_list comma 2 --a, --b
+    custom_ident --a
+    custom_ident --b
+  rest 0
+case value	touch-action	auto
+  keyword auto
+  rest 0
+case value	touch-action	manipulation
+  keyword manipulation
+  rest 0
+case value	touch-action	pan-x
+  value_list space 1 pan-x
+    keyword pan-x
+  rest 0
+case value	touch-action	pan-y pan-left
+  value_list space 2 pan-left pan-y
+    keyword pan-left
+    keyword pan-y
+  rest 0
+case value	touch-action	pan-x pan-left
+  error SyntaxError
+case value	touch-action	pan-x auto
+  error SyntaxError
+case value	transform-origin	center
+  value_list space 3 center center 0px
+    keyword center
+    keyword center
+    length 0px
+  rest 0
+case value	transform-origin	top
+  value_list space 3 center top 0px
+    keyword center
+    keyword top
+    length 0px
+  rest 0
+case value	transform-origin	left
+  value_list space 3 left center 0px
+    keyword left
+    keyword center
+    length 0px
+  rest 0
+case value	transform-origin	10px
+  value_list space 3 10px center 0px
+    length 10px
+    keyword center
+    length 0px
+  rest 0
+case value	transform-origin	left top
+  value_list space 3 left top 0px
+    keyword left
+    keyword top
+    length 0px
+  rest 0
+case value	transform-origin	top left
+  value_list space 3 left top 0px
+    keyword left
+    keyword top
+    length 0px
+  rest 0
+case value	transform-origin	10px 20px 30px
+  value_list space 3 10px 20px 30px
+    length 10px
+    length 20px
+    length 30px
+  rest 0
+case value	transform-origin	center bottom
+  value_list space 3 center bottom 0px
+    keyword center
+    keyword bottom
+    length 0px
+  rest 0
+case value	transform-origin	20% top 5px
+  value_list space 3 20% top 5px
+    percentage 20%
+    keyword top
+    length 5px
+  rest 0
+case value	transform-origin	top 10px
+  error SyntaxError
+case value	transform-origin	left right
+  error SyntaxError
+case value	transition	none
+  shorthand transition
+    transition-property
+      value_list comma 1 none
+        keyword none
+    transition-duration
+      value_list comma 1 0s
+        time 0s
+    transition-timing-function
+      value_list comma 1 ease
+        keyword ease
+    transition-delay
+      value_list comma 1 0s
+        time 0s
+    transition-behavior
+      value_list comma 1 normal
+        keyword normal
+  rest 0
+case value	transition	opacity 1s
+  shorthand transition
+    transition-property
+      value_list comma 1 opacity
+        custom_ident opacity
+    transition-duration
+      value_list comma 1 1s
+        time 1s
+    transition-timing-function
+      value_list comma 1 ease
+        keyword ease
+    transition-delay
+      value_list comma 1 0s
+        time 0s
+    transition-behavior
+      value_list comma 1 normal
+        keyword normal
+  rest 0
+case value	transition	all 1s ease, none
+  error SyntaxError
+case value	transition	1s
+  shorthand transition
+    transition-property
+      value_list comma 1 all
+        custom_ident all
+    transition-duration
+      value_list comma 1 1s
+        time 1s
+    transition-timing-function
+      value_list comma 1 ease
+        keyword ease
+    transition-delay
+      value_list comma 1 0s
+        time 0s
+    transition-behavior
+      value_list comma 1 normal
+        keyword normal
+  rest 0
+case value	transition	opacity 1s, transform 2s linear 1s
+  shorthand transition
+    transition-property
+      value_list comma 2 opacity, transform
+        custom_ident opacity
+        custom_ident transform
+    transition-duration
+      value_list comma 2 1s, 2s
+        time 1s
+        time 2s
+    transition-timing-function
+      value_list comma 2 ease, linear
+        keyword ease
+        keyword linear
+    transition-delay
+      value_list comma 2 0s, 1s
+        time 0s
+        time 1s
+    transition-behavior
+      value_list comma 2 normal, normal
+        keyword normal
+        keyword normal
+  rest 0
+case value	transition-property	none
+  value_list comma 1 none
+    keyword none
+  rest 0
+case value	transition-property	opacity, transform
+  value_list comma 2 opacity, transform
+    custom_ident opacity
+    custom_ident transform
+  rest 0
+case value	transition-property	none, a
+  error SyntaxError
+case value	scroll-timeline	--a
+  shorthand scroll-timeline
+    scroll-timeline-name
+      value_list comma 1 --a
+        custom_ident --a
+    scroll-timeline-axis
+      value_list comma 1 block
+        keyword block
+  rest 0
+case value	scroll-timeline	--a block
+  shorthand scroll-timeline
+    scroll-timeline-name
+      value_list comma 1 --a
+        custom_ident --a
+    scroll-timeline-axis
+      value_list comma 1 block
+        keyword block
+  rest 0
+case value	scroll-timeline	--a x, --b
+  shorthand scroll-timeline
+    scroll-timeline-name
+      value_list comma 2 --a, --b
+        custom_ident --a
+        custom_ident --b
+    scroll-timeline-axis
+      value_list comma 2 x, block
+        keyword x
+        keyword block
+  rest 0
+case value	scroll-timeline	--a,
+  error SyntaxError
+case value	view-timeline	--a
+  shorthand view-timeline
+    view-timeline-name
+      value_list comma 1 --a
+        custom_ident --a
+    view-timeline-axis
+      value_list comma 1 block
+        keyword block
+    view-timeline-inset
+      value_list comma 1 auto
+        value_list space 2 auto
+          keyword auto
+          keyword auto
+  rest 0
+case value	view-timeline	--a block 10px
+  shorthand view-timeline
+    view-timeline-name
+      value_list comma 1 --a
+        custom_ident --a
+    view-timeline-axis
+      value_list comma 1 block
+        keyword block
+    view-timeline-inset
+      value_list comma 1 10px
+        value_list space 2 10px
+          length 10px
+          length 10px
+  rest 0
+case value	view-timeline	--a auto, --b x
+  shorthand view-timeline
+    view-timeline-name
+      value_list comma 2 --a, --b
+        custom_ident --a
+        custom_ident --b
+    view-timeline-axis
+      value_list comma 2 block, x
+        keyword block
+        keyword x
+    view-timeline-inset
+      value_list comma 2 auto, auto
+        value_list space 2 auto
+          keyword auto
+          keyword auto
+        value_list space 2 auto
+          keyword auto
+          keyword auto
+  rest 0
+case value	view-timeline	--a,
+  error SyntaxError
+case value	white-space	normal
+  shorthand white-space
+    white-space-collapse
+      keyword collapse
+    text-wrap-mode
+      keyword wrap
+    white-space-trim
+      keyword none
+  rest 0
+case value	white-space	pre
+  shorthand white-space
+    white-space-collapse
+      keyword preserve
+    text-wrap-mode
+      keyword nowrap
+    white-space-trim
+      keyword none
+  rest 0
+case value	white-space	pre-wrap
+  shorthand white-space
+    white-space-collapse
+      keyword preserve
+    text-wrap-mode
+      keyword wrap
+    white-space-trim
+      keyword none
+  rest 0
+case value	white-space	pre-line
+  shorthand white-space
+    white-space-collapse
+      keyword preserve-breaks
+    text-wrap-mode
+      keyword wrap
+    white-space-trim
+      keyword none
+  rest 0
+case value	white-space	nowrap
+  shorthand white-space
+    white-space-collapse
+      keyword collapse
+    text-wrap-mode
+      keyword nowrap
+    white-space-trim
+      keyword none
+  rest 0
+case value	white-space	preserve nowrap
+  shorthand white-space
+    white-space-collapse
+      keyword preserve
+    text-wrap-mode
+      keyword nowrap
+    white-space-trim
+      keyword none
+  rest 0
+case value	white-space	discard-before
+  shorthand white-space
+    white-space-collapse
+      keyword collapse
+    text-wrap-mode
+      keyword wrap
+    white-space-trim
+      value_list space 1 discard-before
+        keyword discard-before
+  rest 0
+case value	white-space	collapse discard-after discard-inner
+  error SyntaxError
+case value	white-space-trim	none
+  keyword none
+  rest 0
+case value	white-space-trim	discard-before discard-after
+  value_list space 2 discard-before discard-after
+    keyword discard-before
+    keyword discard-after
+  rest 0
+case value	white-space-trim	discard-after discard-before
+  value_list space 2 discard-before discard-after
+    keyword discard-before
+    keyword discard-after
+  rest 0
+case value	will-change	auto
+  keyword auto
+  rest 0
+case value	will-change	scroll-position
+  value_list comma 1 scroll-position
+    keyword scroll-position
+  rest 0
+case value	will-change	transform, opacity
+  value_list comma 2 transform, opacity
+    custom_ident transform
+    custom_ident opacity
+  rest 0
+case value	will-change	auto, a
+  error SyntaxError
+case for	flex-grow flex-basis	auto
+  property flex-basis
+    keyword auto
+  rest 0
+case for	flex-grow flex-basis	2
+  property flex-grow
+    number 2
+  rest 0
+case for	float clear	left
+  property float
+    keyword left
+  rest 0
+case for	float clear	both
+  property clear
+    keyword both
+  rest 0
+case for	overflow-x overflow-y	overlay
+  property overflow-x
+    keyword auto
+  rest 0
+case for	display	foo
+  none
+  rest 1
+case for	text-justify	distribute rest
+  property text-justify
+    keyword inter-character
+  rest 2
+case for	animation-name	foo
+  property animation-name
+    custom_ident foo
+  rest 0
+case asf	var
+  function 4
+case asf	VAR
+  function 4
+case asf	attr
+  function 0
+case asf	env
+  function 1
+case asf	if
+  function 2
+case asf	inherit
+  function 3
+case asf	calc
+  none
+case grammar	var	--x
+  declaration values 1
+    [--x]
+case grammar	var	--x, 1px 2px
+  declaration values 2
+    [--x]
+    [ 1px 2px]
+case grammar	var	--x,
+  declaration values 2
+    [--x]
+    []
+case grammar	var	
+  failure
+case grammar	attr	data-x type(<length>), 3px
+  declaration values 2
+    [data-x type(<length>)]
+    [ 3px]
+case grammar	env	safe-area-inset-top
+  declaration values 1
+    [safe-area-inset-top]
+case grammar	inherit	--y, a , b
+  declaration values 2
+    [--y]
+    [ a , b]
+case grammar	if	media(a): 1; else: 2
+  if branches 2
+    [media(a)] : [ 1]
+    [ else] : [ 2]
+case grammar	if	media(a): ; else
+  if branches 2
+    [media(a)] : [ ]
+    [ else] : none
+case grammar	if	media(a)
+  if branches 1
+    [media(a)] : none
+case grammar	if	
+  failure
+case grammar	var	--x; y
+  failure

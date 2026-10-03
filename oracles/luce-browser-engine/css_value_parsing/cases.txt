@@ -458,5 +458,5 @@ numberlist	x
 !type:basic-shape	polygon(evenodd, 0 0, 10px 10px)
 !type:font-style	oblique 10deg
 !type:counter	counter(foo)
-!type:corner-shape	superellipse(2)
+type:corner-shape	superellipse(2)
 !type:counter-style	symbols(cyclic "a" "b")
