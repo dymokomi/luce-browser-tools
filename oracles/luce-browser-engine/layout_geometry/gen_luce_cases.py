@@ -1,7 +1,9 @@
 # Writes the Luce case table (layout/tests_layout_geometry_cases.lucb) from the oracle's expected.txt.
 # Usage: ./oracle cases.txt > expected.txt; python3 gen_luce_cases.py > OUT.lucb
+#        ./oracle cases_inline.txt > expected_inline.txt; python3 gen_luce_cases.py inline > .../tests_layout_inline_cases.lucb
 import sys
-src = open('expected.txt', encoding='utf-8').read().split('\n')
+inline = len(sys.argv) > 1 and sys.argv[1] == 'inline'
+src = open('expected_inline.txt' if inline else 'expected.txt', encoding='utf-8').read().split('\n')
 cases = []
 later = 0
 skipping = False
@@ -36,7 +38,25 @@ def lit(s):
     return '"' + ''.join(r) + '"'
 
 out = sys.stdout
-out.write('''#==============================================================================================
+if inline:
+    out.write('''#==============================================================================================
+#
+#   tests_layout_inline_cases - laid-out layout trees with text (inline layout) pinned to the
+#                               reference build
+#
+#   DESCRIPTION:
+#       Generated (a test vector table) from the output of a local oracle that runs the
+#       reference Ladybird build's LibWeb on the same documents (luce-browser-tools,
+#       oracles/luce-browser-engine/layout_geometry: cases_inline.txt, oracle.cpp,
+#       gen_luce_cases.py, build.sh). tests_layout_inline runs each case through the port and
+#       compares the output.
+#
+#==============================================================================================
+
+''')
+    table = 'test_layout_inline_cases'
+else:
+    out.write('''#==============================================================================================
 #
 #   tests_layout_geometry_cases - laid-out layout trees (block layout geometry) pinned to the
 #                                 reference build
@@ -57,8 +77,10 @@ struct TestLayoutGeometryCase:
     let expected: str
 
 ''')
-out.write('## Every oracle case, in cases.txt order (%d more, marked "!" in cases.txt, wait for other regions).\n' % later)
-out.write('let test_layout_geometry_cases: TestLayoutGeometryCase[%d] = [\n' % len(cases))
+    table = 'test_layout_geometry_cases'
+cases_file = 'cases_inline.txt' if inline else 'cases.txt'
+out.write('## Every oracle case, in %s order (%d more, marked "!" in %s, wait for other regions).\n' % (cases_file, later, cases_file))
+out.write('let %s: TestLayoutGeometryCase[%d] = [\n' % (table, len(cases)))
 for args, lines in cases:
     mode = args[0]
     html = unescape(args[1])
