@@ -1,0 +1,1042 @@
+case selector	*
+--
+serialize: *
+specificity: 0
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Universal:NamespaceType=Default, Namespace='', Name='*'
+case selector	div
+--
+serialize: div
+specificity: 1
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='div'
+case selector	DIV.Foo#Bar
+--
+serialize: DIV.Foo#Bar
+specificity: 65793
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='DIV', Class:Foo, Id:Bar
+case selector	.a.b.c
+--
+serialize: .a.b.c
+specificity: 768
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Class:a, Class:b, Class:c
+case selector	#x #y .z
+--
+serialize: #x #y .z
+specificity: 131328
+fast: true ancestor_filter: true
+hashes: 2157248776 2466489829 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Id:x
+  {Descendant} Id:y
+  {Descendant} Class:z
+case selector	a > b + c ~ d e
+--
+serialize: a > b + c ~ d e
+specificity: 5
+fast: false ancestor_filter: true
+hashes: 592496261 3392050242 0 0 0 0 0 0
+sibling_distance: 18446744073709551615
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='a'
+  {ImmediateChild} TagName:NamespaceType=Default, Namespace='', Name='b'
+  {AdjacentSibling} TagName:NamespaceType=Default, Namespace='', Name='c'
+  {GeneralSibling} TagName:NamespaceType=Default, Namespace='', Name='d'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='e'
+case selector	ul li:first-child
+--
+serialize: ul li:first-child
+specificity: 258
+fast: true ancestor_filter: true
+hashes: 601343024 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: first-child
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='ul'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='li', PseudoClassSelector: pseudo_class=first-child
+case selector	[href]
+--
+serialize: [href]
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Attribute: [HasAttribute, NamespaceType=Default, Namespace='', Name='href', value='']
+case selector	[lang|=en i]
+--
+serialize: [lang|="en" i]
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Attribute: [StartsWithSegment, NamespaceType=Default, Namespace='', Name='lang', value='en']
+case selector	a[href^="http"][href$='.pdf' s]
+--
+serialize: a[href^="http"][href$=".pdf" s]
+specificity: 513
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='a', Attribute: [StartsWithString, NamespaceType=Default, Namespace='', Name='href', value='http'], Attribute: [EndsWithString, NamespaceType=Default, Namespace='', Name='href', value='.pdf']
+case selector	[data-x~=foo], [data-y*=bar]
+--
+serialize: [data-x~="foo"]
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Attribute: [ContainsWord, NamespaceType=Default, Namespace='', Name='data-x', value='foo']
+--
+serialize: [data-y*="bar"]
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Attribute: [ContainsString, NamespaceType=Default, Namespace='', Name='data-y', value='bar']
+case selector	svg|rect
+--
+serialize: svg|rect
+specificity: 1
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Named, Namespace='svg', Name='rect'
+case selector	*|*
+--
+serialize: *
+specificity: 0
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Universal:NamespaceType=Any, Namespace='*', Name='*'
+case selector	|p
+--
+serialize: |p
+specificity: 1
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=None, Namespace='', Name='p'
+case selector	svg|*.c
+--
+serialize: svg|*.c
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Universal:NamespaceType=Named, Namespace='svg', Name='*', Class:c
+case selector	[*|title]
+--
+serialize: [*|title]
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Attribute: [HasAttribute, NamespaceType=Any, Namespace='*', Name='title', value='']
+case selector	[svg|href=x]
+--
+serialize: [svg|href="x"]
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Attribute: [ExactValueMatch, NamespaceType=Named, Namespace='svg', Name='href', value='x']
+case selector	:hover
+--
+serialize: :hover
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: hover
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=hover
+case selector	:not(.a, #b)
+--
+serialize: :not(.a, #b)
+specificity: 65536
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: not
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=not([
+    CSS::Selector:
+      {None} Class:a
+    CSS::Selector:
+      {None} Id:b
+  ])
+case selector	:is(div, .a#b) span
+--
+serialize: :is(div, .a#b) span
+specificity: 65793
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: is
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=is([
+    CSS::Selector:
+      {None} TagName:NamespaceType=Default, Namespace='', Name='div'
+    CSS::Selector:
+      {None} Class:a, Id:b
+  ])
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='span'
+case selector	:where(#a, .b) > p
+--
+serialize: :where(#a, .b) > p
+specificity: 1
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: where
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=where([
+    CSS::Selector:
+      {None} Id:a
+    CSS::Selector:
+      {None} Class:b
+  ])
+  {ImmediateChild} TagName:NamespaceType=Default, Namespace='', Name='p'
+case selector	:has(> img)
+--
+serialize: :has(> img)
+specificity: 1
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: has
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=has([
+    CSS::Selector:
+      {ImmediateChild} TagName:NamespaceType=Default, Namespace='', Name='img'
+  ])
+case selector	:has(+ .x, ~ #y)
+--
+serialize: :has(+ .x, ~ #y)
+specificity: 65536
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: has
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=has([
+    CSS::Selector:
+      {AdjacentSibling} Class:x
+    CSS::Selector:
+      {GeneralSibling} Id:y
+  ])
+case selector	div:has(p .q)
+--
+serialize: div:has(p .q)
+specificity: 258
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: has
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='div', PseudoClassSelector: pseudo_class=has([
+    CSS::Selector:
+      {Descendant} TagName:NamespaceType=Default, Namespace='', Name='p'
+      {Descendant} Class:q
+  ])
+case selector	:nth-child(2n+1)
+--
+serialize: :nth-child(2n+1)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: nth-child
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=nth-child(step=2, offset=1)
+case selector	:nth-child(odd of .a, #b)
+--
+serialize: :nth-child(2n+1)
+specificity: 65792
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: nth-child
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=nth-child(step=2, offset=1, selectors=[
+    CSS::Selector:
+      {None} Class:a
+    CSS::Selector:
+      {None} Id:b
+  ])
+case selector	:nth-last-child(-n+3)
+--
+serialize: :nth-last-child(-n+3)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: nth-last-child
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=nth-last-child(step=-1, offset=3)
+case selector	:nth-of-type(even)
+--
+serialize: :nth-of-type(2n)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: nth-of-type
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=nth-of-type(step=2, offset=0)
+case selector	:nth-last-of-type(5)
+--
+serialize: :nth-last-of-type(5)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: nth-last-of-type
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=nth-last-of-type(step=0, offset=5)
+case selector	li:only-child:last-of-type:empty
+--
+serialize: li:only-child:last-of-type:empty
+specificity: 769
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: empty last-of-type only-child
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='li', PseudoClassSelector: pseudo_class=only-child, PseudoClassSelector: pseudo_class=last-of-type, PseudoClassSelector: pseudo_class=empty
+case selector	:root > body
+--
+serialize: :root > body
+specificity: 257
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: root
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=root
+  {ImmediateChild} TagName:NamespaceType=Default, Namespace='', Name='body'
+case selector	:lang(en, "fr-CA")
+--
+serialize: :lang(en, fr-CA)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: lang
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=lang(en,fr-CA)
+case selector	:dir(rtl)
+--
+serialize: :dir(rtl)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: dir
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=dir(ident=rtl)
+case selector	:heading
+--
+serialize: :heading
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: heading
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=heading()
+case selector	:heading(1, 3)
+--
+serialize: :heading(1, 3)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: heading
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=heading(1,3)
+case selector	:host
+--
+serialize: :host
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: host
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=host([
+  ])
+case selector	:host(.x)
+--
+serialize: :host(.x)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: host
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=host([
+    CSS::Selector:
+      {None} Class:x
+  ])
+case selector	:state(foo)
+--
+serialize: :state(foo)
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: state
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=state(ident=foo)
+case selector	p::before
+--
+serialize: p::before
+specificity: 2
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+target: ::before
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='p', PseudoElement: pseudo_element=::before
+case selector	p:first-letter
+--
+serialize: p::first-letter
+specificity: 2
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+target: ::first-letter
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='p', PseudoElement: pseudo_element=::first-letter
+case selector	::part(a b)
+--
+serialize: ::part(a b)
+specificity: 1
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: true
+target: ::part(a b)
+pseudo_classes:
+CSS::Selector:
+  {None} PseudoElement: pseudo_element=::part(a b)
+case selector	::part(label)::before
+--
+serialize: ::part(label)::before
+specificity: 2
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: true
+target: ::before
+pseudo_classes:
+CSS::Selector:
+  {None} PseudoElement: pseudo_element=::part(label), PseudoElement: pseudo_element=::before
+case selector	::slotted(span)
+--
+serialize: ::slotted(span)
+specificity: 1
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: true part: false
+target: ::slotted(span)
+pseudo_classes:
+CSS::Selector:
+  {None} PseudoElement: pseudo_element=::slotted(span)
+case selector	::view-transition-group(*)
+--
+serialize: ::view-transition-group(*)
+specificity: 0
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+target: ::view-transition-group(*)
+pseudo_classes:
+CSS::Selector:
+  {None} PseudoElement: pseudo_element=::view-transition-group(*)(is_universal=true, value='')
+case selector	::-webkit-scrollbar
+--
+serialize: ::-webkit-scrollbar
+specificity: 1
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: true slotted: false part: false
+target: ::-webkit-scrollbar
+pseudo_classes:
+CSS::Selector:
+  {None} PseudoElement: pseudo_element=::-webkit-scrollbar
+case selector	input::placeholder
+--
+serialize: input::placeholder
+specificity: 2
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+target: ::placeholder
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='input', PseudoElement: pseudo_element=::placeholder
+case selector	a:link, a:visited, a:any-link
+--
+serialize: a:link
+specificity: 257
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: link
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='a', PseudoClassSelector: pseudo_class=link
+--
+serialize: a:visited
+specificity: 257
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: visited
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='a', PseudoClassSelector: pseudo_class=visited
+--
+serialize: a:any-link
+specificity: 257
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: any-link
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='a', PseudoClassSelector: pseudo_class=any-link
+case selector	:checked:enabled:focus-visible
+--
+serialize: :checked:enabled:focus-visible
+specificity: 768
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: checked enabled focus-visible
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=checked, PseudoClassSelector: pseudo_class=enabled, PseudoClassSelector: pseudo_class=focus-visible
+case selector	:read-only:required:valid
+--
+serialize: :read-only:required:valid
+specificity: 768
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: read-only required valid
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=read-only, PseudoClassSelector: pseudo_class=required, PseudoClassSelector: pseudo_class=valid
+case selector	div p span a em strong b i u s
+--
+serialize: div p span a em strong b i u s
+specificity: 10
+fast: true ancestor_filter: true
+hashes: 926215753 1573272431 14385563 353052819 3649388824 3392050242 3854665373 9208057
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='div'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='p'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='span'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='a'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='em'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='strong'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='b'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='i'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='u'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='s'
+case selector	.a + .b + .c > .d
+--
+serialize: .a + .b + .c > .d
+specificity: 1024
+fast: false ancestor_filter: true
+hashes: 4005191001 0 0 0 0 0 0 0
+sibling_distance: 2
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Class:a
+  {AdjacentSibling} Class:b
+  {AdjacentSibling} Class:c
+  {ImmediateChild} Class:d
+case selector	.a ~ .b .c + .d
+--
+serialize: .a ~ .b .c + .d
+specificity: 1024
+fast: false ancestor_filter: true
+hashes: 14385563 0 0 0 0 0 0 0
+sibling_distance: 18446744073709551615
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Class:a
+  {GeneralSibling} Class:b
+  {Descendant} Class:c
+  {AdjacentSibling} Class:d
+case selector	#a || #b
+--
+serialize: #a || #b
+specificity: 131072
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Id:a
+  {Column} Id:b
+case selector	.a .a .a .a .a .a .a .a .a .a .a
+--
+serialize: .a .a .a .a .a .a .a .a .a .a .a
+specificity: 2816
+fast: true ancestor_filter: true
+hashes: 3392050242 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+  {Descendant} Class:a
+case selector	h1 h2 h3 h4 h5 h6 h1 h2 h3 h4
+--
+serialize: h1 h2 h3 h4 h5 h6 h1 h2 h3 h4
+specificity: 10
+fast: true ancestor_filter: true
+hashes: 2575252925 2216432375 3981927760 1896246476 3051615878 1336617494 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} TagName:NamespaceType=Default, Namespace='', Name='h1'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h2'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h3'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h4'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h5'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h6'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h1'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h2'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h3'
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='h4'
+case selector	:is(:is(.a))
+--
+serialize: :is(:is(.a))
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: is
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=is([
+    CSS::Selector:
+      {None} PseudoClassSelector: pseudo_class=is([
+        CSS::Selector:
+          {None} Class:a
+      ])
+  ])
+case selector	:not(:has(.a))
+--
+serialize: :not(:has(.a))
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: has not
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=not([
+    CSS::Selector:
+      {None} PseudoClassSelector: pseudo_class=has([
+        CSS::Selector:
+          {Descendant} Class:a
+      ])
+  ])
+case selector	:scope > p
+--
+serialize: :scope > p
+specificity: 257
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: scope
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=scope
+  {ImmediateChild} TagName:NamespaceType=Default, Namespace='', Name='p'
+case selector	& .a
+--
+serialize: & .a
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: true webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Nesting:
+  {Descendant} Class:a
+case selector	.a:is(&)
+--
+serialize: .a:is(&)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: true webkit: false slotted: false part: false
+pseudo_classes: is
+CSS::Selector:
+  {None} Class:a, PseudoClassSelector: pseudo_class=is([
+    CSS::Selector:
+      {None} Nesting:
+  ])
+case selector	:is(.a, $)
+--
+serialize: :is(.a, $)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: is
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=is([
+    CSS::Selector:
+      {None} Class:a
+    CSS::Selector:
+      {None} INVALID: '$'
+  ])
+error: style selector ` $` is invalid: Unrecognized delimiter: $ (1)
+case selector	foo|bar
+failure
+case selector	:nth-child(n)
+--
+serialize: :nth-child(n)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: nth-child
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=nth-child(step=1, offset=0)
+error: style selector `foo|bar` is invalid: Invalid start of a simple selector: Token: Ident(value="foo", source="foo", start=0:0, end=0:3) (1)
+case selector	:nth-child(-2n-3)
+--
+serialize: :nth-child(-2n-3)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: nth-child
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=nth-child(step=-2, offset=-3)
+case selector	:nth-child(0n+0)
+--
+serialize: :nth-child(0)
+specificity: 256
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: nth-child
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=nth-child(step=0, offset=0)
+case selector	:popover-open:modal:open
+--
+serialize: :popover-open:modal:open
+specificity: 768
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: modal open popover-open
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=popover-open, PseudoClassSelector: pseudo_class=modal, PseudoClassSelector: pseudo_class=open
+case selector	[a="b c"]
+--
+serialize: [a="b c"]
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Attribute: [ExactValueMatch, NamespaceType=Default, Namespace='', Name='a', value='b c']
+case selector	[a=""]
+--
+serialize: [a]
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Attribute: [ExactValueMatch, NamespaceType=Default, Namespace='', Name='a', value='']
+case selector	.\31 23
+--
+serialize: .123
+specificity: 256
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Class:123
+case selector	#\#x
+--
+serialize: #\#x
+specificity: 65536
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Id:#x
+case nested	.a
+nested: & .a
+absolutized: :is(.p, #q) .a specificity: 65792
+absolutized_has: :has(.y) .a
+case nested	> .a
+nested: & > .a
+absolutized: :is(.p, #q) > .a specificity: 65792
+absolutized_has: :has(.y) > .a
+case nested	+ .b ~ .c
+nested: & + .b ~ .c
+absolutized: :is(.p, #q) + .b ~ .c specificity: 66048
+absolutized_has: :has(.y) + .b ~ .c
+case nested	& .a
+nested: & .a
+absolutized: :is(.p, #q) .a specificity: 65792
+absolutized_has: :has(.y) .a
+case nested	.a &
+nested: .a &
+absolutized: .a :is(.p, #q) specificity: 65792
+absolutized_has: .a :has(.y)
+case nested	 .a & .b
+nested: .a & .b
+absolutized: .a :is(.p, #q) .b specificity: 66048
+absolutized_has: .a :has(.y) .b
+case nested	.a, & > .b, ~ .c
+nested: & .a
+absolutized: :is(.p, #q) .a specificity: 65792
+absolutized_has: :has(.y) .a
+nested: & > .b
+absolutized: :is(.p, #q) > .b specificity: 65792
+absolutized_has: :has(.y) > .b
+nested: & ~ .c
+absolutized: :is(.p, #q) ~ .c specificity: 65792
+absolutized_has: :has(.y) ~ .c
+case nested	:has(&)
+nested: :has(&)
+absolutized: :has(:is(.p, #q)) specificity: 65536
+absolutized_has: null
+error: style selector `:has(.y)` is invalid: After absolutizing, :has() would contain invalid contents. (1)
+case nested	:not(& .x)
+nested: :not(& .x)
+absolutized: :not(:is(.p, #q) .x) specificity: 65792
+absolutized_has: :not(:has(.y) .x)
+case nested	:is(.a, &)
+nested: :is(.a, &)
+absolutized: :is(.a, :is(.p, #q)) specificity: 65536
+absolutized_has: :is(.a, :has(.y))
+case nested	:has(> &)
+nested: :has(> &)
+absolutized: :has(> :is(.p, #q)) specificity: 65536
+absolutized_has: null
+error: style selector `> :has(.y)` is invalid: After absolutizing, :has() would contain invalid contents. (1)
+case nested	:not(:has(&))
+nested: :not(:has(&))
+absolutized: :not(:has(:is(.p, #q))) specificity: 65536
+absolutized_has: null
+error: style selector `:has(.y)` is invalid: After absolutizing, :has() would contain invalid contents. (1)
+case nested	:is(:has(&), .b)
+nested: :is(:has(&), .b)
+absolutized: :is(:has(:is(.p, #q)), .b) specificity: 65536
+absolutized_has: :is(.b)
+error: style selector `:has(.y)` is invalid: After absolutizing, :has() would contain invalid contents. (1)
+case anb	0 0
+serialize: 0 matches: 000000000000
+case anb	0 3
+serialize: 3 matches: 001000000000
+case anb	0 -2
+serialize: -2 matches: 000000000000
+case anb	1 0
+serialize: n matches: 111111111111
+case anb	1 4
+serialize: n+4 matches: 000111111111
+case anb	-1 3
+serialize: -n+3 matches: 111000000000
+case anb	-1 0
+serialize: -n matches: 000000000000
+case anb	2 1
+serialize: 2n+1 matches: 101010101010
+case anb	2 0
+serialize: 2n matches: 010101010101
+case anb	2 -1
+serialize: 2n-1 matches: 101010101010
+case anb	3 2
+serialize: 3n+2 matches: 010010010010
+case anb	-2 7
+serialize: -2n+7 matches: 101010100000
+case anb	-3 -1
+serialize: -3n-1 matches: 000000000000
+case anb	5 -7
+serialize: 5n-7 matches: 001000010000
+case anb	-4 10
+serialize: -4n+10 matches: 010001000100
+case page	:first
+page: ':first'
+case page	toc
+page: 'toc'
+case page	toc:left:blank, :right
+page: 'toc:left:blank'
+page: ':right'
+case page	:FIRST:Left
+page: ':first:left'
+case selector	.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a
+--
+serialize: .a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a
+specificity: 65280
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a
+case selector	#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a
+--
+serialize: #a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a
+specificity: 16711680
+fast: true ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes:
+CSS::Selector:
+  {None} Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a, Id:a
+case selector	:is(.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a) div
+--
+serialize: :is(.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a) div
+specificity: 65281
+fast: false ancestor_filter: false
+hashes: 0 0 0 0 0 0 0 0
+sibling_distance: 0
+nesting: false webkit: false slotted: false part: false
+pseudo_classes: is
+CSS::Selector:
+  {None} PseudoClassSelector: pseudo_class=is([
+    CSS::Selector:
+      {None} Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a, Class:a
+  ])
+  {Descendant} TagName:NamespaceType=Default, Namespace='', Name='div'

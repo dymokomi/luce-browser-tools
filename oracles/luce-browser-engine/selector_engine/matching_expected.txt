@@ -1,0 +1,245 @@
+document: html(head(script() script()) body(root() out()))
+tree <div id=a class="x y"><p id=b class="y"><span id=c class="Z"></span><em id=d></em></p><p id=e><span id=f class="x"></span></p></div><section id=g><span id=h></span></section>
+root * => a,b,c,d,e,f,g,h
+root div => a
+root p => b,e
+root span => c,f,h
+root DIV => a
+root #b => b
+root #B => 
+root .y => a,b
+root .x.y => a
+root .z => 
+root .Z => c
+root p.y => b
+root #a .x => f
+root div span => c,f,h
+root div > span => 
+root p > span => c,f
+root p span.x => f
+root #a > p > span => c,f
+root div p em => d
+root section span, p em => d,h
+root :scope > * => a,g
+root :scope > p => 
+root :scope span => c,f,h
+root #a p:not(.y) => e
+root p span ~ em => d
+root span + em => d
+root p + p => e
+root p ~ p > span => f
+root div + section => g
+root #nope => 
+root .x .x => f
+root [id] => a,b,c,d,e,f,g,h
+root p:is(.y, #e) span => c,f
+root :where(#a, #g) > * => b,e,h
+root :is(section) span => h
+doc :root => html
+doc html => html
+doc :root > body > div > div => a
+doc body > * => root
+doc head > * => script,script
+doc #root > div => a
+doc html span => c,f,h
+tree <ul id=u><li id=l1></li><li id=l2></li><li id=l3></li><li id=l4></li><li id=l5></li><li id=l6></li><li id=l7></li></ul>
+root li:first-child => l1
+root li:last-child => l7
+root li:only-child => 
+root li:nth-child(2) => l2
+root li:nth-child(odd) => l1,l3,l5,l7
+root li:nth-child(even) => l2,l4,l6
+root li:nth-child(3n) => l3,l6
+root li:nth-child(3n+1) => l1,l4,l7
+root li:nth-child(-n+3) => l1,l2,l3
+root li:nth-child(n+5) => l5,l6,l7
+root li:nth-child(-2n+5) => l1,l3,l5
+root li:nth-child(0n+0) => 
+root li:nth-child(5n-2) => l3
+root li:nth-last-child(2) => l6
+root li:nth-last-child(odd) => l1,l3,l5,l7
+root li:nth-last-child(-n+2) => l6,l7
+root li:nth-of-type(3) => l3
+root li:nth-last-of-type(1) => l7
+root li:first-of-type => l1
+root li:last-of-type => l7
+root li:only-of-type => 
+root ul:only-child => u
+root ul:only-of-type => u
+root li:nth-child(2) ~ li:nth-child(-n+5) => l3,l4,l5
+root li:nth-child(2) + li => l3
+root li:not(:first-child):not(:last-child) => l2,l3,l4,l5,l6
+root :first-child => u,l1
+root :last-child => u,l7
+tree <div id=m><p id=p1 class=k></p><span id=s1 class=k></span><p id=p2></p><span id=s2></span><p id=p3 class=k></p><em id=e1 class=k></em><p id=p4></p></div>
+root p:nth-of-type(2) => p2
+root p:nth-last-of-type(2) => p3
+root span:first-of-type => s1
+root span:last-of-type => s2
+root em:only-of-type => e1
+root p:first-of-type => p1
+root :nth-child(2n of .k) => s1,e1
+root :nth-child(1 of .k) => p1
+root :nth-last-child(1 of .k) => e1
+root :nth-child(odd of p) => p1,p3
+root :nth-last-child(2 of p, span) => p3
+root :nth-child(n of .nope) => 
+root .k:nth-child(odd of .k) => p1,p3
+root p:nth-of-type(odd) => p1,p3
+root :nth-last-of-type(1) => m,s2,e1,p4
+tree <div id=e1></div><div id=e2> </div><div id=e3>text</div><div id=e4><span id=e5></span></div><div id=e6><b id=e7></b>x</div>
+root div:empty => e1
+root :empty => e1,e5,e7
+root div:not(:empty) => e2,e3,e4,e6
+root span:empty => e5
+tree <a id=a1 href="http://example.com/x.pdf" title="Hello World" lang="en-US" data-v="a b  c" rel="next"></a><a id=a2 href="https://Example.com/y.PDF" title="hello" lang="en" data-v="" rel="NEXT"></a><a id=a3 lang="fr-en" data-v="b" type="TeXt"></a><a id=a4 title></a>
+root [href] => a1,a2
+root [title] => a1,a2,a4
+root a[title=""] => a4
+root [title="Hello World"] => a1
+root [title="hello world"] => 
+root [title="hello world" i] => a1
+root [title="Hello World" s] => a1
+root [title~=World] => a1
+root [title~=world i] => a1
+root [title~=Hello] => a1
+root [title~=""] => 
+root [data-v~=b] => a1,a3
+root [data-v~=c] => a1
+root [data-v~=" "] => 
+root [lang|=en] => a1,a2
+root [lang|=EN] => a1,a2
+root [lang|=en i] => a1,a2
+root [lang|=fr] => a3
+root [lang|="en-US"] => a1
+root [lang|=""] => 
+root [title^=Hel] => a1
+root [title^=hel i] => a1,a2
+root [title^=""] => 
+root [href$=".pdf"] => a1
+root [href$=".pdf" i] => a1,a2
+root [href*=example] => a1
+root [href*=EXAMPLE i] => a1,a2
+root [href*=""] => 
+root [data-v=""] => a2
+root [rel=next] => a1,a2
+root [type=text] => a3
+root [type="text" s] => 
+root [TITLE] => a1,a2,a4
+root [*|title] => a1,a2,a4
+root [*|title="hello"] => a2
+root [|title] => a1,a2,a4
+root a:not([lang]) => a4
+root [data-v][title] => a1,a2
+tree <div id=h1><p id=h2><span id=h3 class=t></span></p><img id=h4><em id=h5></em></div><div id=h6><b id=h7></b><i id=h8 class=t></i></div><div id=h9></div>
+root div:has(img) => h1
+root div:has(> img) => h1
+root div:has(> span) => 
+root div:has(span) => h1
+root div:has(.t) => h1,h6
+root p:has(+ img) => h2
+root p:has(~ em) => h2
+root img:has(+ em) => h4
+root b:has(+ .t) => h7
+root b:has(~ .t) => h7
+root div:has(> p > .t) => h1
+root div:has(p .t) => h1
+root :has(> .t) => h2,h6
+root div:not(:has(*)) => h9
+root div:has(.nope) => 
+root :is(div, p):has(span) => h1,h2
+root div:has(b, img) => h1,h6
+root div:has(> b + i) => h6
+root div:has(~ div > b) => h1
+root div:has(+ div) => h1,h6
+root :has(:scope) => 
+root :not(:has(img)) > * => h3,h7,h8
+tree <h1 id=t1></h1><h2 id=t2></h2><h3 id=t3></h3><h4 id=t4></h4><h5 id=t5></h5><h6 id=t6></h6><p id=t7></p>
+root :heading => t1,t2,t3,t4,t5,t6
+root h1 ~ :heading => t2,t3,t4,t5,t6
+root :defined => t1,t2,t3,t4,t5,t6,t7
+tree <details id=d1 open><summary id=d2></summary></details><details id=d3></details><dialog id=d4 open></dialog><dialog id=d5></dialog><div id=d6></div>
+root :open => d1,d4
+root details:not(:open) => d3
+root :popover-open => 
+root :target => 
+root :hover => 
+root :focus => 
+root :focus-within => 
+root :active => 
+root :visited => 
+root :link => 
+root :autofill => 
+root :fullscreen => 
+root :playing => 
+root :paused => 
+root :volume-locked => 
+root :valid => 
+root :invalid => 
+root :checked => 
+root :indeterminate => 
+root :required => 
+root :optional => 
+root :read-only => d1,d2,d3,d4,d5,d6
+root :read-write => 
+tree <div id=n1 lang="en-US"><p id=n2></p><p id=n3 lang="de"><span id=n4></span></p><p id=n5 lang="en-GB-oed"></p><p id=n6 lang=""></p></div><div id=n7 lang="zh-Hant-TW"></div><div id=n8 lang="de-Latn-DE-1996"></div>
+root :lang(en) => n1,n2,n5
+root :lang(en-US) => n1,n2
+root :lang("en-GB") => n5
+root :lang(de) => n3,n4,n8
+root :lang(de-DE) => n8
+root :lang("*-DE") => n8
+root :lang(zh-TW) => n7
+root :lang("zh-*-TW") => n7
+root :lang(fr, de) => n3,n4,n8
+root p:lang(EN) => n2,n5
+tree <div id=x1><div id=x2><div id=x3><span id=x4></span></div></div><div id=x5><span id=x6></span><span id=x7></span></div></div>
+root div div span => x4,x6,x7
+root div > div > span => x4,x6,x7
+root #x1 > div span => x4,x6,x7
+root #x1 > span => 
+root div:not(#x3) > span => x6,x7
+root div > div ~ div > span => x6,x7
+root span + span => x7
+root span ~ span => x7
+root #x2 + div span => x6,x7
+root div:is(#x2, #x5) > div > span => x4
+root div:where(#x3) span => x4
+root :is(#x1 #x3) span => x4
+root :not(div) + span => x7
+root :is(div > span) + * => x7
+tree <p id=q1 class="a"></p><p id=q2 class="a b"></p><p id=q3 class="A"></p><p id=q4 class="  a  "></p><p id=q5 class=""></p>
+root .a => q1,q2,q4
+root .b.a => q2
+root .A => q3
+root p:not(.a) => q3,q5
+root [class] => q1,q2,q3,q4,q5
+root [class=a] => q1
+root [class~=a] => q1,q2,q4
+root [class="  a  "] => q4
+tree <div id=w1></div>
+root ::before => 
+root div::before => 
+root div:first-letter => 
+root ::-webkit-foo => 
+root :nth-child( => error
+root a ::part(x) => 
+root foo|div => error
+root svg|div => error
+root *|div => w1
+root |div => 
+root div:scope => 
+root :hover > div => 
+tree <div id=k1 class=a><div id=k2 class=b><div id=k3 class=b><span id=k4 class=c></span></div></div></div><div id=k5 class=b><div id=k6 class=a><span id=k7 class=c></span></div></div>
+root .a > .b .c => k4
+root .a > .b > .c => 
+root .b > .b > .c => k4
+root .a .b .c => k4
+root .b .a > .c => k7
+root .b > .a .c => k7
+root div > div > div > span => k4,k7
+root .a > .b .b > .c => k4
+root :scope > .b .c => k7
+doc :scope => 
+doc :scope > * => 
+doc body > :scope => 

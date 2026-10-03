@@ -1,0 +1,106 @@
+# r38 selector cases: <mode><TAB><input> (see selectors.cpp)
+selector	*
+selector	div
+selector	DIV.Foo#Bar
+selector	.a.b.c
+selector	#x #y .z
+selector	a > b + c ~ d e
+selector	ul li:first-child
+selector	[href]
+selector	[lang|=en i]
+selector	a[href^="http"][href$='.pdf' s]
+selector	[data-x~=foo], [data-y*=bar]
+selector	svg|rect
+selector	*|*
+selector	|p
+selector	svg|*.c
+selector	[*|title]
+selector	[svg|href=x]
+selector	:hover
+selector	:not(.a, #b)
+selector	:is(div, .a#b) span
+selector	:where(#a, .b) > p
+selector	:has(> img)
+selector	:has(+ .x, ~ #y)
+selector	div:has(p .q)
+selector	:nth-child(2n+1)
+selector	:nth-child(odd of .a, #b)
+selector	:nth-last-child(-n+3)
+selector	:nth-of-type(even)
+selector	:nth-last-of-type(5)
+selector	li:only-child:last-of-type:empty
+selector	:root > body
+selector	:lang(en, "fr-CA")
+selector	:dir(rtl)
+selector	:heading
+selector	:heading(1, 3)
+selector	:host
+selector	:host(.x)
+selector	:state(foo)
+selector	p::before
+selector	p:first-letter
+selector	::part(a b)
+selector	::part(label)::before
+selector	::slotted(span)
+selector	::view-transition-group(*)
+selector	::-webkit-scrollbar
+selector	input::placeholder
+selector	a:link, a:visited, a:any-link
+selector	:checked:enabled:focus-visible
+selector	:read-only:required:valid
+selector	div p span a em strong b i u s
+selector	.a + .b + .c > .d
+selector	.a ~ .b .c + .d
+selector	#a || #b
+selector	.a .a .a .a .a .a .a .a .a .a .a
+selector	h1 h2 h3 h4 h5 h6 h1 h2 h3 h4
+selector	:is(:is(.a))
+selector	:not(:has(.a))
+selector	:scope > p
+selector	& .a
+selector	.a:is(&)
+selector	:is(.a, $)
+selector	foo|bar
+selector	:nth-child(n)
+selector	:nth-child(-2n-3)
+selector	:nth-child(0n+0)
+selector	:popover-open:modal:open
+selector	[a="b c"]
+selector	[a=""]
+selector	.\31 23
+selector	#\#x
+nested	.a
+nested	> .a
+nested	+ .b ~ .c
+nested	& .a
+nested	.a &
+nested	 .a & .b
+nested	.a, & > .b, ~ .c
+nested	:has(&)
+nested	:not(& .x)
+nested	:is(.a, &)
+nested	:has(> &)
+nested	:not(:has(&))
+nested	:is(:has(&), .b)
+anb	0 0
+anb	0 3
+anb	0 -2
+anb	1 0
+anb	1 4
+anb	-1 3
+anb	-1 0
+anb	2 1
+anb	2 0
+anb	2 -1
+anb	3 2
+anb	-2 7
+anb	-3 -1
+anb	5 -7
+anb	-4 10
+page	:first
+page	toc
+page	toc:left:blank, :right
+page	:FIRST:Left
+selector	.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a
+selector	#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a#a
+selector	:is(.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a) div

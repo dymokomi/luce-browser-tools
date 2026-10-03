@@ -1,0 +1,246 @@
+# r38 SelectorEngine matching cases (see gen_matching.py). Markup is what the HTML parser keeps
+# as written, so the Luce test can build the same tree by hand.
+tree <div id=a class="x y"><p id=b class="y"><span id=c class="Z"></span><em id=d></em></p><p id=e><span id=f class="x"></span></p></div><section id=g><span id=h></span></section>
+root *
+root div
+root p
+root span
+root DIV
+root #b
+root #B
+root .y
+root .x.y
+root .z
+root .Z
+root p.y
+root #a .x
+root div span
+root div > span
+root p > span
+root p span.x
+root #a > p > span
+root div p em
+root section span, p em
+root :scope > *
+root :scope > p
+root :scope span
+root #a p:not(.y)
+root p span ~ em
+root span + em
+root p + p
+root p ~ p > span
+root div + section
+root #nope
+root .x .x
+root [id]
+root p:is(.y, #e) span
+root :where(#a, #g) > *
+root :is(section) span
+doc :root
+doc html
+doc :root > body > div > div
+doc body > *
+doc head > *
+doc #root > div
+doc html span
+tree <ul id=u><li id=l1></li><li id=l2></li><li id=l3></li><li id=l4></li><li id=l5></li><li id=l6></li><li id=l7></li></ul>
+root li:first-child
+root li:last-child
+root li:only-child
+root li:nth-child(2)
+root li:nth-child(odd)
+root li:nth-child(even)
+root li:nth-child(3n)
+root li:nth-child(3n+1)
+root li:nth-child(-n+3)
+root li:nth-child(n+5)
+root li:nth-child(-2n+5)
+root li:nth-child(0n+0)
+root li:nth-child(5n-2)
+root li:nth-last-child(2)
+root li:nth-last-child(odd)
+root li:nth-last-child(-n+2)
+root li:nth-of-type(3)
+root li:nth-last-of-type(1)
+root li:first-of-type
+root li:last-of-type
+root li:only-of-type
+root ul:only-child
+root ul:only-of-type
+root li:nth-child(2) ~ li:nth-child(-n+5)
+root li:nth-child(2) + li
+root li:not(:first-child):not(:last-child)
+root :first-child
+root :last-child
+tree <div id=m><p id=p1 class=k></p><span id=s1 class=k></span><p id=p2></p><span id=s2></span><p id=p3 class=k></p><em id=e1 class=k></em><p id=p4></p></div>
+root p:nth-of-type(2)
+root p:nth-last-of-type(2)
+root span:first-of-type
+root span:last-of-type
+root em:only-of-type
+root p:first-of-type
+root :nth-child(2n of .k)
+root :nth-child(1 of .k)
+root :nth-last-child(1 of .k)
+root :nth-child(odd of p)
+root :nth-last-child(2 of p, span)
+root :nth-child(n of .nope)
+root .k:nth-child(odd of .k)
+root p:nth-of-type(odd)
+root :nth-last-of-type(1)
+tree <div id=e1></div><div id=e2> </div><div id=e3>text</div><div id=e4><span id=e5></span></div><div id=e6><b id=e7></b>x</div>
+root div:empty
+root :empty
+root div:not(:empty)
+root span:empty
+tree <a id=a1 href="http://example.com/x.pdf" title="Hello World" lang="en-US" data-v="a b  c" rel="next"></a><a id=a2 href="https://Example.com/y.PDF" title="hello" lang="en" data-v="" rel="NEXT"></a><a id=a3 lang="fr-en" data-v="b" type="TeXt"></a><a id=a4 title></a>
+root [href]
+root [title]
+root a[title=""]
+root [title="Hello World"]
+root [title="hello world"]
+root [title="hello world" i]
+root [title="Hello World" s]
+root [title~=World]
+root [title~=world i]
+root [title~=Hello]
+root [title~=""]
+root [data-v~=b]
+root [data-v~=c]
+root [data-v~=" "]
+root [lang|=en]
+root [lang|=EN]
+root [lang|=en i]
+root [lang|=fr]
+root [lang|="en-US"]
+root [lang|=""]
+root [title^=Hel]
+root [title^=hel i]
+root [title^=""]
+root [href$=".pdf"]
+root [href$=".pdf" i]
+root [href*=example]
+root [href*=EXAMPLE i]
+root [href*=""]
+root [data-v=""]
+root [rel=next]
+root [type=text]
+root [type="text" s]
+root [TITLE]
+root [*|title]
+root [*|title="hello"]
+root [|title]
+root a:not([lang])
+root [data-v][title]
+tree <div id=h1><p id=h2><span id=h3 class=t></span></p><img id=h4><em id=h5></em></div><div id=h6><b id=h7></b><i id=h8 class=t></i></div><div id=h9></div>
+root div:has(img)
+root div:has(> img)
+root div:has(> span)
+root div:has(span)
+root div:has(.t)
+root p:has(+ img)
+root p:has(~ em)
+root img:has(+ em)
+root b:has(+ .t)
+root b:has(~ .t)
+root div:has(> p > .t)
+root div:has(p .t)
+root :has(> .t)
+root div:not(:has(*))
+root div:has(.nope)
+root :is(div, p):has(span)
+root div:has(b, img)
+root div:has(> b + i)
+root div:has(~ div > b)
+root div:has(+ div)
+root :has(:scope)
+root :not(:has(img)) > *
+tree <h1 id=t1></h1><h2 id=t2></h2><h3 id=t3></h3><h4 id=t4></h4><h5 id=t5></h5><h6 id=t6></h6><p id=t7></p>
+root :heading
+root h1 ~ :heading
+root :defined
+tree <details id=d1 open><summary id=d2></summary></details><details id=d3></details><dialog id=d4 open></dialog><dialog id=d5></dialog><div id=d6></div>
+root :open
+root details:not(:open)
+root :popover-open
+root :target
+root :hover
+root :focus
+root :focus-within
+root :active
+root :visited
+root :link
+root :autofill
+root :fullscreen
+root :playing
+root :paused
+root :volume-locked
+root :valid
+root :invalid
+root :checked
+root :indeterminate
+root :required
+root :optional
+root :read-only
+root :read-write
+tree <div id=n1 lang="en-US"><p id=n2></p><p id=n3 lang="de"><span id=n4></span></p><p id=n5 lang="en-GB-oed"></p><p id=n6 lang=""></p></div><div id=n7 lang="zh-Hant-TW"></div><div id=n8 lang="de-Latn-DE-1996"></div>
+root :lang(en)
+root :lang(en-US)
+root :lang("en-GB")
+root :lang(de)
+root :lang(de-DE)
+root :lang("*-DE")
+root :lang(zh-TW)
+root :lang("zh-*-TW")
+root :lang(fr, de)
+root p:lang(EN)
+tree <div id=x1><div id=x2><div id=x3><span id=x4></span></div></div><div id=x5><span id=x6></span><span id=x7></span></div></div>
+root div div span
+root div > div > span
+root #x1 > div span
+root #x1 > span
+root div:not(#x3) > span
+root div > div ~ div > span
+root span + span
+root span ~ span
+root #x2 + div span
+root div:is(#x2, #x5) > div > span
+root div:where(#x3) span
+root :is(#x1 #x3) span
+root :not(div) + span
+root :is(div > span) + *
+tree <p id=q1 class="a"></p><p id=q2 class="a b"></p><p id=q3 class="A"></p><p id=q4 class="  a  "></p><p id=q5 class=""></p>
+root .a
+root .b.a
+root .A
+root p:not(.a)
+root [class]
+root [class=a]
+root [class~=a]
+root [class="  a  "]
+tree <div id=w1></div>
+root ::before
+root div::before
+root div:first-letter
+root ::-webkit-foo
+root :nth-child(
+root a ::part(x)
+root foo|div
+root svg|div
+root *|div
+root |div
+root div:scope
+root :hover > div
+tree <div id=k1 class=a><div id=k2 class=b><div id=k3 class=b><span id=k4 class=c></span></div></div></div><div id=k5 class=b><div id=k6 class=a><span id=k7 class=c></span></div></div>
+root .a > .b .c
+root .a > .b > .c
+root .b > .b > .c
+root .a .b .c
+root .b .a > .c
+root .b > .a .c
+root div > div > div > span
+root .a > .b .b > .c
+root :scope > .b .c
+doc :scope
+doc :scope > *
+doc body > :scope
