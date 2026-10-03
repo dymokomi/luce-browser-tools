@@ -1,0 +1,294 @@
+# <syntax> (no <type> components: TypeSyntaxNode::create needs r36's value_type_from_string).
+syntax	*
+syntax	  *  
+syntax	* foo
+syntax	foo
+syntax	foo | bar
+syntax	foo+ | bar# | baz
+syntax	"foo | bar+"
+syntax	"*"
+syntax	foo bar
+syntax	foo |
+syntax	| foo
+syntax	foo || bar
+syntax	<bogus>
+syntax	<length
+syntax	1px
+syntax	auto | Inherit
+syntax	"x" y
+syntax	
+syntaxcustom	foo | bar
+syntaxcustom	inherit
+syntaxcustom	default
+syntaxcustom	foo | initial
+syntaxcustom	"auto+"
+# <compound-selector> and its simple selectors.
+compound	div
+compound	DiV.Foo#Bar
+compound	*.a
+compound	svg|rect
+compound	*|*
+compound	|p
+compound	html|p
+compound	*|p.x
+compound	.a.b.c
+compound	#id
+compound	#1a
+compound	.
+compound	.1
+compound	&
+compound	&.a
+compound	a b
+compound	a>b
+compound	a+b
+compound	a~b
+compound	a|
+compound	a!
+compound	div.a span
+compound	.a div
+compound	[x]
+compound	[ x ]
+compound	[x=y]
+compound	[x="y z"]
+compound	[x~=y]
+compound	[x*=y]
+compound	[x|=y]
+compound	[x^=y]
+compound	[x$=y]
+compound	[x=y i]
+compound	[x=y S]
+compound	[svg|x=y]
+compound	[*|x]
+compound	[|x]
+compound	[]
+compound	[*]
+compound	[1]
+compound	[x=]
+compound	[x~]
+compound	[x!=y]
+compound	[x~~y]
+compound	[x=1]
+compound	[x=y z]
+compound	[x=y 1]
+compound	[x=y i j]
+compound	[x 1]
+compound	:hover
+compound	:HOVER
+compound	a:hover:focus
+compound	:root.x
+compound	:foo
+compound	:-webkit-foo
+compound	:-moz-foo
+compound	: hover
+compound	:
+compound	:nth-child(2n+1)
+compound	:nth-child(odd)
+compound	:nth-child( even )
+compound	:nth-of-type(3)
+compound	:nth-last-child(-n+3)
+compound	:nth-child(foo)
+compound	:nth-of-type(2n of a)
+compound	:nth-child(2n+1 bar)
+compound	:nth-child()
+compound	:lang(en)
+compound	:lang(en, "fr-CA", de-*)
+compound	:lang(1)
+compound	:lang(en fr)
+compound	:dir(ltr)
+compound	:dir(rtl)
+compound	:dir(Sideways)
+compound	:dir(ltr x)
+compound	:dir(1)
+compound	:heading(1, 2,3)
+compound	:heading(1.5)
+compound	:heading(1 2)
+compound	:hover(x)
+compound	:nth-child
+compound	:bogus(x)
+compound	:is()
+compound	::-webkit-thing(x)
+compound	::bogus
+compound	::-moz-bogus
+compound	::1
+compound	"x"
+compound	1px
+compound	{}
+compound	(a)
+compound	f(x)
+compound	a,b
+compound	@x
+# The An+B microsyntax.
+anb	odd
+anb	EVEN
+anb	3
+anb	-3
+anb	+3
+anb	n
+anb	N
+anb	+n
+anb	-n
+anb	2n
+anb	2N
+anb	-2n
+anb	2n+1
+anb	2n + 1
+anb	2n- 1
+anb	2n -1
+anb	2n +1
+anb	2n + +1
+anb	2n - -1
+anb	2n- -1
+anb	2n-
+anb	2n- 3
+anb	2n-3
+anb	2n-3a
+anb	-n+3
+anb	-n + 3
+anb	-n- 3
+anb	-n-3
+anb	-n-
+anb	n-1
+anb	n- 1
+anb	+n-1
+anb	n -1
+anb	n + 1
+anb	+ n
+anb	n+
+anb	foo
+anb	1.5
+anb	1.5n
+anb	n 2
+anb	2n 2
+anb	  3  
+anb	
+anb	-N-5
+anb	3 n
+# Combinators.
+combinator	>b
+combinator	 > b
+combinator	+b
+combinator	~b
+combinator	||b
+combinator	 || b
+combinator	|b
+combinator	 b
+combinator	b
+combinator	  
+combinator	/b
+# <wq-name>.
+qname	a
+qname	*
+qname	svg|a
+qname	svg|*
+qname	*|a
+qname	*|*
+qname	|a
+qname	|*
+qname	html|a
+qname	a |b
+qname	a| b
+qname	|
+qname	1
+qnamenowild	*
+qnamenowild	svg|*
+qnamenowild	|*
+qnamenowild	*|a
+qnamenowild	a
+# <complex-selector> errors (the successes need r38's Selector::create).
+complexerr	> a
+complexerr	+ a
+complexerr	a >
+complexerr	a > > b
+complexerr	a ,
+complexerr	!
+complexerr	a !
+relativeerr	> !
+relativeerr	!
+relativeerr	+
+# @page selector list errors (before a PageSelector is made: its constructor is r38's).
+pageerr	:1
+pageerr	"x"
+# <media-type> failures (a match needs r42's media_type_from_string).
+mediatype	layer
+mediatype	NOT
+mediatype	and
+mediatype	only
+mediatype	or
+mediatype	1px
+mediatype	(x)
+mediatype	
+# <layer-name>.
+layername	foo
+layername	foo.bar.baz
+layername	 foo . bar
+layername	foo.bar baz
+layername	foo.
+layername	foo.1
+layername	inherit
+layername	foo.initial
+layername	1
+layername	
+layernameblank	
+layernameblank	  
+layernameblank	foo
+# Rule conversion error paths: convert_to_rule of an at-rule "<name> <prelude>" made directly (as a
+# statement or with an empty block) and of a style rule with the given prelude (parsing them from a
+# stylesheet needs r37's is_margin_rule_name; the successes need r37's rule objects; @container and
+# @counter-style preludes need r32's parse_custom_ident / parse_counter_style_name; the at-rules after
+# @layer in convert_to_rule need is_margin_rule_name).
+atblock	import  url(x) 
+atrule	import 
+atblock	import  
+atrule	keyframes 
+atblock	keyframes  
+atblock	keyframes  1 
+atblock	keyframes  a b 
+atblock	keyframes  none 
+atblock	keyframes  inherit 
+atblock	KEYFRAMES  url(x) 
+atrule	-webkit-keyframes 
+atrule	container 
+atrule	counter-style 
+atrule	font-face 
+atblock	font-face  x 
+atrule	font-feature-values 
+atrule	function 
+atblock	function  
+atblock	function  foo() 
+atblock	function  --foo() bar 
+atblock	function  --foo() returns 
+atblock	function  --foo() returns 1 
+atrule	layer 
+atrule	layer  a b
+atrule	layer  a, b c
+atrule	layer  a,
+atrule	layer  a, ,b
+atrule	layer  1
+atblock	layer  a b 
+atblock	layer  1 
+atblock	layer  inherit 
+atblock	-webkit-foo  
+atrule	-moz-bar 
+style	> a 
+style	a > 
+style	a ! 
+style	
+style	:foo 
+style	:-webkit-foo 
+# @function preludes (parameters need r32's parse_dashed_ident).
+prelude	--foo()
+prelude	--foo( )
+prelude	  --foo() returns bar
+prelude	--foo() returns type(*)
+prelude	--foo() returns type( a | b )
+prelude	--foo() returns bar+
+prelude	--foo() returns bar#
+prelude	--foo() returns
+prelude	--foo() returns type()
+prelude	--foo() returns type(1)
+prelude	--foo() returns bar baz
+prelude	--foo() x
+prelude	foo()
+prelude	-foo()
+prelude	--foo
+prelude	

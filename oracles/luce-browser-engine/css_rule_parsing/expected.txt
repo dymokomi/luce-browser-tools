@@ -1,0 +1,946 @@
+case syntax	*
+  Universal
+  to_string: *
+case syntax	  *  
+  Universal
+  to_string: *
+case syntax	* foo
+  none
+case syntax	foo
+  Ident: foo
+  to_string: foo
+case syntax	foo | bar
+  Alternatives:
+    Ident: foo
+    Ident: bar
+  to_string: foo | bar
+case syntax	foo+ | bar# | baz
+  Alternatives:
+    Multiplier:
+      Ident: foo
+    CommaSeparatedMultiplier:
+      Ident: bar
+    Ident: baz
+  to_string: foo+ | bar# | baz
+case syntax	"foo | bar+"
+  Alternatives:
+    Ident: foo
+    Multiplier:
+      Ident: bar
+  to_string: foo | bar+
+case syntax	"*"
+  Universal
+  to_string: *
+case syntax	foo bar
+  none
+case syntax	foo |
+  none
+case syntax	| foo
+  none
+case syntax	foo || bar
+  none
+case syntax	<bogus>
+  none
+case syntax	<length
+  none
+case syntax	1px
+  none
+case syntax	auto | Inherit
+  Alternatives:
+    Ident: auto
+    Ident: Inherit
+  to_string: auto | Inherit
+case syntax	"x" y
+  none
+case syntax	
+  none
+case syntaxcustom	foo | bar
+  Alternatives:
+    Ident: foo
+    Ident: bar
+  to_string: foo | bar
+case syntaxcustom	inherit
+  none
+case syntaxcustom	default
+  none
+case syntaxcustom	foo | initial
+  none
+case syntaxcustom	"auto+"
+  Multiplier:
+    Ident: auto
+  to_string: auto+
+case compound	div
+  combinator None
+    TagName ns=0 ns_name='' name='div' lower='div'
+  rest: 0
+case compound	DiV.Foo#Bar
+  combinator None
+    TagName ns=0 ns_name='' name='DiV' lower='div'
+    Class name='Foo' lower='foo'
+    Id name='Bar' lower='bar'
+  rest: 0
+case compound	*.a
+  combinator None
+    Universal ns=0 ns_name='' name='*' lower='*'
+    Class name='a' lower='a'
+  rest: 0
+case compound	svg|rect
+  combinator None
+    TagName ns=3 ns_name='svg' name='rect' lower='rect'
+  rest: 0
+case compound	*|*
+  combinator None
+    Universal ns=2 ns_name='*' name='*' lower='*'
+  rest: 0
+case compound	|p
+  combinator None
+    TagName ns=1 ns_name='' name='p' lower='p'
+  rest: 0
+case compound	html|p
+  error SyntaxError
+  rest: 2
+  error: style selector `html|p` is invalid: Invalid start of a simple selector: Token: Ident(value="html", source="html", start=0:0, end=0:4) (1)
+case compound	*|p.x
+  combinator None
+    TagName ns=2 ns_name='*' name='p' lower='p'
+    Class name='x' lower='x'
+  rest: 0
+case compound	.a.b.c
+  combinator None
+    Class name='a' lower='a'
+    Class name='b' lower='b'
+    Class name='c' lower='c'
+  rest: 0
+case compound	#id
+  combinator None
+    Id name='id' lower='id'
+  rest: 0
+case compound	#1a
+  error SyntaxError
+  rest: 0
+  error: style selector `#1a` is invalid: Hash token is not an id: Token: Hash(value="1a", hash_type=Unrestricted, source="#1a", start=0:0, end=0:3) (1)
+case compound	.
+  error SyntaxError
+  rest: 0
+case compound	.1
+  error SyntaxError
+  rest: 0
+  error: style selector `0.1` is invalid: Invalid start of a simple selector: Token: Number(value=0.1, number_type=Number, source=".1", start=0:0, end=0:2) (1)
+case compound	&
+  combinator None
+    Nesting
+  rest: 0
+case compound	&.a
+  combinator None
+    Nesting
+    Class name='a' lower='a'
+  rest: 0
+case compound	a b
+  combinator None
+    TagName ns=0 ns_name='' name='a' lower='a'
+  rest: 2
+case compound	a>b
+  combinator None
+    TagName ns=0 ns_name='' name='a' lower='a'
+  rest: 2
+case compound	a+b
+  combinator None
+    TagName ns=0 ns_name='' name='a' lower='a'
+  rest: 2
+case compound	a~b
+  combinator None
+    TagName ns=0 ns_name='' name='a' lower='a'
+  rest: 2
+case compound	a|
+  combinator None
+    TagName ns=0 ns_name='' name='a' lower='a'
+  rest: 1
+case compound	a!
+  error SyntaxError
+  rest: 0
+  error: style selector `a!` is invalid: Unrecognized delimiter: ! (1)
+case compound	div.a span
+  combinator None
+    TagName ns=0 ns_name='' name='div' lower='div'
+    Class name='a' lower='a'
+  rest: 2
+case compound	.a div
+  combinator None
+    Class name='a' lower='a'
+  rest: 2
+case compound	[x]
+  combinator None
+    Attribute match=0 case=0 ns=0 ns_name='' name='x' lower='x' value=''
+  rest: 0
+case compound	[ x ]
+  combinator None
+    Attribute match=0 case=0 ns=0 ns_name='' name='x' lower='x' value=''
+  rest: 0
+case compound	[x=y]
+  combinator None
+    Attribute match=1 case=0 ns=0 ns_name='' name='x' lower='x' value='y'
+  rest: 0
+case compound	[x="y z"]
+  combinator None
+    Attribute match=1 case=0 ns=0 ns_name='' name='x' lower='x' value='y z'
+  rest: 0
+case compound	[x~=y]
+  combinator None
+    Attribute match=2 case=0 ns=0 ns_name='' name='x' lower='x' value='y'
+  rest: 0
+case compound	[x*=y]
+  combinator None
+    Attribute match=3 case=0 ns=0 ns_name='' name='x' lower='x' value='y'
+  rest: 0
+case compound	[x|=y]
+  combinator None
+    Attribute match=4 case=0 ns=0 ns_name='' name='x' lower='x' value='y'
+  rest: 0
+case compound	[x^=y]
+  combinator None
+    Attribute match=5 case=0 ns=0 ns_name='' name='x' lower='x' value='y'
+  rest: 0
+case compound	[x$=y]
+  combinator None
+    Attribute match=6 case=0 ns=0 ns_name='' name='x' lower='x' value='y'
+  rest: 0
+case compound	[x=y i]
+  combinator None
+    Attribute match=1 case=2 ns=0 ns_name='' name='x' lower='x' value='y'
+  rest: 0
+case compound	[x=y S]
+  combinator None
+    Attribute match=1 case=1 ns=0 ns_name='' name='x' lower='x' value='y'
+  rest: 0
+case compound	[svg|x=y]
+  combinator None
+    Attribute match=1 case=0 ns=3 ns_name='svg' name='x' lower='x' value='y'
+  rest: 0
+case compound	[*|x]
+  combinator None
+    Attribute match=0 case=0 ns=2 ns_name='*' name='x' lower='x' value=''
+  rest: 0
+case compound	[|x]
+  combinator None
+    Attribute match=0 case=0 ns=1 ns_name='' name='x' lower='x' value=''
+  rest: 0
+case compound	[]
+  error SyntaxError
+  rest: 0
+  error: style selector `[]` is invalid: Attribute selector is empty. (1)
+case compound	[*]
+  error SyntaxError
+  rest: 0
+  error: style selector `[*]` is invalid: Expected qualified-name, got: 'Token: Delim(value="*", code_point=U+002A, source="*", start=0:1, end=0:2)'. (1)
+case compound	[1]
+  error SyntaxError
+  rest: 0
+  error: style selector `[1]` is invalid: Expected qualified-name, got: 'Token: Number(value=1, number_type=Integer, source="1", start=0:1, end=0:2)'. (1)
+case compound	[x=]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x=]` is invalid: Attribute selector ended without a value to match. (1)
+case compound	[x~]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x~]` is invalid: Attribute selector ended part way through a match type. (1)
+case compound	[x!=y]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x!=y]` is invalid: Invalid attribute selector match type `!=` (1)
+case compound	[x~~y]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x~~y]` is invalid: Expected a double delim for attribute comparison, got: 'Token: Delim(value="~", code_point=U+007E, source="~", start=0:2, end=0:3)Token: Delim(value="~", code_point=U+007E, source="~", start=0:3, end=0:4)'. (1)
+case compound	[x=1]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x=1]` is invalid: Expected a string or ident for the value to match attribute against, got: 'Token: Number(value=1, number_type=Integer, source="1", start=0:3, end=0:4)'. (1)
+case compound	[x=y z]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x=y z]` is invalid: Expected a "i" or "s" attribute selector case sensitivity identifier, got: 'Token: Ident(value="z", source="z", start=0:5, end=0:6)'. (1)
+case compound	[x=y 1]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x=y 1]` is invalid: Expected an attribute selector case sensitivity identifier, got: 'Token: Number(value=1, number_type=Integer, source="1", start=0:5, end=0:6)' (1)
+case compound	[x=y i j]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x=y i j]` is invalid: Trailing tokens in attribute selector. (1)
+case compound	[x 1]
+  error SyntaxError
+  rest: 0
+  error: style selector `[x 1]` is invalid: Expected delim for attribute comparison, got: 'Token: Number(value=1, number_type=Integer, source="1", start=0:3, end=0:4)'. (1)
+case compound	:hover
+  combinator None
+    PseudoClass hover anb=0,0 forgiving=0 args=0 langs=[] ident=- levels=[]
+  rest: 0
+case compound	:HOVER
+  combinator None
+    PseudoClass hover anb=0,0 forgiving=0 args=0 langs=[] ident=- levels=[]
+  rest: 0
+case compound	a:hover:focus
+  combinator None
+    TagName ns=0 ns_name='' name='a' lower='a'
+    PseudoClass hover anb=0,0 forgiving=0 args=0 langs=[] ident=- levels=[]
+    PseudoClass focus anb=0,0 forgiving=0 args=0 langs=[] ident=- levels=[]
+  rest: 0
+case compound	:root.x
+  combinator None
+    PseudoClass root anb=0,0 forgiving=0 args=0 langs=[] ident=- levels=[]
+    Class name='x' lower='x'
+  rest: 0
+case compound	:foo
+  error SyntaxError
+  rest: 0
+  error: Unknown pseudo class or element ':foo' in style selector. (1)
+case compound	:-webkit-foo
+  error IncludesIgnoredVendorPrefix
+  rest: 0
+case compound	:-moz-foo
+  error IncludesIgnoredVendorPrefix
+  rest: 0
+case compound	: hover
+  error SyntaxError
+  rest: 2
+case compound	:
+  error SyntaxError
+  rest: 0
+case compound	:nth-child(2n+1)
+  combinator None
+    PseudoClass nth-child anb=2,1 forgiving=0 args=0 langs=[] ident=- levels=[]
+  rest: 0
+case compound	:nth-child(odd)
+  combinator None
+    PseudoClass nth-child anb=2,1 forgiving=0 args=0 langs=[] ident=- levels=[]
+  rest: 0
+case compound	:nth-child( even )
+  combinator None
+    PseudoClass nth-child anb=2,0 forgiving=0 args=0 langs=[] ident=- levels=[]
+  rest: 0
+case compound	:nth-of-type(3)
+  combinator None
+    PseudoClass nth-of-type anb=0,3 forgiving=0 args=0 langs=[] ident=- levels=[]
+  rest: 0
+case compound	:nth-last-child(-n+3)
+  combinator None
+    PseudoClass nth-last-child anb=-1,3 forgiving=0 args=0 langs=[] ident=- levels=[]
+  rest: 0
+case compound	:nth-child(foo)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':nth-child' value `foo` is invalid: Invalid An+B format. (1)
+case compound	:nth-of-type(2n of a)
+  error SyntaxError
+  rest: 0
+case compound	:nth-child(2n+1 bar)
+  error SyntaxError
+  rest: 0
+case compound	:nth-child()
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':nth-child' value `nth-child` is invalid: Missing arguments. (1)
+case compound	:lang(en)
+  combinator None
+    PseudoClass lang anb=0,0 forgiving=0 args=0 langs=[en] ident=- levels=[]
+  rest: 0
+case compound	:lang(en, "fr-CA", de-*)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':lang' value `lang` is invalid: Failed to parse argument as a language range: Has trailing tokens. (1)
+case compound	:lang(1)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':lang' value `lang` is invalid: Failed to parse argument as a language range: Not a string/ident. (1)
+case compound	:lang(en fr)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':lang' value `lang` is invalid: Failed to parse argument as a language range: Has trailing tokens. (1)
+case compound	:dir(ltr)
+  combinator None
+    PseudoClass dir anb=0,0 forgiving=0 args=0 langs=[] ident=ltr/ltr levels=[]
+  rest: 0
+case compound	:dir(rtl)
+  combinator None
+    PseudoClass dir anb=0,0 forgiving=0 args=0 langs=[] ident=rtl/rtl levels=[]
+  rest: 0
+case compound	:dir(Sideways)
+  combinator None
+    PseudoClass dir anb=0,0 forgiving=0 args=0 langs=[] ident=(invalid CSS::Keyword)/Sideways levels=[]
+  rest: 0
+case compound	:dir(ltr x)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':dir' value `dir` is invalid: Failed to parse argument as an ident. (1)
+case compound	:dir(1)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':dir' value `dir` is invalid: Failed to parse argument as an ident. (1)
+case compound	:heading(1, 2,3)
+  combinator None
+    PseudoClass heading anb=0,0 forgiving=0 args=0 langs=[] ident=- levels=[1,2,3,]
+  rest: 0
+case compound	:heading(1.5)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':heading' value `heading` is invalid: Failed to parse argument as a <level>: Not an <integer> literal. (1)
+case compound	:heading(1 2)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':heading' value `heading` is invalid: Failed to parse argument as a <level>: Has trailing tokens. (1)
+case compound	:hover(x)
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':hover' value `hover` is invalid: Not valid as a function. (1)
+case compound	:nth-child
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':nth-child' value `nth-child` is invalid: Only valid as a function. (1)
+case compound	:bogus(x)
+  error SyntaxError
+  rest: 0
+  error: Unknown pseudo class or element ':bogus' in style selector. (1)
+case compound	:is()
+  error SyntaxError
+  rest: 0
+  error: Pseudo ':is' value `is` is invalid: Missing arguments. (1)
+case compound	::-webkit-thing(x)
+  error IncludesIgnoredVendorPrefix
+  rest: 0
+case compound	::bogus
+  error SyntaxError
+  rest: 0
+  error: Unknown pseudo class or element '::bogus' in style selector. (1)
+case compound	::-moz-bogus
+  error IncludesIgnoredVendorPrefix
+  rest: 0
+case compound	::1
+  error SyntaxError
+  rest: 0
+  error: style selector `1` is invalid: Pseudo-element should be an ident or function, got: 'Token: Number(value=1, number_type=Integer, source="1", start=0:2, end=0:3)' (1)
+case compound	"x"
+  error SyntaxError
+  rest: 0
+  error: style selector `"x"` is invalid: Invalid start of a simple selector: Token: String(value="x", source="\"x\"", start=0:0, end=0:3) (1)
+case compound	1px
+  error SyntaxError
+  rest: 0
+  error: style selector `1px` is invalid: Invalid start of a simple selector: Token: Dimension(value=1, number_type=Integer, unit="px", source="1px", start=0:0, end=0:3) (1)
+case compound	{}
+  error SyntaxError
+  rest: 0
+  error: style selector `{}` is invalid: Invalid start of a simple selector: Block: {} (1)
+case compound	(a)
+  error SyntaxError
+  rest: 0
+  error: style selector `(a)` is invalid: Invalid start of a simple selector: Block: (a) (1)
+case compound	f(x)
+  error SyntaxError
+  rest: 0
+  error: style selector `f(x)` is invalid: Invalid start of a simple selector: Function: f(x) (1)
+case compound	a,b
+  combinator None
+    TagName ns=0 ns_name='' name='a' lower='a'
+  rest: 2
+case compound	@x
+  error SyntaxError
+  rest: 0
+  error: style selector `@x` is invalid: Invalid start of a simple selector: Token: AtKeyword(value="x", source="@x", start=0:0, end=0:2) (1)
+case anb	odd
+  2 1
+  rest: 0
+case anb	EVEN
+  2 0
+  rest: 0
+case anb	3
+  0 3
+  rest: 0
+case anb	-3
+  0 -3
+  rest: 0
+case anb	+3
+  0 3
+  rest: 0
+case anb	n
+  1 0
+  rest: 0
+case anb	N
+  1 0
+  rest: 0
+case anb	+n
+  1 0
+  rest: 0
+case anb	-n
+  -1 0
+  rest: 0
+case anb	2n
+  2 0
+  rest: 0
+case anb	2N
+  2 0
+  rest: 0
+case anb	-2n
+  -2 0
+  rest: 0
+case anb	2n+1
+  2 1
+  rest: 0
+case anb	2n + 1
+  2 1
+  rest: 0
+case anb	2n- 1
+  none
+  rest: 3
+case anb	2n -1
+  2 -1
+  rest: 0
+case anb	2n +1
+  2 1
+  rest: 0
+case anb	2n + +1
+  2 0
+  rest: 3
+case anb	2n - -1
+  2 0
+  rest: 3
+case anb	2n- -1
+  none
+  rest: 3
+case anb	2n-
+  none
+  rest: 1
+case anb	2n- 3
+  none
+  rest: 3
+case anb	2n-3
+  2 -3
+  rest: 0
+case anb	2n-3a
+  none
+  rest: 1
+case anb	-n+3
+  -1 3
+  rest: 0
+case anb	-n + 3
+  -1 3
+  rest: 0
+case anb	-n- 3
+  -1 -3
+  rest: 0
+case anb	-n-3
+  -1 -3
+  rest: 0
+case anb	-n-
+  none
+  rest: 1
+case anb	n-1
+  1 -1
+  rest: 0
+case anb	n- 1
+  1 -1
+  rest: 0
+case anb	+n-1
+  1 -1
+  rest: 0
+case anb	n -1
+  1 -1
+  rest: 0
+case anb	n + 1
+  1 1
+  rest: 0
+case anb	+ n
+  none
+  rest: 3
+case anb	n+
+  1 0
+  rest: 1
+case anb	foo
+  none
+  rest: 1
+case anb	1.5
+  none
+  rest: 1
+case anb	1.5n
+  none
+  rest: 1
+case anb	n 2
+  1 0
+  rest: 1
+case anb	2n 2
+  2 0
+  rest: 1
+case anb	  3  
+  0 3
+  rest: 1
+case anb	
+  none
+  rest: 0
+case anb	-N-5
+  -1 -5
+  rest: 0
+case anb	3 n
+  0 3
+  rest: 2
+case combinator	>b
+  ImmediateChild
+  rest: 1
+case combinator	 > b
+  ImmediateChild
+  rest: 1
+case combinator	+b
+  NextSibling
+  rest: 1
+case combinator	~b
+  SubsequentSibling
+  rest: 1
+case combinator	||b
+  Column
+  rest: 1
+case combinator	 || b
+  Column
+  rest: 1
+case combinator	|b
+  none
+  rest: 2
+case combinator	 b
+  Descendant
+  rest: 1
+case combinator	b
+  none
+  rest: 1
+case combinator	  
+  Descendant
+  rest: 0
+case combinator	/b
+  none
+  rest: 2
+case qname	a
+  ns=0 ns_name='' name='a' lower='a'
+  rest: 0
+case qname	*
+  ns=0 ns_name='' name='*' lower='*'
+  rest: 0
+case qname	svg|a
+  ns=3 ns_name='svg' name='a' lower='a'
+  rest: 0
+case qname	svg|*
+  ns=3 ns_name='svg' name='*' lower='*'
+  rest: 0
+case qname	*|a
+  ns=2 ns_name='*' name='a' lower='a'
+  rest: 0
+case qname	*|*
+  ns=2 ns_name='*' name='*' lower='*'
+  rest: 0
+case qname	|a
+  ns=1 ns_name='' name='a' lower='a'
+  rest: 0
+case qname	|*
+  ns=1 ns_name='' name='*' lower='*'
+  rest: 0
+case qname	html|a
+  none
+  rest: 3
+case qname	a |b
+  ns=0 ns_name='' name='a' lower='a'
+  rest: 3
+case qname	a| b
+  ns=0 ns_name='' name='a' lower='a'
+  rest: 3
+case qname	|
+  none
+  rest: 1
+case qname	1
+  none
+  rest: 1
+case qnamenowild	*
+  none
+  rest: 1
+case qnamenowild	svg|*
+  none
+  rest: 3
+case qnamenowild	|*
+  none
+  rest: 2
+case qnamenowild	*|a
+  ns=2 ns_name='*' name='a' lower='a'
+  rest: 0
+case qnamenowild	a
+  ns=0 ns_name='' name='a' lower='a'
+  rest: 0
+case complexerr	> a
+  error SyntaxError
+  error: style selector `> a` is invalid: Standalone selector starts with a combinator, which is invalid. (1)
+case complexerr	+ a
+  error SyntaxError
+  error: style selector `+ a` is invalid: Standalone selector starts with a combinator, which is invalid. (1)
+case complexerr	a >
+  error SyntaxError
+  error: style selector `a >` is invalid: Compound-selector is empty. (1)
+case complexerr	a > > b
+  error SyntaxError
+  error: style selector `a > > b` is invalid: Compound-selector is empty. (1)
+case complexerr	a ,
+  error SyntaxError
+  error: style selector `a ,` is invalid: Compound-selector is empty. (1)
+case complexerr	!
+  error SyntaxError
+  error: style selector `!` is invalid: Unrecognized delimiter: ! (1)
+case complexerr	a !
+  error SyntaxError
+  error: style selector `a !` is invalid: Unrecognized delimiter: ! (1)
+case relativeerr	> !
+  error SyntaxError
+  error: style selector `> !` is invalid: Unrecognized delimiter: ! (1)
+case relativeerr	!
+  error SyntaxError
+  error: style selector `!` is invalid: Unrecognized delimiter: ! (1)
+case relativeerr	+
+  error SyntaxError
+  error: style selector `+` is invalid: Failed to parse first compound-selector. (1)
+case pageerr	:1
+  error SyntaxError
+  error: @page selector `:1` is invalid: Pseudo-classes must be idents. (1)
+case pageerr	"x"
+  error SyntaxError
+  error: @page selector `"x"` is invalid: Is empty. (1)
+case mediatype	layer
+  none
+  rest: 1
+case mediatype	NOT
+  none
+  rest: 1
+case mediatype	and
+  none
+  rest: 1
+case mediatype	only
+  none
+  rest: 1
+case mediatype	or
+  none
+  rest: 1
+case mediatype	1px
+  none
+  rest: 1
+case mediatype	(x)
+  none
+  rest: 1
+case mediatype	
+  none
+  rest: 0
+case layername	foo
+  'foo'
+  rest: 0
+case layername	foo.bar.baz
+  'foo.bar.baz'
+  rest: 0
+case layername	 foo . bar
+  'foo'
+  rest: 4
+case layername	foo.bar baz
+  'foo.bar'
+  rest: 2
+case layername	foo.
+  none
+  rest: 2
+case layername	foo.1
+  'foo'
+  rest: 1
+case layername	inherit
+  none
+  rest: 1
+case layername	foo.initial
+  none
+  rest: 3
+case layername	1
+  none
+  rest: 1
+case layername	
+  none
+  rest: 0
+case layernameblank	
+  ''
+  rest: 0
+case layernameblank	  
+  ''
+  rest: 1
+case layernameblank	foo
+  'foo'
+  rest: 0
+case atblock	import  url(x) 
+  none
+  error: '@import' rule with prelude ` url("x") ` is invalid: Must be a statement, not a block. (1)
+case atrule	import 
+  none
+  error: '@import' rule with prelude `` is invalid: Empty prelude. (1)
+case atblock	import  
+  none
+  error: '@import' rule with prelude ` ` is invalid: Must be a statement, not a block. (1)
+case atrule	keyframes 
+  none
+  error: '@keyframes' rule with prelude `` is invalid: Must be a block, not a statement. (1)
+case atblock	keyframes  
+  none
+  error: '@keyframes' rule with prelude ` ` is invalid: Name must be a <string> or <ident>. (1)
+case atblock	keyframes  1 
+  none
+  error: '@keyframes' rule with prelude ` 1 ` is invalid: Name must be a <string> or <ident>. (1)
+case atblock	keyframes  a b 
+  none
+  error: '@keyframes' rule with prelude ` a b ` is invalid: Trailing tokens after name in prelude. (1)
+case atblock	keyframes  none 
+  none
+  error: '@keyframes' rule with prelude ` none ` is invalid: Invalid name. (1)
+case atblock	keyframes  inherit 
+  none
+  error: '@keyframes' rule with prelude ` inherit ` is invalid: Invalid name. (1)
+case atblock	KEYFRAMES  url(x) 
+  none
+  error: '@keyframes' rule with prelude ` url("x") ` is invalid: Name must be a <string> or <ident>. (1)
+case atrule	-webkit-keyframes 
+  none
+  error: '@keyframes' rule with prelude `` is invalid: Must be a block, not a statement. (1)
+case atrule	container 
+  none
+  error: '@container' rule with prelude `` is invalid: Must be a block, not a statement. (1)
+case atrule	counter-style 
+  none
+  error: '@counter-style' rule with prelude `` is invalid: Must be a block, not a statement. (1)
+case atrule	font-face 
+  none
+  error: '@font-face' rule with prelude `` is invalid: Must be a block, not a statement. (1)
+case atblock	font-face  x 
+  none
+  error: '@font-face' rule with prelude ` x ` is invalid: Prelude is not allowed. (1)
+case atrule	font-feature-values 
+  none
+  error: '@font-feature-values' rule with prelude `` is invalid: Must be a block, not a statement. (1)
+case atrule	function 
+  none
+  error: '@function' rule with prelude `` is invalid: Must be a block, not a statement. (1)
+case atblock	function  
+  none
+  error: '@function' rule with prelude ` ` is invalid: Prelude must start with a function token. (1)
+case atblock	function  foo() 
+  none
+  error: '@function' rule with prelude ` foo() ` is invalid: Function name must start with two dashes. (1)
+case atblock	function  --foo() bar 
+  none
+  error: '@function' rule with prelude ` --foo() bar ` is invalid: Trailing tokens in prelude. (1)
+case atblock	function  --foo() returns 
+  none
+  error: '@function' rule with prelude ` --foo() returns ` is invalid: Expected return type after 'returns' in prelude. (1)
+case atblock	function  --foo() returns 1 
+  none
+  error: '@function' rule with prelude ` --foo() returns 1 ` is invalid: Expected return type after 'returns' in prelude. (1)
+case atrule	layer 
+  none
+  error: '@layer' rule with prelude `` is invalid: No layer names provided. (1)
+case atrule	layer  a b
+  none
+  error: '@layer' rule with prelude ` a b` is invalid: Missing comma between layer names. (1)
+case atrule	layer  a, b c
+  none
+  error: '@layer' rule with prelude ` a, b c` is invalid: Missing comma between layer names. (1)
+case atrule	layer  a,
+  none
+  error: '@layer' rule with prelude ` a,` is invalid: Contains invalid layer name. (1)
+case atrule	layer  a, ,b
+  none
+  error: '@layer' rule with prelude ` a, ,b` is invalid: Contains invalid layer name. (1)
+case atrule	layer  1
+  none
+  error: '@layer' rule with prelude ` 1` is invalid: Contains invalid layer name. (1)
+case atblock	layer  a b 
+  none
+  error: '@layer' rule with prelude ` a b ` is invalid: Trailing tokens after name in prelude. (1)
+case atblock	layer  1 
+  none
+  error: '@layer' rule with prelude ` 1 ` is invalid: Not a valid layer name. (1)
+case atblock	layer  inherit 
+  none
+  error: '@layer' rule with prelude ` inherit ` is invalid: Not a valid layer name. (1)
+case atblock	-webkit-foo  
+  none
+case atrule	-moz-bar 
+  none
+case style	> a 
+  none
+  error: 'style' rule with prelude `> a ` is invalid: Selectors invalid. (1)
+  error: style selector `> a ` is invalid: Standalone selector starts with a combinator, which is invalid. (1)
+case style	a > 
+  none
+  error: 'style' rule with prelude `a > ` is invalid: Selectors invalid. (1)
+  error: style selector `a > ` is invalid: Compound-selector is empty. (1)
+case style	a ! 
+  none
+  error: style selector `a ! ` is invalid: Unrecognized delimiter: ! (1)
+  error: 'style' rule with prelude `a ! ` is invalid: Selectors invalid. (1)
+case style	
+  none
+  error: 'style' rule with prelude `` is invalid: Selectors invalid. (1)
+  error: style selector `` is invalid: Failed to parse first compound-selector. (1)
+case style	:foo 
+  none
+  error: Unknown pseudo class or element ':foo' in style selector. (1)
+  error: 'style' rule with prelude `:foo ` is invalid: Selectors invalid. (1)
+case style	:-webkit-foo 
+  none
+case prelude	--foo()
+  name --foo params 0 returns *
+  rest: 0
+case prelude	--foo( )
+  name --foo params 0 returns *
+  rest: 0
+case prelude	  --foo() returns bar
+  name --foo params 0 returns bar
+  rest: 0
+case prelude	--foo() returns type(*)
+  name --foo params 0 returns *
+  rest: 0
+case prelude	--foo() returns type( a | b )
+  name --foo params 0 returns a | b
+  rest: 0
+case prelude	--foo() returns bar+
+  name --foo params 0 returns bar+
+  rest: 0
+case prelude	--foo() returns bar#
+  name --foo params 0 returns bar#
+  rest: 0
+case prelude	--foo() returns
+  none
+  rest: 3
+  error: '@function' rule with prelude `--foo() returns` is invalid: Expected return type after 'returns' in prelude. (1)
+case prelude	--foo() returns type()
+  none
+  rest: 5
+  error: '@function' rule with prelude `--foo() returns type()` is invalid: Expected return type after 'returns' in prelude. (1)
+case prelude	--foo() returns type(1)
+  none
+  rest: 5
+  error: '@function' rule with prelude `--foo() returns type(1)` is invalid: Expected return type after 'returns' in prelude. (1)
+case prelude	--foo() returns bar baz
+  none
+  rest: 7
+  error: '@function' rule with prelude `--foo() returns bar baz` is invalid: Trailing tokens in prelude. (1)
+case prelude	--foo() x
+  none
+  rest: 3
+  error: '@function' rule with prelude `--foo() x` is invalid: Trailing tokens in prelude. (1)
+case prelude	foo()
+  none
+  rest: 1
+  error: '@function' rule with prelude `foo()` is invalid: Function name must start with two dashes. (1)
+case prelude	-foo()
+  none
+  rest: 1
+  error: '@function' rule with prelude `-foo()` is invalid: Function name must start with two dashes. (1)
+case prelude	--foo
+  none
+  rest: 1
+  error: '@function' rule with prelude `--foo` is invalid: Prelude must start with a function token. (1)
+case prelude	
+  none
+  rest: 0
+  error: '@function' rule with prelude `` is invalid: Prelude must start with a function token. (1)
