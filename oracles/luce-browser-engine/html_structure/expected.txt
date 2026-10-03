@@ -1,0 +1,416 @@
+case srcset	a.png
+a.png|-
+case srcset	a.png 1x, b.png 2x
+a.png|x 1000000
+b.png|x 2000000
+case srcset	a.png 2x,b.png 1.5x , c.png 3x
+a.png|x 2000000
+c.png|x 3000000
+case srcset	  ,, a.png,  b.png 100w,c.png 50w
+a.png|-
+b.png|w 6400
+c.png|w 3200
+case srcset	a.png 100w 2x
+case srcset	a.png 10h
+case srcset	a.png 10w 20h
+case srcset	a.png -1x, b.png 0.5x
+a.png|x -1000000
+b.png|x 500000
+case srcset	data:image/png;base64,AAA= 1x
+data:image/png;base64,AAA=|x 1000000
+case srcset	a.png (foo bar) 1x
+case srcset	a.png 1x (unterminated
+case srcset	a.png, , b.png
+a.png|-
+b.png|-
+case srcset	x,,,
+x|-
+case srcset	a.png 1e1x, b.png 1.25x
+a.png|x 10000000
+b.png|x 1250000
+case srcset	a.png 0w, b.png 12abcw
+a.png|w 0
+case srcset	a.png 1x,b.png 1x
+a.png|x 1000000
+b.png|x 1000000
+case srcset	é.png 2x
+é.png|x 2000000
+case srcset	
+case select	<img src=a.png>
+a.png 1000000
+dimension source img
+case select	<img srcset="a.png 1x, b.png 2x">
+a.png 1000000
+dimension source img
+case select	<img srcset="a.png 0.5x, b.png 3x, c.png 1.5x">
+c.png 1500000
+dimension source img
+case select	<img srcset="a.png 0.5x, b.png 0.25x">
+a.png 500000
+dimension source img
+case select	<img src=d.png srcset="a.png 2x">
+d.png 1000000
+dimension source img
+case select	<img src=d.png srcset="a.png 1x">
+a.png 1000000
+dimension source img
+case select	<img srcset="a.png 400w, b.png 800w, c.png 1600w" sizes="800px">
+b.png 1000000
+dimension source img
+case select	<img srcset="a.png 400w, b.png 800w" sizes="(min-width: 1px) 200px, 50px">
+a.png 8000000
+dimension source img
+case select	<img src=d.png srcset="a.png 100w">
+a.png 1000000
+dimension source img
+case select	<img>
+none
+dimension source img
+case select	<picture><source srcset="s.png 2x"><img src=i.png></picture>
+s.png 2000000
+dimension source img
+case select	<picture><source srcset="s.png 2x" media="(max-width: 0px)"><source srcset="t.png 1x" width=10><img src=i.png></picture>
+t.png 1000000
+dimension source source
+case select	<picture><source srcset="s.png" type="image/x-unknown"><source srcset="u.png" type="image/png"><img src=i.png></picture>
+u.png 1000000
+dimension source img
+case select	<picture><source><source srcset=""><img src=i.png></picture>
+i.png 1000000
+dimension source img
+case cors	-
+0 1
+case cors	use-credentials
+2 2
+case cors	USE-Credentials
+2 2
+case cors	anonymous
+1 1
+case cors	
+1 1
+case cors	bogus
+1 1
+case keyhash	a.png	0	-
+360909423
+case keyhash	http://example.com/a.png	1	http://example.com
+3290757082
+case keyhash	http://example.com/a.png	2	https://example.com:8443
+3039144572
+case keyhash		0	-
+0
+case tablerows	<table id=t><caption>c</caption><colgroup span=3><col span=2><col span=0><col span=1001></colgroup><thead><tr id=h><th id=hc>h</thead><tbody><tr id=b1><td id=c1 colspan=3 rowspan=2>x<td id=c2 colspan=0 rowspan=0>y<td id=c3 colspan=2000 rowspan=70000><tr id=b2><td id=c4 colspan=" 4" rowspan=abc></tbody><tfoot><tr id=f><td id=c5></tfoot></table>
+caption 1 thead 1 tfoot 1 tbodies 1
+rows h b1 b2 f
+tr h 0 0 cells 1
+tr b1 1 0 cells 3
+tr b2 2 1 cells 1
+tr f 3 0 cells 1
+cell hc 0 1 1
+cell c1 0 3 2
+cell c2 1 1 0
+cell c3 2 1000 65534
+cell c4 0 4 1
+cell c5 0 1 1
+col 3
+col 2
+col 1
+col 1000
+section thead rows 1
+section tbody rows 2
+section tfoot rows 1
+case tablerows	<table id=t><tr id=r1><td id=a></tr><tfoot><tr id=f1></tfoot><tbody><tr id=r2></tbody><thead><tr id=h1></thead><tr id=r3></table>
+caption 0 thead 1 tfoot 1 tbodies 3
+rows h1 r1 r2 r3 f1
+tr r1 1 0 cells 1
+tr f1 4 0 cells 0
+tr r2 2 0 cells 0
+tr h1 0 0 cells 0
+tr r3 3 0 cells 0
+cell a 0 1 1
+section tbody rows 1
+section tfoot rows 1
+section tbody rows 1
+section thead rows 1
+section tbody rows 1
+case tablerows	<table id=t><tbody><tr id=x><td id=d colspan=+2 rowspan=65535></tbody><tbody><tr id=y></tbody></table>
+caption 0 thead 0 tfoot 0 tbodies 2
+rows x y
+tr x 0 0 cells 1
+tr y 1 0 cells 0
+cell d 0 2 65534
+section tbody rows 1
+section tbody rows 1
+case tableop	insertRow:0	<table><tr><td>a</tr></table>
+| <table>
+|   <tbody>
+|     <tr>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	insertRow:-1	<table></table>
+| <table>
+|   <tbody>
+|     <tr>
+case tableop	insertRow:-1	<table><thead><tr><td>h</thead><tbody><tr><td>b</tbody></table>
+| <table>
+|   <thead>
+|     <tr>
+|       <td>
+|         "h"
+|   <tbody>
+|     <tr>
+|       <td>
+|         "b"
+|     <tr>
+case tableop	insertRow:1	<table><tbody><tr><td>a</td></tr><tr><td>b</td></tr></tbody></table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+|     <tr>
+|     <tr>
+|       <td>
+|         "b"
+case tableop	insertRow:5	<table><tr><td>a</table>
+exception IndexSizeError
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	insertRow:-2	<table><tr><td>a</table>
+exception IndexSizeError
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	deleteRow:0	<table><tr><td>a<tr><td>b</table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "b"
+case tableop	deleteRow:-1	<table><tr><td>a<tr><td>b</table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	deleteRow:-1	<table></table>
+| <table>
+case tableop	deleteRow:3	<table><tr><td>a</table>
+exception IndexSizeError
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	createCaption	<table><tr><td>a</table>
+| <table>
+|   <caption>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	createCaption	<table><caption>x</caption></table>
+| <table>
+|   <caption>
+|     "x"
+case tableop	deleteCaption	<table><caption>x</caption><tr><td>a</table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	createTHead	<table><caption>c</caption><colgroup><col></colgroup><tbody><tr><td>a</tbody></table>
+| <table>
+|   <caption>
+|     "c"
+|   <colgroup>
+|     <col>
+|   <thead>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	createTHead	<table><thead></thead></table>
+| <table>
+|   <thead>
+case tableop	deleteTHead	<table><thead><tr><td>h</thead><tbody></tbody></table>
+| <table>
+|   <tbody>
+case tableop	createTFoot	<table><tbody><tr><td>a</tbody></table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+|   <tfoot>
+case tableop	deleteTFoot	<table><tfoot></tfoot><tfoot></tfoot></table>
+| <table>
+|   <tfoot>
+case tableop	createTBody	<table><tbody id=a></tbody><tfoot></tfoot></table>
+| <table>
+|   <tbody>
+|     id="a"
+|   <tbody>
+|   <tfoot>
+case tableop	createTBody	<table><caption></caption></table>
+| <table>
+|   <caption>
+|   <tbody>
+case tableop	insertCell:0	<table><tr><td>a</table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|       <td>
+|         "a"
+case tableop	insertCell:-1	<table><tr><td>a<th>b</table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+|       <th>
+|         "b"
+|       <td>
+case tableop	insertCell:2	<table><tr><td>a</table>
+exception IndexSizeError
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	deleteCell:0	<table><tr><td>a<td>b</table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "b"
+case tableop	deleteCell:-1	<table><tr></table>
+| <table>
+|   <tbody>
+|     <tr>
+case tableop	deleteCell:1	<table><tr><td>a</table>
+exception IndexSizeError
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	sectionInsertRow:0	<table><tbody><tr><td>a</tbody></table>
+| <table>
+|   <tbody>
+|     <tr>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	sectionInsertRow:-1	<table><tbody></tbody></table>
+| <table>
+|   <tbody>
+|     <tr>
+case tableop	sectionInsertRow:3	<table><tbody></tbody></table>
+exception IndexSizeError
+| <table>
+|   <tbody>
+case tableop	sectionDeleteRow:-1	<table><tbody><tr><td>a<tr><td>b</tbody></table>
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         "a"
+case tableop	sectionDeleteRow:0	<table><tbody></tbody></table>
+exception IndexSizeError
+| <table>
+|   <tbody>
+case tableop	setTHeadTFoot	<table><tfoot></tfoot></table>
+exception HierarchyRequestError
+| <table>
+|   <tfoot>
+case tableop	setCaptionNull	<table><caption>x</caption></table>
+| <table>
+case tableop	setColSpan:5	<table><tr><td>a</table>
+colspan 5
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         colspan="5"
+|         "a"
+case tableop	setColSpan:-1	<table><tr><td>a</table>
+colspan 1
+| <table>
+|   <tbody>
+|     <tr>
+|       <td>
+|         colspan="1"
+|         "a"
+case ol	<ol><li>a<li value=7>b<li value=x>c<li value=-3>d</ol>
+start 1 starting 1
+li 0
+li 7
+li 0
+li -3
+case ol	<ol start=5></ol>
+start 5 starting 5
+case ol	<ol start=abc><li>a</ol>
+start 1 starting 1
+li 0
+case ol	<ol reversed><li>a<li>b<li>c</ol>
+start 1 starting 0
+li 0
+li 0
+li 0
+case ol	<ol reversed start=2><li>a</ol>
+start 2 starting 2
+li 0
+case ol	<ol start=" 12"><li value=" 3">a</ol>
+start 12 starting 12
+li 3
+later details	<details id=a name=g open></details><details id=b name=g open></details><details id=c name=g></details>
+a open
+b closed
+c closed
+later details	<details id=a name=g open></details><details id=b name=h open></details>
+a open
+b open
+later details	<details id=a open></details><details id=b open></details>
+a open
+b open
+later details	<details id=a name="" open></details><details id=b name="" open></details>
+a open
+b open
+case title	<title>  Hello   world  </title>
+title [Hello world]
+text [  Hello   world  ]
+case title	<title></title>
+title []
+text []
+case title	<title>a<b>b</b>c</title>
+title [a<b>b</b>c]
+text [a<b>b</b>c]
+case title	<head><title>first</title><title>second</title></head>
+title [first]
+text [first]
+case meta	<meta http-equiv=refresh><meta http-equiv=Content-Type><meta http-equiv=x><meta http-equiv=X-UA-COMPATIBLE><meta http-equiv=content-security-policy><meta http-equiv=set-cookie><meta http-equiv=default-style><meta http-equiv=content-language>
+http-equiv 3
+http-equiv 1
+http-equiv none
+http-equiv 5
+http-equiv 6
+http-equiv 4
+http-equiv 2
+http-equiv 0
+later referrer	<meta name=referrer content=never>
+referrer policy 1
+later referrer	<meta name=referrer content=no-referrer-when-downgrade>
+referrer policy 2
+later referrer	<meta name=referrer content=always>
+referrer policy 8
+later referrer	<meta name=referrer content=bogus>
+referrer policy 7
+later referrer	<meta name=referrer content="">
+referrer policy 7

@@ -1,0 +1,81 @@
+# r43 layout tree oracle cases: <mode>\t<html>[\t<css>]; "!" = waits for other regions.
+tree	<!DOCTYPE html><html><body><div>hello <b>world</b></div><p>x</p></body></html>
+tree	<!DOCTYPE html>\n<html>\n<head></head>\n<body>\n  <div>\n    one\n    <span>two</span>\n  </div>\n  <p>three</p>\n</body>\n</html>\n
+tree	<body>text<div>block</div>more text<span>inline</span></body>
+tree	<body><span>a<div>b</div>c</span></body>
+tree	<body><span>a<em>b<div>c</div>d</em>e<div>f</div></span>g</body>
+tree	<body><div style="display:none">hidden<span>x</span></div><div>shown</div></body>
+tree	<body><div style="display:contents"><span>a</span><div>b</div></div>c</body>
+tree	<body>a<br>b<br><br>c</body>
+tree	<body><q>outer <q>inner</q></q> after</body>
+tree	<body><div id=a class="x y">content</div><span id=b>inline</span></body>	#a::before { content: "B" } #a::after { content: "A"; display: block } #b::before { content: "1" "2" } #b::after { content: ""; display: block }
+tree	<body><div style="display:list-item">one</div><div style="display:list-item;list-style-type:none">two</div><div style="display:list-item;list-style-position:inside">three</div></body>
+tree	<body><div style="display:list-item;list-style-type:decimal">one</div><div style="display:list-item;list-style-type:lower-roman">two</div><div style="display:list-item;list-style-type:'-> '">three</div></body>
+tree	<body><div style="float:left">f</div>text<div style="position:absolute">abs</div><span>s<div style="position:absolute">abs in inline</div>t</span></body>
+tree	<body>a<span style="display:inline-block">ib<div>block</div></span>b<div style="display:inline-block"></div></body>
+tree	<body><div style="display:flex">a<span>b</span><div>c</div></div><div style="display:grid">d<span>e</span></div><span style="display:inline-flex">f</span></body>
+tree	<body><fieldset><legend>L</legend>content<div>block</div></fieldset><fieldset>no legend</fieldset></body>
+tree	<body><fieldset style="overflow:hidden"><legend style="float:left">float legend</legend><legend>L2</legend>x</fieldset></body>
+tree	<body><div style="display:flow-root">a</div><div style="overflow:hidden">b</div><div style="contain:layout">c</div><div style="columns:2">d</div></body>
+tree	<body><div style="position:relative;z-index:1">a</div><div style="opacity:0.5">b</div><div style="transform:scale(2)">c</div><div style="isolation:isolate">d</div><div style="position:fixed">e</div><div style="mix-blend-mode:multiply">f</div><div style="filter:blur(1px)">g</div></body>
+tree	<body><span style="position:relative">x<div style="position:absolute">y</div></span></body>
+tree	<body><div style="user-select:none"><span>a</span></div><div style="user-select:all">b</div><div contenteditable>c</div></body>
+tree	<body><div style="text-transform:uppercase">hello world</div><div style="text-transform:capitalize">hello world</div><div style="text-transform:lowercase">HELLO</div><div style="text-transform:full-width">abc</div><div style="text-transform:math-auto">xyz</div></body>
+tree	<body><div style="white-space:pre">a\tb\n c</div><div style="white-space:pre-line">a\tb\n  c</div><div style="white-space:nowrap">a  b\tc</div><div>a  b\t\n c</div><div style="white-space:break-spaces">x\ty</div></body>
+tree	<body><div style="word-break:break-all">abc def123 ghi</div><div style="word-break:keep-all">abc-def ghi</div><div>can't stop, won't stop (yes) - no!</div></body>
+tree	<body><!-- c --><div></div><span></span>  <div> </div></body>
+tree	<body><pre>line1\nline2\n\tindented</pre></body>
+tree	<body><b>bold <i>italic <div>block</div> more</i> end</b></body>
+tree	<body><div>text<div>block</div>text2</div><div><span>a</span><div>b</div><span>c</span></div></body>
+tree	<body><div id=a data-x="X">a</div></body>	#a::before { content: attr(data-x) " - " counter(c) } #a { counter-reset: c 5 }
+!tree	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canvas></body>
+tree	<body><h1>Title</h1><hr><h2>Sub</h2></body>
+tree	<body><div style="content-visibility:hidden">hidden <span>x</span></div><div>y</div></body>
+tree	<body><div style="visibility:hidden">a</div><div style="font-size:20px">b <span style="font-size:2em">c</span></div></body>
+!tree	<body><div style="display:table"><div style="display:table-row"><div style="display:table-cell">a</div></div></div></body>
+!tree	<body><ol><li>a</li><li>b</li></ol></body>
+!tree	<body><button>b</button><input></body>
+nodes	<!DOCTYPE html><html><body><div>hello <b>world</b></div><p>x</p></body></html>
+nodes	<!DOCTYPE html>\n<html>\n<head></head>\n<body>\n  <div>\n    one\n    <span>two</span>\n  </div>\n  <p>three</p>\n</body>\n</html>\n
+nodes	<body>text<div>block</div>more text<span>inline</span></body>
+nodes	<body><span>a<div>b</div>c</span></body>
+nodes	<body><span>a<em>b<div>c</div>d</em>e<div>f</div></span>g</body>
+nodes	<body><div style="display:none">hidden<span>x</span></div><div>shown</div></body>
+nodes	<body><div style="display:contents"><span>a</span><div>b</div></div>c</body>
+nodes	<body>a<br>b<br><br>c</body>
+nodes	<body><q>outer <q>inner</q></q> after</body>
+nodes	<body><div id=a class="x y">content</div><span id=b>inline</span></body>	#a::before { content: "B" } #a::after { content: "A"; display: block } #b::before { content: "1" "2" } #b::after { content: ""; display: block }
+nodes	<body><div style="display:list-item">one</div><div style="display:list-item;list-style-type:none">two</div><div style="display:list-item;list-style-position:inside">three</div></body>
+nodes	<body><div style="display:list-item;list-style-type:decimal">one</div><div style="display:list-item;list-style-type:lower-roman">two</div><div style="display:list-item;list-style-type:'-> '">three</div></body>
+nodes	<body><div style="float:left">f</div>text<div style="position:absolute">abs</div><span>s<div style="position:absolute">abs in inline</div>t</span></body>
+nodes	<body>a<span style="display:inline-block">ib<div>block</div></span>b<div style="display:inline-block"></div></body>
+nodes	<body><div style="display:flex">a<span>b</span><div>c</div></div><div style="display:grid">d<span>e</span></div><span style="display:inline-flex">f</span></body>
+nodes	<body><fieldset><legend>L</legend>content<div>block</div></fieldset><fieldset>no legend</fieldset></body>
+nodes	<body><fieldset style="overflow:hidden"><legend style="float:left">float legend</legend><legend>L2</legend>x</fieldset></body>
+nodes	<body><div style="display:flow-root">a</div><div style="overflow:hidden">b</div><div style="contain:layout">c</div><div style="columns:2">d</div></body>
+nodes	<body><div style="position:relative;z-index:1">a</div><div style="opacity:0.5">b</div><div style="transform:scale(2)">c</div><div style="isolation:isolate">d</div><div style="position:fixed">e</div><div style="mix-blend-mode:multiply">f</div><div style="filter:blur(1px)">g</div></body>
+nodes	<body><span style="position:relative">x<div style="position:absolute">y</div></span></body>
+nodes	<body><div style="user-select:none"><span>a</span></div><div style="user-select:all">b</div><div contenteditable>c</div></body>
+nodes	<body><div style="text-transform:uppercase">hello world</div><div style="text-transform:capitalize">hello world</div><div style="text-transform:lowercase">HELLO</div><div style="text-transform:full-width">abc</div><div style="text-transform:math-auto">xyz</div></body>
+nodes	<body><div style="white-space:pre">a\tb\n c</div><div style="white-space:pre-line">a\tb\n  c</div><div style="white-space:nowrap">a  b\tc</div><div>a  b\t\n c</div><div style="white-space:break-spaces">x\ty</div></body>
+nodes	<body><div style="word-break:break-all">abc def123 ghi</div><div style="word-break:keep-all">abc-def ghi</div><div>can't stop, won't stop (yes) - no!</div></body>
+nodes	<body><!-- c --><div></div><span></span>  <div> </div></body>
+nodes	<body><pre>line1\nline2\n\tindented</pre></body>
+nodes	<body><b>bold <i>italic <div>block</div> more</i> end</b></body>
+nodes	<body><div>text<div>block</div>text2</div><div><span>a</span><div>b</div><span>c</span></div></body>
+nodes	<body><div id=a data-x="X">a</div></body>	#a::before { content: attr(data-x) " - " counter(c) } #a { counter-reset: c 5 }
+nodes	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canvas></body>
+nodes	<body><h1>Title</h1><hr><h2>Sub</h2></body>
+nodes	<body><div style="content-visibility:hidden">hidden <span>x</span></div><div>y</div></body>
+nodes	<body><div style="visibility:hidden">a</div><div style="font-size:20px">b <span style="font-size:2em">c</span></div></body>
+chunks	<!DOCTYPE html><html><body><div>hello <b>world</b></div><p>x</p></body></html>
+chunks	<!DOCTYPE html>\n<html>\n<head></head>\n<body>\n  <div>\n    one\n    <span>two</span>\n  </div>\n  <p>three</p>\n</body>\n</html>\n
+chunks	<body>a<br>b<br><br>c</body>
+chunks	<body><q>outer <q>inner</q></q> after</body>
+chunks	<body><div id=a class="x y">content</div><span id=b>inline</span></body>	#a::before { content: "B" } #a::after { content: "A"; display: block } #b::before { content: "1" "2" } #b::after { content: ""; display: block }
+chunks	<body><div style="text-transform:uppercase">hello world</div><div style="text-transform:capitalize">hello world</div><div style="text-transform:lowercase">HELLO</div><div style="text-transform:full-width">abc</div><div style="text-transform:math-auto">xyz</div></body>
+chunks	<body><div style="white-space:pre">a\tb\n c</div><div style="white-space:pre-line">a\tb\n  c</div><div style="white-space:nowrap">a  b\tc</div><div>a  b\t\n c</div><div style="white-space:break-spaces">x\ty</div></body>
+chunks	<body><div style="word-break:break-all">abc def123 ghi</div><div style="word-break:keep-all">abc-def ghi</div><div>can't stop, won't stop (yes) - no!</div></body>
+chunks	<body><pre>line1\nline2\n\tindented</pre></body>
+markers	<body><div style="display:list-item">one</div><div style="display:list-item;list-style-type:none">two</div><div style="display:list-item;list-style-position:inside">three</div></body>
+markers	<body><div style="display:list-item;list-style-type:decimal">one</div><div style="display:list-item;list-style-type:lower-roman">two</div><div style="display:list-item;list-style-type:'-> '">three</div></body>

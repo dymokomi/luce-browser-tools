@@ -1,0 +1,1337 @@
+case tree	<!DOCTYPE html><html><body><div>hello <b>world</b></div><p>x</p></body></html>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+          InlineNode <b> (not painted)
+            TextNode <#text> (not painted)
+        BlockContainer <p> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<!DOCTYPE html>\n<html>\n<head></head>\n<body>\n  <div>\n    one\n    <span>two</span>\n  </div>\n  <p>three</p>\n</body>\n</html>\n
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <(anonymous)> (not painted) children: inline
+        TextNode <#text> (not painted)
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <(anonymous)> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+          InlineNode <span> (not painted)
+            TextNode <#text> (not painted)
+          TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <p> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body>text<div>block</div>more text<span>inline</span></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <(anonymous)> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          TextNode <#text> (not painted)
+          InlineNode <span> (not painted)
+            TextNode <#text> (not painted)
+case tree	<body><span>a<div>b</div>c</span></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <span> (not painted)
+            TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: not-inline continuation
+          BlockContainer <div> (not painted) children: inline
+            TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <span> (not painted) continuation
+            TextNode <#text> (not painted)
+case tree	<body><span>a<em>b<div>c</div>d</em>e<div>f</div></span>g</body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <span> (not painted)
+            TextNode <#text> (not painted)
+            InlineNode <em> (not painted)
+              TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: not-inline continuation
+          BlockContainer <div> (not painted) children: inline
+            TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <span> (not painted) continuation
+            InlineNode <em> (not painted) continuation
+              TextNode <#text> (not painted)
+            TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: not-inline continuation
+          BlockContainer <div> (not painted) children: inline
+            TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <span> (not painted) continuation
+          TextNode <#text> (not painted)
+case tree	<body><div style="display:none">hidden<span>x</span></div><div>shown</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="display:contents"><span>a</span><div>b</div></div>c</body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <span> (not painted)
+            TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body>a<br>b<br><br>c</body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: inline
+        TextNode <#text> (not painted)
+        BreakNode <br> (not painted)
+        TextNode <#text> (not painted)
+        BreakNode <br> (not painted)
+        BreakNode <br> (not painted)
+        TextNode <#text> (not painted)
+case tree	<body><q>outer <q>inner</q></q> after</body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: inline
+        InlineNode <q> (not painted)
+          InlineNode <(anonymous)> (not painted)
+            TextNode <#text> (not painted)
+          TextNode <#text> (not painted)
+          InlineNode <q> (not painted)
+            InlineNode <(anonymous)> (not painted)
+              TextNode <#text> (not painted)
+            TextNode <#text> (not painted)
+            InlineNode <(anonymous)> (not painted)
+              TextNode <#text> (not painted)
+          InlineNode <(anonymous)> (not painted)
+            TextNode <#text> (not painted)
+        TextNode <#text> (not painted)
+case tree	<body><div id=a class="x y">content</div><span id=b>inline</span></body>	#a::before { content: "B" } #a::after { content: "A"; display: block } #b::before { content: "1" "2" } #b::after { content: ""; display: block }
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div#a.x.y> (not painted) children: not-inline
+          BlockContainer <(anonymous)> (not painted) children: inline
+            InlineNode <(anonymous)> (not painted)
+              TextNode <#text> (not painted)
+            TextNode <#text> (not painted)
+          BlockContainer <(anonymous)> (not painted) children: inline
+            TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: not-inline
+          BlockContainer <(anonymous)> (not painted) children: inline
+            InlineNode <span#b> (not painted)
+              InlineNode <(anonymous)> (not painted)
+                TextNode <#text> (not painted)
+                TextNode <#text> (not painted)
+              TextNode <#text> (not painted)
+          BlockContainer <(anonymous)> (not painted) children: inline
+            TextNode <#text> (not painted)
+case tree	<body><div style="display:list-item">one</div><div style="display:list-item;list-style-type:none">two</div><div style="display:list-item;list-style-position:inside">three</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        ListItemBox <div> (not painted) children: inline
+          ListItemMarkerBox <(anonymous)> (not painted) children: not-inline
+          TextNode <#text> (not painted)
+        ListItemBox <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        ListItemBox <div> (not painted) children: inline
+          ListItemMarkerBox <(anonymous)> (not painted) children: not-inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="display:list-item;list-style-type:decimal">one</div><div style="display:list-item;list-style-type:lower-roman">two</div><div style="display:list-item;list-style-type:'-> '">three</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        ListItemBox <div> (not painted) children: inline
+          ListItemMarkerBox <(anonymous)> (not painted) children: not-inline
+          TextNode <#text> (not painted)
+        ListItemBox <div> (not painted) children: inline
+          ListItemMarkerBox <(anonymous)> (not painted) children: not-inline
+          TextNode <#text> (not painted)
+        ListItemBox <div> (not painted) children: inline
+          ListItemMarkerBox <(anonymous)> (not painted) children: not-inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="float:left">f</div>text<div style="position:absolute">abs</div><span>s<div style="position:absolute">abs in inline</div>t</span></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: inline
+        BlockContainer <div> (not painted) floating [BFC] children: inline
+          TextNode <#text> (not painted)
+        TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) positioned [BFC] children: inline
+          TextNode <#text> (not painted)
+        InlineNode <span> (not painted)
+          TextNode <#text> (not painted)
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) positioned [BFC] children: inline
+          TextNode <#text> (not painted)
+case tree	<body>a<span style="display:inline-block">ib<div>block</div></span>b<div style="display:inline-block"></div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: inline
+        TextNode <#text> (not painted)
+        BlockContainer <span> (not painted) inline-block [BFC] children: not-inline
+          BlockContainer <(anonymous)> (not painted) children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <div> (not painted) children: inline
+            TextNode <#text> (not painted)
+        TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) inline-block [BFC] children: not-inline
+case tree	<body><div style="display:flex">a<span>b</span><div>c</div></div><div style="display:grid">d<span>e</span></div><span style="display:inline-flex">f</span></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        Box <div> (not painted) flex-container(row) [FFC] children: not-inline
+          BlockContainer <(anonymous)> (not painted) [BFC] children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <span> (not painted) [BFC] children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <div> (not painted) [BFC] children: inline
+            TextNode <#text> (not painted)
+        Box <div> (not painted) [GFC] children: not-inline
+          BlockContainer <(anonymous)> (not painted) [BFC] children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <span> (not painted) [BFC] children: inline
+            TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          Box <span> (not painted) flex-container(row) [FFC] children: not-inline
+            BlockContainer <(anonymous)> (not painted) [BFC] children: inline
+              TextNode <#text> (not painted)
+case tree	<body><fieldset><legend>L</legend>content<div>block</div></fieldset><fieldset>no legend</fieldset></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        FieldSetBox <fieldset> (not painted) [BFC] children: not-inline
+          LegendBox <legend> (not painted) children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <(anonymous)> (not painted) [BFC] children: not-inline
+            BlockContainer <(anonymous)> (not painted) children: inline
+              TextNode <#text> (not painted)
+            BlockContainer <div> (not painted) children: inline
+              TextNode <#text> (not painted)
+        FieldSetBox <fieldset> (not painted) [BFC] children: not-inline
+          BlockContainer <(anonymous)> (not painted) children: inline
+            TextNode <#text> (not painted)
+case tree	<body><fieldset style="overflow:hidden"><legend style="float:left">float legend</legend><legend>L2</legend>x</fieldset></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        FieldSetBox <fieldset> (not painted) [BFC] children: not-inline
+          LegendBox <legend> (not painted) children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <(anonymous)> (not painted) [BFC] children: not-inline
+            LegendBox <legend> (not painted) floating [BFC] children: inline
+              TextNode <#text> (not painted)
+            BlockContainer <(anonymous)> (not painted) children: inline
+              TextNode <#text> (not painted)
+case tree	<body><div style="display:flow-root">a</div><div style="overflow:hidden">b</div><div style="contain:layout">c</div><div style="columns:2">d</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) [BFC] children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) [BFC] children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) [BFC] children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) [BFC] children: inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="position:relative;z-index:1">a</div><div style="opacity:0.5">b</div><div style="transform:scale(2)">c</div><div style="isolation:isolate">d</div><div style="position:fixed">e</div><div style="mix-blend-mode:multiply">f</div><div style="filter:blur(1px)">g</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) positioned children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) positioned [BFC] children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><span style="position:relative">x<div style="position:absolute">y</div></span></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: inline
+        InlineNode <span> (not painted)
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) positioned [BFC] children: inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="user-select:none"><span>a</span></div><div style="user-select:all">b</div><div contenteditable>c</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: inline
+          InlineNode <span> (not painted)
+            TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="text-transform:uppercase">hello world</div><div style="text-transform:capitalize">hello world</div><div style="text-transform:lowercase">HELLO</div><div style="text-transform:full-width">abc</div><div style="text-transform:math-auto">xyz</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="white-space:pre">a\tb\n c</div><div style="white-space:pre-line">a\tb\n  c</div><div style="white-space:nowrap">a  b\tc</div><div>a  b\t\n c</div><div style="white-space:break-spaces">x\ty</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="word-break:break-all">abc def123 ghi</div><div style="word-break:keep-all">abc-def ghi</div><div>can't stop, won't stop (yes) - no!</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><!-- c --><div></div><span></span>  <div> </div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: not-inline
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <span> (not painted)
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><pre>line1\nline2\n\tindented</pre></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <pre> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><b>bold <i>italic <div>block</div> more</i> end</b></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <b> (not painted)
+            TextNode <#text> (not painted)
+            InlineNode <i> (not painted)
+              TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: not-inline continuation
+          BlockContainer <div> (not painted) children: inline
+            TextNode <#text> (not painted)
+        BlockContainer <(anonymous)> (not painted) children: inline
+          InlineNode <b> (not painted) continuation
+            InlineNode <i> (not painted) continuation
+              TextNode <#text> (not painted)
+            TextNode <#text> (not painted)
+case tree	<body><div>text<div>block</div>text2</div><div><span>a</span><div>b</div><span>c</span></div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: not-inline
+          BlockContainer <(anonymous)> (not painted) children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <div> (not painted) children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <(anonymous)> (not painted) children: inline
+            TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: not-inline
+          BlockContainer <(anonymous)> (not painted) children: inline
+            InlineNode <span> (not painted)
+              TextNode <#text> (not painted)
+          BlockContainer <div> (not painted) children: inline
+            TextNode <#text> (not painted)
+          BlockContainer <(anonymous)> (not painted) children: inline
+            InlineNode <span> (not painted)
+              TextNode <#text> (not painted)
+case tree	<body><div id=a data-x="X">a</div></body>	#a::before { content: attr(data-x) " - " counter(c) } #a { counter-reset: c 5 }
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div#a> (not painted) children: inline
+          InlineNode <(anonymous)> (not painted)
+            TextNode <#text> (not painted)
+            TextNode <#text> (not painted)
+            TextNode <#text> (not painted)
+          TextNode <#text> (not painted)
+later tree	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canvas></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: inline
+        CanvasBox <canvas> (not painted) children: not-inline
+        CanvasBox <canvas> (not painted) children: not-inline
+case tree	<body><h1>Title</h1><hr><h2>Sub</h2></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <h1> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <hr> (not painted) [BFC] children: not-inline
+        BlockContainer <h2> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="content-visibility:hidden">hidden <span>x</span></div><div>y</div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+case tree	<body><div style="visibility:hidden">a</div><div style="font-size:20px">b <span style="font-size:2em">c</span></div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+        BlockContainer <div> (not painted) children: inline
+          TextNode <#text> (not painted)
+          InlineNode <span> (not painted)
+            TextNode <#text> (not painted)
+later tree	<body><div style="display:table"><div style="display:table-row"><div style="display:table-cell">a</div></div></div></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        TableWrapper <(anonymous)> (not painted) [BFC] children: not-inline
+          Box <div> (not painted) table-box [TFC] children: not-inline
+            Box <div> (not painted) table-row children: not-inline
+              BlockContainer <div> (not painted) table-cell [BFC] children: inline
+                TextNode <#text> (not painted)
+later tree	<body><ol><li>a</li><li>b</li></ol></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: not-inline
+        BlockContainer <ol> (not painted) children: not-inline
+          ListItemBox <li> (not painted) children: inline
+            ListItemMarkerBox <(anonymous)> (not painted) children: not-inline
+            TextNode <#text> (not painted)
+          ListItemBox <li> (not painted) children: inline
+            ListItemMarkerBox <(anonymous)> (not painted) children: not-inline
+            TextNode <#text> (not painted)
+later tree	<body><button>b</button><input></body>
+  Viewport <#document> (not painted) children: not-inline
+    BlockContainer <html> (not painted) [BFC] children: not-inline
+      BlockContainer <body> (not painted) children: inline
+        BlockContainer <button> (not painted) inline-block [BFC] children: not-inline
+          BlockContainer <(anonymous)> (not painted) flex-container(column) [FFC] children: not-inline
+            BlockContainer <(anonymous)> (not painted) [BFC] children: inline
+              TextNode <#text> (not painted)
+        TextInputBox <input> (not painted) inline-block [BFC] children: not-inline
+          Box <div> (not painted) flex-container(row) [FFC] children: not-inline
+            BlockContainer <div> (not painted) [BFC] children: inline
+              TextNode <#text> (not painted)
+case nodes	<!DOCTYPE html><html><body><div>hello <b>world</b></div><p>x</p></body></html>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  InlineNode<B> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<P> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<P> inline_cb=-
+case nodes	<!DOCTYPE html>\n<html>\n<head></head>\n<body>\n  <div>\n    one\n    <span>two</span>\n  </div>\n  <p>three</p>\n</body>\n</html>\n
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<P> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<P> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body>text<div>block</div>more text<span>inline</span></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><span>a<div>b</div>c</span></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=InlineNode<SPAN> inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=BlockContainer(anonymous) inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><span>a<em>b<div>c</div>d</em>e<div>f</div></span>g</body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  InlineNode<EM> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=InlineNode<SPAN> inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=BlockContainer(anonymous) inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  InlineNode<EM> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=InlineNode<EM> inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=InlineNode<SPAN> inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=BlockContainer(anonymous) inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><div style="display:none">hidden<span>x</span></div><div>shown</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><div style="display:contents"><span>a</span><div>b</div></div>c</body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body>a<br>b<br><br>c</body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  BreakNode<BR> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  BreakNode<BR> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  BreakNode<BR> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+case nodes	<body><q>outer <q>inner</q></q> after</body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<Q> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  InlineNode(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  InlineNode<Q> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  InlineNode(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  InlineNode(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  InlineNode(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+case nodes	<body><div id=a class="x y">content</div><span id=b>inline</span></body>	#a::before { content: "B" } #a::after { content: "A"; display: block } #b::before { content: "1" "2" } #b::after { content: ""; display: block }
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV>#a.x.y display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV>#a.x.y inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV>#a.x.y inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN>#b display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  InlineNode(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><div style="display:list-item">one</div><div style="display:list-item;list-style-type:none">two</div><div style="display:list-item;list-style-position:inside">three</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  ListItemBox<DIV> display=list-item inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  ListItemMarkerBox(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=ListItemBox<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=ListItemBox<DIV> inline_cb=-
+  ListItemBox<DIV> display=list-item inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=ListItemBox<DIV> inline_cb=-
+  ListItemBox<DIV> display=list-item inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  ListItemMarkerBox(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=ListItemBox<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=ListItemBox<DIV> inline_cb=-
+case nodes	<body><div style="display:list-item;list-style-type:decimal">one</div><div style="display:list-item;list-style-type:lower-roman">two</div><div style="display:list-item;list-style-type:'-> '">three</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  ListItemBox<DIV> display=list-item inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  ListItemMarkerBox(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=ListItemBox<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=ListItemBox<DIV> inline_cb=-
+  ListItemBox<DIV> display=list-item inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  ListItemMarkerBox(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=ListItemBox<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=ListItemBox<DIV> inline_cb=-
+  ListItemBox<DIV> display=list-item inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  ListItemMarkerBox(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=ListItemBox<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=ListItemBox<DIV> inline_cb=-
+case nodes	<body><div style="float:left">f</div>text<div style="position:absolute">abs</div><span>s<div style="position:absolute">abs in inline</div>t</span></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=1 positioned=0 abspos=0 out_of_flow=1 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=1 abspos=1 out_of_flow=1 root=0 generated=0 anonymous=0 stacking=0 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=1 abspos=1 out_of_flow=1 root=0 generated=0 anonymous=0 stacking=0 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body>a<span style="display:inline-block">ib<div>block</div></span>b<div style="display:inline-block"></div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  BlockContainer<SPAN> display=inline-block inline=1 inline_block=1 atomic=1 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<SPAN> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<SPAN> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  BlockContainer<DIV> display=inline-block inline=1 inline_block=1 atomic=1 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+case nodes	<body><div style="display:flex">a<span>b</span><div>c</div></div><div style="display:grid">d<span>e</span></div><span style="display:inline-flex">f</span></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  Box<DIV> display=flex inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Box<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<SPAN> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Box<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<SPAN> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Box<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  Box<DIV> display=grid inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Box<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<SPAN> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Box<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<SPAN> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  Box<SPAN> display=inline-flex inline=1 inline_block=0 atomic=1 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Box<SPAN> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><fieldset><legend>L</legend>content<div>block</div></fieldset><fieldset>no legend</fieldset></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  FieldSetBox<FIELDSET> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  LegendBox<LEGEND> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=FieldSetBox<FIELDSET> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=LegendBox<LEGEND> inline_cb=-
+  BlockContainer(anonymous) display=flow-root inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=FieldSetBox<FIELDSET> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  FieldSetBox<FIELDSET> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=FieldSetBox<FIELDSET> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><fieldset style="overflow:hidden"><legend style="float:left">float legend</legend><legend>L2</legend>x</fieldset></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  FieldSetBox<FIELDSET> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  LegendBox<LEGEND> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=FieldSetBox<FIELDSET> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=LegendBox<LEGEND> inline_cb=-
+  BlockContainer(anonymous) display=flow-root inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=FieldSetBox<FIELDSET> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  LegendBox<LEGEND> display=block inline=0 inline_block=0 atomic=0 floating=1 positioned=0 abspos=0 out_of_flow=1 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=LegendBox<LEGEND> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><div style="display:flow-root">a</div><div style="overflow:hidden">b</div><div style="contain:layout">c</div><div style="columns:2">d</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=flow-root inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=1 size_contain=0 layout_contain=1 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=1 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><div style="position:relative;z-index:1">a</div><div style="opacity:0.5">b</div><div style="transform:scale(2)">c</div><div style="isolation:isolate">d</div><div style="position:fixed">e</div><div style="mix-blend-mode:multiply">f</div><div style="filter:blur(1px)">g</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=1 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=1 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=1 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=1 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=1 abspos=1 out_of_flow=1 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=1 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><span style="position:relative">x<div style="position:absolute">y</div></span></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=1 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<BODY> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=1 abspos=1 out_of_flow=1 root=0 generated=0 anonymous=0 stacking=0 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=InlineNode<SPAN> auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><div style="user-select:none"><span>a</span></div><div style="user-select:all">b</div><div contenteditable>c</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=0 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=0 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=2 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><div style="text-transform:uppercase">hello world</div><div style="text-transform:capitalize">hello world</div><div style="text-transform:lowercase">HELLO</div><div style="text-transform:full-width">abc</div><div style="text-transform:math-auto">xyz</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><div style="white-space:pre">a\tb\n c</div><div style="white-space:pre-line">a\tb\n  c</div><div style="white-space:nowrap">a  b\tc</div><div>a  b\t\n c</div><div style="white-space:break-spaces">x\ty</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><div style="word-break:break-all">abc def123 ghi</div><div style="word-break:keep-all">abc-def ghi</div><div>can't stop, won't stop (yes) - no!</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><!-- c --><div></div><span></span>  <div> </div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><pre>line1\nline2\n\tindented</pre></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<PRE> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<PRE> inline_cb=-
+case nodes	<body><b>bold <i>italic <div>block</div> more</i> end</b></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<B> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  InlineNode<I> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=InlineNode<B> inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<B> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=BlockContainer(anonymous) inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  InlineNode<I> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=InlineNode<I> inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><div>text<div>block</div>text2</div><div><span>a</span><div>b</div><span>c</span></div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer(anonymous) display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer(anonymous) inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer(anonymous) inline_cb=-
+case nodes	<body><div id=a data-x="X">a</div></body>	#a::before { content: attr(data-x) " - " counter(c) } #a { counter-reset: c 5 }
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV>#a display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  InlineNode(anonymous) display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=1 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV>#a inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer<DIV>#a inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer<DIV>#a inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=1 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=3 transform=0 cb=BlockContainer<DIV>#a inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV>#a inline_cb=-
+case nodes	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canvas></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  CanvasBox<CANVAS> display=inline inline=1 inline_block=0 atomic=1 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=1920x1280 has_auto_size=1 ratio=1920/1280
+  CanvasBox<CANVAS> display=inline inline=1 inline_block=0 atomic=1 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=0x640 has_auto_size=1 ratio=-
+case nodes	<body><h1>Title</h1><hr><h2>Sub</h2></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<H1> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<H1> inline_cb=-
+  BlockContainer<HR> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<H2> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<H2> inline_cb=-
+case nodes	<body><div style="content-visibility:hidden">hidden <span>x</span></div><div>y</div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case nodes	<body><div style="visibility:hidden">a</div><div style="font-size:20px">b <span style="font-size:2em">c</span></div></body>
+  Viewport<#document> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=1 abs_cb=1 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=1 continuation=- inline_continuation=0 cb=- inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<HTML> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=1 generated=0 anonymous=0 stacking=1 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=Viewport<#document> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<BODY> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<HTML> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  BlockContainer<DIV> display=block inline=0 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<BODY> inline_cb=- auto_size=-x- has_auto_size=0 ratio=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+  InlineNode<SPAN> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 scroll=0 continuation=- inline_continuation=0 cb=BlockContainer<DIV> inline_cb=-
+  TextNode<#text> display=inline inline=1 inline_block=0 atomic=0 floating=0 positioned=0 abspos=0 out_of_flow=0 root=0 generated=0 anonymous=0 stacking=0 abs_cb=0 fixed_cb=0 size_contain=0 layout_contain=0 style_contain=0 paint_contain=0 user_select=4 transform=0 cb=BlockContainer<DIV> inline_cb=-
+case chunks	<!DOCTYPE html><html><body><div>hello <b>world</b></div><p>x</p></body></html>
+  text "hello "
+    wrap=0 linebreaks=0 collapse=1
+      0+6 "hello " newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+5 "hello" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+5 "hello" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+  text "world"
+    wrap=0 linebreaks=0 collapse=1
+      0+5 "world" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+5 "world" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+5 "world" newline=0 tab=0 ws=0 break=0 type=3
+  text "x"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "x" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "x" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "x" newline=0 tab=0 ws=0 break=0 type=3
+case chunks	<!DOCTYPE html>\n<html>\n<head></head>\n<body>\n  <div>\n    one\n    <span>two</span>\n  </div>\n  <p>three</p>\n</body>\n</html>\n
+  text " "
+    wrap=0 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+  text "   "
+    wrap=0 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+  text "     one     "
+    wrap=0 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      5+4 "one " newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      5+3 "one" newline=0 tab=0 ws=0 break=0 type=3
+      8+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      5+3 "one" newline=0 tab=0 ws=0 break=0 type=3
+      8+1 " " newline=0 tab=0 ws=1 break=0 type=1
+  text "two"
+    wrap=0 linebreaks=0 collapse=1
+      0+3 "two" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+3 "two" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+3 "two" newline=0 tab=0 ws=0 break=0 type=3
+  text "   "
+    wrap=0 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+  text "   "
+    wrap=0 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+  text "three"
+    wrap=0 linebreaks=0 collapse=1
+      0+5 "three" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+5 "three" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+5 "three" newline=0 tab=0 ws=0 break=0 type=3
+  text "   "
+    wrap=0 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+case chunks	<body>a<br>b<br><br>c</body>
+  text "a"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+  text "b"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+  text "c"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+case chunks	<body><q>outer <q>inner</q></q> after</body>
+  text "“"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "“" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "“" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "“" newline=0 tab=0 ws=0 break=0 type=0
+  text "outer "
+    wrap=0 linebreaks=0 collapse=1
+      0+6 "outer " newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+5 "outer" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+5 "outer" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+  text "‘"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "‘" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "‘" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "‘" newline=0 tab=0 ws=0 break=0 type=0
+  text "inner"
+    wrap=0 linebreaks=0 collapse=1
+      0+5 "inner" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+5 "inner" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+5 "inner" newline=0 tab=0 ws=0 break=0 type=3
+  text "’"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "’" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "’" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "’" newline=0 tab=0 ws=0 break=0 type=0
+  text "”"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "”" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "”" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "”" newline=0 tab=0 ws=0 break=0 type=0
+  text " after"
+    wrap=0 linebreaks=0 collapse=1
+      0+6 " after" newline=0 tab=0 ws=0 break=0 type=1
+    wrap=1 linebreaks=0 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      1+5 "after" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      1+5 "after" newline=0 tab=0 ws=0 break=0 type=3
+case chunks	<body><div id=a class="x y">content</div><span id=b>inline</span></body>	#a::before { content: "B" } #a::after { content: "A"; display: block } #b::before { content: "1" "2" } #b::after { content: ""; display: block }
+  text "B"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "B" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "B" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "B" newline=0 tab=0 ws=0 break=0 type=3
+  text "content"
+    wrap=0 linebreaks=0 collapse=1
+      0+7 "content" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+7 "content" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+7 "content" newline=0 tab=0 ws=0 break=0 type=3
+  text "A"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "A" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "A" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "A" newline=0 tab=0 ws=0 break=0 type=3
+  text "1"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "1" newline=0 tab=0 ws=0 break=0 type=1
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "1" newline=0 tab=0 ws=0 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "1" newline=0 tab=0 ws=0 break=0 type=1
+  text "2"
+    wrap=0 linebreaks=0 collapse=1
+      0+1 "2" newline=0 tab=0 ws=0 break=0 type=1
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "2" newline=0 tab=0 ws=0 break=0 type=1
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "2" newline=0 tab=0 ws=0 break=0 type=1
+  text "inline"
+    wrap=0 linebreaks=0 collapse=1
+      0+6 "inline" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+6 "inline" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+6 "inline" newline=0 tab=0 ws=0 break=0 type=3
+  text ""
+    wrap=0 linebreaks=0 collapse=1
+    wrap=1 linebreaks=0 collapse=1
+    wrap=1 linebreaks=1 collapse=1
+case chunks	<body><div style="text-transform:uppercase">hello world</div><div style="text-transform:capitalize">hello world</div><div style="text-transform:lowercase">HELLO</div><div style="text-transform:full-width">abc</div><div style="text-transform:math-auto">xyz</div></body>
+  text "HELLO WORLD"
+    wrap=0 linebreaks=0 collapse=1
+      0+11 "HELLO WORLD" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+5 "HELLO" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      6+5 "WORLD" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+5 "HELLO" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      6+5 "WORLD" newline=0 tab=0 ws=0 break=0 type=3
+  text "Hello World"
+    wrap=0 linebreaks=0 collapse=1
+      0+11 "Hello World" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+5 "Hello" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      6+5 "World" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+5 "Hello" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      6+5 "World" newline=0 tab=0 ws=0 break=0 type=3
+  text "hello"
+    wrap=0 linebreaks=0 collapse=1
+      0+5 "hello" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+5 "hello" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+5 "hello" newline=0 tab=0 ws=0 break=0 type=3
+  text "ａｂｃ"
+    wrap=0 linebreaks=0 collapse=1
+      0+3 "ａｂｃ" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "ａ" newline=0 tab=0 ws=0 break=1 type=3
+      1+1 "ｂ" newline=0 tab=0 ws=0 break=1 type=3
+      2+1 "ｃ" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "ａ" newline=0 tab=0 ws=0 break=1 type=3
+      1+1 "ｂ" newline=0 tab=0 ws=0 break=1 type=3
+      2+1 "ｃ" newline=0 tab=0 ws=0 break=0 type=3
+  text "𝑥𝑦𝑧"
+    wrap=0 linebreaks=0 collapse=1
+      0+6 "𝑥𝑦𝑧" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+6 "𝑥𝑦𝑧" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+6 "𝑥𝑦𝑧" newline=0 tab=0 ws=0 break=0 type=3
+case chunks	<body><div style="white-space:pre">a\tb\n c</div><div style="white-space:pre-line">a\tb\n  c</div><div style="white-space:nowrap">a  b\tc</div><div>a  b\t\n c</div><div style="white-space:break-spaces">x\ty</div></body>
+  text "a\tb\n c"
+    wrap=0 linebreaks=0 collapse=0
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+5 "\tb\n c" newline=0 tab=1 ws=0 break=0 type=1
+    wrap=1 linebreaks=0 collapse=0
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 "\t" newline=0 tab=1 ws=1 break=0 type=1
+      2+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 "\n" newline=0 tab=0 ws=1 break=0 type=1
+      4+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      5+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=0
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 "\t" newline=0 tab=1 ws=1 break=0 type=1
+      2+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 "\n" newline=1 tab=0 ws=1 break=0 type=1
+      4+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      5+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+  text "a b\n  c"
+    wrap=0 linebreaks=0 collapse=1
+      0+4 "a b\n" newline=0 tab=0 ws=0 break=0 type=3
+      6+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      2+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 "\n" newline=0 tab=0 ws=1 break=0 type=1
+      6+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      2+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 "\n" newline=1 tab=0 ws=1 break=0 type=1
+      6+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+  text "a  b c"
+    wrap=0 linebreaks=0 collapse=1
+      0+2 "a " newline=0 tab=0 ws=0 break=0 type=3
+      3+3 "b c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      3+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+      4+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      5+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      3+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+      4+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      5+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+  text "a  b   c"
+    wrap=0 linebreaks=0 collapse=1
+      0+2 "a " newline=0 tab=0 ws=0 break=0 type=3
+      3+2 "b " newline=0 tab=0 ws=0 break=0 type=3
+      7+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      3+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+      4+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      7+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      3+1 "b" newline=0 tab=0 ws=0 break=0 type=3
+      4+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      7+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+  text "x\ty"
+    wrap=0 linebreaks=0 collapse=0
+      0+1 "x" newline=0 tab=0 ws=0 break=0 type=3
+      1+2 "\ty" newline=0 tab=1 ws=0 break=0 type=1
+    wrap=1 linebreaks=0 collapse=0
+      0+1 "x" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 "\t" newline=0 tab=1 ws=1 break=0 type=1
+      2+1 "y" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=0
+      0+1 "x" newline=0 tab=0 ws=0 break=0 type=3
+      1+1 "\t" newline=0 tab=1 ws=1 break=0 type=1
+      2+1 "y" newline=0 tab=0 ws=0 break=0 type=3
+case chunks	<body><div style="word-break:break-all">abc def123 ghi</div><div style="word-break:keep-all">abc-def ghi</div><div>can't stop, won't stop (yes) - no!</div></body>
+  text "abc def123 ghi"
+    wrap=0 linebreaks=0 collapse=1
+      0+14 "abc def123 ghi" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=1 type=3
+      1+1 "b" newline=0 tab=0 ws=0 break=1 type=3
+      2+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      4+1 "d" newline=0 tab=0 ws=0 break=1 type=3
+      5+1 "e" newline=0 tab=0 ws=0 break=1 type=3
+      6+1 "f" newline=0 tab=0 ws=0 break=1 type=3
+      7+1 "1" newline=0 tab=0 ws=0 break=1 type=1
+      8+1 "2" newline=0 tab=0 ws=0 break=1 type=1
+      9+1 "3" newline=0 tab=0 ws=0 break=0 type=1
+      10+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      11+1 "g" newline=0 tab=0 ws=0 break=1 type=3
+      12+1 "h" newline=0 tab=0 ws=0 break=1 type=3
+      13+1 "i" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+1 "a" newline=0 tab=0 ws=0 break=1 type=3
+      1+1 "b" newline=0 tab=0 ws=0 break=1 type=3
+      2+1 "c" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      4+1 "d" newline=0 tab=0 ws=0 break=1 type=3
+      5+1 "e" newline=0 tab=0 ws=0 break=1 type=3
+      6+1 "f" newline=0 tab=0 ws=0 break=1 type=3
+      7+1 "1" newline=0 tab=0 ws=0 break=1 type=1
+      8+1 "2" newline=0 tab=0 ws=0 break=1 type=1
+      9+1 "3" newline=0 tab=0 ws=0 break=0 type=1
+      10+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      11+1 "g" newline=0 tab=0 ws=0 break=1 type=3
+      12+1 "h" newline=0 tab=0 ws=0 break=1 type=3
+      13+1 "i" newline=0 tab=0 ws=0 break=0 type=3
+  text "abc-def ghi"
+    wrap=0 linebreaks=0 collapse=1
+      0+11 "abc-def ghi" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+3 "abc" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 "-" newline=0 tab=0 ws=0 break=1 type=1
+      4+3 "def" newline=0 tab=0 ws=0 break=0 type=3
+      7+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      8+3 "ghi" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=1
+      0+3 "abc" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 "-" newline=0 tab=0 ws=0 break=1 type=1
+      4+3 "def" newline=0 tab=0 ws=0 break=0 type=3
+      7+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      8+3 "ghi" newline=0 tab=0 ws=0 break=0 type=3
+  text "can't stop, won't stop (yes) - no!"
+    wrap=0 linebreaks=0 collapse=1
+      0+34 "can't stop, won't stop (yes) - no!" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=0 collapse=1
+      0+3 "can" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 "'" newline=0 tab=0 ws=0 break=0 type=0
+      4+1 "t" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      6+4 "stop" newline=0 tab=0 ws=0 break=0 type=3
+      10+1 "," newline=0 tab=0 ws=0 break=0 type=1
+      11+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      12+3 "won" newline=0 tab=0 ws=0 break=0 type=3
+      15+1 "'" newline=0 tab=0 ws=0 break=0 type=0
+      16+1 "t" newline=0 tab=0 ws=0 break=0 type=3
+      17+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      18+4 "stop" newline=0 tab=0 ws=0 break=0 type=3
+      22+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      23+1 "(" newline=0 tab=0 ws=0 break=0 type=0
+      24+3 "yes" newline=0 tab=0 ws=0 break=0 type=3
+      27+1 ")" newline=0 tab=0 ws=0 break=0 type=0
+      28+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      29+1 "-" newline=0 tab=0 ws=0 break=0 type=1
+      30+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      31+2 "no" newline=0 tab=0 ws=0 break=0 type=3
+      33+1 "!" newline=0 tab=0 ws=0 break=0 type=0
+    wrap=1 linebreaks=1 collapse=1
+      0+3 "can" newline=0 tab=0 ws=0 break=0 type=3
+      3+1 "'" newline=0 tab=0 ws=0 break=0 type=0
+      4+1 "t" newline=0 tab=0 ws=0 break=0 type=3
+      5+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      6+4 "stop" newline=0 tab=0 ws=0 break=0 type=3
+      10+1 "," newline=0 tab=0 ws=0 break=0 type=1
+      11+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      12+3 "won" newline=0 tab=0 ws=0 break=0 type=3
+      15+1 "'" newline=0 tab=0 ws=0 break=0 type=0
+      16+1 "t" newline=0 tab=0 ws=0 break=0 type=3
+      17+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      18+4 "stop" newline=0 tab=0 ws=0 break=0 type=3
+      22+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      23+1 "(" newline=0 tab=0 ws=0 break=0 type=0
+      24+3 "yes" newline=0 tab=0 ws=0 break=0 type=3
+      27+1 ")" newline=0 tab=0 ws=0 break=0 type=0
+      28+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      29+1 "-" newline=0 tab=0 ws=0 break=0 type=1
+      30+1 " " newline=0 tab=0 ws=1 break=0 type=1
+      31+2 "no" newline=0 tab=0 ws=0 break=0 type=3
+      33+1 "!" newline=0 tab=0 ws=0 break=0 type=0
+case chunks	<body><pre>line1\nline2\n\tindented</pre></body>
+  text "line1\nline2\n\tindented"
+    wrap=0 linebreaks=0 collapse=0
+      0+12 "line1\nline2\n" newline=0 tab=0 ws=0 break=0 type=3
+      12+9 "\tindented" newline=0 tab=1 ws=0 break=0 type=1
+    wrap=1 linebreaks=0 collapse=0
+      0+4 "line" newline=0 tab=0 ws=0 break=0 type=3
+      4+1 "1" newline=0 tab=0 ws=0 break=0 type=1
+      5+1 "\n" newline=0 tab=0 ws=1 break=0 type=1
+      6+4 "line" newline=0 tab=0 ws=0 break=0 type=3
+      10+1 "2" newline=0 tab=0 ws=0 break=0 type=1
+      11+1 "\n" newline=0 tab=0 ws=1 break=0 type=1
+      12+1 "\t" newline=0 tab=1 ws=1 break=0 type=1
+      13+8 "indented" newline=0 tab=0 ws=0 break=0 type=3
+    wrap=1 linebreaks=1 collapse=0
+      0+4 "line" newline=0 tab=0 ws=0 break=0 type=3
+      4+1 "1" newline=0 tab=0 ws=0 break=0 type=1
+      5+1 "\n" newline=1 tab=0 ws=1 break=0 type=1
+      6+4 "line" newline=0 tab=0 ws=0 break=0 type=3
+      10+1 "2" newline=0 tab=0 ws=0 break=0 type=1
+      11+1 "\n" newline=1 tab=0 ws=1 break=0 type=1
+      12+1 "\t" newline=0 tab=1 ws=1 break=0 type=1
+      13+8 "indented" newline=0 tab=0 ws=0 break=0 type=3
+case markers	<body><div style="display:list-item">one</div><div style="display:list-item;list-style-type:none">two</div><div style="display:list-item;list-style-position:inside">three</div></body>
+  marker - position=1
+  marker - position=0
+case markers	<body><div style="display:list-item;list-style-type:decimal">one</div><div style="display:list-item;list-style-type:lower-roman">two</div><div style="display:list-item;list-style-type:'-> '">three</div></body>
+  marker "1. " position=1
+  marker "ii. " position=1
+  marker "-> " position=1

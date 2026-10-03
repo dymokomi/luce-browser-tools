@@ -1,0 +1,102 @@
+# r26 oracle cases: <mode>\t<argument>... "!" marks a case that waits for another region in the port.
+# The referrer cases wait for region r28 (the document's policy container). The details cases wait for the CSP inline check (closure stub, phase 2): a details element's shadow tree holds a <style>.
+srcset	a.png
+srcset	a.png 1x, b.png 2x
+srcset	a.png 2x,b.png 1.5x , c.png 3x
+srcset	  ,, a.png,  b.png 100w,c.png 50w
+srcset	a.png 100w 2x
+srcset	a.png 10h
+srcset	a.png 10w 20h
+srcset	a.png -1x, b.png 0.5x
+srcset	data:image/png;base64,AAA= 1x
+srcset	a.png (foo bar) 1x
+srcset	a.png 1x (unterminated
+srcset	a.png, , b.png
+srcset	x,,,
+srcset	a.png 1e1x, b.png 1.25x
+srcset	a.png 0w, b.png 12abcw
+srcset	a.png 1x,b.png 1x
+srcset	é.png 2x
+srcset	
+select	<img src=a.png>
+select	<img srcset="a.png 1x, b.png 2x">
+select	<img srcset="a.png 0.5x, b.png 3x, c.png 1.5x">
+select	<img srcset="a.png 0.5x, b.png 0.25x">
+select	<img src=d.png srcset="a.png 2x">
+select	<img src=d.png srcset="a.png 1x">
+select	<img srcset="a.png 400w, b.png 800w, c.png 1600w" sizes="800px">
+select	<img srcset="a.png 400w, b.png 800w" sizes="(min-width: 1px) 200px, 50px">
+select	<img src=d.png srcset="a.png 100w">
+select	<img>
+select	<picture><source srcset="s.png 2x"><img src=i.png></picture>
+select	<picture><source srcset="s.png 2x" media="(max-width: 0px)"><source srcset="t.png 1x" width=10><img src=i.png></picture>
+select	<picture><source srcset="s.png" type="image/x-unknown"><source srcset="u.png" type="image/png"><img src=i.png></picture>
+select	<picture><source><source srcset=""><img src=i.png></picture>
+cors	-
+cors	use-credentials
+cors	USE-Credentials
+cors	anonymous
+cors	
+cors	bogus
+keyhash	a.png	0	-
+keyhash	http://example.com/a.png	1	http://example.com
+keyhash	http://example.com/a.png	2	https://example.com:8443
+keyhash		0	-
+tablerows	<table id=t><caption>c</caption><colgroup span=3><col span=2><col span=0><col span=1001></colgroup><thead><tr id=h><th id=hc>h</thead><tbody><tr id=b1><td id=c1 colspan=3 rowspan=2>x<td id=c2 colspan=0 rowspan=0>y<td id=c3 colspan=2000 rowspan=70000><tr id=b2><td id=c4 colspan=" 4" rowspan=abc></tbody><tfoot><tr id=f><td id=c5></tfoot></table>
+tablerows	<table id=t><tr id=r1><td id=a></tr><tfoot><tr id=f1></tfoot><tbody><tr id=r2></tbody><thead><tr id=h1></thead><tr id=r3></table>
+tablerows	<table id=t><tbody><tr id=x><td id=d colspan=+2 rowspan=65535></tbody><tbody><tr id=y></tbody></table>
+tableop	insertRow:0	<table><tr><td>a</tr></table>
+tableop	insertRow:-1	<table></table>
+tableop	insertRow:-1	<table><thead><tr><td>h</thead><tbody><tr><td>b</tbody></table>
+tableop	insertRow:1	<table><tbody><tr><td>a</td></tr><tr><td>b</td></tr></tbody></table>
+tableop	insertRow:5	<table><tr><td>a</table>
+tableop	insertRow:-2	<table><tr><td>a</table>
+tableop	deleteRow:0	<table><tr><td>a<tr><td>b</table>
+tableop	deleteRow:-1	<table><tr><td>a<tr><td>b</table>
+tableop	deleteRow:-1	<table></table>
+tableop	deleteRow:3	<table><tr><td>a</table>
+tableop	createCaption	<table><tr><td>a</table>
+tableop	createCaption	<table><caption>x</caption></table>
+tableop	deleteCaption	<table><caption>x</caption><tr><td>a</table>
+tableop	createTHead	<table><caption>c</caption><colgroup><col></colgroup><tbody><tr><td>a</tbody></table>
+tableop	createTHead	<table><thead></thead></table>
+tableop	deleteTHead	<table><thead><tr><td>h</thead><tbody></tbody></table>
+tableop	createTFoot	<table><tbody><tr><td>a</tbody></table>
+tableop	deleteTFoot	<table><tfoot></tfoot><tfoot></tfoot></table>
+tableop	createTBody	<table><tbody id=a></tbody><tfoot></tfoot></table>
+tableop	createTBody	<table><caption></caption></table>
+tableop	insertCell:0	<table><tr><td>a</table>
+tableop	insertCell:-1	<table><tr><td>a<th>b</table>
+tableop	insertCell:2	<table><tr><td>a</table>
+tableop	deleteCell:0	<table><tr><td>a<td>b</table>
+tableop	deleteCell:-1	<table><tr></table>
+tableop	deleteCell:1	<table><tr><td>a</table>
+tableop	sectionInsertRow:0	<table><tbody><tr><td>a</tbody></table>
+tableop	sectionInsertRow:-1	<table><tbody></tbody></table>
+tableop	sectionInsertRow:3	<table><tbody></tbody></table>
+tableop	sectionDeleteRow:-1	<table><tbody><tr><td>a<tr><td>b</tbody></table>
+tableop	sectionDeleteRow:0	<table><tbody></tbody></table>
+tableop	setTHeadTFoot	<table><tfoot></tfoot></table>
+tableop	setCaptionNull	<table><caption>x</caption></table>
+tableop	setColSpan:5	<table><tr><td>a</table>
+tableop	setColSpan:-1	<table><tr><td>a</table>
+ol	<ol><li>a<li value=7>b<li value=x>c<li value=-3>d</ol>
+ol	<ol start=5></ol>
+ol	<ol start=abc><li>a</ol>
+ol	<ol reversed><li>a<li>b<li>c</ol>
+ol	<ol reversed start=2><li>a</ol>
+ol	<ol start=" 12"><li value=" 3">a</ol>
+!details	<details id=a name=g open></details><details id=b name=g open></details><details id=c name=g></details>
+!details	<details id=a name=g open></details><details id=b name=h open></details>
+!details	<details id=a open></details><details id=b open></details>
+!details	<details id=a name="" open></details><details id=b name="" open></details>
+title	<title>  Hello   world  </title>
+title	<title></title>
+title	<title>a<b>b</b>c</title>
+title	<head><title>first</title><title>second</title></head>
+meta	<meta http-equiv=refresh><meta http-equiv=Content-Type><meta http-equiv=x><meta http-equiv=X-UA-COMPATIBLE><meta http-equiv=content-security-policy><meta http-equiv=set-cookie><meta http-equiv=default-style><meta http-equiv=content-language>
+!referrer	<meta name=referrer content=never>
+!referrer	<meta name=referrer content=no-referrer-when-downgrade>
+!referrer	<meta name=referrer content=always>
+!referrer	<meta name=referrer content=bogus>
+!referrer	<meta name=referrer content="">

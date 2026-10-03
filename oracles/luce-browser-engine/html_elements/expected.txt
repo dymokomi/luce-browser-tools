@@ -386,7 +386,7 @@ case doc	<head></head>  <body>  x  </body>
 |   "  "
 |   <body>
 |     "  x  "
-later doc	<!DOCTYPE html><head><noscript><meta charset=utf-8></noscript></head>
+case doc	<!DOCTYPE html><head><noscript><meta charset=utf-8></noscript></head>
 | <!DOCTYPE html>
 | <html>
 |   <head>
@@ -434,7 +434,7 @@ later doc	<canvas width=10 height=20>fallback</canvas>
 |       height="20"
 |       width="10"
 |       "fallback"
-later doc	<div><table><tr><td>x</td></tr></table></div>
+case doc	<div><table><tr><td>x</td></tr></table></div>
 | <html>
 |   <head>
 |   <body>
@@ -444,7 +444,7 @@ later doc	<div><table><tr><td>x</td></tr></table></div>
 |           <tr>
 |             <td>
 |               "x"
-later doc	<table>a<tr><td>b</table>
+case doc	<table>a<tr><td>b</table>
 | <html>
 |   <head>
 |   <body>
@@ -454,7 +454,7 @@ later doc	<table>a<tr><td>b</table>
 |         <tr>
 |           <td>
 |             "b"
-later doc	<ul><li>a<li>b</ul>
+case doc	<ul><li>a<li>b</ul>
 | <html>
 |   <head>
 |   <body>
@@ -476,7 +476,7 @@ later doc	<math><mi>x</mi></math>
 |     <math math>
 |       <math mi>
 |         "x"
-later doc	<template><p>t</p></template>
+case doc	<template><p>t</p></template>
 | <html>
 |   <head>
 |     <template>
@@ -497,7 +497,7 @@ later doc	<textarea>\nx</textarea>
 |   <body>
 |     <textarea>
 |       "x"
-later doc	<title>t</title><p>x
+case doc	<title>t</title><p>x
 | <html>
 |   <head>
 |     <title>
@@ -505,7 +505,7 @@ later doc	<title>t</title><p>x
 |   <body>
 |     <p>
 |       "x"
-later doc	<foo-bar>x</foo-bar><unknownelement>y</unknownelement>
+case doc	<foo-bar>x</foo-bar><unknownelement>y</unknownelement>
 | <html>
 |   <head>
 |   <body>
@@ -521,31 +521,31 @@ later doc	<video src=v.mp4 controls></video><audio></audio>
 |       controls=""
 |       src="v.mp4"
 |     <audio>
-later frag	div	<p>a<b>b</b></p>
+case frag	div	<p>a<b>b</b></p>
 | <p>
 |   "a"
 |   <b>
 |     "b"
-later frag	p	x<p>y
+case frag	p	x<p>y
 | "x"
 | <p>
 |   "y"
-later frag	span	<div>block</div>
+case frag	span	<div>block</div>
 | <div>
 |   "block"
-later frag	body	<h1>t</h1>text
+case frag	body	<h1>t</h1>text
 | <h1>
 |   "t"
 | "text"
-later frag	pre	\nnewline
+case frag	pre	\nnewline
 | "
 newline"
-later frag	html	<head></head><p>x
+case frag	html	<head></head><p>x
 | <head>
 | <body>
 |   <p>
 |     "x"
-later frag	table	<tr><td>x
+case frag	table	<tr><td>x
 | <tbody>
 |   <tr>
 |     <td>
@@ -867,3 +867,397 @@ c
 d
 e
 g
+case doc	<table><caption>c</caption><colgroup><col span=2></colgroup><thead><tr><th>h</thead><tbody><tr><td>d</td></tr></tbody><tfoot><tr><td>f</table>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <caption>
+|         "c"
+|       <colgroup>
+|         <col>
+|           span="2"
+|       <thead>
+|         <tr>
+|           <th>
+|             "h"
+|       <tbody>
+|         <tr>
+|           <td>
+|             "d"
+|       <tfoot>
+|         <tr>
+|           <td>
+|             "f"
+later doc	<details open><summary>s</summary>body</details><details><p>no summary</details>
+| <html>
+|   <head>
+|   <body>
+|     <details>
+|       open=""
+|       <summary>
+|         "s"
+|       "body"
+|     <details>
+|       <p>
+|         "no summary"
+case doc	<dl><dt>t<dd>d</dl><menu><li>m</menu><dir><li>x</dir>
+| <html>
+|   <head>
+|   <body>
+|     <dl>
+|       <dt>
+|         "t"
+|       <dd>
+|         "d"
+|     <menu>
+|       <li>
+|         "m"
+|     <dir>
+|       <li>
+|         "x"
+case doc	<picture><source srcset=a.png media="(min-width: 1px)"><img src=b.png alt=x></picture>
+| <html>
+|   <head>
+|   <body>
+|     <picture>
+|       <source>
+|         media="(min-width: 1px)"
+|         srcset="a.png"
+|       <img>
+|         alt="x"
+|         src="b.png"
+case doc	<dialog open>hi</dialog><slot name=s>fallback</slot>
+| <html>
+|   <head>
+|   <body>
+|     <dialog>
+|       open=""
+|       "hi"
+|     <slot>
+|       name="s"
+|       "fallback"
+case doc	<head><meta name=theme-color content=red><meta http-equiv=content-language content=fr><title>T</title></head><p>x
+| <html>
+|   <head>
+|     <meta>
+|       content="red"
+|       name="theme-color"
+|     <meta>
+|       content="fr"
+|       http-equiv="content-language"
+|     <title>
+|       "T"
+|   <body>
+|     <p>
+|       "x"
+case doc	<ol start=3 reversed type=A><li value=5>a<li>b</ol><ul type=square><li>c</ul>
+| <html>
+|   <head>
+|   <body>
+|     <ol>
+|       reversed=""
+|       start="3"
+|       type="A"
+|       <li>
+|         value="5"
+|         "a"
+|       <li>
+|         "b"
+|     <ul>
+|       type="square"
+|       <li>
+|         "c"
+case doc	<table><tr><td>1<td>2<tr><td colspan=2>3</table>
+| <html>
+|   <head>
+|   <body>
+|     <table>
+|       <tbody>
+|         <tr>
+|           <td>
+|             "1"
+|           <td>
+|             "2"
+|         <tr>
+|           <td>
+|             colspan="2"
+|             "3"
+case doc	<template><tr><td>cell</td></tr></template><template><template>nested</template></template>
+| <html>
+|   <head>
+|     <template>
+|       content
+|         <tr>
+|           <td>
+|             "cell"
+|     <template>
+|       content
+|         <template>
+|           content
+|             "nested"
+|   <body>
+case frag	tbody	<tr><td>x
+| <tr>
+|   <td>
+|     "x"
+case frag	tr	<td>a<td>b
+| <td>
+|   "a"
+| <td>
+|   "b"
+case frag	template	<p>t</p><td>u
+| <p>
+|   "t"
+| "u"
+case frag	ul	<li>a<li>b
+| <li>
+|   "a"
+| <li>
+|   "b"
+later hints	table	<table width=100 height=50 align=center bgcolor=red cellspacing=4 bordercolor=blue background=x.png>
+hint width 1
+hint height 1
+hint align 1
+hint bgcolor 1
+hint cellspacing 1
+hint bordercolor 1
+hint background 1
+width: 100px
+height: 50px
+margin-left: auto
+margin-right: auto
+background-color: rgb(255, 0, 0)
+border-spacing: 4px
+border-top-color: rgb(0, 0, 255)
+border-right-color: rgb(0, 0, 255)
+border-bottom-color: rgb(0, 0, 255)
+border-left-color: rgb(0, 0, 255)
+case hints	table	<table align=left width=0 height=0>
+hint align 1
+hint width 1
+hint height 1
+float: left
+height: 0px
+case hints	table	<table align=right width=50%>
+hint align 1
+hint width 1
+float: right
+width: 50%
+case hints	table	<table border=2>
+hint border 1
+border-left-style: outset
+border-left-width: 2px
+border-left-color: rgb(128, 128, 128)
+border-top-style: outset
+border-top-width: 2px
+border-top-color: rgb(128, 128, 128)
+border-right-style: outset
+border-right-width: 2px
+border-right-color: rgb(128, 128, 128)
+border-bottom-style: outset
+border-bottom-width: 2px
+border-bottom-color: rgb(128, 128, 128)
+case hints	table	<table border=0 cellpadding=4>
+hint border 1
+hint cellpadding 1
+case hints	table	<table border=abc bgcolor=garbage>
+hint border 1
+hint bgcolor 1
+background-color: rgb(10, 186, 224)
+later hints	td	<table><tr><td bgcolor=#0f0 valign=top align=center width=40 height=0 nowrap background=b.png>
+hint bgcolor 1
+hint valign 1
+hint align 1
+hint width 1
+hint height 1
+hint nowrap 1
+hint background 1
+background-color: rgb(0, 255, 0)
+vertical-align: top
+text-align: -libweb-center
+width: 40px
+text-wrap-mode: nowrap
+case hints	td	<table cellpadding=5><tr><td align=right>
+hint align 1
+text-align: -libweb-right
+padding-top: 5px
+padding-bottom: 5px
+padding-left: 5px
+padding-right: 5px
+case hints	th	<table><tr><th align=middle valign=baseline width=0 height=30>
+hint align 1
+hint valign 1
+hint width 1
+hint height 1
+text-align: -libweb-center
+vertical-align: baseline
+height: 30px
+case hints	td	<table><tr><td align=justify height=20%>
+hint align 1
+hint height 1
+text-align: justify
+height: 20%
+case hints	td	<table cellpadding=-3><tr><td align=left>
+hint align 1
+text-align: -libweb-left
+padding-top: 0px
+padding-bottom: 0px
+padding-left: 0px
+padding-right: 0px
+later hints	tr	<table><tr align=center bgcolor=red height=20 valign=bottom background=x.png>
+hint align 1
+hint bgcolor 1
+hint height 1
+hint valign 1
+hint background 1
+text-align: -libweb-center
+background-color: rgb(255, 0, 0)
+height: 20px
+vertical-align: bottom
+case hints	tr	<table><tr align=bogus height=0 valign=nonsense>
+hint align 1
+hint height 1
+hint valign 1
+height: 0px
+later hints	tbody	<table><tbody align=right bgcolor=blue height=10 background=a.png>
+hint align 1
+hint bgcolor 1
+hint height 1
+hint background 1
+text-align: -libweb-right
+background-color: rgb(0, 0, 255)
+height: 10px
+case hints	thead	<table><thead align=left height=0>
+hint align 1
+hint height 1
+text-align: -libweb-left
+height: 0px
+case hints	caption	<table><caption align=bottom>
+hint align 1
+caption-side: bottom
+case hints	caption	<table><caption align=top>
+hint align 1
+case hints	col	<table><colgroup><col width=30>
+hint width 1
+width: 30px
+case hints	col	<table><colgroup><col width=50%>
+hint width 1
+width: 50%
+case hints	colgroup	<table><colgroup width=0>
+hint width 1
+width: 0px
+case hints	ul	<ul type=circle>
+hint type 1
+list-style-type: circle
+case hints	ul	<ul type=NONE>
+hint type 1
+list-style-type: none
+case hints	ul	<ul type=disc>
+hint type 1
+list-style-type: disc
+case hints	ul	<ul type=square>
+hint type 1
+list-style-type: square
+case hints	ul	<ul type=1>
+hint type 1
+case hints	ol	<ol type=a>
+hint type 1
+list-style-type: lower-alpha
+case hints	ol	<ol type=A>
+hint type 1
+list-style-type: upper-alpha
+case hints	ol	<ol type=i>
+hint type 1
+list-style-type: lower-roman
+case hints	ol	<ol type=I>
+hint type 1
+list-style-type: upper-roman
+case hints	ol	<ol type=1>
+hint type 1
+list-style-type: decimal
+case hints	ol	<ol type=disc>
+hint type 1
+case hints	li	<ul><li type=1>
+hint type 1
+list-style-type: decimal
+case hints	li	<ul><li type=a>
+hint type 1
+list-style-type: lower-alpha
+case hints	li	<ul><li type=Disc>
+hint type 1
+list-style-type: disc
+case hints	li	<ul><li type=none>
+hint type 1
+list-style-type: none
+case hints	li	<ul><li type=Square>
+hint type 1
+list-style-type: square
+case hints	img	<img hspace=5 vspace=6 border=2>
+hint hspace 1
+hint vspace 1
+hint border 1
+margin-left: 5px
+margin-right: 5px
+margin-top: 6px
+margin-bottom: 6px
+border-top-width: 2px
+border-right-width: 2px
+border-bottom-width: 2px
+border-left-width: 2px
+border-top-style: solid
+border-right-style: solid
+border-bottom-style: solid
+border-left-style: solid
+case hints	img	<img border=-1 hspace=x vspace=10%>
+hint border 1
+hint hspace 1
+hint vspace 1
+margin-top: 10%
+margin-bottom: 10%
+case hints	img	<img border=0 width=10 height=20>
+hint border 1
+hint width 0
+hint height 0
+border-top-width: 0px
+border-right-width: 0px
+border-bottom-width: 0px
+border-left-width: 0px
+border-top-style: solid
+border-right-style: solid
+border-bottom-style: solid
+border-left-style: solid
+case role	ol	<ol>
+40
+case role	ul	<ul>
+40
+case role	menu	<menu>
+40
+case role	table	<table>
+88
+case role	tr	<table><tr>
+66
+case role	tbody	<table><tbody>
+67
+case role	caption	<table><caption>
+7
+later role	details	<details>
+32
+case role	summary	<summary>
+6
+case role	dialog	<dialog>
+19
+case role	img	<img alt=x>
+34
+case role	img	<img>
+55
+case role	img	<img alt="">
+55
+later role	li	<ul><li>
+42
+later role	li	<li>
+55
+later role	td	<table><tr><td>
+8
+later role	th	<table><thead><tr><th>
+11

@@ -43,30 +43,30 @@ doc	<address>a</address><article>x</article><section>s</section><nav>n</nav><asi
 doc	<p>x<address>y</address>z
 doc	<b><p><i>x</b>y</i>
 doc	<head></head>  <body>  x  </body>
-!doc	<!DOCTYPE html><head><noscript><meta charset=utf-8></noscript></head>
+doc	<!DOCTYPE html><head><noscript><meta charset=utf-8></noscript></head>
 !doc	<script>var x = 1;</script><p>after
 !doc	<frameset><frame src=a><frame src=b></frameset>
 !doc	<iframe src=x></iframe>
 !doc	<object data=x><param name=a value=b>fallback</object>
 !doc	<canvas width=10 height=20>fallback</canvas>
-!doc	<div><table><tr><td>x</td></tr></table></div>
-!doc	<table>a<tr><td>b</table>
-!doc	<ul><li>a<li>b</ul>
+doc	<div><table><tr><td>x</td></tr></table></div>
+doc	<table>a<tr><td>b</table>
+doc	<ul><li>a<li>b</ul>
 !doc	<svg><circle/></svg>
 !doc	<math><mi>x</mi></math>
-!doc	<template><p>t</p></template>
+doc	<template><p>t</p></template>
 !doc	<select><option>a</select>
 !doc	<textarea>\nx</textarea>
-!doc	<title>t</title><p>x
-!doc	<foo-bar>x</foo-bar><unknownelement>y</unknownelement>
+doc	<title>t</title><p>x
+doc	<foo-bar>x</foo-bar><unknownelement>y</unknownelement>
 !doc	<video src=v.mp4 controls></video><audio></audio>
-!frag	div	<p>a<b>b</b></p>
-!frag	p	x<p>y
-!frag	span	<div>block</div>
-!frag	body	<h1>t</h1>text
-!frag	pre	\nnewline
-!frag	html	<head></head><p>x
-!frag	table	<tr><td>x
+frag	div	<p>a<b>b</b></p>
+frag	p	x<p>y
+frag	span	<div>block</div>
+frag	body	<h1>t</h1>text
+frag	pre	\nnewline
+frag	html	<head></head><p>x
+frag	table	<tr><td>x
 fontsize	
 fontsize	  
 fontsize	+
@@ -169,3 +169,73 @@ query	:heading(6)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></
 query	:heading(1, 3)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
 query	:heading(2, 4, 6)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
 query	:heading	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+# r26 (tables, lists, details/summary/dialog/slot/template, img/picture/source, link/style/meta/base/title) The <details> case waits for the CSP inline check (closure stub, P2): its shadow tree has a <style>. Cases with a background attribute wait for region r28 (encoding-parsing a URL reads the document base URL).
+doc	<table><caption>c</caption><colgroup><col span=2></colgroup><thead><tr><th>h</thead><tbody><tr><td>d</td></tr></tbody><tfoot><tr><td>f</table>
+!doc	<details open><summary>s</summary>body</details><details><p>no summary</details>
+doc	<dl><dt>t<dd>d</dl><menu><li>m</menu><dir><li>x</dir>
+doc	<picture><source srcset=a.png media="(min-width: 1px)"><img src=b.png alt=x></picture>
+doc	<dialog open>hi</dialog><slot name=s>fallback</slot>
+doc	<head><meta name=theme-color content=red><meta http-equiv=content-language content=fr><title>T</title></head><p>x
+doc	<ol start=3 reversed type=A><li value=5>a<li>b</ol><ul type=square><li>c</ul>
+doc	<table><tr><td>1<td>2<tr><td colspan=2>3</table>
+doc	<template><tr><td>cell</td></tr></template><template><template>nested</template></template>
+frag	tbody	<tr><td>x
+frag	tr	<td>a<td>b
+frag	template	<p>t</p><td>u
+frag	ul	<li>a<li>b
+!hints	table	<table width=100 height=50 align=center bgcolor=red cellspacing=4 bordercolor=blue background=x.png>
+hints	table	<table align=left width=0 height=0>
+hints	table	<table align=right width=50%>
+hints	table	<table border=2>
+hints	table	<table border=0 cellpadding=4>
+hints	table	<table border=abc bgcolor=garbage>
+!hints	td	<table><tr><td bgcolor=#0f0 valign=top align=center width=40 height=0 nowrap background=b.png>
+hints	td	<table cellpadding=5><tr><td align=right>
+hints	th	<table><tr><th align=middle valign=baseline width=0 height=30>
+hints	td	<table><tr><td align=justify height=20%>
+hints	td	<table cellpadding=-3><tr><td align=left>
+!hints	tr	<table><tr align=center bgcolor=red height=20 valign=bottom background=x.png>
+hints	tr	<table><tr align=bogus height=0 valign=nonsense>
+!hints	tbody	<table><tbody align=right bgcolor=blue height=10 background=a.png>
+hints	thead	<table><thead align=left height=0>
+hints	caption	<table><caption align=bottom>
+hints	caption	<table><caption align=top>
+hints	col	<table><colgroup><col width=30>
+hints	col	<table><colgroup><col width=50%>
+hints	colgroup	<table><colgroup width=0>
+hints	ul	<ul type=circle>
+hints	ul	<ul type=NONE>
+hints	ul	<ul type=disc>
+hints	ul	<ul type=square>
+hints	ul	<ul type=1>
+hints	ol	<ol type=a>
+hints	ol	<ol type=A>
+hints	ol	<ol type=i>
+hints	ol	<ol type=I>
+hints	ol	<ol type=1>
+hints	ol	<ol type=disc>
+hints	li	<ul><li type=1>
+hints	li	<ul><li type=a>
+hints	li	<ul><li type=Disc>
+hints	li	<ul><li type=none>
+hints	li	<ul><li type=Square>
+hints	img	<img hspace=5 vspace=6 border=2>
+hints	img	<img border=-1 hspace=x vspace=10%>
+hints	img	<img border=0 width=10 height=20>
+role	ol	<ol>
+role	ul	<ul>
+role	menu	<menu>
+role	table	<table>
+role	tr	<table><tr>
+role	tbody	<table><tbody>
+role	caption	<table><caption>
+!role	details	<details>
+role	summary	<summary>
+role	dialog	<dialog>
+role	img	<img alt=x>
+role	img	<img>
+role	img	<img alt="">
+!role	li	<ul><li>
+!role	li	<li>
+!role	td	<table><tr><td>
+!role	th	<table><thead><tr><th>
