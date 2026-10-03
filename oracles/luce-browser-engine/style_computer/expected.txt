@@ -1,0 +1,192 @@
+case
+html display: block
+html text-align: start
+html visibility: visible
+body display: block
+root display: block
+a display: block
+a font-style: normal
+b display: inline
+b font-style: normal
+c display: block
+d display: inline
+d font-style: italic
+e display: block
+f display: block
+f list-style-position: outside
+g display: list-item
+g list-style-position: outside
+h display: inline
+i display: inline
+i font-style: italic
+j display: inline
+j font-style: italic
+case
+x display: none
+y display: inline-block
+z display: inline
+p visibility: collapse
+s cursor: text
+t cursor: move
+case
+a display: block
+b z-index: 3
+c order: 1
+d order: 4
+e order: 6
+case
+o visibility: hidden
+o cursor: pointer
+o text-align: center
+o z-index: 4
+o text-transform: uppercase
+o font-style: italic
+o direction: rtl
+p visibility: hidden
+p cursor: pointer
+p text-align: center
+p z-index: auto
+p text-transform: uppercase
+p font-style: italic
+p direction: rtl
+q visibility: hidden
+q cursor: pointer
+q text-align: center
+q z-index: auto
+q text-transform: uppercase
+q font-style: italic
+q direction: rtl
+case
+p z-index: 4
+p cursor: auto
+p display: inline-block
+p opacity: 0.25
+q z-index: auto
+q cursor: auto
+q display: inline
+q opacity: 1
+s visibility: visible
+t visibility: hidden
+case
+a z-index: 9
+b z-index: 1
+c order: 5
+d order: 2
+case
+a order: 2
+b order: 3
+c order: 5
+d z-index: 1
+case
+a cursor: text
+case
+a display: inline
+b display: block
+c z-index: 4
+d z-index: auto
+e visibility: visible
+case
+a display: none
+b display: inline
+t display: table
+tb display: table-row-group
+tr display: table-row
+td display: table-cell
+th display: table-cell
+case
+a list-style-position: inside
+b list-style-position: outside
+c overflow-x: hidden
+c overflow-y: hidden
+d align-self: center
+d justify-self: center
+case
+p cursor: auto
+p z-index: auto
+p display: inline
+q cursor: pointer
+q z-index: 3
+q display: block
+r cursor: pointer
+r z-index: auto
+r display: inline
+case
+o --a: 10px
+o --b: 10px
+o --c: foo  bar
+o --d: block
+p --a: 20px
+p --b: 10px
+p --c: foo  bar
+p display: block
+q --a: 20px
+q --e: inline-block
+q display: inline-block
+r display: inline
+s z-index: 8
+case
+a --x: one
+b --y: inline
+c --z: second
+case
+html cursor: move
+a cursor: pointer
+a z-index: 1
+a visibility: hidden
+b cursor: text
+k order: 3
+k visibility: hidden
+w order: 4
+s text-transform: uppercase
+case
+a z-index: 1
+a order: 2
+b z-index: auto
+b order: 2
+c cursor: pointer
+d cursor: text
+e z-index: 5
+e order: 0
+f z-index: 6
+g z-index: auto
+g order: 7
+case
+a display: block
+a z-index: 2
+b cursor: pointer
+case
+a z-index: 1
+b z-index: 2
+c z-index: 3
+d order: 4
+case
+a z-index: 3
+b z-index: 4
+c cursor: pointer
+d cursor: text
+case
+a list-style-position: inside
+b overflow-x: hidden
+b overflow-y: hidden
+c overflow-x: visible
+c overflow-y: visible
+case
+p --a: 
+p --b: two
+p --c: three
+q --i: inline
+case
+x z-index: 1
+y z-index: auto
+y display: block
+z display: contents
+case
+m order: 3
+m cursor: text
+n order: 5
+n cursor: move
+o order: 0
+o cursor: pointer
+case
+a display: block
+b display: block

@@ -1,0 +1,112 @@
+50%
+62.5%
+75%
+87.5%
+100%
+112.5%
+125%
+150%
+200%
+80%
+25%
+normal
+italic
+oblique
+oblique 20deg
+oblique -10deg
+normal
+1.5
+20px
+24px
+19.5px
+20px
+3
+0
+superellipse(1)
+superellipse(2)
+superellipse(infinity)
+superellipse(0)
+superellipse(-1)
+superellipse(-infinity)
+superellipse(3)
+superellipse(-2.5)
+none
+center
+left top
+start
+inline-start
+block-start
+top
+self-inline-end
+span-start span-end
+self-end self-start
+span-self-start span-self-end
+left
+span-all
+normal
+"liga" 0
+"kern" 0, "liga" 2
+"aalt" 3, "c2sc", "smcp"
+normal
+"wdth" 75, "wght" 700
+none
+foo
+bar
+"none"
+foo, baz, none
+"initial"
+a\ b
+1px
+3px
+5px
+2px
+2.5px
+1px
+0.5px
+1.328125px
+0px
+3px
+1px
+9.59375px
+12px
+14.21875px
+16px
+19.1875px
+24px
+32px
+48px
+20px
+24px
+10px
+16px
+11.359375px
+11.359375px
+22.53125px
+400
+700
+700
+100
+350
+250
+0
+2
+3
+2
+-1
+12.796875px
+20px
+1px 2px
+1px
+1px solid red
+thick dashed
+red
+hidden auto
+inside square
+italic bold 12px / 30px serif
+center start
+1 2 10px
+1px 2px
+opacity 1s ease-in
+auto
+underline red
+100px 3

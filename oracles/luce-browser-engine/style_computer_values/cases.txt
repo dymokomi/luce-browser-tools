@@ -1,0 +1,114 @@
+# The StyleComputer computed-value cases (r39): "<function>\t<property>\t<value>[\t<argument>]";
+# "!" marks cases whose port reaches InitialValues (region r40).
+font_width	font-width	ultra-condensed
+font_width	font-width	extra-condensed
+font_width	font-width	condensed
+font_width	font-width	semi-condensed
+font_width	font-width	normal
+font_width	font-width	semi-expanded
+font_width	font-width	expanded
+font_width	font-width	extra-expanded
+font_width	font-width	ultra-expanded
+font_width	font-width	80%
+font_width	font-width	calc(20% + 5%)
+font_style	font-style	normal
+font_style	font-style	italic
+font_style	font-style	oblique
+font_style	font-style	oblique 20deg
+font_style	font-style	oblique -10deg
+line_height	line-height	normal	16
+line_height	line-height	1.5	16
+line_height	line-height	20px	16
+line_height	line-height	150%	16
+line_height	line-height	150%	13
+line_height	line-height	calc(10px + 50%)	20
+line_height	line-height	calc(2 * 1.5)	16
+line_height	line-height	0	16
+corner_shape	corner-top-left-shape	round
+corner_shape	corner-top-left-shape	squircle
+corner_shape	corner-top-left-shape	square
+corner_shape	corner-top-left-shape	bevel
+corner_shape	corner-top-left-shape	scoop
+corner_shape	corner-top-left-shape	notch
+corner_shape	corner-top-left-shape	superellipse(3)
+corner_shape	corner-top-left-shape	superellipse(-2.5)
+position_area	position-area	none
+position_area	position-area	center
+position_area	position-area	top left
+position_area	position-area	block-start inline-start
+position_area	position-area	span-all start
+position_area	position-area	start span-all
+position_area	position-area	top span-all
+position_area	position-area	span-all self-end
+position_area	position-area	span-block-start span-inline-end
+position_area	position-area	self-block-end self-inline-start
+position_area	position-area	span-self-block-start span-self-inline-end
+position_area	position-area	left
+position_area	position-area	span-all
+font_feature	font-feature-settings	normal
+font_feature	font-feature-settings	"liga" 0
+font_feature	font-feature-settings	"liga", "kern" 0, "liga" 2
+font_feature	font-feature-settings	"smcp", "c2sc", "aalt" 3
+font_feature	font-variation-settings	normal
+font_feature	font-variation-settings	"wght" 400, "wdth" 75, "wght" 700
+animation_name	animation-name	none
+animation_name	animation-name	foo
+animation_name	animation-name	"bar"
+animation_name	animation-name	"none"
+animation_name	animation-name	foo, "baz", none
+animation_name	animation-name	"initial"
+animation_name	animation-name	"a b"
+border_width	border-top-width	thin	1
+border_width	border-top-width	medium	1
+border_width	border-top-width	thick	1
+border_width	border-top-width	2.5px	1
+border_width	border-top-width	2.5px	2
+border_width	border-top-width	0.3px	1
+border_width	border-top-width	0.3px	2
+border_width	border-top-width	1.4px	1.5
+border_width	border-top-width	0px	1
+border_width	border-top-width	3px	3
+border_width	border-top-width	0.5px	1
+!font_size	font-size	xx-small	0
+!font_size	font-size	x-small	0
+!font_size	font-size	small	0
+!font_size	font-size	medium	0
+!font_size	font-size	large	0
+!font_size	font-size	x-large	0
+!font_size	font-size	xx-large	0
+!font_size	font-size	xxx-large	0
+!font_size	font-size	20px	0
+!font_size	font-size	150%	0
+!font_size	font-size	calc(50% + 2px)	0
+!font_size	font-size	math	0
+!font_size	font-size	math	1
+!font_size	font-size	math	3
+!font_size	font-size	math	-2
+!font_weight	font-weight	normal
+!font_weight	font-weight	bold
+!font_weight	font-weight	bolder
+!font_weight	font-weight	lighter
+!font_weight	font-weight	350
+!font_weight	font-weight	calc(200 + 50)
+!math_depth	math-depth	auto-add
+!math_depth	math-depth	add(2)
+!math_depth	math-depth	3
+!math_depth	math-depth	calc(1 + 1)
+!math_depth	math-depth	add(-1)
+!font_size	font-size	smaller	0
+!font_size	font-size	larger	0
+serialize	margin	1px 2px
+serialize	margin	1px 1px 1px 1px
+serialize	border	1px solid red
+serialize	border-top	thick dashed
+serialize	background	red
+serialize	overflow	hidden auto
+serialize	list-style	square inside
+serialize	font	italic bold 12px/30px serif
+serialize	place-items	center start
+serialize	flex	1 2 10px
+serialize	gap	1px 2px
+serialize	transition	opacity 1s ease-in
+serialize	inset	auto
+serialize	text-decoration	underline red
+serialize	columns	3 100px

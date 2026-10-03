@@ -1,0 +1,26 @@
+# Compiler issue (luce-base 0.33.0, Luce 0.8.32): an array length that is a constant expression
+# other than a literal (or a `let` of a literal) is rejected.
+#
+# base.md §5.1: "a usize expression built from literals, sizeof, and arithmetic is a constant: it may
+# be a top-level `let`, an array length, ...", and §6.4 admits casts of scalar constants and enum
+# cases. Each `let` below is accepted as a top-level constant, but using it as an array length fails.
+#
+# Expected: `luce-base check array_length_constant_expression.lucb` succeeds.
+# Actual:   array_length_constant_expression.lucb:16:35: an array length must be a constant
+#           (likewise for size_from_arithmetic and size_from_enum when used alone).
+
+enum Id as u16:
+    first = 0
+    last = 385
+
+let size_from_arithmetic: usize = (usize)3 + 3
+let size_from_enum: usize = (usize)(u16)Id.last + 1
+
+struct Bits:
+    var by_arithmetic: bool[size_from_arithmetic]
+    var by_enum: bool[size_from_enum]
+
+pub func main(arguments: str[]) -> i32:
+    var bits: Bits
+    bits.by_enum[385] = true
+    return 0 if bits.by_enum[385] else 1

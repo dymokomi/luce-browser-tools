@@ -1,0 +1,204 @@
+# The cascade oracle cases (r39): "css <text>" is the case's author style sheet ("\n" for a new
+# line), "tree <markup>" div#root's content, and each "q <id> <property>..." line asks
+# getComputedStyle(element) for the properties. The properties are ones whose computed value is
+# the cascaded value as written (keywords, integers, numbers), its inherited value, or the
+# initial value. "html", "body" and "root" name those elements.
+
+# The user-agent style sheet alone.
+css
+tree <div id=a><span id=b></span><p id=c></p><em id=d></em><section id=e></section><ul id=f><li id=g></li></ul><b id=h></b><i id=i></i><cite id=j></cite></div>
+q html display text-align visibility
+q body display
+q root display
+q a display font-style
+q b display font-style
+q c display
+q d display font-style
+q e display
+q f display list-style-position
+q g display list-style-position
+q h display
+q i display font-style
+q j display font-style
+
+# Specificity: id > class > type; equal specificity, the later rule wins.
+css div { display: inline } .k { display: inline-block } #x { display: none } p { visibility: hidden } p { visibility: collapse } span.k { cursor: pointer } .k.k { cursor: text } span { cursor: move }
+tree <div id=x class=k></div><div id=y class=k></div><div id=z></div><p id=p></p><span id=s class=k></span><span id=t></span>
+q x display
+q y display
+q z display
+q p visibility
+q s cursor
+q t cursor
+
+# !important beats specificity and order; the inline style beats the sheet; !important beats the inline style.
+css #a { display: inline } div { display: block !important } .b { z-index: 3 !important } #b { z-index: 5 } #c { order: 2 } .d { order: 4 !important }
+tree <div id=a></div><div id=b class=b style="z-index: 7"></div><div id=c style="order: 1"></div><div id=d class=d style="order: 9"></div><div id=e style="order: 6 !important" class=d></div>
+q a display
+q b z-index
+q c order
+q d order
+q e order
+
+# Inheritance: inherited properties take the parent's value, the others their initial value.
+css #o { visibility: hidden; cursor: pointer; text-align: center; z-index: 4; text-transform: uppercase; font-style: italic; direction: rtl }
+tree <div id=o><span id=p><b id=q></b></span></div>
+q o visibility cursor text-align z-index text-transform font-style direction
+q p visibility cursor text-align z-index text-transform font-style direction
+q q visibility cursor text-align z-index text-transform font-style direction
+
+# inherit, initial, unset.
+css #o { z-index: 4; cursor: pointer; display: inline-block; opacity: 0.25 } #p { z-index: inherit; cursor: initial; display: inherit; opacity: inherit } #q { cursor: unset; z-index: unset; display: unset } #r { visibility: hidden } #s { visibility: initial } #t { visibility: unset }
+tree <div id=o><span id=p><b id=q></b></span></div><div id=r><span id=s></span><span id=t></span></div>
+q p z-index cursor display opacity
+q q z-index cursor display opacity
+q s visibility
+q t visibility
+
+# Cascade layers: unlayered normal declarations win; later layers win; for !important the order is reversed.
+css @layer one, two;\n@layer two { #a { z-index: 2 } #b { z-index: 2 !important } }\n@layer one { #a { z-index: 1 } #b { z-index: 1 !important } #c { order: 1 } }\n#c { order: 5 } #a { z-index: 9 } #b { z-index: 9 !important } #d { order: 3 !important }\n@layer two { #d { order: 2 !important } }
+tree <div id=a></div><div id=b></div><div id=c></div><div id=d></div>
+q a z-index
+q b z-index
+q c order
+q d order
+
+# Nested and anonymous layers, and a layer statement fixing the order before the blocks.
+css @layer outer { @layer inner { #a { order: 1 } #b { order: 1 } } #a { order: 2 } }\n@layer { #b { order: 3 } }\n@layer outer.inner { #c { order: 4 } }\n@layer { #c { order: 5 } }\n@layer late, early;\n@layer early { #d { z-index: 1 } }\n@layer late { #d { z-index: 2 } }
+tree <div id=a></div><div id=b></div><div id=c></div><div id=d></div>
+q a order
+q b order
+q c order
+q d z-index
+
+# Specificity inside a layer does not beat the layer order.
+css @layer low { #a.x.y { cursor: pointer } }\n@layer high { div { cursor: text } }
+tree <div id=a class="x y"></div>
+q a cursor
+
+# revert rolls back to the user-agent value; revert-layer to the previous layer.
+css div { display: inline } #b { display: revert } p { visibility: hidden }\n@layer base { #c { z-index: 4 } }\n@layer top { #c { z-index: revert-layer } #d { z-index: revert-layer } }\n#e { visibility: revert }
+tree <div id=a></div><div id=b></div><div id=c></div><div id=d></div><p id=e></p>
+q a display
+q b display
+q c z-index
+q d z-index
+q e visibility
+
+# The hidden attribute, and the user-agent display of list items and table parts.
+css
+tree <div id=a hidden></div><span id=b hidden="until-found"></span><table id=t><tbody id=tb><tr id=tr><td id=td></td><th id=th></th></tr></tbody></table>
+q a display
+q b display
+q t display
+q tb display
+q tr display
+q td display
+q th display
+
+# Shorthands expand to their longhands; later longhands override.
+css #a { list-style: square inside } #b { list-style: inside; list-style-position: outside } #c { overflow: hidden } #d { place-self: center }
+tree <ul><li id=a></li><li id=b></li></ul><div id=c></div><div id=d></div>
+q a list-style-position
+q b list-style-position
+q c overflow-x overflow-y
+q d align-self justify-self
+
+# The all shorthand.
+css #o { cursor: pointer; z-index: 3 } #p { all: initial } #q { all: inherit } #r { all: unset }
+tree <div id=o><span id=p></span><span id=q></span><span id=r></span></div>
+q p cursor z-index display
+q q cursor z-index display
+q r cursor z-index display
+
+# Custom properties: cascade, inheritance and var() substitution.
+css #o { --a: 10px; --b: var(--a); --c: foo  bar; --d: block } #p { --a: 20px; display: var(--d) } #q { --e: var(--missing, inline-block); display: var(--e) } #r { display: var(--nothing) } #s { z-index: var(--z, 8) }
+tree <div id=o><span id=p><b id=q></b><b id=r></b><b id=s></b></span></div>
+q o --a --b --c --d
+q p --a --b --c display
+q q --a --e display
+q r display
+q s z-index
+
+# Custom properties: !important, the inline style, and the last declaration winning.
+css #a { --x: one !important } #a { --x: two } .b { --y: sheet } #c { --z: first; --z: second }
+tree <div id=a style="--x: inline"></div><div id=b class=b style="--y: inline"></div><div id=c></div>
+q a --x
+q b --y
+q c --z
+
+# Rule buckets: class, id, tag, attribute, universal, :is()/:where() and :root.
+css [data-x] { cursor: pointer } [data-x="b"] { cursor: text } * { z-index: 1 } :is(.k) { order: 3 } :where(#w) { order: 4 } :root { cursor: move } :is(section) { text-transform: uppercase } div:not(.k) { visibility: hidden }
+tree <div id=a data-x></div><div id=b data-x=b></div><div id=k class=k></div><div id=w></div><section id=s></section>
+q html cursor
+q a cursor z-index visibility
+q b cursor
+q k order visibility
+q w order
+q s text-transform
+
+# Combinators and structural pseudo-classes.
+css #o > span { z-index: 1 } #o span { order: 2 } span + b { cursor: pointer } span ~ i { cursor: text } li:first-child { z-index: 5 } li:nth-child(2n) { z-index: 6 } li:last-child { order: 7 }
+tree <div id=o><span id=a><span id=b></span></span><b id=c></b><i id=d></i></div><ul><li id=e></li><li id=f></li><li id=g></li></ul>
+q a z-index order
+q b z-index order
+q c cursor
+q d cursor
+q e z-index order
+q f z-index
+q g z-index order
+
+# Declarations that do not apply: invalid values and unknown properties are dropped.
+css #a { display: banana; z-index: 2; z-index: 1.5 } #b { cursor: pointer; colour: red; cursor: nope }
+tree <div id=a></div><div id=b></div>
+q a display z-index
+q b cursor
+
+# Nesting.
+css .p { z-index: 1; & > .c { z-index: 2 } .d & { z-index: 3 } &.e { order: 4 } }
+tree <div id=a class=p><span id=b class=c></span></div><div class=d><div id=c class=p></div></div><div id=d class="p e"></div>
+q a z-index
+q b z-index
+q c z-index
+q d order
+
+# :where() adds no specificity, :is() the most specific argument's; attribute values matched case-insensitively.
+css :where(#a) { z-index: 1 } div { z-index: 2 } :is(#b, div) { z-index: 3 } #b { z-index: 4 } [data-k="X" i] { cursor: pointer } [data-k="X"] { cursor: text }
+tree <div id=a></div><div id=b></div><div id=c data-k=x></div><div id=d data-k=X></div>
+q a z-index
+q b z-index
+q c cursor
+q d cursor
+
+# var() in a shorthand: the longhands wait for the substitution (pending-substitution values).
+css #a { --p: inside; list-style: square var(--p) } #b { --o: hidden; overflow: var(--o) } #c { overflow: var(--none) }
+tree <ul><li id=a></li></ul><div id=b></div><div id=c></div>
+q a list-style-position
+q b overflow-x overflow-y
+q c overflow-x overflow-y
+
+# Custom properties: initial, inherit and unset, and !important against the inline style.
+css #o { --a: one; --b: two; --c: three } #p { --a: initial; --b: inherit; --c: unset } #q { --i: sheet !important }
+tree <div id=o><span id=p></span></div><div id=q style="--i: inline !important"></div>
+q p --a --b --c
+q q --i
+
+# revert-layer with !important, all: revert, and display: contents.
+css @layer a { #x { z-index: 1 !important } }\n@layer b { #x { z-index: revert-layer !important } }\n#y { z-index: 2; all: revert } #z { display: contents }
+tree <div id=x></div><div id=y></div><div id=z></div>
+q x z-index
+q y z-index display
+q z display
+
+# Many rules in several buckets, sorted by specificity and then by order.
+css .a { order: 1 } div { order: 2 } #m { order: 3 } .a.b { order: 4 } div.a { order: 5 } [title] { cursor: pointer } div[title] { cursor: text } * { cursor: move }
+tree <div id=m class="a b" title=t></div><div id=n class=a></div><span id=o title=t></span>
+q m order cursor
+q n order cursor
+q o order cursor
+
+# Cascaded values of the user-agent sheet's !important rules hold against author rules.
+css [hidden] { display: block } #b { display: block }
+tree <div id=a hidden></div><div id=b hidden></div>
+q a display
+q b display
