@@ -1,0 +1,202 @@
+# r55 oracle cases: <mode>\t<argument>... "!" marks a case that waits for another region in the port.
+coord	10
+coord	  -3.5e2  
+coord	+.5
+coord	1.
+coord	.
+coord	-
+coord	1e
+coord	1e-3
+coord	12px
+coord	
+coord	 1 2
+coord	0x10
+coord	1E+2
+coord	3.402823e39
+length	0.125
+length	-7
+length	50%
+poslen	-7
+poslen	7.25
+poslen	0
+poslen	-0
+integer	42
+integer	-17
+integer	+5
+integer	1.5
+integer	2147483647
+integer	2147483648
+integer	 9 
+integer	.5
+numpct	50%
+numpct	12.5
+numpct	-25%
+numpct	 % 
+numpct	3 %
+numpct	1e2%
+viewbox	0 0 100 50
+viewbox	-10,-20,300.5,150
+viewbox	0 0 100
+viewbox	0,0,,100,50
+viewbox	 1 2 3 4 
+viewbox	1 2 3 4 5
+viewbox	1,2 3,4
+viewbox	0 0 -1 -1
+par	none
+par	xMinYMin
+par	xMidYMid meet
+par	xMaxYMax slice
+par	  xMinYMax   slice  
+par	xminymin
+par	xMidYMid foo
+par	
+par	slice
+par	xMidYMid meet extra
+units	userSpaceOnUse
+units	objectBoundingBox
+units	  objectBoundingBox  
+units	userspaceonuse
+units	
+spread	pad
+spread	repeat
+spread	reflect
+spread	Repeat
+table	0 0.5 1
+table	1,0.25 , 0
+table	 0.1 
+table	-1 0
+table	
+table	1 x
+points	0,0 10,20 30,5
+points	 1 2 3 4 5 6 
+points	1,2,3,4
+points	1 2 3
+points	
+points	1e1,2e-1 -3,-4
+points	0 0 , 10 10
+transform	translate(10)
+transform	translate(10, 20)
+transform	translate(-5 7.5) scale(2)
+transform	scale(2, 3)
+transform	scale(0.5,-1)
+transform	rotate(45)
+transform	rotate(90 50 50)
+transform	rotate(30, 10, 20)
+transform	skewX(30)
+transform	skewY(-15)
+transform	matrix(1 0 0 1 10 20)
+transform	matrix(0.5,0.25,-0.25,0.5,3,4)
+transform	  translate ( 1 2 )  ,  rotate(10)
+transform	translate(1 2)scale(3)
+transform	
+transform	foo(1)
+transform	translate(1
+transform	matrix(1 2 3)
+transform	rotate()
+transform	scale(2) translate(10 10) rotate(45 5 5) skewX(10) skewY(20) matrix(1 0.1 0.2 1 5 6)
+path	M 10 10 L 20 20
+path	M10,10L20,20Z
+path	m 10 10 l 5 5 10 -5 z
+path	M 1 2 3 4 5 6
+path	M0 0 H 50 V 30 h -10 v 5 Z
+path	M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80
+path	M 10 80 Q 52.5 10, 95 80 T 180 80
+path	m 10 80 q 42.5 -70 85 0 t 85 0 t 30 30
+path	M 10 315 L 110 215 A 30 50 0 0 1 162.55 162.45 L 172.55 152.45 A 30 50 -45 0 1 215.1 109.9 L 315 10
+path	M 80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z
+path	M 230 80 A 45 45, 0, 1, 0, 275 125 L 275 80 Z
+path	M 80 230 a 45 45 0 1 1 45 45 l 0 -45 z
+path	M10 10 a20 20 0 1020 0
+path	M 10 10 L
+path	L 10 10
+path	M 10 10 X 20 20
+path	M 10 10 L 20 20 M 30 30
+path	M.5.5L1e1-1e1
+path	m 1 1 c 1 1 2 2 3 3 s 4 4 5 5 c 1 1 2 2 3 3
+path	M 0 0 S 10 10 20 0 S 30 -10 40 0
+path	M 0 0 T 10 10 T 20 0
+path	M 0 0 h 10 10 v 5,5
+path	
+path	   
+path	M 1 2 z m 3 4 l 1 1
+path	m6 5 13 7-13 7Z
+path	M14 5h4v14h-4Zm-4 0H6v14h4z
+path	M 0 0 L 10 10 
+path	M 0 0 Z 
+shape	rect	300	150	<svg><rect x=10 y=20 width=100 height=50></rect></svg>
+shape	rect	300	150	<svg><rect x=10% y=20% width=50% height=25%></rect></svg>
+shape	rect	300	150	<svg><rect width=100 height=50 rx=10></rect></svg>
+shape	rect	300	150	<svg><rect width=100 height=50 ry=10></rect></svg>
+shape	rect	300	150	<svg><rect width=100 height=50 rx=80 ry=5></rect></svg>
+shape	rect	300	150	<svg><rect width=100 height=50 rx=10% ry=20%></rect></svg>
+shape	rect	300	150	<svg><rect width=0 height=50></rect></svg>
+shape	rect	300	150	<svg><rect width=100 height=bogus></rect></svg>
+shape	ellipse	300	150	<svg><ellipse cx=50 cy=40 rx=30 ry=20></ellipse></svg>
+shape	ellipse	300	150	<svg><ellipse cx=50 cy=40 rx=-30 ry=20></ellipse></svg>
+shape	ellipse	300	150	<svg><ellipse rx=10 ry=10></ellipse></svg>
+shape	line	300	150	<svg><line x1=10 y1=20 x2=30% y2=50%></line></svg>
+shape	line	300	150	<svg><line></line></svg>
+shape	polygon	300	150	<svg><polygon points="0,0 10,0 10,10"></polygon></svg>
+shape	polygon	300	150	<svg><polygon points=""></polygon></svg>
+shape	polyline	300	150	<svg><polyline points="0,0 10,0 10,10 20,20"></polyline></svg>
+shape	path	300	150	<svg><path d="M 10 10 h 20 v 20 h -20 z"></path></svg>
+shape	path	300	150	<svg><path d="M 80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"></path></svg>
+shape	path	300	150	<svg><path d="L 10 10"></path></svg>
+svgroot	<svg width=200 height=100 viewBox="0 0 20 10" preserveAspectRatio="xMinYMax slice"></svg>
+svgroot	<svg></svg>
+svgroot	<svg width=50% height=10em></svg>
+svgroot	<svg width="" height=""></svg>
+svgroot	<svg viewBox="0 0 300 150"></svg>
+svgroot	<svg viewBox="bad"></svg>
+svgroot	<svg width=2in height=1cm></svg>
+svgroot	<svg width=0 height=100 viewBox="0 0 30 20"></svg>
+svgroot	<svg width=100 viewBox="0 0 30 20"></svg>
+xform	g	<svg><g transform="translate(10 20) rotate(30)"></g></svg>
+xform	rect	<svg><rect transform="scale(2) skewX(15)"></rect></svg>
+xform	g	<svg><g></g></svg>
+xform	g	<svg><g transform="bogus"></g></svg>
+xform	svg	<svg transform="matrix(2 0 0 2 1 1)"></svg>
+hints	rect	<svg><rect x=10 y=5 width=100 height=50 fill=red stroke=blue stroke-width=3 rx=4 data-x=1></rect></svg>
+hints	circle	<svg><circle cx=10 cy=20 r=5 fill-opacity=0.5 opacity=.25></circle></svg>
+hints	ellipse	<svg><ellipse cx=1 cy=2 rx=3 ry=4 width=10></ellipse></svg>
+hints	svg	<svg width=200 height=100 x=5 display=none font-stretch=condensed></svg>
+hints	g	<svg><g transform="rotate(10)" fill="url(#x)" visibility=hidden FILL=green></g></svg>
+hints	g	<svg><g circle=7 r=3 cx=1></g></svg>
+hints	path	<svg><path d="M0 0" stroke-dasharray="1 2" stroke-linecap=round stroke-linejoin=bevel fill-rule=evenodd mask=url(#m) clip-path=url(#c)></path></svg>
+!role	g	<svg><g></g></svg>
+!role	g	<svg><g><title>Hi</title></g></svg>
+!role	g	<svg><g><title>   </title></g></svg>
+!role	circle	<svg><circle aria-label="dot"></circle></svg>
+!role	path	<svg><path><desc>d</desc></path></svg>
+role	rect	<svg><rect><desc>r</desc></rect></svg>
+role	svg	<svg></svg>
+!role	polygon	<svg><polygon role=presentation aria-labelledby=" "></polygon></svg>
+lengths	rect	<svg><rect x=10 y=20% width=30 height=40 rx=5></rect></svg>
+lengths	ellipse	<svg><ellipse cx=1.5 cy=-2 rx=3 ry=-4></ellipse></svg>
+lengths	line	<svg><line x1=1 y1=50% x2=bogus></line></svg>
+href	<svg class="a b"><script href="h.js" xlink:href="x.js"></script></svg>
+href	<svg><script xlink:href="x.js"></script></svg>
+href	<svg><script></script></svg>
+ctf	type=identity
+ctf	type=table	tableValues=0 0.5 1
+ctf	type=table	tableValues=1
+ctf	type=table	tableValues=
+ctf	type=discrete	tableValues=0 0.25 0.5 1
+ctf	type=linear	slope=0.5	intercept=0.25
+ctf	type=linear
+ctf	type=gamma	amplitude=2	exponent=0.5	offset=-0.1
+ctf	type=gamma
+ctf	type=bogus
+ctf	slope=abc	intercept=10%
+animnum	3.5	0	first
+animnum	-	0	first
+animnum	abc	0	first
+animnum	1 2	1	first
+animnum	1 2	1	second
+animnum	4	1	second
+animnum	-	1	second
+animnum	1  2	1	second
+animint	12	0	first
+animint	3 4	1	second
+animint	3	1	second
+animint	x	0	first

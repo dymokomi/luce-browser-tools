@@ -1,0 +1,2 @@
+HTMLInputElement::convert_number_to_string() not implemented for input type text
+HTMLScriptElement: Refusing to run script because scripting is disabled.

@@ -1,0 +1,818 @@
+case coord	10
+41200000
+case coord	  -3.5e2  
+c3af0000
+case coord	+.5
+3f000000
+case coord	1.
+3f800000
+case coord	.
+none
+case coord	-
+none
+case coord	1e
+none
+case coord	1e-3
+3a83126f
+case coord	12px
+none
+case coord	
+none
+case coord	 1 2
+none
+case coord	0x10
+none
+case coord	1E+2
+42c80000
+case coord	3.402823e39
+7f800000
+case length	0.125
+3e000000
+case length	-7
+c0e00000
+case length	50%
+none
+case poslen	-7
+none
+case poslen	7.25
+40e80000
+case poslen	0
+00000000
+case poslen	-0
+80000000
+case integer	42
+42
+case integer	-17
+-17
+case integer	+5
+5
+case integer	1.5
+none
+case integer	2147483647
+2147483647
+case integer	2147483648
+none
+case integer	 9 
+9
+case integer	.5
+none
+case numpct	50%
+3f000000 % 42fa0000
+case numpct	12.5
+41480000 n 41480000
+case numpct	-25%
+be800000 % c27a0000
+case numpct	 % 
+none
+case numpct	3 %
+none
+case numpct	1e2%
+3f800000 % 437a0000
+case viewbox	0 0 100 50
+0000000000000000 0000000000000000 4059000000000000 4049000000000000
+case viewbox	-10,-20,300.5,150
+c024000000000000 c034000000000000 4072c80000000000 4062c00000000000
+case viewbox	0 0 100
+none
+case viewbox	0,0,,100,50
+none
+case viewbox	 1 2 3 4 
+3ff0000000000000 4000000000000000 4008000000000000 4010000000000000
+case viewbox	1 2 3 4 5
+none
+case viewbox	1,2 3,4
+3ff0000000000000 4000000000000000 4008000000000000 4010000000000000
+case viewbox	0 0 -1 -1
+0000000000000000 0000000000000000 bff0000000000000 bff0000000000000
+case par	none
+0 0
+case par	xMinYMin
+1 0
+case par	xMidYMid meet
+5 0
+case par	xMaxYMax slice
+9 1
+case par	  xMinYMax   slice  
+7 1
+case par	xminymin
+none
+case par	xMidYMid foo
+none
+case par	
+none
+case par	slice
+none
+case par	xMidYMid meet extra
+5 0
+case units	userSpaceOnUse
+1
+case units	objectBoundingBox
+0
+case units	  objectBoundingBox  
+0
+case units	userspaceonuse
+none
+case units	
+none
+case spread	pad
+0
+case spread	repeat
+1
+case spread	reflect
+2
+case spread	Repeat
+none
+case table	0 0.5 1
+table 00000000 3f000000 3f800000
+case table	1,0.25 , 0
+table 3f800000 3e800000 00000000
+case table	 0.1 
+table 3dcccccd
+case table	-1 0
+table
+case table	
+table
+case table	1 x
+table
+case points	0,0 10,20 30,5
+points 00000000 00000000 41200000 41a00000 41f00000 40a00000
+case points	 1 2 3 4 5 6 
+points 3f800000 40000000 40400000 40800000 40a00000 40c00000
+case points	1,2,3,4
+points 3f800000 40000000 40400000 40800000
+case points	1 2 3
+points 3f800000 40000000
+case points	
+points
+case points	1e1,2e-1 -3,-4
+points 41200000 3e4ccccd c0400000 c0800000
+case points	0 0 , 10 10
+points 00000000 00000000 41200000 41200000
+case transform	translate(10)
+translate 41200000 00000000
+matrix 3f800000 00000000 00000000 3f800000 41200000 00000000
+case transform	translate(10, 20)
+translate 41200000 41a00000
+matrix 3f800000 00000000 00000000 3f800000 41200000 41a00000
+case transform	translate(-5 7.5) scale(2)
+translate c0a00000 40f00000
+scale 40000000 40000000
+matrix 40000000 00000000 00000000 40000000 c0a00000 40f00000
+case transform	scale(2, 3)
+scale 40000000 40400000
+matrix 40000000 00000000 00000000 40400000 00000000 00000000
+case transform	scale(0.5,-1)
+scale 3f000000 bf800000
+matrix 3f000000 00000000 80000000 bf800000 00000000 00000000
+case transform	rotate(45)
+rotate 42340000 00000000 00000000
+matrix 3f3504f3 3f3504f3 bf3504f3 3f3504f3 00000000 00000000
+case transform	rotate(90 50 50)
+rotate 42b40000 42480000 42480000
+matrix b33bbd2e 3f800000 bf800000 b33bbd2e 42c80000 36800000
+case transform	rotate(30, 10, 20)
+rotate 41f00000 41200000 41a00000
+matrix 3f5db3d7 3f000000 bf000000 3f5db3d7 41356f9a c0148330
+case transform	skewX(30)
+skewX 41f00000
+matrix 3f800000 00000000 3f13cd3a 3f800000 00000000 00000000
+case transform	skewY(-15)
+skewY c1700000
+matrix 3f800000 be8930a3 00000000 3f800000 00000000 00000000
+case transform	matrix(1 0 0 1 10 20)
+matrix 3f800000 00000000 00000000 3f800000 41200000 41a00000
+matrix 3f800000 00000000 00000000 3f800000 41200000 41a00000
+case transform	matrix(0.5,0.25,-0.25,0.5,3,4)
+matrix 3f000000 3e800000 be800000 3f000000 40400000 40800000
+matrix 3f000000 3e800000 be800000 3f000000 40400000 40800000
+case transform	  translate ( 1 2 )  ,  rotate(10)
+translate 3f800000 40000000
+rotate 41200000 00000000 00000000
+matrix 3f7c1c5c 3e31d0d5 be31d0d5 3f7c1c5c 3f800000 40000000
+case transform	translate(1 2)scale(3)
+translate 3f800000 40000000
+scale 40400000 40400000
+matrix 40400000 00000000 00000000 40400000 3f800000 40000000
+case transform	
+matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+case transform	foo(1)
+none
+case transform	translate(1
+none
+case transform	matrix(1 2 3)
+none
+case transform	rotate()
+none
+case transform	scale(2) translate(10 10) rotate(45 5 5) skewX(10) skewY(20) matrix(1 0.1 0.2 1 5 6)
+scale 40000000 40000000
+translate 41200000 41200000
+rotate 42340000 40a00000 40a00000
+skewX 41200000
+skewY 41a00000
+matrix 3f800000 3dcccccd 3e4ccccd 3f800000 40a00000 40c00000
+matrix 3f5fae9b 400be879 bf778044 4004523a 41dfb26b 420fc05f
+case path	M 10 10 L 20 20
+instruction 0 1 41200000 41200000
+instruction 2 1 41a00000 41a00000
+serialize M 10 10 L 20 20
+verbs ML
+points 41200000 41200000 41a00000 41a00000
+weights
+case path	M10,10L20,20Z
+instruction 0 1 41200000 41200000
+instruction 2 1 41a00000 41a00000
+instruction 1 1
+serialize M 10 10 L 20 20 Z
+verbs MLZM
+points 41200000 41200000 41a00000 41a00000 41200000 41200000
+weights
+case path	m 10 10 l 5 5 10 -5 z
+instruction 0 0 41200000 41200000
+instruction 2 0 40a00000 40a00000
+instruction 2 0 41200000 c0a00000
+instruction 1 0
+serialize m 10 10 l 5 5 l 10 -5 Z
+verbs MLLZM
+points 41200000 41200000 41700000 41700000 41c80000 41200000 41200000 41200000
+weights
+case path	M 1 2 3 4 5 6
+instruction 0 1 3f800000 40000000
+instruction 2 1 40400000 40800000
+instruction 2 1 40a00000 40c00000
+serialize M 1 2 L 3 4 L 5 6
+verbs MLL
+points 3f800000 40000000 40400000 40800000 40a00000 40c00000
+weights
+case path	M0 0 H 50 V 30 h -10 v 5 Z
+instruction 0 1 00000000 00000000
+instruction 3 1 42480000
+instruction 4 1 41f00000
+instruction 3 0 c1200000
+instruction 4 0 40a00000
+instruction 1 1
+serialize M 0 0 H 50 V 30 h -10 v 5 Z
+verbs MLLLLZM
+points 00000000 00000000 42480000 00000000 42480000 41f00000 42200000 41f00000 42200000 420c0000 00000000 00000000
+weights
+case path	M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80
+instruction 0 1 41200000 42a00000
+instruction 5 1 42200000 41200000 42820000 41200000 42be0000 42a00000
+instruction 6 1 43160000 43160000 43340000 42a00000
+serialize M 10 80 C 40 10 65 10 95 80 S 150 150 180 80
+verbs MCC
+points 41200000 42a00000 42200000 41200000 42820000 41200000 42be0000 42a00000 42fa0000 43160000 43160000 43160000 43340000 42a00000
+weights
+case path	M 10 80 Q 52.5 10, 95 80 T 180 80
+instruction 0 1 41200000 42a00000
+instruction 7 1 42520000 41200000 42be0000 42a00000
+instruction 8 1 43340000 42a00000
+serialize M 10 80 Q 52.5 10 95 80 T 180 80
+verbs MQQ
+points 41200000 42a00000 42520000 41200000 42be0000 42a00000 43098000 43160000 43340000 42a00000
+weights
+case path	m 10 80 q 42.5 -70 85 0 t 85 0 t 30 30
+instruction 0 0 41200000 42a00000
+instruction 7 0 422a0000 c28c0000 42aa0000 00000000
+instruction 8 0 42aa0000 00000000
+instruction 8 0 41f00000 41f00000
+serialize m 10 80 q 42.5 -70 85 0 t 85 0 t 30 30
+verbs MQQQ
+points 41200000 42a00000 42520000 41200000 42be0000 42a00000 43098000 43160000 43340000 42a00000 435e8000 41200000 43520000 42dc0000
+weights
+case path	M 10 315 L 110 215 A 30 50 0 0 1 162.55 162.45 L 172.55 152.45 A 30 50 -45 0 1 215.1 109.9 L 315 10
+instruction 0 1 41200000 439d8000
+instruction 2 1 42dc0000 43570000
+instruction 9 1 41f00000 42480000 00000000 00000000 3f800000 43228ccd 43227333
+instruction 2 1 432c8ccd 43187333
+instruction 9 1 41f00000 42480000 c2340000 00000000 3f800000 4357199a 42dbcccd
+instruction 2 1 439d8000 41200000
+serialize M 10 315 L 110 215 A 30 50 0 0 1 162.55 162.45 L 172.55 152.45 A 30 50 -45 0 1 215.1 109.9 L 315 10
+verbs MLKKLKKL
+points 41200000 439d8000 42dc0000 43570000 42bc7852 432b3555 42f1051f 4310eeee 4312c8f6 42ed510f 43228ccd 43227333 432c8ccd 43187333 43091777 42e9fbbb 431e5dde 42bf6eee 4333a444 4294e222 4357199a 42dbcccd 439d8000 41200000
+weights 3f3504f2 3f3504f2 3f3504f2 3f3504f2
+case path	M 80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z
+instruction 0 1 42a00000 42a00000
+instruction 9 1 42340000 42340000 00000000 00000000 00000000 42fa0000 42fa0000
+instruction 2 1 42fa0000 42a00000
+instruction 1 1
+serialize M 80 80 A 45 45 0 0 0 125 125 L 125 80 Z
+verbs MKLZM
+points 42a00000 42a00000 42a00000 42fa0000 42fa0000 42fa0000 42fa0000 42a00000 42a00000 42a00000
+weights 3f3504f2
+case path	M 230 80 A 45 45, 0, 1, 0, 275 125 L 275 80 Z
+instruction 0 1 43660000 42a00000
+instruction 9 1 42340000 42340000 00000000 3f800000 00000000 43898000 42fa0000
+instruction 2 1 43898000 42a00000
+instruction 1 1
+serialize M 230 80 A 45 45 0 1 0 275 125 L 275 80 Z
+verbs MKKKLZM
+points 43660000 42a00000 43390000 42a00000 43390000 42fa0000 43390000 432a0000 43660000 432a0000 43898000 432a0000 43898000 42fa0000 43898000 42a00000 43660000 42a00000
+weights 3f3504f3 3f3504f3 3f3504f3
+case path	M 80 230 a 45 45 0 1 1 45 45 l 0 -45 z
+instruction 0 1 42a00000 43660000
+instruction 9 0 42340000 42340000 00000000 3f800000 3f800000 42340000 42340000
+instruction 2 0 00000000 c2340000
+instruction 1 0
+serialize M 80 230 a 45 45 0 1 1 45 45 l 0 -45 Z
+verbs MKKKLZM
+points 42a00000 43660000 42a00000 43390000 42fa0000 43390000 432a0000 43390000 432a0000 43660000 432a0000 43898000 42fa0000 43898000 42fa0000 43660000 42a00000 43660000
+weights 3f3504f2 3f3504f2 3f3504f2
+case path	M10 10 a20 20 0 1020 0
+instruction 0 1 41200000 41200000
+instruction 9 0 41a00000 41a00000 00000000 3f800000 00000000 41a00000 00000000
+serialize M 10 10 a 20 20 0 1 0 20 0
+verbs MKKK
+points 41200000 41200000 c12a44ba 41af5720 4095bb4c 4220b47e 41a00005 4269bd6d 420d4898 4220b47d 424a912e 41af5717 41f00000 41200000
+weights 3f248dbb 3f248dbb 3f248dbb
+case path	M 10 10 L
+instruction 0 1 41200000 41200000
+serialize M 10 10
+verbs M
+points 41200000 41200000
+weights
+case path	L 10 10
+serialize 
+verbs 
+points
+weights
+case path	M 10 10 X 20 20
+instruction 0 1 41200000 41200000
+serialize M 10 10
+verbs M
+points 41200000 41200000
+weights
+case path	M 10 10 L 20 20 M 30 30
+instruction 0 1 41200000 41200000
+instruction 2 1 41a00000 41a00000
+instruction 0 1 41f00000 41f00000
+serialize M 10 10 L 20 20 M 30 30
+verbs MLM
+points 41200000 41200000 41a00000 41a00000 41f00000 41f00000
+weights
+case path	M.5.5L1e1-1e1
+instruction 0 1 3f000000 3f000000
+instruction 2 1 41200000 c1200000
+serialize M 0.5 0.5 L 10 -10
+verbs ML
+points 3f000000 3f000000 41200000 c1200000
+weights
+case path	m 1 1 c 1 1 2 2 3 3 s 4 4 5 5 c 1 1 2 2 3 3
+instruction 0 0 3f800000 3f800000
+instruction 5 0 3f800000 3f800000 40000000 40000000 40400000 40400000
+instruction 6 0 40800000 40800000 40a00000 40a00000
+instruction 5 0 3f800000 3f800000 40000000 40000000 40400000 40400000
+serialize m 1 1 c 1 1 2 2 3 3 s 4 4 5 5 c 1 1 2 2 3 3
+verbs MCCC
+points 3f800000 3f800000 40000000 40000000 40400000 40400000 40800000 40800000 40a00000 40a00000 41000000 41000000 41100000 41100000 41200000 41200000 41300000 41300000 41400000 41400000
+weights
+case path	M 0 0 S 10 10 20 0 S 30 -10 40 0
+instruction 0 1 00000000 00000000
+instruction 6 1 41200000 41200000 41a00000 00000000
+instruction 6 1 41f00000 c1200000 42200000 00000000
+serialize M 0 0 S 10 10 20 0 S 30 -10 40 0
+verbs MCC
+points 00000000 00000000 00000000 00000000 41200000 41200000 41a00000 00000000 41f00000 c1200000 41f00000 c1200000 42200000 00000000
+weights
+case path	M 0 0 T 10 10 T 20 0
+instruction 0 1 00000000 00000000
+instruction 8 1 41200000 41200000
+instruction 8 1 41a00000 00000000
+serialize M 0 0 T 10 10 T 20 0
+verbs MQQ
+points 00000000 00000000 00000000 00000000 41200000 41200000 41a00000 41a00000 41a00000 00000000
+weights
+case path	M 0 0 h 10 10 v 5,5
+instruction 0 1 00000000 00000000
+instruction 3 0 41200000
+instruction 3 0 41200000
+instruction 4 0 40a00000
+instruction 4 0 40a00000
+serialize M 0 0 h 10 h 10 v 5 v 5
+verbs MLLLL
+points 00000000 00000000 41200000 00000000 41a00000 00000000 41a00000 40a00000 41a00000 41200000
+weights
+case path	
+serialize 
+verbs 
+points
+weights
+case path	   
+serialize 
+verbs 
+points
+weights
+case path	M 1 2 z m 3 4 l 1 1
+instruction 0 1 3f800000 40000000
+instruction 1 0
+instruction 0 0 40400000 40800000
+instruction 2 0 3f800000 3f800000
+serialize M 1 2 Z m 3 4 l 1 1
+verbs MZML
+points 3f800000 40000000 40800000 40c00000 40a00000 40e00000
+weights
+case path	m6 5 13 7-13 7Z
+instruction 0 0 40c00000 40a00000
+instruction 2 0 41500000 40e00000
+instruction 2 0 c1500000 40e00000
+instruction 1 1
+serialize m 6 5 l 13 7 l -13 7 Z
+verbs MLLZM
+points 40c00000 40a00000 41980000 41400000 40c00000 41980000 40c00000 40a00000
+weights
+case path	M14 5h4v14h-4Zm-4 0H6v14h4z
+instruction 0 1 41600000 40a00000
+instruction 3 0 40800000
+instruction 4 0 41600000
+instruction 3 0 c0800000
+instruction 1 1
+instruction 0 0 c0800000 00000000
+instruction 3 1 40c00000
+instruction 4 0 41600000
+instruction 3 0 40800000
+instruction 1 0
+serialize M 14 5 h 4 v 14 h -4 Z m -4 0 H 6 v 14 h 4 Z
+verbs MLLLZMLLLZM
+points 41600000 40a00000 41900000 40a00000 41900000 41980000 41600000 41980000 41200000 40a00000 40c00000 40a00000 40c00000 41980000 41200000 41980000 41200000 40a00000
+weights
+case path	M 0 0 L 10 10 
+instruction 0 1 00000000 00000000
+instruction 2 1 41200000 41200000
+serialize M 0 0 L 10 10
+verbs ML
+points 00000000 00000000 41200000 41200000
+weights
+case path	M 0 0 Z 
+instruction 0 1 00000000 00000000
+instruction 1 1
+serialize M 0 0 Z
+verbs MZM
+points 00000000 00000000 00000000 00000000
+weights
+case shape	rect	300	150	<svg><rect x=10 y=20 width=100 height=50></rect></svg>
+verbs MLLLLZM
+points 41200000 41a00000 42dc0000 41a00000 42dc0000 428c0000 41200000 428c0000 41200000 41a00000 41200000 41a00000
+weights
+case shape	rect	300	150	<svg><rect x=10% y=20% width=50% height=25%></rect></svg>
+verbs MLLLLZM
+points 41f00000 41f00000 43340000 41f00000 43340000 42870000 41f00000 42870000 41f00000 41f00000 41f00000 41f00000
+weights
+case shape	rect	300	150	<svg><rect width=100 height=50 rx=10></rect></svg>
+verbs MLKLKLKLKZM
+points 41200000 00000000 42b40000 00000000 42c80000 00000000 42c80000 41200000 42c80000 42200000 42c80000 42480000 42b40000 42480000 41200000 42480000 00000000 42480000 00000000 42200000 00000000 41200000 00000000 00000000 41200000 00000000 41200000 00000000
+weights 3f3504f3 3f3504f3 3f3504f5 3f3504f2
+case shape	rect	300	150	<svg><rect width=100 height=50 ry=10></rect></svg>
+verbs MLKLKLKLKZM
+points 41200000 00000000 42b40000 00000000 42c80000 00000000 42c80000 41200000 42c80000 42200000 42c80000 42480000 42b40000 42480000 41200000 42480000 00000000 42480000 00000000 42200000 00000000 41200000 00000000 00000000 41200000 00000000 41200000 00000000
+weights 3f3504f3 3f3504f3 3f3504f5 3f3504f2
+case shape	rect	300	150	<svg><rect width=100 height=50 rx=80 ry=5></rect></svg>
+verbs MLKLKLKLKZM
+points 42480000 00000000 42480000 00000000 42c80000 00000000 42c80000 40a00000 42c80000 42340000 42c80000 42480000 42480000 42480000 42480000 42480000 00000000 42480000 00000000 42340000 00000000 40a00000 00000000 00000000 42480000 00000000 42480000 00000000
+weights 3f3504f3 3f3504f3 3f3504f5 3f3504f2
+case shape	rect	300	150	<svg><rect width=100 height=50 rx=10% ry=20%></rect></svg>
+verbs MLKLKLKLKZM
+points 41f00000 00000000 428c0000 00000000 42c80000 00000000 42c80000 41c80000 42c80000 41c80000 42c80000 42480000 428c0000 42480000 41f00000 42480000 00000000 42480000 00000000 41c80000 00000000 41c80000 00000000 00000000 41f00000 00000000 41f00000 00000000
+weights 3f3504f3 3f3504f3 3f3504f5 3f3504f2
+case shape	rect	300	150	<svg><rect width=0 height=50></rect></svg>
+verbs 
+points
+weights
+case shape	rect	300	150	<svg><rect width=100 height=bogus></rect></svg>
+verbs 
+points
+weights
+case shape	ellipse	300	150	<svg><ellipse cx=50 cy=40 rx=30 ry=20></ellipse></svg>
+verbs MKKKK
+points 42a00000 42200000 42a00000 42700000 42480000 42700000 41a00000 42700000 41a00000 42200000 41a00000 41a00000 42480000 41a00000 42a00000 41a00000 42a00000 42200000
+weights 3f3504f3 3f3504f5 3f3504f2 3f3504f3
+case shape	ellipse	300	150	<svg><ellipse cx=50 cy=40 rx=-30 ry=20></ellipse></svg>
+verbs 
+points
+weights
+case shape	ellipse	300	150	<svg><ellipse rx=10 ry=10></ellipse></svg>
+verbs MKKKK
+points 41200000 00000000 41200000 41200000 00000000 41200000 c1200000 41200000 c1200000 00000000 c1200000 c1200000 00000000 c1200000 41200000 c1200000 41200000 00000000
+weights 3f3504f3 3f3504f5 3f3504f2 3f3504f3
+case shape	line	300	150	<svg><line x1=10 y1=20 x2=30% y2=50%></line></svg>
+verbs ML
+points 41200000 41a00000 42b40000 42960000
+weights
+case shape	line	300	150	<svg><line></line></svg>
+verbs ML
+points 00000000 00000000 00000000 00000000
+weights
+case shape	polygon	300	150	<svg><polygon points="0,0 10,0 10,10"></polygon></svg>
+verbs MLLZM
+points 00000000 00000000 41200000 00000000 41200000 41200000 00000000 00000000
+weights
+case shape	polygon	300	150	<svg><polygon points=""></polygon></svg>
+verbs 
+points
+weights
+case shape	polyline	300	150	<svg><polyline points="0,0 10,0 10,10 20,20"></polyline></svg>
+verbs MLLL
+points 00000000 00000000 41200000 00000000 41200000 41200000 41a00000 41a00000
+weights
+case shape	path	300	150	<svg><path d="M 10 10 h 20 v 20 h -20 z"></path></svg>
+verbs MLLLZM
+points 41200000 41200000 41f00000 41200000 41f00000 41f00000 41200000 41f00000 41200000 41200000
+weights
+case shape	path	300	150	<svg><path d="M 80 80 A 45 45, 0, 0, 0, 125 125 L 125 80 Z"></path></svg>
+verbs MKLZM
+points 42a00000 42a00000 42a00000 42fa0000 42fa0000 42fa0000 42fa0000 42a00000 42a00000 42a00000
+weights 3f3504f2
+case shape	path	300	150	<svg><path d="L 10 10"></path></svg>
+verbs 
+points
+weights
+case svgroot	<svg width=200 height=100 viewBox="0 0 20 10" preserveAspectRatio="xMinYMax slice"></svg>
+viewbox 0000000000000000 0000000000000000 4034000000000000 4024000000000000
+par 7 1
+active 0000000000000000 0000000000000000 4034000000000000 4024000000000000
+nulled 0
+width 200px
+height 100px
+natural 12800 6400 12800/6400
+case svgroot	<svg></svg>
+viewbox none
+par none
+active none
+nulled 1
+width none
+height none
+natural none none none
+case svgroot	<svg width=50% height=10em></svg>
+viewbox none
+par none
+active none
+nulled 1
+width 50%
+height 10em
+natural none none none
+case svgroot	<svg width="" height=""></svg>
+viewbox none
+par none
+active none
+nulled 1
+width 100%
+height 100%
+natural none none none
+case svgroot	<svg viewBox="0 0 300 150"></svg>
+viewbox 0000000000000000 0000000000000000 4072c00000000000 4062c00000000000
+par none
+active 0000000000000000 0000000000000000 4072c00000000000 4062c00000000000
+nulled 0
+width none
+height none
+natural none none 19200/9600
+case svgroot	<svg viewBox="bad"></svg>
+viewbox none
+par none
+active none
+nulled 1
+width none
+height none
+natural none none none
+case svgroot	<svg width=2in height=1cm></svg>
+viewbox none
+par none
+active none
+nulled 1
+width 2in
+height 1cm
+natural 12288 2419 12288/2419
+case svgroot	<svg width=0 height=100 viewBox="0 0 30 20"></svg>
+viewbox 0000000000000000 0000000000000000 403e000000000000 4034000000000000
+par none
+active 0000000000000000 0000000000000000 403e000000000000 4034000000000000
+nulled 0
+width 0px
+height 100px
+natural 0 6400 none
+case svgroot	<svg width=100 viewBox="0 0 30 20"></svg>
+viewbox 0000000000000000 0000000000000000 403e000000000000 4034000000000000
+par none
+active 0000000000000000 0000000000000000 403e000000000000 4034000000000000
+nulled 0
+width 100px
+height none
+natural 6400 none 1920/1280
+case xform	g	<svg><g transform="translate(10 20) rotate(30)"></g></svg>
+matrix 3f5db3d7 3f000000 bf000000 3f5db3d7 41200000 41a00000
+case xform	rect	<svg><rect transform="scale(2) skewX(15)"></rect></svg>
+matrix 40000000 00000000 3f0930a3 40000000 00000000 00000000
+case xform	g	<svg><g></g></svg>
+matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+case xform	g	<svg><g transform="bogus"></g></svg>
+matrix 3f800000 00000000 00000000 3f800000 00000000 00000000
+case xform	svg	<svg transform="matrix(2 0 0 2 1 1)"></svg>
+matrix 40000000 00000000 00000000 40000000 3f800000 3f800000
+case hints	rect	<svg><rect x=10 y=5 width=100 height=50 fill=red stroke=blue stroke-width=3 rx=4 data-x=1></rect></svg>
+hint x 1
+hint y 1
+hint width 1
+hint height 1
+hint fill 1
+hint stroke 1
+hint stroke-width 1
+hint rx 1
+hint data-x 0
+x: 10px
+y: 5px
+width: 100px
+height: 50px
+fill: red
+stroke: blue
+stroke-width: 3
+rx: 4px
+case hints	circle	<svg><circle cx=10 cy=20 r=5 fill-opacity=0.5 opacity=.25></circle></svg>
+hint cx 1
+hint cy 1
+hint r 1
+hint fill-opacity 1
+hint opacity 1
+cx: 10px
+cy: 20px
+fill-opacity: 0.5
+opacity: 0.25
+cx: 10px
+cy: 20px
+r: 5px
+case hints	ellipse	<svg><ellipse cx=1 cy=2 rx=3 ry=4 width=10></ellipse></svg>
+hint cx 1
+hint cy 1
+hint rx 1
+hint ry 1
+hint width 1
+cx: 1px
+cy: 2px
+rx: 3px
+ry: 4px
+case hints	svg	<svg width=200 height=100 x=5 display=none font-stretch=condensed></svg>
+hint width 1
+hint height 1
+hint x 1
+hint display 1
+hint font-stretch 1
+width: 200px
+height: 100px
+x: 5px
+display: none
+font-width: condensed
+case hints	g	<svg><g transform="rotate(10)" fill="url(#x)" visibility=hidden FILL=green></g></svg>
+hint transform 0
+hint fill 1
+hint visibility 1
+fill: url("#x")
+visibility: hidden
+case hints	g	<svg><g circle=7 r=3 cx=1></g></svg>
+hint circle 1
+hint r 0
+hint cx 1
+r: 7px
+case hints	path	<svg><path d="M0 0" stroke-dasharray="1 2" stroke-linecap=round stroke-linejoin=bevel fill-rule=evenodd mask=url(#m) clip-path=url(#c)></path></svg>
+hint d 0
+hint stroke-dasharray 1
+hint stroke-linecap 1
+hint stroke-linejoin 1
+hint fill-rule 1
+hint mask 1
+hint clip-path 1
+stroke-dasharray: 1, 2
+stroke-linecap: round
+stroke-linejoin: bevel
+fill-rule: evenodd
+mask: url("#m")
+clip-path: url("#c")
+later role	g	<svg><g></g></svg>
+26
+later role	g	<svg><g><title>Hi</title></g></svg>
+32
+later role	g	<svg><g><title>   </title></g></svg>
+26
+later role	circle	<svg><circle aria-label="dot"></circle></svg>
+29
+later role	path	<svg><path><desc>d</desc></path></svg>
+29
+case role	rect	<svg><rect><desc>r</desc></rect></svg>
+26
+case role	svg	<svg></svg>
+26
+later role	polygon	<svg><polygon role=presentation aria-labelledby=" "></polygon></svg>
+26
+case lengths	rect	<svg><rect x=10 y=20% width=30 height=40 rx=5></rect></svg>
+x 41200000 0 41200000
+y 3e4ccccd 0 3e4ccccd
+width 41f00000 0 41f00000
+height 42200000 0 42200000
+rx 40a00000 0 40a00000
+ry 00000000 0 00000000
+case lengths	ellipse	<svg><ellipse cx=1.5 cy=-2 rx=3 ry=-4></ellipse></svg>
+cx 3fc00000 0 3fc00000
+cy c0000000 0 c0000000
+rx 40400000 0 40400000
+ry 00000000 0 00000000
+case lengths	line	<svg><line x1=1 y1=50% x2=bogus></line></svg>
+x1 3f800000 0 3f800000
+y1 3f000000 0 3f000000
+x2 00000000 0 00000000
+y2 00000000 0 00000000
+case href	<svg class="a b"><script href="h.js" xlink:href="x.js"></script></svg>
+href h.js
+class a b
+case href	<svg><script xlink:href="x.js"></script></svg>
+href x.js
+class 
+case href	<svg><script></script></svg>
+href 
+class 
+case ctf	type=identity
+type 1
+table
+numbers 3f800000 00000000 3f800000 3f800000 00000000
+colors000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+case ctf	type=table	tableValues=0 0.5 1
+type 2
+table 00000000 3f000000 3f800000
+numbers 3f800000 00000000 3f800000 3f800000 00000000
+colors000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+case ctf	type=table	tableValues=1
+type 2
+table 3f800000
+numbers 3f800000 00000000 3f800000 3f800000 00000000
+colorsffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+case ctf	type=table	tableValues=
+type 2
+table
+numbers 3f800000 00000000 3f800000 3f800000 00000000
+colors000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+case ctf	type=discrete	tableValues=0 0.25 0.5 1
+type 3
+table 00000000 3e800000 3f000000 3f800000
+numbers 3f800000 00000000 3f800000 3f800000 00000000
+colors000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404040404080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080808080ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+case ctf	type=linear	slope=0.5	intercept=0.25
+type 4
+table
+numbers 3f000000 3e800000 3f800000 3f800000 00000000
+colors40404141424243434444454546464747484849494a4a4b4b4c4c4d4d4e4e4f4f50505151525253535454555556565757585859595a5a5b5b5c5c5d5d5e5e5f5f60606161626263636464656566666767686869696a6a6b6b6c6c6d6d6e6e6f6f70707171727273737474757576767777787879797a7a7b7b7c7c7d7d7e7e7f7f80808181828283838484858586868787888889898a8a8b8b8c8c8d8d8e8e8f8f90909191929293939494959596969797989899999a9a9b9b9c9c9d9d9e9e9f9fa0a0a1a1a2a2a3a3a4a4a5a5a6a6a7a7a8a8a9a9aaaaababacacadadaeaeafafb0b0b1b1b2b2b3b3b4b4b5b5b6b6b7b7b8b8b9b9bababbbbbcbcbdbdbebebfbf
+case ctf	type=linear
+type 4
+table
+numbers 3f800000 00000000 3f800000 3f800000 00000000
+colors000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+case ctf	type=gamma	amplitude=2	exponent=0.5	offset=-0.1
+type 5
+table
+numbers 3f800000 00000000 40000000 3f000000 bdcccccd
+colors0006141e262e353b41464b50555a5e62666a6e7275797c808386898c8f9295989b9ea1a3a6a9abaeb0b3b5b8babdbfc1c4c6c8cbcdcfd1d3d5d8dadcdee0e2e4e6e8eaeceef0f2f4f5f7f9fbfdffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+case ctf	type=gamma
+type 5
+table
+numbers 3f800000 00000000 3f800000 3f800000 00000000
+colors000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+case ctf	type=bogus
+type 0
+table
+numbers 3f800000 00000000 3f800000 3f800000 00000000
+colors000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+case ctf	slope=abc	intercept=10%
+type 0
+table
+numbers 3f800000 3dcccccd 3f800000 3f800000 00000000
+colors000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f707172737475767778797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f909192939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aaabacadaeafb0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fafbfcfdfeff
+case animnum	3.5	0	first
+base 40600000
+attribute 7.5
+case animnum	-	0	first
+base 40000000
+attribute 7.5
+case animnum	abc	0	first
+base 40000000
+attribute 7.5
+case animnum	1 2	1	first
+base 3f800000
+attribute 7.5 2
+case animnum	1 2	1	second
+base 40000000
+attribute 1 7.5
+case animnum	4	1	second
+base 40800000
+attribute 4 7.5
+case animnum	-	1	second
+base 40000000
+attribute 2 7.5
+case animnum	1  2	1	second
+base 40000000
+attribute 1 7.5
+case animint	12	0	first
+base 12
+attribute 7
+case animint	3 4	1	second
+base 4
+attribute 3 7
+case animint	3	1	second
+base 3
+attribute 3 7
+case animint	x	0	first
+base 2
+attribute 7

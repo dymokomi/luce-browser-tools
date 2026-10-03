@@ -1,0 +1,277 @@
+# r24/r25 oracle cases: <mode>\t<argument>... "!" marks a case that waits for another region in the port.
+input	<input type="text" value="a\nb\rc">
+input	<input type="search" value=" x\ny ">
+input	<input type="tel" value="1\r\n2">
+input	<input type="password" value="p\nw">
+input	<input type="url" value="  http://x.test/ \n ">
+input	<input type="email" value=" a@b.c ">
+input	<input type="number" value="1e3">
+input	<input type="number" value="abc">
+input	<input type="number" value=" 5">
+input	<input type="number" value="-0.5">
+input	<input type="number" value="1.7976931348623157e309">
+input	<input type="date" value="2024-02-29">
+input	<input type="date" value="2023-02-29">
+input	<input type="month" value="2024-13">
+input	<input type="month" value="2024-07">
+input	<input type="week" value="2024-W52">
+input	<input type="week" value="2024-W54">
+input	<input type="time" value="13:45">
+input	<input type="time" value="25:00">
+input	<input type="time" value="13:45:30.5">
+input	<input type="datetime-local" value="2024-01-02 03:04">
+input	<input type="datetime-local" value="2024-01-02T03:04:00">
+input	<input type="datetime-local" value="2024-01-02T03:04:05.100">
+input	<input type="color" value="#ABCDEF">
+input	<input type="color" value="red">
+input	<input type="color" value="#abc">
+input	<input type="range" value="50">
+input	<input type="range" value="abc">
+input	<input type="range" value="150">
+input	<input type="range" value="-5">
+input	<input type="range" value="33.3">
+input	<input type="hidden" value=" h ">
+input	<input type="checkbox" value="x">
+input	<input type="radio" value="">
+input	<input type="submit" value="Go">
+input	<input type="file" value="f">
+input	<input type="bogus" value="b\nc">
+input	<input type="TEXT" value="T">
+input	<input type=email multiple value=" a@b.c , d@e.f ,,">
+input	<input type=range min=10 max=20 value=0>
+input	<input type=range min=10 max=20 step=3 value=15>
+input	<input type=range min=20 max=10>
+input	<input type=range min=0 max=1 step=0.25 value=0.4>
+input	<input type=range>
+input	<input type=checkbox checked><input type=checkbox><input type=radio checked><input>
+input	<input type=checkbox value=yes><input type=radio>
+set	<input>	x\ny
+set	<input type=number>	12
+set	<input type=number>	1,2
+set	<input type=checkbox>	on2
+set	<input type=hidden value=a>	b
+set	<input type=file>	
+set	<input type=file>	x
+set	<input type=color>	#FFFFFF
+set	<input type=range min=0 max=10>	7
+set	<input type=range min=0 max=10>	70
+set	<input type=url>	 u 
+attr	<input value=a>	value	b
+attr	<input value=a>	value	!
+attr	<input type=checkbox>	checked	
+attr	<input type=checkbox checked>	checked	!
+attr	<input value=hello>	type	number
+attr	<input value=12>	type	number
+attr	<input type=number value=12>	type	checkbox
+attr	<input type=checkbox value=v>	type	text
+attr	<input value=ab>	type	file
+attr	<input type=email value=" a@b.c , d ">	multiple	
+attr	<input type=range value=50>	max	20
+attr	<input type=range value=50>	min	60
+attr	<input type=range value=50>	step	7
+num	<input type=number value=5 min=1 max=10 step=2>
+num	<input type=number value=0 min=1 max=10>
+num	<input type=number value=11 max=10>
+num	<input type=number value=1.5 step=any>
+num	<input type=number value=1.5>
+num	<input type=number value=1.5 step=0.5>
+num	<input type=number value=4 step=-1>
+num	<input type=number required>
+num	<input type=number required readonly>
+num	<input type=range>
+num	<input type=range min=5 max=50 step=5 value=22>
+num	<input type=date value=2024-03-01 min=2024-01-01>
+num	<input type=month value=2024-03>
+num	<input type=week value=2024-W10>
+num	<input type=datetime-local value=2024-03-01T12:30>
+num	<input type=week>
+num	<input type=email value="not an email">
+num	<input type=email value="a@b.c">
+num	<input type=email multiple value="a@b.c,x">
+num	<input type=url value="http://example.com/">
+num	<input type=url value="not a url">
+num	<input type=text pattern="[a-z]+" value=abc>
+num	<input type=text pattern="[a-z]+" value=ab1>
+num	<input type=text pattern="[" value=x>
+num	<input type=text required>
+num	<input type=checkbox required>
+num	<input type=radio name=g required><input type=radio name=g>
+num	<input type=text>
+num	<input type=number value=5 min=10 max=1>
+step	<input type=number value=5>	up	1
+step	<input type=number value=5>	down	3
+step	<input type=number value=5 step=2>	up	1
+step	<input type=number value=5.5 step=2>	up	1
+step	<input type=number value=5.5 step=2>	down	1
+step	<input type=number value=9 max=10 step=2>	up	1
+step	<input type=number value=1 min=0 max=3>	up	10
+step	<input type=number step=any>	up	1
+step	<input type=text value=1>	up	1
+step	<input type=range>	up	1
+step	<input type=range value=100>	up	1
+step	<input type=number value=0.1 step=0.1>	up	2
+step	<input type=month value=2024-11>	up	3
+step	<input type=week value=2024-W52>	up	1
+step	<input type=number min=5 max=1>	up	1
+step	<input type=number value=-3>	down	2
+setnum	<input type=number>	3.5
+setnum	<input type=number>	1e21
+setnum	<input type=range>	42
+setnum	<input type=text>	3
+setnum	<input type=month>	0
+setnum	<input type=month>	657
+numstr	number	0.1
+numstr	number	100
+numstr	number	-1.5
+numstr	number	1e21
+numstr	range	5
+numstr	month	0
+numstr	month	-1
+numstr	month	12
+numstr	month	659
+numstr	week	0
+numstr	week	1704067200000
+numstr	week	1735603200000
+numstr	date	0
+numstr	date	1709251200000
+numstr	time	45000000
+numstr	time	45001500
+numstr	time	-1000
+numstr	time	86400000
+numstr	datetime-local	1709296200000
+numstr	datetime-local	1709296205100
+numstr	datetime-local	1709296205000
+numstr	text	1
+strnum	number	1.25
+strnum	number	 3
+strnum	number	x
+strnum	range	7
+strnum	month	2024-03
+strnum	month	1969-12
+strnum	week	2024-W01
+strnum	week	2020-W53
+strnum	date	2024-03-01
+strnum	date	1969-12-31
+strnum	datetime-local	2024-03-01T12:30
+strnum	datetime-local	2024-03-01T12:30:15.25
+strnum	text	5
+input	<input type=radio name=a checked><input type=radio name=a checked><input type=radio name=b checked>
+checked	<input type=radio name=a checked><input type=radio name=a><input type=radio name=a>	2	1
+checked	<input type=radio name=a checked><input type=radio name=a>	0	0
+checked	<input type=radio name=a><input type=radio name=b checked><input type=radio name=b>	0	1
+checked	<form><input type=radio name=a checked></form><input type=radio name=a>	1	1
+checked	<input type=radio checked><input type=radio>	1	1
+checked	<input type=checkbox><input type=checkbox checked>	0	1
+select	<select><option>A<option>B<option>C</select>
+select	<select><option>A<option selected>B<option>C</select>
+select	<select><option selected>A<option selected>B<option>C</select>
+select	<select multiple><option selected>A<option selected>B<option>C</select>
+select	<select multiple><option>A<option>B</select>
+select	<select size=3><option>A<option>B</select>
+select	<select><option disabled>A<option>B</select>
+select	<select><optgroup label=G><option>A</optgroup><option value=v2>B</select>
+select	<select><optgroup disabled><option>A</optgroup><option>B</select>
+select	<select><option value="">Empty<option label=L>X</select>
+select	<select><option>  spaced   text\n </option></select>
+select	<select><hr><option>A</select>
+select	<select></select>
+select	<select><option>A<script>x</script>B</select>
+selectset	<select><option>A<option>B<option>C</select>	index	2
+selectset	<select><option>A<option>B<option>C</select>	index	7
+selectset	<select><option>A<option value=b>B<option>C</select>	value	b
+selectset	<select><option>A<option>B<option>C</select>	value	C
+selectset	<select><option>A<option>B</select>	value	zz
+optsel	<select><option>A<option>B<option>C</select>	1	1
+optsel	<select><option>A<option selected>B<option>C</select>	1	0
+optsel	<select multiple><option selected>A<option>B</select>	1	1
+textarea	<textarea>hello</textarea>
+textarea	<textarea>\nline1\r\nline2\rline3</textarea>
+textarea	<textarea cols=5 rows=0 maxlength=3></textarea>
+textarea	<textarea cols=abc rows=7>x</textarea>
+textarea	<textarea></textarea>
+taset	<textarea>hi</textarea>	new\r\nvalue
+taset	<textarea>hi</textarea>	
+selection	<input value="hello world">	6	11	backward
+selection	<input value="hello">	2	99	forward
+selection	<input value="hello">	4	1	!
+selection	<input type=password value="secret">	1	4	!
+selection	<textarea>abc\ndef</textarea>	2	5	none
+selection	<input type=number value=5>	0	1	!
+selection	<input type=email value="a@b.c">	0	1	!
+rangetext	<input value="hello world">	there	6	11	preserve
+rangetext	<input value="hello">	XY	1	3	select
+rangetext	<input value="hello">	XY	1	3	start
+rangetext	<input value="hello">	XY	1	3	end
+rangetext	<input value="hello">	Z	4	2	preserve
+rangetext	<textarea>abc</textarea>	--	0	0	end
+rangetext	<input type=checkbox>	x	0	0	preserve
+meter	<meter value=0.5></meter>
+meter	<meter value=3 min=1 max=5 low=2 high=4 optimum=3></meter>
+meter	<meter value=1.5 min=1 max=5 low=2 high=4 optimum=1></meter>
+meter	<meter value=4.5 min=1 max=5 low=2 high=4 optimum=5></meter>
+meter	<meter value=10 max=5></meter>
+meter	<meter value=-1 min=2 max=1></meter>
+meter	<meter value=x min=y></meter>
+meter	<meter value=3 min=0 max=10 low=8 high=2></meter>
+progress	<progress></progress>
+progress	<progress value=0.25></progress>
+progress	<progress value=5 max=10></progress>
+progress	<progress value=15 max=10></progress>
+progress	<progress value=-1></progress>
+progress	<progress value=1 max=0></progress>
+button	<button>x</button>
+button	<button type=reset>x</button>
+button	<button type=BUTTON value=v>x</button>
+button	<button type=bogus>x</button>
+button	<button command=--custom commandfor=t>x</button>
+button	<button command=Show-Modal>x</button>
+button	<button command=nope>x</button>
+button	<button type=submit command=close>x</button>
+validity	<textarea required></textarea>	textarea
+validity	<textarea required>x</textarea>	textarea
+validity	<textarea required readonly></textarea>	textarea
+validity	<select required><option value="">P<option>A</select>	select
+validity	<select required><option>A</select>	select
+validity	<select required><option value="" selected>P</select>	select
+validity	<select required multiple><option value="">P</select>	select
+validity	<select required><optgroup><option value="">P</optgroup></select>	select
+role	<input>	input
+role	<input type=checkbox>	input
+role	<input type=checkbox switch>	input
+role	<input type=search>	input
+role	<input type=search list=l>	input
+role	<input type=number>	input
+role	<input type=range>	input
+role	<input type=password>	input
+role	<input type=email>	input
+role	<input type=image>	input
+role	<select></select>	select
+role	<select multiple></select>	select
+role	<select size=4></select>	select
+role	<option>	option
+role	<select><optgroup></optgroup></select>	optgroup
+role	<textarea></textarea>	textarea
+role	<meter></meter>	meter
+role	<progress></progress>	progress
+role	<button></button>	button
+role	<datalist></datalist>	datalist
+shadow	<input value=hi placeholder=ph>	input
+shadow	<input placeholder="p\nh">	input
+shadow	<input type=password value=pw>	input
+shadow	<input type=submit>	input
+shadow	<input type=reset value=R>	input
+shadow	<input type=button>	input
+shadow	<input type=checkbox>	input
+shadow	<input type=color value=#00ff00>	input
+shadow	<input type=file>	input
+shadow	<input type=file multiple>	input
+shadow	<input type=range min=0 max=10 value=4>	input
+shadow	<input type=hidden>	input
+shadow	<input type=date value=2024-01-01>	input
+shadow	<textarea placeholder=ph>text</textarea>	textarea
+shadow	<textarea placeholder=ph></textarea>	textarea
+shadow	<meter value=0.25></meter>	meter
+shadow	<progress value=0.5></progress>	progress
+shadow	<progress></progress>	progress
+!shadow	<input type=number value=3>	input
+!shadow	<select><option>A</select>	select
