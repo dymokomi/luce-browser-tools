@@ -53,29 +53,29 @@ layout	<!doctype html><body><div>there are no floats intruding on this div\n	\n*
 # block-and-inline/box-with-percentage-height-wrapped-in-anonymous
 layout	<!doctype html><html><head></head><body><div class="outer"><div class="inline">a<div class="inner"></div>b</div>	\n.outer {\n    width: 100px;\n    height: 100px;\n    background-color: red;\n}\n.inner {\n    background-color: green;\n    height: 100%;\n    width: 100%;\n    display: block;\n}\n.inline {\n    display: inline;\n}\n
 # block-and-inline/button-baseline-align
-!layout	<!DOCTYPE html>\n\n\n<div class="ib">\n    <div class="label">A</div>\n    <button>B</button>\n</div>	\n    .ib {\n        display: inline-block;\n    }\n\n    .label {\n        display: inline-block;\n        border: 1px solid black;\n        font-size: 20px;\n    }\n\n    button {\n        display: inline-block;\n        border: 1px solid black;\n        background-color: transparent;\n        font-size: 40px;\n    }\n
+layout	<!DOCTYPE html>\n\n\n<div class="ib">\n    <div class="label">A</div>\n    <button>B</button>\n</div>	\n    .ib {\n        display: inline-block;\n    }\n\n    .label {\n        display: inline-block;\n        border: 1px solid black;\n        font-size: 20px;\n    }\n\n    button {\n        display: inline-block;\n        border: 1px solid black;\n        background-color: transparent;\n        font-size: 40px;\n    }\n
 # block-and-inline/button-empty
-!layout	<!DOCTYPE html>\n<button type="button"></button>	
+layout	<!DOCTYPE html>\n<button type="button"></button>	
 # block-and-inline/button-should-have-vertically-aligned-content
-!layout	<!DOCTYPE html>\n\n\n<body>\n    <button class="button border-black">\n        <div class="border-black">\n            one\n        </div>\n        <div class="border-black" style="height: 100px">\n            two\n        </div>\n	\n    .border-black {\n        border: 10px solid black;\n    }\n\n    button {\n        height: 200px;\n    }\n
+layout	<!DOCTYPE html>\n\n\n<body>\n    <button class="button border-black">\n        <div class="border-black">\n            one\n        </div>\n        <div class="border-black" style="height: 100px">\n            two\n        </div>\n	\n    .border-black {\n        border: 10px solid black;\n    }\n\n    button {\n        height: 200px;\n    }\n
 # block-and-inline/button-width
-!layout	<!DOCTYPE html><button class="btn fixed-width">200px width</button><button class="btn">auto width should behave as fit-content</button>	\n    .btn {\n        display: block;\n    }\n\n    .fixed-width {\n        width: 200px;\n    }\n
+layout	<!DOCTYPE html><button class="btn fixed-width">200px width</button><button class="btn">auto width should behave as fit-content</button>	\n    .btn {\n        display: block;\n    }\n\n    .fixed-width {\n        width: 200px;\n    }\n
 # block-and-inline/button-with-abspos-pseudo-element
-!layout	<!doctype html><body><button></button>\n	\n    button {\n        position: relative;\n        padding: 20px;\n        background: initial;\n    }   \n    button:after {\n        content: ""; \n        position: absolute;\n        left: 0;\n        top: 0;\n        background: green;\n        width: 100%;\n        height: 100%;\n    }   \n
+layout	<!doctype html><body><button></button>\n	\n    button {\n        position: relative;\n        padding: 20px;\n        background: initial;\n    }   \n    button:after {\n        content: ""; \n        position: absolute;\n        left: 0;\n        top: 0;\n        background: green;\n        width: 100%;\n        height: 100%;\n    }   \n
 # block-and-inline/button-with-after-pseudo
-!layout	<!DOCTYPE html><button class="button_button___eDCW">See more games</button>	\n    button {\n      background-color: initial;\n    }\n    .button_button___eDCW {\n      font-size: 50px;\n      position: relative;\n      color: blueviolet;\n    }\n    .button_button___eDCW:after {\n      content: "";\n      position: absolute;\n      z-index: -1;\n      left: 0;\n      top: 0;\n      background-color: #d1ccb6;\n      width: 100%;\n      height: 100%;\n    }\n  
+layout	<!DOCTYPE html><button class="button_button___eDCW">See more games</button>	\n    button {\n      background-color: initial;\n    }\n    .button_button___eDCW {\n      font-size: 50px;\n      position: relative;\n      color: blueviolet;\n    }\n    .button_button___eDCW:after {\n      content: "";\n      position: absolute;\n      z-index: -1;\n      left: 0;\n      top: 0;\n      background-color: #d1ccb6;\n      width: 100%;\n      height: 100%;\n    }\n  
 # block-and-inline/button-with-before-pseudo
-!layout	<!DOCTYPE html><button class="button_button___eDCW">See more games</button>	\n.button_button___eDCW {\n    background-color: initial;\n    font-size: 50px;\n    position: relative;\n    color: blueviolet;\n}\n.button_button___eDCW:before {\n    content: "";\n    position: absolute;\n    z-index: -1;\n    left: 0;\n    top: 0;\n    background-color: #d1ccb6;\n    width: 100%;\n    height: 100%;\n}\n
+layout	<!DOCTYPE html><button class="button_button___eDCW">See more games</button>	\n.button_button___eDCW {\n    background-color: initial;\n    font-size: 50px;\n    position: relative;\n    color: blueviolet;\n}\n.button_button___eDCW:before {\n    content: "";\n    position: absolute;\n    z-index: -1;\n    left: 0;\n    top: 0;\n    background-color: #d1ccb6;\n    width: 100%;\n    height: 100%;\n}\n
 # block-and-inline/button-with-block-content-baseline-align
-!layout	<!DOCTYPE html>\n\n\n<div class="ib">\n    <div class="label">A</div>\n    <button>\n        <div>B</div>\n    </button>\n</div>	\n    .ib {\n        display: inline-block;\n    }\n\n    .label {\n        display: inline-block;\n        border: 1px solid black;\n        font-size: 20px;\n    }\n\n    button {\n        display: inline-block;\n        border: 1px solid black;\n        background-color: transparent;\n        font-size: 40px;\n    }\n
+layout	<!DOCTYPE html>\n\n\n<div class="ib">\n    <div class="label">A</div>\n    <button>\n        <div>B</div>\n    </button>\n</div>	\n    .ib {\n        display: inline-block;\n    }\n\n    .label {\n        display: inline-block;\n        border: 1px solid black;\n        font-size: 20px;\n    }\n\n    button {\n        display: inline-block;\n        border: 1px solid black;\n        background-color: transparent;\n        font-size: 40px;\n    }\n
 # block-and-inline/button-with-min-height
-!layout	<!DOCTYPE html><body><button>Middle-aligned text</button>\n\n	\nbutton {\n  min-height: 100px;\n}\n
+layout	<!DOCTYPE html><body><button>Middle-aligned text</button>\n\n	\nbutton {\n  min-height: 100px;\n}\n
 # block-and-inline/button-with-multiple-words-text-node-label
-!layout	<!DOCTYPE html>\n<button>A B C</button>	
+layout	<!DOCTYPE html>\n<button>A B C</button>	
 # block-and-inline/button-with-text-node-label-and-font-size
-!layout	<!DOCTYPE html>\n\n\n<button>Test</button>	\n    button {\n        font-size: 48px;\n    }\n
+layout	<!DOCTYPE html>\n\n\n<button>Test</button>	\n    button {\n        font-size: 48px;\n    }\n
 # block-and-inline/button-with-text-node-label
-!layout	<!DOCTYPE html>\n<button>Test</button>	
+layout	<!DOCTYPE html>\n<button>Test</button>	
 # block-and-inline/clear-both-from-inline-formatting-context
 layout	<!DOCTYPE html>\n\n\n<div>\n\t<h1 class="left">A</h1>\n\t<h1 class="right">B</h1>\n\t<div class="c">X</div>\n</div>	\n\t.left {\n\t\tfloat: left;\n\t}\n\n\t.right {\n\t\tfloat: right;\n\t}\n\n\t.c {\n\t\tmargin-top: 70px;\n\t\tclear: both;\n\t\tfloat: left;\n\t}\n
 # block-and-inline/clear-both-without-introducing-clearance
@@ -436,11 +436,11 @@ layout	<!DOCTYPE html>\n<html id="html">\n<head id="head">\n\n</head>\n<body id=
 # css/counters-on-pseudo-elements
 layout	<!DOCTYPE html>\n<div id=a>a</div><div id=b>b</div><div id=c>c</div>\n	\n    body {\n      counter-reset: section;\n    }\n    div::before {\n      counter-increment: section;\n      content: counter(section) ". ";\n    }\n
 # details-closed
-!layout	<!DOCTYPE html>\n<details>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
+layout	<!DOCTYPE html>\n<details>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
 # details-open
-!layout	<!DOCTYPE html>\n<details open>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
+layout	<!DOCTYPE html>\n<details open>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
 # details-summary-default-ua-style
-!layout	<!doctype html><details><summary>hello\n	\n     details {\n        border: 10px solid black;\n        padding: 50px;\n      }\n
+layout	<!doctype html><details><summary>hello\n	\n     details {\n        border: 10px solid black;\n        padding: 50px;\n      }\n
 # dialog-open-non-modal
 layout	<!DOCTYPE html>\n\n\n<dialog open>\n    <span>I'm a node</span>\n</dialog>\n	\n    :modal {\n        display: flex;\n    }\n
 # display-contents-with-in-children
@@ -464,7 +464,7 @@ layout	<!doctype html>\n<span class="a">x</span>\n<span class="b">x</span>\n<spa
 # font-size-legacy
 layout	<!doctype html><font size="-2">text\n	
 # font-size-zero
-!layout	<!doctype html><div>should not be visible\n	\ndiv {\n    font-size: 0px;\n}\n
+layout	<!doctype html><div>should not be visible\n	\ndiv {\n    font-size: 0px;\n}\n
 # font-variation-settings-doesnt-disallow-merging-fallback-font
 layout	<!doctype html>\n\n<div id="foo">حسنًا ، hello friends مرحباً أيها ا test لأصدقاء end</div>\n	\n    #foo {\n        font-variation-settings: "wght" 100;\n    }\n
 # font-with-many-normal-values
@@ -572,7 +572,7 @@ layout	<!DOCTYPE html>\n\n\n<div class="outer"><div class="inner">This should be
 # overflow-x-hidden-with-border-radius
 layout	<!DOCTYPE html>\n<div class="box"></div>\n	\n    .box {\n        border: 1px solid black;\n        width: 100px;\n        height: 100px;\n        border-radius: 9999px;\n        overflow-x: hidden;\n        position: relative;\n    }\n
 # percentage-font-size
-!layout	<!DOCTYPE html>\n<body>\n    <div style="font-size: -100%">X</div>\n    <div style="font-size:    0%">X</div>\n    <div style="font-size:   50%">X</div>\n    <div style="font-size:  100%">X</div>\n    <div style="font-size:  200%">X</div>\n</body>\n	
+layout	<!DOCTYPE html>\n<body>\n    <div style="font-size: -100%">X</div>\n    <div style="font-size:    0%">X</div>\n    <div style="font-size:   50%">X</div>\n    <div style="font-size:  100%">X</div>\n    <div style="font-size:  200%">X</div>\n</body>\n	
 # position-absolute-from-edges
 layout	<!DOCTYPE html>\n\n<div id=container>\n    <div id=red></div>\n    <div id=green></div>\n    <div id=blue></div>\n    <div id=yellow></div>\n</div>\n	\n#container {\n    position: absolute;\n    width: 500px;\n    height: 400px;\n    border: 20px solid black;\n}\n#red {\n    position: absolute;\n    left: 20px;\n    top: 20px;\n    background: red;\n    width: 100px;\n    height: 100px;\n    border: 10px solid gray;\n}\n#green {\n    position: absolute;\n    right: 20px;\n    top: 20px;\n    background: green;\n    width: 100px;\n    height: 100px;\n    margin: 50px;\n}\n#blue {\n    position: absolute;\n    left: 20px;\n    bottom: 20px;\n    background: blue;\n    width: 100px;\n    height: 100px;\n}\n#yellow {\n    position: absolute;\n    right: 20px;\n    bottom: 20px;\n    background: yellow;\n    width: 100px;\n    height: 100px;\n}\n
 # position-absolute-ignores-padding-of-position-relative-floating-parent

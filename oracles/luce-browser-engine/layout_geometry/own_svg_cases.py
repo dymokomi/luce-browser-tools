@@ -59,10 +59,9 @@ zero-size-replaced-box-with-aspect-ratio'''.split()
 r56 = ['<image', 'href="../']
 
 def waits(line):
-    # A <style> element in the document waits too: the unit harness's document has no CSP list, which a connected
-    # style element asks for (web_test runs these tests).
-    html = line.split('\t')[1] if '\t' in line else line
-    return any(tag.lower() in line.lower() for tag in r56) or '<style' in html
+    # (A <style> element no longer waits: since the P1 polish the unit harness makes its documents in a Window's
+    # realm, whose CSP list a connected style element asks for.)
+    return any(tag.lower() in line.lower() for tag in r56)
 
 out = ['# r49+r53 SVG oracle cases: <mode>\t<html>[\t<css>]; "!" = waits for other regions (P2: fetched resources).',
        "# Ladybird's Tests/LibWeb/Layout/input tests with SVG (from_ladybird.py):"]
@@ -122,7 +121,7 @@ r56_cases = [
     '<!DOCTYPE html><svg width="200" height="150" viewBox="0 0 100 75"><clipPath id="c1"><rect x="10" y="10" width="30" height="20"/><polygon points="50,5 90,5 70,40"/></clipPath><clipPath id="c2" clipPathUnits="objectBoundingBox"><rect x="0.25" y="0.25" width="0.5" height="0.5"/></clipPath><g clip-path="url(#c1)"><rect width="100" height="75" fill="green"/></g><rect x="10" y="45" width="40" height="20" clip-path="url(#c2)"/></svg>',
     '<!DOCTYPE html><svg width="300" height="200"><defs><symbol id="s" viewBox="0 0 10 10"><rect x="1" y="1" width="8" height="8"/></symbol><g id="g"><rect width="20" height="10"/><polygon points="25,0 35,0 30,10"/></g></defs><use href="#s" x="10" y="10" width="50" height="50"/><use href="#s" x="100" y="10" width="80" height="40"/><use href="#g" x="10" y="100" transform="scale(2)"/><use xlink:href="#g" x="150" y="150"/></svg>',
     '<!DOCTYPE html><svg width="200" height="100"><g id="a"><use href="#b"/></g><g id="b"><use href="#a"/><rect width="10" height="10"/></g><use href="#missing" x="5"/><use href="#b" x="50" y="20"/></svg>',
-    '<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290.953125" y="140" text-anchor="end">end</text></svg>',
+    '<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290" y="140" text-anchor="end">end</text></svg>',
     '<!DOCTYPE html><svg width="300" height="150" style="font: 12px SerenitySans"><path id="p" d="M 10 100 L 150 20 L 290 100" fill="none" stroke="black"/><text><textPath href="#p">along the path</textPath></text></svg>',
     '<!DOCTYPE html><svg width="200" height="200"><foreignObject x="20" y="30" width="150" height="80"><div style="width: 100px; height: 40px; background: red">box</div></foreignObject><g transform="translate(10 10)"><foreignObject width="50" height="50"><span>t</span></foreignObject></g></svg>',
     '<!DOCTYPE html><svg width="200" height="120"><defs><pattern id="pt" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="10" height="10" fill="red"/><polygon points="11,11 19,11 15,19"/></pattern><pattern id="pt2" href="#pt" x="5" patternTransform="rotate(0)"/><linearGradient id="lg"><stop offset="0" stop-color="red"/><stop offset="1" stop-color="blue"/></linearGradient><radialGradient id="rg" href="#lg"/></defs><rect width="90" height="50" fill="url(#pt)"/><rect x="100" width="90" height="50" fill="url(#pt2)" stroke="url(#lg)"/><rect y="60" width="90" height="50" fill="url(#lg)"/><rect x="100" y="60" width="90" height="50" fill="url(#rg)"/></svg>',

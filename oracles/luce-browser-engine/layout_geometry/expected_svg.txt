@@ -667,7 +667,7 @@ case layout	<!doctype HTML>\n\n<svg style="display: block">\n  <foreignObject wi
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x166] [children: 1] (z-index: auto)
     SC for SVGForeignObjectBox<foreignObject> [8,8 100x200] [children: 0] (z-index: auto)
-later layout	<!doctype html>\n<style>\n    * {\n        background: #888;\n        outline: 1px solid black;\n    }\n    .lmao {\n        width: 40px;\n        height: 40px;\n        background: orange;\n        border: 5px solid red;\n    }\n    svg {\n        display: block;\n    }\n    </style\n><svg width="48" height="48" viewBox="-8 -8 48 48">\n    <defs><rect x="0" y="0" width="48" height="48" id="rekt" /></defs>\n    <mask id="rektMask" x="0" y="0" width="40" height="40">\n        <use href="#rekt" fill="white"></use>\n    </mask>\n    <foreignObject mask="url(#rektMask)" x="10" y="20" width="40" height="40"\n        ><div class="lmao"></div\n    ></foreignObject></svg>\n	
+case layout	<!doctype html>\n<style>\n    * {\n        background: #888;\n        outline: 1px solid black;\n    }\n    .lmao {\n        width: 40px;\n        height: 40px;\n        background: orange;\n        border: 5px solid red;\n    }\n    svg {\n        display: block;\n    }\n    </style\n><svg width="48" height="48" viewBox="-8 -8 48 48">\n    <defs><rect x="0" y="0" width="48" height="48" id="rekt" /></defs>\n    <mask id="rektMask" x="0" y="0" width="40" height="40">\n        <use href="#rekt" fill="white"></use>\n    </mask>\n    <foreignObject mask="url(#rektMask)" x="10" y="20" width="40" height="40"\n        ><div class="lmao"></div\n    ></foreignObject></svg>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 64 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 48 0+0+8] children: not-inline
@@ -2472,7 +2472,7 @@ case svg	<!DOCTYPE html><svg width="200" height="100"><g id="a"><use href="#b"/>
     transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 50 20] css [1 0 0 1 50 20]
     mask none clip none
     contributes true bounds none anti-alias true
-case layout	<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290.953125" y="140" text-anchor="end">end</text></svg>
+case layout	<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290" y="140" text-anchor="end">end</text></svg>
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 150 0+0+8] children: inline
@@ -2486,7 +2486,7 @@ case layout	<!DOCTYPE html><svg width="300" height="150" style="font: 16px Seren
               TextNode <#text> (not painted)
           SVGTextBox <text> at [121.328125,55.96875] [0+0+0 43.78125 0+0+0] [0+0+0 12.375 0+0+0] children: inline
             TextNode <#text> (not painted)
-          SVGTextBox <text> at [273.59375,139.21875] [0+0+0 24.953125 0+0+0] [0+0+0 9.53125 0+0+0] children: inline
+          SVGTextBox <text> at [272.640625,139.21875] [0+0+0 24.953125 0+0+0] [0+0+0 9.53125 0+0+0] children: inline
             TextNode <#text> (not painted)
   
   ViewportPaintable (Viewport<#document>) [0,0 800x600]
@@ -2497,11 +2497,11 @@ case layout	<!DOCTYPE html><svg width="300" height="150" style="font: 16px Seren
           SVGPathPaintable (SVGTextBox<text>) [23.78125,52.96875 51x12.3125]
             SVGPathPaintable (SVGTextBox<tspan>) [128.78125,64.6875 34.8125x11.0625]
           SVGPathPaintable (SVGTextBox<text>) [121.328125,55.96875 43.78125x12.375]
-          SVGPathPaintable (SVGTextBox<text>) [273.59375,139.21875 24.953125x9.53125]
+          SVGPathPaintable (SVGTextBox<text>) [272.640625,139.21875 24.953125x9.53125]
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x166] [children: 0] (z-index: auto)
-case svg	<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290.953125" y="140" text-anchor="end">end</text></svg>
+case svg	<!DOCTYPE html><svg width="300" height="150" style="font: 16px SerenitySans"><text x="10" y="30">Hello</text><text x="10" y="60" dx="5" dy="-3">shifted<tspan x="120" dy="10">span</tspan></text><text x="45%" y="40%" text-anchor="middle">middle</text><text x="290" y="140" text-anchor="end">end</text></svg>
   #3 SVGSVGPaintable rect [8,8 300x150]
   #4 SVGPathPaintable rect [18.953125,26.6875 37.34375x12.03125]
     transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
@@ -2527,12 +2527,12 @@ case svg	<!DOCTYPE html><svg width="300" height="150" style="font: 16px Serenity
     path M121.60938 54.25L120.35938 54.1875L119.9375 60L118.15625 59.9375L117.42188 53.90625L115.54688 54.5625L114.73438 60L113.32812 59.59375L113.45312 51.40625L115.17188 51.40625L115.35938 53.4375L116.48438 51.96875L117.85938 51.8125L118.85938 53.1875L120.70312 52.125L121.73438 52.15625L122.89062 53.8125L123.65625 60.34375L121.78125 60.125L121.60938 54.25ZM125.32812 49.875L125.35938 47.96875L127.39062 48L127.79688 50.21875L125.32812 49.875ZM125.29688 59.875L125.32812 51.875L127.54688 51.90625L127.51562 60L125.29688 59.875ZM132 56.03125L131.875 58.21875L133.125 58.21875L133.85938 56.78125L132 56.03125ZM133.84375 54.6875L134.75 51.34375L136.0625 51.3125L135.78125 60L134.65625 60L134.625 59.15625L132.25 59.8125L130.125 58.8125L130.75 54.6875L131.96875 53.6875L133.84375 54.6875ZM140 56.03125L139.875 58.21875L141.125 58.21875L141.85938 56.78125L140 56.03125ZM141.84375 54.6875L142.75 51.34375L144.0625 51.3125L143.78125 60L142.65625 60L142.625 59.15625L140.25 59.8125L138.125 58.8125L138.75 54.6875L139.96875 53.6875L141.84375 54.6875ZM146.53125 51.921875L145.875 51.90625L145.78125 49.890625L148.21875 49.9375L148.40625 60L146.28125 59.90625L146.53125 51.921875ZM152.73438 53.125L152.60938 54.84375L155.20312 54.75L154.70312 53.34375L152.73438 53.125ZM150.10938 55.15625L150.98438 51.921875L155.04688 51.296875L157.10938 54.0625L156.64062 55.71875L152.64062 56.21875L152.75 57.671875L153.90625 58.234375L156.8125 58.234375L156.53125 59.640625L152.8125 59.828125L150.85938 58.84375L150.10938 55.15625Z
     bbox [113.328125,47.96875 43.78125x12.375]
     contributes true bounds [121.328125,55.96875 43.78125x12.375] anti-alias true
-  #12 SVGPathPaintable rect [273.59375,139.21875 24.953125x9.53125]
+  #12 SVGPathPaintable rect [272.640625,139.21875 24.953125x9.53125]
     transforms viewbox [1 0 0 1 0 0] svg [1 0 0 1 0 0] css [1 0 0 1 0 0]
     mask none clip none
-    path M268.21875 133.125L268.09375 134.84375L270.6875 134.75L270.1875 133.34375L268.21875 133.125ZM265.59375 135.15625L266.46875 131.92188L270.53125 131.29688L272.59375 134.0625L272.125 135.71875L268.125 136.21875L268.23438 137.67188L269.39062 138.23438L272.29688 138.23438L272.01562 139.64062L268.29688 139.82812L266.34375 138.84375L265.59375 135.15625ZM275.26562 139.71875L274.65625 131.21875L276.8125 131.3125L277.53125 133.21875L279.84375 131.8125L282.0625 132.59375L282.35938 140.75L280.73438 140.4375L279.8125 133.40625L277.65625 134.875L277.60938 140L275.26562 139.71875ZM286.48438 136.03125L286.35938 138.21875L287.60938 138.21875L288.34375 136.78125L286.48438 136.03125ZM288.32812 134.6875L289.23438 131.34375L290.54688 131.3125L290.26562 140L289.14062 140L289.10938 139.15625L286.73438 139.8125L284.60938 138.8125L285.23438 134.6875L286.45312 133.6875L288.32812 134.6875Z
-    bbox [265.59375,131.21875 24.953125x9.53125]
-    contributes true bounds [273.59375,139.21875 24.953125x9.53125] anti-alias true
+    path M267.26562 133.125L267.14062 134.84375L269.73438 134.75L269.23438 133.34375L267.26562 133.125ZM264.64062 135.15625L265.51562 131.92188L269.57812 131.29688L271.64062 134.0625L271.17188 135.71875L267.17188 136.21875L267.28125 137.67188L268.4375 138.23438L271.34375 138.23438L271.0625 139.64062L267.34375 139.82812L265.39062 138.84375L264.64062 135.15625ZM274.3125 139.71875L273.70312 131.21875L275.85938 131.3125L276.57812 133.21875L278.89062 131.8125L281.10938 132.59375L281.40625 140.75L279.78125 140.4375L278.85938 133.40625L276.70312 134.875L276.65625 140L274.3125 139.71875ZM285.53125 136.03125L285.40625 138.21875L286.65625 138.21875L287.39062 136.78125L285.53125 136.03125ZM287.375 134.6875L288.28125 131.34375L289.59375 131.3125L289.3125 140L288.1875 140L288.15625 139.15625L285.78125 139.8125L283.65625 138.8125L284.28125 134.6875L285.5 133.6875L287.375 134.6875Z
+    bbox [264.64062,131.21875 24.953125x9.53125]
+    contributes true bounds [272.640625,139.21875 24.953125x9.53125] anti-alias true
 case layout	<!DOCTYPE html><svg width="300" height="150" style="font: 12px SerenitySans"><path id="p" d="M 10 100 L 150 20 L 290 100" fill="none" stroke="black"/><text><textPath href="#p">along the path</textPath></text></svg>
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 166 0+0+0] [BFC] children: not-inline

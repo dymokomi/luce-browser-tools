@@ -499,12 +499,9 @@ static void dump_line_boxes(Layout::LayoutState& layout_state, Layout::Node& roo
                     to_underlying(fragment.m_direction), fragment.has_trailing_whitespace(), fragment.is_fully_truncated(), fragment.ends_in_whitespace(),
                     fragment.is_justifiable_whitespace(), fragment.is_atomic_inline());
                 if (auto glyph_run = fragment.glyph_run()) {
-                    // The floats are printed as doubles (exact; they are multiples of 1/64) except the glyphs' y, printed as
-                    // its bits: luce-browser-foundation's float formatting breaks a tie in the last digit the other way
-                    // (144.203125f prints 144.20313 there and 144.20312 here; -10.2350006103515625 as a double ...563/...562).
-                    builder.appendff("      glyphs {} type {} size {} width {}:", glyph_run->glyphs().size(), to_underlying(glyph_run->text_type()), static_cast<double>(glyph_run->font().pixel_size()), static_cast<double>(glyph_run->width()));
+                    builder.appendff("      glyphs {} type {} size {} width {}:", glyph_run->glyphs().size(), to_underlying(glyph_run->text_type()), glyph_run->font().pixel_size(), glyph_run->width());
                     for (auto const& glyph : glyph_run->glyphs())
-                        builder.appendff(" {},{} {} {} {}", static_cast<double>(glyph.position.x()), bit_cast<u32>(glyph.position.y()), static_cast<double>(glyph.glyph_width), glyph.glyph_id, glyph.length_in_code_units);
+                        builder.appendff(" {},{} {} {} {}", glyph.position.x(), glyph.position.y(), glyph.glyph_width, glyph.glyph_id, glyph.length_in_code_units);
                     builder.append("\n"sv);
                 }
             }

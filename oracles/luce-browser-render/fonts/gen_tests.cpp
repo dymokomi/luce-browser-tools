@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <string.h>
 
-static char const* root = "/Users/sedov/Dev/luce_dev/luce-browser-render-r09/tests/web_fonts/fonts/";
+static char const* root = "/Users/sedov/Dev/luce_dev/luce-browser-render/tests/web_fonts/fonts/";
 
 static u32 bits(float f)
 {
@@ -244,5 +244,12 @@ int main()
     blob_test("SerenitySans-Regular.ttf", 12, u("Typography gjpqy"), 2);
     blob_test("Lato-Bold.ttf", 12, u("fi Tj AV"), 1);
     woff_test();
+
+    // Zero and tiny sizes (polish): Skia measures a font whose text size is at most
+    // SK_ScalarNearlyZero at size 1 (SkScalerContextRec::computeMatrices); just above, at the size.
+    float tiny_sizes[] = { 0, 0.0001f, 0.001f, 0.5f };
+    for (auto const* f : fonts)
+        for (float s : tiny_sizes)
+            metrics_test(f, s);
     return 0;
 }
