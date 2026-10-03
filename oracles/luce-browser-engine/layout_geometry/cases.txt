@@ -1,0 +1,100 @@
+# r44 layout geometry oracle cases: <mode>	<html>[	<css>]; "!" = waits for other regions.
+# Ladybird's Tests/LibWeb/Layout/input/block-and-inline tests whose layout tree has no text:
+# block-and-inline/abspos-only-with-inset-left
+layout	<!DOCTYPE html><div class="box"><div class="inner"></div></div>	\n* {\n    border: 1px solid black;\n}\n\n.box {\n    position: relative;\n    padding: 10px 50px 100px 20px;\n    background-color: mediumseagreen;\n    width: 200px;\n    height: 200px;\n}\n\n.inner {\n    position: absolute;\n    left: 0;\n    width : 100px;\n    height: 100px;\n    background-color: magenta;\n}\n
+# block-and-inline/abspos-with-auto-margins-in-inline-axis
+layout	<!DOCTYPE html><div id=foo></div><div id=bar></div><div id=baz></div>	\n    * {\n        border: 1px solid black;\n    }\n    div {\n        height: 100px;\n        width: 100px;\n        position: absolute;\n        height: 100px;\n    }\n    #foo {\n        margin: auto;\n        left: 0px;\n        right: 0px;\n        top: 0px;\n    }\n    #bar {\n        margin-left: auto;\n        margin-right: 0px;\n        left: 0px;\n        right: 0px;\n        top: 100px;\n    }\n    #baz {\n        margin-left: 0px;\n        margin-right: auto;\n        left: 0px;\n        right: 0px;\n        top: 200px;\n    }\n
+# block-and-inline/abspos-with-bottom-right-insets-relative-to-box-with-paddings
+layout	<!DOCTYPE html><div class="box"><div class="inner"></div></div>	\n* {\n    border: 1px solid black;\n}\n\n.box {\n    position: relative;\n    padding: 10px 50px 100px 20px;\n    background-color: mediumseagreen;\n    width: 200px;\n    height: 200px;\n}\n\n.inner {\n    position: absolute;\n    width : 100px;\n    height: 100px;\n    bottom: 0;\n    right: 0;\n    background-color: magenta;\n}\n
+# block-and-inline/abspos-with-percentage-height-resolved-against-padding-box-of-containing-block
+layout	<!DOCTYPE html><body><div class="abspos">	\n  body {\n    position: relative;\n    padding-top: 30%;\n  }\n  .abspos {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    top: 0px;\n    left: 0px;\n    background: orange;\n  }\n
+# block-and-inline/abspos-with-percentage-padding
+layout	<!DOCTYPE html><div class="box"><div class="inner"></div></div>	\n* {\n    border: 1px solid black;\n}\n\n.box {\n    position: relative;\n    padding: 10px 50px 100px 20px;\n    background-color: mediumseagreen;\n    width: 200px;\n    height: 200px;\n}\n\n.inner {\n    position: absolute;\n    left: 0;\n    width : 100px;\n    height: 100px;\n    padding: 20%;\n    background-color: magenta;\n}\n
+# block-and-inline/abspos-without-insets-relative-top-box-with-padding-top
+layout	<!DOCTYPE html>\n<div class="box"><div class="inner"></div></div>	\n.box {\n  position: relative;\n  padding-top: 50px;\n}\n\n.inner {\n  display: block;\n  position: absolute;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, #FDDE5C 0%, #F8AB5E 16.66667%, #F56A62 33.33333%, #A176C8 50%, #759BEB 66.66667%, #65BEB3 83.33333%, #70DB96);\n}\n
+# block-and-inline/abspos-without-insets
+layout	<!DOCTYPE html><div class="box"><div class="inner"></div></div>	\n* {\n    border: 1px solid black;\n}\n\n.box {\n    position: relative;\n    padding: 10px 50px 100px 20px;\n    background-color: mediumseagreen;\n    width: 200px;\n    height: 200px;\n}\n\n.inner {\n    position: absolute;\n    width : 100px;\n    height: 100px;\n    background-color: magenta;\n}\n
+# block-and-inline/box-with-clearance-and-margin-top
+layout	<!DOCTYPE html>\n\n<div><div class="square white"></div><div class="clearfix"></div><div class="square black"></div></div>	\n.clearfix {\n    clear: both;\n    margin-top: 9999px;\n    margin-bottom: 100px;\n    background-color: black;\n    width: 10px;\n    height: 10px;\n}\n.square {\n    float: left;\n    width: 49px;\n    height: 49px;\n}\n.white {\n    background-color: salmon;\n    width: 100px;\n    height: 100px;\n}\n.black {\n    background-color: slateblue;\n}\n
+# block-and-inline/floating-box-with-box-sizing-border-box
+layout	<!DOCTYPE html><div class="box"></div>	\n.box {\n    float: left;\n    width: 300px;\n    height: 200px;\n    padding: 100px;\n    background-color: magenta;\n    box-sizing: border-box;\n}\n
+# block-and-inline/html-element-height-quirks-mode-off
+layout	<!doctype html><body><div class="box"></div>	\n    * {\n        outline: 1px solid black !important;\n    }\n    body {\n        border: 10px solid purple;\n        display: block;\n        height: 50%;\n    }\n    .box {\n        background-color: palevioletred;\n        height: 100px;\n        width: 100px;\n    }\n
+# block-and-inline/html-element-height-quirks-mode-on
+layout	<!DOCTYPE quirks>\n<body><div class="box"></div>	\n    * {\n        outline: 1px solid black !important;\n    }\n    body {\n        border: 10px solid purple;\n        display: block;\n        height: 50%;\n    }\n    .box {\n        background-color: palevioletred;\n        height: 100px;\n        width: 100px;\n    }\n
+# block-and-inline/intrinsic-sizing-with-min-width-specified
+layout	<!DOCTYPE html><div class="outer"><div class="inner">	\n* {\n    font-family: 'SerenitySans';\n    border: 1px solid black;\n}\nbody {\n    float: left;\n}\n.outer {\n    min-width: 32px;\n    background-color: orange;\n}\n.inner {\n    width: 100px;\n    height: 30px;\n}\n
+# block-and-inline/margin-collapse-6
+layout	<!doctype html><div class="upper"></div><div class=bfc><div class="inner">	\n    .upper { \n        margin-bottom: 50px;\n        height: 20px;\n        background: lime;\n    }\n    .bfc {\n        display: flow-root;\n    }\n    .inner {\n        width: 20px;\n        height: 20px;\n        background: black;\n    }\n
+# block-and-inline/margin-collapse-7
+layout	<!DOCTYPE html><div class="bump"></div><div class="content"></div>	\nbody {\n    margin: 0;\n}\n.bump {\n    margin-top: 100px;\n}\n.content {\n    background: green;\n    width: 100px;\n    height: 100px;\n    margin-top: 200px;\n}\n
+# block-and-inline/margin-must-not-collapse-across-nested-bfc
+layout	<!doctype html><div class="not-bfc"></div><div class=bfc></div><div class="not-bfc"></div>	\n* {\n    padding: 0;\n}\nhtml {\n    background: white;\n}\nbody {\n    background: pink;\n}\n.not-bfc {\n    margin-top: 30px;\n    height: 20px;\n    background: orange;\n}\n.bfc {\n    margin-top: 30px;\n    display: flow-root;\n}\n
+# block-and-inline/max-width-must-not-expand-element
+layout	<!doctype html><body><div class="outer"><div class="inner">	    \n    * { border: 1px solid black; }    \n    body { position: absolute; }\n    .inner {                       \n        max-width: 50px;            \n        height: 50px;       \n    }                       \n
+# block-and-inline/percentage-height-abspos-box-with-percentage-height-child
+layout	<!doctype html><body><main><div id="asset-grid"><div id="virtual-timeline">	\n* { outline: 1px solid black; }\nbody { position: relative; }\nmain {\n    position: absolute;\n    height: 100%;\n}   \n#asset-grid {\n    background: pink;\n    height: 100%;\n    width: 100px;\n    border: 10px solid red;\n}   \n#virtual-timeline {\n    background: orange;\n    height: 30px;\n}   \n
+# block-and-inline/percentage-height-box-nested-into-percentage-height-box
+layout	<!DOCTYPE html>\n<div></div>	\ndiv {\n    background-color: crimson;\n    height: 100%;\n}\nbody {\n    height: 50%;\n}\nhtml {\n    height: 600px;\n}\n
+# block-and-inline/percentage-height-in-quirks-mode
+layout	<!DOCTYPE quirks>\n<div></div>	\ndiv {\n    background-color: crimson;\n    height: 100%;\n}\n
+# Hand-written cases: block widths, box model, margins
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { margin: 10px 20px; padding: 5px 7px; border: 3px solid; } .b { height: 30px; margin: 4px; border: 2px solid; padding: 1px 2px 3px 4px; }
+layout	<!DOCTYPE html><div class=a></div><div class=b></div><div class=c></div>	div { height: 10px; } .a { margin-bottom: 20px; } .b { margin-top: 30px; margin-bottom: -5px; } .c { margin-top: -10px; }
+layout	<!DOCTYPE html><div class=p><div class=c></div></div><div class=n></div>	.p { margin-top: 15px; } .c { margin-top: 25px; height: 10px; margin-bottom: 40px; } .n { margin-top: 10px; height: 5px; }
+layout	<!DOCTYPE html><div class=x></div><div class=e></div><div class=y></div>	.x, .y { height: 10px; } .x { margin-bottom: 10px; } .e { margin: 30px 0 5px; } .y { margin-top: -3px; }
+layout	<!DOCTYPE html><div class=a></div><div class=b></div><div class=c></div>	div { height: 10px; } .a { width: 200px; margin: 0 auto; } .b { width: 300px; margin-left: auto; } .c { width: 50%; margin-right: auto; margin-left: 10%; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { width: 400px; } .b { width: 120%; height: 10px; margin-left: auto; margin-right: auto; }
+layout	<!DOCTYPE html><div class=a></div><div class=b></div><div class=c></div><div class=d></div>	div { height: 10px; } .a { max-width: 100px; } .b { min-width: 900px; } .c { width: 50%; max-width: 30%; } .d { width: 10px; min-width: 25%; padding: 0 5px; box-sizing: border-box; }
+layout	<!DOCTYPE html><div class=a><div class=b></div><div class=c></div></div>	.a { height: 200px; width: 300px; } .b { height: 25%; max-height: 40px; } .c { height: 10px; min-height: 50%; box-sizing: border-box; padding: 5px; border: 2px solid; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { padding: 10px; } .b { height: 50%; min-height: 7px; }
+layout	<!DOCTYPE html><div class=a></div><div class=b></div>	.a { width: calc(50% - 20px); height: calc(10px + 2em); } .b { width: calc(100px + 10%); height: calc(5px * 3); margin: calc(1em / 2); }
+layout	<!DOCTYPE html><div class=a><div class=w></div></div><div class=b><div class=w></div></div><div class=c><div class=w></div></div>	.w { width: 150px; height: 10px; } .a { width: min-content; } .b { width: max-content; } .c { width: fit-content; padding: 3px; }
+layout	<!DOCTYPE html><center><div class=a></div></center><div align=right><div class=b></div></div>	.a { width: 100px; height: 10px; } .b { width: 50px; height: 10px; margin-left: 5px; }
+layout	<!DOCTYPE html><div class=bfc><div class=a></div></div><div class=c></div>	.bfc { display: flow-root; margin-top: 20px; } .a { margin-top: 30px; height: 10px; margin-bottom: 15px; } .c { height: 5px; margin-top: 10px; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { border-top: 1px solid; margin-top: 10px; } .b { margin-top: 20px; height: 10px; }
+layout	<!DOCTYPE html><div class=a><div class=e></div></div><div class=b></div>	.a { margin-bottom: 10px; } .e { margin-top: 12px; margin-bottom: 18px; } .b { height: 10px; }
+# Floats and clearance
+layout	<!DOCTYPE html><div class=l></div><div class=r></div><div class=n></div>	.l { float: left; width: 100px; height: 50px; } .r { float: right; width: 200px; height: 30px; margin: 5px; } .n { height: 10px; }
+layout	<!DOCTYPE html><div class=l></div><div class=l></div><div class=l></div><div class=l></div>	.l { float: left; width: 300px; height: 20px; margin-right: 10px; }
+layout	<!DOCTYPE html><div class=l></div><div class=r></div><div class=c></div><div class=d></div>	.l { float: left; width: 100px; height: 50px; } .r { float: right; width: 100px; height: 70px; } .c { clear: left; height: 10px; } .d { clear: both; height: 10px; margin-top: 5px; }
+layout	<!DOCTYPE html><div class=f><div class=w></div></div><div class=g><div class=w2></div><div class=w></div></div>	.f { float: left; padding: 4px; border: 1px solid; } .w { width: 120px; height: 10px; } .g { float: right; } .w2 { width: 60px; height: 20px; margin-left: 15px; }
+layout	<!DOCTYPE html><div class=l></div><div class=bfc></div><div class=bfc2></div>	.l { float: left; width: 200px; height: 100px; } .bfc { overflow: hidden; height: 30px; } .bfc2 { display: flow-root; width: 700px; height: 20px; }
+layout	<!DOCTYPE html><div class=root><div class=l></div><div class=r></div></div><div class=after></div>	.root { display: flow-root; border: 2px solid; } .l { float: left; width: 50px; height: 80px; } .r { float: right; width: 50px; height: 40px; } .after { height: 10px; }
+layout	<!DOCTYPE html><div class=o><div class=i><div class=l></div></div><div class=n></div></div>	.o { padding-left: 20px; } .i { margin-left: 30px; } .l { float: left; width: 100px; height: 40px; } .n { overflow: hidden; height: 10px; }
+layout	<!DOCTYPE html><div class=l></div><div class=l2></div><div class=r></div>	.l { float: left; width: 500px; height: 30px; } .l2 { float: left; width: 200px; height: 20px; } .r { float: right; width: 150px; height: 10px; }
+layout	<!DOCTYPE html><div class=c><div class=l></div><div class=m></div></div>	.c { width: 300px; } .l { float: left; width: 100px; height: 20px; } .m { margin-top: 30px; clear: left; height: 10px; }
+layout	<!DOCTYPE html><div class=l></div><div class=f></div>	.l { float: left; width: 40%; height: 30px; } .f { float: left; width: 70%; height: 10px; clear: right; }
+# Positioning
+layout	<!DOCTYPE html><div class=r></div><div class=s></div>	.r { position: relative; top: 10px; left: 20px; height: 30px; } .s { position: relative; bottom: 5px; right: 15px; height: 10px; width: 50%; }
+layout	<!DOCTYPE html><div class=cb><div class=a></div><div class=b></div><div class=c></div></div>	.cb { position: relative; width: 400px; height: 300px; padding: 10px; } .a { position: absolute; top: 10px; left: 20px; right: 30px; height: 50px; } .b { position: absolute; bottom: 0; right: 0; width: 25%; height: 25%; } .c { position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto; width: 100px; height: 60px; }
+layout	<!DOCTYPE html><div class=cb><div class=a><div class=w></div></div></div>	.cb { position: relative; height: 100px; } .a { position: absolute; left: 10px; top: 5px; padding: 2px; } .w { width: 77px; height: 13px; }
+layout	<!DOCTYPE html><div class=a></div><div class=n></div>	.a { position: fixed; bottom: 10px; right: 10px; width: 50px; height: 50px; } .n { height: 20px; }
+layout	<!DOCTYPE html><div class=cb><div class=s></div><div class=a></div><div class=t></div></div>	.cb { position: relative; padding: 5px; } .s { height: 40px; } .a { position: absolute; width: 10px; height: 10px; } .t { height: 7px; }
+layout	<!DOCTYPE html><div class=cb><div class=a><div class=b></div></div></div>	.cb { position: relative; width: 500px; height: 400px; } .a { position: absolute; left: 50px; top: 50px; width: 200px; height: 200px; } .b { position: absolute; right: 10%; bottom: 10%; width: 20px; height: 20px; }
+layout	<!DOCTYPE html><div class=cb><div class=a></div><div class=b></div></div>	.cb { position: relative; height: 200px; } .a { position: absolute; top: 0; bottom: 0; left: 0; width: 30px; max-height: 50px; } .b { position: absolute; top: 10px; height: 20px; left: 0; right: 0; min-width: 900px; max-width: 100px; }
+layout	<!DOCTYPE html><div class=cb><div class=a></div></div>	.cb { position: relative; height: 200px; width: 200px; } .a { position: absolute; top: 20%; left: 10%; bottom: 30%; right: 40%; margin: 5px 10%; border: 3px solid; }
+layout	<!DOCTYPE html><div class=r><div class=a></div></div>	.r { position: relative; left: 30px; top: -10px; margin: 20px; height: 100px; } .a { position: absolute; left: 0; top: 0; width: 10px; height: 10px; }
+# Quirks mode, the root and body
+layout	<div class=a></div>	html, body { height: 50%; } .a { height: 50%; }
+layout	<body><div class=a></div></body>	body { margin: 20px; } .a { height: 10px; }
+layout	<!DOCTYPE html><div class=a></div>	html { padding: 10px; border: 5px solid; height: 300px; } body { min-height: 100%; margin: 0; } .a { height: 10px; }
+layout	<!DOCTYPE html><div class=a></div>	html { overflow: hidden; } body { overflow: scroll; } .a { height: 10px; }
+layout	<!DOCTYPE html><div class=a></div><div class=b></div>	.a { column-count: 3; height: 10px; } .b { column-width: 100px; column-gap: 10px; height: 10px; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { contain: layout; margin-top: 10px; } .b { margin-top: 20px; height: 10px; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { width: 300px; height: 100px; } .b { width: 50%; height: 50%; padding: 10%; }
+# More hand-written cases: list items, fieldsets, replaced boxes, anchors
+layout	<!DOCTYPE html><ul><li class=a></li><li class=b></li></ul>	li { height: 20px; } .b { list-style-position: inside; }
+layout	<!DOCTYPE html><ol><li></li></ol>	ol { list-style-type: square; } li { height: 15px; width: 100px; }
+layout	<!DOCTYPE html><fieldset><legend></legend><div class=a></div></fieldset>	legend { width: 50px; height: 10px; } .a { height: 30px; }
+layout	<!DOCTYPE html><fieldset><div class=a></div></fieldset>	.a { height: 30px; }
+layout	<!DOCTYPE html><img class=a><img class=b><img class=c>	img { display: block; } .a { width: 50px; } .b { height: 40px; width: 70px; } .c { width: 20%; min-height: 10px; }
+layout	<!DOCTYPE html><div class=cb><img class=a></div>	.cb { position: relative; height: 300px; } .a { position: absolute; right: 10px; bottom: 20px; width: 30px; height: 40px; margin: auto; }
+layout	<!DOCTYPE html><div class=cb><div class=anchor></div><div class=pos></div></div>	.cb { position: relative; height: 300px; } .anchor { anchor-name: --a; width: 100px; height: 50px; margin-left: 30px; } .pos { position: absolute; position-anchor: --a; top: anchor(bottom); left: anchor(right); width: 20px; height: 20px; }
+layout	<!DOCTYPE html><div class=s></div><div class=t></div>	.s { position: sticky; top: 10px; height: 20px; } .t { height: 5000px; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { position: absolute; top: 10px; left: 10px; } .b { width: 50px; height: 40px; margin: 5px; }
+layout	<!DOCTYPE html><div class=a><div class=f></div></div>	.a { position: absolute; top: 0; left: 0; padding: 2px; } .f { float: right; width: 60px; height: 10px; }
+layout	<!DOCTYPE html><div class=a><div class=b></div><div class=c></div></div>	.a { float: left; } .b { width: 30px; height: 5px; } .c { float: left; width: 70px; height: 5px; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { width: 200px; height: 100px; overflow: auto; } .b { height: 500px; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { min-height: 50px; overflow: hidden; } .b { height: 20px; }
+layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { position: absolute; min-height: 50px; } .b { height: 20px; width: 10px; }
