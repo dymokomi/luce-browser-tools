@@ -8,8 +8,8 @@
 #
 # Expected: `luce-base test` passes all three asserts.
 # Actual:   check fails twice:
-#   local_array_of_views_returned_by_value.lucb:29:12: this pointer or view names a local and must not escape the function
 #   local_array_of_views_returned_by_value.lucb:33:12: this pointer or view names a local and must not escape the function
+#   local_array_of_views_returned_by_value.lucb:37:12: this pointer or view names a local and must not escape the function
 #
 # In the port: ColorFunctionDescriptor.cpp's build_color_function_descriptors() returns an
 # Array<ColorFunctionDescriptor, 16> whose descriptors hold a StringView (`"rgb"sv`). The
