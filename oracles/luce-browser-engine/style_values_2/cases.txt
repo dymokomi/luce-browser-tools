@@ -1,0 +1,473 @@
+# r35 style values II. Each line: <mode>\t<input>. A leading ! marks a case waiting for another region
+# (the font-face src cases with format() or tech() reach r41's font_format_is_supported and font_tech_is_supported).
+# Numbers and integers
+type:number	calc(1 + 2)
+type:number	calc(2 * 3)
+type:number	calc(10 / 4)
+type:number	calc(1 - 5)
+type:number	calc((1 + 2) * 3)
+type:number	calc(2 * (3 + 4) - 1)
+type:number	min(1, 2)
+type:number	max(1, 2, 3)
+type:number	min(3)
+type:number	clamp(1, 5, 3)
+type:number	clamp(1, 0, 3)
+type:number	abs(-3)
+type:number	sign(-3)
+type:number	sign(0)
+type:number	sign(-0)
+type:number	sin(30deg)
+type:number	sin(0.5)
+type:number	cos(0)
+type:number	cos(1turn)
+type:number	tan(45deg)
+type:number	pow(2, 10)
+type:number	sqrt(16)
+type:number	hypot(3, 4)
+type:number	log(100, 10)
+type:number	log(e)
+type:number	exp(1)
+type:number	round(2.5)
+type:number	round(up, 2.1, 1)
+type:number	round(down, 2.9, 1)
+type:number	round(to-zero, -2.9, 1)
+type:number	round(nearest, 7, 5)
+type:number	round(10, 0)
+type:number	mod(7, 3)
+type:number	mod(-7, 3)
+type:number	rem(-7, 3)
+type:number	rem(7, -3)
+type:number	calc(pi)
+type:number	calc(e * 2)
+type:number	calc(infinity)
+type:number	calc(-infinity)
+type:number	calc(NaN)
+type:number	calc(1 / 0)
+type:number	calc(0 / 0)
+type:number	calc(infinity * 0)
+type:number	min(1, NaN)
+type:number	calc(1 + 2 * 3 - 4 / 2)
+type:number	calc(1 * 2 * 3 * 4)
+type:number	calc(-(1 + 2))
+type:number	calc(1 - (2 - 3))
+type:number	calc(2 * (1 + 3))
+type:number	calc((1 + 3) * 2)
+type:integer	calc(1 + 2)
+type:integer	calc(2.4 + 1)
+type:integer	calc(2.5)
+type:integer	round(3.7)
+type:number	calc(1px + 1)
+type:number	calc(1 + 1%)
+type:number	sin(10px)
+type:number	pow(2px, 2)
+type:number	calc(10px / 5px)
+type:number	calc(1em / 1px)
+type:number	sign(10px)
+type:number	sign(-1em)
+type:number	asin(1)
+type:angle	asin(1)
+type:angle	acos(-1)
+type:angle	atan(1)
+type:angle	atan2(1, 1)
+type:angle	atan2(-1, -1)
+type:angle	atan2(1px, -1px)
+type:angle	atan2(0, -1)
+# Lengths
+type:length	calc(10px + 1em)
+type:length	calc(10px + 20px)
+type:length	calc(1in + 1cm)
+type:length	calc(1em + 1rem + 1vw)
+type:length	calc(10px * 2)
+type:length	calc(2 * 10px)
+type:length	calc(100px / 3)
+type:length	calc(2em * 3)
+type:length	calc(1em - 2em)
+type:length	calc(10px - 1em)
+type:length	calc(-10px)
+type:length	calc(1px * 1px / 1px)
+type:length	calc(1px * 2px)
+type:length	min(10px, 2em)
+type:length	max(10px, 20px, 5px)
+type:length	max(1em, 2em, 10px)
+type:length	min(1em, 30px, 2em, 1px)
+type:length	clamp(10px, 1em, 100px)
+type:length	clamp(10px, 50px, 20px)
+type:length	abs(-10px)
+type:length	abs(-1em)
+type:length	round(17px, 5px)
+type:length	round(up, 1em, 5px)
+type:length	mod(18px, 5px)
+type:length	rem(18px, 1em)
+type:length	hypot(3px, 4px)
+type:length	hypot(1em, 3px)
+type:length	calc(infinity * 1px)
+type:length	calc(-infinity * 1px)
+type:length	calc(NaN * 1px)
+type:length	calc(1px / 0)
+type:length	calc(10mm)
+type:length	calc(1q + 1pt + 1pc)
+type:length	calc(1vh + 1vmin + 1vmax)
+type:length	calc(1ex + 1ch + 1lh + 1rlh)
+type:length	calc(-1 * (10px + 1em))
+type:length	calc(-(10px + 1em))
+type:length	calc(-(10px - 1em))
+type:length	calc((10px + 1em) * 2)
+type:length	calc(2 * (10px + 1em + 5px))
+type:length	calc(1em + 2px + 3em + 4px)
+type:length	calc(10px + -5px)
+type:length	calc(10px + 1em - 1em)
+type:length	sign(1em) * 1px
+type:length	calc(sign(1em) * 1px)
+type:length	calc(10px * sin(30deg))
+type:length	calc(1px * pow(2, 3))
+type:length	calc(1px * e)
+type:length	calc(100vw - 2 * 1em)
+# Percentages and mixes
+type:percentage	calc(10% + 5%)
+type:percentage	calc(10% * 3)
+type:percentage	min(10%, 20%)
+type:percentage	calc(50% / 2)
+type:length-percentage	calc(10% + 5px)
+type:length-percentage	calc(10% + 0px)
+type:length-percentage	calc(10% - 1em)
+type:length-percentage	calc(50%)
+type:length-percentage	calc(100% - 10px)
+type:length-percentage	calc(100% - 2em)
+type:length-percentage	calc(10% * 2)
+type:length-percentage	calc(10% / 2 + 5px)
+type:length-percentage	min(10%, 30px)
+type:length-percentage	max(10%, 30px, 20%)
+type:length-percentage	clamp(10px, 50%, 1em)
+type:length-percentage	calc(10% * 2px / 1px)
+type:length-percentage	calc(1% * 1%)
+type:length-percentage	abs(-10%)
+type:length-percentage	round(33%, 10px)
+type:length-percentage	calc(5px + 10% + 1em + 20%)
+type:length-percentage	calc(0% + 10px)
+type:angle-percentage	calc(10% + 10deg)
+type:angle-percentage	calc(50% - 1rad)
+type:time-percentage	calc(10% + 1s)
+type:frequency-percentage	calc(10% + 1khz)
+prop=width+type:length	calc(1em + 10px)
+prop=width+type:length	calc(100% - 10px)
+# Other dimensions
+type:angle	calc(10deg + 1rad)
+type:angle	calc(1turn - 90deg)
+type:angle	calc(100grad * 2)
+type:angle	calc(-45deg)
+type:angle	calc(1turn)
+type:time	calc(1s + 100ms)
+type:time	calc(500ms * 2)
+type:time	min(1s, 900ms)
+type:frequency	calc(1khz + 100hz)
+type:frequency	calc(1hz * 1000)
+type:resolution	calc(1dppx + 96dpi)
+type:resolution	calc(2x)
+type:resolution	calc(1dpcm * 2)
+type:flex	calc(1fr * 2)
+type:flex	calc(1fr + 2fr)
+type:length	calc(1s + 1px)
+type:length	calc(1deg)
+type:time	calc(1px)
+type:length	calc(10px +)
+type:length	calc()
+type:length	calc(1px + (2px)
+type:length	calc(foo)
+type:length	clamp(1px, 2px)
+type:length	round(nearest, 1px)
+type:number	round(1.5)
+type:number	log(8, 2)
+type:number	sqrt(-1)
+type:number	atan2(1, 0)
+type:number	calc(sin(90deg) * cos(0deg))
+type:number	calc(sign(-0.0) * 1)
+# More calculations: unsimplified trees, random(), tree counting functions, keywords
+type:length	calc(1em + 2em * 3 - 4px)
+type:length	calc((1em + 1px) * (2 + 3))
+type:length	calc(1em * 2 / 4)
+type:length	calc(1em / (2 + 2))
+type:length	calc(1px / (1em / 1px))
+type:length	min(1em, max(10px, 1rem))
+type:length	max(1em, 2em, 3vw, 1em)
+type:length	clamp(1em, 10px, 2em)
+type:length	clamp(none, 1em, 10px)
+type:length	round(nearest, 1em, 3px)
+type:length	mod(1em, 3px)
+type:length	abs(1em - 20px)
+type:length	sign(1em - 20px) * 1px
+type:length	calc(1em * sign(-1em))
+type:length	random(10px, 20px)
+type:length	random(--foo, 10px, 20px, by 2px)
+type:length	random(element-shared, 1em, 2em)
+type:length	random(fixed 0.5, 10px, 20px)
+type:length	random(fixed 0.5, 10px, 20px, by 3px)
+type:length	random(fixed 0.25, 10px, 100px, by 10px)
+type:length	random(fixed 0.99, 10px, 100px, by 10px)
+type:length	random(fixed 0.5, 20px, 10px)
+type:number	random(fixed 0.5, 1, 5)
+type:number	calc(sibling-index() * 2)
+type:number	calc(sibling-count() + 1)
+type:length-percentage	calc(50% - 1em + 10px)
+type:length-percentage	calc(10% + 1em - 10% + 1px)
+type:length-percentage	min(50%, 1em, 100px)
+type:length-percentage	max(0%, 10px)
+type:length-percentage	clamp(0px, 50%, 100px)
+type:length-percentage	calc((50% + 10px) * 2)
+type:length-percentage	calc(-1 * (50% + 1em))
+type:length-percentage	calc(1 / (50% / 10px))
+type:length-percentage	round(50%, 1px)
+type:length-percentage	mod(50%, 7px)
+type:length-percentage	abs(-50%)
+type:length-percentage	hypot(30%, 40%)
+type:length-percentage	sign(50%) * 10px
+type:number	calc(1 / -0)
+type:number	calc(-0 * 1)
+type:number	round(up, -0.5, 1)
+type:number	round(down, 0.5, 1)
+type:number	round(to-zero, 2.5, infinity)
+type:number	round(up, 2.5, infinity)
+type:number	round(down, -2.5, infinity)
+type:number	round(down, 2.5, infinity)
+type:number	round(nearest, -2.5, infinity)
+type:number	round(infinity, 5)
+type:number	round(infinity, infinity)
+type:number	mod(infinity, 3)
+type:number	exp(1000)
+type:number	pow(-8, 1/3)
+type:number	acos(2)
+type:number	tan(90deg)
+type:angle	atan2(0, 0)
+type:angle	atan2(-0, -1)
+type:angle	calc(asin(0.5) + 1deg)
+type:angle	calc(1turn / 3)
+type:time	calc(2s / 1s * 1ms)
+type:resolution	calc(1x * 2)
+type:number	calc(1 * 2 * 3 / 4 / 5)
+type:number	calc(100 * 1%)
+type:percentage	calc(100% * 2 / 4)
+type:percentage	max(1%, 2%) * 2
+type:percentage	calc(max(1%, 2%) * 2)
+# Easing functions
+type:easing-function	ease-in
+type:easing-function	ease
+type:easing-function	linear
+type:easing-function	step-start
+type:easing-function	step-end
+type:easing-function	cubic-bezier(0.1, 0.2, 0.3, 0.4)
+type:easing-function	cubic-bezier(0.1, calc(0.2 + 0.1), 0.3, 1.5)
+type:easing-function	steps(3, jump-none)
+type:easing-function	steps(3)
+type:easing-function	steps(3, end)
+type:easing-function	steps(3, start)
+type:easing-function	steps(calc(1 + 2), jump-both)
+type:easing-function	linear(0, 0.5 50%, 1)
+type:easing-function	linear(0, 0.25 10% 20%, 1)
+type:easing-function	linear(0, calc(0.5 + 0.1) calc(10% + 5%), 1)
+prop=transition-timing-function+type:easing-function	ease-out
+# Transforms
+type:transform-function	rotate(45deg)
+type:transform-list	translate(10px, 20%) scale(2)
+prop=transform+type:transform-list	translate(10px, 20%) scale(2)
+prop:transform	matrix(1, 2, 3, 4, 5, 6)
+prop:transform	matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 10, 20, 30, 1)
+prop:transform	translate(10px) translateX(1in) translateY(2cm) translateZ(3mm) translate3d(1px, 2px, 3px)
+prop:transform	translate(10%, 20%)
+prop:transform	translate(1em)
+prop:transform	scale(2) scale(2, 3) scaleX(4) scaleY(5) scaleZ(6) scale3d(1, 2, 3)
+prop:transform	scale(50%) scaleX(150%) scale3d(10%, 20%, 30%)
+prop:transform	rotate(45deg) rotateX(1rad) rotateY(100grad) rotateZ(0.25turn) rotate3d(1, 2, 3, 30deg)
+prop:transform	rotate3d(0, 0, 0, 30deg)
+prop:transform	skew(10deg) skew(10deg, 20deg) skewX(30deg) skewY(40deg)
+prop:transform	perspective(100px) perspective(none) perspective(0.5px)
+prop:transform	perspective(1em)
+prop:transform	rotate(calc(45deg + 0.5turn)) translate(calc(10px + 1in)) scale(calc(2 * 3))
+prop:transform	translate(calc(10% + 5px))
+prop:transform	translate(calc(1em + 5px))
+prop:transform	none
+prop:rotate	45deg
+prop:rotate	x 45deg
+prop:rotate	y 45deg
+prop:rotate	z 45deg
+prop:rotate	1 0 0 45deg
+prop:rotate	0 2 0 45deg
+prop:rotate	0 0 3 45deg
+prop:rotate	1 1 0 45deg
+prop:rotate	calc(1 + 1) 0 0 10deg
+prop:rotate	none
+prop:scale	2
+prop:scale	2 3
+prop:scale	2 2
+prop:scale	2 2 1
+prop:scale	2 3 4
+prop:scale	50%
+prop:scale	50% 200%
+prop:scale	calc(1 + 1) calc(10% + 10%)
+prop:scale	none
+prop:translate	10px
+prop:translate	10px 20px
+prop:translate	10px 0px
+prop:translate	0px 0px 10px
+prop:translate	10px 20px 0px
+prop:translate	50% 1em 3px
+prop:translate	none
+# Basic shapes
+type:basic-shape	circle(10px at center)
+type:basic-shape	circle()
+type:basic-shape	circle(closest-side)
+type:basic-shape	circle(farthest-side at 10px 20px)
+type:basic-shape	circle(1em)
+type:basic-shape	ellipse(10px 20px at left top)
+type:basic-shape	ellipse()
+type:basic-shape	ellipse(closest-side closest-side)
+type:basic-shape	ellipse(1em 2em)
+type:basic-shape	inset(10px round 5px)
+type:basic-shape	inset(10px)
+type:basic-shape	inset(1px 2px 3px 4px)
+type:basic-shape	inset(1em 2% round 1em / 2em)
+type:basic-shape	xywh(1px 2px 3px 4px)
+type:basic-shape	xywh(1px 2% 3em 4px round 5px)
+type:basic-shape	rect(1px 2px 3px 4px)
+type:basic-shape	rect(auto auto auto auto)
+type:basic-shape	rect(1em auto 10% 2px round 3px)
+type:basic-shape	polygon(evenodd, 0 0, 10px 10px)
+type:basic-shape	polygon(0 0, 100% 0, 50% 1em)
+type:basic-shape	polygon(nonzero, 1em 2em)
+prop:clip-path	circle(50%)
+prop:clip-path	inset(1em)
+prop:shape-outside	ellipse(10px 20px)
+# Font style and font sources
+type:font-style	oblique 10deg
+type:font-style	oblique
+type:font-style	oblique 0deg
+type:font-style	oblique 14deg
+type:font-style	oblique -20deg
+type:font-style	oblique calc(10deg + 5deg)
+type:font-style	italic
+type:font-style	normal
+prop:font-style	oblique 1rad
+prop:font-style	italic
+!desc:font-face/src	url(foo.woff2) format(woff2)
+!desc:font-face/src	url(foo.ttf) format("truetype") tech(variations, color-COLRv1)
+desc:font-face/src	local(Foo), local("Bar Baz"), url(a.woff)
+!desc:font-face/src	url(a.woff) tech(palettes)
+desc:font-face/font-style	oblique 10deg 20deg
+# Counters
+type:counter	counter(foo)
+type:counter	counter(foo, upper-roman)
+type:counter	counter(foo, decimal)
+type:counter	counters(foo, ".")
+type:counter	counters(foo, ".", lower-alpha)
+type:counter	counters(foo, "-", decimal)
+type:counter-style	symbols(cyclic "a" "b")
+type:counter-style	symbols("a" "b")
+type:counter-style	symbols(numeric "0" "1")
+type:counter-style	symbols(fixed "x")
+type:counter-style	upper-roman
+prop:counter-reset	foo
+prop:counter-reset	foo 2 bar
+prop:counter-reset	reversed(foo) 3
+prop:counter-reset	reversed(foo)
+prop:counter-increment	foo calc(1 + 2) bar -1
+prop:counter-set	foo calc(1em / 1px)
+prop:list-style-type	symbols(alphabetic "x" "y" "z")
+prop:content	counter(item) ". " counters(item, ".", upper-alpha)
+desc:counter-style/system	cyclic
+desc:counter-style/system	numeric
+desc:counter-style/system	alphabetic
+desc:counter-style/system	symbolic
+desc:counter-style/system	additive
+desc:counter-style/system	fixed
+desc:counter-style/system	fixed 3
+desc:counter-style/system	fixed calc(1 + 2)
+desc:counter-style/system	extends decimal
+desc:counter-style/system	extends foo
+# Filters
+prop:filter	blur(2px)
+prop:filter	blur(1em) brightness(50%) contrast(2) grayscale(150%) invert(0.5) opacity(-1) saturate(3) sepia(200%)
+prop:filter	hue-rotate(90deg) hue-rotate(1turn)
+prop:filter	drop-shadow(1px 2px)
+prop:filter	drop-shadow(red 1px 2px 3px)
+prop:filter	drop-shadow(1em 2em 3em currentcolor)
+prop:filter	url(#foo) blur(1px)
+prop:filter	brightness(calc(50% + 10%)) grayscale(calc(2 * 1))
+prop:filter	none
+prop:backdrop-filter	invert() sepia() blur()
+# Grid
+prop:grid-auto-flow	row
+prop:grid-auto-flow	column
+prop:grid-auto-flow	dense
+prop:grid-auto-flow	row dense
+prop:grid-auto-flow	column dense
+prop:grid-auto-flow	dense column
+prop:grid-template-areas	"a b" "c d"
+prop:grid-template-areas	"a a ." "b c c"
+prop:grid-template-areas	"head head" "nav main" "foot ."
+prop:grid-template-areas	none
+prop:grid-template-areas	"a b" "b a"
+prop:grid-column-start	auto
+prop:grid-column-start	3
+prop:grid-column-start	span 2
+prop:grid-column-start	foo 2
+prop:grid-column-start	span foo
+prop:grid-column-start	calc(1 + 2)
+prop:grid-row-end	-1 bar
+prop:grid-template-columns	1fr 2fr
+prop:grid-template-columns	[a] 10px [b c] repeat(2, 1fr) [d]
+prop:grid-template-columns	minmax(1em, 1fr) auto fit-content(10px)
+prop:grid-template-columns	repeat(auto-fill, minmax(calc(1em + 10px), 1fr))
+prop:grid-template-rows	none
+prop:grid-auto-columns	1fr 2em
+prop:grid-auto-rows	auto
+# NumericType
+ntype:add	length=1 | length=1
+ntype:add	length=1 | percent=1
+ntype:add	percent=1 | length=1
+ntype:add	length=1 hint=length | percent=1
+ntype:add	length=1 hint=length | angle=1 hint=angle
+ntype:add	length=1 | angle=1
+ntype:add	| 
+ntype:add	length=2 | length=2 percent=0
+ntype:add	percent=1 | percent=1
+ntype:add	length=1 percent=1 | length=2
+ntype:multiply	length=1 | length=1
+ntype:multiply	length=1 | length=-1
+ntype:multiply	length=1 hint=length | percent=1
+ntype:multiply	percent=1 | length=1 hint=length
+ntype:multiply	length=1 hint=length | angle=1 hint=angle
+ntype:multiply	| angle=1
+ntype:invert	length=1 percent=-2 hint=length
+ntype:invert	
+ntype:consistent	 | length=1 hint=length
+ntype:consistent	length=1 hint=angle | length=1 hint=length
+ntype:consistent	length=1 hint=angle | 
+ntype:matches	length=1
+ntype:matches	length=1 hint=length
+ntype:matches	length=1 hint=angle
+ntype:matches	angle=1
+ntype:matches	percent=1
+ntype:matches	percent=1 hint=percent
+ntype:matches	percent=1 hint=length
+ntype:matches	
+ntype:matches	hint=percent
+ntype:matches	hint=length length=0
+ntype:matches	length=2
+ntype:matches	length=1 angle=1
+ntype:matches	length=1 angle=0
+ntype:matches	flex=1
+ntype:matches	time=1 hint=time
+ntype:matches	frequency=1
+ntype:matches	resolution=1
+ntype:unit	number
+ntype:unit	percent
+ntype:unit	px
+ntype:unit	EM
+ntype:unit	deg
+ntype:unit	ms
+ntype:unit	khz
+ntype:unit	dppx
+ntype:unit	fr
+ntype:unit	foo
+ntype:unitmap	px=1
+ntype:unitmap	px=1 s=-1
+ntype:unitmap	px=2 em=1
+ntype:unitmap	deg=1 x=1 fr=-2 hz=1

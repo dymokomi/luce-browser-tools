@@ -561,14 +561,14 @@ initial	flex-wrap
 initial	float
 initial	flood-color
 initial	flood-opacity
-!initial	font
+initial	font
 initial	font-family
 initial	font-feature-settings
 initial	font-kerning
 initial	font-language-override
 initial	font-optical-sizing
 initial	font-size
-!initial	font-style
+initial	font-style
 initial	font-variant
 initial	font-variant-alternates
 initial	font-variant-caps
@@ -581,19 +581,19 @@ initial	font-variation-settings
 initial	font-weight
 initial	font-width
 initial	gap
-!initial	grid-area
-!initial	grid-auto-columns
-!initial	grid-auto-flow
-!initial	grid-auto-rows
-!initial	grid-column
-!initial	grid-column-end
-!initial	grid-column-start
-!initial	grid-row
-!initial	grid-row-end
-!initial	grid-row-start
-!initial	grid-template-areas
-!initial	grid-template-columns
-!initial	grid-template-rows
+initial	grid-area
+initial	grid-auto-columns
+initial	grid-auto-flow
+initial	grid-auto-rows
+initial	grid-column
+initial	grid-column-end
+initial	grid-column-start
+initial	grid-row
+initial	grid-row-end
+initial	grid-row-start
+initial	grid-template-areas
+initial	grid-template-columns
+initial	grid-template-rows
 initial	height
 initial	image-rendering
 initial	inline-size
@@ -611,10 +611,10 @@ initial	justify-self
 initial	left
 initial	letter-spacing
 initial	line-height
-!initial	list-style
+initial	list-style
 initial	list-style-image
 initial	list-style-position
-!initial	list-style-type
+initial	list-style-type
 initial	margin
 initial	margin-block
 initial	margin-block-end
@@ -812,7 +812,7 @@ descriptor_initial	@page	size
 descriptor_initial	@property	inherits
 descriptor_initial	@property	initial-value
 descriptor_initial	@property	syntax
-!descriptor_initial	@counter-style	system
+descriptor_initial	@counter-style	system
 descriptor_initial	@counter-style	range
 descriptor_initial	@counter-style	fallback
 descriptor_initial	@counter-style	symbols
@@ -908,16 +908,16 @@ value	animation	1s ease-in 2s infinite alternate both paused foo
 value	animation	foo 1s, bar 2s
 value	animation	1s 2s
 value	backdrop-filter	none
-!value	filter	blur(2px)
-!value	filter	blur()
-!value	filter	brightness(50%) contrast(2)
-!value	filter	drop-shadow(1px 2px 3px red)
-!value	filter	drop-shadow(red 1px 2px)
-!value	filter	drop-shadow(1px 2px red)
-!value	filter	hue-rotate(0)
-!value	filter	hue-rotate(90deg)
-!value	filter	grayscale(150%) opacity(2) sepia()
-!value	filter	url(#f) invert(1)
+value	filter	blur(2px)
+value	filter	blur()
+value	filter	brightness(50%) contrast(2)
+value	filter	drop-shadow(1px 2px 3px red)
+value	filter	drop-shadow(red 1px 2px)
+value	filter	drop-shadow(1px 2px red)
+value	filter	hue-rotate(0)
+value	filter	hue-rotate(90deg)
+value	filter	grayscale(150%) opacity(2) sepia()
+value	filter	url(#f) invert(1)
 value	filter	blur(-1px)
 value	filter	foo(1)
 value	background	red
@@ -998,17 +998,17 @@ value	container-type	normal
 value	container-type	inline-size scroll-state
 value	container-type	size size
 value	content	none
-!value	content	"a" counter(x)
+value	content	"a" counter(x)
 value	content	"a" / "alt"
 value	content	"a" /
 value	content	none "a"
 value	content	/ "x"
 value	counter-increment	none
-!value	counter-increment	foo
-!value	counter-increment	foo 2 bar
-!value	counter-reset	foo -1
+value	counter-increment	foo
+value	counter-increment	foo 2 bar
+value	counter-reset	foo -1
 value	counter-reset	reversed(foo)
-!value	counter-set	a 5
+value	counter-set	a 5
 value	cursor	pointer
 value	cursor	url(a.png), auto
 value	cursor	url(a.png) 1 2, pointer
@@ -1038,11 +1038,11 @@ value	flex	0
 value	flex-flow	row wrap
 value	flex-flow	column
 value	flex-flow	wrap row
-!value	font	12px serif
-!value	font	italic bold 12px/30px Georgia, serif
-!value	font	small-caps 1em sans-serif
-!value	font	normal normal normal 12px x
-!value	font	condensed 12px a
+value	font	12px serif
+value	font	italic bold 12px/30px Georgia, serif
+value	font	small-caps 1em sans-serif
+value	font	normal normal normal 12px x
+value	font	condensed 12px a
 value	font	12px
 value	font	normal normal normal normal normal 12px x
 value	font-family	serif
@@ -1070,48 +1070,48 @@ value	font-variant	historical-forms
 value	font-variant	jis78 ruby
 value	font-variant	sub emoji
 value	font-variant	small-caps small-caps
-!value	grid-area	a
-!value	grid-area	1 / 2 / 3 / 4
-!value	grid-area	a / b
-!value	grid-area	auto / span 2
-!value	grid-auto-flow	row
-!value	grid-auto-flow	column dense
-!value	grid-auto-flow	dense
-!value	grid-auto-flow	dense row
+value	grid-area	a
+value	grid-area	1 / 2 / 3 / 4
+value	grid-area	a / b
+value	grid-area	auto / span 2
+value	grid-auto-flow	row
+value	grid-auto-flow	column dense
+value	grid-auto-flow	dense
+value	grid-auto-flow	dense row
 value	grid-auto-flow	row column
-!value	grid-column	1 / 3
-!value	grid-column	a
-!value	grid-column	span 2
-!value	grid-row	1
+value	grid-column	1 / 3
+value	grid-column	a
+value	grid-column	span 2
+value	grid-row	1
 value	grid-row	2 /
-!value	grid-column-start	auto
-!value	grid-row-end	3
-!value	grid	none
-!value	grid	auto-flow / 100px
-!value	grid	100px / auto-flow dense 50px
-!value	grid	"a b" 10px / 1fr 1fr
-!value	grid-template	none
-!value	grid-template	100px 1fr / 50px
-!value	grid-template	"a a" "b c"
-!value	grid-template	[x] "a" 10px [y] / 1fr
-!value	grid-template-areas	none
-!value	grid-template-areas	"a b" "c d"
-!value	grid-template-areas	"a a" "a a"
-!value	grid-template-areas	"a ." "b ."
+value	grid-column-start	auto
+value	grid-row-end	3
+value	grid	none
+value	grid	auto-flow / 100px
+value	grid	100px / auto-flow dense 50px
+value	grid	"a b" 10px / 1fr 1fr
+value	grid-template	none
+value	grid-template	100px 1fr / 50px
+value	grid-template	"a a" "b c"
+value	grid-template	[x] "a" 10px [y] / 1fr
+value	grid-template-areas	none
+value	grid-template-areas	"a b" "c d"
+value	grid-template-areas	"a a" "a a"
+value	grid-template-areas	"a ." "b ."
 value	grid-template-areas	"a b" "c"
 value	grid-template-areas	"a b" "b a"
 value	grid-template-areas	"a$"
-!value	grid-template-columns	none
-!value	grid-template-columns	100px 1fr
-!value	grid-template-columns	repeat(2, 1fr)
-!value	grid-template-rows	[a] 10px [b]
-!value	grid-auto-rows	100px
-!value	grid-auto-columns	auto 1fr
+value	grid-template-columns	none
+value	grid-template-columns	100px 1fr
+value	grid-template-columns	repeat(2, 1fr)
+value	grid-template-rows	[a] 10px [b]
+value	grid-auto-rows	100px
+value	grid-auto-columns	auto 1fr
 value	list-style	none
-!value	list-style	square inside
-!value	list-style	url(a.png)
+value	list-style	square inside
+value	list-style	url(a.png)
 value	list-style	none none
-!value	list-style	none disc
+value	list-style	none disc
 value	list-style	none none none
 value	math-depth	auto-add
 value	math-depth	add(2)
@@ -1171,20 +1171,20 @@ value	quotes	"«" "»"
 value	quotes	"a" "b" "c" "d"
 value	quotes	"a"
 value	rotate	none
-!value	rotate	45deg
-!value	rotate	x 45deg
-!value	rotate	45deg y
-!value	rotate	1 2 3 45deg
-!value	rotate	45deg 1 2 3
+value	rotate	45deg
+value	rotate	x 45deg
+value	rotate	45deg y
+value	rotate	1 2 3 45deg
+value	rotate	45deg 1 2 3
 value	rotate	z
 value	scale	none
-!value	scale	2
-!value	scale	2 50%
-!value	scale	1 2 3
+value	scale	2
+value	scale	2 50%
+value	scale	1 2 3
 value	translate	none
-!value	translate	10px
-!value	translate	10px 20%
-!value	translate	10px 20px 30px
+value	translate	10px
+value	translate	10px 20%
+value	translate	10px 20px 30px
 value	translate	10px 20px 30%
 value	scrollbar-color	auto
 value	scrollbar-color	red blue
@@ -1196,9 +1196,9 @@ value	scrollbar-gutter	both-edges stable
 value	scrollbar-gutter	both-edges
 value	scrollbar-gutter	auto both-edges
 value	shape-outside	none
-!value	shape-outside	circle(50%)
+value	shape-outside	circle(50%)
 value	shape-outside	margin-box
-!value	shape-outside	circle(50%) border-box
+value	shape-outside	circle(50%) border-box
 value	shape-outside	linear-gradient(red, blue)
 value	stroke-dasharray	none
 value	stroke-dasharray	1 2 3

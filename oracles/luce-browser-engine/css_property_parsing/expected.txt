@@ -2604,7 +2604,7 @@ case initial	flood-color
   color black
 case initial	flood-opacity
   opacity_value 1
-later initial	font
+case initial	font
   shorthand font
     font-family
       value_list comma 1 serif
@@ -2658,7 +2658,7 @@ case initial	font-optical-sizing
   keyword auto
 case initial	font-size
   keyword medium
-later initial	font-style
+case initial	font-style
   font_style normal
 case initial	font-variant
   shorthand font-variant
@@ -2702,7 +2702,7 @@ case initial	gap
       keyword normal
     column-gap
       keyword normal
-later initial	grid-area
+case initial	grid-area
   shorthand grid-area
     grid-row-start
       grid_track_placement auto
@@ -2712,37 +2712,37 @@ later initial	grid-area
       grid_track_placement auto
     grid-column-end
       grid_track_placement auto
-later initial	grid-auto-columns
+case initial	grid-auto-columns
   grid_track_size_list auto
-later initial	grid-auto-flow
+case initial	grid-auto-flow
   grid_auto_flow row
-later initial	grid-auto-rows
+case initial	grid-auto-rows
   grid_track_size_list auto
-later initial	grid-column
+case initial	grid-column
   shorthand grid-column
     grid-column-start
       grid_track_placement auto
     grid-column-end
       grid_track_placement auto
-later initial	grid-column-end
+case initial	grid-column-end
   grid_track_placement auto
-later initial	grid-column-start
+case initial	grid-column-start
   grid_track_placement auto
-later initial	grid-row
+case initial	grid-row
   shorthand grid-row
     grid-row-start
       grid_track_placement auto
     grid-row-end
       grid_track_placement auto
-later initial	grid-row-end
+case initial	grid-row-end
   grid_track_placement auto
-later initial	grid-row-start
+case initial	grid-row-start
   grid_track_placement auto
-later initial	grid-template-areas
+case initial	grid-template-areas
   grid_template_area none
-later initial	grid-template-columns
+case initial	grid-template-columns
   grid_track_size_list none
-later initial	grid-template-rows
+case initial	grid-template-rows
   grid_track_size_list none
 case initial	height
   keyword auto
@@ -2794,7 +2794,7 @@ case initial	letter-spacing
   keyword normal
 case initial	line-height
   keyword normal
-later initial	list-style
+case initial	list-style
   shorthand list-style
     list-style-position
       keyword outside
@@ -2806,7 +2806,7 @@ case initial	list-style-image
   keyword none
 case initial	list-style-position
   keyword outside
-later initial	list-style-type
+case initial	list-style-type
   counter_style disc
 case initial	margin
   shorthand margin
@@ -3369,7 +3369,7 @@ case descriptor_initial	@property	initial-value
   null
 case descriptor_initial	@property	syntax
   null
-later descriptor_initial	@counter-style	system
+case descriptor_initial	@counter-style	system
   counter_style_system symbolic
 case descriptor_initial	@counter-style	range
   keyword auto
@@ -3867,34 +3867,34 @@ case value	animation	1s 2s
 case value	backdrop-filter	none
   keyword none
   rest 0
-later value	filter	blur(2px)
+case value	filter	blur(2px)
   filter_value_list blur(2px)
   rest 0
-later value	filter	blur()
+case value	filter	blur()
   filter_value_list blur(0px)
   rest 0
-later value	filter	brightness(50%) contrast(2)
+case value	filter	brightness(50%) contrast(2)
   filter_value_list brightness(50%) contrast(2)
   rest 0
-later value	filter	drop-shadow(1px 2px 3px red)
+case value	filter	drop-shadow(1px 2px 3px red)
   filter_value_list drop-shadow(red 1px 2px 3px)
   rest 0
-later value	filter	drop-shadow(red 1px 2px)
+case value	filter	drop-shadow(red 1px 2px)
   filter_value_list drop-shadow(red 1px 2px)
   rest 0
-later value	filter	drop-shadow(1px 2px red)
+case value	filter	drop-shadow(1px 2px red)
   filter_value_list drop-shadow(red 1px 2px)
   rest 0
-later value	filter	hue-rotate(0)
+case value	filter	hue-rotate(0)
   filter_value_list hue-rotate(0deg)
   rest 0
-later value	filter	hue-rotate(90deg)
+case value	filter	hue-rotate(90deg)
   filter_value_list hue-rotate(90deg)
   rest 0
-later value	filter	grayscale(150%) opacity(2) sepia()
+case value	filter	grayscale(150%) opacity(2) sepia()
   filter_value_list grayscale(100%) opacity(1) sepia(1)
   rest 0
-later value	filter	url(#f) invert(1)
+case value	filter	url(#f) invert(1)
   filter_value_list url("#f") invert(1)
   rest 0
 case value	filter	blur(-1px)
@@ -4685,7 +4685,7 @@ case value	container-type	size size
 case value	content	none
   keyword none
   rest 0
-later value	content	"a" counter(x)
+case value	content	"a" counter(x)
   content "a" counter(x)
   rest 0
 case value	content	"a" / "alt"
@@ -4700,18 +4700,18 @@ case value	content	/ "x"
 case value	counter-increment	none
   keyword none
   rest 0
-later value	counter-increment	foo
+case value	counter-increment	foo
   counter_definitions foo 1
   rest 0
-later value	counter-increment	foo 2 bar
+case value	counter-increment	foo 2 bar
   counter_definitions foo 2 bar 1
   rest 0
-later value	counter-reset	foo -1
+case value	counter-reset	foo -1
   counter_definitions foo -1
   rest 0
 case value	counter-reset	reversed(foo)
   error SyntaxError
-later value	counter-set	a 5
+case value	counter-set	a 5
   counter_definitions a 5
   rest 0
 case value	cursor	pointer
@@ -4866,7 +4866,7 @@ case value	flex-flow	wrap row
     flex-wrap
       keyword wrap
   rest 0
-later value	font	12px serif
+case value	font	12px serif
   shorthand font
     font-family
       value_list comma 1 serif
@@ -4908,7 +4908,7 @@ later value	font	12px serif
     font-variation-settings
       keyword normal
   rest 0
-later value	font	italic bold 12px/30px Georgia, serif
+case value	font	italic bold 12px/30px Georgia, serif
   shorthand font
     font-family
       value_list comma 2 Georgia, serif
@@ -4951,7 +4951,7 @@ later value	font	italic bold 12px/30px Georgia, serif
     font-variation-settings
       keyword normal
   rest 0
-later value	font	small-caps 1em sans-serif
+case value	font	small-caps 1em sans-serif
   shorthand font
     font-family
       value_list comma 1 sans-serif
@@ -4993,7 +4993,7 @@ later value	font	small-caps 1em sans-serif
     font-variation-settings
       keyword normal
   rest 0
-later value	font	normal normal normal 12px x
+case value	font	normal normal normal 12px x
   shorthand font
     font-family
       value_list comma 1 x
@@ -5035,7 +5035,7 @@ later value	font	normal normal normal 12px x
     font-variation-settings
       keyword normal
   rest 0
-later value	font	condensed 12px a
+case value	font	condensed 12px a
   shorthand font
     font-family
       value_list comma 1 a
@@ -5259,7 +5259,7 @@ case value	font-variant	sub emoji
   rest 0
 case value	font-variant	small-caps small-caps
   error SyntaxError
-later value	grid-area	a
+case value	grid-area	a
   shorthand grid-area
     grid-row-start
       grid_track_placement a
@@ -5270,7 +5270,7 @@ later value	grid-area	a
     grid-column-end
       grid_track_placement a
   rest 0
-later value	grid-area	1 / 2 / 3 / 4
+case value	grid-area	1 / 2 / 3 / 4
   shorthand grid-area
     grid-row-start
       grid_track_placement 1
@@ -5281,7 +5281,7 @@ later value	grid-area	1 / 2 / 3 / 4
     grid-column-end
       grid_track_placement 4
   rest 0
-later value	grid-area	a / b
+case value	grid-area	a / b
   shorthand grid-area
     grid-row-start
       grid_track_placement a
@@ -5292,7 +5292,7 @@ later value	grid-area	a / b
     grid-column-end
       grid_track_placement b
   rest 0
-later value	grid-area	auto / span 2
+case value	grid-area	auto / span 2
   shorthand grid-area
     grid-row-start
       grid_track_placement auto
@@ -5303,42 +5303,42 @@ later value	grid-area	auto / span 2
     grid-column-end
       grid_track_placement auto
   rest 0
-later value	grid-auto-flow	row
+case value	grid-auto-flow	row
   grid_auto_flow row
   rest 0
-later value	grid-auto-flow	column dense
+case value	grid-auto-flow	column dense
   grid_auto_flow column dense
   rest 0
-later value	grid-auto-flow	dense
+case value	grid-auto-flow	dense
   grid_auto_flow dense
   rest 0
-later value	grid-auto-flow	dense row
+case value	grid-auto-flow	dense row
   grid_auto_flow dense
   rest 0
 case value	grid-auto-flow	row column
   error SyntaxError
-later value	grid-column	1 / 3
+case value	grid-column	1 / 3
   shorthand grid-column
     grid-column-start
       grid_track_placement 1
     grid-column-end
       grid_track_placement 3
   rest 0
-later value	grid-column	a
+case value	grid-column	a
   shorthand grid-column
     grid-column-start
       grid_track_placement a
     grid-column-end
       grid_track_placement a
   rest 0
-later value	grid-column	span 2
+case value	grid-column	span 2
   shorthand grid-column
     grid-column-start
       grid_track_placement span 2
     grid-column-end
       grid_track_placement auto
   rest 0
-later value	grid-row	1
+case value	grid-row	1
   shorthand grid-row
     grid-row-start
       grid_track_placement 1
@@ -5347,13 +5347,13 @@ later value	grid-row	1
   rest 0
 case value	grid-row	2 /
   error SyntaxError
-later value	grid-column-start	auto
+case value	grid-column-start	auto
   grid_track_placement auto
   rest 0
-later value	grid-row-end	3
+case value	grid-row-end	3
   grid_track_placement 3
   rest 0
-later value	grid	none
+case value	grid	none
   shorthand grid
     grid-auto-flow
       grid_auto_flow row
@@ -5368,7 +5368,7 @@ later value	grid	none
     grid-template-columns
       grid_track_size_list none
   rest 0
-later value	grid	auto-flow / 100px
+case value	grid	auto-flow / 100px
   shorthand grid
     grid-auto-flow
       grid_auto_flow row
@@ -5383,7 +5383,7 @@ later value	grid	auto-flow / 100px
     grid-template-columns
       grid_track_size_list 100px
   rest 0
-later value	grid	100px / auto-flow dense 50px
+case value	grid	100px / auto-flow dense 50px
   shorthand grid
     grid-auto-flow
       grid_auto_flow column dense
@@ -5398,7 +5398,7 @@ later value	grid	100px / auto-flow dense 50px
     grid-template-columns
       grid_track_size_list none
   rest 0
-later value	grid	"a b" 10px / 1fr 1fr
+case value	grid	"a b" 10px / 1fr 1fr
   shorthand grid
     grid-auto-flow
       grid_auto_flow row
@@ -5413,7 +5413,7 @@ later value	grid	"a b" 10px / 1fr 1fr
     grid-template-columns
       grid_track_size_list 1fr 1fr
   rest 0
-later value	grid-template	none
+case value	grid-template	none
   shorthand grid-template
     grid-template-areas
       grid_template_area none
@@ -5422,7 +5422,7 @@ later value	grid-template	none
     grid-template-columns
       grid_track_size_list none
   rest 0
-later value	grid-template	100px 1fr / 50px
+case value	grid-template	100px 1fr / 50px
   shorthand grid-template
     grid-template-areas
       grid_template_area none
@@ -5431,7 +5431,7 @@ later value	grid-template	100px 1fr / 50px
     grid-template-columns
       grid_track_size_list 50px
   rest 0
-later value	grid-template	"a a" "b c"
+case value	grid-template	"a a" "b c"
   shorthand grid-template
     grid-template-areas
       grid_template_area "a a" "b c"
@@ -5440,7 +5440,7 @@ later value	grid-template	"a a" "b c"
     grid-template-columns
       grid_track_size_list none
   rest 0
-later value	grid-template	[x] "a" 10px [y] / 1fr
+case value	grid-template	[x] "a" 10px [y] / 1fr
   shorthand grid-template
     grid-template-areas
       grid_template_area "a"
@@ -5449,16 +5449,16 @@ later value	grid-template	[x] "a" 10px [y] / 1fr
     grid-template-columns
       grid_track_size_list 1fr
   rest 0
-later value	grid-template-areas	none
+case value	grid-template-areas	none
   grid_template_area none
   rest 0
-later value	grid-template-areas	"a b" "c d"
+case value	grid-template-areas	"a b" "c d"
   grid_template_area "a b" "c d"
   rest 0
-later value	grid-template-areas	"a a" "a a"
+case value	grid-template-areas	"a a" "a a"
   grid_template_area "a a" "a a"
   rest 0
-later value	grid-template-areas	"a ." "b ."
+case value	grid-template-areas	"a ." "b ."
   grid_template_area "a ." "b ."
   rest 0
 case value	grid-template-areas	"a b" "c"
@@ -5467,22 +5467,22 @@ case value	grid-template-areas	"a b" "b a"
   error SyntaxError
 case value	grid-template-areas	"a$"
   error SyntaxError
-later value	grid-template-columns	none
+case value	grid-template-columns	none
   grid_track_size_list none
   rest 0
-later value	grid-template-columns	100px 1fr
+case value	grid-template-columns	100px 1fr
   grid_track_size_list 100px 1fr
   rest 0
-later value	grid-template-columns	repeat(2, 1fr)
+case value	grid-template-columns	repeat(2, 1fr)
   grid_track_size_list repeat(2, 1fr)
   rest 0
-later value	grid-template-rows	[a] 10px [b]
+case value	grid-template-rows	[a] 10px [b]
   grid_track_size_list [a] 10px [b]
   rest 0
-later value	grid-auto-rows	100px
+case value	grid-auto-rows	100px
   grid_track_size_list 100px
   rest 0
-later value	grid-auto-columns	auto 1fr
+case value	grid-auto-columns	auto 1fr
   grid_track_size_list auto 1fr
   rest 0
 case value	list-style	none
@@ -5494,7 +5494,7 @@ case value	list-style	none
     list-style-type
       keyword none
   rest 0
-later value	list-style	square inside
+case value	list-style	square inside
   shorthand list-style
     list-style-position
       keyword inside
@@ -5503,7 +5503,7 @@ later value	list-style	square inside
     list-style-type
       counter_style square
   rest 0
-later value	list-style	url(a.png)
+case value	list-style	url(a.png)
   shorthand list-style
     list-style-position
       keyword outside
@@ -5521,7 +5521,7 @@ case value	list-style	none none
     list-style-type
       keyword none
   rest 0
-later value	list-style	none disc
+case value	list-style	none disc
   shorthand list-style
     list-style-position
       keyword outside
@@ -5856,19 +5856,19 @@ case value	quotes	"a"
 case value	rotate	none
   keyword none
   rest 0
-later value	rotate	45deg
+case value	rotate	45deg
   transformation 45deg
   rest 0
-later value	rotate	x 45deg
+case value	rotate	x 45deg
   transformation x 45deg
   rest 0
-later value	rotate	45deg y
+case value	rotate	45deg y
   transformation y 45deg
   rest 0
-later value	rotate	1 2 3 45deg
+case value	rotate	1 2 3 45deg
   transformation 1 2 3 45deg
   rest 0
-later value	rotate	45deg 1 2 3
+case value	rotate	45deg 1 2 3
   transformation 1 2 3 45deg
   rest 0
 case value	rotate	z
@@ -5876,25 +5876,25 @@ case value	rotate	z
 case value	scale	none
   keyword none
   rest 0
-later value	scale	2
+case value	scale	2
   transformation 2
   rest 0
-later value	scale	2 50%
+case value	scale	2 50%
   transformation 2 0.5
   rest 0
-later value	scale	1 2 3
+case value	scale	1 2 3
   transformation 1 2 3
   rest 0
 case value	translate	none
   keyword none
   rest 0
-later value	translate	10px
+case value	translate	10px
   transformation 10px
   rest 0
-later value	translate	10px 20%
+case value	translate	10px 20%
   transformation 10px 20%
   rest 0
-later value	translate	10px 20px 30px
+case value	translate	10px 20px 30px
   transformation 10px 20px 30px
   rest 0
 case value	translate	10px 20px 30%
@@ -5926,13 +5926,13 @@ case value	scrollbar-gutter	auto both-edges
 case value	shape-outside	none
   keyword none
   rest 0
-later value	shape-outside	circle(50%)
+case value	shape-outside	circle(50%)
   basic_shape circle(50%)
   rest 0
 case value	shape-outside	margin-box
   keyword margin-box
   rest 0
-later value	shape-outside	circle(50%) border-box
+case value	shape-outside	circle(50%) border-box
   value_list space 2 circle(50%) border-box
     basic_shape circle(50%)
     keyword border-box
