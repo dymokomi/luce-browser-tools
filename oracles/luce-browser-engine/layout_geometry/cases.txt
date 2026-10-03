@@ -84,12 +84,12 @@ layout	<!DOCTYPE html><div class=a></div><div class=b></div>	.a { column-count: 
 layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { contain: layout; margin-top: 10px; } .b { margin-top: 20px; height: 10px; }
 layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { width: 300px; height: 100px; } .b { width: 50%; height: 50%; padding: 10%; }
 # More hand-written cases: list items, fieldsets, replaced boxes, anchors
-layout	<!DOCTYPE html><ul><li class=a></li><li class=b></li></ul>	li { height: 20px; } .b { list-style-position: inside; }
-layout	<!DOCTYPE html><ol><li></li></ol>	ol { list-style-type: square; } li { height: 15px; width: 100px; }
-layout	<!DOCTYPE html><fieldset><legend></legend><div class=a></div></fieldset>	legend { width: 50px; height: 10px; } .a { height: 30px; }
-layout	<!DOCTYPE html><fieldset><div class=a></div></fieldset>	.a { height: 30px; }
-layout	<!DOCTYPE html><img class=a><img class=b><img class=c>	img { display: block; } .a { width: 50px; } .b { height: 40px; width: 70px; } .c { width: 20%; min-height: 10px; }
-layout	<!DOCTYPE html><div class=cb><img class=a></div>	.cb { position: relative; height: 300px; } .a { position: absolute; right: 10px; bottom: 20px; width: 30px; height: 40px; margin: auto; }
+!layout	<!DOCTYPE html><ul><li class=a></li><li class=b></li></ul>	li { height: 20px; } .b { list-style-position: inside; }
+!layout	<!DOCTYPE html><ol><li></li></ol>	ol { list-style-type: square; } li { height: 15px; width: 100px; }
+!layout	<!DOCTYPE html><fieldset><legend></legend><div class=a></div></fieldset>	legend { width: 50px; height: 10px; } .a { height: 30px; }
+!layout	<!DOCTYPE html><fieldset><div class=a></div></fieldset>	.a { height: 30px; }
+!layout	<!DOCTYPE html><img class=a><img class=b><img class=c>	img { display: block; } .a { width: 50px; } .b { height: 40px; width: 70px; } .c { width: 20%; min-height: 10px; }
+!layout	<!DOCTYPE html><div class=cb><img class=a></div>	.cb { position: relative; height: 300px; } .a { position: absolute; right: 10px; bottom: 20px; width: 30px; height: 40px; margin: auto; }
 layout	<!DOCTYPE html><div class=cb><div class=anchor></div><div class=pos></div></div>	.cb { position: relative; height: 300px; } .anchor { anchor-name: --a; width: 100px; height: 50px; margin-left: 30px; } .pos { position: absolute; position-anchor: --a; top: anchor(bottom); left: anchor(right); width: 20px; height: 20px; }
 layout	<!DOCTYPE html><div class=s></div><div class=t></div>	.s { position: sticky; top: 10px; height: 20px; } .t { height: 5000px; }
 layout	<!DOCTYPE html><div class=a><div class=b></div></div>	.a { position: absolute; top: 10px; left: 10px; } .b { width: 50px; height: 40px; margin: 5px; }

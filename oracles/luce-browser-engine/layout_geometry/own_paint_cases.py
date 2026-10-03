@@ -1,0 +1,52 @@
+# r50's own paint cases (cases_paint.txt): documents whose paint trees exercise the queries and hit testing of
+# Paintable, PaintableBox, PaintableWithLines, PaintableFragment, TextPaintable, StackingContext and ViewportPaintable.
+# Modes: "paint" (queries and hit tests; no transforms, scroll containers or resizers, whose hit testing needs the
+# accumulated visual contexts and chrome metrics of regions r51a/r51b), "paintables" (queries only). A mode marked
+# "!" waits for other regions (border radii need region r52's BoxModelMetrics::border_box).
+def esc(s):
+    return s.replace('\\', '\\\\').replace('\n', '\\n').replace('\t', '\\t')
+cases = [
+ ('paint', '<!DOCTYPE html><p>Hello <b>bold</b> world, this is a long line of text that wraps <span class="s">inside a span</span> twice or more.</p><p>second</p>',
+  'body { width: 200px; font-size: 16px; } .s { padding: 2px 4px; border: 1px solid; margin: 0 3px; }'),
+ ('paint', '<!DOCTYPE html><div class="a">A</div><div class="b">B</div><div class="c">C</div><div class="d">D</div><div class="e">E</div><div class="f">F</div>',
+  'div { width: 80px; height: 40px; } .a { position: relative; z-index: -1; top: 10px; } .b { position: absolute; left: 50px; top: 20px; z-index: 2; } .c { position: relative; } .d { opacity: 0.5; } .e { position: absolute; left: 100px; top: 60px; z-index: 0; } .f { position: relative; z-index: 1; left: 30px; top: -50px; }'),
+ ('paint', '<!DOCTYPE html><div class="wrap">Text before <div class="fl">float</div> after the float <span class="ib">inline block</span> and <span class="rel">relative</span> text. <div class="abs">abs</div></div>',
+  '.wrap { width: 300px; position: relative; } .fl { float: left; width: 60px; height: 50px; } .ib { display: inline-block; width: 70px; border: 2px solid; } .rel { position: relative; left: 5px; top: 3px; } .abs { position: absolute; right: 10px; bottom: 5px; width: 40px; }'),
+ ('!paintables', '<!DOCTYPE html><div class="r1">a</div><div class="r2">b</div><div class="r3">c</div><div class="r4">d</div>',
+  'div { width: 100px; height: 50px; margin: 5px; } .r1 { border-radius: 10px 20px 30px 40px; border: 3px solid; outline: 2px solid; outline-offset: 4px; } .r2 { border-radius: 50%; border-width: 5px 1px 7px 2px; border-style: solid; } .r3 { border-radius: 80px 80px 10px 10px / 40px 40px 5px 5px; } .r4 { border-top-left-radius: 200px; outline-offset: -3px; }'),
+ ('paintables', '<!DOCTYPE html><div class="clip">clipped</div><div class="hidden">hidden overflow</div><div class="margin">clip margin</div><span class="inl">inline</span><div class="ib">inline block</div>',
+  '.clip { position: absolute; top: 10px; left: 200px; width: 100px; height: 100px; clip: rect(5px, 60px, 50px, 10px); } .hidden { overflow: hidden; width: 50px; height: 20px; padding: 3px; } .margin { overflow: clip; overflow-clip-margin: 10px; width: 60px; } .inl { overflow: hidden; } .ib { display: inline-block; overflow: hidden; }'),
+ ('paint', '<!DOCTYPE html><span class="outer">before<div class="block">inside a block</div>after</span>',
+  '.outer { border: 1px solid; padding: 2px; } .block { margin: 4px; }'),
+ ('paintables', '<!DOCTYPE html><div class="sc">' + 'line of content<br>' * 12 + '</div><div class="au">x</div><div class="rs">resizable</div><div class="rtl">right to left</div><div class="vert">vertical</div>',
+  '.sc { overflow: scroll; height: 60px; width: 150px; } .au { overflow: auto; height: 10px; } .rs { overflow: hidden; resize: both; width: 80px; height: 30px; } .rtl { direction: rtl; overflow: auto; resize: horizontal; } .vert { writing-mode: vertical-rl; overflow: auto; resize: block; height: 50px; }'),
+ ('paintables', '<!DOCTYPE html><div class="t1">rotated</div><div class="t2">translated</div><div class="t3">fill box</div><div class="p"><div class="child">perspective child</div></div><div class="sc"><span class="s">scaled</span></div>',
+  'div { width: 120px; height: 40px; border: 2px solid; padding: 3px; } .t1 { transform: rotate(10deg); } .t2 { translate: 10px 5px; transform-box: border-box; } .t3 { transform: scale(1.5); transform-box: fill-box; } .p { perspective: 100px; } .child { transform: translateZ(10px); } .s { display: inline-block; scale: 2; transform-box: view-box; }'),
+ ('paintables', '<!DOCTYPE html><div class="fixed">fixed</div><div class="container"><div class="sticky">sticky</div><div class="filler">filler</div></div>',
+  '.fixed { position: fixed; top: 0; right: 0; width: 50px; } .container { height: 200px; overflow: auto; } .sticky { position: sticky; top: 10px; height: 20px; } .filler { height: 500px; }'),
+ ('paint', '<!DOCTYPE html><div class="v">visible <span class="h">hidden text</span> more</div><div class="pe">no pointer events</div><div class="o">transparent</div><div class="vis">visible again</div>',
+  '.h { visibility: hidden; } .pe { pointer-events: none; } .o { opacity: 0; } .vis { visibility: visible; }'),
+ ('paint', '<!DOCTYPE html><p class="sel">Selectable paragraph with custom selection</p><p>plain</p>',
+  '.sel::selection { background-color: rgb(10, 200, 30); color: white; text-decoration-line: underline; }'),
+ ('paint', '<!DOCTYPE html><p dir="rtl">\u05e9\u05dc\u05d5\u05dd \u05e2\u05d5\u05dc\u05dd and some English</p><p>mixed \u05e9\u05dc\u05d5\u05dd text</p>', ''),
+ ('paint', '<!DOCTYPE html><div class="v">vertical writing text</div>', '.v { writing-mode: vertical-rl; height: 100px; }'),
+ ('paint', '<!DOCTYPE html><div contenteditable class="e"></div><div contenteditable>editable text</div><p>after</p>', '.e { width: 100px; height: 30px; border: 1px solid; }'),
+ ('paint', '<!DOCTYPE html><pre>  pre  formatted   text  \nsecond   line</pre><p>trailing space here   </p><p style="width: 40px">wrap wrap wrap</p>', ''),
+ ('paint', '<!DOCTYPE html><div>a <span class="o">outer <span class="i">inner <em>em</em></span> tail</span> z</div>',
+  '.o { margin: 0 5px; padding: 3px; border: 2px solid; } .i { padding-left: 7px; border-right: 4px solid; position: relative; top: 2px; }'),
+ ('paint', '<!DOCTYPE html><div class="g"><div class="x">x</div><div class="y">y</div></div><div class="flt">floating <div class="pos">positioned in float</div></div>',
+  '.g { position: relative; z-index: 3; } .x { position: absolute; z-index: -2; } .y { position: relative; z-index: auto; } .flt { float: right; width: 100px; } .pos { position: relative; }'),
+]
+# Selections: (mode "selection S SO E EO": from offset SO of the S-th text node to offset EO of the E-th).
+sel_doc = '<!DOCTYPE html><p>First paragraph with <b>bold words</b> and more text.</p><div>Second <span>block <em>inline</em></span> end</div><p>Third</p>'
+cases += [
+ ('selection 0 2 0 9', sel_doc, 'body { width: 220px; }'),
+ ('selection 0 6 3 4', sel_doc, 'body { width: 220px; }'),
+ ('selection 1 3 5 2', sel_doc, 'body { width: 220px; }'),
+ ('selection 2 4 2 4', sel_doc, 'body { width: 220px; }'),
+ ('selection 0 0 7 5', sel_doc, ''),
+]
+with open('cases_paint.txt', 'w') as out:
+    out.write('# r50 paint oracle cases: <mode>\t<html>[\t<css>]; "!" = waits for other regions.\n')
+    for mode, html, css in cases:
+        out.write(mode + '\t' + esc(html) + ('\t' + esc(css) if css else '') + '\n')

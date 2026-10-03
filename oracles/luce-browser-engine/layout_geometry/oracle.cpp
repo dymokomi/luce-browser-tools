@@ -8,7 +8,9 @@
 // indices, containing blocks, contained abspos children, a LayoutState, the root BlockFormattingContext, commit).
 //
 // Modes:
-//   layout   dump_tree of the laid-out layout tree
+//   selection S SO E EO (r50) selection states of a range over text nodes and the fragments' range rects
+//   paint      (r50) the paint tree's queries and hit tests of a grid of points; paintables: the queries only
+//   layout   the three dumps of a Layout test: dump_tree of the layout tree and of the paint tree, StackingContext::dump
 #define private public
 #define protected public
 #include <LibGfx/Font/FontDatabase.h>
@@ -21,6 +23,8 @@
 #include <LibWeb/CSS/StyleSheetList.h>
 #include <LibWeb/CSS/StyleComputer.h>
 #include <LibWeb/DOM/Document.h>
+#include <LibWeb/DOM/Range.h>
+#include <LibWeb/DOM/Text.h>
 #include <LibWeb/Dump.h>
 #include <LibWeb/HTML/BrowsingContext.h>
 #include <LibWeb/HTML/HTMLBodyElement.h>
@@ -38,6 +42,10 @@
 #include <LibWeb/Layout/LayoutState.h>
 #include <LibWeb/Layout/Viewport.h>
 #include <LibWeb/Page/Page.h>
+#include <LibWeb/Painting/PaintableWithLines.h>
+#include <LibWeb/Painting/StackingContext.h>
+#include <LibWeb/Painting/TextPaintable.h>
+#include <LibWeb/Painting/ViewportPaintable.h>
 #include <LibWeb/Platform/EventLoopPlugin.h>
 #include <LibWeb/Platform/FontPlugin.h>
 #include <LibCore/EventLoop.h>
@@ -276,6 +284,15 @@ static GC::Ref<DOM::Document> build(std::string const& html)
     if (g_dump_line_boxes)
         dump_line_boxes(layout_state, layout_root);
     layout_state.commit(layout_root);
+
+    // r50: the rest of Document::update_layout after the commit (the viewport rect broadcast, the scroll frames and the
+    // paint and hit testing properties), as test-web's Document::update_layout runs before its dumps.
+    document->inform_all_viewport_clients_about_the_current_viewport_rect();
+    if (auto* viewport_paintable = document->unsafe_paintable()) {
+        viewport_paintable->assign_scroll_frames();
+        document->set_needs_accumulated_visual_contexts_update(true);
+        document->update_paint_and_hit_testing_properties_if_needed();
+    }
     return document;
 }
 
@@ -285,12 +302,153 @@ static void put_lines(StringView text)
         g_out += "  " + str(line) + "\n";
 }
 
+// The expectation of a Layout test (r50): test-web's LayoutTree | PaintTree | StackingContextTree, i.e. dump_tree of the
+// layout tree, dump_tree of the paint tree and StackingContext::dump, separated by blank lines
+// (ConnectionFromClient::request_internal_page_info).
 static void run_layout(std::string const& html)
 {
     auto document = build(html);
     StringBuilder builder;
-    dump_tree(builder, *document->unsafe_layout_node(), false, false);
+    auto& layout_root = *document->unsafe_layout_node();
+    dump_tree(builder, layout_root, false, false);
+    builder.append("\n"sv);
+    dump_tree(builder, *layout_root.first_paintable());
+    builder.append("\n"sv);
+    auto& viewport_paintable = static_cast<Painting::ViewportPaintable&>(*layout_root.first_paintable());
+    viewport_paintable.build_stacking_context_tree_if_needed();
+    if (auto* stacking_context = viewport_paintable.stacking_context())
+        stacking_context->dump(builder);
     put_lines(builder.string_view().trim_whitespace(TrimMode::Right));
+}
+
+// r50's "paint" and "paintables" modes: the queries of the paint tree, in pre-order, that the dumps do not show
+// (flags, containing blocks and stacking contexts, every absolute rect, radii, overflow and resize predicates, the
+// fragments' rects, range rects and the code unit under points), and in "paint" mode hit tests of a grid of points.
+static char const* yn(bool b) { return b ? "1" : "0"; }
+static String desc(Painting::Paintable const* p) { return p ? p->debug_description() : "-"_string; }
+static void put_radii(StringBuilder& b, char const* name, Painting::BorderRadiiData const& r)
+{
+    b.appendff("  {} {} {} {} {} {} {} {} {}\n", name, r.top_left.horizontal_radius, r.top_left.vertical_radius, r.top_right.horizontal_radius, r.top_right.vertical_radius,
+        r.bottom_right.horizontal_radius, r.bottom_right.vertical_radius, r.bottom_left.horizontal_radius, r.bottom_left.vertical_radius);
+}
+static void put_hit(StringBuilder& b, Optional<Painting::HitTestResult> const& result)
+{
+    if (!result.has_value()) {
+        b.append("-"sv);
+        return;
+    }
+    b.appendff("{} {}", desc(result->paintable.ptr()), result->index_in_node);
+    if (result->vertical_distance.has_value())
+        b.appendff(" v {}", *result->vertical_distance);
+    if (result->horizontal_distance.has_value())
+        b.appendff(" h {}", *result->horizontal_distance);
+}
+static void run_paint(std::string const& html, bool hit_tests)
+{
+    auto document = build(html);
+    auto& viewport = static_cast<Painting::ViewportPaintable&>(*document->unsafe_layout_node()->first_paintable());
+    viewport.build_stacking_context_tree_if_needed();
+    StringBuilder b;
+    size_t index = 0;
+    viewport.for_each_in_inclusive_subtree([&](Painting::Paintable& p) {
+        b.appendff("#{} {} positioned {} fixed {} sticky {} abspos {} floating {} inline {} visible {} hittable {} sc {}\n", index++, desc(&p),
+            yn(p.is_positioned()), yn(p.is_fixed_position()), yn(p.is_sticky_position()), yn(p.is_absolutely_positioned()), yn(p.is_floating()),
+            yn(p.is_inline()), yn(p.is_visible()), yn(p.visible_for_hit_testing()), yn(p.has_stacking_context()));
+        b.appendff("  containing_block {}\n", desc(p.containing_block()));
+        if (p.is_paintable_box() || p.is_inline())
+            b.appendff("  agnostic {}\n", p.box_type_agnostic_position());
+        auto selection_style = p.selection_style();
+        b.appendff("  selection {} {}\n", selection_style.background_color.value(), yn(selection_style.has_styling()));
+        if (auto* box = as_if<Painting::PaintableBox>(p)) {
+            if (!p.is_viewport_paintable())
+                b.appendff("  enclosing_sc {}\n", desc(&p.enclosing_stacking_context()->paintable_box()));
+            b.appendff("  rect {} padding {} border {}\n", box->absolute_rect(), box->absolute_padding_box_rect(), box->absolute_border_box_rect());
+            b.appendff("  united border {} content {} padding {}\n", box->absolute_united_border_box_rect(), box->absolute_united_content_rect(), box->absolute_united_padding_box_rect());
+            b.appendff("  clip_edge {} reference {}\n", box->overflow_clip_edge_rect(), box->transform_reference_box());
+            put_radii(b, "radii", box->border_radii_data());
+            put_radii(b, "shrunk", box->normalized_border_radii_data(Painting::PaintableBox::ShrinkRadiiForBorders::Yes));
+            auto z = box->effective_z_index();
+            if (z.has_value())
+                b.appendff("  z {}", *z);
+            else
+                b.append("  z auto"sv);
+            auto axes = box->physical_resize_axes();
+            b.appendff(" scrollable {} wheel {} {} overflow_applies {} mirrored {} resizer {} axes {} {} transform {}\n", yn(box->has_scrollable_overflow()),
+                yn(box->could_be_scrolled_by_wheel_event(Painting::PaintableBox::ScrollDirection::Horizontal)), yn(box->could_be_scrolled_by_wheel_event(Painting::PaintableBox::ScrollDirection::Vertical)),
+                yn(box->overflow_property_applies()), yn(box->is_chrome_mirrored()), yn(box->has_resizer()), yn(axes.horizontal), yn(axes.vertical), yn(box->has_css_transform()));
+            b.appendff("  outline_offset {} scrollable_ancestor {}", box->outline_offset(), desc(box->nearest_scrollable_ancestor()));
+            if (auto clip = box->get_clip_rect(); clip.has_value())
+                b.appendff(" clip {}", *clip);
+            b.append("\n"sv);
+        }
+        if (auto* lines = as_if<Painting::PaintableWithLines>(p)) {
+            for (size_t i = 0; i < lines->fragments().size(); ++i) {
+                auto const& f = lines->fragments()[i];
+                auto rect = f.absolute_rect();
+                auto start = f.start_offset();
+                auto length = f.length_in_code_units();
+                b.appendff("  frag {} {} {} {} orientation {} trailing {}\n", i, desc(&f.paintable()), start, rect, to_underlying(f.orientation()), yn(f.has_trailing_whitespace()));
+                b.appendff("    range {} full {} start {} end {} cursor {}\n",
+                    f.range_rect(Painting::Paintable::SelectionState::StartAndEnd, start + 1, start + (length > 1 ? length - 1 : 0)),
+                    f.range_rect(Painting::Paintable::SelectionState::Full, 0, 0),
+                    f.range_rect(Painting::Paintable::SelectionState::Start, start + 1, 0),
+                    f.range_rect(Painting::Paintable::SelectionState::End, 0, start + 2),
+                    f.range_rect(Painting::Paintable::SelectionState::StartAndEnd, start + 1, start + 1));
+                b.append("    index"sv);
+                for (int k = -1; k <= 5; ++k) {
+                    CSSPixelPoint point { rect.x() + rect.width() * k / 4, rect.y() + rect.height() / 2 };
+                    b.appendff(" {}", f.index_in_node_for_point(point));
+                }
+                b.append("\n"sv);
+            }
+        }
+        return TraversalDecision::Continue;
+    });
+    if (hit_tests) {
+        for (int y = 2; y < 300; y += 14) {
+            for (int x = 3; x < 420; x += 21) {
+                b.appendff("hit {},{} exact ", x, y);
+                put_hit(b, static_cast<Painting::PaintableBox&>(viewport).hit_test({ x, y }, Painting::HitTestType::Exact));
+                b.append(" cursor "sv);
+                put_hit(b, static_cast<Painting::PaintableBox&>(viewport).hit_test({ x, y }, Painting::HitTestType::TextCursor));
+                b.append("\n"sv);
+            }
+        }
+    }
+    put_lines(b.string_view().trim_whitespace(TrimMode::Right));
+}
+
+// r50's "selection S SO E EO" mode: a range from offset SO of the document's S-th text node (pre-order) to offset EO
+// of its E-th, ViewportPaintable::recompute_selection_states over it, then each paintable's selection state and
+// each fragment's range rect for its paintable's state and the range's offsets (what selection_rect computes).
+static void run_selection(std::string const& html, std::string const& mode)
+{
+    unsigned start_index = 0, start_offset = 0, end_index = 0, end_offset = 0;
+    sscanf(mode.c_str(), "selection %u %u %u %u", &start_index, &start_offset, &end_index, &end_offset);
+    auto document = build(html);
+    auto& viewport = static_cast<Painting::ViewportPaintable&>(*document->unsafe_layout_node()->first_paintable());
+    Vector<DOM::Text*> texts;
+    document->for_each_in_inclusive_subtree_of_type<DOM::Text>([&](DOM::Text& text) {
+        texts.append(&text);
+        return TraversalDecision::Continue;
+    });
+    auto range = DOM::Range::create(*document);
+    MUST(range->set_start(*texts[start_index], start_offset));
+    MUST(range->set_end(*texts[end_index], end_offset));
+    viewport.recompute_selection_states(*range);
+    StringBuilder b;
+    size_t index = 0;
+    viewport.for_each_in_inclusive_subtree([&](Painting::Paintable& p) {
+        b.appendff("#{} {} state {}\n", index++, desc(&p), to_underlying(p.selection_state()));
+        if (auto* lines = as_if<Painting::PaintableWithLines>(p)) {
+            for (size_t i = 0; i < lines->fragments().size(); ++i) {
+                auto const& f = lines->fragments()[i];
+                b.appendff("  frag {} {}\n", i, f.range_rect(f.paintable().selection_state(), range->start_offset(), range->end_offset()));
+            }
+        }
+        return TraversalDecision::Continue;
+    });
+    put_lines(b.string_view().trim_whitespace(TrimMode::Right));
 }
 
 // r45: the line boxes of every block container the layout state has used values for, in pre-order, with their
@@ -351,6 +509,12 @@ static void run(std::vector<std::string> const& args)
     g_css = args.size() > 2 ? args[2] : std::string();
     if (mode == "layout")
         run_layout(args[1]);
+    else if (mode.starts_with("selection "))
+        run_selection(args[1], mode);
+    else if (mode == "paint")
+        run_paint(args[1], true);
+    else if (mode == "paintables")
+        run_paint(args[1], false);
     else if (mode == "lines") {
         g_dump_line_boxes = true;
         build(args[1]);

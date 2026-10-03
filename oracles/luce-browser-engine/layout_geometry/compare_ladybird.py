@@ -1,10 +1,13 @@
 # Compares the oracle's output (expected.txt) for the cases taken from Ladybird's tests ("# block-and-inline/NAME"
-# comments in cases.txt) with the layout half of Ladybird's own expectation files.
+# comments in cases.txt) with Ladybird's own expectation files: the layout half (r44, r45), or with --full the whole
+# file, the layout, paint tree and stacking context dumps (r50).
 # Usage: python3 compare_ladybird.py [CASES EXPECTED] (default: cases.txt expected.txt; r45's are cases_inline.txt
 # expected_inline.txt).
 import os, sys
 root = '/Users/sedov/Dev/luce_dev/.donors/ladybird-pin/Tests/LibWeb/Layout/expected/'
-cases_file, expected_file = (sys.argv[1], sys.argv[2]) if len(sys.argv) > 2 else ('cases.txt', 'expected.txt')
+full = '--full' in sys.argv
+args = [a for a in sys.argv[1:] if a != '--full']
+cases_file, expected_file = (args[0], args[1]) if len(args) > 1 else ('cases.txt', 'expected.txt')
 lines = open(cases_file).read().split('\n')
 names = []
 pending = None
@@ -22,8 +25,14 @@ for l in open(expected_file).read().split('\n'):
         outs.append(cur)
     elif cur is not None and l:
         cur.append(l[2:])
+for o in outs:
+    while o and o[-1] == '':
+        o.pop()
 for n, o in zip(names, outs):
     if not n:
         continue
-    t = open(root + n + '.txt').read().split('\n\n')[0].rstrip().split('\n')
+    text = open(root + n + '.txt').read()
+    t = (text.rstrip() if full else text.split('\n\n')[0].rstrip()).split('\n')
+    if not full:
+        o = o[:o.index('') if '' in o else len(o)]
     print(('OK   ' if t == o else 'DIFF ') + n)

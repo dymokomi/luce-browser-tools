@@ -12,3 +12,12 @@ r45:
   python3 gen_luce_cases.py inline > .../web/layout/tests_layout_inline_cases.lucb
   python3 own_cases.py                # r45's own cases (appended to cases_inline.txt)
   python3 mark_later.py NAME ...      # mark cases that wait for other regions with "!"
+r50 (paintables): the "layout" mode now prints the three dumps of a Layout test (layout tree, paint tree, stacking
+context tree) after the rest of Document::update_layout (viewport rect broadcast, scroll frames, paint and hit testing
+properties); every case taken from Ladybird matches its whole expected file.
+  ./oracle cases.txt > expected.txt; ./oracle cases_inline.txt > expected_inline.txt
+  python3 compare_ladybird.py --full [CASES EXPECTED]   # whole expected files
+  python3 mark_paintables.py CASES EXPECTED             # "!" on cases whose paint tree needs region r53's paintables
+  python3 count_ladybird.py cases.txt cases_inline.txt  # Ladybird tests the port runs (and so matches) / waiting
+  python3 own_paint_cases.py; ./oracle cases_paint.txt > expected_paint.txt   # modes paint, paintables, selection
+  python3 gen_luce_cases.py paint > .../web/painting/tests_paintables_cases.lucb

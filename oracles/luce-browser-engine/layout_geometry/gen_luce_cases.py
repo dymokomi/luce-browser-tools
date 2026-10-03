@@ -1,9 +1,12 @@
 # Writes the Luce case table (layout/tests_layout_geometry_cases.lucb) from the oracle's expected.txt.
 # Usage: ./oracle cases.txt > expected.txt; python3 gen_luce_cases.py > OUT.lucb
 #        ./oracle cases_inline.txt > expected_inline.txt; python3 gen_luce_cases.py inline > .../tests_layout_inline_cases.lucb
+#        ./oracle cases_paint.txt > expected_paint.txt; python3 gen_luce_cases.py paint > .../painting/tests_paintables_cases.lucb
 import sys
-inline = len(sys.argv) > 1 and sys.argv[1] == 'inline'
-src = open('expected_inline.txt' if inline else 'expected.txt', encoding='utf-8').read().split('\n')
+kind = sys.argv[1] if len(sys.argv) > 1 else ''
+inline = kind == 'inline'
+paint = kind == 'paint'
+src = open('expected_inline.txt' if inline else 'expected_paint.txt' if paint else 'expected.txt', encoding='utf-8').read().split('\n')
 cases = []
 later = 0
 skipping = False
@@ -38,7 +41,23 @@ def lit(s):
     return '"' + ''.join(r) + '"'
 
 out = sys.stdout
-if inline:
+if paint:
+    out.write('''#==============================================================================================
+#
+#   tests_paintables_cases - queries and hit tests of paint trees pinned to the reference build
+#
+#   DESCRIPTION:
+#       Generated (a test vector table) from the output of a local oracle that runs the
+#       reference Ladybird build's LibWeb on the same documents (luce-browser-tools,
+#       oracles/luce-browser-engine/layout_geometry: cases_paint.txt, own_paint_cases.py,
+#       oracle.cpp, gen_luce_cases.py, build.sh). tests_paintables runs each case through the
+#       port and compares the output.
+#
+#==============================================================================================
+
+''')
+    table = 'test_paintables_cases'
+elif inline:
     out.write('''#==============================================================================================
 #
 #   tests_layout_inline_cases - laid-out layout trees with text (inline layout) pinned to the
@@ -78,7 +97,7 @@ struct TestLayoutGeometryCase:
 
 ''')
     table = 'test_layout_geometry_cases'
-cases_file = 'cases_inline.txt' if inline else 'cases.txt'
+cases_file = 'cases_inline.txt' if inline else 'cases_paint.txt' if paint else 'cases.txt'
 out.write('## Every oracle case, in %s order (%d more, marked "!" in %s, wait for other regions).\n' % (cases_file, later, cases_file))
 out.write('let %s: TestLayoutGeometryCase[%d] = [\n' % (table, len(cases)))
 for args, lines in cases:
