@@ -419,7 +419,7 @@ case tree	<body><div style="visibility:hidden">a</div><div style="font-size:20px
           TextNode <#text> (not painted)
           InlineNode <span> (not painted)
             TextNode <#text> (not painted)
-later tree	<body><div style="display:table"><div style="display:table-row"><div style="display:table-cell">a</div></div></div></body>
+case tree	<body><div style="display:table"><div style="display:table-row"><div style="display:table-cell">a</div></div></div></body>
   Viewport <#document> (not painted) children: not-inline
     BlockContainer <html> (not painted) [BFC] children: not-inline
       BlockContainer <body> (not painted) children: not-inline

@@ -21,3 +21,10 @@ properties); every case taken from Ladybird matches its whole expected file.
   python3 count_ladybird.py cases.txt cases_inline.txt  # Ladybird tests the port runs (and so matches) / waiting
   python3 own_paint_cases.py; ./oracle cases_paint.txt > expected_paint.txt   # modes paint, paintables, selection
   python3 gen_luce_cases.py paint > .../web/painting/tests_paintables_cases.lucb
+r48 (table layout): cases_table.txt holds the 113 Ladybird Layout tests whose layout first stopped at the TableWrapper
+(from_ladybird.py; the 5 that also need grid layout are marked "!") and own_table_cases.py's own cases. Modes "table"
+(TableGrid::calculate_row_column_grid of every table box: rows, cells, occupied slots in HashMap order) and
+"border-specificity" (TableFormattingContext::border_is_less_specific over pairs of borders).
+  python3 own_table_cases.py; ./oracle cases_table.txt > expected_table.txt
+  python3 compare_ladybird.py --full cases_table.txt expected_table.txt   # all 113 reproduce Ladybird's expected files
+  python3 gen_luce_cases.py table > .../web/layout/tests_layout_table_cases.lucb

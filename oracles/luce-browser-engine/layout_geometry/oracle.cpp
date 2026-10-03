@@ -11,6 +11,8 @@
 //   selection S SO E EO (r50) selection states of a range over text nodes and the fragments' range rects
 //   paint      (r50) the paint tree's queries and hit tests of a grid of points; paintables: the queries only
 //   layout   the three dumps of a Layout test: dump_tree of the layout tree and of the paint tree, StackingContext::dump
+//   table      (r48) TableGrid::calculate_row_column_grid of every table box: rows, cells and the occupied slots
+//   border-specificity (r48) TableFormattingContext::border_is_less_specific over pairs of border styles and widths
 #define private public
 #define protected public
 #include <LibGfx/Font/FontDatabase.h>
@@ -37,6 +39,8 @@
 #include <LibWeb/Layout/ListItemMarkerBox.h>
 #include <LibWeb/Layout/Node.h>
 #include <LibWeb/Layout/TextNode.h>
+#include <LibWeb/Layout/TableGrid.h>
+#include <LibWeb/Layout/TableFormattingContext.h>
 #include <LibWeb/Layout/TreeBuilder.h>
 #include <LibWeb/Layout/BlockFormattingContext.h>
 #include <LibWeb/Layout/LayoutState.h>
@@ -503,6 +507,69 @@ static void dump_line_boxes(Layout::LayoutState& layout_state, Layout::Node& roo
     put_lines(builder.string_view().trim_whitespace(TrimMode::Right));
 }
 
+// r48's "table" mode: TableGrid::calculate_row_column_grid of every box with a table-inside display, in pre-order (nodes
+// are numbered in the layout tree's inclusive pre-order): the column count, the rows with their collapsed flags, the
+// cells with their slots and spans, and the occupied slots in the occupancy grid's (AK HashMap) iteration order.
+static void run_table(std::string const& html)
+{
+    auto document = build(html);
+    StringBuilder builder;
+    auto& root = *document->unsafe_layout_node();
+    Vector<Layout::Node const*> nodes;
+    root.for_each_in_inclusive_subtree([&](Layout::Node& node) {
+        nodes.append(&node);
+        return TraversalDecision::Continue;
+    });
+    auto index_of = [&](Layout::Node const* node) {
+        for (size_t i = 0; i < nodes.size(); ++i) {
+            if (nodes[i] == node)
+                return i;
+        }
+        return nodes.size();
+    };
+    for (size_t i = 0; i < nodes.size(); ++i) {
+        auto const* box = as_if<Layout::Box>(*nodes[i]);
+        if (!box || !box->display().is_table_inside())
+            continue;
+        Vector<Layout::TableGrid::Cell> cells;
+        Vector<Layout::TableGrid::Row> rows;
+        auto grid = Layout::TableGrid::calculate_row_column_grid(*box, cells, rows);
+        builder.appendff("table #{}: {} columns, {} rows, {} cells\n", i, grid.column_count(), rows.size(), cells.size());
+        for (auto const& row : rows)
+            builder.appendff("  row #{} collapsed {}\n", index_of(row.box), row.is_collapsed);
+        for (auto const& cell : cells)
+            builder.appendff("  cell #{} at {},{} span {}x{}\n", index_of(cell.box), cell.column_index, cell.row_index, cell.column_span, cell.row_span);
+        builder.append("  occupied:"sv);
+        for (auto const& it : grid.occupancy_grid())
+            builder.appendff(" {},{}", it.key.x, it.key.y);
+        builder.append("\n"sv);
+    }
+    put_lines(builder.string_view().trim_whitespace(TrimMode::Right));
+}
+
+// r48's "border-specificity" mode (no document): TableFormattingContext::border_is_less_specific(a, b) for every pair of
+// borders of the ten line styles and the widths 0, 1 and 3px (style-major), one line per a with a 0 or 1 per b.
+static void run_border_specificity()
+{
+    Vector<CSS::BorderData> borders;
+    for (auto style : { CSS::LineStyle::None, CSS::LineStyle::Hidden, CSS::LineStyle::Dotted, CSS::LineStyle::Dashed, CSS::LineStyle::Solid,
+             CSS::LineStyle::Double, CSS::LineStyle::Groove, CSS::LineStyle::Ridge, CSS::LineStyle::Inset, CSS::LineStyle::Outset }) {
+        for (int width : { 0, 1, 3 }) {
+            CSS::BorderData border;
+            border.line_style = style;
+            border.width = width;
+            borders.append(border);
+        }
+    }
+    StringBuilder builder;
+    for (auto const& a : borders) {
+        for (auto const& b : borders)
+            builder.append(Layout::TableFormattingContext::border_is_less_specific(a, b) ? '1' : '0');
+        builder.append('\n');
+    }
+    put_lines(builder.string_view().trim_whitespace(TrimMode::Right));
+}
+
 static void run(std::vector<std::string> const& args)
 {
     auto const& mode = args[0];
@@ -515,6 +582,10 @@ static void run(std::vector<std::string> const& args)
         run_paint(args[1], true);
     else if (mode == "paintables")
         run_paint(args[1], false);
+    else if (mode == "table")
+        run_table(args[1]);
+    else if (mode == "border-specificity")
+        run_border_specificity();
     else if (mode == "lines") {
         g_dump_line_boxes = true;
         build(args[1]);

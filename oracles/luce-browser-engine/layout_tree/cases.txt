@@ -32,7 +32,7 @@ tree	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canva
 tree	<body><h1>Title</h1><hr><h2>Sub</h2></body>
 tree	<body><div style="content-visibility:hidden">hidden <span>x</span></div><div>y</div></body>
 tree	<body><div style="visibility:hidden">a</div><div style="font-size:20px">b <span style="font-size:2em">c</span></div></body>
-!tree	<body><div style="display:table"><div style="display:table-row"><div style="display:table-cell">a</div></div></div></body>
+tree	<body><div style="display:table"><div style="display:table-row"><div style="display:table-cell">a</div></div></div></body>
 tree	<body><ol><li>a</li><li>b</li></ol></body>
 !tree	<body><button>b</button><input></body>
 nodes	<!DOCTYPE html><html><body><div>hello <b>world</b></div><p>x</p></body></html>
