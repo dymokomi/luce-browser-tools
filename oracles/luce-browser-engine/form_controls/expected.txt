@@ -10,15 +10,15 @@ case input	<input type="url" value="  http://x.test/ \n ">
 type=url value=http://x.test/ checked=0 indeterminate=0 dirty=0
 case input	<input type="email" value=" a@b.c ">
 type=email value=a@b.c checked=0 indeterminate=0 dirty=0
-case input	<input type="number" value="1e3">
+case input	@input type="number" value="1e3"
 type=number value=1e3 checked=0 indeterminate=0 dirty=0
-case input	<input type="number" value="abc">
+case input	@input type="number" value="abc"
 type=number value= checked=0 indeterminate=0 dirty=0
-case input	<input type="number" value=" 5">
+case input	@input type="number" value=" 5"
 type=number value= checked=0 indeterminate=0 dirty=0
-case input	<input type="number" value="-0.5">
+case input	@input type="number" value="-0.5"
 type=number value=-0.5 checked=0 indeterminate=0 dirty=0
-case input	<input type="number" value="1.7976931348623157e309">
+case input	@input type="number" value="1.7976931348623157e309"
 type=number value= checked=0 indeterminate=0 dirty=0
 case input	<input type="date" value="2024-02-29">
 type=date value=2024-02-29 checked=0 indeterminate=0 dirty=0
@@ -96,9 +96,9 @@ type=checkbox value=yes checked=0 indeterminate=0 dirty=0
 type=radio value=on checked=0 indeterminate=0 dirty=0
 case set	<input>	x\ny
 type=text value=xy checked=0 indeterminate=0 dirty=1
-case set	<input type=number>	12
+case set	@input type=number	12
 type=number value=12 checked=0 indeterminate=0 dirty=1
-case set	<input type=number>	1,2
+case set	@input type=number	1,2
 type=number value= checked=0 indeterminate=0 dirty=1
 case set	<input type=checkbox>	on2
 type=checkbox value=on2 checked=0 indeterminate=0 dirty=0
@@ -125,11 +125,11 @@ case attr	<input type=checkbox>	checked
 type=checkbox value=on checked=1 indeterminate=0 dirty=0
 case attr	<input type=checkbox checked>	checked	!
 type=checkbox value=on checked=0 indeterminate=0 dirty=0
-case attr	<input value=hello>	type	number
+case attr	@input value=hello	type	number
 type=number value= checked=0 indeterminate=0 dirty=0
-case attr	<input value=12>	type	number
+case attr	@input value=12	type	number
 type=number value=12 checked=0 indeterminate=0 dirty=0
-case attr	<input type=number value=12>	type	checkbox
+case attr	@input type=number value=12	type	checkbox
 type=checkbox value=12 checked=0 indeterminate=0 dirty=0
 case attr	<input type=checkbox value=v>	type	text
 type=text value=v checked=0 indeterminate=0 dirty=0
@@ -143,23 +143,23 @@ case attr	<input type=range value=50>	min	60
 type=range value=60 checked=0 indeterminate=0 dirty=0
 case attr	<input type=range value=50>	step	7
 type=range value=49 checked=0 indeterminate=0 dirty=0
-case num	<input type=number value=5 min=1 max=10 step=2>
+case num	@input type=number value=5 min=1 max=10 step=2
 valueAsNumber=5 min=1 max=10 step=2 stepBase=1 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case num	<input type=number value=0 min=1 max=10>
+case num	@input type=number value=0 min=1 max=10
 valueAsNumber=0 min=1 max=10 step=1 stepBase=1 reversed=0 underflow=1 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case num	<input type=number value=11 max=10>
+case num	@input type=number value=11 max=10
 valueAsNumber=11 min=none max=10 step=1 stepBase=11 reversed=0 underflow=0 overflow=1 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case num	<input type=number value=1.5 step=any>
+case num	@input type=number value=1.5 step=any
 valueAsNumber=1.5 min=none max=none step=none stepBase=1.5 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case num	<input type=number value=1.5>
+case num	@input type=number value=1.5
 valueAsNumber=1.5 min=none max=none step=1 stepBase=1.5 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case num	<input type=number value=1.5 step=0.5>
+case num	@input type=number value=1.5 step=0.5
 valueAsNumber=1.5 min=none max=none step=0.5 stepBase=1.5 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case num	<input type=number value=4 step=-1>
+case num	@input type=number value=4 step=-1
 valueAsNumber=4 min=none max=none step=1 stepBase=4 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case num	<input type=number required>
+case num	@input type=number required
 valueAsNumber=nan min=none max=none step=1 stepBase=0 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=1
-case num	<input type=number required readonly>
+case num	@input type=number required readonly
 valueAsNumber=nan min=none max=none step=1 stepBase=0 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
 case num	<input type=range>
 valueAsNumber=50 min=0 max=100 step=1 stepBase=0 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
@@ -199,23 +199,23 @@ case num	<input type=radio name=g required><input type=radio name=g>
 valueAsNumber=nan min=none max=none step=none stepBase=0 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=1
 case num	<input type=text>
 valueAsNumber=nan min=none max=none step=none stepBase=0 reversed=0 underflow=0 overflow=0 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case num	<input type=number value=5 min=10 max=1>
+case num	@input type=number value=5 min=10 max=1
 valueAsNumber=5 min=10 max=1 step=1 stepBase=10 reversed=0 underflow=1 overflow=1 stepMismatch=0 typeMismatch=0 patternMismatch=0 missing=0
-case step	<input type=number value=5>	up	1
+case step	@input type=number value=5	up	1
 type=number value=6 checked=0 indeterminate=0 dirty=1
-case step	<input type=number value=5>	down	3
+case step	@input type=number value=5	down	3
 type=number value=2 checked=0 indeterminate=0 dirty=1
-case step	<input type=number value=5 step=2>	up	1
+case step	@input type=number value=5 step=2	up	1
 type=number value=7 checked=0 indeterminate=0 dirty=1
-case step	<input type=number value=5.5 step=2>	up	1
+case step	@input type=number value=5.5 step=2	up	1
 type=number value=7.5 checked=0 indeterminate=0 dirty=1
-case step	<input type=number value=5.5 step=2>	down	1
+case step	@input type=number value=5.5 step=2	down	1
 type=number value=3.5 checked=0 indeterminate=0 dirty=1
-case step	<input type=number value=9 max=10 step=2>	up	1
+case step	@input type=number value=9 max=10 step=2	up	1
 type=number value=9 checked=0 indeterminate=0 dirty=1
-case step	<input type=number value=1 min=0 max=3>	up	10
+case step	@input type=number value=1 min=0 max=3	up	10
 type=number value=3 checked=0 indeterminate=0 dirty=1
-case step	<input type=number step=any>	up	1
+case step	@input type=number step=any	up	1
 exception InvalidStateError
 type=number value= checked=0 indeterminate=0 dirty=0
 case step	<input type=text value=1>	up	1
@@ -225,19 +225,19 @@ case step	<input type=range>	up	1
 type=range value=51 checked=0 indeterminate=0 dirty=1
 case step	<input type=range value=100>	up	1
 type=range value=100 checked=0 indeterminate=0 dirty=1
-case step	<input type=number value=0.1 step=0.1>	up	2
+case step	@input type=number value=0.1 step=0.1	up	2
 type=number value=0.30000000000000004 checked=0 indeterminate=0 dirty=1
 case step	<input type=month value=2024-11>	up	3
 type=month value=2025-02 checked=0 indeterminate=0 dirty=1
 case step	<input type=week value=2024-W52>	up	1
 type=week value=2025-W01 checked=0 indeterminate=0 dirty=1
-case step	<input type=number min=5 max=1>	up	1
+case step	@input type=number min=5 max=1	up	1
 type=number value= checked=0 indeterminate=0 dirty=0
-case step	<input type=number value=-3>	down	2
+case step	@input type=number value=-3	down	2
 type=number value=-5 checked=0 indeterminate=0 dirty=1
-case setnum	<input type=number>	3.5
+case setnum	@input type=number	3.5
 type=number value=3.5 checked=0 indeterminate=0 dirty=1
-case setnum	<input type=number>	1e21
+case setnum	@input type=number	1e21
 type=number value=1e+21 checked=0 indeterminate=0 dirty=1
 case setnum	<input type=range>	42
 type=range value=42 checked=0 indeterminate=0 dirty=1
@@ -334,96 +334,96 @@ case checked	<input type=radio checked><input type=radio>	1	1
 11
 case checked	<input type=checkbox><input type=checkbox checked>	0	1
 11
-case select	<select><option>A<option>B<option>C</select>
+case select	@select|<option>A<option>B<option>C
 selectedIndex=0 value=A type=select-one length=3 size=0 selectedOptions=1
 option index=0 selected=1 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=B
 option index=2 selected=0 disabled=0 label=C text=C value=C
-case select	<select><option>A<option selected>B<option>C</select>
+case select	@select|<option>A<option selected>B<option>C
 selectedIndex=1 value=B type=select-one length=3 size=0 selectedOptions=1
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=1 disabled=0 label=B text=B value=B
 option index=2 selected=0 disabled=0 label=C text=C value=C
-case select	<select><option selected>A<option selected>B<option>C</select>
+case select	@select|<option selected>A<option selected>B<option>C
 selectedIndex=1 value=B type=select-one length=3 size=0 selectedOptions=1
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=1 disabled=0 label=B text=B value=B
 option index=2 selected=0 disabled=0 label=C text=C value=C
-case select	<select multiple><option selected>A<option selected>B<option>C</select>
+case select	@select multiple|<option selected>A<option selected>B<option>C
 selectedIndex=0 value=A type=select-multiple length=3 size=0 selectedOptions=2
 option index=0 selected=1 disabled=0 label=A text=A value=A
 option index=1 selected=1 disabled=0 label=B text=B value=B
 option index=2 selected=0 disabled=0 label=C text=C value=C
-case select	<select multiple><option>A<option>B</select>
+case select	@select multiple|<option>A<option>B
 selectedIndex=-1 value= type=select-multiple length=2 size=0 selectedOptions=0
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=B
-case select	<select size=3><option>A<option>B</select>
+case select	@select size=3|<option>A<option>B
 selectedIndex=-1 value= type=select-one length=2 size=3 selectedOptions=0
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=B
-case select	<select><option disabled>A<option>B</select>
+case select	@select|<option disabled>A<option>B
 selectedIndex=1 value=B type=select-one length=2 size=0 selectedOptions=1
 option index=0 selected=0 disabled=1 label=A text=A value=A
 option index=1 selected=1 disabled=0 label=B text=B value=B
-case select	<select><optgroup label=G><option>A</optgroup><option value=v2>B</select>
+case select	@select|<optgroup label=G><option>A</optgroup><option value=v2>B
 selectedIndex=0 value=A type=select-one length=2 size=0 selectedOptions=1
 option index=0 selected=1 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=v2
-case select	<select><optgroup disabled><option>A</optgroup><option>B</select>
+case select	@select|<optgroup disabled><option>A</optgroup><option>B
 selectedIndex=1 value=B type=select-one length=2 size=0 selectedOptions=1
 option index=0 selected=0 disabled=1 label=A text=A value=A
 option index=1 selected=1 disabled=0 label=B text=B value=B
-case select	<select><option value="">Empty<option label=L>X</select>
+case select	@select|<option value="">Empty<option label=L>X
 selectedIndex=0 value= type=select-one length=2 size=0 selectedOptions=1
 option index=0 selected=1 disabled=0 label=Empty text=Empty value=
 option index=1 selected=0 disabled=0 label=L text=X value=X
-case select	<select><option>  spaced   text\n </option></select>
+case select	@select|<option>  spaced   text\n </option>
 selectedIndex=0 value=spaced text type=select-one length=1 size=0 selectedOptions=1
 option index=0 selected=1 disabled=0 label=spaced text text=spaced text value=spaced text
-case select	<select><hr><option>A</select>
+case select	@select|<hr><option>A
 selectedIndex=0 value=A type=select-one length=1 size=0 selectedOptions=1
 option index=0 selected=1 disabled=0 label=A text=A value=A
-case select	<select></select>
+case select	@select|
 selectedIndex=-1 value= type=select-one length=0 size=0 selectedOptions=0
-case select	<select><option>A<script>x</script>B</select>
+case select	@select|<option>A<script>x</script>B
 selectedIndex=0 value=AB type=select-one length=1 size=0 selectedOptions=1
 option index=0 selected=1 disabled=0 label=AB text=AB value=AB
-case selectset	<select><option>A<option>B<option>C</select>	index	2
+case selectset	@select|<option>A<option>B<option>C	index	2
 selectedIndex=2 value=C type=select-one length=3 size=0 selectedOptions=1
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=B
 option index=2 selected=1 disabled=0 label=C text=C value=C
-case selectset	<select><option>A<option>B<option>C</select>	index	7
+case selectset	@select|<option>A<option>B<option>C	index	7
 selectedIndex=-1 value= type=select-one length=3 size=0 selectedOptions=0
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=B
 option index=2 selected=0 disabled=0 label=C text=C value=C
-case selectset	<select><option>A<option value=b>B<option>C</select>	value	b
+case selectset	@select|<option>A<option value=b>B<option>C	value	b
 selectedIndex=1 value=b type=select-one length=3 size=0 selectedOptions=1
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=1 disabled=0 label=B text=B value=b
 option index=2 selected=0 disabled=0 label=C text=C value=C
-case selectset	<select><option>A<option>B<option>C</select>	value	C
+case selectset	@select|<option>A<option>B<option>C	value	C
 selectedIndex=2 value=C type=select-one length=3 size=0 selectedOptions=1
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=B
 option index=2 selected=1 disabled=0 label=C text=C value=C
-case selectset	<select><option>A<option>B</select>	value	zz
+case selectset	@select|<option>A<option>B	value	zz
 selectedIndex=-1 value= type=select-one length=2 size=0 selectedOptions=0
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=B
-case optsel	<select><option>A<option>B<option>C</select>	1	1
+case optsel	@select|<option>A<option>B<option>C	1	1
 selectedIndex=1 value=B type=select-one length=3 size=0 selectedOptions=1
 option index=0 selected=0 disabled=0 label=A text=A value=A
 option index=1 selected=1 disabled=0 label=B text=B value=B
 option index=2 selected=0 disabled=0 label=C text=C value=C
-case optsel	<select><option>A<option selected>B<option>C</select>	1	0
+case optsel	@select|<option>A<option selected>B<option>C	1	0
 selectedIndex=0 value=A type=select-one length=3 size=0 selectedOptions=1
 option index=0 selected=1 disabled=0 label=A text=A value=A
 option index=1 selected=0 disabled=0 label=B text=B value=B
 option index=2 selected=0 disabled=0 label=C text=C value=C
-case optsel	<select multiple><option selected>A<option>B</select>	1	1
+case optsel	@select multiple|<option selected>A<option>B	1	1
 selectedIndex=0 value=A type=select-multiple length=2 size=0 selectedOptions=2
 option index=0 selected=1 disabled=0 label=A text=A value=A
 option index=1 selected=1 disabled=0 label=B text=B value=B
@@ -451,7 +451,7 @@ case selection	<input type=password value="secret">	1	4	!
 value=secret start=1 end=4 direction=none selected=•••
 case selection	<textarea>abc\ndef</textarea>	2	5	none
 value=abc\ndef start=2 end=5 direction=none selected=c\nd
-case selection	<input type=number value=5>	0	1	!
+case selection	@input type=number value=5	0	1	!
 exception InvalidStateError
 value=5 start=0 end=0 direction=null selected=none
 case selection	<input type=email value="a@b.c">	0	1	!
@@ -523,15 +523,15 @@ case validity	<textarea required>x</textarea>	textarea
 missing=0 mutable=1
 case validity	<textarea required readonly></textarea>	textarea
 missing=0 mutable=0
-case validity	<select required><option value="">P<option>A</select>	select
+case validity	@select required|<option value="">P<option>A	select
 missing=1 mutable=1
-case validity	<select required><option>A</select>	select
+case validity	@select required|<option>A	select
 missing=0 mutable=1
-case validity	<select required><option value="" selected>P</select>	select
+case validity	@select required|<option value="" selected>P	select
 missing=1 mutable=1
-case validity	<select required multiple><option value="">P</select>	select
+case validity	@select required multiple|<option value="">P	select
 missing=1 mutable=1
-case validity	<select required><optgroup><option value="">P</optgroup></select>	select
+case validity	@select required|<optgroup><option value="">P</optgroup>	select
 missing=0 mutable=1
 case role	<input>	input
 92
@@ -543,8 +543,8 @@ case role	<input type=search>	input
 71
 case role	<input type=search list=l>	input
 12
-case role	<input type=number>	input
-79
+case role	@input type=number	input
+none
 case role	<input type=range>	input
 78
 case role	<input type=password>	input
@@ -553,15 +553,15 @@ case role	<input type=email>	input
 92
 case role	<input type=image>	input
 6
-case role	<select></select>	select
+case role	@select|	select
 12
-case role	<select multiple></select>	select
+case role	@select multiple|	select
 41
-case role	<select size=4></select>	select
+case role	@select size=4|	select
 41
 case role	<option>	option
 57
-case role	<select><optgroup></optgroup></select>	optgroup
+case role	@select|<optgroup></optgroup>	optgroup
 32
 case role	<textarea></textarea>	textarea
 92
@@ -691,7 +691,7 @@ case shadow	<progress></progress>	progress
 | <div> ::slider-track
 |   <div> ::slider-fill
 |     style: 
-later shadow	<input type=number value=3>	input
+case shadow	<input type=number value=3>	input
 | <div>
 |   style: display: flex; height: 100%; align-items: center; white-space: pre; border: medium; padding: 1px 2px;
 |   <div>
@@ -720,7 +720,7 @@ later shadow	<input type=number value=3>	input
 |       <svg path>
 |         d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
 |         fill="currentColor"
-later shadow	<select><option>A</select>	select
+case shadow	<select><option>A</select>	select
 | <div>
 |   style="\n        display: flex;\n        align-items: center;\n        height: 100%;\n    "
 |   style: display: flex; align-items: center; height: 100%;

@@ -4,6 +4,7 @@
 #        ./oracle cases_paint.txt > expected_paint.txt; python3 gen_luce_cases.py paint > .../painting/tests_paintables_cases.lucb
 #        ./oracle cases_grid.txt > expected_grid.txt; python3 gen_luce_cases.py grid > .../layout/tests_layout_grid_cases.lucb (r47)
 #        ./oracle cases_table.txt > expected_table.txt; python3 gen_luce_cases.py table > .../layout/tests_layout_table_cases.lucb (r48)
+#        ./oracle cases_svg.txt > expected_svg.txt; python3 gen_luce_cases.py svg > .../layout/tests_layout_svg_cases.lucb (r49)
 import sys
 kind = sys.argv[1] if len(sys.argv) > 1 else ''
 inline = kind == 'inline'
@@ -11,7 +12,8 @@ paint = kind == 'paint'
 flex = kind == 'flex'
 grid = kind == 'grid'
 table_kind = kind == 'table'
-src = open('expected_inline.txt' if inline else 'expected_paint.txt' if paint else 'expected_flex.txt' if flex else 'expected_grid.txt' if grid else 'expected_table.txt' if table_kind else 'expected.txt', encoding='utf-8').read().split('\n')
+svg_kind = kind == 'svg'
+src = open('expected_inline.txt' if inline else 'expected_paint.txt' if paint else 'expected_flex.txt' if flex else 'expected_grid.txt' if grid else 'expected_table.txt' if table_kind else 'expected_svg.txt' if svg_kind else 'expected.txt', encoding='utf-8').read().split('\n')
 cases = []
 later = 0
 skipping = False
@@ -113,6 +115,23 @@ elif table_kind:
 
 ''')
     table = 'test_layout_table_cases'
+elif svg_kind:
+    out.write('''#==============================================================================================
+#
+#   tests_layout_svg_cases - laid-out SVG documents (SVG layout and the SVG paintables) pinned
+#                            to the reference build
+#
+#   DESCRIPTION:
+#       Generated (a test vector table) from the output of a local oracle that runs the
+#       reference Ladybird build's LibWeb on the same documents (luce-browser-tools,
+#       oracles/luce-browser-engine/layout_geometry: cases_svg.txt, own_svg_cases.py,
+#       oracle.cpp, gen_luce_cases.py, build.sh). tests_layout_svg runs each case through the
+#       port and compares the output.
+#
+#==============================================================================================
+
+''')
+    table = 'test_layout_svg_cases'
 elif inline:
     out.write('''#==============================================================================================
 #
@@ -153,7 +172,7 @@ struct TestLayoutGeometryCase:
 
 ''')
     table = 'test_layout_geometry_cases'
-cases_file = 'cases_inline.txt' if inline else 'cases_paint.txt' if paint else 'cases_flex.txt' if flex else 'cases_grid.txt' if grid else 'cases_table.txt' if table_kind else 'cases.txt'
+cases_file = 'cases_inline.txt' if inline else 'cases_paint.txt' if paint else 'cases_flex.txt' if flex else 'cases_grid.txt' if grid else 'cases_table.txt' if table_kind else 'cases_svg.txt' if svg_kind else 'cases.txt'
 out.write('## Every oracle case, in %s order (%d more, marked "!" in %s, wait for other regions).\n' % (cases_file, later, cases_file))
 out.write('let %s: TestLayoutGeometryCase[%d] = [\n' % (table, len(cases)))
 for args, lines in cases:

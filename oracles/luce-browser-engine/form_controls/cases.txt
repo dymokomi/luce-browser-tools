@@ -5,11 +5,11 @@ input	<input type="tel" value="1\r\n2">
 input	<input type="password" value="p\nw">
 input	<input type="url" value="  http://x.test/ \n ">
 input	<input type="email" value=" a@b.c ">
-input	<input type="number" value="1e3">
-input	<input type="number" value="abc">
-input	<input type="number" value=" 5">
-input	<input type="number" value="-0.5">
-input	<input type="number" value="1.7976931348623157e309">
+input	@input type="number" value="1e3"
+input	@input type="number" value="abc"
+input	@input type="number" value=" 5"
+input	@input type="number" value="-0.5"
+input	@input type="number" value="1.7976931348623157e309"
 input	<input type="date" value="2024-02-29">
 input	<input type="date" value="2023-02-29">
 input	<input type="month" value="2024-13">
@@ -46,8 +46,8 @@ input	<input type=range>
 input	<input type=checkbox checked><input type=checkbox><input type=radio checked><input>
 input	<input type=checkbox value=yes><input type=radio>
 set	<input>	x\ny
-set	<input type=number>	12
-set	<input type=number>	1,2
+set	@input type=number	12
+set	@input type=number	1,2
 set	<input type=checkbox>	on2
 set	<input type=hidden value=a>	b
 set	<input type=file>	
@@ -60,24 +60,24 @@ attr	<input value=a>	value	b
 attr	<input value=a>	value	!
 attr	<input type=checkbox>	checked	
 attr	<input type=checkbox checked>	checked	!
-attr	<input value=hello>	type	number
-attr	<input value=12>	type	number
-attr	<input type=number value=12>	type	checkbox
+attr	@input value=hello	type	number
+attr	@input value=12	type	number
+attr	@input type=number value=12	type	checkbox
 attr	<input type=checkbox value=v>	type	text
 attr	<input value=ab>	type	file
 attr	<input type=email value=" a@b.c , d ">	multiple	
 attr	<input type=range value=50>	max	20
 attr	<input type=range value=50>	min	60
 attr	<input type=range value=50>	step	7
-num	<input type=number value=5 min=1 max=10 step=2>
-num	<input type=number value=0 min=1 max=10>
-num	<input type=number value=11 max=10>
-num	<input type=number value=1.5 step=any>
-num	<input type=number value=1.5>
-num	<input type=number value=1.5 step=0.5>
-num	<input type=number value=4 step=-1>
-num	<input type=number required>
-num	<input type=number required readonly>
+num	@input type=number value=5 min=1 max=10 step=2
+num	@input type=number value=0 min=1 max=10
+num	@input type=number value=11 max=10
+num	@input type=number value=1.5 step=any
+num	@input type=number value=1.5
+num	@input type=number value=1.5 step=0.5
+num	@input type=number value=4 step=-1
+num	@input type=number required
+num	@input type=number required readonly
 num	<input type=range>
 num	<input type=range min=5 max=50 step=5 value=22>
 num	<input type=date value=2024-03-01 min=2024-01-01>
@@ -97,25 +97,25 @@ num	<input type=text required>
 num	<input type=checkbox required>
 num	<input type=radio name=g required><input type=radio name=g>
 num	<input type=text>
-num	<input type=number value=5 min=10 max=1>
-step	<input type=number value=5>	up	1
-step	<input type=number value=5>	down	3
-step	<input type=number value=5 step=2>	up	1
-step	<input type=number value=5.5 step=2>	up	1
-step	<input type=number value=5.5 step=2>	down	1
-step	<input type=number value=9 max=10 step=2>	up	1
-step	<input type=number value=1 min=0 max=3>	up	10
-step	<input type=number step=any>	up	1
+num	@input type=number value=5 min=10 max=1
+step	@input type=number value=5	up	1
+step	@input type=number value=5	down	3
+step	@input type=number value=5 step=2	up	1
+step	@input type=number value=5.5 step=2	up	1
+step	@input type=number value=5.5 step=2	down	1
+step	@input type=number value=9 max=10 step=2	up	1
+step	@input type=number value=1 min=0 max=3	up	10
+step	@input type=number step=any	up	1
 step	<input type=text value=1>	up	1
 step	<input type=range>	up	1
 step	<input type=range value=100>	up	1
-step	<input type=number value=0.1 step=0.1>	up	2
+step	@input type=number value=0.1 step=0.1	up	2
 step	<input type=month value=2024-11>	up	3
 step	<input type=week value=2024-W52>	up	1
-step	<input type=number min=5 max=1>	up	1
-step	<input type=number value=-3>	down	2
-setnum	<input type=number>	3.5
-setnum	<input type=number>	1e21
+step	@input type=number min=5 max=1	up	1
+step	@input type=number value=-3	down	2
+setnum	@input type=number	3.5
+setnum	@input type=number	1e21
 setnum	<input type=range>	42
 setnum	<input type=text>	3
 setnum	<input type=month>	0
@@ -162,28 +162,28 @@ checked	<input type=radio name=a><input type=radio name=b checked><input type=ra
 checked	<form><input type=radio name=a checked></form><input type=radio name=a>	1	1
 checked	<input type=radio checked><input type=radio>	1	1
 checked	<input type=checkbox><input type=checkbox checked>	0	1
-select	<select><option>A<option>B<option>C</select>
-select	<select><option>A<option selected>B<option>C</select>
-select	<select><option selected>A<option selected>B<option>C</select>
-select	<select multiple><option selected>A<option selected>B<option>C</select>
-select	<select multiple><option>A<option>B</select>
-select	<select size=3><option>A<option>B</select>
-select	<select><option disabled>A<option>B</select>
-select	<select><optgroup label=G><option>A</optgroup><option value=v2>B</select>
-select	<select><optgroup disabled><option>A</optgroup><option>B</select>
-select	<select><option value="">Empty<option label=L>X</select>
-select	<select><option>  spaced   text\n </option></select>
-select	<select><hr><option>A</select>
-select	<select></select>
-select	<select><option>A<script>x</script>B</select>
-selectset	<select><option>A<option>B<option>C</select>	index	2
-selectset	<select><option>A<option>B<option>C</select>	index	7
-selectset	<select><option>A<option value=b>B<option>C</select>	value	b
-selectset	<select><option>A<option>B<option>C</select>	value	C
-selectset	<select><option>A<option>B</select>	value	zz
-optsel	<select><option>A<option>B<option>C</select>	1	1
-optsel	<select><option>A<option selected>B<option>C</select>	1	0
-optsel	<select multiple><option selected>A<option>B</select>	1	1
+select	@select|<option>A<option>B<option>C
+select	@select|<option>A<option selected>B<option>C
+select	@select|<option selected>A<option selected>B<option>C
+select	@select multiple|<option selected>A<option selected>B<option>C
+select	@select multiple|<option>A<option>B
+select	@select size=3|<option>A<option>B
+select	@select|<option disabled>A<option>B
+select	@select|<optgroup label=G><option>A</optgroup><option value=v2>B
+select	@select|<optgroup disabled><option>A</optgroup><option>B
+select	@select|<option value="">Empty<option label=L>X
+select	@select|<option>  spaced   text\n </option>
+select	@select|<hr><option>A
+select	@select|
+select	@select|<option>A<script>x</script>B
+selectset	@select|<option>A<option>B<option>C	index	2
+selectset	@select|<option>A<option>B<option>C	index	7
+selectset	@select|<option>A<option value=b>B<option>C	value	b
+selectset	@select|<option>A<option>B<option>C	value	C
+selectset	@select|<option>A<option>B	value	zz
+optsel	@select|<option>A<option>B<option>C	1	1
+optsel	@select|<option>A<option selected>B<option>C	1	0
+optsel	@select multiple|<option selected>A<option>B	1	1
 textarea	<textarea>hello</textarea>
 textarea	<textarea>\nline1\r\nline2\rline3</textarea>
 textarea	<textarea cols=5 rows=0 maxlength=3></textarea>
@@ -196,7 +196,7 @@ selection	<input value="hello">	2	99	forward
 selection	<input value="hello">	4	1	!
 selection	<input type=password value="secret">	1	4	!
 selection	<textarea>abc\ndef</textarea>	2	5	none
-selection	<input type=number value=5>	0	1	!
+selection	@input type=number value=5	0	1	!
 selection	<input type=email value="a@b.c">	0	1	!
 rangetext	<input value="hello world">	there	6	11	preserve
 rangetext	<input value="hello">	XY	1	3	select
@@ -230,26 +230,26 @@ button	<button type=submit command=close>x</button>
 validity	<textarea required></textarea>	textarea
 validity	<textarea required>x</textarea>	textarea
 validity	<textarea required readonly></textarea>	textarea
-validity	<select required><option value="">P<option>A</select>	select
-validity	<select required><option>A</select>	select
-validity	<select required><option value="" selected>P</select>	select
-validity	<select required multiple><option value="">P</select>	select
-validity	<select required><optgroup><option value="">P</optgroup></select>	select
+validity	@select required|<option value="">P<option>A	select
+validity	@select required|<option>A	select
+validity	@select required|<option value="" selected>P	select
+validity	@select required multiple|<option value="">P	select
+validity	@select required|<optgroup><option value="">P</optgroup>	select
 role	<input>	input
 role	<input type=checkbox>	input
 role	<input type=checkbox switch>	input
 role	<input type=search>	input
 role	<input type=search list=l>	input
-role	<input type=number>	input
+role	@input type=number	input
 role	<input type=range>	input
 role	<input type=password>	input
 role	<input type=email>	input
 role	<input type=image>	input
-role	<select></select>	select
-role	<select multiple></select>	select
-role	<select size=4></select>	select
+role	@select|	select
+role	@select multiple|	select
+role	@select size=4|	select
 role	<option>	option
-role	<select><optgroup></optgroup></select>	optgroup
+role	@select|<optgroup></optgroup>	optgroup
 role	<textarea></textarea>	textarea
 role	<meter></meter>	meter
 role	<progress></progress>	progress
@@ -273,5 +273,5 @@ shadow	<textarea placeholder=ph></textarea>	textarea
 shadow	<meter value=0.25></meter>	meter
 shadow	<progress value=0.5></progress>	progress
 shadow	<progress></progress>	progress
-!shadow	<input type=number value=3>	input
-!shadow	<select><option>A</select>	select
+shadow	<input type=number value=3>	input
+shadow	<select><option>A</select>	select

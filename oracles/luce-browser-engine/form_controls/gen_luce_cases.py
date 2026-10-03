@@ -1,7 +1,8 @@
 # Writes the Luce case table (html/tests_form_controls_cases.lucb) from the oracle's expected.txt.
 # Usage: ./build.sh; ./oracle cases.txt > expected.txt; python3 gen_luce_cases.py > OUT.lucb
 import sys
-src = open('expected.txt', encoding='utf-8').read().split('\n')
+text = open('expected.txt', encoding='utf-8').read()
+src = (text[:-1] if text.endswith('\n') else text).split('\n')
 cases = []
 later = 0
 skipping = False
@@ -12,7 +13,7 @@ for line in src:
     elif line.startswith('later '):
         later += 1
         skipping = True
-    elif line and cases and not skipping:
+    elif cases and not skipping:
         cases[-1][1].append(line)
 
 def unescape(s):
@@ -56,7 +57,7 @@ struct TestFormControlsCase:
     let expected: str
 
 ''')
-out.write('## Every oracle case, in cases.txt order (%d more, marked "!" in cases.txt, wait for other regions).\n' % later)
+out.write('## Every oracle case, in cases.txt order.\n' if later == 0 else '## Every oracle case, in cases.txt order (%d more, marked "!" in cases.txt, wait for other regions).\n' % later)
 out.write('let test_form_controls_cases: TestFormControlsCase[%d] = [\n' % len(cases))
 for fields, lines in cases:
     mode = fields[0]

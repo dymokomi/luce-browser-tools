@@ -6468,7 +6468,7 @@ case layout	<!DOCTYPE html>\n\n<p>foo <a href="#">bar<span class="icon"><span cl
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x50] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html><div><template shadowrootmode="open"><slot name="nav-links"></slot></template><ul slot="nav-links"><li><a>HELLO</a></li><li><a>HI</a></li></ul></div>	\nslot[name='nav-links']::slotted(ul) {\n    display: flex;\n    flex-direction: row;\n    list-style: none;\n    background-color: red;\n}\nslot[name='nav-links']::slotted(ul > li) { /* This selector is invalid, because ::slotted argument is limited to 1 compound selector */\n    display: inline-block;\n}\n
+case layout	<!DOCTYPE html><div><template shadowrootmode="open"><slot name="nav-links"></slot></template><ul slot="nav-links"><li><a>HELLO</a></li><li><a>HI</a></li></ul></div>	\nslot[name='nav-links']::slotted(ul) {\n    display: flex;\n    flex-direction: row;\n    list-style: none;\n    background-color: red;\n}\nslot[name='nav-links']::slotted(ul > li) { /* This selector is invalid, because ::slotted argument is limited to 1 compound selector */\n    display: inline-block;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 68 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 36 0+0+16] children: not-inline

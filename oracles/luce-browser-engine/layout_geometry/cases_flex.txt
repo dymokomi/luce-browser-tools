@@ -260,7 +260,7 @@ layout	<!DOCTYPE html>\n\n<div class="ipc-page-grid"><div class="ipc-sub-grid"><
 # inline-flex-baseline-with-wrapped-hidden-text
 layout	<!DOCTYPE html>\n\n<p>foo <a href="#">bar<span class="icon"><span class="hidden-label">baz baz baz baz</span></span></a> qux</p>\n	\n.icon {\n    display: inline-flex;\n    width: 18px;\n    height: 18px;\n    margin-left: 4px;\n}\n.hidden-label {\n    width: 64px;\n}\n
 # misc/invalid-slotted-selector
-!layout	<!DOCTYPE html><div><template shadowrootmode="open"><slot name="nav-links"></slot></template><ul slot="nav-links"><li><a>HELLO</a></li><li><a>HI</a></li></ul></div>	\nslot[name='nav-links']::slotted(ul) {\n    display: flex;\n    flex-direction: row;\n    list-style: none;\n    background-color: red;\n}\nslot[name='nav-links']::slotted(ul > li) { /* This selector is invalid, because ::slotted argument is limited to 1 compound selector */\n    display: inline-block;\n}\n
+layout	<!DOCTYPE html><div><template shadowrootmode="open"><slot name="nav-links"></slot></template><ul slot="nav-links"><li><a>HELLO</a></li><li><a>HI</a></li></ul></div>	\nslot[name='nav-links']::slotted(ul) {\n    display: flex;\n    flex-direction: row;\n    list-style: none;\n    background-color: red;\n}\nslot[name='nav-links']::slotted(ul > li) { /* This selector is invalid, because ::slotted argument is limited to 1 compound selector */\n    display: inline-block;\n}\n
 # non-floating-non-replaced-element-percentage-padding-against-indefinite-width
 layout	<!DOCTYPE html><html><head></head><body><div id="box1"><div><div id="box2">	\n#box1 {\n  display: flex;\n}\n\n#box2 {\n  display: flex;\n  padding: 100%;\n}\n
 # place-content-shorthand-property

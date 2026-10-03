@@ -40,7 +40,7 @@ case layout	<!DOCTYPE html>\na<br style="position:absolute;">b
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x34] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html><div class="box">Giveaways in Channels and Free Premium Giveaways in Channels and Free Premium</div>	\n* {\n    border: 1px solid black;\n}\n.box {\n    width: 200px;\n    position: absolute;\n    left: 0;\n    display: grid;\n    background-color: magenta;\n}\n
+case layout	<!DOCTYPE html><div class="box">Giveaways in Channels and Free Premium Giveaways in Channels and Free Premium</div>	\n* {\n    border: 1px solid black;\n}\n.box {\n    width: 200px;\n    position: absolute;\n    left: 0;\n    display: grid;\n    background-color: magenta;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [1,1] [0+1+0 798 0+1+0] [0+1+0 18 0+1+0] [BFC] children: not-inline
       BlockContainer <body> at [10,10] [8+1+0 780 0+1+8] [8+1+0 0 0+1+8] children: not-inline
@@ -106,7 +106,7 @@ case layout	<!DOCTYPE html><div class="features-list"><div class="feature">Autoc
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x418] [children: 0] (z-index: auto)
-later layout	<!doctype html><div class="flex"><div class="wrapper"><div class="aspectratio"><div class="box"></div></div></div>hello	\n* {\n    outline: 1px solid black;\n}\n.flex {\n    display: flex;\n}\n.aspectratio {\n    aspect-ratio: 1/1;\n}\n.box {\n    width: 192px;\n    height: 192px;\n    background-color: magenta;\n}\n
+case layout	<!doctype html><div class="flex"><div class="wrapper"><div class="aspectratio"><div class="box"></div></div></div>hello	\n* {\n    outline: 1px solid black;\n}\n.flex {\n    display: flex;\n}\n.aspectratio {\n    aspect-ratio: 1/1;\n}\n.box {\n    width: 192px;\n    height: 192px;\n    background-color: magenta;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 208 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 192 0+0+8] children: not-inline
@@ -131,7 +131,7 @@ later layout	<!doctype html><div class="flex"><div class="wrapper"><div class="a
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x208] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>b	\n* {\n    outline: 1px solid black;\n}\nbody {\n    aspect-ratio: 1;\n    width: 100px;\n    display: flex;\n}\n
+case layout	<!DOCTYPE html>b	\n* {\n    outline: 1px solid black;\n}\nbody {\n    aspect-ratio: 1;\n    width: 100px;\n    display: flex;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 116 0+0+0] [BFC] children: not-inline
       Box <body> at [8,8] flex-container(row) [8+0+0 100 0+0+692] [8+0+0 100 0+0+8] [FFC] children: not-inline
@@ -1266,7 +1266,7 @@ case layout	<!DOCTYPE html>\n\n<div id="container">\n    <label></label>\n    <d
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x28] [children: 0] (z-index: auto)
-later layout	<!doctype html><body><div class="right">right</div><div class="flex"><div class="item">item	\n    * { outline: 1px solid black; }\n    body { width: 400px; }\n    .right {\n        float: right;\n        background: orange;\n    }\n    .flex { \n        display: flex;\n        height: 50px;\n        background: wheat;\n    }\n    .item { background: pink; }\n
+case layout	<!doctype html><body><div class="right">right</div><div class="flex"><div class="item">item	\n    * { outline: 1px solid black; }\n    body { width: 400px; }\n    .right {\n        float: right;\n        background: orange;\n    }\n    .flex { \n        display: flex;\n        height: 50px;\n        background: wheat;\n    }\n    .item { background: pink; }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 66 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 400 0+0+392] [8+0+0 50 0+0+8] children: not-inline
@@ -2104,7 +2104,7 @@ case layout	<!DOCTYPE html>\n<html>\n<head>\n\n</head>\n<body>\n    <div id=b></
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x60] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<div class="display_flex"><div><div><span>A</span><span>B</span></div></div></div>	\n    .display_flex {\n        display: flex;\n    }\n\n    div {\n        float: left;\n    }\n\n    span {\n        float: left;\n    }\n
+case layout	<!DOCTYPE html>\n<div class="display_flex"><div><div><span>A</span><span>B</span></div></div></div>	\n    .display_flex {\n        display: flex;\n    }\n\n    div {\n        float: left;\n    }\n\n    span {\n        float: left;\n    }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 26 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 0 0+0+8] children: not-inline
@@ -2881,7 +2881,7 @@ case layout	<!DOCTYPE html>\n<pre style="border: 1px solid black">\n<span> </spa
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x43] [children: 0] (z-index: auto)
-later layout	<!doctype html><body><div class="right">right</div><div class="grid">	\n    * { outline: 1px solid black; }\n    body { width: 400px; }\n    .right {\n        float: right;\n        background: orange;\n    }\n    .grid {\n        display: grid;\n        height: 50px;\n        background: wheat;\n    }\n
+case layout	<!doctype html><body><div class="right">right</div><div class="grid">	\n    * { outline: 1px solid black; }\n    body { width: 400px; }\n    .right {\n        float: right;\n        background: orange;\n    }\n    .grid {\n        display: grid;\n        height: 50px;\n        background: wheat;\n    }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 66 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 400 0+0+392] [8+0+0 50 0+0+8] children: not-inline
@@ -3445,7 +3445,7 @@ case layout	<!doctype html><body><div> Download </div><div> News </div>\n	\n    
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x34] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html><div class="box"></div><ul><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li>	\n    .box {\n      border: 10px solid black;\n      width: 200px;\n      height: 100px;\n      float: left;\n      margin-right: 100px;\n    }\n  \n    li {\n      background-color: chartreuse;\n    }\n  
+case layout	<!DOCTYPE html><div class="box"></div><ul><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li><li>a</li>	\n    .box {\n      border: 10px solid black;\n      width: 200px;\n      height: 100px;\n      float: left;\n      margin-right: 100px;\n    }\n  \n    li {\n      background-color: chartreuse;\n    }\n  
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 140 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 108 0+0+16] children: not-inline
@@ -3733,7 +3733,7 @@ case layout	<!doctype html><body><div class="outer"><div class="inner">well hell
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [1,1 798x193] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n\n<div class="a"><div class="b">foo bar baz lorem ipsum dolor sit amet consectetuer	\n.a {\n    background: red;\n    position: fixed;\n}\n.b {\n    background: green;\n    display: flex;\n    max-width: 100px;\n}\n
+case layout	<!DOCTYPE html>\n\n<div class="a"><div class="b">foo bar baz lorem ipsum dolor sit amet consectetuer	\n.a {\n    background: red;\n    position: fixed;\n}\n.b {\n    background: green;\n    display: flex;\n    max-width: 100px;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 16 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 0 0+0+8] children: not-inline
@@ -3763,7 +3763,7 @@ later layout	<!DOCTYPE html>\n\n<div class="a"><div class="b">foo bar baz lorem 
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x16] [children: 1] (z-index: auto)
     SC for BlockContainer<DIV>.a [8,8 100x90] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html><html><body class="outer"><div class="middle"><div class="inner">OPEN	\n* {\n    border: 1px solid black;\n    font-family: 'SerenitySans';\n}\n\nhtml { background: white; }\n\n.outer {\n    display: flex;\n    background: pink;\n}\n\n.inner {\n    min-width: 200px;\n    background: orange;\n}\n
+case layout	<!DOCTYPE html><html><body class="outer"><div class="middle"><div class="inner">OPEN	\n* {\n    border: 1px solid black;\n    font-family: 'SerenitySans';\n}\n\nhtml { background: white; }\n\n.outer {\n    display: flex;\n    background: pink;\n}\n\n.inner {\n    min-width: 200px;\n    background: orange;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [1,1] [0+1+0 798 0+1+0] [0+1+0 40 0+1+0] [BFC] children: not-inline
       Box <body.outer> at [10,10] flex-container(row) [8+1+0 780 0+1+8] [8+1+0 22 0+1+8] [FFC] children: not-inline
@@ -9893,7 +9893,7 @@ case layout	<!DOCTYPE html><body><div class="two-props"></div><div class="four-p
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [1,1 798x0] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n\n\n<div>Filler text</div>\n	\ndiv::after {\n    content: "Filler Text";\n    display: list-item;\n    margin-left: 1em;\n}  \n
+case layout	<!DOCTYPE html>\n\n\n<div>Filler text</div>\n	\ndiv::after {\n    content: "Filler Text";\n    display: list-item;\n    margin-left: 1em;\n}  \n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 52 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 36 0+0+8] children: not-inline
@@ -10801,7 +10801,7 @@ case layout	<!DOCTYPE html>\n<div id=a>a</div><div id=b>b</div><div id=c>c</div>
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x70] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<details>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
+case layout	<!DOCTYPE html>\n<details>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 34 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 18 0+0+8] children: not-inline
@@ -10862,7 +10862,7 @@ later layout	<!DOCTYPE html>\n<details open>\n    <summary>I'm a summary</summar
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x52] [children: 0] (z-index: auto)
-later layout	<!doctype html><details><summary>hello\n	\n     details {\n        border: 10px solid black;\n        padding: 50px;\n      }\n
+case layout	<!doctype html><details><summary>hello\n	\n     details {\n        border: 10px solid black;\n        padding: 50px;\n      }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 154 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 138 0+0+8] children: not-inline
@@ -11078,7 +11078,7 @@ case layout	<!DOCTYPE html>\n\n\n\n<div align="right">This text and the green sq
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x270] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<ol><li></li><li></li><li></li></ol>\n	
+case layout	<!DOCTYPE html>\n<ol><li></li><li></li><li></li></ol>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 86 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 54 0+0+16] children: not-inline
@@ -11106,7 +11106,7 @@ later layout	<!DOCTYPE html>\n<ol><li></li><li></li><li></li></ol>\n
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x86] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n\n\n<!-- Default border with legend -->\n<fieldset>\n    <legend>Default</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- No border -->\n<fieldset style="border: 0">\n    <legend>No border</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Thick border -->\n<fieldset style="border: 5px solid black">\n    <legend>Thick border</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Legend taller than border (large padding) -->\n<fieldset style="border: 2px solid black">\n    <legend style="padding: 10px; background: lightgray">Tall legend</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Legend shorter than border (very thick border) -->\n<fieldset style="border: 20px solid black">\n    <legend>Thin legend, thick border</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Legend with margins -->\n<fieldset style="border: 2px solid black">\n    <legend style="margin: 8px">Margins</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Narrow fieldset with long legend -->\n<fieldset style="width: 50px; border: 2px solid black">\n    <legend>Long legend text here</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Legend with explicit width -->\n<fieldset style="border: 2px solid black">\n    <legend style="width: 200px">Fixed width</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Fieldset with padding -->\n<fieldset style="border: 2px solid black; padding: 20px">\n    <legend>Padded fieldset</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Out-of-flow legend (floated, not rendered legend) -->\n<fieldset style="border: 2px solid black; overflow: hidden">\n    <legend style="float: left">Floated</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Out-of-flow legend (absolute, not rendered legend) -->\n<fieldset style="border: 2px solid black; position: relative">\n    <legend style="position: absolute">Absolute</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Non-legend first child -->\n<fieldset style="border: 2px solid black">\n    <p>Not a legend</p>\n    <legend>After paragraph</legend>\n</fieldset>\n\n<!-- Overflow auto with legend -->\n<fieldset style="overflow: auto">\n    <legend>Overflow auto</legend>\n</fieldset>\n\n	\nfieldset {\n    min-width: 0;\n    margin: 0;\n    margin-bottom: 16px;\n    padding: 0;\n}\nlegend {\n    display: block;\n    padding: 0;\n}\np {\n    margin: 0;\n}\n
+case layout	<!DOCTYPE html>\n\n\n<!-- Default border with legend -->\n<fieldset>\n    <legend>Default</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- No border -->\n<fieldset style="border: 0">\n    <legend>No border</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Thick border -->\n<fieldset style="border: 5px solid black">\n    <legend>Thick border</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Legend taller than border (large padding) -->\n<fieldset style="border: 2px solid black">\n    <legend style="padding: 10px; background: lightgray">Tall legend</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Legend shorter than border (very thick border) -->\n<fieldset style="border: 20px solid black">\n    <legend>Thin legend, thick border</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Legend with margins -->\n<fieldset style="border: 2px solid black">\n    <legend style="margin: 8px">Margins</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Narrow fieldset with long legend -->\n<fieldset style="width: 50px; border: 2px solid black">\n    <legend>Long legend text here</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Legend with explicit width -->\n<fieldset style="border: 2px solid black">\n    <legend style="width: 200px">Fixed width</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Fieldset with padding -->\n<fieldset style="border: 2px solid black; padding: 20px">\n    <legend>Padded fieldset</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Out-of-flow legend (floated, not rendered legend) -->\n<fieldset style="border: 2px solid black; overflow: hidden">\n    <legend style="float: left">Floated</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Out-of-flow legend (absolute, not rendered legend) -->\n<fieldset style="border: 2px solid black; position: relative">\n    <legend style="position: absolute">Absolute</legend>\n    <p>Content</p>\n</fieldset>\n\n<!-- Non-legend first child -->\n<fieldset style="border: 2px solid black">\n    <p>Not a legend</p>\n    <legend>After paragraph</legend>\n</fieldset>\n\n<!-- Overflow auto with legend -->\n<fieldset style="overflow: auto">\n    <legend>Overflow auto</legend>\n</fieldset>\n\n	\nfieldset {\n    min-width: 0;\n    margin: 0;\n    margin-bottom: 16px;\n    padding: 0;\n}\nlegend {\n    display: block;\n    padding: 0;\n}\np {\n    margin: 0;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 811 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 787 0+0+16] children: not-inline
@@ -11482,7 +11482,7 @@ later layout	<!DOCTYPE html>\n\n\n<!-- Default border with legend -->\n<fieldset
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x811] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<fieldset><legend>login</legend></fieldset>\n	
+case layout	<!DOCTYPE html>\n<fieldset><legend>login</legend></fieldset>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 51.59375 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 35.59375 0+0+8] children: not-inline
@@ -12142,7 +12142,7 @@ case layout	<!DOCTYPE html>\n<div class="parent">\n    <div class="bad">Bad</div
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x216] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n\n<span></span>\n	\n  span {\n    display: list-item;\n    list-style-position: inside;\n\n    margin: 200px;\n  }\n
+case layout	<!DOCTYPE html>\n\n<span></span>\n	\n  span {\n    display: list-item;\n    list-style-position: inside;\n\n    margin: 200px;\n  }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 418 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,200] [8+0+0 784 0+0+8] [8+0+0 18 0+0+200] children: not-inline
@@ -12278,7 +12278,7 @@ case layout	<!doctype html><div>hello friends	\ndiv {\n    line-height: calc(2 +
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x80] [children: 0] (z-index: auto)
-later layout	<!doctype html>\n\n<ol>\n    <li>1</li>\n    <li>2</li>\n</ol>\n<ul>\n    <li> </li>\n    <li> </li>\n</ul>\n	\n    li::marker {\n        font-size: 30px;\n    }\n
+case layout	<!doctype html>\n\n<ol>\n    <li>1</li>\n    <li>2</li>\n</ol>\n<ul>\n    <li> </li>\n    <li> </li>\n</ul>\n	\n    li::marker {\n        font-size: 30px;\n    }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 184 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 152 0+0+16] children: not-inline
@@ -12343,7 +12343,7 @@ later layout	<!doctype html>\n\n<ol>\n    <li>1</li>\n    <li>2</li>\n</ol>\n<ul
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x184] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n\n<span><div></div></span>\n	\n  span {\n    display: list-item;\n  }\n\n  div {}\n\n  span::before {\n    content: "before";\n  }\n\n  span::after {\n    content: "after";\n  }\n
+case layout	<!DOCTYPE html>\n\n<span><div></div></span>\n	\n  span {\n    display: list-item;\n  }\n\n  div {}\n\n  span::before {\n    content: "before";\n  }\n\n  span::after {\n    content: "after";\n  }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 52 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 36 0+0+8] children: not-inline
@@ -12379,7 +12379,7 @@ later layout	<!DOCTYPE html>\n\n<span><div></div></span>\n	\n  span {\n    displ
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x52] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n\n<li><a>A</a></li>\n<li><a>B</a></li>\n	\na {\n    float: right;\n    width: 100%;\n}\n
+case layout	<!DOCTYPE html>\n\n<li><a>A</a></li>\n<li><a>B</a></li>\n	\na {\n    float: right;\n    width: 100%;\n}\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 52 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 36 0+0+8] children: not-inline
@@ -12416,7 +12416,7 @@ later layout	<!DOCTYPE html>\n\n<li><a>A</a></li>\n<li><a>B</a></li>\n	\na {\n  
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x52] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<ul dir="rtl">\n\t<li>___________</li>\n</ul>\n	
+case layout	<!DOCTYPE html>\n<ul dir="rtl">\n\t<li>___________</li>\n</ul>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 50 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 18 0+0+16] children: not-inline
@@ -12446,7 +12446,7 @@ later layout	<!DOCTYPE html>\n<ul dir="rtl">\n\t<li>___________</li>\n</ul>\n
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x50] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<body>\n<ol id="ol-without-box" style="display:contents">\n    <!--\n        The list item owner will be the document; not "ol-without-box".\n        As a result, the list will be displayed as an ul.\n        FIXME: Ladybird paints MarkerPaintable... but without an actual marker. Firefox and Chrome show a minuscule bullet.\n    -->\n    <li>One</li>\n    <li>Two</li>\n</ol>\n</body>\n	
+case layout	<!DOCTYPE html>\n<body>\n<ol id="ol-without-box" style="display:contents">\n    <!--\n        The list item owner will be the document; not "ol-without-box".\n        As a result, the list will be displayed as an ul.\n        FIXME: Ladybird paints MarkerPaintable... but without an actual marker. Firefox and Chrome show a minuscule bullet.\n    -->\n    <li>One</li>\n    <li>Two</li>\n</ol>\n</body>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 52 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 36 0+0+8] children: not-inline
@@ -12485,7 +12485,7 @@ later layout	<!DOCTYPE html>\n<body>\n<ol id="ol-without-box" style="display:con
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x52] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<html>\n<div id="list-item-owner">\n    <ol id="ol-without-box" style="display:contents">\n        <!--\n            The list item owner will be "list-item-owner"; not "ol-without-box".\n            As a result, the list will be displayed as an ul.\n            FIXME: Ladybird paints MarkerPaintable... but without an actual marker. Firefox and Chrome show a minuscule bullet.\n        -->\n        <li>One</li>\n        <li>Two</li>\n    </ol>\n</div>\n</html>\n	
+case layout	<!DOCTYPE html>\n<html>\n<div id="list-item-owner">\n    <ol id="ol-without-box" style="display:contents">\n        <!--\n            The list item owner will be "list-item-owner"; not "ol-without-box".\n            As a result, the list will be displayed as an ul.\n            FIXME: Ladybird paints MarkerPaintable... but without an actual marker. Firefox and Chrome show a minuscule bullet.\n        -->\n        <li>One</li>\n        <li>Two</li>\n    </ol>\n</div>\n</html>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 52 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 36 0+0+8] children: not-inline
@@ -12529,7 +12529,7 @@ later layout	<!DOCTYPE html>\n<html>\n<div id="list-item-owner">\n    <ol id="ol
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x52] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<body>\n<li>One\n<li>Two\n</body>\n	
+case layout	<!DOCTYPE html>\n<body>\n<li>One\n<li>Two\n</body>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 52 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 36 0+0+8] children: not-inline
@@ -12902,7 +12902,7 @@ case layout	<!DOCTYPE html>\n\n<div class="fixed_width">\n\t<span class="nowrap"
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x36] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<html>\n<ol>\n    <li>One</li>\n    <li value=22>Twenty-two</li>\n    <div>Ignore these</div>\n        <div>+A<div>+B<div>+C\n            <div style="display:list-item">Twenty-three</div>\n        </div></div></div>\n    <p>Ignore this paragraph</p>\n    <p><span>X<span>Y<span>Z\n        <li>Twenty-four</li>\n    </span></span></span>\n    <div>List item paragraph inside nested divs<div>2025\n        <p style="display:list-item">Twenty-five</p>\n    </div></div>\n    <li>Twenty-six</li>\n    <span style="display:list-item">Twenty-seven</span>\n    <li>Twenty-eight</li>\n</ol>\n</html>\n	
+case layout	<!DOCTYPE html>\n<html>\n<ol>\n    <li>One</li>\n    <li value=22>Twenty-two</li>\n    <div>Ignore these</div>\n        <div>+A<div>+B<div>+C\n            <div style="display:list-item">Twenty-three</div>\n        </div></div></div>\n    <p>Ignore this paragraph</p>\n    <p><span>X<span>Y<span>Z\n        <li>Twenty-four</li>\n    </span></span></span>\n    <div>List item paragraph inside nested divs<div>2025\n        <p style="display:list-item">Twenty-five</p>\n    </div></div>\n    <li>Twenty-six</li>\n    <span style="display:list-item">Twenty-seven</span>\n    <li>Twenty-eight</li>\n</ol>\n</html>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 400 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 368 0+0+16] children: not-inline
@@ -13093,7 +13093,7 @@ later layout	<!DOCTYPE html>\n<html>\n<ol>\n    <li>One</li>\n    <li value=22>T
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x400] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<!--\n    Confirms MarkerPaintable sizes for reference list.\n    FIXME: Left alignment cuts into border.\n-->\n<body>\n<ol start=7>\n<li>Seven</li>\n<li value="-112">Minus one hundred and twelve</li>  <!-- Confirms negative ordinal -->\n<li value="1024">Two to the power of ten</li>\n<li value="11">Eleven</li>\n</ol>\n</body>\n	
+case layout	<!DOCTYPE html>\n<!--\n    Confirms MarkerPaintable sizes for reference list.\n    FIXME: Left alignment cuts into border.\n-->\n<body>\n<ol start=7>\n<li>Seven</li>\n<li value="-112">Minus one hundred and twelve</li>  <!-- Confirms negative ordinal -->\n<li value="1024">Two to the power of ten</li>\n<li value="11">Eleven</li>\n</ol>\n</body>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 104 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 72 0+0+16] children: not-inline
@@ -13160,7 +13160,7 @@ later layout	<!DOCTYPE html>\n<!--\n    Confirms MarkerPaintable sizes for refer
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x104] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<html>\n<ol>\n    <li>One</li>\n    <li value=22>Twenty-two</li>\n    <div style="display:list-item">Twenty-three</div>\n    <li>Twenty-four</li>\n    <p style="display:list-item">Twenty-five</p>\n    <li>Twenty-six</li>\n    <span style="display:list-item">Twenty-seven</span>\n    <li>Twenty-eight</li>\n</ol>\n</html>\n	
+case layout	<!DOCTYPE html>\n<html>\n<ol>\n    <li>One</li>\n    <li value=22>Twenty-two</li>\n    <div style="display:list-item">Twenty-three</div>\n    <li>Twenty-four</li>\n    <p style="display:list-item">Twenty-five</p>\n    <li>Twenty-six</li>\n    <span style="display:list-item">Twenty-seven</span>\n    <li>Twenty-eight</li>\n</ol>\n</html>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 208 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 176 0+0+16] children: not-inline
@@ -13267,7 +13267,7 @@ later layout	<!DOCTYPE html>\n<html>\n<ol>\n    <li>One</li>\n    <li value=22>T
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x208] [children: 0] (z-index: auto)
-later layout	<!DOCTYPE html>\n<ol start="20">\n    <li>Item 20</li>\n    <li>Item 21</li>\n    <li>Item 22</li>\n</ol>\n<ol>\n    <li>Item 1</li>\n    <li value="5">Item 5</li>\n    <li>Item 6</li>\n    <li>Item 7</li>\n</ol>\n	
+case layout	<!DOCTYPE html>\n<ol start="20">\n    <li>Item 20</li>\n    <li>Item 21</li>\n    <li>Item 22</li>\n</ol>\n<ol>\n    <li>Item 1</li>\n    <li value="5">Item 5</li>\n    <li>Item 6</li>\n    <li>Item 7</li>\n</ol>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 174 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 142 0+0+16] children: not-inline
@@ -14226,7 +14226,7 @@ case layout	<!DOCTYPE html>\n\n	\nbody {\n    transform: translate3d(calc(50px),
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x118] [children: 1] (z-index: auto)
     SC for BlockContainer<BODY> [9,9 100x100] [children: 0] (z-index: auto), has_transform
-later layout	<!DOCTYPE html>\n<head>\n<!--\n   Confirms drawing a ul. Font size can be controlled so MarkerPaintable sizes should match reference.\n   FIXME: At some point, `::marker` should support `content`. https://drafts.csswg.org/css-content-3/#propdef-content\n-->\n\n</head>\n<body>\n<ul class="A">\n<li>Three</li>\n<li>Four</li>\n</ul>\n<ul class="B">\n<li>One</li>\n<li>Two</li>\n</ul>\n</body>\n	\n    .B li::marker { font-size: .5em; }\n
+case layout	<!DOCTYPE html>\n<head>\n<!--\n   Confirms drawing a ul. Font size can be controlled so MarkerPaintable sizes should match reference.\n   FIXME: At some point, `::marker` should support `content`. https://drafts.csswg.org/css-content-3/#propdef-content\n-->\n\n</head>\n<body>\n<ul class="A">\n<li>Three</li>\n<li>Four</li>\n</ul>\n<ul class="B">\n<li>One</li>\n<li>Two</li>\n</ul>\n</body>\n	\n    .B li::marker { font-size: .5em; }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 120 0+0+0] [BFC] children: not-inline
       BlockContainer <(anonymous)> at [0,0] [0+0+0 800 0+0+0] [0+0+0 0 0+0+0] children: inline
@@ -17305,7 +17305,7 @@ case lines	<!DOCTYPE html><div style="writing-mode:vertical-rl;height:100px">ver
     line 0: inline 53.203125 block 784 bottom 53.203125 baseline 13.796875 width 784 height 53.203125 available definite(784) break false forced false trailing 0
       frag 0: TextNode #6 start 0 length 7 offset [766,0] size [18x53.203125] border_box_top 0 baseline 13.796875 writing_mode 2 direction 0 trailing_ws false truncated false ends_ws false justifiable false atomic false
         glyphs 7 type 3 size 16 width 13.0625: 0,3243032576 4.234375 79 1 4.234375,3243032576 8.828125 85 1 13.0625,3243032576 8 3 1 21.0625,3243032576 6.859375 87 1 27.921875,3243032576 8.71875 72 1 36.640625,3243032576 9.703125 91 1 46.34375,3243032576 6.859375 87 1
-later layout	<!DOCTYPE html><ul><li>first item</li><li>second item that is long enough to wrap around in a narrow list</li></ul><ol style="width:150px"><li>one</li><li>two <b>bold</b></li></ol>	
+case layout	<!DOCTYPE html><ul><li>first item</li><li>second item that is long enough to wrap around in a narrow list</li></ul><ol style="width:150px"><li>one</li><li>two <b>bold</b></li></ol>	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 120 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,16] [8+0+0 784 0+0+8] [8+0+0 88 0+0+16] children: not-inline

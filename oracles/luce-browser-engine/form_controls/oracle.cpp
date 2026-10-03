@@ -249,8 +249,20 @@ static Subject make_subject(std::string const& spec)
 // The subject element: the detached one, or the document's first <tag>.
 static DOM::Element* subject_element(Subject& subject, std::string const& tag)
 {
-    if (subject.detached)
-        return subject.detached;
+    if (subject.detached) {
+        if (str(subject.detached->local_name()) == tag)
+            return subject.detached;
+        DOM::Element* found = nullptr;
+        subject.detached->for_each_in_subtree_of_type<DOM::Element>([&](DOM::Element& element) {
+            if (str(element.local_name()) == tag) {
+                found = &element;
+                return TraversalDecision::Break;
+            }
+            return TraversalDecision::Continue;
+        });
+        VERIFY(found);
+        return found;
+    }
     return first_element(*subject.document, tag);
 }
 
@@ -432,11 +444,11 @@ static void run(std::vector<std::string> const& args)
             g_out += "exception " + exception_name(result.exception()) + "\n";
         dump_inputs(subject);
     } else if (mode == "numstr") {
-        auto document = parse("<input type=\"" + args[1] + "\">");
+        auto subject = make_subject("@input type=" + args[1]);
         auto& input = as<HTML::HTMLInputElement>(*subject_element(subject, "input"));
         g_out += esc(str(input.convert_number_to_string(std::stod(args[2])))) + "\n";
     } else if (mode == "strnum") {
-        auto document = parse("<input type=\"" + args[1] + "\">");
+        auto subject = make_subject("@input type=" + args[1]);
         auto& input = as<HTML::HTMLInputElement>(*subject_element(subject, "input"));
         g_out += opt(input.convert_string_to_number(StringView(args[2].data(), args[2].size()))) + "\n";
     } else if (mode == "checked") {

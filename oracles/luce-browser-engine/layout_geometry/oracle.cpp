@@ -12,6 +12,8 @@
 //   paint      (r50) the paint tree's queries and hit tests of a grid of points; paintables: the queries only
 //   layout   the three dumps of a Layout test: dump_tree of the layout tree and of the paint tree, StackingContext::dump
 //   table      (r48) TableGrid::calculate_row_column_grid of every table box: rows, cells and the occupied slots
+//   svg        (r49) every SVG paintable of the paint tree (unconnected mask/clip/pattern subtrees included), in
+//              the layout tree's pre-order: class, absolute rect, computed transforms, computed path, clip path flags
 //   border-specificity (r48) TableFormattingContext::border_is_less_specific over pairs of border styles and widths
 #define private public
 #define protected public
@@ -50,6 +52,11 @@
 #include <LibWeb/Painting/StackingContext.h>
 #include <LibWeb/Painting/TextPaintable.h>
 #include <LibWeb/Painting/ViewportPaintable.h>
+#include <LibWeb/Painting/SVGPaintable.h>
+#include <LibWeb/Painting/SVGGraphicsPaintable.h>
+#include <LibWeb/Painting/SVGPathPaintable.h>
+#include <LibWeb/Painting/SVGSVGPaintable.h>
+#include <LibWeb/Layout/SVGSVGBox.h>
 #include <LibWeb/Platform/EventLoopPlugin.h>
 #include <LibWeb/Platform/FontPlugin.h>
 #include <LibCore/EventLoop.h>
@@ -547,6 +554,59 @@ static void run_table(std::string const& html)
     put_lines(builder.string_view().trim_whitespace(TrimMode::Right));
 }
 
+// r49's "svg" mode: for every layout node (inclusive pre-order, numbered) whose paintable is an SVG paintable or an
+// SVGSVGPaintable: the paintable's class and absolute rect; for an SVGGraphicsPaintable its computed transforms
+// (svg_to_viewbox_transform, svg_transform, svg_to_css_pixels_transform), the mask and clip areas; for an
+// SVGPathPaintable the computed path (to_svg_string) and its bounding box; for an SVGPaintable whether it contributes to a
+// clip path, its clip path bounds and whether it anti-aliases. Transforms print their six values with AK's formatter.
+static void put_transform(StringBuilder& builder, StringView name, Gfx::AffineTransform const& t)
+{
+    builder.appendff(" {} [{} {} {} {} {} {}]", name, t.a(), t.b(), t.c(), t.d(), t.e(), t.f());
+}
+
+static void run_svg(std::string const& html)
+{
+    auto document = build(html);
+    StringBuilder builder;
+    auto& root = *document->unsafe_layout_node();
+    size_t index = 0;
+    root.for_each_in_inclusive_subtree([&](Layout::Node& node) {
+        auto this_index = index++;
+        auto* paintable = node.first_paintable();
+        if (!paintable)
+            return TraversalDecision::Continue;
+        if (!is<Painting::SVGPaintable>(*paintable) && !is<Painting::SVGSVGPaintable>(*paintable))
+            return TraversalDecision::Continue;
+        auto& box = static_cast<Painting::PaintableBox&>(*paintable);
+        builder.appendff("#{} {} rect {}\n", this_index, paintable->class_name(), box.absolute_rect());
+        if (auto* graphics = as_if<Painting::SVGGraphicsPaintable>(*paintable)) {
+            auto const& transforms = graphics->computed_transforms();
+            builder.append("  transforms"sv);
+            put_transform(builder, "viewbox"sv, transforms.svg_to_viewbox_transform());
+            put_transform(builder, "svg"sv, transforms.svg_transform());
+            put_transform(builder, "css"sv, transforms.svg_to_css_pixels_transform());
+            builder.append("\n"sv);
+            auto mask_area = graphics->get_mask_area();
+            auto clip_area = graphics->get_clip_area();
+            builder.appendff("  mask {} clip {}\n", mask_area.has_value() ? MUST(String::formatted("{}", *mask_area)) : "none"_string, clip_area.has_value() ? MUST(String::formatted("{}", *clip_area)) : "none"_string);
+        }
+        if (auto* path_paintable = as_if<Painting::SVGPathPaintable>(*paintable)) {
+            if (path_paintable->computed_path().has_value()) {
+                builder.appendff("  path {}\n", path_paintable->computed_path()->to_svg_string());
+                builder.appendff("  bbox {}\n", path_paintable->computed_path()->bounding_box());
+            } else {
+                builder.append("  path none\n"sv);
+            }
+        }
+        if (auto* svg_paintable = as_if<Painting::SVGPaintable>(*paintable)) {
+            auto bounds = svg_paintable->clip_path_geometry_bounds({});
+            builder.appendff("  contributes {} bounds {} anti-alias {}\n", svg_paintable->contributes_to_clip_path(), bounds.has_value() ? MUST(String::formatted("{}", *bounds)) : "none"_string, svg_paintable->should_anti_alias() == Painting::ShouldAntiAlias::Yes);
+        }
+        return TraversalDecision::Continue;
+    });
+    put_lines(builder.string_view().trim_whitespace(TrimMode::Right));
+}
+
 // r48's "border-specificity" mode (no document): TableFormattingContext::border_is_less_specific(a, b) for every pair of
 // borders of the ten line styles and the widths 0, 1 and 3px (style-major), one line per a with a 0 or 1 per b.
 static void run_border_specificity()
@@ -584,6 +644,8 @@ static void run(std::vector<std::string> const& args)
         run_paint(args[1], false);
     else if (mode == "table")
         run_table(args[1]);
+    else if (mode == "svg")
+        run_svg(args[1]);
     else if (mode == "border-specificity")
         run_border_specificity();
     else if (mode == "lines") {
