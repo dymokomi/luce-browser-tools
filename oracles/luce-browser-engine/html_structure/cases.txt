@@ -95,8 +95,8 @@ title	<title></title>
 title	<title>a<b>b</b>c</title>
 title	<head><title>first</title><title>second</title></head>
 meta	<meta http-equiv=refresh><meta http-equiv=Content-Type><meta http-equiv=x><meta http-equiv=X-UA-COMPATIBLE><meta http-equiv=content-security-policy><meta http-equiv=set-cookie><meta http-equiv=default-style><meta http-equiv=content-language>
-!referrer	<meta name=referrer content=never>
-!referrer	<meta name=referrer content=no-referrer-when-downgrade>
-!referrer	<meta name=referrer content=always>
-!referrer	<meta name=referrer content=bogus>
-!referrer	<meta name=referrer content="">
+referrer	<meta name=referrer content=never>
+referrer	<meta name=referrer content=no-referrer-when-downgrade>
+referrer	<meta name=referrer content=always>
+referrer	<meta name=referrer content=bogus>
+referrer	<meta name=referrer content="">

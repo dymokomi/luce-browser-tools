@@ -6,7 +6,7 @@ doc	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html
 doc	<!-- c1 --><!DOCTYPE html><!-- c2 --><html><!-- c3 --><head></head><body><!-- c4 --></body></html><!-- c5 -->
 doc	<p>One<p>Two<div>Three</div>
 doc	<b><i>1</b>2</i>3
-!doc	<a href=x><p>X<a href=y>Y</a>Z</p></a>
+doc	<a href=x><p>X<a href=y>Y</a>Z</p></a>
 doc	<a id=x><p>X<a id=y>Y</a>Z</p></a>
 doc	<b>1<p>2</b>3</p>
 doc	<div><span>a<div>b</span>c</div>
@@ -22,9 +22,9 @@ doc	<script></script><p>after
 doc	<script src=a.js></script><p>after
 doc	<noscript><p>x</p></noscript>
 doc	<marquee scrollamount=10>m</marquee>
-!doc	<map name=m><area href=x></map>
+doc	<map name=m><area href=x></map>
 doc	<map name=m><area id=x></map>
-!doc	<a href="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
+doc	<a href="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
 doc	<a id="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
 doc	<data value=1>d</data><time datetime=2020>t</time><span>s</span>
 doc	<embed src=x><param name=a value=b>
@@ -45,10 +45,10 @@ doc	<b><p><i>x</b>y</i>
 doc	<head></head>  <body>  x  </body>
 doc	<!DOCTYPE html><head><noscript><meta charset=utf-8></noscript></head>
 !doc	<script>var x = 1;</script><p>after
-!doc	<frameset><frame src=a><frame src=b></frameset>
-!doc	<iframe src=x></iframe>
-!doc	<object data=x><param name=a value=b>fallback</object>
-!doc	<canvas width=10 height=20>fallback</canvas>
+doc	<frameset><frame src=a><frame src=b></frameset>
+doc	<iframe src=x></iframe>
+doc	<object data=x><param name=a value=b>fallback</object>
+doc	<canvas width=10 height=20>fallback</canvas>
 doc	<div><table><tr><td>x</td></tr></table></div>
 doc	<table>a<tr><td>b</table>
 doc	<ul><li>a<li>b</ul>
@@ -124,9 +124,9 @@ hints	marquee	<marquee bgcolor=yellow height=50 hspace=4 vspace=6 width=200>
 hints	embed	<embed align=middle height=30 hspace=1 vspace=2 width=40%>
 hints	embed	<embed align=center>
 hints	frameset	<frameset rows=*>
-!hints	canvas	<canvas width=40 height=30>
-!hints	iframe	<iframe frameborder=0>
-!hints	object	<object border=2 align=center>
+hints	canvas	<canvas width=40 height=30>
+hints	iframe	<iframe frameborder=0>
+hints	object	<object border=2 align=center>
 role	div	<div>
 role	span	<span>
 role	p	<p>
@@ -142,11 +142,11 @@ role	ins	<ins>
 role	q	<q>
 role	blockquote	<blockquote>
 role	a	<a>
-!role	a	<a href=x>
+role	a	<a href=x>
 role	area	<map><area></map>
-!role	area	<map><area href=x></map>
-!canvas	<canvas>
-!canvas	<canvas width=100 height=abc>
+role	area	<map><area href=x></map>
+canvas	<canvas>
+canvas	<canvas width=100 height=abc>
 marquee	<marquee>
 marquee	<marquee scrollamount=10 scrolldelay=50>
 marquee	<marquee scrollamount=-1 scrolldelay=x>
@@ -183,20 +183,20 @@ frag	tbody	<tr><td>x
 frag	tr	<td>a<td>b
 frag	template	<p>t</p><td>u
 frag	ul	<li>a<li>b
-!hints	table	<table width=100 height=50 align=center bgcolor=red cellspacing=4 bordercolor=blue background=x.png>
+hints	table	<table width=100 height=50 align=center bgcolor=red cellspacing=4 bordercolor=blue background=x.png>
 hints	table	<table align=left width=0 height=0>
 hints	table	<table align=right width=50%>
 hints	table	<table border=2>
 hints	table	<table border=0 cellpadding=4>
 hints	table	<table border=abc bgcolor=garbage>
-!hints	td	<table><tr><td bgcolor=#0f0 valign=top align=center width=40 height=0 nowrap background=b.png>
+hints	td	<table><tr><td bgcolor=#0f0 valign=top align=center width=40 height=0 nowrap background=b.png>
 hints	td	<table cellpadding=5><tr><td align=right>
 hints	th	<table><tr><th align=middle valign=baseline width=0 height=30>
 hints	td	<table><tr><td align=justify height=20%>
 hints	td	<table cellpadding=-3><tr><td align=left>
-!hints	tr	<table><tr align=center bgcolor=red height=20 valign=bottom background=x.png>
+hints	tr	<table><tr align=center bgcolor=red height=20 valign=bottom background=x.png>
 hints	tr	<table><tr align=bogus height=0 valign=nonsense>
-!hints	tbody	<table><tbody align=right bgcolor=blue height=10 background=a.png>
+hints	tbody	<table><tbody align=right bgcolor=blue height=10 background=a.png>
 hints	thead	<table><thead align=left height=0>
 hints	caption	<table><caption align=bottom>
 hints	caption	<table><caption align=top>

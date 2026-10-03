@@ -404,13 +404,13 @@ http-equiv 6
 http-equiv 4
 http-equiv 2
 http-equiv 0
-later referrer	<meta name=referrer content=never>
+case referrer	<meta name=referrer content=never>
 referrer policy 1
-later referrer	<meta name=referrer content=no-referrer-when-downgrade>
+case referrer	<meta name=referrer content=no-referrer-when-downgrade>
 referrer policy 2
-later referrer	<meta name=referrer content=always>
+case referrer	<meta name=referrer content=always>
 referrer policy 8
-later referrer	<meta name=referrer content=bogus>
+case referrer	<meta name=referrer content=bogus>
 referrer policy 7
-later referrer	<meta name=referrer content="">
+case referrer	<meta name=referrer content="">
 referrer policy 7

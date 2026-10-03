@@ -54,7 +54,7 @@ case doc	<b><i>1</b>2</i>3
 |     <i>
 |       "2"
 |     "3"
-later doc	<a href=x><p>X<a href=y>Y</a>Z</p></a>
+case doc	<a href=x><p>X<a href=y>Y</a>Z</p></a>
 | <html>
 |   <head>
 |   <body>
@@ -192,7 +192,7 @@ case doc	<marquee scrollamount=10>m</marquee>
 |     <marquee>
 |       scrollamount="10"
 |       "m"
-later doc	<map name=m><area href=x></map>
+case doc	<map name=m><area href=x></map>
 | <html>
 |   <head>
 |   <body>
@@ -208,7 +208,7 @@ case doc	<map name=m><area id=x></map>
 |       name="m"
 |       <area>
 |         id="x"
-later doc	<a href="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
+case doc	<a href="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
 | <html>
 |   <head>
 |   <body>
@@ -402,7 +402,7 @@ later doc	<script>var x = 1;</script><p>after
 |   <body>
 |     <p>
 |       "after"
-later doc	<frameset><frame src=a><frame src=b></frameset>
+case doc	<frameset><frame src=a><frame src=b></frameset>
 | <html>
 |   <head>
 |   <frameset>
@@ -410,13 +410,13 @@ later doc	<frameset><frame src=a><frame src=b></frameset>
 |       src="a"
 |     <frame>
 |       src="b"
-later doc	<iframe src=x></iframe>
+case doc	<iframe src=x></iframe>
 | <html>
 |   <head>
 |   <body>
 |     <iframe>
 |       src="x"
-later doc	<object data=x><param name=a value=b>fallback</object>
+case doc	<object data=x><param name=a value=b>fallback</object>
 | <html>
 |   <head>
 |   <body>
@@ -426,7 +426,7 @@ later doc	<object data=x><param name=a value=b>fallback</object>
 |         name="a"
 |         value="b"
 |       "fallback"
-later doc	<canvas width=10 height=20>fallback</canvas>
+case doc	<canvas width=10 height=20>fallback</canvas>
 | <html>
 |   <head>
 |   <body>
@@ -752,17 +752,17 @@ hint align 1
 text-align: center
 case hints	frameset	<frameset rows=*>
 hint rows 0
-later hints	canvas	<canvas width=40 height=30>
+case hints	canvas	<canvas width=40 height=30>
 hint width 1
 hint height 1
 aspect-ratio: auto 40 / 30
-later hints	iframe	<iframe frameborder=0>
+case hints	iframe	<iframe frameborder=0>
 hint frameborder 1
 border-top-width: 0px
 border-right-width: 0px
 border-bottom-width: 0px
 border-left-width: 0px
-later hints	object	<object border=2 align=center>
+case hints	object	<object border=2 align=center>
 hint border 1
 hint align 1
 border-top-width: 2px
@@ -804,15 +804,15 @@ case role	blockquote	<blockquote>
 5
 case role	a	<a>
 26
-later role	a	<a href=x>
+case role	a	<a href=x>
 39
 case role	area	<map><area></map>
 26
-later role	area	<map><area href=x></map>
+case role	area	<map><area href=x></map>
 39
-later canvas	<canvas>
+case canvas	<canvas>
 300 150 300x150
-later canvas	<canvas width=100 height=abc>
+case canvas	<canvas width=100 height=abc>
 100 150 100x150
 case marquee	<marquee>
 6 85
@@ -1015,7 +1015,7 @@ case frag	ul	<li>a<li>b
 |   "a"
 | <li>
 |   "b"
-later hints	table	<table width=100 height=50 align=center bgcolor=red cellspacing=4 bordercolor=blue background=x.png>
+case hints	table	<table width=100 height=50 align=center bgcolor=red cellspacing=4 bordercolor=blue background=x.png>
 hint width 1
 hint height 1
 hint align 1
@@ -1065,7 +1065,7 @@ case hints	table	<table border=abc bgcolor=garbage>
 hint border 1
 hint bgcolor 1
 background-color: rgb(10, 186, 224)
-later hints	td	<table><tr><td bgcolor=#0f0 valign=top align=center width=40 height=0 nowrap background=b.png>
+case hints	td	<table><tr><td bgcolor=#0f0 valign=top align=center width=40 height=0 nowrap background=b.png>
 hint bgcolor 1
 hint valign 1
 hint align 1
@@ -1105,7 +1105,7 @@ padding-top: 0px
 padding-bottom: 0px
 padding-left: 0px
 padding-right: 0px
-later hints	tr	<table><tr align=center bgcolor=red height=20 valign=bottom background=x.png>
+case hints	tr	<table><tr align=center bgcolor=red height=20 valign=bottom background=x.png>
 hint align 1
 hint bgcolor 1
 hint height 1
@@ -1120,7 +1120,7 @@ hint align 1
 hint height 1
 hint valign 1
 height: 0px
-later hints	tbody	<table><tbody align=right bgcolor=blue height=10 background=a.png>
+case hints	tbody	<table><tbody align=right bgcolor=blue height=10 background=a.png>
 hint align 1
 hint bgcolor 1
 hint height 1

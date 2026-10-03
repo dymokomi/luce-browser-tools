@@ -28,7 +28,7 @@ tree	<body><pre>line1\nline2\n\tindented</pre></body>
 tree	<body><b>bold <i>italic <div>block</div> more</i> end</b></body>
 tree	<body><div>text<div>block</div>text2</div><div><span>a</span><div>b</div><span>c</span></div></body>
 tree	<body><div id=a data-x="X">a</div></body>	#a::before { content: attr(data-x) " - " counter(c) } #a { counter-reset: c 5 }
-!tree	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canvas></body>
+tree	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canvas></body>
 tree	<body><h1>Title</h1><hr><h2>Sub</h2></body>
 tree	<body><div style="content-visibility:hidden">hidden <span>x</span></div><div>y</div></body>
 tree	<body><div style="visibility:hidden">a</div><div style="font-size:20px">b <span style="font-size:2em">c</span></div></body>
@@ -64,7 +64,7 @@ nodes	<body><pre>line1\nline2\n\tindented</pre></body>
 nodes	<body><b>bold <i>italic <div>block</div> more</i> end</b></body>
 nodes	<body><div>text<div>block</div>text2</div><div><span>a</span><div>b</div><span>c</span></div></body>
 nodes	<body><div id=a data-x="X">a</div></body>	#a::before { content: attr(data-x) " - " counter(c) } #a { counter-reset: c 5 }
-!nodes	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canvas></body>
+nodes	<body><canvas width=30 height=20></canvas><canvas width=0 height=10></canvas></body>
 nodes	<body><h1>Title</h1><hr><h2>Sub</h2></body>
 nodes	<body><div style="content-visibility:hidden">hidden <span>x</span></div><div>y</div></body>
 nodes	<body><div style="visibility:hidden">a</div><div style="font-size:20px">b <span style="font-size:2em">c</span></div></body>
