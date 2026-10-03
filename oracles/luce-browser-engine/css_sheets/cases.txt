@@ -1,0 +1,147 @@
+# Whole sheets: the rule list, each rule's class, type and cssText (recursively).
+sheet	
+sheet	a {}
+sheet	a, b > c, .x#y {}
+sheet	a {} b {} c {}
+sheet	a { b {} }
+sheet	a { & b {} .c {} }
+sheet	a { b { c {} } }
+sheet	@layer x;
+sheet	@layer x, y.z, w;
+sheet	@layer x { a {} }
+sheet	@layer { a {} }
+sheet	@layer x {}
+sheet	@layer x { @layer y { a {} } b {} }
+sheet	@layer a, b; @layer a { x {} } @layer { y {} }
+!sheet	@namespace url(http://www.w3.org/2000/svg);
+!sheet	@namespace svg url(http://www.w3.org/2000/svg);
+!sheet	@namespace svg "http://www.w3.org/2000/svg";
+!sheet	@namespace svg url(http://www.w3.org/2000/svg); svg|rect {}
+!sheet	@namespace a url(x); @namespace b url(y); a|p {} b|q {} *|r {}
+!sheet	a {} @namespace x url(y);
+sheet	@page {}
+sheet	@page :first {}
+sheet	@page foo:left, bar {}
+sheet	@page { @top-left {} }
+sheet	@keyframes foo {}
+sheet	@keyframes "bar" {}
+sheet	@function --foo() {}
+!sheet	@function --foo(--a, --b) {}
+sheet	@function --foo() { @layer x {} }
+sheet	a {} @layer x; b { c {} }
+sheet	@unknown { a {} } b {}
+sheet	a { @layer x { b {} } }
+sheet	:is(a, b) {} ::before {} a:hover {}
+# The dump of each rule (Dump.cpp's dump_rule).
+dump	a, b {}
+dump	a { b {} }
+dump	@layer x, y;
+dump	@layer x { a {} }
+!dump	@namespace svg url(http://www.w3.org/2000/svg);
+dump	@page :first {}
+dump	@keyframes foo {}
+# CSSStyleSheet.insertRule() and deleteRule().
+!insert	a {}	b {}	0
+!insert	a {}	b {}	1
+!insert	a {}	b {}	2
+!insert	a {}	bogus {	0
+!insert	a {}	@layer x;	0
+!insert	a {}	@namespace x url(y);	0
+!insert	a {}	@namespace x url(y);	1
+!insert	@namespace x url(y);	@namespace z url(w);	1
+!insert	@namespace x url(y);	@namespace z url(w);	0
+!insert	@namespace x url(y);	a {}	1
+!insert	@namespace x url(y);	a {}	0
+!insert	@layer a; a {}	@layer b;	1
+!insert	a {}	b {} c {}	0
+!insert	a {}	@layer x { y {} }	1
+!insert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
+!insert	a {}	q|a {}	1
+!delete	a {} b {}	0
+!delete	a {} b {}	1
+!delete	a {} b {}	2
+!delete	@namespace x url(y);	0
+!delete	@namespace x url(y); a {}	0
+!delete	@namespace x url(y); @namespace z url(w);	0
+# CSSStyleSheet.addRule().
+!addrule	a {}	b	-	-
+!addrule	a {}	b	-	0
+!addrule	a {}	-	-	-
+!addrule	a {}	b	-	5
+# CSSGroupingRule.insertRule() and deleteRule().
+ginsert	a {}	b {}	0
+ginsert	a { c {} }	b {}	1
+ginsert	a { c {} }	b {}	2
+!ginsert	a {}	@namespace x url(y);	0
+ginsert	a {}	@layer x;	0
+ginsert	@layer x { a {} }	b {}	0
+ginsert	@layer x { a {} }	@layer y { c {} }	1
+ginsert	a {}	bogus	0
+gdelete	a { b {} c {} }	0
+gdelete	a { b {} c {} }	2
+gdelete	@layer x { a {} }	0
+# CSSStyleRule.selectorText.
+!selector	a {}	b
+!selector	a {}	b, c > d
+!selector	a {}	!!!
+!selector	a {}	
+!selector	a { b {} }	c
+# CSSPageRule.selectorText.
+pageselector	@page {}	:first
+pageselector	@page :left {}	foo:right, bar
+pageselector	@page :left {}	!!
+# The namespace caches.
+!namespace	@namespace url(http://example.com/default);	
+!namespace	@namespace svg url(http://www.w3.org/2000/svg);	svg
+!namespace	@namespace svg url(http://www.w3.org/2000/svg);	html
+!namespace	@namespace svg url(x); @namespace url(y); @namespace svg url(z);	svg
+!namespace	a {} @namespace svg url(x);	svg
+!namespace	@layer a; @namespace svg url(x);	svg
+# Cascade layer names.
+layers	@layer x { a {} }
+layers	@layer { a {} } @layer { b {} }
+layers	@layer x { @layer y { a {} } }
+layers	@layer x { @layer y, z; }
+layers	@layer x.y { a { b {} } }
+layers	a {}
+# CSSRuleList's "insert a CSS rule" and "remove a CSS rule" on a sheet's rules (insertRule() and
+# deleteRule() without the owner invalidation, which is region r42's).
+listinsert	a {}	b {}	0
+listinsert	a {}	b {}	1
+listinsert	a {}	b {}	2
+listinsert	a {}	bogus {	0
+listinsert	a {}	bogus	0
+listinsert	a {}	@layer x;	0
+listinsert	a {}	b {} c {}	0
+listinsert	a {}	@layer x { y {} }	1
+listinsert	@layer a; a {}	@layer b;	1
+listinsert	@layer a; a {}	@layer b;	2
+listinsert	a {}	q|a {}	1
+!listinsert	a {}	@namespace x url(y);	0
+!listinsert	@namespace x url(y);	a {}	0
+!listinsert	@namespace x url(y);	@namespace z url(w);	1
+!listinsert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
+listremove	a {} b {}	0
+listremove	a {} b {}	1
+listremove	a {} b {}	2
+listremove	@layer x; a {}	0
+!listremove	@namespace x url(y); a {}	0
+!listremove	@namespace x url(y);	0
+# CSSStyleRule.selectorText of a rule out of its sheet (no owners to invalidate).
+selectorfree	a {}	b
+selectorfree	a {}	b, c > d
+selectorfree	a {}	!!!
+selectorfree	a {}	
+selectorfree	a { b {} }	c
+selectorfree	a {}	:is(x, y)::before
+# Focused cases: objects made directly, and the operations the sheets above cannot reach yet.
+properties	
+descriptors	
+counterstyle	
+property	
+container	
+import	
+keyframe	
+names	
+nested	
+media	

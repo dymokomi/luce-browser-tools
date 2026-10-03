@@ -1,0 +1,757 @@
+case sheet	
+  rules 0
+case sheet	a {}
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case sheet	a, b > c, .x#y {}
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a, b > c, .x#y { }
+case sheet	a {} b {} c {}
+  rules 3
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSStyleRule type=1 internal=1 text=b { }
+    CSSStyleRule type=1 internal=1 text=c { }
+case sheet	a { b {} }
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  & b { }
+}
+      CSSStyleRule type=1 internal=1 text=& b { }
+case sheet	a { & b {} .c {} }
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  & b { }
+  & .c { }
+}
+      CSSStyleRule type=1 internal=1 text=& b { }
+      CSSStyleRule type=1 internal=1 text=& .c { }
+case sheet	a { b { c {} } }
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  & b {
+  & c { }
+}
+}
+      CSSStyleRule type=1 internal=1 text=& b {
+  & c { }
+}
+        CSSStyleRule type=1 internal=1 text=& c { }
+case sheet	@layer x;
+  rules 1
+    CSSLayerStatementRule type=0 internal=101 text=@layer x;
+case sheet	@layer x, y.z, w;
+  rules 1
+    CSSLayerStatementRule type=0 internal=101 text=@layer x, y.z, w;
+case sheet	@layer x { a {} }
+  rules 1
+    CSSLayerBlockRule type=0 internal=100 text=@layer x {
+  a { }
+}
+      CSSStyleRule type=1 internal=1 text=a { }
+case sheet	@layer { a {} }
+  rules 1
+    CSSLayerBlockRule type=0 internal=100 text=@layer {
+  a { }
+}
+      CSSStyleRule type=1 internal=1 text=a { }
+case sheet	@layer x {}
+  rules 1
+    CSSLayerBlockRule type=0 internal=100 text=@layer x {
+}
+case sheet	@layer x { @layer y { a {} } b {} }
+  rules 1
+    CSSLayerBlockRule type=0 internal=100 text=@layer x {
+  @layer y {
+  a { }
+}
+  b { }
+}
+      CSSLayerBlockRule type=0 internal=100 text=@layer y {
+  a { }
+}
+        CSSStyleRule type=1 internal=1 text=a { }
+      CSSStyleRule type=1 internal=1 text=b { }
+case sheet	@layer a, b; @layer a { x {} } @layer { y {} }
+  rules 3
+    CSSLayerStatementRule type=0 internal=101 text=@layer a, b;
+    CSSLayerBlockRule type=0 internal=100 text=@layer a {
+  x { }
+}
+      CSSStyleRule type=1 internal=1 text=x { }
+    CSSLayerBlockRule type=0 internal=100 text=@layer {
+  y { }
+}
+      CSSStyleRule type=1 internal=1 text=y { }
+later sheet	@namespace url(http://www.w3.org/2000/svg);
+  rules 1
+    CSSNamespaceRule type=10 internal=10 text=@namespace url("http://www.w3.org/2000/svg");
+later sheet	@namespace svg url(http://www.w3.org/2000/svg);
+  rules 1
+    CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
+later sheet	@namespace svg "http://www.w3.org/2000/svg";
+  rules 1
+    CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
+later sheet	@namespace svg url(http://www.w3.org/2000/svg); svg|rect {}
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
+    CSSStyleRule type=1 internal=1 text=svg|rect { }
+later sheet	@namespace a url(x); @namespace b url(y); a|p {} b|q {} *|r {}
+  rules 5
+    CSSNamespaceRule type=10 internal=10 text=@namespace a url("x");
+    CSSNamespaceRule type=10 internal=10 text=@namespace b url("y");
+    CSSStyleRule type=1 internal=1 text=a|p { }
+    CSSStyleRule type=1 internal=1 text=b|q { }
+    CSSStyleRule type=1 internal=1 text=r { }
+later sheet	a {} @namespace x url(y);
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case sheet	@page {}
+  rules 1
+    CSSPageRule type=6 internal=6 text=@page { }
+case sheet	@page :first {}
+  rules 1
+    CSSPageRule type=6 internal=6 text=@page :first { }
+case sheet	@page foo:left, bar {}
+  rules 1
+    CSSPageRule type=6 internal=6 text=@page foo:left, bar { }
+case sheet	@page { @top-left {} }
+  rules 1
+    CSSPageRule type=6 internal=6 text=@page { @top-left { } }
+      CSSMarginRule type=9 internal=9 text=@top-left { }
+case sheet	@keyframes foo {}
+  rules 1
+    CSSKeyframesRule type=7 internal=7 text=@keyframes "foo" { }
+case sheet	@keyframes "bar" {}
+  rules 1
+    CSSKeyframesRule type=7 internal=7 text=@keyframes "bar" { }
+case sheet	@function --foo() {}
+  rules 1
+    CSSFunctionRule type=0 internal=104 text=@function --foo() { }
+later sheet	@function --foo(--a, --b) {}
+  rules 1
+    CSSFunctionRule type=0 internal=104 text=@function --foo(--a, --b) { }
+case sheet	@function --foo() { @layer x {} }
+  rules 1
+    CSSFunctionRule type=0 internal=104 text=@function --foo() { }
+case sheet	a {} @layer x; b { c {} }
+  rules 3
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSLayerStatementRule type=0 internal=101 text=@layer x;
+    CSSStyleRule type=1 internal=1 text=b {
+  & c { }
+}
+      CSSStyleRule type=1 internal=1 text=& c { }
+case sheet	@unknown { a {} } b {}
+  rules 1
+    CSSStyleRule type=1 internal=1 text=b { }
+case sheet	a { @layer x { b {} } }
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  @layer x {
+  & b { }
+}
+}
+      CSSLayerBlockRule type=0 internal=100 text=@layer x {
+  & b { }
+}
+        CSSStyleRule type=1 internal=1 text=& b { }
+case sheet	:is(a, b) {} ::before {} a:hover {}
+  rules 3
+    CSSStyleRule type=1 internal=1 text=:is(a, b) { }
+    CSSStyleRule type=1 internal=1 text=::before { }
+    CSSStyleRule type=1 internal=1 text=a:hover { }
+case dump	a, b {}
+  dump:   CSSStyleRule:
+  dump:     CSS::Selector:
+  dump:       {None} TagName:NamespaceType=Default, Namespace='', Name='a'
+  dump:     CSS::Selector:
+  dump:       {None} TagName:NamespaceType=Default, Namespace='', Name='b'
+  dump:     Declarations (0):
+  dump:     Child rules (0):
+case dump	a { b {} }
+  dump:   CSSStyleRule:
+  dump:     CSS::Selector:
+  dump:       {None} TagName:NamespaceType=Default, Namespace='', Name='a'
+  dump:     Declarations (0):
+  dump:     Child rules (1):
+  dump:       CSSStyleRule:
+  dump:         CSS::Selector:
+  dump:           {None} Nesting:
+  dump:           {Descendant} TagName:NamespaceType=Default, Namespace='', Name='b'
+  dump:         Declarations (0):
+  dump:         Child rules (0):
+case dump	@layer x, y;
+  dump:   CSSLayerStatementRule:
+  dump:     Names: x, y
+case dump	@layer x { a {} }
+  dump:   CSSLayerBlockRule:
+  dump:     Name: `x` (internal `x`)
+  dump:     Rules (1):
+  dump:       CSSStyleRule:
+  dump:         CSS::Selector:
+  dump:           {None} TagName:NamespaceType=Default, Namespace='', Name='a'
+  dump:         Declarations (0):
+  dump:         Child rules (0):
+later dump	@namespace svg url(http://www.w3.org/2000/svg);
+  dump:   CSSNamespaceRule:
+  dump:     Namespace: http://www.w3.org/2000/svg
+  dump:     Prefix: svg
+case dump	@page :first {}
+  dump:   CSSPageRule:
+  dump:     Selector: :first
+  dump:     Declarations (0):
+  dump:     Rules (0):
+case dump	@keyframes foo {}
+  dump:   CSSKeyframesRule:
+  dump:     Name: foo
+  dump:     Keyframes (0):
+later insert	a {}	b {}	0
+  inserted at 0
+  rules 2
+    CSSStyleRule type=1 internal=1 text=b { }
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	a {}	b {}	1
+  inserted at 1
+  rules 2
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSStyleRule type=1 internal=1 text=b { }
+later insert	a {}	b {}	2
+  exception IndexSizeError: CSS rule index out of bounds.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	a {}	bogus {	0
+  inserted at 0
+  rules 2
+    CSSStyleRule type=1 internal=1 text=bogus { }
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	a {}	@layer x;	0
+  inserted at 0
+  rules 2
+    CSSLayerStatementRule type=0 internal=101 text=@layer x;
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	a {}	@namespace x url(y);	0
+  exception InvalidStateError: Cannot insert @namespace rule into a stylesheet with non-namespace/import rules
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	a {}	@namespace x url(y);	1
+  exception HierarchyRequestError: Cannot insert rule at specified index.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	@namespace x url(y);	@namespace z url(w);	1
+  inserted at 1
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
+    CSSNamespaceRule type=10 internal=10 text=@namespace z url("w");
+later insert	@namespace x url(y);	@namespace z url(w);	0
+  inserted at 0
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace z url("w");
+    CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
+later insert	@namespace x url(y);	a {}	1
+  inserted at 1
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	@namespace x url(y);	a {}	0
+  exception HierarchyRequestError: Cannot insert rule at specified index.
+  rules 1
+    CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
+later insert	@layer a; a {}	@layer b;	1
+  inserted at 1
+  rules 3
+    CSSLayerStatementRule type=0 internal=101 text=@layer a;
+    CSSLayerStatementRule type=0 internal=101 text=@layer b;
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	a {}	b {} c {}	0
+  exception SyntaxError: Unable to parse CSS rule.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later insert	a {}	@layer x { y {} }	1
+  inserted at 1
+  rules 2
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSLayerBlockRule type=0 internal=100 text=@layer x {
+  y { }
+}
+      CSSStyleRule type=1 internal=1 text=y { }
+later insert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
+  inserted at 1
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
+    CSSStyleRule type=1 internal=1 text=svg|a { }
+later insert	a {}	q|a {}	1
+  exception SyntaxError: Unable to parse CSS rule.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later delete	a {} b {}	0
+  deleted
+  rules 1
+    CSSStyleRule type=1 internal=1 text=b { }
+later delete	a {} b {}	1
+  deleted
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later delete	a {} b {}	2
+  exception IndexSizeError: CSS rule index out of bounds.
+  rules 2
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSStyleRule type=1 internal=1 text=b { }
+later delete	@namespace x url(y);	0
+  deleted
+  rules 0
+later delete	@namespace x url(y); a {}	0
+  exception InvalidStateError: Cannot remove @namespace rule from a stylesheet with non-namespace/import rules.
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
+    CSSStyleRule type=1 internal=1 text=a { }
+later delete	@namespace x url(y); @namespace z url(w);	0
+  deleted
+  rules 1
+    CSSNamespaceRule type=10 internal=10 text=@namespace z url("w");
+later addrule	a {}	b	-	-
+  returned -1
+  rules 2
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSStyleRule type=1 internal=1 text=b { }
+later addrule	a {}	b	-	0
+  returned -1
+  rules 2
+    CSSStyleRule type=1 internal=1 text=b { }
+    CSSStyleRule type=1 internal=1 text=a { }
+later addrule	a {}	-	-	-
+  exception SyntaxError: Unable to parse CSS rule.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later addrule	a {}	b	-	5
+  exception IndexSizeError: CSS rule index out of bounds.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case ginsert	a {}	b {}	0
+  inserted at 0
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  b { }
+}
+      CSSStyleRule type=1 internal=1 text=b { }
+case ginsert	a { c {} }	b {}	1
+  inserted at 1
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  & c { }
+  b { }
+}
+      CSSStyleRule type=1 internal=1 text=& c { }
+      CSSStyleRule type=1 internal=1 text=b { }
+case ginsert	a { c {} }	b {}	2
+  exception IndexSizeError: CSS rule index out of bounds.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  & c { }
+}
+      CSSStyleRule type=1 internal=1 text=& c { }
+later ginsert	a {}	@namespace x url(y);	0
+  exception HierarchyRequestError: Cannot insert rule at specified index.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case ginsert	a {}	@layer x;	0
+  inserted at 0
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  @layer x;
+}
+      CSSLayerStatementRule type=0 internal=101 text=@layer x;
+case ginsert	@layer x { a {} }	b {}	0
+  inserted at 0
+  rules 1
+    CSSLayerBlockRule type=0 internal=100 text=@layer x {
+  b { }
+  a { }
+}
+      CSSStyleRule type=1 internal=1 text=b { }
+      CSSStyleRule type=1 internal=1 text=a { }
+case ginsert	@layer x { a {} }	@layer y { c {} }	1
+  inserted at 1
+  rules 1
+    CSSLayerBlockRule type=0 internal=100 text=@layer x {
+  a { }
+  @layer y {
+  c { }
+}
+}
+      CSSStyleRule type=1 internal=1 text=a { }
+      CSSLayerBlockRule type=0 internal=100 text=@layer y {
+  c { }
+}
+        CSSStyleRule type=1 internal=1 text=c { }
+case ginsert	a {}	bogus	0
+  exception SyntaxError: Unable to parse CSS declarations block.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case gdelete	a { b {} c {} }	0
+  deleted
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  & c { }
+}
+      CSSStyleRule type=1 internal=1 text=& c { }
+case gdelete	a { b {} c {} }	2
+  exception IndexSizeError: CSS rule index out of bounds.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a {
+  & b { }
+  & c { }
+}
+      CSSStyleRule type=1 internal=1 text=& b { }
+      CSSStyleRule type=1 internal=1 text=& c { }
+case gdelete	@layer x { a {} }	0
+  deleted
+  rules 1
+    CSSLayerBlockRule type=0 internal=100 text=@layer x {
+}
+later selector	a {}	b
+  selectorText b
+  rules 1
+    CSSStyleRule type=1 internal=1 text=b { }
+later selector	a {}	b, c > d
+  selectorText b, c > d
+  rules 1
+    CSSStyleRule type=1 internal=1 text=b, c > d { }
+later selector	a {}	!!!
+  selectorText a
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later selector	a {}	
+  selectorText a
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later selector	a { b {} }	c
+  selectorText c
+  rules 1
+    CSSStyleRule type=1 internal=1 text=c {
+  & b { }
+}
+      CSSStyleRule type=1 internal=1 text=& b { }
+case pageselector	@page {}	:first
+  selectorText :first
+  rules 1
+    CSSPageRule type=6 internal=6 text=@page :first { }
+case pageselector	@page :left {}	foo:right, bar
+  selectorText foo:right, bar
+  rules 1
+    CSSPageRule type=6 internal=6 text=@page foo:right, bar { }
+case pageselector	@page :left {}	!!
+  selectorText :left
+  rules 1
+    CSSPageRule type=6 internal=6 text=@page :left { }
+later namespace	@namespace url(http://example.com/default);	
+  namespace_uri 'http://example.com/default'
+  default 'http://example.com/default'
+  declared '' 
+  imports 0
+later namespace	@namespace svg url(http://www.w3.org/2000/svg);	svg
+  namespace_uri 'http://www.w3.org/2000/svg'
+  default none
+  declared 'svg' 
+  imports 0
+later namespace	@namespace svg url(http://www.w3.org/2000/svg);	html
+  namespace_uri none
+  default none
+  declared 'svg' 
+  imports 0
+later namespace	@namespace svg url(x); @namespace url(y); @namespace svg url(z);	svg
+  namespace_uri 'z'
+  default 'y'
+  declared '' 'svg' 
+  imports 0
+later namespace	a {} @namespace svg url(x);	svg
+  namespace_uri none
+  default none
+  declared 
+  imports 0
+later namespace	@layer a; @namespace svg url(x);	svg
+  namespace_uri none
+  default none
+  declared 
+  imports 0
+case layers	@layer x { a {} }
+  block name='x' qualified='x'
+  style 'a' layer='x'
+case layers	@layer { a {} } @layer { b {} }
+  block name='' qualified='#3'
+  style 'a' layer='#3'
+  block name='' qualified='#4'
+  style 'b' layer='#4'
+case layers	@layer x { @layer y { a {} } }
+  block name='x' qualified='x'
+  block name='y' qualified='x.y'
+  style 'a' layer='x.y'
+case layers	@layer x { @layer y, z; }
+  block name='x' qualified='x'
+  statement 'x.y,x.z'
+case layers	@layer x.y { a { b {} } }
+  block name='x.y' qualified='x.y'
+  style 'a' layer='x.y'
+  style '& b' layer='x.y'
+case layers	a {}
+  style 'a' layer=''
+case listinsert	a {}	b {}	0
+  inserted at 0
+  rules 2
+    CSSStyleRule type=1 internal=1 text=b { }
+    CSSStyleRule type=1 internal=1 text=a { }
+case listinsert	a {}	b {}	1
+  inserted at 1
+  rules 2
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSStyleRule type=1 internal=1 text=b { }
+case listinsert	a {}	b {}	2
+  exception IndexSizeError: CSS rule index out of bounds.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case listinsert	a {}	bogus {	0
+  inserted at 0
+  rules 2
+    CSSStyleRule type=1 internal=1 text=bogus { }
+    CSSStyleRule type=1 internal=1 text=a { }
+case listinsert	a {}	bogus	0
+  exception SyntaxError: Unable to parse CSS rule.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case listinsert	a {}	@layer x;	0
+  inserted at 0
+  rules 2
+    CSSLayerStatementRule type=0 internal=101 text=@layer x;
+    CSSStyleRule type=1 internal=1 text=a { }
+case listinsert	a {}	b {} c {}	0
+  exception SyntaxError: Unable to parse CSS rule.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case listinsert	a {}	@layer x { y {} }	1
+  inserted at 1
+  rules 2
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSLayerBlockRule type=0 internal=100 text=@layer x {
+  y { }
+}
+      CSSStyleRule type=1 internal=1 text=y { }
+case listinsert	@layer a; a {}	@layer b;	1
+  inserted at 1
+  rules 3
+    CSSLayerStatementRule type=0 internal=101 text=@layer a;
+    CSSLayerStatementRule type=0 internal=101 text=@layer b;
+    CSSStyleRule type=1 internal=1 text=a { }
+case listinsert	@layer a; a {}	@layer b;	2
+  inserted at 2
+  rules 3
+    CSSLayerStatementRule type=0 internal=101 text=@layer a;
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSLayerStatementRule type=0 internal=101 text=@layer b;
+case listinsert	a {}	q|a {}	1
+  exception SyntaxError: Unable to parse CSS rule.
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later listinsert	a {}	@namespace x url(y);	0
+  exception InvalidStateError: Cannot insert @namespace rule into a stylesheet with non-namespace/import rules
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later listinsert	@namespace x url(y);	a {}	0
+  exception HierarchyRequestError: Cannot insert rule at specified index.
+  rules 1
+    CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
+later listinsert	@namespace x url(y);	@namespace z url(w);	1
+  inserted at 1
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
+    CSSNamespaceRule type=10 internal=10 text=@namespace z url("w");
+later listinsert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
+  inserted at 1
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
+    CSSStyleRule type=1 internal=1 text=svg|a { }
+case listremove	a {} b {}	0
+  deleted
+  rules 1
+    CSSStyleRule type=1 internal=1 text=b { }
+case listremove	a {} b {}	1
+  deleted
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case listremove	a {} b {}	2
+  exception IndexSizeError: CSS rule index out of bounds.
+  rules 2
+    CSSStyleRule type=1 internal=1 text=a { }
+    CSSStyleRule type=1 internal=1 text=b { }
+case listremove	@layer x; a {}	0
+  deleted
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+later listremove	@namespace x url(y); a {}	0
+  exception InvalidStateError: Cannot remove @namespace rule from a stylesheet with non-namespace/import rules.
+  rules 2
+    CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
+    CSSStyleRule type=1 internal=1 text=a { }
+later listremove	@namespace x url(y);	0
+  deleted
+  rules 0
+case selectorfree	a {}	b
+  selectorText b
+  rules 1
+    CSSStyleRule type=1 internal=1 text=b { }
+case selectorfree	a {}	b, c > d
+  selectorText b, c > d
+  rules 1
+    CSSStyleRule type=1 internal=1 text=b, c > d { }
+case selectorfree	a {}	!!!
+  selectorText a
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case selectorfree	a {}	
+  selectorText a
+  rules 1
+    CSSStyleRule type=1 internal=1 text=a { }
+case selectorfree	a { b {} }	c
+  selectorText c
+  rules 1
+    CSSStyleRule type=1 internal=1 text=c {
+  & b { }
+}
+      CSSStyleRule type=1 internal=1 text=& b { }
+case selectorfree	a {}	:is(x, y)::before
+  selectorText :is(x, y)::before
+  rules 1
+    CSSStyleRule type=1 internal=1 text=:is(x, y)::before { }
+case properties	
+  length 0 computed false readonly false
+  item0 '' cssText ''
+  color '' priority '' --x '' bogus ''
+  margin '' cssFloat '' generated color ''
+  remove color ''
+  set color '' ok true
+  set color priority bogus ok true
+  set bogus ok true
+  generated set_color '' ok true
+  cssText '' ok true length 0
+  has color false custom count 0
+  serialize list ''
+  resolved length 0 computed true readonly true item0 '' cssText '' color ''
+  exception NoModificationAllowedError: Cannot modify properties in result of getComputedStyle()
+  exception NoModificationAllowedError: Cannot remove property: CSSStyleProperties is read-only.
+  exception NoModificationAllowedError: Cannot modify properties: CSSStyleProperties is read-only.
+case descriptors	
+  length 0 item0 '' cssText '' src '' family '' priority ''
+  set bogus ok true set src '' ok true remove src '' remove bogus ''
+  cssText '' ok true
+  rule valid false text '@font-face { }' parent ok true
+  dump:   CSSFontFaceRule:
+  dump:     Valid: false
+  dump:     Declarations (0):
+  page margin '' margin-top '' size '' shorthand margin true margin-top false font-face src false
+  page margin longhands margin-top:null margin-right:null margin-bottom:null margin-left:null 
+  page remove margin ''
+  function result ''
+case counterstyle	
+  text '@counter-style foo { }' name 'foo' system '' symbols '' speak-as ''
+  set_name none -> foo
+  set_name DISC -> foo
+  set_name Decimal -> foo
+  set_name lower-ROMAN -> lower-roman
+  set_name Upper-Alpha -> upper-alpha
+  set_name bar -> bar
+  set_name Baz -> Baz
+  non-overridable decimal true
+  non-overridable DISC true
+  non-overridable square true
+  non-overridable circle true
+  non-overridable disclosure-open true
+  non-overridable disclosure-closed true
+  non-overridable foo false
+  non-overridable none false
+case property	
+  text '@property --my-prop { syntax: "*"; inherits: false; }' initial 'none'
+  text '@property --a\ b { syntax: "<length> | auto"; inherits: true; }' inherits true
+  dump:   CSSPropertyRule:
+  dump:     Name: --a b
+  dump:     Syntax: <length> | auto
+  dump:     Inherits: true
+case container	
+  text '@container sidebar {
+}' condition 'sidebar' name 'sidebar' query '' conditions 1
+  text '@container a\ b,  {
+}' name '' conditions 2
+  effective preorder CSSLayerStatementRule CSSLayerBlockRule CSSStyleRule CSSPageRule 
+  effective postorder CSSLayerStatementRule CSSStyleRule CSSLayerBlockRule CSSPageRule 
+case import	
+  text '@import url("foo.css");' href 'foo.css' layerName 'null' supportsText 'null' matches true state Unloaded
+  dump:   CSSImportRule:
+  dump:     Document URL: url("foo.css")
+  dump:     Loading state: Unloaded
+  dump:     Style sheet not loaded
+  text '@import url("foo.css") layer;' href 'foo.css' layerName '' supportsText 'null' matches true state Unloaded
+  dump:   CSSImportRule:
+  dump:     Document URL: url("foo.css")
+  dump:     Loading state: Unloaded
+  dump:     Layer: <anonymous>
+  dump:     Style sheet not loaded
+  text '@import url("foo.css") layer(x.y);' href 'foo.css' layerName 'x.y' supportsText 'null' matches true state Unloaded
+  dump:   CSSImportRule:
+  dump:     Document URL: url("foo.css")
+  dump:     Loading state: Unloaded
+  dump:     Layer: <anonymous>
+  dump:     Style sheet not loaded
+case keyframe	
+  text '50% {  }' key '50%'
+  text '12.5% {  }' key '12.5%'
+  text '@keyframes "spin" { 50% {  } 12.5% {  } }' length 2 parent ok true
+  dump:   CSSKeyframesRule:
+  dump:     Name: spin
+  dump:     Keyframes (2):
+  dump:       CSSKeyframeRule:
+  dump:         Key: 50%
+  dump:         Declarations (0):
+  dump:       CSSKeyframeRule:
+  dump:         Key: 12.5%
+  dump:         Declarations (0):
+case names	
+  margin top-left-corner true
+  margin TOP-LEFT true
+  margin top-center true
+  margin right-bottom true
+  margin left-middle true
+  margin top false
+  margin bottom-middle false
+  margin  false
+  feature stylistic true
+  feature historical-forms true
+  feature styleset true
+  feature character-variant true
+  feature swash true
+  feature ornaments true
+  feature annotation true
+  feature Swash false
+  feature font false
+  identifier StyleElement 0
+  identifier LinkElement 1
+  identifier ImportRule 2
+  identifier UserAgent 3
+  identifier UserStyle 4
+  identifier bogus false
+  loading state Unloaded
+  loading state Loading
+  loading state Loaded
+  loading state Error
+  escape a
+  escape a\ b
+  escape \31 x
+  escape \-
+  escape --x
+  escape é
+case nested	
+  text '' parent ok true
+  dump:   CSSNestedDeclarations:
+  dump:     Declarations (0):
+case media	
+  length 0 matches true item0 none
+  after '' length 0
+  dump:   Media list (0):
+  sheet type text/css disabled false alternate false origin-clean true href none title none
+  title t href https://example.com/a/b.css loading Loaded
