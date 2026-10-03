@@ -1758,7 +1758,7 @@ case paint	<!DOCTYPE html><div class="wrap">Text before <div class="fl">float</d
   hit 360,296 exact ViewportPaintable(Viewport<#document>) 0 cursor ViewportPaintable(Viewport<#document>) 0
   hit 381,296 exact ViewportPaintable(Viewport<#document>) 0 cursor ViewportPaintable(Viewport<#document>) 0
   hit 402,296 exact ViewportPaintable(Viewport<#document>) 0 cursor ViewportPaintable(Viewport<#document>) 0
-later paintables	<!DOCTYPE html><div class="r1">a</div><div class="r2">b</div><div class="r3">c</div><div class="r4">d</div>	div { width: 100px; height: 50px; margin: 5px; } .r1 { border-radius: 10px 20px 30px 40px; border: 3px solid; outline: 2px solid; outline-offset: 4px; } .r2 { border-radius: 50%; border-width: 5px 1px 7px 2px; border-style: solid; } .r3 { border-radius: 80px 80px 10px 10px / 40px 40px 5px 5px; } .r4 { border-top-left-radius: 200px; outline-offset: -3px; }
+case paintables	<!DOCTYPE html><div class="r1">a</div><div class="r2">b</div><div class="r3">c</div><div class="r4">d</div>	div { width: 100px; height: 50px; margin: 5px; } .r1 { border-radius: 10px 20px 30px 40px; border: 3px solid; outline: 2px solid; outline-offset: 4px; } .r2 { border-radius: 50%; border-width: 5px 1px 7px 2px; border-style: solid; } .r3 { border-radius: 80px 80px 10px 10px / 40px 40px 5px 5px; } .r4 { border-top-left-radius: 200px; outline-offset: -3px; }
   #0 ViewportPaintable(Viewport<#document>) positioned 0 fixed 0 sticky 0 abspos 0 floating 0 inline 0 visible 1 hittable 1 sc 1
     containing_block -
     agnostic [0,0]
