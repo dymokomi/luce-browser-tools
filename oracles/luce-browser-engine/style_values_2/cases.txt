@@ -346,10 +346,10 @@ type:font-style	italic
 type:font-style	normal
 prop:font-style	oblique 1rad
 prop:font-style	italic
-!desc:font-face/src	url(foo.woff2) format(woff2)
-!desc:font-face/src	url(foo.ttf) format("truetype") tech(variations, color-COLRv1)
+desc:font-face/src	url(foo.woff2) format(woff2)
+desc:font-face/src	url(foo.ttf) format("truetype") tech(variations, color-COLRv1)
 desc:font-face/src	local(Foo), local("Bar Baz"), url(a.woff)
-!desc:font-face/src	url(a.woff) tech(palettes)
+desc:font-face/src	url(a.woff) tech(palettes)
 desc:font-face/font-style	oblique 10deg 20deg
 # Counters
 type:counter	counter(foo)

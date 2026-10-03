@@ -1,0 +1,1102 @@
+case media	screen
+  list: screen
+  query: screen
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: false
+    dump:   Type: screen
+case media	print
+  list: print
+  query: print
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: print
+case media	all
+  list: all
+  query: all
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: false
+    dump:   Type: all
+case media	not print
+  list: not print
+  query: not print
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: true
+    dump:   Type: print
+case media	not screen
+  list: not screen
+  query: not screen
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: true
+    dump:   Type: screen
+case media	only screen
+  list: screen
+  query: screen
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: false
+    dump:   Type: screen
+case media	tv
+  list: tv
+  query: tv
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: tv
+case media	not tv
+  list: not tv
+  query: not tv
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: true
+    dump:   Type: tv
+case media	SCREEN and (color)
+  list: screen and (color)
+  query: screen and (color)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: SCREEN
+    dump:   Condition:
+    dump:     MediaFeature: (color)
+case media	(min-width: 100px)
+  list: (min-width: 100px)
+  query: (min-width: 100px)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (min-width: 100px)
+case media	(width >= 600px)
+  list: (width >= 600px)
+  query: (width >= 600px)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (width >= 600px)
+case media	(400px <= width < 800px)
+  list: (400px <= width < 800px)
+  query: (400px <= width < 800px)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (400px <= width < 800px)
+case media	(max-width: 50em) and (orientation: landscape)
+  list: (max-width: 50em) and (orientation: landscape)
+  query: (max-width: 50em) and (orientation: landscape)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     AND:
+    dump:       MediaFeature: (max-width: 50em)
+    dump:       MediaFeature: (orientation: landscape)
+case media	screen, print and (color)
+  list: screen, print and (color)
+  query: screen
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: false
+    dump:   Type: screen
+  query: print and (color)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: print
+    dump:   Condition:
+    dump:     MediaFeature: (color)
+case media	not all and (monochrome)
+  list: not all and (monochrome)
+  query: not all and (monochrome)
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: true
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (monochrome)
+case media	(color) or (hover)
+  list: (color) or (hover)
+  query: (color) or (hover)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     OR:
+    dump:       MediaFeature: (color)
+    dump:       MediaFeature: (hover)
+case media	not (color)
+  list: not (color)
+  query: not (color)
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     NOT:
+    dump:       MediaFeature: (color)
+case media	(not (color)) and (hover: none)
+  list: (not (color)) and (hover: none)
+  query: (not (color)) and (hover: none)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     AND:
+    dump:       (
+    dump:         NOT:
+    dump:           MediaFeature: (color)
+    dump:       )
+    dump:       MediaFeature: (hover: none)
+case media	(aspect-ratio: 16/9)
+  list: (aspect-ratio: 16 / 9)
+  query: (aspect-ratio: 16 / 9)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (aspect-ratio: 16 / 9)
+case media	(min-resolution: 2dppx)
+  list: (min-resolution: 2dppx)
+  query: (min-resolution: 2dppx)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (min-resolution: 2dppx)
+case media	(prefers-color-scheme: dark)
+  list: (prefers-color-scheme: dark)
+  query: (prefers-color-scheme: dark)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (prefers-color-scheme: dark)
+case media	(scripting)
+  list: (scripting)
+  query: (scripting)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (scripting)
+case media	(inverted-colors)
+  list: (inverted-colors)
+  query: (inverted-colors)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (inverted-colors)
+case media	(foo)
+  list: (foo)
+  query: (foo)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     GeneralEnclosed: (foo)
+case media	(width: bogus)
+  list: (width: bogus)
+  query: (width: bogus)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (width: bogus)
+case media	screen and
+  list: not all
+  query: not all
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: true
+    dump:   Type: all
+case media	
+  list: 
+case media	(width > 100px) and (width < 200px), (height)
+  list: (width > 100px) and (width < 200px), (height)
+  query: (width > 100px) and (width < 200px)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     AND:
+    dump:       MediaFeature: (width > 100px)
+    dump:       MediaFeature: (width < 200px)
+  query: (height)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (height)
+case media	(100px < width)
+  list: (100px < width)
+  query: (100px < width)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (100px < width)
+case media	(color: 8)
+  list: (color: 8)
+  query: (color: 8)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (color: 8)
+case media	(grid: 0)
+  list: (grid: 0)
+  query: (grid: 0)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (grid: 0)
+case media	(display-mode: standalone)
+  list: (display-mode: standalone)
+  query: (display-mode: standalone)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     MediaFeature: (display-mode: standalone)
+case media	screen and (monochrome) and (not (color))
+  list: screen and (monochrome) and (not (color))
+  query: screen and (monochrome) and (not (color))
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: screen
+    dump:   Condition:
+    dump:     AND:
+    dump:       MediaFeature: (monochrome)
+    dump:       (
+    dump:         NOT:
+    dump:           MediaFeature: (color)
+    dump:       )
+case media	(min-color: 2) or (max-color: 1)
+  list: (min-color: 2) or (max-color: 1)
+  query: (min-color: 2) or (max-color: 1)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     OR:
+    dump:       MediaFeature: (min-color: 2)
+    dump:       MediaFeature: (max-color: 1)
+case media	(hover: hover) or (pointer: fine)
+  list: (hover: hover) or (pointer: fine)
+  query: (hover: hover) or (pointer: fine)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: all
+    dump:   Condition:
+    dump:     OR:
+    dump:       MediaFeature: (hover: hover)
+    dump:       MediaFeature: (pointer: fine)
+case media	unknown-type and (color)
+  list: unknown-type and (color)
+  query: unknown-type and (color)
+    matches: false
+    dump: Media condition: (matches = false)
+    dump:   Negated: false
+    dump:   Type: unknown-type
+    dump:   Condition:
+    dump:     MediaFeature: (color)
+case media	not ANY
+  list: not any
+  query: not any
+    matches: true
+    dump: Media condition: (matches = true)
+    dump:   Negated: true
+    dump:   Type: ANY
+case supports	(display: grid)
+  text: (display: grid)
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   (
+  dump:     Declaration: `display: grid`, matches=true
+  dump:   )
+case supports	(display: bogus)
+  text: (display: bogus)
+  matches: false
+  dump: Supports condition: (matches = false)
+  dump:   (
+  dump:     Declaration: `display: bogus`, matches=false
+  dump:   )
+case supports	not (display: grid)
+  text: not (display: grid)
+  matches: false
+  dump: Supports condition: (matches = false)
+  dump:   NOT:
+  dump:     (
+  dump:       Declaration: `display: grid`, matches=true
+  dump:     )
+case supports	(display: grid) and (color: red)
+  text: (display: grid) and (color: red)
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   AND:
+  dump:     (
+  dump:       Declaration: `display: grid`, matches=true
+  dump:     )
+  dump:     (
+  dump:       Declaration: `color: red`, matches=true
+  dump:     )
+case supports	(display: grid) or (display: bogus)
+  text: (display: grid) or (display: bogus)
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   OR:
+  dump:     (
+  dump:       Declaration: `display: grid`, matches=true
+  dump:     )
+  dump:     (
+  dump:       Declaration: `display: bogus`, matches=false
+  dump:     )
+case supports	selector(a > b)
+  text: selector(a > b)
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   Selector: `a > b` matches=true
+case supports	selector(:bogus)
+  text: selector(:bogus)
+  matches: false
+  dump: Supports condition: (matches = false)
+  dump:   Selector: `:bogus` matches=false
+later supports	font-tech(color-COLRv1)
+  text: font-tech(color-COLRv1)
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   FontTech: `color-COLRv1` matches=true
+later supports	font-tech(bogus)
+  text: font-tech(bogus)
+  matches: false
+  dump: Supports condition: (matches = false)
+  dump:   FontTech: `bogus` matches=false
+later supports	font-format(woff2)
+  text: font-format(woff2)
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   FontFormat: `woff2` matches=true
+later supports	font-format(bogus)
+  text: font-format(bogus)
+  matches: false
+  dump: Supports condition: (matches = false)
+  dump:   FontFormat: `bogus` matches=false
+case supports	env(safe-area-inset-top)
+  text: font-format(safe-area-inset-top)
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   FontFormat: `safe-area-inset-top` matches=true
+case supports	env(bogus)
+  text: font-format(bogus)
+  matches: false
+  dump: Supports condition: (matches = false)
+  dump:   FontFormat: `bogus` matches=false
+case supports	(color: red) and (not (display: bogus))
+  text: (color: red) and (not (display: bogus))
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   AND:
+  dump:     (
+  dump:       Declaration: `color: red`, matches=true
+  dump:     )
+  dump:     (
+  dump:       NOT:
+  dump:         (
+  dump:           Declaration: `display: bogus`, matches=false
+  dump:         )
+  dump:     )
+case supports	foo(bar)
+  text: foo(bar)
+  matches: false
+  dump: Supports condition: (matches = false)
+  dump:   GeneralEnclosed: foo(bar)
+case supports	bogus
+  none
+case supports	((display: grid))
+  text: ((display: grid))
+  matches: true
+  dump: Supports condition: (matches = true)
+  dump:   (
+  dump:     (
+  dump:       Declaration: `display: grid`, matches=true
+  dump:     )
+  dump:   )
+case container	@container (width > 100px) { a {} }
+  query: (width > 100px)
+    matches: false
+    dump: Container query: (matches = false)
+    dump:   GeneralEnclosed: (width > 100px)
+case container	@container card (orientation: portrait) { a {} }
+  query: (orientation: portrait)
+    matches: false
+    dump: Container query: (matches = false)
+    dump:   GeneralEnclosed: (orientation: portrait)
+case container	@container name { a {} }
+  no query
+case container	@container (min-width: 10px) and (max-height: 20px), other (inline-size) { a {} }
+  query: (min-width: 10px) and (max-height: 20px)
+    matches: false
+    dump: Container query: (matches = false)
+    dump:   AND:
+    dump:     GeneralEnclosed: (min-width: 10px)
+    dump:     GeneralEnclosed: (max-height: 20px)
+  query: (inline-size)
+    matches: false
+    dump: Container query: (matches = false)
+    dump:   GeneralEnclosed: (inline-size)
+case container	@container not (width) { a {} }
+  query: not (width)
+    matches: true
+    dump: Container query: (matches = true)
+    dump:   NOT:
+    dump:     GeneralEnclosed: (width)
+case container	@container (foo: bar) { a {} }
+  query: (foo: bar)
+    matches: false
+    dump: Container query: (matches = false)
+    dump:   GeneralEnclosed: (foo: bar)
+case invalidation	.a
+  plan .a {self }
+case invalidation	#b
+  plan #b {self }
+case invalidation	div
+  plan div {self }
+case invalidation	[data-x]
+  plan [data-x] {self }
+case invalidation	*
+case invalidation	.a .b
+  plan .a {desc([.b] => {self }) }
+  plan .b {self }
+case invalidation	.a > .b
+  plan .a {desc([.b] => {self }) }
+  plan .b {self }
+case invalidation	.a + .b
+  plan .a {adjacent([.b] => {self }) }
+  plan .b {self }
+case invalidation	.a ~ .b
+  plan .a {subsequent([.b] => {self }) }
+  plan .b {self }
+case invalidation	.a .b .c
+  plan .a {desc([.b] => {desc([.c] => {self }) }) }
+  plan .b {desc([.c] => {self }) }
+  plan .c {self }
+case invalidation	.a > * .c
+  plan .a {desc(any => {desc([.c] => {self }) }) }
+  plan .c {self }
+case invalidation	div.a#b[c]
+  plan #b {self }
+  plan .a {self }
+  plan [c] {self }
+  plan div {self }
+case invalidation	:not(.foo)
+  plan .foo {self }
+case invalidation	.bar :not(.foo)
+  plan .bar {subtree }
+  plan .foo {self }
+case invalidation	:is(.a, .b) .c
+  plan .a {self desc([.c] => {self }) }
+  plan .b {self desc([.c] => {self }) }
+  plan .c {self }
+case invalidation	:where(.a .b) > .c
+  plan .a {desc([.b] => {self }) }
+  plan .b {self desc([.c] => {self }) }
+  plan .c {self }
+case invalidation	.a:has(.b)
+  plan .a {self }
+  plan :has {self }
+  has-class b: .b/1
+case invalidation	.a:has(> .b)
+  plan .a {self }
+  plan :has {self }
+  has-class b: > .b/0
+case invalidation	.a:has(+ .b)
+  plan .a {self }
+  plan :has {self }
+  has-class b: + .b/2
+case invalidation	.a:has(~ .b)
+  plan .a {self }
+  plan :has {self }
+  has-class b: ~ .b/3
+case invalidation	.a:has(.b .c)
+  plan .a {self }
+  plan :has {self }
+  has-class b: .b .c/1
+  has-class c: .b .c/1
+case invalidation	.a:has(:is(.b .c))
+  plan .a {self }
+  plan .b {subtree }
+  plan :has {self }
+  has-class b: :is(.b .c)/1
+  has-class c: :is(.b .c)/1
+case invalidation	.a:has(*)
+  plan .a {self }
+  plan :has {self }
+  featureless-sensitive
+case invalidation	.a:has(:not(.x))
+  plan .a {self }
+  plan :has {self }
+  has-class x: :not(.x)/1
+  featureless-sensitive
+case invalidation	.a:has(:focus)
+  plan .a {self }
+  plan :has {self }
+  featureless-sensitive
+case invalidation	:has(:checked) .x
+  plan .x {self }
+  plan :has {desc([.x] => {self }) }
+  has-pseudo checked: :checked/1
+case invalidation	:is(:has(.x) .y)
+  plan .y {self }
+  plan :has {self subtree }
+  has-class x: .x/1
+case invalidation	p:nth-child(even of #t1, #t2)
+  plan #t1 {self subtree }
+  plan #t2 {self subtree }
+  plan p {self }
+case invalidation	li:first-child
+  plan li {self }
+case invalidation	input:disabled
+  plan :disabled {self }
+  plan input {self }
+case invalidation	a:link, a:any-link
+  plan :any-link {self }
+  plan :link {self }
+  plan a {self }
+case invalidation	:empty
+  plan :empty {self }
+case invalidation	:hover .x
+  plan .x {self }
+case invalidation	.a, .b > .c, #d ~ .e
+  plan #d {subsequent([.e] => {self }) }
+  plan .a {self }
+  plan .b {desc([.c] => {self }) }
+  plan .c {self }
+  plan .e {self }
+case invalidation	::slotted(.x)
+  plan .x {self }
+case invalidation	.a::before
+  plan .a {self }
+case invalidation	:host(.x) .y
+  plan .x {self desc([.y] => {self }) }
+  plan .y {self }
+case invalidation	.a:has(.b):has(#c)
+  plan .a {self }
+  plan :has {self }
+  has-id c: #c/1
+  has-class b: .b/1
+case invalidation	section:has(> h1.title)
+  plan :has {self }
+  plan section {self }
+  has-class title: > h1.title/0
+  has-tag h1: > h1.title/0
+case invalidation	.a .b, .c .b
+  plan .a {desc([.b] => {self }) }
+  plan .b {self }
+  plan .c {desc([.b] => {self }) }
+case invalidation	.x || .y
+  plan .x {subtree }
+  plan .y {self }
+case invalidation	:root .a
+  plan .a {self }
+case invalidation	:defined
+  plan :defined {self }
+case invalidation	.a:has(:checked, :required)
+  plan .a {self }
+  plan :has {self }
+  has-pseudo checked: :checked/1
+  has-pseudo required: :required/1
+case invalidation	.p .q + .r ~ .s > .t
+  plan .p {desc([.q] => {adjacent([.r] => {subsequent([.s] => {desc([.t] => {self }) }) }) }) }
+  plan .q {adjacent([.r] => {subsequent([.s] => {desc([.t] => {self }) }) }) }
+  plan .r {subsequent([.s] => {desc([.t] => {self }) }) }
+  plan .s {desc([.t] => {self }) }
+  plan .t {self }
+case sheetset	.a {}
+  set [.a]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	.a .b {}
+  set [.b]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	.a, #b {}
+  set [#b .a]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	* {}
+  set [*]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	.a::before {}
+  set [.a]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	.a .b::after {}
+  set [.b]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	.a > * {}
+  set []
+  may-match-shadow-host false
+  may-match-light-dom false
+  trailing-universal-rule [.a] - 1
+case sheetset	.a + * {}
+  set []
+  may-match-shadow-host false
+  may-match-light-dom false
+  trailing-universal-rule [.a] - 3
+case sheetset	.a * {}
+  set []
+  may-match-shadow-host false
+  may-match-light-dom false
+  trailing-universal-rule [.a] - 2
+case sheetset	* > * {}
+  set [*]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	:host {}
+  set [*]
+  may-match-shadow-host true
+  may-match-light-dom false
+case sheetset	:host > * {}
+  set [*]
+  may-match-shadow-host true
+  may-match-light-dom true
+case sheetset	::slotted(.x) {}
+  set [.x]
+  may-match-shadow-host false
+  may-match-light-dom true
+case sheetset	.a:has(.b) {}
+  set [.a :has]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	.a .b:has(.c) {}
+  set [.b :has]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	div {} .x::marker {} .y ~ * {}
+  set [.x div]
+  may-match-shadow-host false
+  may-match-light-dom false
+  trailing-universal-rule [.y] - 4
+case sheetset	:hover {}
+  set [*]
+  may-match-shadow-host false
+  may-match-light-dom false
+case sheetset	.a { .b {} }
+  set [.a]
+  may-match-shadow-host false
+  may-match-light-dom false
+case lightdom	:host
+  may-match-light-dom false
+case lightdom	:host > *
+  may-match-light-dom true
+case lightdom	::slotted(.x)
+  may-match-light-dom true
+case lightdom	.a
+  may-match-light-dom false
+case lightdom	:host .x, .y
+  may-match-light-dom false
+case lightdom	:bogus
+  may-match-light-dom false
+case outcome	section#r(article#a.x(b#b1 i#i1) article#c(b#b2))	.x b { color: red }	attr #c class x
+  full: false
+  document -C-
+  section#r -C-
+  article#a ---
+  b#b1 ---
+  i#i1 ---
+  article#c -C-
+  b#b2 N--
+case outcome	section#r(article#a.x(b#b1 i#i1) article#c(b#b2))	.x b { color: red }	attr #a class y
+  full: false
+  document -C-
+  section#r -C-
+  article#a -C-
+  b#b1 N--
+  i#i1 ---
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	.y { color: red }	attr #b1 class y
+  full: false
+  document -C-
+  section#r -C-
+  article#a -C-
+  b#b1 N--
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	#c > b { color: red }	attr #a id c
+  full: false
+  document -C-
+  section#r -C-
+  article#c -C-
+  b#b1 N--
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	[data-x] i { color: red }	attr #r data-x 1
+  full: false
+  document ---
+  section#r ---
+  article#a ---
+  b#b1 ---
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	.z { color: red }	attr #a class q
+  full: false
+  document ---
+  section#r ---
+  article#a ---
+  b#b1 ---
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	.a + .b { color: red }	attr #a class a
+  full: false
+  document ---
+  section#r ---
+  article#a ---
+  b#b1 ---
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a.a(b#b1) article#c.b(b#b2) article#d.b)	.a ~ .b { color: red }	rmattr #a class
+  full: false
+  document -C-
+  section#r -C-
+  article#a ---
+  b#b1 ---
+  article#c N--
+  b#b2 ---
+  article#d N--
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	b { color: red }	append #a i#n1
+  full: false
+  document -C-
+  section#r -C-
+  article#a NC-
+  b#b1 ---
+  i#n1 N--
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2) article#d)	article:first-child { color: red }	before #a article#n
+  full: false
+  document -C-
+  section#r NC-
+  article#n N--
+  article#a N--
+  b#b1 ---
+  article#c N--
+  b#b2 ---
+  article#d N--
+case outcome	section#r(article#a(b#b1) article#c(b#b2) article#d)	article:last-child { color: red }	remove #d
+  full: false
+  document -C-
+  section#r NC-
+  article#a N--
+  b#b1 ---
+  article#c N--
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2) article#d)	article + article { color: red }	remove #a
+  full: false
+  document -C-
+  section#r NC-
+  article#c N--
+  b#b2 ---
+  article#d ---
+case outcome	section#r(article#a.p(b#b1.q) article#c(b#b2))	.p:has(.q) { color: red }	rmattr #b1 class
+  full: false
+  document -C-
+  section#r -C-
+  article#a N--
+  b#b1 ---
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a.p(b#b1) article#c(b#b2))	.p:has(.q) { color: red }	attr #b1 class q
+  full: false
+  document -C-
+  section#r -C-
+  article#a N--
+  b#b1 ---
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a.p(b#b1) article#c(b#b2))	.p:has(> i) { color: red }	append #a i#n
+  full: false
+  document -C-
+  section#r -C-
+  article#a NC-
+  b#b1 ---
+  i#n N--
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	:not(.x) > b { color: red }	attr #a class x
+  full: false
+  document -C-
+  section#r -C-
+  article#a NC-
+  b#b1 N--
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	section:has(+ aside) b { color: red }	attr #c class w
+  full: false
+  document ---
+  section#r ---
+  article#a ---
+  b#b1 ---
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	* { color: red }	attr #b2 title t
+  full: false
+  document -C-
+  section#r -C-
+  article#a ---
+  b#b1 ---
+  article#c -C-
+  b#b2 N--
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	.x .y { color: red }	attr #a class x;attr #b2 class y
+  full: false
+  document -C-
+  section#r -C-
+  article#a ---
+  b#b1 ---
+  article#c -C-
+  b#b2 N--
+case outcome	section#r(article#a(b#b1 'text') article#c(b#b2))	b:empty { color: red }	append #b2 'more'
+  full: false
+  document -C-
+  section#r -C-
+  article#a ---
+  b#b1 ---
+  text ---
+  article#c -C-
+  b#b2 NC-
+  text N--
+case outcome	section#r(article#a.a article#b article#c)	.a:has(+ .b) { color: red }	attr #b class b
+  full: false
+  document -C-
+  section#r -C-
+  article#a N--
+  article#b ---
+  article#c ---
+case outcome	section#r(article#a.a article#b article#c)	.a:has(~ .z) { color: red }	attr #c class z
+  full: false
+  document -C-
+  section#r -C-
+  article#a N--
+  article#b ---
+  article#c ---
+case outcome	section#r(article#a article#b article#c)	article:nth-child(2) { color: red }	before #a article#n
+  full: false
+  document -C-
+  section#r NC-
+  article#n N--
+  article#a N--
+  article#b N--
+  article#c N--
+case outcome	section#r(article#a article#b article#c)	article:nth-last-child(1) b { color: red }	append #r article#n(b#nb)
+  full: false
+  document -C-
+  section#r NC-
+  article#a ---
+  article#b ---
+  article#c ---
+  article#n NC-
+  b#nb N--
+case outcome	section#r(article#a.x article#b article#c)	.x ~ article { color: red }	before #b article#n
+  full: false
+  document -C-
+  section#r NC-
+  article#a ---
+  article#n N--
+  article#b N--
+  article#c N--
+case outcome	section#r(article#a article#b.y article#c)	.x + .y { color: red }	before #b article#n.x
+  full: false
+  document -C-
+  section#r NC-
+  article#a ---
+  article#n N--
+  article#b N--
+  article#c ---
+case outcome	section#r(article#a[data-k=1](b#b1) article#c)	[data-k="2"] b { color: red }	attr #a data-k 2
+  full: false
+  document -C-
+  section#r -C-
+  article#a -C-
+  b#b1 N--
+  article#c ---
+case outcome	section#r(article#a(b#b1) article#c)	#a b, #c b { color: red }	attr #a id z;attr #c id a
+  full: false
+  document -C-
+  section#r -C-
+  article#z -C-
+  b#b1 N--
+  article#a ---
+case outcome	section#r(article#a.p(i#i1(b#b1)) article#c)	.p > i > b { color: red }	rmattr #a class
+  full: false
+  document -C-
+  section#r -C-
+  article#a -C-
+  i#i1 -C-
+  b#b1 N--
+  article#c ---
+case outcome	section#r(article#a.p(i#i1(b#b1)) article#c)	.p * { color: red }	rmattr #a class
+  full: false
+  document -C-
+  section#r -C-
+  article#a NC-
+  i#i1 NC-
+  b#b1 N--
+  article#c ---
+case outcome	section#r(article#a(i#i1(b#b1)) article#c)	section:has(.q) article { color: red }	attr #b1 class q
+  full: false
+  document -C-
+  section#r -C-
+  article#a N--
+  i#i1 ---
+  b#b1 ---
+  article#c N--
+case outcome	section#r(article#a(i#i1(b#b1)) article#c)	section:has(article > i .q) { color: red }	attr #b1 class q
+  full: false
+  document -C-
+  section#r N--
+  article#a ---
+  i#i1 ---
+  b#b1 ---
+  article#c ---
+case outcome	section#r(article#a(i#i1(b#b1)) article#c)	:is(.m .n) b { color: red }	attr #a class m
+  full: false
+  document ---
+  section#r ---
+  article#a ---
+  i#i1 ---
+  b#b1 ---
+  article#c ---
+case outcome	section#r(article#a(b#b1) article#c)	x-foo { color: red }	append #c x-foo#xf
+  full: false
+  document -C-
+  section#r -C-
+  article#a ---
+  b#b1 ---
+  article#c NC-
+  x-foo#xf N--
+case outcome	section#r(article#a(b#b1) article#c)	b:empty { color: red }	append #b1 i#n
+  full: false
+  document -C-
+  section#r -C-
+  article#a -C-
+  b#b1 NC-
+  i#n N--
+  article#c ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	article:has(b) { color: red }	remove #b2
+  full: false
+  document -C-
+  section#r -C-
+  article#a ---
+  b#b1 ---
+  article#c NC-
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	article:has(:empty) { color: red }	append #b1 'x'
+  full: false
+  document -C-
+  section#r -C-
+  article#a NC-
+  b#b1 NC-
+  text N--
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a(b#b1) article#c(b#b2))	.x { color: red }	attr #a class x;rmattr #a class
+  full: false
+  document -C-
+  section#r -C-
+  article#a N--
+  b#b1 ---
+  article#c ---
+  b#b2 ---
+case outcome	section#r(article#a.x(b#b1) article#c(b#b2))	:not(.x) b { color: red }	rmattr #a class
+  full: false
+  document -C-
+  section#r -C-
+  article#a NC-
+  b#b1 N--
+  article#c ---
+  b#b2 ---
+case propinv	color	red	blue
+  repaint 1 stacking 0 relayout 0 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	color	red	red
+  repaint 0 stacking 0 relayout 0 layout-tree 0 visual-contexts 0 none 1 full 0
+case propinv	color	-	-
+  repaint 0 stacking 0 relayout 0 layout-tree 0 visual-contexts 0 none 1 full 0
+case propinv	display	block	inline
+  repaint 1 stacking 1 relayout 1 layout-tree 1 visual-contexts 0 none 0 full 1
+case propinv	position	static	absolute
+  repaint 1 stacking 1 relayout 1 layout-tree 1 visual-contexts 0 none 0 full 1
+case propinv	content	"a"	"b"
+  repaint 1 stacking 1 relayout 1 layout-tree 1 visual-contexts 0 none 0 full 1
+case propinv	text-transform	none	uppercase
+  repaint 1 stacking 0 relayout 1 layout-tree 1 visual-contexts 0 none 0 full 0
+case propinv	overflow-x	visible	hidden
+  repaint 1 stacking 1 relayout 1 layout-tree 1 visual-contexts 0 none 0 full 1
+case propinv	counter-reset	none	a 1
+  repaint 0 stacking 0 relayout 0 layout-tree 1 visual-contexts 0 none 0 full 0
+case propinv	visibility	visible	hidden
+  repaint 1 stacking 0 relayout 0 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	visibility	visible	collapse
+  repaint 1 stacking 0 relayout 1 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	width	10px	20px
+  repaint 1 stacking 0 relayout 1 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	z-index	auto	1
+  repaint 1 stacking 1 relayout 0 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	z-index	1	2
+  repaint 1 stacking 1 relayout 0 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	transform	none	rotate(10deg)
+  repaint 1 stacking 1 relayout 0 layout-tree 0 visual-contexts 1 none 0 full 0
+case propinv	transform	rotate(10deg)	rotate(20deg)
+  repaint 1 stacking 0 relayout 0 layout-tree 0 visual-contexts 1 none 0 full 0
+case propinv	filter	none	blur(2px)
+  repaint 1 stacking 1 relayout 0 layout-tree 0 visual-contexts 1 none 0 full 0
+case propinv	isolation	auto	isolate
+  repaint 1 stacking 0 relayout 1 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	mix-blend-mode	normal	multiply
+  repaint 1 stacking 0 relayout 0 layout-tree 0 visual-contexts 1 none 0 full 0
+case propinv	clip-path	none	inset(1px)
+  repaint 1 stacking 1 relayout 0 layout-tree 0 visual-contexts 1 none 0 full 0
+case propinv	perspective	none	10px
+  repaint 1 stacking 0 relayout 1 layout-tree 0 visual-contexts 1 none 0 full 0
+case propinv	transform-style	flat	preserve-3d
+  repaint 1 stacking 0 relayout 1 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	translate	none	10px
+  repaint 1 stacking 1 relayout 0 layout-tree 0 visual-contexts 1 none 0 full 0
+case propinv	will-change	auto	transform
+  repaint 1 stacking 0 relayout 0 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	background-color	red	-
+  repaint 1 stacking 0 relayout 0 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	margin-left	1px	2px
+  repaint 1 stacking 0 relayout 1 layout-tree 0 visual-contexts 0 none 0 full 0
+case propinv	transform-origin	1px	2px
+  repaint 1 stacking 0 relayout 0 layout-tree 0 visual-contexts 1 none 0 full 0

@@ -1,0 +1,184 @@
+0
+1
+2
+3
+4
+5
+-
+-
+-
+clig=1,kern=1,liga=1 | hash 3291504873 | keys
+calt=0,liga=0,hlig=0,clig=0,kern=1,dlig=0 | hash 2331023214 | keys
+calt=0,liga=0,hlig=0,clig=0,kern=0,dlig=0 | hash 1721363364 | keys
+clig=1,kern=0,liga=1 | hash 1728950737 | keys
+calt=1,liga=0,hlig=0,clig=0,kern=1,dlig=1 | hash 520279816 | keys
+calt=0,liga=1,hlig=1,clig=1,kern=1,dlig=0 | hash 2929908119 | keys
+subs=1,clig=1,kern=1,liga=1 | hash 3006952119 | keys
+sups=1,clig=1,kern=1,liga=1 | hash 122080358 | keys
+clig=1,kern=1,liga=1,smcp=1 | hash 1886818557 | keys
+clig=1,c2sc=1,kern=1,liga=1,smcp=1 | hash 1957734988 | keys
+clig=1,pcap=1,kern=1,liga=1 | hash 274653646 | keys
+clig=1,pcap=1,c2pc=1,kern=1,liga=1 | hash 495510676 | keys
+clig=1,unic=1,kern=1,liga=1 | hash 1455974437 | keys
+clig=1,titl=1,kern=1,liga=1 | hash 3620953331 | keys
+liga=1,ordn=1,frac=1,clig=1,kern=1,zero=1,onum=1,pnum=1 | hash 3135078502 | keys
+tnum=1,lnum=1,liga=1,clig=1,kern=1,afrc=1 | hash 2512708889 | keys
+liga=1,ruby=1,clig=1,jp78=1,fwid=1,kern=1 | hash 1657637139 | keys
+clig=1,kern=1,liga=1,pwid=1,jp83=1 | hash 2188288507 | keys
+clig=1,jp90=1,kern=1,liga=1 | hash 3788578972 | keys
+clig=1,kern=1,liga=1,jp04=1 | hash 2369382631 | keys
+clig=1,smpl=1,kern=1,liga=1 | hash 1835314642 | keys
+clig=1,kern=1,liga=1,trad=1 | hash 2021544063 | keys
+clig=1,kern=1,liga=1 | hash 206614512 | keys
+clig=1,kern=0,liga=1 | hash 747606831 | keys
+calt=0,liga=0,hlig=0,clig=0,kern=0,dlig=0 | hash 1721363364 | keys
+clig=1,kern=1,ss01=3,liga=0,smcp=1 | hash 4099464773 | keys
+clig=1,kern=2,liga=1,smcp=0 | hash 3945939786 | keys
+clig=1,kern=1,liga=1,hist=1 | hash 115996406 | keys
+salt=2,cswh=3,liga=1,nalt=5,swsh=3,ornm=4,clig=1,kern=1 | hash 1890612018 | keys 3829562398 219530776 2104718050 4077197473
+ss01=1,liga=1,ss20=1,clig=1,ss99=1,kern=1 | hash 3418921433 | keys 575258340 3262429479
+cv05=7,clig=1,kern=1,liga=1 | hash 2482622624 | keys 1159997803
+clig=1,kern=1,liga=1,cv12=1 | hash 2482622624 | keys 1159997803
+clig=1,kern=1,liga=1 | hash 2482622624 | keys 1159997803
+clig=1,kern=1,liga=1 | hash 1811086265 | keys 3829562398
+salt=9,clig=1,kern=1,liga=1 | hash 2408202812 | keys 3829562398
+1
+0
+1
+0
+1
+1
+1
+1
+1
+0
+0
+1
+1
+0
+1
+1
+1
+1
+1
+1
+1
+0
+1
+1
+0
+0
+off-thread 0 SerenitySans 400
+off-thread 0 Lato 700
+off-thread 0 Noto Sans Tifinagh 400
+off-thread 0 Lato 700
+off-thread 0 error Invalid WOFF signature
+off-thread 1
+off-thread 1
+off-thread 0 error Automatic format detection failed
+off-thread 0 error Automatic format detection failed
+off-thread 0 error Failed to load typeface from buffer
+valid 0 family A weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 1 family Some Font weight 400-400 slope 0 width 100 sources [url(url("a.woff2"))/woff2/ local(Foo)/-/ url(url("b.ttf"))/truetype/11,3] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 700-700 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 300-600 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 200-700 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 450-450 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 1 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 2 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 2 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 75 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 150 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-7F U+100-17F U+400-4FF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent 90 descent 20 line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent 60 descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 2 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 4 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named Bold Condensed language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language TRK features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features [liga:0,smcp:1,ss02:4] variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations [wght:650,wdth:75.5]
+valid 0 family B weight 400-400 slope 0 width 100 sources [] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+valid 0 family  weight 400-400 slope 0 width 100 sources [url(url("x.ttf"))/-/] ranges [U+0-10FFFF] ascent - descent - line-gap - display 0 named - language - features - variations -
+Foo | weight 400-400 slope 0 width 100 ranges 0
+Some Font | weight 400-400 slope 0 width 100 ranges 0
+parse error
+normal | weight 400-400 slope 0 width 100 ranges 0
+italic | weight 400-400 slope 1 width 100 ranges 0
+oblique | weight 400-400 slope 2 width 100 ranges 0
+oblique 30deg | weight 400-400 slope 2 width 100 ranges 0
+parse error
+auto | weight 400-400 slope 0 width 100 ranges 0
+normal | weight 400-400 slope 0 width 100 ranges 0
+bold | weight 700-700 slope 0 width 100 ranges 0
+100 | weight 100-100 slope 0 width 100 ranges 0
+200 800 | weight 200-800 slope 0 width 100 ranges 0
+900 100 | weight 100-900 slope 0 width 100 ranges 0
+auto | weight 400-400 slope 0 width 100 ranges 0
+parse error
+normal | weight 400-400 slope 0 width 100 ranges 0
+condensed | weight 400-400 slope 0 width 75 ranges 0
+ultra-expanded | weight 400-400 slope 0 width 200 ranges 0
+75% | weight 400-400 slope 0 width 75 ranges 0
+auto | weight 400-400 slope 0 width 100 ranges 0
+U+0-10FFFF | weight 400-400 slope 0 width 100 ranges 1
+U+0-7F, U+A0-FF | weight 400-400 slope 0 width 100 ranges 2
+U+1F600 | weight 400-400 slope 0 width 100 ranges 1
+normal | weight 400-400 slope 0 width 100 ranges 0
+"liga" 0, "kern" | weight 400-400 slope 0 width 100 ranges 0
+"wght" 400 | weight 400-400 slope 0 width 100 ranges 0
+fallback | weight 400-400 slope 0 width 100 ranges 0
+80% | weight 400-400 slope 0 width 100 ranges 0
+normal | weight 400-400 slope 0 width 100 ranges 0
+5% | weight 400-400 slope 0 width 100 ranges 0
+Foo | weight 400-400 slope 0 width 100 ranges 0
+exception
+exception
+exception
+bold | weight 700-700 slope 0 width 100 ranges 0
+exception
+exception
+swap | weight 400-400 slope 0 width 100 ranges 0
+exception
+exception
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/9.75<opsz=13,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/9.75<opsz=13,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/9.75<opsz=13,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=300>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=300>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=300>[clig=1,kern=1,liga=1]
+[Noto Sans Tifinagh/0/5/15<opsz=20,wdth=100,wght=400>[clig=1,kern=1,liga=1] SerenitySans/0/5/15<opsz=20,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/15<opsz=20,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/15<opsz=20,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=75,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=75,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=75,wght=400>[clig=1,kern=1,liga=1]
+[Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]
+[Noto Sans Tifinagh/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]
+[Noto Sans Tifinagh/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]
+[Noto Sans Tifinagh/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=450>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=200>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=200>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=200>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=200>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=200>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=200>[clig=1,kern=1,liga=1]
+[Noto Emoji/0/5/12<opsz=16,wdth=100,wght=800>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=800>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=800>[clig=1,kern=1,liga=1]
+[Noto Sans Tifinagh/0/5/12<opsz=16,wdth=100,wght=800>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=800>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=800>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=600>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=600>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=600>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=350>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Lato/0/5/12<opsz=16,wdth=100,wght=350>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=350>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=350>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=75,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=75,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=75,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=80,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=80,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=80,wght=400>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=125,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=125,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=125,wght=400>[clig=1,kern=1,liga=1]
+[Noto Sans Tifinagh/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Lato/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-7F:1} Lato/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+80-4FF:2} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=300>[clig=1,kern=1,liga=1]{U+0-7F:1} Lato/0/5/12<opsz=16,wdth=100,wght=300>[clig=1,kern=1,liga=1]{U+80-FF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=300>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=300>[clig=1,kern=1,liga=1]
+[Lato/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} SerenitySans/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1] >> [Lato/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Sans Tifinagh/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} SerenitySans/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/7.5<opsz=10,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1] >> [Noto Sans Tifinagh/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=700>[clig=1,kern=1,liga=1]
+[SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1] >> [Noto Sans Tifinagh/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=1,liga=1]
+[Lato/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=0,liga=1,smcp=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=0,liga=1,smcp=1]] pending 0 last SerenitySans/0/5/12<opsz=16,wdth=100,wght=400>[clig=1,kern=0,liga=1,smcp=1]
+[Lato/0/5/12<abcd=1,wdth=100,wght=500>[clig=1,kern=1,liga=1]{U+0-10FFFF:1} Noto Emoji/0/5/12<abcd=1,wdth=100,wght=500>[clig=1,kern=1,liga=1]] pending 0 last SerenitySans/0/5/12<abcd=1,wdth=100,wght=500>[clig=1,kern=1,liga=1]

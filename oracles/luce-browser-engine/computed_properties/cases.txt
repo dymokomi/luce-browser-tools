@@ -141,10 +141,10 @@ vertical_align	vertical-align: middle
 vertical_align	vertical-align: 10px
 vertical_align	vertical-align: -20%
 font_variants
-!font_variants	font-variant-alternates: historical-forms stylistic(foo) swash(bar); font-variant-caps: small-caps; font-variant-east-asian: jis78 full-width ruby; font-variant-emoji: emoji; font-variant-ligatures: common-ligatures no-discretionary-ligatures historical-ligatures no-contextual; font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal slashed-zero; font-variant-position: super; font-kerning: none; font-language-override: "TRK"
+font_variants	font-variant-alternates: historical-forms stylistic(foo) swash(bar); font-variant-caps: small-caps; font-variant-east-asian: jis78 full-width ruby; font-variant-emoji: emoji; font-variant-ligatures: common-ligatures no-discretionary-ligatures historical-ligatures no-contextual; font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal slashed-zero; font-variant-position: super; font-kerning: none; font-language-override: "TRK"
 font_variants	font-variant-alternates: historical-forms; font-variant-caps: small-caps; font-variant-east-asian: jis78 full-width ruby; font-variant-emoji: emoji; font-variant-ligatures: common-ligatures no-discretionary-ligatures historical-ligatures no-contextual; font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal slashed-zero; font-variant-position: super; font-kerning: none; font-language-override: "TRK"
 font_variants	font-variant-ligatures: none; font-variant-east-asian: proportional-width; font-variant-numeric: oldstyle-nums
-!font_variants	font-variant-alternates: styleset(a, b) character-variant(c); font-variant-ligatures: no-common-ligatures
+font_variants	font-variant-alternates: styleset(a, b) character-variant(c); font-variant-ligatures: no-common-ligatures
 font_settings
 font_settings	font-feature-settings: "liga" 0, "smcp", "ss01" 3; font-variation-settings: "wght" 650, "wdth" 75.5
 font_settings	font-variation-settings: "slnt" -10

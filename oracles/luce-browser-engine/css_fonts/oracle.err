@@ -1,0 +1,184 @@
+type	stylistic
+type	styleset
+type	character-variant
+type	swash
+type	ornaments
+type	annotation
+type	historical-forms
+type	Stylistic
+type	
+features		
+features	font-variant-ligatures: none	
+features	text-rendering: optimizeSpeed	
+features	text-rendering: optimizeSpeed; font-variant-ligatures: common-ligatures	
+features	font-variant-ligatures: no-common-ligatures discretionary-ligatures no-historical-ligatures contextual	
+features	font-variant-ligatures: common-ligatures no-discretionary-ligatures historical-ligatures no-contextual	
+features	font-variant-position: sub	
+features	font-variant-position: super	
+features	font-variant-caps: small-caps	
+features	font-variant-caps: all-small-caps	
+features	font-variant-caps: petite-caps	
+features	font-variant-caps: all-petite-caps	
+features	font-variant-caps: unicase	
+features	font-variant-caps: titling-caps	
+features	font-variant-numeric: oldstyle-nums proportional-nums diagonal-fractions ordinal slashed-zero	
+features	font-variant-numeric: lining-nums tabular-nums stacked-fractions	
+features	font-variant-east-asian: jis78 full-width ruby	
+features	font-variant-east-asian: jis83 proportional-width	
+features	font-variant-east-asian: jis90	
+features	font-variant-east-asian: jis04	
+features	font-variant-east-asian: simplified	
+features	font-variant-east-asian: traditional	
+features	font-kerning: normal	
+features	font-kerning: none	
+features	font-kerning: auto; text-rendering: optimizeSpeed	
+features	font-feature-settings: "liga" 0, "smcp", "ss01" 3	
+features	font-variant-caps: small-caps; font-feature-settings: "smcp" 0, "kern" 2	
+features	font-variant-alternates: historical-forms	
+features	font-variant-alternates: stylistic(foo) swash(bar) ornaments(baz) annotation(qux)	stylistic:foo=2;swash:bar=3;ornaments:baz=4;annotation:qux=5
+features	font-variant-alternates: styleset(a, b)	styleset:a=1,20,100,0;styleset:b=99
+features	font-variant-alternates: character-variant(c)	character-variant:c=5,7
+features	font-variant-alternates: character-variant(c)	character-variant:c=12
+features	font-variant-alternates: character-variant(c)	character-variant:c=100,3
+features	font-variant-alternates: stylistic(missing)	stylistic:foo=2
+features	font-variant-alternates: stylistic(foo); font-feature-settings: "salt" 9	stylistic:foo=300
+format	collection
+format	embedded-opentype
+format	opentype
+format	svg
+format	truetype
+format	woff
+format	woff2
+format	WOFF2
+format	TrueType
+format	otf
+format	
+tech	features-opentype
+tech	features-aat
+tech	features-graphite
+tech	variations
+tech	color-COLRv0
+tech	color-COLRv1
+tech	color-SVG
+tech	color-sbix
+tech	color-CBDT
+tech	palettes
+tech	incremental
+tech	avar2
+tech	FEATURES-OPENTYPE
+tech	unknown
+tech	
+load	SerenitySans-Regular.ttf	-
+load	Lato-Bold.ttf	font/ttf
+load	NotoSansTifinagh-Regular.otf	font/otf
+load	Lato-Bold.ttf	application/x-font-ttf
+load	Lato-Bold.ttf	font/woff
+load	Lato-Bold.ttf	font/woff2
+load	Lato-Bold.ttf	application/font-woff2
+load	Lato-Bold.ttf	text/plain
+load	OFL-1.1.txt	-
+load	NOTICE	font/ttf
+fontface	font-family: A
+fontface	font-family: "Some Font"; src: url(a.woff2) format(woff2), local(Foo), url("b.ttf") format("truetype") tech(variations, color-COLRv1)
+fontface	font-family: B; font-weight: bold
+fontface	font-family: B; font-weight: 300 600
+fontface	font-family: B; font-weight: 700 200
+fontface	font-family: B; font-weight: auto; font-style: auto; font-width: auto
+fontface	font-family: B; font-weight: 450.7
+fontface	font-family: B; font-style: italic
+fontface	font-family: B; font-style: oblique
+fontface	font-family: B; font-style: oblique 20deg
+fontface	font-family: B; font-style: normal
+fontface	font-family: B; font-width: condensed
+fontface	font-family: B; font-stretch: 150%
+fontface	font-family: B; unicode-range: U+0-7F, U+100-17F, U+4??
+fontface	font-family: B; ascent-override: 90%; descent-override: 20%; line-gap-override: normal
+fontface	font-family: B; ascent-override: calc(50% + 10%)
+fontface	font-family: B; font-display: swap
+fontface	font-family: B; font-display: optional
+fontface	font-family: B; font-named-instance: "Bold Condensed"
+fontface	font-family: B; font-language-override: "TRK"
+fontface	font-family: B; font-feature-settings: "liga" 0, "smcp", "ss02" 4
+fontface	font-family: B; font-feature-settings: normal
+fontface	font-family: B; font-variation-settings: "wght" 650, "wdth" 75.5
+fontface	font-family: B; font-variation-settings: normal
+fontface	src: url(x.ttf)
+facedesc	family	Foo
+facedesc	family	"Some Font"
+facedesc	family	serif
+facedesc	style	normal
+facedesc	style	italic
+facedesc	style	oblique
+facedesc	style	oblique 30deg
+facedesc	style	oblique 10deg 20deg
+facedesc	style	auto
+facedesc	weight	normal
+facedesc	weight	bold
+facedesc	weight	100
+facedesc	weight	200 800
+facedesc	weight	900 100
+facedesc	weight	auto
+facedesc	weight	bolder
+facedesc	stretch	normal
+facedesc	stretch	condensed
+facedesc	stretch	ultra-expanded
+facedesc	stretch	75%
+facedesc	stretch	auto
+facedesc	unicode-range	U+0-10FFFF
+facedesc	unicode-range	U+0-7F, U+A0-FF
+facedesc	unicode-range	U+1F600
+facedesc	feature-settings	normal
+facedesc	feature-settings	"liga" 0, "kern"
+facedesc	variation-settings	"wght" 400
+facedesc	display	fallback
+facedesc	ascent-override	80%
+facedesc	descent-override	normal
+facedesc	line-gap-override	5%
+facesetter	family	Foo
+facesetter	family	1px
+facesetter	style	sideways
+facesetter	weight	0
+facesetter	weight	bold
+facesetter	stretch	wide
+facesetter	unicode-range	nonsense
+facesetter	display	swap
+facesetter	display	fast
+facesetter	ascent-override	-5%
+match		
+match	font-family: serif	
+match	font-family: monospace; font-size: 13px	
+match	font-family: sans-serif, cursive, fantasy, ui-serif, ui-sans-serif, ui-monospace, ui-rounded, system-ui, math	
+match	font-family: NoSuchFont	
+match	font-family: Lato	
+match	font-family: lato, serif	
+match	font-family: Lato; font-weight: 300	
+match	font-family: "Noto Sans Tifinagh", SerenitySans; font-size: 20px	
+match	font-family: Lato; font-style: italic; font-width: condensed	
+match	font-family: Noto Emoji	
+match	font-family: Test	Test|400|400|0|100|Lato-Bold.ttf
+match	font-family: Test; font-weight: 700	Test|400|400|0|100|Lato-Bold.ttf
+match	font-family: Test; font-weight: 700	Test|400|400|0|100|Lato-Bold.ttf;Test|700|700|0|100|NotoSansTifinagh-Regular.otf
+match	font-family: Test; font-weight: 450	Test|100|100|0|100|SerenitySans-Regular.ttf;Test|300|300|0|100|Lato-Bold.ttf;Test|500|500|0|100|NotoSansTifinagh-Regular.otf;Test|900|900|0|100|NotoEmoji.ttf
+match	font-family: Test; font-weight: 450	Test|100|100|0|100|SerenitySans-Regular.ttf;Test|300|300|0|100|Lato-Bold.ttf;Test|600|600|0|100|NotoSansTifinagh-Regular.otf;Test|900|900|0|100|NotoEmoji.ttf
+match	font-family: Test; font-weight: 450	Test|100|100|0|100|SerenitySans-Regular.ttf;Test|300|300|0|100|Lato-Bold.ttf
+match	font-family: Test; font-weight: 450	Test|600|600|0|100|NotoSansTifinagh-Regular.otf;Test|900|900|0|100|NotoEmoji.ttf
+match	font-family: Test; font-weight: 200	Test|100|100|0|100|SerenitySans-Regular.ttf;Test|300|300|0|100|Lato-Bold.ttf;Test|500|500|0|100|NotoSansTifinagh-Regular.otf;Test|900|900|0|100|NotoEmoji.ttf
+match	font-family: Test; font-weight: 200	Test|300|300|0|100|Lato-Bold.ttf;Test|500|500|0|100|NotoSansTifinagh-Regular.otf;Test|900|900|0|100|NotoEmoji.ttf
+match	font-family: Test; font-weight: 800	Test|100|100|0|100|SerenitySans-Regular.ttf;Test|300|300|0|100|Lato-Bold.ttf;Test|500|500|0|100|NotoSansTifinagh-Regular.otf;Test|900|900|0|100|NotoEmoji.ttf
+match	font-family: Test; font-weight: 800	Test|100|100|0|100|SerenitySans-Regular.ttf;Test|300|300|0|100|Lato-Bold.ttf;Test|500|500|0|100|NotoSansTifinagh-Regular.otf
+match	font-family: Test; font-weight: 600	Test|100|300|0|100|SerenitySans-Regular.ttf;Test|500|700|0|100|Lato-Bold.ttf;Test|650|900|0|100|NotoSansTifinagh-Regular.otf
+match	font-family: Test; font-weight: 350	Test|300|300|0|100|SerenitySans-Regular.ttf;Test|300|300|0|100|Lato-Bold.ttf;Test|400|400|0|100|NotoSansTifinagh-Regular.otf
+match	font-family: Test; font-style: italic	Test|400|400|0|100|SerenitySans-Regular.ttf;Test|400|400|1|100|Lato-Bold.ttf
+match	font-family: Test; font-style: oblique	Test|400|400|0|100|SerenitySans-Regular.ttf;Test|400|400|1|100|Lato-Bold.ttf
+match	font-family: Test; font-style: italic	Test|400|400|0|100|SerenitySans-Regular.ttf;Test|700|700|1|100|Lato-Bold.ttf
+match	font-family: Test; font-width: condensed	Test|400|400|0|100|SerenitySans-Regular.ttf;Test|400|400|0|75|Lato-Bold.ttf
+match	font-family: Test; font-width: 80%	Test|400|400|0|100|SerenitySans-Regular.ttf;Test|400|400|0|75|Lato-Bold.ttf;Test|400|400|0|87|NotoSansTifinagh-Regular.otf
+match	font-family: Test; font-width: expanded	Test|400|400|0|100|SerenitySans-Regular.ttf;Test|400|400|0|75|Lato-Bold.ttf
+match	font-family: test, Lato	TEST|400|400|0|100|NotoSansTifinagh-Regular.otf
+match	font-family: Test	Test|400|400|0|100|SerenitySans-Regular.ttf|U+0-7F;Test|400|400|0|100|Lato-Bold.ttf|U+80-FF,U+400-4FF
+match	font-family: Test; font-weight: 300	Test|400|400|0|100|SerenitySans-Regular.ttf|U+0-7F;Test|400|400|0|100|Lato-Bold.ttf|U+80-FF
+match	font-family: Test, serif; font-size: 10px	Test|400|400|0|100|Lato-Bold.ttf||Test|400|400|0|100|NotoSansTifinagh-Regular.otf
+match	font-family: Test; font-weight: 700	Test|400|400|0|100|Lato-Bold.ttf||Test|700|700|0|100|NotoSansTifinagh-Regular.otf
+match	font-family: Other	Test|400|400|0|100|Lato-Bold.ttf||Other|400|400|0|100|NotoSansTifinagh-Regular.otf
+match	font-family: Test; font-variant-caps: small-caps; font-feature-settings: "kern" 0	Test|400|400|0|100|Lato-Bold.ttf
+match	font-family: Test; font-optical-sizing: none; font-variation-settings: "wght" 500, "abcd" 1	Test|400|400|0|100|Lato-Bold.ttf

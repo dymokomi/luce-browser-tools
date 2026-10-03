@@ -41,31 +41,31 @@ dump	@namespace svg url(http://www.w3.org/2000/svg);
 dump	@page :first {}
 dump	@keyframes foo {}
 # CSSStyleSheet.insertRule() and deleteRule().
-!insert	a {}	b {}	0
-!insert	a {}	b {}	1
+insert	a {}	b {}	0
+insert	a {}	b {}	1
 insert	a {}	b {}	2
-!insert	a {}	bogus {	0
-!insert	a {}	@layer x;	0
+insert	a {}	bogus {	0
+insert	a {}	@layer x;	0
 insert	a {}	@namespace x url(y);	0
 insert	a {}	@namespace x url(y);	1
-!insert	@namespace x url(y);	@namespace z url(w);	1
-!insert	@namespace x url(y);	@namespace z url(w);	0
-!insert	@namespace x url(y);	a {}	1
+insert	@namespace x url(y);	@namespace z url(w);	1
+insert	@namespace x url(y);	@namespace z url(w);	0
+insert	@namespace x url(y);	a {}	1
 insert	@namespace x url(y);	a {}	0
-!insert	@layer a; a {}	@layer b;	1
+insert	@layer a; a {}	@layer b;	1
 insert	a {}	b {} c {}	0
-!insert	a {}	@layer x { y {} }	1
-!insert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
+insert	a {}	@layer x { y {} }	1
+insert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
 insert	a {}	q|a {}	1
-!delete	a {} b {}	0
-!delete	a {} b {}	1
-!delete	a {} b {}	2
-!delete	@namespace x url(y);	0
-!delete	@namespace x url(y); a {}	0
-!delete	@namespace x url(y); @namespace z url(w);	0
+delete	a {} b {}	0
+delete	a {} b {}	1
+delete	a {} b {}	2
+delete	@namespace x url(y);	0
+delete	@namespace x url(y); a {}	0
+delete	@namespace x url(y); @namespace z url(w);	0
 # CSSStyleSheet.addRule().
-!addrule	a {}	b	-	-
-!addrule	a {}	b	-	0
+addrule	a {}	b	-	-
+addrule	a {}	b	-	0
 addrule	a {}	-	-	-
 addrule	a {}	b	-	5
 # CSSGroupingRule.insertRule() and deleteRule().
@@ -81,11 +81,11 @@ gdelete	a { b {} c {} }	0
 gdelete	a { b {} c {} }	2
 gdelete	@layer x { a {} }	0
 # CSSStyleRule.selectorText.
-!selector	a {}	b
-!selector	a {}	b, c > d
+selector	a {}	b
+selector	a {}	b, c > d
 selector	a {}	!!!
 selector	a {}	
-!selector	a { b {} }	c
+selector	a { b {} }	c
 # CSSPageRule.selectorText.
 pageselector	@page {}	:first
 pageselector	@page :left {}	foo:right, bar

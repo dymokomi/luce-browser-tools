@@ -1,0 +1,197 @@
+# r42 oracle cases: <mode>\t<argument>. "!" marks a case that waits for another region in the port
+# (font-tech()/font-format(): r41).
+media	screen
+media	print
+media	all
+media	not print
+media	not screen
+media	only screen
+media	tv
+media	not tv
+media	SCREEN and (color)
+media	(min-width: 100px)
+media	(width >= 600px)
+media	(400px <= width < 800px)
+media	(max-width: 50em) and (orientation: landscape)
+media	screen, print and (color)
+media	not all and (monochrome)
+media	(color) or (hover)
+media	not (color)
+media	(not (color)) and (hover: none)
+media	(aspect-ratio: 16/9)
+media	(min-resolution: 2dppx)
+media	(prefers-color-scheme: dark)
+media	(scripting)
+media	(inverted-colors)
+media	(foo)
+media	(width: bogus)
+media	screen and
+media	
+media	(width > 100px) and (width < 200px), (height)
+media	(100px < width)
+media	(color: 8)
+media	(grid: 0)
+media	(display-mode: standalone)
+media	screen and (monochrome) and (not (color))
+media	(min-color: 2) or (max-color: 1)
+media	(hover: hover) or (pointer: fine)
+media	unknown-type and (color)
+media	not ANY
+supports	(display: grid)
+supports	(display: bogus)
+supports	not (display: grid)
+supports	(display: grid) and (color: red)
+supports	(display: grid) or (display: bogus)
+supports	selector(a > b)
+supports	selector(:bogus)
+!supports	font-tech(color-COLRv1)
+!supports	font-tech(bogus)
+!supports	font-format(woff2)
+!supports	font-format(bogus)
+supports	env(safe-area-inset-top)
+supports	env(bogus)
+supports	(color: red) and (not (display: bogus))
+supports	foo(bar)
+supports	bogus
+supports	((display: grid))
+container	@container (width > 100px) { a {} }
+container	@container card (orientation: portrait) { a {} }
+container	@container name { a {} }
+container	@container (min-width: 10px) and (max-height: 20px), other (inline-size) { a {} }
+container	@container not (width) { a {} }
+container	@container (foo: bar) { a {} }
+invalidation	.a
+invalidation	#b
+invalidation	div
+invalidation	[data-x]
+invalidation	*
+invalidation	.a .b
+invalidation	.a > .b
+invalidation	.a + .b
+invalidation	.a ~ .b
+invalidation	.a .b .c
+invalidation	.a > * .c
+invalidation	div.a#b[c]
+invalidation	:not(.foo)
+invalidation	.bar :not(.foo)
+invalidation	:is(.a, .b) .c
+invalidation	:where(.a .b) > .c
+invalidation	.a:has(.b)
+invalidation	.a:has(> .b)
+invalidation	.a:has(+ .b)
+invalidation	.a:has(~ .b)
+invalidation	.a:has(.b .c)
+invalidation	.a:has(:is(.b .c))
+invalidation	.a:has(*)
+invalidation	.a:has(:not(.x))
+invalidation	.a:has(:focus)
+invalidation	:has(:checked) .x
+invalidation	:is(:has(.x) .y)
+invalidation	p:nth-child(even of #t1, #t2)
+invalidation	li:first-child
+invalidation	input:disabled
+invalidation	a:link, a:any-link
+invalidation	:empty
+invalidation	:hover .x
+invalidation	.a, .b > .c, #d ~ .e
+invalidation	::slotted(.x)
+invalidation	.a::before
+invalidation	:host(.x) .y
+invalidation	.a:has(.b):has(#c)
+invalidation	section:has(> h1.title)
+invalidation	.a .b, .c .b
+invalidation	.x || .y
+invalidation	:root .a
+invalidation	:defined
+invalidation	.a:has(:checked, :required)
+invalidation	.p .q + .r ~ .s > .t
+sheetset	.a {}
+sheetset	.a .b {}
+sheetset	.a, #b {}
+sheetset	* {}
+sheetset	.a::before {}
+sheetset	.a .b::after {}
+sheetset	.a > * {}
+sheetset	.a + * {}
+sheetset	.a * {}
+sheetset	* > * {}
+sheetset	:host {}
+sheetset	:host > * {}
+sheetset	::slotted(.x) {}
+sheetset	.a:has(.b) {}
+sheetset	.a .b:has(.c) {}
+sheetset	div {} .x::marker {} .y ~ * {}
+sheetset	:hover {}
+sheetset	.a { .b {} }
+lightdom	:host
+lightdom	:host > *
+lightdom	::slotted(.x)
+lightdom	.a
+lightdom	:host .x, .y
+lightdom	:bogus
+outcome	section#r(article#a.x(b#b1 i#i1) article#c(b#b2))	.x b { color: red }	attr #c class x
+outcome	section#r(article#a.x(b#b1 i#i1) article#c(b#b2))	.x b { color: red }	attr #a class y
+outcome	section#r(article#a(b#b1) article#c(b#b2))	.y { color: red }	attr #b1 class y
+outcome	section#r(article#a(b#b1) article#c(b#b2))	#c > b { color: red }	attr #a id c
+outcome	section#r(article#a(b#b1) article#c(b#b2))	[data-x] i { color: red }	attr #r data-x 1
+outcome	section#r(article#a(b#b1) article#c(b#b2))	.z { color: red }	attr #a class q
+outcome	section#r(article#a(b#b1) article#c(b#b2))	.a + .b { color: red }	attr #a class a
+outcome	section#r(article#a.a(b#b1) article#c.b(b#b2) article#d.b)	.a ~ .b { color: red }	rmattr #a class
+outcome	section#r(article#a(b#b1) article#c(b#b2))	b { color: red }	append #a i#n1
+outcome	section#r(article#a(b#b1) article#c(b#b2) article#d)	article:first-child { color: red }	before #a article#n
+outcome	section#r(article#a(b#b1) article#c(b#b2) article#d)	article:last-child { color: red }	remove #d
+outcome	section#r(article#a(b#b1) article#c(b#b2) article#d)	article + article { color: red }	remove #a
+outcome	section#r(article#a.p(b#b1.q) article#c(b#b2))	.p:has(.q) { color: red }	rmattr #b1 class
+outcome	section#r(article#a.p(b#b1) article#c(b#b2))	.p:has(.q) { color: red }	attr #b1 class q
+outcome	section#r(article#a.p(b#b1) article#c(b#b2))	.p:has(> i) { color: red }	append #a i#n
+outcome	section#r(article#a(b#b1) article#c(b#b2))	:not(.x) > b { color: red }	attr #a class x
+outcome	section#r(article#a(b#b1) article#c(b#b2))	section:has(+ aside) b { color: red }	attr #c class w
+outcome	section#r(article#a(b#b1) article#c(b#b2))	* { color: red }	attr #b2 title t
+outcome	section#r(article#a(b#b1) article#c(b#b2))	.x .y { color: red }	attr #a class x;attr #b2 class y
+outcome	section#r(article#a(b#b1 'text') article#c(b#b2))	b:empty { color: red }	append #b2 'more'
+outcome	section#r(article#a.a article#b article#c)	.a:has(+ .b) { color: red }	attr #b class b
+outcome	section#r(article#a.a article#b article#c)	.a:has(~ .z) { color: red }	attr #c class z
+outcome	section#r(article#a article#b article#c)	article:nth-child(2) { color: red }	before #a article#n
+outcome	section#r(article#a article#b article#c)	article:nth-last-child(1) b { color: red }	append #r article#n(b#nb)
+outcome	section#r(article#a.x article#b article#c)	.x ~ article { color: red }	before #b article#n
+outcome	section#r(article#a article#b.y article#c)	.x + .y { color: red }	before #b article#n.x
+outcome	section#r(article#a[data-k=1](b#b1) article#c)	[data-k="2"] b { color: red }	attr #a data-k 2
+outcome	section#r(article#a(b#b1) article#c)	#a b, #c b { color: red }	attr #a id z;attr #c id a
+outcome	section#r(article#a.p(i#i1(b#b1)) article#c)	.p > i > b { color: red }	rmattr #a class
+outcome	section#r(article#a.p(i#i1(b#b1)) article#c)	.p * { color: red }	rmattr #a class
+outcome	section#r(article#a(i#i1(b#b1)) article#c)	section:has(.q) article { color: red }	attr #b1 class q
+outcome	section#r(article#a(i#i1(b#b1)) article#c)	section:has(article > i .q) { color: red }	attr #b1 class q
+outcome	section#r(article#a(i#i1(b#b1)) article#c)	:is(.m .n) b { color: red }	attr #a class m
+outcome	section#r(article#a(b#b1) article#c)	x-foo { color: red }	append #c x-foo#xf
+outcome	section#r(article#a(b#b1) article#c)	b:empty { color: red }	append #b1 i#n
+outcome	section#r(article#a(b#b1) article#c(b#b2))	article:has(b) { color: red }	remove #b2
+outcome	section#r(article#a(b#b1) article#c(b#b2))	article:has(:empty) { color: red }	append #b1 'x'
+outcome	section#r(article#a(b#b1) article#c(b#b2))	.x { color: red }	attr #a class x;rmattr #a class
+outcome	section#r(article#a.x(b#b1) article#c(b#b2))	:not(.x) b { color: red }	rmattr #a class
+propinv	color	red	blue
+propinv	color	red	red
+propinv	color	-	-
+propinv	display	block	inline
+propinv	position	static	absolute
+propinv	content	"a"	"b"
+propinv	text-transform	none	uppercase
+propinv	overflow-x	visible	hidden
+propinv	counter-reset	none	a 1
+propinv	visibility	visible	hidden
+propinv	visibility	visible	collapse
+propinv	width	10px	20px
+propinv	z-index	auto	1
+propinv	z-index	1	2
+propinv	transform	none	rotate(10deg)
+propinv	transform	rotate(10deg)	rotate(20deg)
+propinv	filter	none	blur(2px)
+propinv	isolation	auto	isolate
+propinv	mix-blend-mode	normal	multiply
+propinv	clip-path	none	inset(1px)
+propinv	perspective	none	10px
+propinv	transform-style	flat	preserve-3d
+propinv	translate	none	10px
+propinv	will-change	auto	transform
+propinv	background-color	red	-
+propinv	margin-left	1px	2px
+propinv	transform-origin	1px	2px

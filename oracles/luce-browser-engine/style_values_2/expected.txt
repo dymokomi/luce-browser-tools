@@ -3816,13 +3816,13 @@ case prop:font-style	italic
   independent: 1
   absolutized: italic (same: 1, equal: 1)
   rest: 0
-case !desc:font-face/src	url(foo.woff2) format(woff2)
+case desc:font-face/src	url(foo.woff2) format(woff2)
   value: url("foo.woff2") format(woff2)
   resolved: url("foo.woff2") format(woff2)
   independent: 1
   absolutized: url("foo.woff2") format(woff2) (same: 1, equal: 1)
   rest: 0
-case !desc:font-face/src	url(foo.ttf) format("truetype") tech(variations, color-COLRv1)
+case desc:font-face/src	url(foo.ttf) format("truetype") tech(variations, color-COLRv1)
   value: url("foo.ttf") format(truetype) tech(variations, color-colrv1)
   resolved: url("foo.ttf") format(truetype) tech(variations, color-colrv1)
   independent: 1
@@ -3834,7 +3834,7 @@ case desc:font-face/src	local(Foo), local("Bar Baz"), url(a.woff)
   independent: 1
   absolutized: local(Foo), local("Bar Baz"), url("a.woff") (same: 1, equal: 1)
   rest: 0
-case !desc:font-face/src	url(a.woff) tech(palettes)
+case desc:font-face/src	url(a.woff) tech(palettes)
   value: url("a.woff") tech(palettes)
   resolved: url("a.woff") tech(palettes)
   independent: 1

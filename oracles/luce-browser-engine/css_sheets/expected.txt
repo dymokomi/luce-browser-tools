@@ -205,12 +205,12 @@ case dump	@keyframes foo {}
   dump:   CSSKeyframesRule:
   dump:     Name: foo
   dump:     Keyframes (0):
-later insert	a {}	b {}	0
+case insert	a {}	b {}	0
   inserted at 0
   rules 2
     CSSStyleRule type=1 internal=1 text=b { }
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	a {}	b {}	1
+case insert	a {}	b {}	1
   inserted at 1
   rules 2
     CSSStyleRule type=1 internal=1 text=a { }
@@ -219,12 +219,12 @@ case insert	a {}	b {}	2
   exception IndexSizeError: CSS rule index out of bounds.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	a {}	bogus {	0
+case insert	a {}	bogus {	0
   inserted at 0
   rules 2
     CSSStyleRule type=1 internal=1 text=bogus { }
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	a {}	@layer x;	0
+case insert	a {}	@layer x;	0
   inserted at 0
   rules 2
     CSSLayerStatementRule type=0 internal=101 text=@layer x;
@@ -237,17 +237,17 @@ case insert	a {}	@namespace x url(y);	1
   exception HierarchyRequestError: Cannot insert rule at specified index.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	@namespace x url(y);	@namespace z url(w);	1
+case insert	@namespace x url(y);	@namespace z url(w);	1
   inserted at 1
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
     CSSNamespaceRule type=10 internal=10 text=@namespace z url("w");
-later insert	@namespace x url(y);	@namespace z url(w);	0
+case insert	@namespace x url(y);	@namespace z url(w);	0
   inserted at 0
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace z url("w");
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
-later insert	@namespace x url(y);	a {}	1
+case insert	@namespace x url(y);	a {}	1
   inserted at 1
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
@@ -256,7 +256,7 @@ case insert	@namespace x url(y);	a {}	0
   exception HierarchyRequestError: Cannot insert rule at specified index.
   rules 1
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
-later insert	@layer a; a {}	@layer b;	1
+case insert	@layer a; a {}	@layer b;	1
   inserted at 1
   rules 3
     CSSLayerStatementRule type=0 internal=101 text=@layer a;
@@ -266,7 +266,7 @@ case insert	a {}	b {} c {}	0
   exception SyntaxError: Unable to parse CSS rule.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later insert	a {}	@layer x { y {} }	1
+case insert	a {}	@layer x { y {} }	1
   inserted at 1
   rules 2
     CSSStyleRule type=1 internal=1 text=a { }
@@ -274,7 +274,7 @@ later insert	a {}	@layer x { y {} }	1
   y { }
 }
       CSSStyleRule type=1 internal=1 text=y { }
-later insert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
+case insert	@namespace svg url(http://www.w3.org/2000/svg);	svg|a {}	1
   inserted at 1
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace svg url("http://www.w3.org/2000/svg");
@@ -283,37 +283,37 @@ case insert	a {}	q|a {}	1
   exception SyntaxError: Unable to parse CSS rule.
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later delete	a {} b {}	0
+case delete	a {} b {}	0
   deleted
   rules 1
     CSSStyleRule type=1 internal=1 text=b { }
-later delete	a {} b {}	1
+case delete	a {} b {}	1
   deleted
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later delete	a {} b {}	2
+case delete	a {} b {}	2
   exception IndexSizeError: CSS rule index out of bounds.
   rules 2
     CSSStyleRule type=1 internal=1 text=a { }
     CSSStyleRule type=1 internal=1 text=b { }
-later delete	@namespace x url(y);	0
+case delete	@namespace x url(y);	0
   deleted
   rules 0
-later delete	@namespace x url(y); a {}	0
+case delete	@namespace x url(y); a {}	0
   exception InvalidStateError: Cannot remove @namespace rule from a stylesheet with non-namespace/import rules.
   rules 2
     CSSNamespaceRule type=10 internal=10 text=@namespace x url("y");
     CSSStyleRule type=1 internal=1 text=a { }
-later delete	@namespace x url(y); @namespace z url(w);	0
+case delete	@namespace x url(y); @namespace z url(w);	0
   deleted
   rules 1
     CSSNamespaceRule type=10 internal=10 text=@namespace z url("w");
-later addrule	a {}	b	-	-
+case addrule	a {}	b	-	-
   returned -1
   rules 2
     CSSStyleRule type=1 internal=1 text=a { }
     CSSStyleRule type=1 internal=1 text=b { }
-later addrule	a {}	b	-	0
+case addrule	a {}	b	-	0
   returned -1
   rules 2
     CSSStyleRule type=1 internal=1 text=b { }
@@ -408,11 +408,11 @@ case gdelete	@layer x { a {} }	0
   rules 1
     CSSLayerBlockRule type=0 internal=100 text=@layer x {
 }
-later selector	a {}	b
+case selector	a {}	b
   selectorText b
   rules 1
     CSSStyleRule type=1 internal=1 text=b { }
-later selector	a {}	b, c > d
+case selector	a {}	b, c > d
   selectorText b, c > d
   rules 1
     CSSStyleRule type=1 internal=1 text=b, c > d { }
@@ -424,7 +424,7 @@ case selector	a {}
   selectorText a
   rules 1
     CSSStyleRule type=1 internal=1 text=a { }
-later selector	a { b {} }	c
+case selector	a { b {} }	c
   selectorText c
   rules 1
     CSSStyleRule type=1 internal=1 text=c {
