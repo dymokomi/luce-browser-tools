@@ -142,7 +142,16 @@ static void run_pixels(std::string const& html, std::string const& mode)
         for (int x = 0; x < 800; ++x)
             if ((x < cx || x >= cx + cw || y < cy || y >= cy + ch) && bitmap->scanline(y)[x] != 0xffffffff)
                 ++outside;
-    b.appendff("\noutside {}", outside);
+    int min_x = 800, min_y = 600, max_x = -1, max_y = -1;
+    for (int y = 0; y < 600; ++y)
+        for (int x = 0; x < 800; ++x)
+            if (bitmap->scanline(y)[x] != 0xffffffff) {
+                min_x = min(min_x, x);
+                min_y = min(min_y, y);
+                max_x = max(max_x, x);
+                max_y = max(max_y, y);
+            }
+    b.appendff("\noutside {} painted {},{} {}x{}", outside, min_x, min_y, max_x - min_x + 1, max_y - min_y + 1);
     put_lines(b.string_view().trim_whitespace(TrimMode::Right));
 }
 
