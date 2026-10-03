@@ -1,0 +1,42 @@
+# Compiler issue (found by luce-browser-engine region r36, Luce 0.8.32 / luce-base 0.33.0):
+#
+# Returning a local ARRAY by value is rejected when its element type holds a view (a span),
+# even when every view in it is of static data (a string literal). An array is a value
+# (base.md §5.4: "An array is a value: it copies element by element"), so `return table`
+# copies it out; nothing that names a local escapes. The same struct returned alone is
+# accepted (build_one), and an array whose elements hold no view is accepted.
+#
+# Expected: `luce-base test` passes all three asserts.
+# Actual:   check fails twice:
+#   local_array_of_views_returned_by_value.lucb:29:12: this pointer or view names a local and must not escape the function
+#   local_array_of_views_returned_by_value.lucb:33:12: this pointer or view names a local and must not escape the function
+#
+# In the port: ColorFunctionDescriptor.cpp's build_color_function_descriptors() returns an
+# Array<ColorFunctionDescriptor, 16> whose descriptors hold a StringView (`"rgb"sv`). The
+# workaround fills the static table through a span parameter (`# LUCE-BUG:
+# local_array_of_views_returned_by_value` in luce-browser-engine
+# src/luce_browser_engine/web/css/color_function_descriptor.lucb).
+
+struct View:
+    var bytes: const u8[]
+
+func view_of(text: str) -> View:
+    return View(bytes = text.bytes)
+
+func build_one() -> View:
+    var one: View = view_of("rgb")
+    return one
+
+func build_array() -> View[2]:
+    var table: View[2]
+    table[1] = view_of("rgb")
+    return table
+
+func build_array_literal() -> View[2]:
+    let table: View[2] = [view_of("a"), view_of("rgb")]
+    return table
+
+test "views of literals stored in a local array and returned by value":
+    assert(build_one().bytes.length == 3)
+    assert(build_array()[1].bytes.length == 3)
+    assert(build_array_literal()[1].bytes.length == 3)
