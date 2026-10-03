@@ -5,3 +5,4 @@ compare_headless.py, which writes the screenshots to ~/Downloads first, as Ladyb
   ./build.sh
   ./oracle cases.txt > expected.txt
   python3 gen_luce_cases.py > .../web/painting/tests_paint_recording_cases.lucb
+r49+r53: cases svg-shapes, svg-strokes, svg-viewbox, markers, fieldset (dl and px each) appended to cases.txt.

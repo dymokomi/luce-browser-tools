@@ -436,11 +436,11 @@ layout	<!DOCTYPE html>\n<html id="html">\n<head id="head">\n\n</head>\n<body id=
 # css/counters-on-pseudo-elements
 layout	<!DOCTYPE html>\n<div id=a>a</div><div id=b>b</div><div id=c>c</div>\n	\n    body {\n      counter-reset: section;\n    }\n    div::before {\n      counter-increment: section;\n      content: counter(section) ". ";\n    }\n
 # details-closed
-layout	<!DOCTYPE html>\n<details>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
+!layout	<!DOCTYPE html>\n<details>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
 # details-open
 !layout	<!DOCTYPE html>\n<details open>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
 # details-summary-default-ua-style
-layout	<!doctype html><details><summary>hello\n	\n     details {\n        border: 10px solid black;\n        padding: 50px;\n      }\n
+!layout	<!doctype html><details><summary>hello\n	\n     details {\n        border: 10px solid black;\n        padding: 50px;\n      }\n
 # dialog-open-non-modal
 layout	<!DOCTYPE html>\n\n\n<dialog open>\n    <span>I'm a node</span>\n</dialog>\n	\n    :modal {\n        display: flex;\n    }\n
 # display-contents-with-in-children

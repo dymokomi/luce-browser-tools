@@ -10801,7 +10801,7 @@ case layout	<!DOCTYPE html>\n<div id=a>a</div><div id=b>b</div><div id=c>c</div>
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x70] [children: 0] (z-index: auto)
-case layout	<!DOCTYPE html>\n<details>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
+later layout	<!DOCTYPE html>\n<details>\n    <summary>I'm a summary</summary>\n    <span>I'm a node</span>\n</details>\n	
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 34 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 18 0+0+8] children: not-inline
@@ -10862,7 +10862,7 @@ later layout	<!DOCTYPE html>\n<details open>\n    <summary>I'm a summary</summar
   
   SC for Viewport<#document> [0,0 800x600] [children: 1] (z-index: auto)
    SC for BlockContainer<HTML> [0,0 800x52] [children: 0] (z-index: auto)
-case layout	<!doctype html><details><summary>hello\n	\n     details {\n        border: 10px solid black;\n        padding: 50px;\n      }\n
+later layout	<!doctype html><details><summary>hello\n	\n     details {\n        border: 10px solid black;\n        padding: 50px;\n      }\n
   Viewport <#document> at [0,0] [0+0+0 800 0+0+0] [0+0+0 600 0+0+0] [BFC] children: not-inline
     BlockContainer <html> at [0,0] [0+0+0 800 0+0+0] [0+0+0 154 0+0+0] [BFC] children: not-inline
       BlockContainer <body> at [8,8] [8+0+0 784 0+0+8] [8+0+0 138 0+0+8] children: not-inline

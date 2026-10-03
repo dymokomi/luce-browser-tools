@@ -28,3 +28,13 @@ r48 (table layout): cases_table.txt holds the 113 Ladybird Layout tests whose la
   python3 own_table_cases.py; ./oracle cases_table.txt > expected_table.txt
   python3 compare_ladybird.py --full cases_table.txt expected_table.txt   # all 113 reproduce Ladybird's expected files
   python3 gen_luce_cases.py table > .../web/layout/tests_layout_table_cases.lucb
+r49+r53 (SVG layout and the remaining paintables): cases_svg.txt (own_svg_cases.py writes it) holds Ladybird's Layout
+tests with SVG (from_ladybird.py; those whose elements region r56 has not ported are marked "!") and cases written for
+r49/r53; the new "svg" mode prints every SVG paintable (class, absolute rect, computed transforms, mask/clip areas,
+computed path and bounding box, clip path contribution and bounds, anti-aliasing). The 6 geometry and 27 inline cases
+that waited for region r53's paintables (markers, images, fieldsets) are unmarked; details-closed and
+details-summary-default-ua-style stay marked: the unit harness's document has no CSP list, which the <style> of
+<details>' UA shadow tree asks for (web_test passes them).
+  python3 own_svg_cases.py; ./oracle cases_svg.txt > expected_svg.txt
+  python3 compare_ladybird.py --full cases_svg.txt expected_svg.txt
+  python3 gen_luce_cases.py svg > .../web/layout/tests_layout_svg_cases.lucb
