@@ -1,0 +1,203 @@
+16 400 0 0px 4278190080 0 inline 2 3 4 3225436224 3235172552 0px 0px 0px 0px auto auto auto auto none 1px auto 0s none 012 1 | 16 4278190080 1 1 auto 0px 0px 0px 0px 1 50% 3 50% 1 50% 3 50% 50% 50% 0% 0px 1 11 0 0 0 00 1 1
+16 400 100% 0 0 18
+20 700 100% 0 0 30
+32 350 75% 1 0 37
+13 400 100% 0 0 15
+15 400 100% 2 1 22
+19.1875 100 100% 0 0 22.40625
+26 400 75% 0 0 21
+auto auto none
+50% 10px fit-content
+calc(100% - 20px) min-content 320px
+max-content auto none
+normal-gap normal-gap
+10px 5%
+calc(2% + 5px) normal-gap
+0px 0px 0px 0px / auto auto auto auto
+10px 5% auto 32px / 0px 10% calc(5% + 10px) auto
+4278190080 0 4278190080
+4294901760 2147549699 4278190080
+2014458966 4282433344 0
+4284887961 4282429879 4286578816
+[]
+[--a]
+[--a | --b | --c]
+2
+1
+2
+2 2 2
+1 1 1
+2 1 2
+1 1 2
+2 2 2
+1 1 1
+1
+2
+-
+4
+1
+2
+0
+1
+7
+2
+1
+2
+2
+3
+4
+8
+0 0
+2 0
+1 1
+[] clip=0
+[linear-gradient(red, blue) 2 2 0 0% 0% 2 auto auto 1 1 0] clip=0
+[linear-gradient(red, blue) 0 0 1 10px calc(100% - 5px) 1 auto auto 0 0 1 | radial-gradient(green, white) 0 0 1 10px calc(100% - 5px) 0 auto auto 0 0 1] clip=1
+[] clip=3
+0px 0px
+2px 2px
+2px 16px
+1
+1 auto auto auto auto
+0 1px 2px 3px 4px
+0 1px auto 48px auto
+inline
+block
+inline-flex
+list-item
+none
+table-cell
+1
+4
+3
+1
+1
+[0]
+[5]
+[url("foo.png") 2 3 | 10]
+[17]
+number 8
+number 4
+length 20px
+number 6
+length 26px
+0 000
+2 101
+5 010
+2
+0 0
+3 -1
+8 1.59375
+16 2.59375
+0 1
+3 0
+5 6
+[] 1 3 auto
+[1 | 2] 2 4 from-font
+[3] 1 3 3px
+[] 1 3 10%
+6
+2
+0px 00
+10px 11
+5% 00
+1
+0
+0 0 auto 0 1 0
+3 1 content 2 0.5 -3
+0 0 30% 0.25 1 7
+0 0 160px 0 1 0
+4282232553 4282232553
+4278222848 4278222848
+0 5 0 0 5 0
+6 1 4 8 10 11
+0 0 0 5 1 0
+7
+7
+0
+15
+6
+0
+none / none
+blur(2px) brightness(0.5) / grayscale(1)
+drop-shadow(red 1px 2px) / none
+1 1 1 1 1
+0.5 0.25 0 1 0.10000000149011612
+2
+1
+0
+3
+4 4
+2 3
+1 0
+0
+2
+keyword 0
+keyword 2
+10px
+-20%
+alternates - caps 0 east-asian - emoji 0 ligatures - numeric - position 0 kerning 0 language -
+alternates 1 0:foo 3:bar caps 1 east-asian 1 0 0 emoji 2 ligatures 0 0 1 0 1 numeric 11 0 1 0 position 2 kerning 2 language TRK
+alternates 1 caps 1 east-asian 1 0 0 emoji 2 ligatures 0 0 1 0 1 numeric 11 0 1 0 position 2 kerning 2 language TRK
+alternates - caps 0 east-asian 0 - 1 emoji 0 ligatures 1 - - - - numeric 00 1 - - position 0 kerning 0 language -
+alternates 0 1:a 1:b 2:c caps 0 east-asian - emoji 0 ligatures 0 1 - - - numeric - position 0 kerning 0 language -
+features 0 liga=- smcp=- kern=- ss01=- variations 0 wght=- wdth=- slnt=-
+features 3 liga=0 smcp=1 kern=- ss01=3 variations 2 wght=650 wdth=75.5 slnt=-
+features 0 liga=- smcp=- kern=- ss01=- variations 1 wght=- wdth=- slnt=-10
+none / none / auto / auto / 10 / auto auto auto auto / areas 0 0x0
+1fr 2fr 100px / repeat(2, 50px) / minmax(10px, auto) / 20% / 01 / 2 span 3 foo -1 / areas 0 0x0
+none / none / auto / auto / 11 / auto auto auto auto / areas 3 2x2
+[a] auto [b c] min-content / none / auto / auto / 10 / span foo auto auto auto / areas 0 0x0
+0 0 0
+1 1 1
+0 1 50% 3 50%
+2 1 calc(100% - 10px) 3 calc(80%)
+4 1 0% 3 0%
+0 4 0
+1 2 1
+1 0 0
+3 1 2
+111111
+000000
+111110
+111000
+100100
+00000 000
+10111 100
+00111 011
+10111 000
+01000 001
+00001 000
+-
+hero
+[] 4 0 50% 50% 0px - - - - 1 50% 3 50%
+[translate(10px, 20%) | rotate(45deg) | scale(2)] 1 1 0% 0% 0px 30deg 5px 6px 1.5 100 1 calc(100% - 10px) 3 20%
+[matrix(1, 0, 0, 1, 5, 6)] 4 0 100% 100% 10px x 10deg - - - 1 50% 3 50%
+[] 4 0 20% 30px 0px - - - - 1 50% 3 50%
+[] 0 0 4 0 0 0 0
+[1 | 2px | 3%] 2 2 7 1 1 1 2
+[3 | calc(21px) | 4] 0 0 4 0 0 0 0
+012
+102
+201
+012
+120
+201
+021
+10000
+01010
+00101
+1
+0
+2 ab cd
+1
+[][][]
+[a 0 3 | b 0 0 | c 0 7][a 0 1][b 0 -2]
+[x 0 5][][]
+0 0
+1 1
+0 0
+1 3
+3 -
+0 10
+4 -2

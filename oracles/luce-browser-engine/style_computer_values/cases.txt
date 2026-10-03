@@ -1,5 +1,5 @@
 # The StyleComputer computed-value cases (r39): "<function>\t<property>\t<value>[\t<argument>]";
-# "!" marks cases whose port reaches InitialValues (region r40).
+# "!" marks a case waiting for another region (none now: r40 ported InitialValues).
 font_width	font-width	ultra-condensed
 font_width	font-width	extra-condensed
 font_width	font-width	condensed
@@ -69,34 +69,34 @@ border_width	border-top-width	1.4px	1.5
 border_width	border-top-width	0px	1
 border_width	border-top-width	3px	3
 border_width	border-top-width	0.5px	1
-!font_size	font-size	xx-small	0
-!font_size	font-size	x-small	0
-!font_size	font-size	small	0
-!font_size	font-size	medium	0
-!font_size	font-size	large	0
-!font_size	font-size	x-large	0
-!font_size	font-size	xx-large	0
-!font_size	font-size	xxx-large	0
-!font_size	font-size	20px	0
-!font_size	font-size	150%	0
-!font_size	font-size	calc(50% + 2px)	0
-!font_size	font-size	math	0
-!font_size	font-size	math	1
-!font_size	font-size	math	3
-!font_size	font-size	math	-2
-!font_weight	font-weight	normal
-!font_weight	font-weight	bold
-!font_weight	font-weight	bolder
-!font_weight	font-weight	lighter
-!font_weight	font-weight	350
-!font_weight	font-weight	calc(200 + 50)
-!math_depth	math-depth	auto-add
-!math_depth	math-depth	add(2)
-!math_depth	math-depth	3
-!math_depth	math-depth	calc(1 + 1)
-!math_depth	math-depth	add(-1)
-!font_size	font-size	smaller	0
-!font_size	font-size	larger	0
+font_size	font-size	xx-small	0
+font_size	font-size	x-small	0
+font_size	font-size	small	0
+font_size	font-size	medium	0
+font_size	font-size	large	0
+font_size	font-size	x-large	0
+font_size	font-size	xx-large	0
+font_size	font-size	xxx-large	0
+font_size	font-size	20px	0
+font_size	font-size	150%	0
+font_size	font-size	calc(50% + 2px)	0
+font_size	font-size	math	0
+font_size	font-size	math	1
+font_size	font-size	math	3
+font_size	font-size	math	-2
+font_weight	font-weight	normal
+font_weight	font-weight	bold
+font_weight	font-weight	bolder
+font_weight	font-weight	lighter
+font_weight	font-weight	350
+font_weight	font-weight	calc(200 + 50)
+math_depth	math-depth	auto-add
+math_depth	math-depth	add(2)
+math_depth	math-depth	3
+math_depth	math-depth	calc(1 + 1)
+math_depth	math-depth	add(-1)
+font_size	font-size	smaller	0
+font_size	font-size	larger	0
 serialize	margin	1px 2px
 serialize	margin	1px 1px 1px 1px
 serialize	border	1px solid red

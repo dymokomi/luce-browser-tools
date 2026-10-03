@@ -1,0 +1,207 @@
+# r40 ComputedProperties readers: "<reader>\t<declarations>" (see oracle.cpp). Initial values first.
+# A leading "!" marks a case waiting for another region (color-scheme names: r42's preferred_color_scheme_*_string;
+# font-variant-alternates functions: r41's font_feature_value_type_from_string);
+# the oracle runs it, gen_luce_cases.py leaves it out.
+initial_values
+font
+font	font-size: 20px; font-weight: bold; line-height: 1.5
+font	font-size: 2em; font-weight: 350; font-width: condensed; font-style: italic; line-height: normal
+font	font-size: 13px; line-height: normal
+font	font-size: 15px; line-height: 22px; font-style: oblique 20deg; font-optical-sizing: none
+font	font-size: large; font-weight: lighter; line-height: 140%
+font	font-size: calc(10px + 1em); font-width: 75%; line-height: calc(1px + 1.25em)
+size_value
+size_value	width: 50%; min-height: 10px; max-width: fit-content
+size_value	width: calc(100% - 20px); min-height: min-content; max-width: 20em
+size_value	width: max-content; min-height: auto; max-width: none
+gap_value
+gap_value	column-gap: 10px; row-gap: 5%
+gap_value	column-gap: calc(5px + 2%); row-gap: normal
+length_box
+length_box	margin-top: 10px; margin-right: 5%; margin-bottom: auto; margin-left: 2em; top: 0; right: 10%; bottom: calc(10px + 5%); left: auto
+color
+color	color: red; background-color: rgb(1 2 3 / 50%); border-top-color: currentcolor
+color	color: #12345678; background-color: hsl(120 50% 50%); border-top-color: transparent
+color	color: rebeccapurple; background-color: oklch(70% 0.1 200); border-top-color: color-mix(in srgb, red, blue)
+anchor_names
+anchor_names	anchor-name: --a
+anchor_names	anchor-name: --a, --b, --c
+color_interpolation
+color_interpolation	color-interpolation: linearrgb
+color_interpolation	color-interpolation: srgb
+!color_scheme
+!color_scheme	color-scheme: dark
+!color_scheme	color-scheme: light dark
+!color_scheme	color-scheme: dark light
+!color_scheme	color-scheme: only light
+!color_scheme	color-scheme: foo dark
+text_anchor	text-anchor: middle
+text_anchor	text-anchor: end
+dominant_baseline
+dominant_baseline	dominant-baseline: central
+dominant_baseline	dominant-baseline: alphabetic
+text_align
+text_align	text-align: center
+text_align	text-align: justify
+text_align	text-align: -libweb-center
+text_justify	text-justify: inter-word
+text_overflow	text-overflow: ellipsis
+text_rendering	text-rendering: optimizeLegibility
+text_underline_offset
+text_underline_offset	text-underline-offset: 3px
+text_underline_offset	text-underline-offset: 25%
+text_underline_offset	font-size: 20px; text-underline-offset: 0.5em
+text_underline_position
+text_underline_position	text-underline-position: under
+text_underline_position	text-underline-position: from-font left
+background_layers
+background_layers	background-image: linear-gradient(red, blue)
+background_layers	background-image: linear-gradient(red, blue), none, radial-gradient(green, white); background-repeat: no-repeat, repeat-x; background-position-x: 10px, 50%; background-position-y: bottom 5px, top; background-size: cover, 10px auto, contain; background-clip: content-box; background-origin: border-box; background-attachment: fixed, local; background-blend-mode: multiply
+background_layers	background-image: none, none; background-clip: padding-box, text
+border_spacing
+border_spacing	border-spacing: 2px
+border_spacing	border-spacing: 2px 1em
+caption_side	caption-side: bottom
+clip
+clip	clip: rect(1px, 2px, 3px, 4px)
+clip	clip: rect(1px, auto, 3em, auto)
+display
+display	display: block
+display	display: inline-flex
+display	display: list-item
+display	display: none
+display	display: table-cell
+float	float: left
+float	float: inline-end
+clear	clear: both
+column_span	column-span: all
+content_visibility	content-visibility: auto
+cursor
+cursor	cursor: pointer
+cursor	cursor: url(foo.png) 2 3, text
+cursor	cursor: grab
+tab_size
+tab_size	tab-size: 4
+tab_size	tab-size: 20px
+tab_size	tab-size: calc(2 * 3)
+tab_size	tab-size: calc(10px + 1em)
+white_space
+white_space	white-space-collapse: preserve; white-space-trim: discard-before discard-inner
+white_space	white-space-collapse: break-spaces; white-space-trim: discard-after
+word_break	word-break: break-all
+spacing
+spacing	word-spacing: 3px; letter-spacing: -1px
+spacing	word-spacing: 0.5em; letter-spacing: 10%
+spacing	font-size: 20px; word-spacing: 1em; letter-spacing: calc(1px + 0.1em)
+line_style
+line_style	border-top-style: dashed; outline-style: auto
+line_style	border-top-style: double; outline-style: groove
+text_decoration
+text_decoration	text-decoration-line: underline overline; text-decoration-skip-ink: none; text-decoration-style: wavy; text-decoration-thickness: from-font
+text_decoration	text-decoration-line: line-through; text-decoration-thickness: 3px
+text_decoration	text-decoration-thickness: 10%
+text_transform	text-transform: uppercase
+text_transform	text-transform: full-width
+text_indent
+text_indent	text-indent: 10px each-line hanging
+text_indent	text-indent: 5%
+text_wrap_mode	text-wrap-mode: nowrap
+list_style_position	list-style-position: inside
+flex
+flex	flex-direction: column-reverse; flex-wrap: wrap; flex-basis: content; flex-grow: 2; flex-shrink: 0.5; order: -3
+flex	flex-basis: 30%; flex-grow: 0.25; order: 7
+flex	flex-basis: 10em
+accent_color
+accent_color	accent-color: green
+alignment
+alignment	align-content: space-between; align-items: center; align-self: flex-end; justify-content: space-evenly; justify-items: start; justify-self: stretch
+alignment	align-items: baseline; justify-content: center; justify-items: center
+appearance
+appearance	appearance: none
+appearance	appearance: button
+appearance	appearance: textfield
+appearance	appearance: menulist-button
+appearance	appearance: checkbox
+filters
+filters	filter: blur(2px) brightness(50%); backdrop-filter: grayscale(1)
+filters	filter: drop-shadow(1px 2px red)
+opacities
+opacities	opacity: 0.5; fill-opacity: 25%; stroke-opacity: 0; stop-opacity: 2; flood-opacity: 0.1
+visibility
+visibility	visibility: hidden
+visibility	visibility: collapse
+image_rendering	image-rendering: pixelated
+overflow
+overflow	overflow-x: hidden; overflow-y: scroll
+overflow	overflow-x: clip; overflow-y: auto
+box_sizing	box-sizing: border-box
+pointer_events	pointer-events: none
+vertical_align
+vertical_align	vertical-align: middle
+vertical_align	vertical-align: 10px
+vertical_align	vertical-align: -20%
+font_variants
+!font_variants	font-variant-alternates: historical-forms stylistic(foo) swash(bar); font-variant-caps: small-caps; font-variant-east-asian: jis78 full-width ruby; font-variant-emoji: emoji; font-variant-ligatures: common-ligatures no-discretionary-ligatures historical-ligatures no-contextual; font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal slashed-zero; font-variant-position: super; font-kerning: none; font-language-override: "TRK"
+font_variants	font-variant-alternates: historical-forms; font-variant-caps: small-caps; font-variant-east-asian: jis78 full-width ruby; font-variant-emoji: emoji; font-variant-ligatures: common-ligatures no-discretionary-ligatures historical-ligatures no-contextual; font-variant-numeric: lining-nums tabular-nums diagonal-fractions ordinal slashed-zero; font-variant-position: super; font-kerning: none; font-language-override: "TRK"
+font_variants	font-variant-ligatures: none; font-variant-east-asian: proportional-width; font-variant-numeric: oldstyle-nums
+!font_variants	font-variant-alternates: styleset(a, b) character-variant(c); font-variant-ligatures: no-common-ligatures
+font_settings
+font_settings	font-feature-settings: "liga" 0, "smcp", "ss01" 3; font-variation-settings: "wght" 650, "wdth" 75.5
+font_settings	font-variation-settings: "slnt" -10
+grid
+grid	grid-template-columns: 1fr 2fr 100px; grid-template-rows: repeat(2, 50px); grid-auto-columns: minmax(10px, auto); grid-auto-rows: 20%; grid-auto-flow: column dense; grid-column-start: 2; grid-column-end: span 3; grid-row-start: foo; grid-row-end: -1
+grid	grid-template-areas: "a b" "a c"; grid-auto-flow: dense
+grid	grid-template-columns: [a] auto [b c] min-content; grid-column-start: span foo
+table
+table	border-collapse: collapse; empty-cells: hide; table-layout: fixed
+object
+object	object-fit: cover; object-position: right 10px bottom 20%
+object	object-fit: scale-down; object-position: left top
+writing
+writing	direction: rtl; unicode-bidi: isolate; writing-mode: vertical-rl
+user_select
+user_select	user-select: none; isolation: isolate; mix-blend-mode: screen
+touch_action
+touch_action	touch-action: none
+touch_action	touch-action: manipulation
+touch_action	touch-action: pan-x pan-up
+touch_action	touch-action: pan-left pan-down
+contain
+contain	contain: strict; container-type: size
+contain	contain: content; container-type: inline-size scroll-state
+contain	contain: size layout style paint
+contain	contain: inline-size; container-type: scroll-state
+contain	contain: paint
+view_transition_name
+view_transition_name	view-transition-name: hero
+transforms
+transforms	transform: translate(10px, 20%) rotate(45deg) scale(2); transform-box: border-box; transform-style: preserve-3d; transform-origin: left top; rotate: 30deg; translate: 5px 6px; scale: 1.5; perspective: 100px; perspective-origin: right 10px top 20%
+transforms	transform: matrix(1, 0, 0, 1, 5, 6); transform-origin: right bottom 10px; rotate: x 10deg
+transforms	transform-origin: 20% 30px; perspective-origin: center
+svg
+svg	stroke-dasharray: 1 2px 3%; stroke-linecap: round; stroke-linejoin: bevel; stroke-miterlimit: 7; fill-rule: evenodd; clip-rule: evenodd; mask-type: alpha; shape-rendering: crispEdges
+svg	stroke-dasharray: calc(1 + 2) calc(5px + 1em) 4
+paint_order
+paint_order	paint-order: stroke
+paint_order	paint-order: markers
+paint_order	paint-order: fill
+paint_order	paint-order: stroke markers
+paint_order	paint-order: markers fill
+paint_order	paint-order: fill markers
+will_change
+will_change	will-change: contents, opacity
+will_change	will-change: scroll-position, transform, foo
+quotes
+quotes	quotes: none
+quotes	quotes: "a" "b" "c" "d"
+quotes	quotes: auto
+counters
+counters	counter-reset: a 3 b c 7; counter-increment: a; counter-set: b -2
+counters	counter-reset: x 5; counter-increment: none
+scrollbar
+scrollbar	scrollbar-width: thin; resize: both
+math
+math	math-style: compact; math-depth: 3
+position
+position	position: absolute; z-index: 10
+position	position: sticky; z-index: -2

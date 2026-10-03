@@ -27,8 +27,7 @@ out.write('''#==================================================================
 #       names, or serializes it ("serialize": shorthands; ShorthandStyleValue expands them with
 #       StyleComputer::for_each_property_expanding_shorthands) (luce-browser-tools,
 #       oracles/luce-browser-engine/style_computer_values: oracle.cpp, cases.txt,
-#       gen_luce_cases.py). The oracle's cases whose port reaches InitialValues (font-size,
-#       font-weight, math-depth; region r40) are left out.
+#       gen_luce_cases.py).
 #
 #==============================================================================================
 
