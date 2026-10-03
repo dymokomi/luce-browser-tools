@@ -1,5 +1,4 @@
-# r42 oracle cases: <mode>\t<argument>. "!" marks a case that waits for another region in the port
-# (font-tech()/font-format(): r41).
+# r42 oracle cases: <mode>\t<argument>. "!" marks a case that waits for another region in the port.
 media	screen
 media	print
 media	all
@@ -44,10 +43,10 @@ supports	(display: grid) and (color: red)
 supports	(display: grid) or (display: bogus)
 supports	selector(a > b)
 supports	selector(:bogus)
-!supports	font-tech(color-COLRv1)
-!supports	font-tech(bogus)
-!supports	font-format(woff2)
-!supports	font-format(bogus)
+supports	font-tech(color-COLRv1)
+supports	font-tech(bogus)
+supports	font-format(woff2)
+supports	font-format(bogus)
 supports	env(safe-area-inset-top)
 supports	env(bogus)
 supports	(color: red) and (not (display: bogus))

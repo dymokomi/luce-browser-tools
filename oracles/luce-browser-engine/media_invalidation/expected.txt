@@ -391,22 +391,22 @@ case supports	selector(:bogus)
   matches: false
   dump: Supports condition: (matches = false)
   dump:   Selector: `:bogus` matches=false
-later supports	font-tech(color-COLRv1)
+case supports	font-tech(color-COLRv1)
   text: font-tech(color-COLRv1)
   matches: true
   dump: Supports condition: (matches = true)
   dump:   FontTech: `color-COLRv1` matches=true
-later supports	font-tech(bogus)
+case supports	font-tech(bogus)
   text: font-tech(bogus)
   matches: false
   dump: Supports condition: (matches = false)
   dump:   FontTech: `bogus` matches=false
-later supports	font-format(woff2)
+case supports	font-format(woff2)
   text: font-format(woff2)
   matches: true
   dump: Supports condition: (matches = true)
   dump:   FontFormat: `woff2` matches=true
-later supports	font-format(bogus)
+case supports	font-format(bogus)
   text: font-format(bogus)
   matches: false
   dump: Supports condition: (matches = false)
