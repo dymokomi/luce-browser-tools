@@ -1,0 +1,171 @@
+# r27 oracle cases: <mode>\t<argument>... "!" marks a case that waits for another region in the port.
+doc	<!DOCTYPE html><p>Hello<b>world</b>
+doc	<!DOCTYPE html><html><head></head><body></body></html>
+doc	Text only
+doc	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><p>x
+doc	<!-- c1 --><!DOCTYPE html><!-- c2 --><html><!-- c3 --><head></head><body><!-- c4 --></body></html><!-- c5 -->
+doc	<p>One<p>Two<div>Three</div>
+doc	<b><i>1</b>2</i>3
+!doc	<a href=x><p>X<a href=y>Y</a>Z</p></a>
+doc	<a id=x><p>X<a id=y>Y</a>Z</p></a>
+doc	<b>1<p>2</b>3</p>
+doc	<div><span>a<div>b</span>c</div>
+doc	<h1><h2>x</h2></h1>
+doc	<h1>a<h2>b
+doc	<pre>\nfirst\nsecond</pre>
+doc	<p>a<hr>b
+doc	<br></br>
+doc	<p></p><p align=center>x</p><font color=red size=+2 face=Arial>t</font>
+doc	<body bgcolor=#fff link=blue><div>x</div></body>
+doc	<frameset cols=50%,50%></frameset>
+doc	<script></script><p>after
+doc	<script src=a.js></script><p>after
+doc	<noscript><p>x</p></noscript>
+doc	<marquee scrollamount=10>m</marquee>
+!doc	<map name=m><area href=x></map>
+doc	<map name=m><area id=x></map>
+!doc	<a href="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
+doc	<a id="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
+doc	<data value=1>d</data><time datetime=2020>t</time><span>s</span>
+doc	<embed src=x><param name=a value=b>
+doc	&amp;&lt;&gt; &copy; &notanentity; &#x41;&#66;
+doc	<plaintext><b>not bold
+doc	<p>a</p></p>b
+doc	<div>a</span>b</div>
+doc	</html>trailing
+doc	<body><body class=x id=y>
+doc	<html lang=en><html class=x>
+doc	<nobr>a<nobr>b</nobr>
+doc	<a>1<a>2
+doc	<div id=a><div id=b><div id=c>deep</div></div></div>
+doc	<center>c</center><big>b</big><tt>t</tt><strike>s</strike>
+doc	<address>a</address><article>x</article><section>s</section><nav>n</nav><aside>a</aside><header>h</header><footer>f</footer><main>m</main>
+doc	<p>x<address>y</address>z
+doc	<b><p><i>x</b>y</i>
+doc	<head></head>  <body>  x  </body>
+!doc	<!DOCTYPE html><head><noscript><meta charset=utf-8></noscript></head>
+!doc	<script>var x = 1;</script><p>after
+!doc	<frameset><frame src=a><frame src=b></frameset>
+!doc	<iframe src=x></iframe>
+!doc	<object data=x><param name=a value=b>fallback</object>
+!doc	<canvas width=10 height=20>fallback</canvas>
+!doc	<div><table><tr><td>x</td></tr></table></div>
+!doc	<table>a<tr><td>b</table>
+!doc	<ul><li>a<li>b</ul>
+!doc	<svg><circle/></svg>
+!doc	<math><mi>x</mi></math>
+!doc	<template><p>t</p></template>
+!doc	<select><option>a</select>
+!doc	<textarea>\nx</textarea>
+!doc	<title>t</title><p>x
+!doc	<foo-bar>x</foo-bar><unknownelement>y</unknownelement>
+!doc	<video src=v.mp4 controls></video><audio></audio>
+!frag	div	<p>a<b>b</b></p>
+!frag	p	x<p>y
+!frag	span	<div>block</div>
+!frag	body	<h1>t</h1>text
+!frag	pre	\nnewline
+!frag	html	<head></head><p>x
+!frag	table	<tr><td>x
+fontsize	
+fontsize	  
+fontsize	+
+fontsize	-
+fontsize	1
+fontsize	7
+fontsize	8
+fontsize	0
+fontsize	+1
+fontsize	+4
+fontsize	+5
+fontsize	-1
+fontsize	-3
+fontsize	-5
+fontsize	 3
+fontsize	3px
+fontsize	x3
+fontsize	+2147483647
+fontsize	-2147483648
+fontsize	99999999999
+fontsize	\t\n4
+hints	div	<div align=left>
+hints	div	<div align=RIGHT>
+hints	div	<div align=center>
+hints	div	<div align=justify>
+hints	div	<div align=bogus id=x>
+hints	p	<p align=Center>
+hints	p	<p align=left>
+hints	h1	<h1 align=Left>
+hints	h1	<h1 align=left>
+hints	h2	<h2 align=justify>
+hints	pre	<pre wrap>
+hints	br	<br clear=left>
+hints	br	<br clear=ALL>
+hints	br	<br clear=both>
+hints	br	<br clear=none>
+hints	hr	<hr color=red size=5>
+hints	hr	<hr noshade size=3>
+hints	hr	<hr size=1>
+hints	hr	<hr size=5>
+hints	hr	<hr width=50%>
+hints	hr	<hr width=120 align=left>
+hints	hr	<hr align=right>
+hints	hr	<hr align=center>
+hints	hr	<hr color=#00f>
+hints	font	<font color=red>
+hints	font	<font size=+2>
+hints	font	<font size=-1>
+hints	font	<font face="Arial, sans-serif">
+hints	font	<font size=junk color=garbage>
+hints	body	<body bgcolor=#ff0000 text=blue>
+hints	body	<body marginheight=10 leftmargin=5 rightmargin=x>
+hints	body	<body topmargin=3 marginheight=7>
+hints	marquee	<marquee bgcolor=yellow height=50 hspace=4 vspace=6 width=200>
+hints	embed	<embed align=middle height=30 hspace=1 vspace=2 width=40%>
+hints	embed	<embed align=center>
+hints	frameset	<frameset rows=*>
+!hints	canvas	<canvas width=40 height=30>
+!hints	iframe	<iframe frameborder=0>
+!hints	object	<object border=2 align=center>
+role	div	<div>
+role	span	<span>
+role	p	<p>
+role	pre	<pre>
+role	html	<p>
+role	body	<p>
+role	data	<data>
+role	time	<time>
+role	h3	<h3>
+role	hr	<hr>
+role	del	<del>
+role	ins	<ins>
+role	q	<q>
+role	blockquote	<blockquote>
+role	a	<a>
+!role	a	<a href=x>
+role	area	<map><area></map>
+!role	area	<map><area href=x></map>
+!canvas	<canvas>
+!canvas	<canvas width=100 height=abc>
+marquee	<marquee>
+marquee	<marquee scrollamount=10 scrolldelay=50>
+marquee	<marquee scrollamount=-1 scrolldelay=x>
+marquee	<marquee scrollamount=3000000000>
+script	<script></script>
+script	<script src=a.js></script>
+script	<script src=a.js async></script>
+script	<script type=module src=m.js></script>
+script	<script type=text/plain src=x></script>
+script	<script language=vbscript src=x></script>
+script	<script type="" src=x></script>
+script	<script type=importmap src=x></script>
+script	<script type=" text/javascript " src=x></script>
+script	<script nomodule src=x></script>
+
+query	:heading(1)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+query	:heading(2)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+query	:heading(3)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+query	:heading(6)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+query	:heading(1, 3)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+query	:heading(2, 4, 6)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+query	:heading	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>

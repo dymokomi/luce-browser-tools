@@ -1,0 +1,869 @@
+case doc	<!DOCTYPE html><p>Hello<b>world</b>
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "Hello"
+|       <b>
+|         "world"
+case doc	<!DOCTYPE html><html><head></head><body></body></html>
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|   <body>
+case doc	Text only
+| <html>
+|   <head>
+|   <body>
+|     "Text only"
+case doc	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"><p>x
+| <!DOCTYPE html "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "x"
+case doc	<!-- c1 --><!DOCTYPE html><!-- c2 --><html><!-- c3 --><head></head><body><!-- c4 --></body></html><!-- c5 -->
+| <!--  c1  -->
+| <!DOCTYPE html>
+| <!--  c2  -->
+| <html>
+|   <!--  c3  -->
+|   <head>
+|   <body>
+|     <!--  c4  -->
+| <!--  c5  -->
+case doc	<p>One<p>Two<div>Three</div>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "One"
+|     <p>
+|       "Two"
+|     <div>
+|       "Three"
+case doc	<b><i>1</b>2</i>3
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       <i>
+|         "1"
+|     <i>
+|       "2"
+|     "3"
+later doc	<a href=x><p>X<a href=y>Y</a>Z</p></a>
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       href="x"
+|     <p>
+|       <a>
+|         href="x"
+|         "X"
+|       <a>
+|         href="y"
+|         "Y"
+|       "Z"
+case doc	<a id=x><p>X<a id=y>Y</a>Z</p></a>
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       id="x"
+|     <p>
+|       <a>
+|         id="x"
+|         "X"
+|       <a>
+|         id="y"
+|         "Y"
+|       "Z"
+case doc	<b>1<p>2</b>3</p>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|       "1"
+|     <p>
+|       <b>
+|         "2"
+|       "3"
+case doc	<div><span>a<div>b</span>c</div>
+| <html>
+|   <head>
+|   <body>
+|     <div>
+|       <span>
+|         "a"
+|         <div>
+|           "bc"
+case doc	<h1><h2>x</h2></h1>
+| <html>
+|   <head>
+|   <body>
+|     <h1>
+|     <h2>
+|       "x"
+case doc	<h1>a<h2>b
+| <html>
+|   <head>
+|   <body>
+|     <h1>
+|       "a"
+|     <h2>
+|       "b"
+case doc	<pre>\nfirst\nsecond</pre>
+| <html>
+|   <head>
+|   <body>
+|     <pre>
+|       "first
+second"
+case doc	<p>a<hr>b
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|     <hr>
+|     "b"
+case doc	<br></br>
+| <html>
+|   <head>
+|   <body>
+|     <br>
+|     <br>
+case doc	<p></p><p align=center>x</p><font color=red size=+2 face=Arial>t</font>
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|     <p>
+|       align="center"
+|       "x"
+|     <font>
+|       color="red"
+|       face="Arial"
+|       size="+2"
+|       "t"
+case doc	<body bgcolor=#fff link=blue><div>x</div></body>
+| <html>
+|   <head>
+|   <body>
+|     bgcolor="#fff"
+|     link="blue"
+|     <div>
+|       "x"
+case doc	<frameset cols=50%,50%></frameset>
+| <html>
+|   <head>
+|   <frameset>
+|     cols="50%,50%"
+case doc	<script></script><p>after
+| <html>
+|   <head>
+|     <script>
+|   <body>
+|     <p>
+|       "after"
+case doc	<script src=a.js></script><p>after
+| <html>
+|   <head>
+|     <script>
+|       src="a.js"
+|   <body>
+|     <p>
+|       "after"
+case doc	<noscript><p>x</p></noscript>
+| <html>
+|   <head>
+|     <noscript>
+|   <body>
+|     <p>
+|       "x"
+case doc	<marquee scrollamount=10>m</marquee>
+| <html>
+|   <head>
+|   <body>
+|     <marquee>
+|       scrollamount="10"
+|       "m"
+later doc	<map name=m><area href=x></map>
+| <html>
+|   <head>
+|   <body>
+|     <map>
+|       name="m"
+|       <area>
+|         href="x"
+case doc	<map name=m><area id=x></map>
+| <html>
+|   <head>
+|   <body>
+|     <map>
+|       name="m"
+|       <area>
+|         id="x"
+later doc	<a href="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       href="#top"
+|       "link"
+|     <ins>
+|       "i"
+|     <del>
+|       "d"
+|     <q>
+|       "q"
+|     <blockquote>
+|       "b"
+case doc	<a id="#top">link</a><ins>i</ins><del>d</del><q>q</q><blockquote>b</blockquote>
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       id="#top"
+|       "link"
+|     <ins>
+|       "i"
+|     <del>
+|       "d"
+|     <q>
+|       "q"
+|     <blockquote>
+|       "b"
+case doc	<data value=1>d</data><time datetime=2020>t</time><span>s</span>
+| <html>
+|   <head>
+|   <body>
+|     <data>
+|       value="1"
+|       "d"
+|     <time>
+|       datetime="2020"
+|       "t"
+|     <span>
+|       "s"
+case doc	<embed src=x><param name=a value=b>
+| <html>
+|   <head>
+|   <body>
+|     <embed>
+|       src="x"
+|     <param>
+|       name="a"
+|       value="b"
+case doc	&amp;&lt;&gt; &copy; &notanentity; &#x41;&#66;
+| <html>
+|   <head>
+|   <body>
+|     "&<> © ¬anentity; AB"
+case doc	<plaintext><b>not bold
+| <html>
+|   <head>
+|   <body>
+|     <plaintext>
+|       "<b>not bold"
+case doc	<p>a</p></p>b
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "a"
+|     <p>
+|     "b"
+case doc	<div>a</span>b</div>
+| <html>
+|   <head>
+|   <body>
+|     <div>
+|       "ab"
+case doc	</html>trailing
+| <html>
+|   <head>
+|   <body>
+|     "trailing"
+case doc	<body><body class=x id=y>
+| <html>
+|   <head>
+|   <body>
+|     class="x"
+|     id="y"
+case doc	<html lang=en><html class=x>
+| <html>
+|   class="x"
+|   lang="en"
+|   <head>
+|   <body>
+case doc	<nobr>a<nobr>b</nobr>
+| <html>
+|   <head>
+|   <body>
+|     <nobr>
+|       "a"
+|     <nobr>
+|       "b"
+case doc	<a>1<a>2
+| <html>
+|   <head>
+|   <body>
+|     <a>
+|       "1"
+|     <a>
+|       "2"
+case doc	<div id=a><div id=b><div id=c>deep</div></div></div>
+| <html>
+|   <head>
+|   <body>
+|     <div>
+|       id="a"
+|       <div>
+|         id="b"
+|         <div>
+|           id="c"
+|           "deep"
+case doc	<center>c</center><big>b</big><tt>t</tt><strike>s</strike>
+| <html>
+|   <head>
+|   <body>
+|     <center>
+|       "c"
+|     <big>
+|       "b"
+|     <tt>
+|       "t"
+|     <strike>
+|       "s"
+case doc	<address>a</address><article>x</article><section>s</section><nav>n</nav><aside>a</aside><header>h</header><footer>f</footer><main>m</main>
+| <html>
+|   <head>
+|   <body>
+|     <address>
+|       "a"
+|     <article>
+|       "x"
+|     <section>
+|       "s"
+|     <nav>
+|       "n"
+|     <aside>
+|       "a"
+|     <header>
+|       "h"
+|     <footer>
+|       "f"
+|     <main>
+|       "m"
+case doc	<p>x<address>y</address>z
+| <html>
+|   <head>
+|   <body>
+|     <p>
+|       "x"
+|     <address>
+|       "y"
+|     "z"
+case doc	<b><p><i>x</b>y</i>
+| <html>
+|   <head>
+|   <body>
+|     <b>
+|     <p>
+|       <b>
+|         <i>
+|           "x"
+|       <i>
+|         "y"
+case doc	<head></head>  <body>  x  </body>
+| <html>
+|   <head>
+|   "  "
+|   <body>
+|     "  x  "
+later doc	<!DOCTYPE html><head><noscript><meta charset=utf-8></noscript></head>
+| <!DOCTYPE html>
+| <html>
+|   <head>
+|     <noscript>
+|       <meta>
+|         charset="utf-8"
+|   <body>
+later doc	<script>var x = 1;</script><p>after
+| <html>
+|   <head>
+|     <script>
+|       "var x = 1;"
+|   <body>
+|     <p>
+|       "after"
+later doc	<frameset><frame src=a><frame src=b></frameset>
+| <html>
+|   <head>
+|   <frameset>
+|     <frame>
+|       src="a"
+|     <frame>
+|       src="b"
+later doc	<iframe src=x></iframe>
+| <html>
+|   <head>
+|   <body>
+|     <iframe>
+|       src="x"
+later doc	<object data=x><param name=a value=b>fallback</object>
+| <html>
+|   <head>
+|   <body>
+|     <object>
+|       data="x"
+|       <param>
+|         name="a"
+|         value="b"
+|       "fallback"
+later doc	<canvas width=10 height=20>fallback</canvas>
+| <html>
+|   <head>
+|   <body>
+|     <canvas>
+|       height="20"
+|       width="10"
+|       "fallback"
+later doc	<div><table><tr><td>x</td></tr></table></div>
+| <html>
+|   <head>
+|   <body>
+|     <div>
+|       <table>
+|         <tbody>
+|           <tr>
+|             <td>
+|               "x"
+later doc	<table>a<tr><td>b</table>
+| <html>
+|   <head>
+|   <body>
+|     "a"
+|     <table>
+|       <tbody>
+|         <tr>
+|           <td>
+|             "b"
+later doc	<ul><li>a<li>b</ul>
+| <html>
+|   <head>
+|   <body>
+|     <ul>
+|       <li>
+|         "a"
+|       <li>
+|         "b"
+later doc	<svg><circle/></svg>
+| <html>
+|   <head>
+|   <body>
+|     <svg svg>
+|       <svg circle>
+later doc	<math><mi>x</mi></math>
+| <html>
+|   <head>
+|   <body>
+|     <math math>
+|       <math mi>
+|         "x"
+later doc	<template><p>t</p></template>
+| <html>
+|   <head>
+|     <template>
+|       content
+|         <p>
+|           "t"
+|   <body>
+later doc	<select><option>a</select>
+| <html>
+|   <head>
+|   <body>
+|     <select>
+|       <option>
+|         "a"
+later doc	<textarea>\nx</textarea>
+| <html>
+|   <head>
+|   <body>
+|     <textarea>
+|       "x"
+later doc	<title>t</title><p>x
+| <html>
+|   <head>
+|     <title>
+|       "t"
+|   <body>
+|     <p>
+|       "x"
+later doc	<foo-bar>x</foo-bar><unknownelement>y</unknownelement>
+| <html>
+|   <head>
+|   <body>
+|     <foo-bar>
+|       "x"
+|     <unknownelement>
+|       "y"
+later doc	<video src=v.mp4 controls></video><audio></audio>
+| <html>
+|   <head>
+|   <body>
+|     <video>
+|       controls=""
+|       src="v.mp4"
+|     <audio>
+later frag	div	<p>a<b>b</b></p>
+| <p>
+|   "a"
+|   <b>
+|     "b"
+later frag	p	x<p>y
+| "x"
+| <p>
+|   "y"
+later frag	span	<div>block</div>
+| <div>
+|   "block"
+later frag	body	<h1>t</h1>text
+| <h1>
+|   "t"
+| "text"
+later frag	pre	\nnewline
+| "
+newline"
+later frag	html	<head></head><p>x
+| <head>
+| <body>
+|   <p>
+|     "x"
+later frag	table	<tr><td>x
+| <tbody>
+|   <tr>
+|     <td>
+|       "x"
+case fontsize	
+none
+case fontsize	  
+none
+case fontsize	+
+none
+case fontsize	-
+none
+case fontsize	1
+x-small
+case fontsize	7
+xxx-large
+case fontsize	8
+xxx-large
+case fontsize	0
+x-small
+case fontsize	+1
+large
+case fontsize	+4
+xxx-large
+case fontsize	+5
+xxx-large
+case fontsize	-1
+small
+case fontsize	-3
+x-small
+case fontsize	-5
+x-small
+case fontsize	 3
+medium
+case fontsize	3px
+medium
+case fontsize	x3
+none
+case fontsize	+2147483647
+x-small
+case fontsize	-2147483648
+none
+case fontsize	99999999999
+none
+case fontsize	\t\n4
+large
+case hints	div	<div align=left>
+hint align 1
+text-align: -libweb-left
+case hints	div	<div align=RIGHT>
+hint align 1
+text-align: -libweb-right
+case hints	div	<div align=center>
+hint align 1
+text-align: -libweb-center
+case hints	div	<div align=justify>
+hint align 1
+text-align: justify
+case hints	div	<div align=bogus id=x>
+hint align 1
+hint id 0
+case hints	p	<p align=Center>
+hint align 1
+text-align: center
+case hints	p	<p align=left>
+hint align 1
+text-align: left
+case hints	h1	<h1 align=Left>
+hint align 1
+case hints	h1	<h1 align=left>
+hint align 1
+text-align: left
+case hints	h2	<h2 align=justify>
+hint align 1
+text-align: justify
+case hints	pre	<pre wrap>
+hint wrap 1
+text-wrap-mode: wrap
+case hints	br	<br clear=left>
+hint clear 1
+clear: left
+case hints	br	<br clear=ALL>
+hint clear 1
+clear: both
+case hints	br	<br clear=both>
+hint clear 1
+clear: both
+case hints	br	<br clear=none>
+hint clear 1
+case hints	hr	<hr color=red size=5>
+hint color 1
+hint size 1
+border-top-style: solid
+border-right-style: solid
+border-bottom-style: solid
+border-left-style: solid
+color: rgb(255, 0, 0)
+border-top-width: 2.5px
+border-right-width: 2.5px
+border-bottom-width: 2.5px
+border-left-width: 2.5px
+case hints	hr	<hr noshade size=3>
+hint noshade 1
+hint size 1
+border-top-style: solid
+border-right-style: solid
+border-bottom-style: solid
+border-left-style: solid
+border-top-width: 1.5px
+border-right-width: 1.5px
+border-bottom-width: 1.5px
+border-left-width: 1.5px
+case hints	hr	<hr size=1>
+hint size 1
+border-bottom-width: 0px
+case hints	hr	<hr size=5>
+hint size 1
+height: 3px
+case hints	hr	<hr width=50%>
+hint width 1
+width: 50%
+case hints	hr	<hr width=120 align=left>
+hint width 1
+hint align 1
+width: 120px
+margin-left: 0px
+margin-right: auto
+case hints	hr	<hr align=right>
+hint align 1
+margin-left: auto
+margin-right: 0px
+case hints	hr	<hr align=center>
+hint align 1
+margin-left: auto
+margin-right: auto
+case hints	hr	<hr color=#00f>
+hint color 1
+border-top-style: solid
+border-right-style: solid
+border-bottom-style: solid
+border-left-style: solid
+color: rgb(0, 0, 255)
+case hints	font	<font color=red>
+hint color 1
+color: rgb(255, 0, 0)
+case hints	font	<font size=+2>
+hint size 1
+font-size: x-large
+case hints	font	<font size=-1>
+hint size 1
+font-size: small
+case hints	font	<font face="Arial, sans-serif">
+hint face 1
+font-family: Arial, sans-serif
+case hints	font	<font size=junk color=garbage>
+hint size 1
+hint color 1
+color: rgb(10, 186, 224)
+case hints	body	<body bgcolor=#ff0000 text=blue>
+hint bgcolor 1
+hint text 1
+background-color: rgb(255, 0, 0)
+color: rgb(0, 0, 255)
+case hints	body	<body marginheight=10 leftmargin=5 rightmargin=x>
+hint marginheight 1
+hint leftmargin 1
+hint rightmargin 1
+margin-top: 10px
+margin-bottom: 10px
+margin-left: 5px
+case hints	body	<body topmargin=3 marginheight=7>
+hint topmargin 1
+hint marginheight 1
+margin-top: 7px
+margin-bottom: 7px
+case hints	marquee	<marquee bgcolor=yellow height=50 hspace=4 vspace=6 width=200>
+hint bgcolor 1
+hint height 1
+hint hspace 1
+hint vspace 1
+hint width 1
+background-color: rgb(255, 255, 0)
+height: 50px
+margin-left: 4px
+margin-right: 4px
+margin-top: 6px
+margin-bottom: 6px
+width: 200px
+case hints	embed	<embed align=middle height=30 hspace=1 vspace=2 width=40%>
+hint align 1
+hint height 1
+hint hspace 1
+hint vspace 1
+hint width 1
+text-align: middle
+height: 30px
+margin-left: 1px
+margin-right: 1px
+margin-top: 2px
+margin-bottom: 2px
+width: 40%
+case hints	embed	<embed align=center>
+hint align 1
+text-align: center
+case hints	frameset	<frameset rows=*>
+hint rows 0
+later hints	canvas	<canvas width=40 height=30>
+hint width 1
+hint height 1
+aspect-ratio: auto 40 / 30
+later hints	iframe	<iframe frameborder=0>
+hint frameborder 1
+border-top-width: 0px
+border-right-width: 0px
+border-bottom-width: 0px
+border-left-width: 0px
+later hints	object	<object border=2 align=center>
+hint border 1
+hint align 1
+border-top-width: 2px
+border-right-width: 2px
+border-bottom-width: 2px
+border-left-width: 2px
+border-top-style: solid
+border-right-style: solid
+border-bottom-style: solid
+border-left-style: solid
+text-align: center
+case role	div	<div>
+26
+case role	span	<span>
+26
+case role	p	<p>
+58
+case role	pre	<pre>
+26
+case role	html	<p>
+21
+case role	body	<p>
+26
+case role	data	<data>
+26
+case role	time	<time>
+93
+case role	h3	<h3>
+33
+case role	hr	<hr>
+77
+case role	del	<del>
+18
+case role	ins	<ins>
+37
+case role	q	<q>
+26
+case role	blockquote	<blockquote>
+5
+case role	a	<a>
+26
+later role	a	<a href=x>
+39
+case role	area	<map><area></map>
+26
+later role	area	<map><area href=x></map>
+39
+later canvas	<canvas>
+300 150 300x150
+later canvas	<canvas width=100 height=abc>
+100 150 100x150
+case marquee	<marquee>
+6 85
+case marquee	<marquee scrollamount=10 scrolldelay=50>
+10 50
+case marquee	<marquee scrollamount=-1 scrolldelay=x>
+6 85
+case marquee	<marquee scrollamount=3000000000>
+6 85
+case script	<script></script>
+already_started=0 type=0 parser_inserted=0 force_async=1 async=1
+case script	<script src=a.js></script>
+already_started=1 type=1 parser_inserted=1 force_async=0 async=0
+case script	<script src=a.js async></script>
+already_started=1 type=1 parser_inserted=1 force_async=0 async=1
+case script	<script type=module src=m.js></script>
+already_started=1 type=2 parser_inserted=1 force_async=0 async=0
+case script	<script type=text/plain src=x></script>
+already_started=0 type=0 parser_inserted=0 force_async=1 async=1
+case script	<script language=vbscript src=x></script>
+already_started=0 type=0 parser_inserted=0 force_async=1 async=1
+case script	<script type="" src=x></script>
+already_started=1 type=1 parser_inserted=1 force_async=0 async=0
+case script	<script type=importmap src=x></script>
+already_started=1 type=3 parser_inserted=1 force_async=0 async=0
+case script	<script type=" text/javascript " src=x></script>
+already_started=1 type=1 parser_inserted=1 force_async=0 async=0
+case script	<script nomodule src=x></script>
+already_started=1 type=1 parser_inserted=1 force_async=0 async=0
+case query	:heading(1)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+a
+c
+case query	:heading(2)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+b
+d
+case query	:heading(3)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+e
+case query	:heading(6)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+g
+case query	:heading(1, 3)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+a
+c
+e
+case query	:heading(2, 4, 6)	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+b
+d
+g
+case query	:heading	<h1 id=a></h1><h2 id=b></h2><section><h1 id=c></h1><h2 id=d></h2></section><hgroup><h3 id=e></h3><p id=f></p></hgroup><div><h6 id=g></h6></div>
+a
+b
+c
+d
+e
+g
