@@ -1,0 +1,508 @@
+case entity	nbsp
+a0 
+case entity	amp
+26 
+case entity	eacute
+e9 
+case entity	NotEqualTilde
+2242 338 
+case entity	fjlig
+66 6a 
+case entity	nosuch
+none
+case entity	lt;
+none
+case entity	AMP
+26 
+case entity	
+none
+case load	<root/>
+has_error false
+| <root> Element
+case load	<a><b>text</b></a>
+has_error false
+| <a> Element
+|   <b> Element
+|     "text"
+case load	<!DOCTYPE html SYSTEM "about:legacy-compat">\n<html xmlns="http://www.w3.org/1999/xhtml">\n<head>\n    <meta charset="utf-8" />\n    <title>T</title>\n    <meta name="assert" content="green" />\n</head>\n<body>\n<p>Test passes if there is a <strong>green</strong> square.</p>\n<div></div>\n</body>\n</html>\n
+has_error false
+| <!DOCTYPE html "" "about:legacy-compat">
+| <html html> HTMLHtmlElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   "
+"
+|   <html head> HTMLHeadElement
+|     "
+    "
+|     <html meta> HTMLMetaElement
+|       charset="utf-8"
+|     "
+    "
+|     <html title> HTMLTitleElement
+|       "T"
+|     "
+    "
+|     <html meta> HTMLMetaElement
+|       name="assert"
+|       content="green"
+|     "
+"
+|   "
+"
+|   <html body> HTMLBodyElement
+|     "
+"
+|     <html p> HTMLParagraphElement
+|       "Test passes if there is a "
+|       <html strong> HTMLElement
+|         "green"
+|       " square."
+|     "
+"
+|     <html div> HTMLDivElement
+|     "
+"
+|   "
+"
+case load	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b&eacute;&NotEqualTilde;</p></html>
+has_error false
+| <!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+| <html html> HTMLHtmlElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <html p> HTMLParagraphElement
+|     "a bé≂̸"
+case load	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><p title="x">&copy;&nosuch;</p></html>
+has_error false
+| <!DOCTYPE html "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+| <html html> HTMLHtmlElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <html p> HTMLParagraphElement
+|     title="x"
+|     "©"
+case load	<html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b</p></html>
+has_error false
+error Failed to parse XML document: Entity 'nbsp' not defined at line: 1, col: 54 (offset 53)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Entity 'nbsp' not defined at line: 1, col: 54 (offset 53)"
+case load	<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b</p></html>
+has_error false
+error Failed to parse XML document: Entity 'nbsp' not defined at line: 1, col: 69 (offset 68)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Entity 'nbsp' not defined at line: 1, col: 69 (offset 68)"
+case load	<!DOCTYPE html SYSTEM "about:legacy-compat"><html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b</p></html>
+has_error false
+| <!DOCTYPE html "" "about:legacy-compat">
+| <html html> HTMLHtmlElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <html p> HTMLParagraphElement
+|     "ab"
+case load	<!DOCTYPE html PUBLIC "-//foo//EN" "x.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b</p></html>
+has_error false
+| <!DOCTYPE html "-//foo//EN" "x.dtd">
+| <html html> HTMLHtmlElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <html p> HTMLParagraphElement
+|     "ab"
+case load	<!DOCTYPE x [<!ENTITY e "hi">]><x>&e;</x>
+has_error false
+| <!DOCTYPE x "" "">
+| <x> Element
+|   "hi"
+case load	<!DOCTYPE a [<!ENTITY e "<b>x</b>y">]><a>&e;</a>
+has_error false
+| <!DOCTYPE a "" "">
+| <a> Element
+|   <b> Element
+|     "x"
+|   "y"
+deviates load	<!DOCTYPE a [<!ENTITY % p "<!ENTITY q 'v'>"> %p;]><a>&nbsp;&q;</a>
+has_error false
+| <!DOCTYPE a "" "">
+| <a> Element
+case load	<!DOCTYPE a SYSTEM "a.dtd"><a>&nbsp;&q;</a>
+has_error false
+| <!DOCTYPE a "" "a.dtd">
+| <a> Element
+deviates load	<!DOCTYPE x [<!ENTITY e "hi">]><x a="&e;">t</x>
+has_error false
+| <!DOCTYPE x "" "">
+| <x> Element
+|   a="&e;"
+|   "t"
+deviates load	<a href="x?a=1&amp;b=2&#38;c&lt;&#x41;">t &amp; u &#60; v</a>
+has_error false
+| <a> Element
+|   href="x?a=1&#38;b=2&#38;c<A"
+|   "t & u < v"
+case load	<a href="x?&lt;&#x41;&gt;&quot;">t &amp; u &#60; v &gt;</a>
+has_error false
+| <a> Element
+|   href="x?<A>""
+|   "t & u < v >"
+case load	<!DOCTYPE a [<!ATTLIST a d CDATA "def" xmlns:p CDATA "urn:p">]><a x="1"/>
+has_error false
+| <!DOCTYPE a "" "">
+| <a> Element
+|   xmlns xmlns:p="urn:p"
+|   x="1"
+|   d="def"
+case load	<!DOCTYPE a [<!ATTLIST a b NMTOKENS #IMPLIED>]><a b="  x   y  "/>
+has_error false
+| <!DOCTYPE a "" "">
+| <a> Element
+|   b="x y"
+case load	<a b="  x\n\ty  "/>
+has_error false
+| <a> Element
+|   b="  x  y  "
+case load	<a b='&quot;x&apos;'/>
+has_error false
+| <a> Element
+|   b=""x'"
+case load	<a>  <b/>  </a>
+has_error false
+| <a> Element
+|   "  "
+|   <b> Element
+|   "  "
+case load	<!-- before --><?pi data?><a/><!-- after --><?pi2?>
+has_error false
+| <!--  before  -->
+| <?pi data?>
+| <a> Element
+| <!--  after  -->
+| <?pi2 ?>
+case load	<!-- c --><!DOCTYPE a><a/>
+has_error false
+| <!DOCTYPE a "" "">
+| <!--  c  -->
+| <a> Element
+case load	<?xml-stylesheet href="a.css"?><a/>
+has_error false
+| <?xml-stylesheet href="a.css"?>
+| <a> Element
+case load	<a><![CDATA[x<y]]>z</a>
+has_error false
+| <a> Element
+|   <![CDATA[x<yz]]>
+case load	<a>z<![CDATA[x<y]]></a>
+has_error false
+| <a> Element
+|   "z"
+|   <![CDATA[x<y]]>
+case load	<a>x<!--c-->y<?p d?>z</a>
+has_error false
+| <a> Element
+|   "x"
+|   <!-- c -->
+|   "y"
+|   <?p d?>
+|   "z"
+case load	<html xmlns="http://www.w3.org/1999/xhtml"><body><template><p>in</p><template><i>deep</i></template></template><p>after</p></body></html>
+has_error false
+| <html html> HTMLHtmlElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <html body> HTMLBodyElement
+|     <html template> HTMLTemplateElement
+|       content
+|         <html p> HTMLParagraphElement
+|           "in"
+|         <html template> HTMLTemplateElement
+|           content
+|             <html i> HTMLElement
+|               "deep"
+|     <html p> HTMLParagraphElement
+|       "after"
+case load	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#a" xml:space="preserve"/><foreignObject><div xmlns="http://www.w3.org/1999/xhtml">h</div></foreignObject></svg>
+has_error false
+| <svg svg> SVGSVGElement
+|   xmlns xmlns="http://www.w3.org/2000/svg"
+|   xmlns xmlns:xlink="http://www.w3.org/1999/xlink"
+|   <svg use> SVGUseElement
+|     xlink xlink:href="#a"
+|     xml xml:space="preserve"
+|   <svg foreignObject> SVGForeignObjectElement
+|     <html div> HTMLDivElement
+|       xmlns xmlns="http://www.w3.org/1999/xhtml"
+|       "h"
+case load	<svg viewBox="0 0 32 64" width="128" height="256" xmlns="http://www.w3.org/2000/svg">\n    <desc>white diamond on blue</desc>\n    <rect x="0" y="0" width="32" height="64" fill="blue"/>\n    <g fill="white">\n        <path d="M16 0 L32 32 L16 64 L0 32 Z" />\n    </g>\n</svg>\n
+has_error false
+| <svg svg> SVGSVGElement
+|   xmlns xmlns="http://www.w3.org/2000/svg"
+|   viewBox="0 0 32 64"
+|   width="128"
+|   height="256"
+|   "
+    "
+|   <svg desc> SVGDescElement
+|     "white diamond on blue"
+|   "
+    "
+|   <svg rect> SVGRectElement
+|     x="0"
+|     y="0"
+|     width="32"
+|     height="64"
+|     fill="blue"
+|   "
+    "
+|   <svg g> SVGGElement
+|     fill="white"
+|     "
+        "
+|     <svg path> SVGPathElement
+|       d="M16 0 L32 32 L16 64 L0 32 Z"
+|     "
+    "
+|   "
+"
+case load	<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><desc><![CDATA[.foo{}]]></desc></svg>
+has_error false
+| <svg svg> SVGSVGElement
+|   xmlns xmlns="http://www.w3.org/2000/svg"
+|   width="100"
+|   height="100"
+|   viewBox="0 0 100 100"
+|   <svg desc> SVGDescElement
+|     <![CDATA[.foo{}]]>
+case load	<html xmlns="http://www.w3.org/1999/xhtml"><body><svg xmlns="http://www.w3.org/2000/svg"><circle r="1"/></svg><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></body></html>
+has_error false
+| <html html> HTMLHtmlElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <html body> HTMLBodyElement
+|     <svg svg> SVGSVGElement
+|       xmlns xmlns="http://www.w3.org/2000/svg"
+|       <svg circle> SVGCircleElement
+|         r="1"
+|     <math math> MathMLElement
+|       xmlns xmlns="http://www.w3.org/1998/Math/MathML"
+|       <math mi> MathMLMiElement
+|         "x"
+case load	<p:a xmlns:p="urn:p" p:x="1" y="2"><p:b/><c/></p:a>
+has_error false
+| <{urn:p} p:a> Element
+|   xmlns xmlns:p="urn:p"
+|   {urn:p} p:x="1"
+|   y="2"
+|   <{urn:p} p:b> Element
+|   <c> Element
+case load	<a xmlns:p="urn:p"><p:b xmlns:p="urn:q"/><p:c/></a>
+has_error false
+| <a> Element
+|   xmlns xmlns:p="urn:p"
+|   <{urn:q} p:b> Element
+|     xmlns xmlns:p="urn:q"
+|   <{urn:p} p:c> Element
+case load	<a xmlns="urn:x" xmlns:b="urn:b"><b:c b:d="1"/><e xmlns=""/></a>
+has_error false
+| <{urn:x} a> Element
+|   xmlns xmlns="urn:x"
+|   xmlns xmlns:b="urn:b"
+|   <{urn:b} b:c> Element
+|     {urn:b} b:d="1"
+|   <e> Element
+|     xmlns xmlns=""
+case load	<a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="h"/>
+has_error false
+| <a> Element
+|   xmlns xmlns:xlink="http://www.w3.org/1999/xlink"
+|   xlink xlink:href="h"
+case load	<a xmlns="">t</a>
+has_error false
+| <a> Element
+|   xmlns xmlns=""
+|   "t"
+case load	<a xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace"/>
+has_error false
+| <a> Element
+|   xml xml:lang="en"
+case load	<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>
+has_error false
+| <math math> MathMLElement
+|   xmlns xmlns="http://www.w3.org/1998/Math/MathML"
+|   <math mi> MathMLMiElement
+|     "x"
+case load	<html xmlns="http://www.w3.org/1999/xhtml"><head><title>T</title><meta name="x" content="y"/></head><body><p>a<br/>b</p></body></html>
+has_error false
+| <html html> HTMLHtmlElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <html head> HTMLHeadElement
+|     <html title> HTMLTitleElement
+|       "T"
+|     <html meta> HTMLMetaElement
+|       name="x"
+|       content="y"
+|   <html body> HTMLBodyElement
+|     <html p> HTMLParagraphElement
+|       "a"
+|       <html br> HTMLBRElement
+|       "b"
+case load	<?xml version="1.0" encoding="UTF-8"?>\n<a>\r\nb\rc</a>
+has_error false
+| <a> Element
+|   "
+b
+c"
+case load	<?xml version="1.0" encoding="ISO-8859-1"?><a>é</a>
+has_error false
+| <a> Element
+|   "é"
+case load	<?xml version="1.1"?><a>x</a>
+has_error false
+| <a> Element
+|   "x"
+case load	﻿<a>bom</a>
+has_error false
+| <a> Element
+|   "bom"
+case load	<HTML xmlns="http://www.w3.org/1999/xhtml"><Body/></HTML>
+has_error false
+| <html HTML> HTMLUnknownElement
+|   xmlns xmlns="http://www.w3.org/1999/xhtml"
+|   <html Body> HTMLUnknownElement
+deviates load	<svg:rect/>
+has_error true
+error Failed to parse XML document: Namespace prefix svg on rect is not defined at line: 1, col: 10 (offset 9)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Namespace prefix svg on rect is not defined at line: 1, col: 10 (offset 9)"
+case load	<a><b></a>
+has_error false
+error Failed to parse XML document: Opening and ending tag mismatch: b line 1 and a at line: 1, col: 11 (offset 10)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Opening and ending tag mismatch: b line 1 and a at line: 1, col: 11 (offset 10)"
+case load	<a></a>trailing
+has_error false
+error Failed to parse XML document: Extra content at the end of the document at line: 1, col: 8 (offset 7)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Extra content at the end of the document at line: 1, col: 8 (offset 7)"
+case load	<a/><b/>
+has_error false
+error Failed to parse XML document: Extra content at the end of the document at line: 1, col: 5 (offset 4)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Extra content at the end of the document at line: 1, col: 5 (offset 4)"
+case load	<a x="1" x="2"/>
+has_error false
+error Failed to parse XML document: Attribute x redefined at line: 1, col: 15 (offset 14)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Attribute x redefined at line: 1, col: 15 (offset 14)"
+case load	<a>&undefined;</a>
+has_error false
+error Failed to parse XML document: Entity 'undefined' not defined at line: 1, col: 15 (offset 14)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Entity 'undefined' not defined at line: 1, col: 15 (offset 14)"
+case load	<a>&#0;</a>
+has_error false
+error Failed to parse XML document: xmlParseCharRef: invalid xmlChar value 0 at line: 1, col: 8 (offset 7)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: xmlParseCharRef: invalid xmlChar value 0 at line: 1, col: 8 (offset 7)"
+case load	
+has_error false
+error Failed to parse XML document: Document is empty at line: 1, col: 1 (offset 0)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Document is empty at line: 1, col: 1 (offset 0)"
+case load	<a xmlns:p="urn:p"><b xmlns:p=""/></a>
+has_error false
+error Failed to parse XML document: xmlns:p: Empty XML namespace is not allowed at line: 1, col: 33 (offset 32)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: xmlns:p: Empty XML namespace is not allowed at line: 1, col: 33 (offset 32)"
+case load	<a xmlns:p="urn:p" p:a="1" xmlns:q="urn:p" q:a="2"/>
+has_error false
+error Failed to parse XML document: Namespaced Attribute a in 'urn:p' redefined at line: 1, col: 51 (offset 50)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Namespaced Attribute a in 'urn:p' redefined at line: 1, col: 51 (offset 50)"
+case load	<a>]]></a>
+has_error false
+error Failed to parse XML document: Sequence ']]>' not allowed in content at line: 1, col: 4 (offset 3)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Sequence ']]>' not allowed in content at line: 1, col: 4 (offset 3)"
+case load	<a xmlns="http://www.w3.org/1999/xhtml" xmlns:xmlns="x"/>
+has_error false
+error Failed to parse XML document: redefinition of the xmlns prefix is forbidden at line: 1, col: 56 (offset 55)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: redefinition of the xmlns prefix is forbidden at line: 1, col: 56 (offset 55)"
+case load	<a xmlns:a="http://www.w3.org/2000/xmlns/"/>
+has_error false
+error Failed to parse XML document: reuse of the xmlns namespace name is forbidden at line: 1, col: 43 (offset 42)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: reuse of the xmlns namespace name is forbidden at line: 1, col: 43 (offset 42)"
+deviates load	<a:b:c xmlns:a="urn:a"/>
+has_error true
+error Failed to parse XML document: Failed to parse QName 'a:b:c' at line: 1, col: 7 (offset 6)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Failed to parse QName 'a:b:c' at line: 1, col: 7 (offset 6)"
+case load	<p>unclosed
+has_error false
+error Failed to parse XML document: Premature end of data in tag p line 1 at line: 1, col: 12 (offset 11)
+| <html html> HTMLHtmlElement
+|   <html body> HTMLBodyElement
+|     "Failed to parse XML document: Premature end of data in tag p line 1 at line: 1, col: 12 (offset 11)"
+case build	<!-- c --><a><![CDATA[x]]><!-- d --></a>
+result true
+| <a> Element
+|   <![CDATA[x]]>
+case build	<a><b></a>
+result false
+| <a> Element
+|   <b> Element
+case build	<?xml version="1.0"?><a>é</a>
+result true
+| <a> Element
+|   "é"
+deviates build	<x:a/>
+result false
+case svg	<!-- c --><svg xmlns="http://www.w3.org/2000/svg"><script>x</script><![CDATA[y]]></svg>
+has_error false
+| <svg svg> SVGSVGElement
+|   xmlns xmlns="http://www.w3.org/2000/svg"
+|   <svg script> SVGScriptElement
+|     "x"
+|   <![CDATA[y]]>
+case svg	<svg><b></svg>
+has_error false
+error Opening and ending tag mismatch: b line 1 and svg at line: 1, col: 15 (offset 14)
+| <svg> Element
+|   <b> Element
+case svg	<svg xmlns="http://www.w3.org/2000/svg"><rect width="10" height="10"/></svg>
+has_error false
+| <svg svg> SVGSVGElement
+|   xmlns xmlns="http://www.w3.org/2000/svg"
+|   <svg rect> SVGRectElement
+|     width="10"
+|     height="10"
+case frag	<a xmlns="urn:a" xmlns:p="urn:p"/>	<b/><p:c/>text
+| <{urn:a} b> Element
+| <{urn:p} p:c> Element
+| "text"
+case frag	<a/>	<b>
+exception SyntaxError Opening and ending tag mismatch: b line 1 and a at line: 1, col: 60 (offset 59)
+case frag	<a/>	x<b/>y
+| "x"
+| <b> Element
+| "y"
+case frag	<html xmlns="http://www.w3.org/1999/xhtml"/>	<p>para</p><svg xmlns="http://www.w3.org/2000/svg"/>
+| <html p> HTMLParagraphElement
+|   "para"
+| <svg svg> SVGSVGElement
+|   xmlns xmlns="http://www.w3.org/2000/svg"
+case frag	<p:a xmlns:p="urn:p" xmlns:q="urn:q"/>	<q:b p:c="1"/>
+| <{urn:q} q:b> Element
+|   {urn:p} p:c="1"
+case frag	<a/>	
+case frag	<a/>	<!--c--><![CDATA[d]]>
+| <![CDATA[d]]>

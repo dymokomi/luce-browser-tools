@@ -1,0 +1,97 @@
+# p2x oracle cases: <mode>\t<argument>... (\n, \t, \r and \\ escaped). A line starting with "!" is a case
+# where the port deviates on purpose (luce-xml in libxml2's place; see external/lib_xml/parser.lucb's
+# header): the oracle still runs it, gen_luce_cases.py leaves it out, tests_xml_document_builder pins
+# the port's own result.
+#
+# resolve_named_html_entity
+entity	nbsp
+entity	amp
+entity	eacute
+entity	NotEqualTilde
+entity	fjlig
+entity	nosuch
+entity	lt;
+entity	AMP
+entity	
+# (No <style> elements: the unit tests' settings realm has no CSP list for their inline check. No HTML
+# <script> under XML scripting support: preparing it stops in TrustedTypes, phase 3. No SVG <title>: it
+# reaches for the page's top-level traversable, which the tests' page lacks.)
+# Documents as load_xml_document's parser builds them (preserve CDATA and comments)
+load	<root/>
+load	<a><b>text</b></a>
+load	<!DOCTYPE html SYSTEM "about:legacy-compat">\n<html xmlns="http://www.w3.org/1999/xhtml">\n<head>\n    <meta charset="utf-8" />\n    <title>T</title>\n    <meta name="assert" content="green" />\n</head>\n<body>\n<p>Test passes if there is a <strong>green</strong> square.</p>\n<div></div>\n</body>\n</html>\n
+load	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b&eacute;&NotEqualTilde;</p></html>
+load	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><p title="x">&copy;&nosuch;</p></html>
+load	<html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b</p></html>
+load	<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b</p></html>
+load	<!DOCTYPE html SYSTEM "about:legacy-compat"><html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b</p></html>
+load	<!DOCTYPE html PUBLIC "-//foo//EN" "x.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><p>a&nbsp;b</p></html>
+load	<!DOCTYPE x [<!ENTITY e "hi">]><x>&e;</x>
+load	<!DOCTYPE a [<!ENTITY e "<b>x</b>y">]><a>&e;</a>
+!load	<!DOCTYPE a [<!ENTITY % p "<!ENTITY q 'v'>"> %p;]><a>&nbsp;&q;</a>
+load	<!DOCTYPE a SYSTEM "a.dtd"><a>&nbsp;&q;</a>
+!load	<!DOCTYPE x [<!ENTITY e "hi">]><x a="&e;">t</x>
+!load	<a href="x?a=1&amp;b=2&#38;c&lt;&#x41;">t &amp; u &#60; v</a>
+load	<a href="x?&lt;&#x41;&gt;&quot;">t &amp; u &#60; v &gt;</a>
+load	<!DOCTYPE a [<!ATTLIST a d CDATA "def" xmlns:p CDATA "urn:p">]><a x="1"/>
+load	<!DOCTYPE a [<!ATTLIST a b NMTOKENS #IMPLIED>]><a b="  x   y  "/>
+load	<a b="  x\n\ty  "/>
+load	<a b='&quot;x&apos;'/>
+load	<a>  <b/>  </a>
+load	<!-- before --><?pi data?><a/><!-- after --><?pi2?>
+load	<!-- c --><!DOCTYPE a><a/>
+load	<?xml-stylesheet href="a.css"?><a/>
+load	<a><![CDATA[x<y]]>z</a>
+load	<a>z<![CDATA[x<y]]></a>
+load	<a>x<!--c-->y<?p d?>z</a>
+load	<html xmlns="http://www.w3.org/1999/xhtml"><body><template><p>in</p><template><i>deep</i></template></template><p>after</p></body></html>
+load	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><use xlink:href="#a" xml:space="preserve"/><foreignObject><div xmlns="http://www.w3.org/1999/xhtml">h</div></foreignObject></svg>
+load	<svg viewBox="0 0 32 64" width="128" height="256" xmlns="http://www.w3.org/2000/svg">\n    <desc>white diamond on blue</desc>\n    <rect x="0" y="0" width="32" height="64" fill="blue"/>\n    <g fill="white">\n        <path d="M16 0 L32 32 L16 64 L0 32 Z" />\n    </g>\n</svg>\n
+load	<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><desc><![CDATA[.foo{}]]></desc></svg>
+load	<html xmlns="http://www.w3.org/1999/xhtml"><body><svg xmlns="http://www.w3.org/2000/svg"><circle r="1"/></svg><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math></body></html>
+load	<p:a xmlns:p="urn:p" p:x="1" y="2"><p:b/><c/></p:a>
+load	<a xmlns:p="urn:p"><p:b xmlns:p="urn:q"/><p:c/></a>
+load	<a xmlns="urn:x" xmlns:b="urn:b"><b:c b:d="1"/><e xmlns=""/></a>
+load	<a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="h"/>
+load	<a xmlns="">t</a>
+load	<a xml:lang="en" xmlns:xml="http://www.w3.org/XML/1998/namespace"/>
+load	<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>x</mi></math>
+load	<html xmlns="http://www.w3.org/1999/xhtml"><head><title>T</title><meta name="x" content="y"/></head><body><p>a<br/>b</p></body></html>
+load	<?xml version="1.0" encoding="UTF-8"?>\n<a>\r\nb\rc</a>
+load	<?xml version="1.0" encoding="ISO-8859-1"?><a>é</a>
+load	<?xml version="1.1"?><a>x</a>
+load	﻿<a>bom</a>
+load	<HTML xmlns="http://www.w3.org/1999/xhtml"><Body/></HTML>
+# Errors: load_xml_document converts the document to its error document
+!load	<svg:rect/>
+load	<a><b></a>
+load	<a></a>trailing
+load	<a/><b/>
+load	<a x="1" x="2"/>
+load	<a>&undefined;</a>
+load	<a>&#0;</a>
+load	
+load	<a xmlns:p="urn:p"><b xmlns:p=""/></a>
+load	<a xmlns:p="urn:p" p:a="1" xmlns:q="urn:p" q:a="2"/>
+load	<a>]]></a>
+load	<a xmlns="http://www.w3.org/1999/xhtml" xmlns:xmlns="x"/>
+load	<a xmlns:a="http://www.w3.org/2000/xmlns/"/>
+!load	<a:b:c xmlns:a="urn:a"/>
+load	<p>unclosed
+# build_xml_document (XMLHttpRequest's documents): comments dropped, CDATA kept, no error document
+build	<!-- c --><a><![CDATA[x]]><!-- d --></a>
+build	<a><b></a>
+build	<?xml version="1.0"?><a>é</a>
+!build	<x:a/>
+# SVGDecodedImageData's parse: comments dropped, scripting disabled, no error document
+svg	<!-- c --><svg xmlns="http://www.w3.org/2000/svg"><script>x</script><![CDATA[y]]></svg>
+svg	<svg><b></svg>
+svg	<svg xmlns="http://www.w3.org/2000/svg"><rect width="10" height="10"/></svg>
+# XMLFragmentParser in the document element of a document
+frag	<a xmlns="urn:a" xmlns:p="urn:p"/>	<b/><p:c/>text
+frag	<a/>	<b>
+frag	<a/>	x<b/>y
+frag	<html xmlns="http://www.w3.org/1999/xhtml"/>	<p>para</p><svg xmlns="http://www.w3.org/2000/svg"/>
+frag	<p:a xmlns:p="urn:p" xmlns:q="urn:q"/>	<q:b p:c="1"/>
+frag	<a/>	
+frag	<a/>	<!--c--><![CDATA[d]]>
