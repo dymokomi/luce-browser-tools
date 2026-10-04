@@ -1,0 +1,1816 @@
+data_url	data:text/html,test
+= data:text/html,test ; text/html ; test
+data_url	data:,test
+= data:,test ; text/plain;charset=US-ASCII ; test
+data_url	data:text/html,Hello%20friends%2C%0X%X0
+= data:text/html,Hello%20friends%2C%0X%X0 ; text/html ; Hello friends,%0X%X0
+data_url	data:text/html;base64,dGVzdA==
+= data:text/html;base64,dGVzdA== ; text/html ; test
+data_url	data:;base64,dGVzdA==
+= data:;base64,dGVzdA== ; text/plain;charset=US-ASCII ; test
+data_url	data: text/html ;     bAsE64 , dGVz dA== 
+= data: text/html ;     bAsE64 , dGVz dA== ; text/html ; test
+data_url	data:text/javascript;base64,%20ZD%20Qg%0D%0APS%20An%20Zm91cic%0D%0A%207%20
+= data:text/javascript;base64,%20ZD%20Qg%0D%0APS%20An%20Zm91cic%0D%0A%207%20 ; text/javascript ; d4 = 'four';
+data_url	data:text/plain;charset=utf-8;base64,SGk=
+= data:text/plain;charset=utf-8;base64,SGk= ; text/plain;charset=utf-8 ; Hi
+data_url	data:image/png;base64,iVBORw0KGgo=
+= data:image/png;base64,iVBORw0KGgo= ; image/png ; \x89PNG\x0D\n\x1A\n
+data_url	data:;charset=x,abc
+= data:;charset=x,abc ; text/plain;charset=x ; abc
+data_url	data:text/html;base64,%%%
+= data:text/html;base64,%%% ; failure
+data_url	data:abc
+= data:abc ; failure
+data_url	data:,
+= data:, ; text/plain;charset=US-ASCII ; 
+data_url	data:;base64,
+= data:;base64, ; text/plain;charset=US-ASCII ; 
+data_url	data:text/plain ; base64 ,YQ
+= data:text/plain ; base64 ,YQ ; text/plain ; a
+data_url	data:text/plain;BASE64,YWJj
+= data:text/plain;BASE64,YWJj ; text/plain ; abc
+data_url	data:xxx;base64 ,YQ==
+= data:xxx;base64 ,YQ== ; text/plain;charset=US-ASCII ; a
+data_url	data:text/html;base64x,abc
+= data:text/html;base64x,abc ; text/html ; abc
+data_url	data:;,x
+= data:;,x ; text/plain ; x
+data_url	data:base64,YQ
+= data:base64,YQ ; text/plain;charset=US-ASCII ; YQ
+data_url	data:text/plain;base64,YQ
+= data:text/plain;base64,YQ ; text/plain ; a
+data_url	data:text/plain;base64,Y
+= data:text/plain;base64,Y ; failure
+data_url	data:text/plain;base64,YQ=
+= data:text/plain;base64,YQ= ; failure
+data_url	data:text/plain;base64,Y Q = =
+= data:text/plain;base64,Y Q = = ; text/plain ; a
+data_url	data:%74ext/plain,x
+= data:%74ext/plain,x ; %74ext/plain ; x
+data_url	data:text/plain;charset="utf-8",x
+= data:text/plain;charset="utf-8",x ; text/plain;charset=utf-8 ; x
+data_url	data:TEXT/PLAIN;Charset=UTF-8,x
+= data:TEXT/PLAIN;Charset=UTF-8,x ; text/plain;charset=UTF-8 ; x
+data_url	data:text/plain;;base64,YQ
+= data:text/plain;;base64,YQ ; text/plain ; a
+data_url	data:;;,x
+= data:;;,x ; text/plain ; x
+data_url	data:text/,x
+= data:text/,x ; text/plain;charset=US-ASCII ; x
+data_url	data:/plain,x
+= data:/plain,x ; text/plain;charset=US-ASCII ; x
+data_url	data:text/plain;a=b;base64,YQ==
+= data:text/plain;a=b;base64,YQ== ; text/plain;a=b ; a
+data_url	data:text/plain,%e2%82%ac
+= data:text/plain,%e2%82%ac ; text/plain ; \xE2\x82\xAC
+data_url	data:text/plain,a#frag
+= data:text/plain,a#frag ; text/plain ; a
+data_url	data:text/plain,a?b=c
+= data:text/plain,a?b=c ; text/plain ; a?b=c
+data_url	data:application/json;base64,eyJhIjoxfQ
+= data:application/json;base64,eyJhIjoxfQ ; application/json ; {"a":1}
+data_url	data:text/html; charset=windows-1252 ,x
+= data:text/html; charset=windows-1252 ,x ; text/html;charset=windows-1252 ; x
+data_url	data:\t text/plain \t,x
+= data: text/plain ,x ; text/plain ; x
+data_url	data:text/plain;base64,YW Jj%0aZA==
+= data:text/plain;base64,YW Jj%0aZA== ; text/plain ; abcd
+data_url_complete	data:text/plain,test	#a
+= data:text/plain,test#a ; text/plain ; test
+data_url_complete	data:text/plain;base64,YQ==	#x
+= data:text/plain;base64,YQ==#x ; text/plain ; a
+bad_ports
+= 1 7 9 11 13 15 17 19 20 21 22 23 25 37 42 43 53 69 77 79 87 95 101 102 103 104 109 110 111 113 115 117 119 123 135 137 139 143 161 179 389 427 465 512 513 514 515 526 530 531 532 540 548 554 556 563 587 601 636 989 990 993 995 1719 1720 1723 2049 3659 4045 4190 5060 5061 6000 6566 6665 6666 6667 6668 6669 6679 6697 10080
+block_bad_port	http://a.test:25/
+= blocked
+block_bad_port	https://a.test:6666/
+= blocked
+block_bad_port	ftp://a.test:21/
+= allowed
+block_bad_port	http://a.test:80/
+= allowed
+block_bad_port	http://a.test:8080/
+= allowed
+block_bad_port	ws://a.test:25/
+= allowed
+block_bad_port	file:///x
+= allowed
+block_bad_port	http://a.test/
+= allowed
+block_bad_port	https://a.test:443/
+= allowed
+block_bad_port	http://a.test:0/
+= allowed
+block_bad_port	http://a.test:1/
+= blocked
+block_bad_port	http://a.test:10080/
+= blocked
+block_bad_port	http://a.test:10081/
+= allowed
+block_bad_port	https://a.test:65535/
+= allowed
+block_bad_port	blob:http://a.test:25/x
+= allowed
+block_bad_port	data:,x
+= allowed
+nosniff
+= false
+nosniff	X-Content-Type-Options	nosniff
+= true
+nosniff	X-Content-Type-Options	NoSniff
+= true
+nosniff	X-Content-Type-Options	nosniff, other
+= true
+nosniff	X-Content-Type-Options	other, nosniff
+= false
+nosniff	X-Content-Type-Options	\-
+= false
+nosniff	X-Content-Type-Options	 nosniff 
+= true
+nosniff	x-content-type-options	NOSNIFF
+= true
+nosniff	X-Content-Type-Options	"nosniff"
+= false
+nosniff	X-Content-Type-Options	nosniff;
+= false
+nosniff	X-Content-Type-Options	foo	X-Content-Type-Options	nosniff
+= false
+nosniff	X-Content-Type-Options	nosniff	X-Content-Type-Options	foo
+= true
+nosniff	X-Content-Type-Options	,nosniff
+= false
+nosniff	Content-Type	text/plain
+= false
+mime_block	-
+= allowed
+mime_block	-	Content-Type	audio/mpeg
+= allowed
+mime_block	-	Content-Type	image/png
+= allowed
+mime_block	-	Content-Type	video/mp4
+= allowed
+mime_block	-	Content-Type	text/csv
+= allowed
+mime_block	-	Content-Type	text/csv;charset=x
+= allowed
+mime_block	-	Content-Type	TEXT/CSV
+= allowed
+mime_block	-	Content-Type	text/javascript
+= allowed
+mime_block	-	Content-Type	application/json
+= allowed
+mime_block	-	Content-Type	text/css
+= allowed
+mime_block	-	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	-	Content-Type	text/plain
+= allowed
+mime_block	-	Content-Type	application/ecmascript
+= allowed
+mime_block	-	Content-Type	nonsense
+= allowed
+mime_block	-	Content-Type	text/csvx
+= allowed
+mime_block	-	Content-Type	audio/
+= allowed
+mime_block	-	Content-Type	imagex/png
+= allowed
+mime_block	script
+= allowed
+mime_block	script	Content-Type	audio/mpeg
+= blocked
+mime_block	script	Content-Type	image/png
+= blocked
+mime_block	script	Content-Type	video/mp4
+= blocked
+mime_block	script	Content-Type	text/csv
+= blocked
+mime_block	script	Content-Type	text/csv;charset=x
+= blocked
+mime_block	script	Content-Type	TEXT/CSV
+= blocked
+mime_block	script	Content-Type	text/javascript
+= allowed
+mime_block	script	Content-Type	application/json
+= allowed
+mime_block	script	Content-Type	text/css
+= allowed
+mime_block	script	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	script	Content-Type	text/plain
+= allowed
+mime_block	script	Content-Type	application/ecmascript
+= allowed
+mime_block	script	Content-Type	nonsense
+= allowed
+mime_block	script	Content-Type	text/csvx
+= allowed
+mime_block	script	Content-Type	audio/
+= allowed
+mime_block	script	Content-Type	imagex/png
+= allowed
+mime_block	style
+= allowed
+mime_block	style	Content-Type	audio/mpeg
+= allowed
+mime_block	style	Content-Type	image/png
+= allowed
+mime_block	style	Content-Type	video/mp4
+= allowed
+mime_block	style	Content-Type	text/csv
+= allowed
+mime_block	style	Content-Type	text/csv;charset=x
+= allowed
+mime_block	style	Content-Type	TEXT/CSV
+= allowed
+mime_block	style	Content-Type	text/javascript
+= allowed
+mime_block	style	Content-Type	application/json
+= allowed
+mime_block	style	Content-Type	text/css
+= allowed
+mime_block	style	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	style	Content-Type	text/plain
+= allowed
+mime_block	style	Content-Type	application/ecmascript
+= allowed
+mime_block	style	Content-Type	nonsense
+= allowed
+mime_block	style	Content-Type	text/csvx
+= allowed
+mime_block	style	Content-Type	audio/
+= allowed
+mime_block	style	Content-Type	imagex/png
+= allowed
+mime_block	image
+= allowed
+mime_block	image	Content-Type	audio/mpeg
+= allowed
+mime_block	image	Content-Type	image/png
+= allowed
+mime_block	image	Content-Type	video/mp4
+= allowed
+mime_block	image	Content-Type	text/csv
+= allowed
+mime_block	image	Content-Type	text/csv;charset=x
+= allowed
+mime_block	image	Content-Type	TEXT/CSV
+= allowed
+mime_block	image	Content-Type	text/javascript
+= allowed
+mime_block	image	Content-Type	application/json
+= allowed
+mime_block	image	Content-Type	text/css
+= allowed
+mime_block	image	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	image	Content-Type	text/plain
+= allowed
+mime_block	image	Content-Type	application/ecmascript
+= allowed
+mime_block	image	Content-Type	nonsense
+= allowed
+mime_block	image	Content-Type	text/csvx
+= allowed
+mime_block	image	Content-Type	audio/
+= allowed
+mime_block	image	Content-Type	imagex/png
+= allowed
+mime_block	document
+= allowed
+mime_block	document	Content-Type	audio/mpeg
+= allowed
+mime_block	document	Content-Type	image/png
+= allowed
+mime_block	document	Content-Type	video/mp4
+= allowed
+mime_block	document	Content-Type	text/csv
+= allowed
+mime_block	document	Content-Type	text/csv;charset=x
+= allowed
+mime_block	document	Content-Type	TEXT/CSV
+= allowed
+mime_block	document	Content-Type	text/javascript
+= allowed
+mime_block	document	Content-Type	application/json
+= allowed
+mime_block	document	Content-Type	text/css
+= allowed
+mime_block	document	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	document	Content-Type	text/plain
+= allowed
+mime_block	document	Content-Type	application/ecmascript
+= allowed
+mime_block	document	Content-Type	nonsense
+= allowed
+mime_block	document	Content-Type	text/csvx
+= allowed
+mime_block	document	Content-Type	audio/
+= allowed
+mime_block	document	Content-Type	imagex/png
+= allowed
+mime_block	worker
+= allowed
+mime_block	worker	Content-Type	audio/mpeg
+= blocked
+mime_block	worker	Content-Type	image/png
+= blocked
+mime_block	worker	Content-Type	video/mp4
+= blocked
+mime_block	worker	Content-Type	text/csv
+= blocked
+mime_block	worker	Content-Type	text/csv;charset=x
+= blocked
+mime_block	worker	Content-Type	TEXT/CSV
+= blocked
+mime_block	worker	Content-Type	text/javascript
+= allowed
+mime_block	worker	Content-Type	application/json
+= allowed
+mime_block	worker	Content-Type	text/css
+= allowed
+mime_block	worker	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	worker	Content-Type	text/plain
+= allowed
+mime_block	worker	Content-Type	application/ecmascript
+= allowed
+mime_block	worker	Content-Type	nonsense
+= allowed
+mime_block	worker	Content-Type	text/csvx
+= allowed
+mime_block	worker	Content-Type	audio/
+= allowed
+mime_block	worker	Content-Type	imagex/png
+= allowed
+mime_block	audioworklet
+= allowed
+mime_block	audioworklet	Content-Type	audio/mpeg
+= blocked
+mime_block	audioworklet	Content-Type	image/png
+= blocked
+mime_block	audioworklet	Content-Type	video/mp4
+= blocked
+mime_block	audioworklet	Content-Type	text/csv
+= blocked
+mime_block	audioworklet	Content-Type	text/csv;charset=x
+= blocked
+mime_block	audioworklet	Content-Type	TEXT/CSV
+= blocked
+mime_block	audioworklet	Content-Type	text/javascript
+= allowed
+mime_block	audioworklet	Content-Type	application/json
+= allowed
+mime_block	audioworklet	Content-Type	text/css
+= allowed
+mime_block	audioworklet	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	audioworklet	Content-Type	text/plain
+= allowed
+mime_block	audioworklet	Content-Type	application/ecmascript
+= allowed
+mime_block	audioworklet	Content-Type	nonsense
+= allowed
+mime_block	audioworklet	Content-Type	text/csvx
+= allowed
+mime_block	audioworklet	Content-Type	audio/
+= allowed
+mime_block	audioworklet	Content-Type	imagex/png
+= allowed
+mime_block	paintworklet
+= allowed
+mime_block	paintworklet	Content-Type	audio/mpeg
+= blocked
+mime_block	paintworklet	Content-Type	image/png
+= blocked
+mime_block	paintworklet	Content-Type	video/mp4
+= blocked
+mime_block	paintworklet	Content-Type	text/csv
+= blocked
+mime_block	paintworklet	Content-Type	text/csv;charset=x
+= blocked
+mime_block	paintworklet	Content-Type	TEXT/CSV
+= blocked
+mime_block	paintworklet	Content-Type	text/javascript
+= allowed
+mime_block	paintworklet	Content-Type	application/json
+= allowed
+mime_block	paintworklet	Content-Type	text/css
+= allowed
+mime_block	paintworklet	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	paintworklet	Content-Type	text/plain
+= allowed
+mime_block	paintworklet	Content-Type	application/ecmascript
+= allowed
+mime_block	paintworklet	Content-Type	nonsense
+= allowed
+mime_block	paintworklet	Content-Type	text/csvx
+= allowed
+mime_block	paintworklet	Content-Type	audio/
+= allowed
+mime_block	paintworklet	Content-Type	imagex/png
+= allowed
+mime_block	sharedworker
+= allowed
+mime_block	sharedworker	Content-Type	audio/mpeg
+= blocked
+mime_block	sharedworker	Content-Type	image/png
+= blocked
+mime_block	sharedworker	Content-Type	video/mp4
+= blocked
+mime_block	sharedworker	Content-Type	text/csv
+= blocked
+mime_block	sharedworker	Content-Type	text/csv;charset=x
+= blocked
+mime_block	sharedworker	Content-Type	TEXT/CSV
+= blocked
+mime_block	sharedworker	Content-Type	text/javascript
+= allowed
+mime_block	sharedworker	Content-Type	application/json
+= allowed
+mime_block	sharedworker	Content-Type	text/css
+= allowed
+mime_block	sharedworker	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	sharedworker	Content-Type	text/plain
+= allowed
+mime_block	sharedworker	Content-Type	application/ecmascript
+= allowed
+mime_block	sharedworker	Content-Type	nonsense
+= allowed
+mime_block	sharedworker	Content-Type	text/csvx
+= allowed
+mime_block	sharedworker	Content-Type	audio/
+= allowed
+mime_block	sharedworker	Content-Type	imagex/png
+= allowed
+mime_block	serviceworker
+= allowed
+mime_block	serviceworker	Content-Type	audio/mpeg
+= blocked
+mime_block	serviceworker	Content-Type	image/png
+= blocked
+mime_block	serviceworker	Content-Type	video/mp4
+= blocked
+mime_block	serviceworker	Content-Type	text/csv
+= blocked
+mime_block	serviceworker	Content-Type	text/csv;charset=x
+= blocked
+mime_block	serviceworker	Content-Type	TEXT/CSV
+= blocked
+mime_block	serviceworker	Content-Type	text/javascript
+= allowed
+mime_block	serviceworker	Content-Type	application/json
+= allowed
+mime_block	serviceworker	Content-Type	text/css
+= allowed
+mime_block	serviceworker	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	serviceworker	Content-Type	text/plain
+= allowed
+mime_block	serviceworker	Content-Type	application/ecmascript
+= allowed
+mime_block	serviceworker	Content-Type	nonsense
+= allowed
+mime_block	serviceworker	Content-Type	text/csvx
+= allowed
+mime_block	serviceworker	Content-Type	audio/
+= allowed
+mime_block	serviceworker	Content-Type	imagex/png
+= allowed
+mime_block	json
+= allowed
+mime_block	json	Content-Type	audio/mpeg
+= allowed
+mime_block	json	Content-Type	image/png
+= allowed
+mime_block	json	Content-Type	video/mp4
+= allowed
+mime_block	json	Content-Type	text/csv
+= allowed
+mime_block	json	Content-Type	text/csv;charset=x
+= allowed
+mime_block	json	Content-Type	TEXT/CSV
+= allowed
+mime_block	json	Content-Type	text/javascript
+= allowed
+mime_block	json	Content-Type	application/json
+= allowed
+mime_block	json	Content-Type	text/css
+= allowed
+mime_block	json	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	json	Content-Type	text/plain
+= allowed
+mime_block	json	Content-Type	application/ecmascript
+= allowed
+mime_block	json	Content-Type	nonsense
+= allowed
+mime_block	json	Content-Type	text/csvx
+= allowed
+mime_block	json	Content-Type	audio/
+= allowed
+mime_block	json	Content-Type	imagex/png
+= allowed
+mime_block	xslt
+= allowed
+mime_block	xslt	Content-Type	audio/mpeg
+= allowed
+mime_block	xslt	Content-Type	image/png
+= allowed
+mime_block	xslt	Content-Type	video/mp4
+= allowed
+mime_block	xslt	Content-Type	text/csv
+= allowed
+mime_block	xslt	Content-Type	text/csv;charset=x
+= allowed
+mime_block	xslt	Content-Type	TEXT/CSV
+= allowed
+mime_block	xslt	Content-Type	text/javascript
+= allowed
+mime_block	xslt	Content-Type	application/json
+= allowed
+mime_block	xslt	Content-Type	text/css
+= allowed
+mime_block	xslt	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	xslt	Content-Type	text/plain
+= allowed
+mime_block	xslt	Content-Type	application/ecmascript
+= allowed
+mime_block	xslt	Content-Type	nonsense
+= allowed
+mime_block	xslt	Content-Type	text/csvx
+= allowed
+mime_block	xslt	Content-Type	audio/
+= allowed
+mime_block	xslt	Content-Type	imagex/png
+= allowed
+mime_block	audio
+= allowed
+mime_block	audio	Content-Type	audio/mpeg
+= allowed
+mime_block	audio	Content-Type	image/png
+= allowed
+mime_block	audio	Content-Type	video/mp4
+= allowed
+mime_block	audio	Content-Type	text/csv
+= allowed
+mime_block	audio	Content-Type	text/csv;charset=x
+= allowed
+mime_block	audio	Content-Type	TEXT/CSV
+= allowed
+mime_block	audio	Content-Type	text/javascript
+= allowed
+mime_block	audio	Content-Type	application/json
+= allowed
+mime_block	audio	Content-Type	text/css
+= allowed
+mime_block	audio	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	audio	Content-Type	text/plain
+= allowed
+mime_block	audio	Content-Type	application/ecmascript
+= allowed
+mime_block	audio	Content-Type	nonsense
+= allowed
+mime_block	audio	Content-Type	text/csvx
+= allowed
+mime_block	audio	Content-Type	audio/
+= allowed
+mime_block	audio	Content-Type	imagex/png
+= allowed
+mime_block	track
+= allowed
+mime_block	track	Content-Type	audio/mpeg
+= allowed
+mime_block	track	Content-Type	image/png
+= allowed
+mime_block	track	Content-Type	video/mp4
+= allowed
+mime_block	track	Content-Type	text/csv
+= allowed
+mime_block	track	Content-Type	text/csv;charset=x
+= allowed
+mime_block	track	Content-Type	TEXT/CSV
+= allowed
+mime_block	track	Content-Type	text/javascript
+= allowed
+mime_block	track	Content-Type	application/json
+= allowed
+mime_block	track	Content-Type	text/css
+= allowed
+mime_block	track	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	track	Content-Type	text/plain
+= allowed
+mime_block	track	Content-Type	application/ecmascript
+= allowed
+mime_block	track	Content-Type	nonsense
+= allowed
+mime_block	track	Content-Type	text/csvx
+= allowed
+mime_block	track	Content-Type	audio/
+= allowed
+mime_block	track	Content-Type	imagex/png
+= allowed
+mime_block	report
+= allowed
+mime_block	report	Content-Type	audio/mpeg
+= allowed
+mime_block	report	Content-Type	image/png
+= allowed
+mime_block	report	Content-Type	video/mp4
+= allowed
+mime_block	report	Content-Type	text/csv
+= allowed
+mime_block	report	Content-Type	text/csv;charset=x
+= allowed
+mime_block	report	Content-Type	TEXT/CSV
+= allowed
+mime_block	report	Content-Type	text/javascript
+= allowed
+mime_block	report	Content-Type	application/json
+= allowed
+mime_block	report	Content-Type	text/css
+= allowed
+mime_block	report	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	report	Content-Type	text/plain
+= allowed
+mime_block	report	Content-Type	application/ecmascript
+= allowed
+mime_block	report	Content-Type	nonsense
+= allowed
+mime_block	report	Content-Type	text/csvx
+= allowed
+mime_block	report	Content-Type	audio/
+= allowed
+mime_block	report	Content-Type	imagex/png
+= allowed
+mime_block	font
+= allowed
+mime_block	font	Content-Type	audio/mpeg
+= allowed
+mime_block	font	Content-Type	image/png
+= allowed
+mime_block	font	Content-Type	video/mp4
+= allowed
+mime_block	font	Content-Type	text/csv
+= allowed
+mime_block	font	Content-Type	text/csv;charset=x
+= allowed
+mime_block	font	Content-Type	TEXT/CSV
+= allowed
+mime_block	font	Content-Type	text/javascript
+= allowed
+mime_block	font	Content-Type	application/json
+= allowed
+mime_block	font	Content-Type	text/css
+= allowed
+mime_block	font	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	font	Content-Type	text/plain
+= allowed
+mime_block	font	Content-Type	application/ecmascript
+= allowed
+mime_block	font	Content-Type	nonsense
+= allowed
+mime_block	font	Content-Type	text/csvx
+= allowed
+mime_block	font	Content-Type	audio/
+= allowed
+mime_block	font	Content-Type	imagex/png
+= allowed
+mime_block	fetch
+= allowed
+mime_block	fetch	Content-Type	audio/mpeg
+= allowed
+mime_block	fetch	Content-Type	image/png
+= allowed
+mime_block	fetch	Content-Type	video/mp4
+= allowed
+mime_block	fetch	Content-Type	text/csv
+= allowed
+mime_block	fetch	Content-Type	text/csv;charset=x
+= allowed
+mime_block	fetch	Content-Type	TEXT/CSV
+= allowed
+mime_block	fetch	Content-Type	text/javascript
+= allowed
+mime_block	fetch	Content-Type	application/json
+= allowed
+mime_block	fetch	Content-Type	text/css
+= allowed
+mime_block	fetch	Content-Type	text/css; charset=utf-8
+= allowed
+mime_block	fetch	Content-Type	text/plain
+= allowed
+mime_block	fetch	Content-Type	application/ecmascript
+= allowed
+mime_block	fetch	Content-Type	nonsense
+= allowed
+mime_block	fetch	Content-Type	text/csvx
+= allowed
+mime_block	fetch	Content-Type	audio/
+= allowed
+mime_block	fetch	Content-Type	imagex/png
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	-	X-Content-Type-Options	other
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	-	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	-	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	-	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	-	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	-	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	-	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	-	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	-	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	-	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff
+= blocked
+nosniff_block	script	X-Content-Type-Options	other
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	script	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff	Content-Type	text/css
+= blocked
+nosniff_block	script	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= blocked
+nosniff_block	script	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff	Content-Type	application/json
+= blocked
+nosniff_block	script	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	script	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= blocked
+nosniff_block	script	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= blocked
+nosniff_block	script	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	script	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= blocked
+nosniff_block	script	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff
+= blocked
+nosniff_block	style	X-Content-Type-Options	other
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= blocked
+nosniff_block	style	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	style	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= blocked
+nosniff_block	style	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff	Content-Type	application/json
+= blocked
+nosniff_block	style	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= blocked
+nosniff_block	style	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	style	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	style	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	style	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= blocked
+nosniff_block	style	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	image	X-Content-Type-Options	other
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	image	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	image	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	image	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	image	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	image	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	image	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	image	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	image	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	image	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	document	X-Content-Type-Options	other
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	document	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	document	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	document	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	document	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	document	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	document	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	document	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	document	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	document	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff
+= blocked
+nosniff_block	worker	X-Content-Type-Options	other
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	worker	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff	Content-Type	text/css
+= blocked
+nosniff_block	worker	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= blocked
+nosniff_block	worker	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff	Content-Type	application/json
+= blocked
+nosniff_block	worker	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	worker	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= blocked
+nosniff_block	worker	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= blocked
+nosniff_block	worker	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	worker	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= blocked
+nosniff_block	worker	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff
+= blocked
+nosniff_block	audioworklet	X-Content-Type-Options	other
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff	Content-Type	text/css
+= blocked
+nosniff_block	audioworklet	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= blocked
+nosniff_block	audioworklet	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff	Content-Type	application/json
+= blocked
+nosniff_block	audioworklet	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= blocked
+nosniff_block	audioworklet	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= blocked
+nosniff_block	audioworklet	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	audioworklet	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= blocked
+nosniff_block	audioworklet	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff
+= blocked
+nosniff_block	paintworklet	X-Content-Type-Options	other
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff	Content-Type	text/css
+= blocked
+nosniff_block	paintworklet	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= blocked
+nosniff_block	paintworklet	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff	Content-Type	application/json
+= blocked
+nosniff_block	paintworklet	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= blocked
+nosniff_block	paintworklet	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= blocked
+nosniff_block	paintworklet	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	paintworklet	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= blocked
+nosniff_block	paintworklet	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff
+= blocked
+nosniff_block	sharedworker	X-Content-Type-Options	other
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff	Content-Type	text/css
+= blocked
+nosniff_block	sharedworker	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= blocked
+nosniff_block	sharedworker	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff	Content-Type	application/json
+= blocked
+nosniff_block	sharedworker	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= blocked
+nosniff_block	sharedworker	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= blocked
+nosniff_block	sharedworker	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	sharedworker	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= blocked
+nosniff_block	sharedworker	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff
+= blocked
+nosniff_block	serviceworker	X-Content-Type-Options	other
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff	Content-Type	text/css
+= blocked
+nosniff_block	serviceworker	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= blocked
+nosniff_block	serviceworker	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff	Content-Type	application/json
+= blocked
+nosniff_block	serviceworker	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= blocked
+nosniff_block	serviceworker	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= blocked
+nosniff_block	serviceworker	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	serviceworker	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= blocked
+nosniff_block	serviceworker	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	json	X-Content-Type-Options	other
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	json	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	json	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	json	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	json	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	json	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	json	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	json	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	json	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	json	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	xslt	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	audio	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	audio	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	track	X-Content-Type-Options	other
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	track	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	track	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	track	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	track	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	track	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	track	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	track	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	track	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	track	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	report	X-Content-Type-Options	other
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	report	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	report	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	report	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	report	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	report	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	report	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	report	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	report	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	report	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	font	X-Content-Type-Options	other
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	font	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	font	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	font	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	font	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	font	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	font	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	font	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	font	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	font	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff	Content-Type	text/javascript
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other	Content-Type	text/javascript
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff	Content-Type	text/css
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other	Content-Type	text/css
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff	Content-Type	text/plain
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other	Content-Type	text/plain
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff	Content-Type	application/json
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other	Content-Type	application/json
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff	Content-Type	application/x-javascript
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other	Content-Type	application/x-javascript
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff	Content-Type	text/css;x=y
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other	Content-Type	text/css;x=y
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other	Content-Type	TEXT/CSS
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	nosniff	Content-Type	nonsense
+= allowed
+nosniff_block	fetch	X-Content-Type-Options	other	Content-Type	nonsense
+= allowed
+referrer_policy_strings
+=  ; no-referrer ; no-referrer-when-downgrade ; same-origin ; origin ; strict-origin ; origin-when-cross-origin ; strict-origin-when-cross-origin ; unsafe-url
+referrer_policy_from_string	\-
+= ""
+referrer_policy_from_string	no-referrer
+= "no-referrer"
+referrer_policy_from_string	No-Referrer
+= "no-referrer"
+referrer_policy_from_string	no-referrer-when-downgrade
+= "no-referrer-when-downgrade"
+referrer_policy_from_string	same-origin
+= "same-origin"
+referrer_policy_from_string	origin
+= "origin"
+referrer_policy_from_string	strict-origin
+= "strict-origin"
+referrer_policy_from_string	origin-when-cross-origin
+= "origin-when-cross-origin"
+referrer_policy_from_string	strict-origin-when-cross-origin
+= "strict-origin-when-cross-origin"
+referrer_policy_from_string	unsafe-url
+= "unsafe-url"
+referrer_policy_from_string	UNSAFE-URL
+= "unsafe-url"
+referrer_policy_from_string	unsafe_url
+= null
+referrer_policy_from_string	 origin
+= null
+referrer_policy_from_string	origin 
+= null
+referrer_policy_from_string	never
+= null
+referrer_policy_from_string	default
+= null
+referrer_policy_from_string	always
+= null
+referrer_policy_header
+= 
+referrer_policy_header	origin
+= origin
+referrer_policy_header	no-referrer
+= no-referrer
+referrer_policy_header	unsafe-url, origin
+= 
+referrer_policy_header	origin, unknown
+= 
+referrer_policy_header	unknown
+= 
+referrer_policy_header	origin	same-origin
+= same-origin
+referrer_policy_header	same-origin, 
+= 
+referrer_policy_header	\-
+= 
+referrer_policy_header	,
+= 
+referrer_policy_header	ORIGIN
+= origin
+referrer_policy_header	origin,,strict-origin
+= 
+referrer_policy_header	"origin"
+= 
+referrer_policy_header	origin; x
+= 
+referrer_policy_header	no-referrer, ,unsafe-url
+= 
+referrer_policy_header	strict-origin-when-cross-origin, no-referrer-when-downgrade
+= 
+referrer_policy_header	 origin 
+= 
+referrer_policy_header	origin\x0B
+= 
+referrer_policy_on_redirect	no-referrer
+= no-referrer
+referrer_policy_on_redirect	no-referrer	origin
+= origin
+referrer_policy_on_redirect	no-referrer	unknown
+= no-referrer
+referrer_policy_on_redirect	no-referrer	same-origin, foo
+= no-referrer
+referrer_policy_on_redirect	strict-origin-when-cross-origin
+= strict-origin-when-cross-origin
+referrer_policy_on_redirect	strict-origin-when-cross-origin	origin
+= origin
+referrer_policy_on_redirect	strict-origin-when-cross-origin	unknown
+= strict-origin-when-cross-origin
+referrer_policy_on_redirect	strict-origin-when-cross-origin	same-origin, foo
+= strict-origin-when-cross-origin
+referrer_policy_on_redirect	unsafe-url
+= unsafe-url
+referrer_policy_on_redirect	unsafe-url	origin
+= origin
+referrer_policy_on_redirect	unsafe-url	unknown
+= unsafe-url
+referrer_policy_on_redirect	unsafe-url	same-origin, foo
+= unsafe-url
+strip	null	full
+= null
+strip	null	origin
+= null
+strip	https://user:pass@a.test:8080/p/q?x=1#frag	full
+= https://a.test:8080/p/q?x=1
+strip	https://user:pass@a.test:8080/p/q?x=1#frag	origin
+= https://a.test:8080/
+strip	https://a.test/	full
+= https://a.test/
+strip	https://a.test/	origin
+= https://a.test/
+strip	http://a.test/path	full
+= http://a.test/path
+strip	http://a.test/path	origin
+= http://a.test/
+strip	about:blank	full
+= null
+strip	about:blank	origin
+= null
+strip	blob:https://a.test/uuid	full
+= null
+strip	blob:https://a.test/uuid	origin
+= null
+strip	data:,x	full
+= null
+strip	data:,x	origin
+= null
+strip	file:///etc/passwd	full
+= file:///etc/passwd
+strip	file:///etc/passwd	origin
+= file:///
+strip	javascript:alert(1)	full
+= javascript:alert(1)
+strip	javascript:alert(1)	origin
+= javascript:
+strip	https://a.test/p?q	full
+= https://a.test/p?q
+strip	https://a.test/p?q	origin
+= https://a.test/
+strip	https://a.test/#	full
+= https://a.test/
+strip	https://a.test/#	origin
+= https://a.test/
+strip	resource://a/b	full
+= resource://a/b
+strip	resource://a/b	origin
+= resource://a/
+strip	ftp://u@a.test/f	full
+= ftp://a.test/f
+strip	ftp://u@a.test/f	origin
+= ftp://a.test/
+strip	https://[::1]:8443/x?y#z	full
+= https://[::1]:8443/x?y
+strip	https://[::1]:8443/x?y#z	origin
+= https://[::1]:8443/
+strip	mailto:a@b.test	full
+= mailto:a@b.test
+strip	mailto:a@b.test	origin
+= mailto:
+determine_referrer	no-referrer	https://a.test/p?q#f	https://a.test/x
+= null
+determine_referrer	no-referrer	https://a.test/p	https://b.test/x
+= null
+determine_referrer	no-referrer	https://a.test/p	http://a.test/x
+= null
+determine_referrer	no-referrer	http://a.test/p	https://b.test/x
+= null
+determine_referrer	no-referrer	https://u:p@a.test/p?q#f	http://b.test/
+= null
+determine_referrer	no-referrer	about:blank	https://a.test/
+= null
+determine_referrer	no-referrer	http://localhost/p	http://a.test/
+= null
+determine_referrer	no-referrer	https://a.test/p	http://localhost/x
+= null
+determine_referrer	no-referrer	data:,x	https://a.test/
+= null
+determine_referrer	no-referrer	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://a.test/x
+= null
+determine_referrer	no-referrer	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://b.test/x
+= null
+determine_referrer	no-referrer	http://a.test/p	http://a.test/q
+= null
+determine_referrer	no-referrer	https://a.test:8443/p	https://a.test/p
+= null
+determine_referrer	no-referrer-when-downgrade	https://a.test/p?q#f	https://a.test/x
+= https://a.test/p?q
+determine_referrer	no-referrer-when-downgrade	https://a.test/p	https://b.test/x
+= https://a.test/p
+determine_referrer	no-referrer-when-downgrade	https://a.test/p	http://a.test/x
+= null
+determine_referrer	no-referrer-when-downgrade	http://a.test/p	https://b.test/x
+= http://a.test/p
+determine_referrer	no-referrer-when-downgrade	https://u:p@a.test/p?q#f	http://b.test/
+= null
+determine_referrer	no-referrer-when-downgrade	about:blank	https://a.test/
+= null
+determine_referrer	no-referrer-when-downgrade	http://localhost/p	http://a.test/
+= null
+determine_referrer	no-referrer-when-downgrade	https://a.test/p	http://localhost/x
+= https://a.test/p
+determine_referrer	no-referrer-when-downgrade	data:,x	https://a.test/
+= null
+determine_referrer	no-referrer-when-downgrade	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	no-referrer-when-downgrade	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://b.test/x
+= https://a.test/
+determine_referrer	no-referrer-when-downgrade	http://a.test/p	http://a.test/q
+= http://a.test/p
+determine_referrer	no-referrer-when-downgrade	https://a.test:8443/p	https://a.test/p
+= https://a.test:8443/p
+determine_referrer	same-origin	https://a.test/p?q#f	https://a.test/x
+= https://a.test/p?q
+determine_referrer	same-origin	https://a.test/p	https://b.test/x
+= null
+determine_referrer	same-origin	https://a.test/p	http://a.test/x
+= null
+determine_referrer	same-origin	http://a.test/p	https://b.test/x
+= null
+determine_referrer	same-origin	https://u:p@a.test/p?q#f	http://b.test/
+= null
+determine_referrer	same-origin	about:blank	https://a.test/
+= null
+determine_referrer	same-origin	http://localhost/p	http://a.test/
+= null
+determine_referrer	same-origin	https://a.test/p	http://localhost/x
+= null
+determine_referrer	same-origin	data:,x	https://a.test/
+= null
+determine_referrer	same-origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	same-origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://b.test/x
+= null
+determine_referrer	same-origin	http://a.test/p	http://a.test/q
+= http://a.test/p
+determine_referrer	same-origin	https://a.test:8443/p	https://a.test/p
+= null
+determine_referrer	origin	https://a.test/p?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	origin	https://a.test/p	https://b.test/x
+= https://a.test/
+determine_referrer	origin	https://a.test/p	http://a.test/x
+= https://a.test/
+determine_referrer	origin	http://a.test/p	https://b.test/x
+= http://a.test/
+determine_referrer	origin	https://u:p@a.test/p?q#f	http://b.test/
+= https://a.test/
+determine_referrer	origin	about:blank	https://a.test/
+= null
+determine_referrer	origin	http://localhost/p	http://a.test/
+= http://localhost/
+determine_referrer	origin	https://a.test/p	http://localhost/x
+= https://a.test/
+determine_referrer	origin	data:,x	https://a.test/
+= null
+determine_referrer	origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://b.test/x
+= https://a.test/
+determine_referrer	origin	http://a.test/p	http://a.test/q
+= http://a.test/
+determine_referrer	origin	https://a.test:8443/p	https://a.test/p
+= https://a.test:8443/
+determine_referrer	strict-origin	https://a.test/p?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	strict-origin	https://a.test/p	https://b.test/x
+= https://a.test/
+determine_referrer	strict-origin	https://a.test/p	http://a.test/x
+= null
+determine_referrer	strict-origin	http://a.test/p	https://b.test/x
+= http://a.test/
+determine_referrer	strict-origin	https://u:p@a.test/p?q#f	http://b.test/
+= null
+determine_referrer	strict-origin	about:blank	https://a.test/
+= null
+determine_referrer	strict-origin	http://localhost/p	http://a.test/
+= null
+determine_referrer	strict-origin	https://a.test/p	http://localhost/x
+= https://a.test/
+determine_referrer	strict-origin	data:,x	https://a.test/
+= null
+determine_referrer	strict-origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	strict-origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://b.test/x
+= https://a.test/
+determine_referrer	strict-origin	http://a.test/p	http://a.test/q
+= http://a.test/
+determine_referrer	strict-origin	https://a.test:8443/p	https://a.test/p
+= https://a.test:8443/
+determine_referrer	origin-when-cross-origin	https://a.test/p?q#f	https://a.test/x
+= https://a.test/p?q
+determine_referrer	origin-when-cross-origin	https://a.test/p	https://b.test/x
+= https://a.test/
+determine_referrer	origin-when-cross-origin	https://a.test/p	http://a.test/x
+= https://a.test/
+determine_referrer	origin-when-cross-origin	http://a.test/p	https://b.test/x
+= http://a.test/
+determine_referrer	origin-when-cross-origin	https://u:p@a.test/p?q#f	http://b.test/
+= https://a.test/
+determine_referrer	origin-when-cross-origin	about:blank	https://a.test/
+= null
+determine_referrer	origin-when-cross-origin	http://localhost/p	http://a.test/
+= http://localhost/
+determine_referrer	origin-when-cross-origin	https://a.test/p	http://localhost/x
+= https://a.test/
+determine_referrer	origin-when-cross-origin	data:,x	https://a.test/
+= null
+determine_referrer	origin-when-cross-origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	origin-when-cross-origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://b.test/x
+= https://a.test/
+determine_referrer	origin-when-cross-origin	http://a.test/p	http://a.test/q
+= http://a.test/p
+determine_referrer	origin-when-cross-origin	https://a.test:8443/p	https://a.test/p
+= https://a.test:8443/
+determine_referrer	strict-origin-when-cross-origin	https://a.test/p?q#f	https://a.test/x
+= https://a.test/p?q
+determine_referrer	strict-origin-when-cross-origin	https://a.test/p	https://b.test/x
+= https://a.test/
+determine_referrer	strict-origin-when-cross-origin	https://a.test/p	http://a.test/x
+= null
+determine_referrer	strict-origin-when-cross-origin	http://a.test/p	https://b.test/x
+= http://a.test/
+determine_referrer	strict-origin-when-cross-origin	https://u:p@a.test/p?q#f	http://b.test/
+= null
+determine_referrer	strict-origin-when-cross-origin	about:blank	https://a.test/
+= null
+determine_referrer	strict-origin-when-cross-origin	http://localhost/p	http://a.test/
+= null
+determine_referrer	strict-origin-when-cross-origin	https://a.test/p	http://localhost/x
+= https://a.test/
+determine_referrer	strict-origin-when-cross-origin	data:,x	https://a.test/
+= null
+determine_referrer	strict-origin-when-cross-origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	strict-origin-when-cross-origin	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://b.test/x
+= https://a.test/
+determine_referrer	strict-origin-when-cross-origin	http://a.test/p	http://a.test/q
+= http://a.test/p
+determine_referrer	strict-origin-when-cross-origin	https://a.test:8443/p	https://a.test/p
+= https://a.test:8443/
+determine_referrer	unsafe-url	https://a.test/p?q#f	https://a.test/x
+= https://a.test/p?q
+determine_referrer	unsafe-url	https://a.test/p	https://b.test/x
+= https://a.test/p
+determine_referrer	unsafe-url	https://a.test/p	http://a.test/x
+= https://a.test/p
+determine_referrer	unsafe-url	http://a.test/p	https://b.test/x
+= http://a.test/p
+determine_referrer	unsafe-url	https://u:p@a.test/p?q#f	http://b.test/
+= https://a.test/p?q
+determine_referrer	unsafe-url	about:blank	https://a.test/
+= null
+determine_referrer	unsafe-url	http://localhost/p	http://a.test/
+= http://localhost/p
+determine_referrer	unsafe-url	https://a.test/p	http://localhost/x
+= https://a.test/p
+determine_referrer	unsafe-url	data:,x	https://a.test/
+= null
+determine_referrer	unsafe-url	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://a.test/x
+= https://a.test/
+determine_referrer	unsafe-url	https://a.test/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?q#f	https://b.test/x
+= https://a.test/
+determine_referrer	unsafe-url	http://a.test/p	http://a.test/q
+= http://a.test/p
+determine_referrer	unsafe-url	https://a.test:8443/p	https://a.test/p
+= https://a.test:8443/p
+determine_referrer	strict-origin-when-cross-origin	https://a.test/p	http://b.test/first	https://a.test/current
+= https://a.test/p
+trustworthy	https://a.test
+= trustworthy ; trustworthy
+trustworthy	http://a.test
+= not-trustworthy ; not-trustworthy
+trustworthy	wss://a.test
+= trustworthy ; trustworthy
+trustworthy	ws://a.test
+= not-trustworthy ; not-trustworthy
+trustworthy	http://127.0.0.1
+= trustworthy ; trustworthy
+trustworthy	http://127.5.6.7
+= trustworthy ; trustworthy
+trustworthy	http://10.0.0.1
+= trustworthy ; trustworthy
+trustworthy	http://10.0.0.0
+= trustworthy ; trustworthy
+trustworthy	http://0.0.0.0
+= not-trustworthy ; not-trustworthy
+trustworthy	http://1.2.3.0
+= trustworthy ; trustworthy
+trustworthy	http://1.2.3.4
+= trustworthy ; trustworthy
+trustworthy	http://255.255.255.255
+= trustworthy ; trustworthy
+trustworthy	http://[::1]
+= trustworthy ; trustworthy
+trustworthy	http://[::2]
+= not-trustworthy ; not-trustworthy
+trustworthy	http://[0:0:0:0:0:0:0:1]
+= trustworthy ; trustworthy
+trustworthy	http://[::ffff:127.0.0.1]
+= not-trustworthy ; not-trustworthy
+trustworthy	http://localhost
+= trustworthy ; trustworthy
+trustworthy	http://localhost.
+= trustworthy ; trustworthy
+trustworthy	http://foo.localhost
+= trustworthy ; trustworthy
+trustworthy	http://foo.localhost.
+= trustworthy ; trustworthy
+trustworthy	http://localhost.com
+= not-trustworthy ; not-trustworthy
+trustworthy	http://LOCALHOST
+= trustworthy ; trustworthy
+trustworthy	http://xlocalhost
+= not-trustworthy ; not-trustworthy
+trustworthy	file:///etc
+= trustworthy ; trustworthy
+trustworthy	file://host/x
+= trustworthy ; trustworthy
+trustworthy	resource://x/y
+= trustworthy ; trustworthy
+trustworthy	data:,x
+= not-trustworthy ; trustworthy
+trustworthy	about:blank
+= not-trustworthy ; trustworthy
+trustworthy	about:srcdoc
+= not-trustworthy ; trustworthy
+trustworthy	about:blank#x
+= not-trustworthy ; not-trustworthy
+trustworthy	about:blank?x
+= not-trustworthy ; not-trustworthy
+trustworthy	about:settings
+= not-trustworthy ; trustworthy
+trustworthy	about:version
+= not-trustworthy ; trustworthy
+trustworthy	about:newtab
+= not-trustworthy ; not-trustworthy
+trustworthy	about:foo
+= not-trustworthy ; not-trustworthy
+trustworthy	blob:https://a.test/uuid
+= trustworthy ; trustworthy
+trustworthy	blob:http://a.test/uuid
+= not-trustworthy ; not-trustworthy
+trustworthy	javascript:alert(1)
+= not-trustworthy ; not-trustworthy
+trustworthy	ftp://a.test
+= not-trustworthy ; not-trustworthy
+trustworthy	https://a.test:8443/
+= trustworthy ; trustworthy
+trustworthy	HTTPS://A.TEST
+= trustworthy ; trustworthy
+trustworthy	http://127.0.0.1:8080/x
+= trustworthy ; trustworthy
+trustworthy	http://0x7f000001/
+= trustworthy ; trustworthy
+trustworthy	http://2130706433/
+= trustworthy ; trustworthy
+opaque_origin_trustworthy	standard
+= not-trustworthy
+opaque_origin_trustworthy	file
+= trustworthy
+timing	0	no	0	0	0	0	0	0	0	0	0
+= 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0,0,0,0,0, ; 0 ; false
+timing	1000.5	no	1	2	3	4	5	6	7	8	1
+= 4652011706887700480 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4652011706887700480 ; 0 ; 0 ; 4652011706887700480 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4652011706887700480 ; 0 ; 0 ; 0 ; 0 ; 4652011706887700480 ; 0 ; 4652011706887700480 ; 0 ; 4652011706887700480,4652011706887700480,4652011706887700480,4652011706887700480,4652011706887700480,http/1.0 ; 0 ; false
+timing	123.456	yes	1234	5678	9012	3456	7890	1234	5678	9012	2
+= 4638387860618067575 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4638387860618067575 ; 0 ; 0 ; 4638387860618067575 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4638387860618067575 ; 0 ; 0 ; 0 ; 0 ; 4638474695648382812 ; 0 ; 4638747374532071260 ; 0 ; 4638474695648382812,4638747374532071260,4638864714412987515,4638630914260457226,4638825307916248023,http/1.1 ; 0 ; false
+timing	1e9	no	123456789	223456789	0	1	999	1000	1001	99999	3
+= 4741671816366391296 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4741671816366391296 ; 0 ; 0 ; 4741671816366391296 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4741671816366391296 ; 0 ; 0 ; 0 ; 0 ; 4741671816374779904 ; 0 ; 4741671816374779904 ; 0 ; 4741672851996252570,4741673690857052570,4741671816366391296,4741671816366391296,4741671816373941044,h2 ; 0 ; false
+timing	0.1	yes	-1	-1000	-1001	7	77	777	7777	77777	4
+= 4591870180066957722 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4591870180066957722 ; 0 ; 0 ; 4591870180066957722 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4591870180066957722 ; 0 ; 0 ; 0 ; 0 ; 4606056518893174784 ; 0 ; 4620552480193773568 ; 0 ; 4591509892096768082,13829653735729319117,13829698771725592822,4592230468037147361,4595473059768854119,h2c ; 0 ; false
+timing	3.3	no	100	200	300	400	500	600	700	800	5
+= 4614613358185178726 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4614613358185178726 ; 0 ; 0 ; 4614613358185178726 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4614613358185178726 ; 0 ; 0 ; 0 ; 0 ; 4615964438073389876 ; 0 ; 4616189618054758400 ; 0 ; 4614838538166547252,4615063718147915776,4615063718147915776,4615288898129284301,4615514078110652826,h3 ; 0 ; false
+timing	7777.777	yes	3	33	333	3333	33333	333333	3333333	33333333	0
+= 4665273770950841598 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4665273770950841598 ; 0 ; 0 ; 4665273770950841598 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 4665273770950841598 ; 0 ; 0 ; 0 ; 0 ; 4665640274460263056 ; 0 ; 4667334011649712456 ; 0 ; 4665273774249376481,4665273807234725315,4665274137088213648,4665277435623096976,4665310420971930256, ; 0 ; false
+timing	-5.5	no	50	150	250	350	450	550	650	750	2
+= 13841250504769798144 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 13841250504769798144 ; 0 ; 0 ; 13841250504769798144 ; 0 ; 0 ; 0 ; 0 ; 0 ; null ; 0 ; false | 13841250504769798144 ; 0 ; 0 ; 0 ; 0 ; 13840687554816376832 ; 0 ; 13840574964825692570 ; 0 ; 13841250504769798144,13841137914779113882,13841025324788429620,13840912734797745357,13840800144807061095,http/1.1 ; 0 ; false
+controller	id	id	id
+= id=0:ongoing,0,false,false ; id=1:ongoing,0,false,false ; id=2:ongoing,0,false,false
+controller	queued	0	17	queued	1	18	queued	0	19	complete	0	complete	5	complete	1
+= queued:ongoing,1,false,false ; queued:ongoing,2,false,false ; queued:ongoing,2,false,false ; complete:ongoing,1,false,false ; complete:ongoing,1,false,false ; complete:ongoing,0,false,false
+controller	id	queued	0	100	terminate	complete	0	copy
+= id=0:ongoing,0,false,false ; queued:ongoing,1,false,false ; terminate:terminated,1,false,true ; complete:terminated,0,false,true ; copy=true,true,true,true:terminated,0,false,true
+controller	terminate	terminate	id	copy
+= terminate:terminated,0,false,true ; terminate:terminated,0,false,true ; id=0:terminated,0,false,true ; copy=true,true,true,true:terminated,0,false,true

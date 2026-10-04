@@ -5,6 +5,15 @@
 // A case line is "<op>\t<arg>\t<arg>..." with \n, \t, \\ and \xHH escaped in each argument, and "\-" for
 // an empty argument. The
 // output repeats the case line, then "= <result>" on the next line (escaped the same way).
+//
+// Region p2a extends it (run_p2a below) with Fetch/Infrastructure's data: URLs, bad ports, the
+// nosniff and MIME type blocking checks, timing infos, fetch controllers and params, and
+// ReferrerPolicy and SecureContexts: cases_p2a.txt -> expected_p2a.txt.
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+#define private public
 #include <AK/ByteString.h>
 #include <AK/GenericLexer.h>
 #include <AK/StringBuilder.h>
@@ -22,10 +31,17 @@
 #include <LibWeb/ReferrerPolicy/ReferrerPolicy.h>
 #include <LibJS/Runtime/VM.h>
 #include <LibURL/Parser.h>
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
+#include <LibRequests/RequestTimingInfo.h>
+#include <LibWeb/Fetch/Infrastructure/FetchController.h>
+#include <LibWeb/Fetch/Infrastructure/FetchParams.h>
+#include <LibWeb/Fetch/Infrastructure/FetchTimingInfo.h>
+#include <LibWeb/Fetch/Infrastructure/MimeTypeBlocking.h>
+#include <LibWeb/Fetch/Infrastructure/NoSniffBlocking.h>
+#include <LibWeb/Fetch/Infrastructure/PortBlocking.h>
+#include <LibWeb/Fetch/Infrastructure/URL.h>
+#include <LibWeb/ReferrerPolicy/AbstractOperations.h>
+#include <LibWeb/SecureContexts/AbstractOperations.h>
+#undef private
 
 using namespace Web::Fetch::Infrastructure;
 
@@ -280,6 +296,201 @@ static std::string describe_response(Response& response)
     return join(out);
 }
 
+
+// ---- Region p2a ------------------------------------------------------------------------------
+
+static std::string opt_url(Optional<URL::URL> const& u)
+{
+    if (!u.has_value()) return "null";
+    auto serialized = u->serialize();
+    return escape(serialized.bytes_as_string_view());
+}
+
+static std::string blocking(RequestOrResponseBlocking b) { return b == RequestOrResponseBlocking::Blocked ? "blocked" : "allowed"; }
+
+static std::string trust(Web::SecureContexts::Trustworthiness t) { return t == Web::SecureContexts::Trustworthiness::PotentiallyTrustworthy ? "trustworthy" : "not-trustworthy"; }
+
+static std::string f64_bits(double d) { return std::to_string(bit_cast<u64>(d)); }
+
+static Optional<Request::Destination> destination_of(std::string const& s)
+{
+    if (s == "-") return {};
+    return translate_potential_destination(sv(s));
+}
+
+static Web::ReferrerPolicy::ReferrerPolicy policy_of(std::string const& s)
+{
+    return Web::ReferrerPolicy::from_string(sv(s)).value();
+}
+
+static GC::Ref<Response> response_with_headers(std::vector<std::string> const& f, size_t first)
+{
+    auto response = Response::create(the_vm());
+    for (size_t i = first; i + 1 < f.size(); i += 2)
+        response->header_list()->append(HTTP::Header { ByteString(sv(f[i])), ByteString(sv(f[i + 1])) });
+    return response;
+}
+
+static std::string describe_timing(FetchTimingInfo const& t)
+{
+    std::vector<std::string> out;
+    for (auto v : { t.start_time(), t.redirect_start_time(), t.redirect_end_time(), t.post_redirect_start_time(), t.final_service_worker_start_time(), t.final_network_request_start_time(), t.first_interim_network_response_start_time(), t.final_network_response_start_time(), t.end_time() })
+        out.push_back(f64_bits(v));
+    if (auto const& c = t.final_connection_timing_info(); c.has_value()) {
+        out.push_back(f64_bits(c->domain_lookup_start_time) + "," + f64_bits(c->domain_lookup_end_time) + "," + f64_bits(c->connection_start_time) + "," + f64_bits(c->connection_end_time) + "," + f64_bits(c->secure_connection_start_time) + "," + str(c->alpn_negotiated_protocol.bytes_as_string_view()));
+    } else {
+        out.push_back("null");
+    }
+    out.push_back(std::to_string(t.server_timing_headers().size()));
+    out.push_back(b(t.render_blocking()));
+    return join(out);
+}
+
+static std::string state_name(FetchController::State s)
+{
+    switch (s) {
+    case FetchController::State::Ongoing: return "ongoing";
+    case FetchController::State::Terminated: return "terminated";
+    case FetchController::State::Aborted: return "aborted";
+    case FetchController::State::Stopped: return "stopped";
+    }
+    return "?";
+}
+
+static std::string run_p2a(std::vector<std::string> const& f)
+{
+    auto const& op = f[0];
+    auto a = [&](size_t i) { return sv(f[i]); };
+    if (op == "data_url" || op == "data_url_complete") {
+        auto parsed = URL::Parser::basic_parse(a(1));
+        if (!parsed.has_value()) return "unparsed";
+        auto u = *parsed;
+        if (op == "data_url_complete")
+            u = u.complete_url(a(2)).release_value();
+        auto serialized = u.serialize();
+        auto result = process_data_url(u);
+        if (result.is_error()) return escape(serialized.bytes_as_string_view()) + " ; failure";
+        auto mime_serialized = result.value().mime_type.serialized();
+        return escape(serialized.bytes_as_string_view()) + " ; " + escape(mime_serialized.bytes_as_string_view()) + " ; " + escape(StringView(result.value().body.bytes()));
+    }
+    if (op == "bad_ports") {
+        std::string out;
+        for (u32 port = 0; port <= 65535; port++) {
+            if (is_bad_port(port)) {
+                if (!out.empty()) out += " ";
+                out += std::to_string(port);
+            }
+        }
+        return out;
+    }
+    if (op == "block_bad_port") {
+        auto request = Request::create(the_vm());
+        request->set_url(url(f[1]));
+        return blocking(block_bad_port(request));
+    }
+    if (op == "nosniff") {
+        auto response = response_with_headers(f, 1);
+        return b(determine_nosniff(response->header_list()));
+    }
+    if (op == "nosniff_block" || op == "mime_block") {
+        auto request = Request::create(the_vm());
+        request->set_destination(destination_of(f[1]));
+        auto response = response_with_headers(f, 2);
+        return blocking(op == "nosniff_block" ? should_response_to_request_be_blocked_due_to_nosniff(response, request) : should_response_to_request_be_blocked_due_to_its_mime_type(response, request));
+    }
+    if (op == "referrer_policy_header") {
+        auto response = Response::create(the_vm());
+        for (size_t i = 1; i < f.size(); i++)
+            response->header_list()->append(HTTP::Header { "Referrer-Policy"sv, ByteString(a(i)) });
+        return str(Web::ReferrerPolicy::to_string(Web::ReferrerPolicy::parse_a_referrer_policy_from_a_referrer_policy_header(response)));
+    }
+    if (op == "referrer_policy_on_redirect") {
+        auto request = Request::create(the_vm());
+        request->set_referrer_policy(policy_of(f[1]));
+        auto response = Response::create(the_vm());
+        for (size_t i = 2; i < f.size(); i++)
+            response->header_list()->append(HTTP::Header { "Referrer-Policy"sv, ByteString(a(i)) });
+        Web::ReferrerPolicy::set_request_referrer_policy_on_redirect(request, response);
+        return str(Web::ReferrerPolicy::to_string(request->referrer_policy()));
+    }
+    if (op == "referrer_policy_strings") {
+        std::vector<std::string> out;
+        for (int p = 0; p <= (int)Web::ReferrerPolicy::ReferrerPolicy::UnsafeURL; p++)
+            out.push_back(str(Web::ReferrerPolicy::to_string((Web::ReferrerPolicy::ReferrerPolicy)p)));
+        return join(out);
+    }
+    if (op == "referrer_policy_from_string") {
+        auto p = Web::ReferrerPolicy::from_string(a(1));
+        return p.has_value() ? "\"" + str(Web::ReferrerPolicy::to_string(*p)) + "\"" : "null";
+    }
+    if (op == "strip") {
+        Optional<URL::URL> u;
+        if (f[1] != "null") u = url(f[1]);
+        auto stripped = Web::ReferrerPolicy::strip_url_for_use_as_referrer(u, f[2] == "origin" ? Web::ReferrerPolicy::OriginOnly::Yes : Web::ReferrerPolicy::OriginOnly::No);
+        return opt_url(stripped);
+    }
+    if (op == "determine_referrer") {
+        auto request = Request::create(the_vm());
+        request->set_referrer_policy(policy_of(f[1]));
+        request->set_referrer(url(f[2]));
+        Vector<URL::URL> urls;
+        for (size_t i = 3; i < f.size(); i++)
+            urls.append(url(f[i]));
+        request->set_url_list(urls);
+        return opt_url(Web::ReferrerPolicy::determine_requests_referrer(request));
+    }
+    if (op == "trustworthy") {
+        auto u = url(f[1]);
+        return trust(Web::SecureContexts::is_origin_potentially_trustworthy(u.origin())) + " ; " + trust(Web::SecureContexts::is_url_potentially_trustworthy(u));
+    }
+    if (op == "opaque_origin_trustworthy") {
+        return trust(Web::SecureContexts::is_origin_potentially_trustworthy(URL::Origin::create_opaque(f[1] == "file" ? URL::Origin::OpaqueData::Type::File : URL::Origin::OpaqueData::Type::Standard)));
+    }
+    if (op == "timing") {
+        auto timing = FetchTimingInfo::create(the_vm());
+        timing->set_start_time(std::stod(f[1]));
+        std::string out = describe_timing(timing);
+        auto opaque = create_opaque_timing_info(the_vm(), timing);
+        out += " | " + describe_timing(opaque);
+        Requests::RequestTimingInfo final_timings;
+        final_timings.domain_lookup_start_microseconds = std::stoll(f[3]);
+        final_timings.domain_lookup_end_microseconds = std::stoll(f[4]);
+        final_timings.connect_start_microseconds = std::stoll(f[5]);
+        final_timings.connect_end_microseconds = std::stoll(f[6]);
+        final_timings.secure_connect_start_microseconds = std::stoll(f[7]);
+        final_timings.request_start_microseconds = std::stoll(f[8]);
+        final_timings.response_start_microseconds = std::stoll(f[9]);
+        final_timings.response_end_microseconds = std::stoll(f[10]);
+        final_timings.http_version_alpn_identifier = (Requests::ALPNHttpVersion)std::stoi(f[11]);
+        timing->update_final_timings(final_timings, f[2] == "yes" ? Web::HTML::CanUseCrossOriginIsolatedAPIs::Yes : Web::HTML::CanUseCrossOriginIsolatedAPIs::No);
+        return out + " | " + describe_timing(timing);
+    }
+    if (op == "controller") {
+        // Ops on a new fetch params' controller: "id" (next fetch task id), "queued <id> <task>",
+        // "complete <id>", "terminate"; after each, the state, the ongoing task count, and the params'
+        // aborted and canceled flags.
+        auto request = Request::create(the_vm());
+        auto params = FetchParams::create(the_vm(), request, FetchTimingInfo::create(the_vm()));
+        auto controller = params->controller();
+        std::vector<std::string> out;
+        for (size_t i = 1; i < f.size();) {
+            auto const& c = f[i++];
+            std::string step = c;
+            if (c == "id") step += "=" + std::to_string(controller->next_fetch_task_id());
+            else if (c == "queued") { controller->fetch_task_queued(std::stoull(f[i]), std::stoull(f[i + 1])); i += 2; }
+            else if (c == "complete") { controller->fetch_task_complete(std::stoull(f[i])); i += 1; }
+            else if (c == "terminate") controller->terminate();
+            else if (c == "copy") {
+                auto copy = FetchParams::copy(params);
+                step += "=" + b(copy->controller().ptr() == controller.ptr()) + "," + b(copy->request().ptr() == request.ptr()) + "," + b(copy->algorithms().ptr() == params->algorithms().ptr()) + "," + b(copy->timing_info().ptr() == params->timing_info().ptr());
+            }
+            out.push_back(step + ":" + state_name(controller->state()) + "," + std::to_string(controller->m_ongoing_fetch_tasks.size()) + "," + b(params->is_aborted()) + "," + b(params->is_canceled()));
+        }
+        return join(out);
+    }
+    return "unknown op";
+}
+
 static std::string run(std::vector<std::string> const& f)
 {
     auto const& op = f[0];
@@ -463,7 +674,7 @@ static std::string run(std::vector<std::string> const& f)
         auto serialized = location.value()->serialize();
         return escape(serialized.bytes_as_string_view());
     }
-    return "unknown op";
+    return run_p2a(f);
 }
 
 int main(int argc, char** argv)
