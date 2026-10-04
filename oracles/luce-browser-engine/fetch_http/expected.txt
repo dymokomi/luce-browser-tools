@@ -1,0 +1,668 @@
+is_header_name	Content-Type
+= true
+is_header_name	X-Custom_Header
+= true
+is_header_name	\-
+= false
+is_header_name	Content Type
+= false
+is_header_name	Content:Type
+= false
+is_header_name	a!#$%&'*+-.^_`|~z09
+= true
+is_header_name	caf\xC3\xA9
+= false
+is_header_name	"quoted"
+= false
+is_header_value	\-
+= true
+is_header_value	text/html
+= true
+is_header_value	 leading
+= false
+is_header_value	trailing\t
+= false
+is_header_value	in side
+= true
+is_header_value	nul\x00byte
+= false
+is_header_value	new\nline
+= false
+is_header_value	carriage\x0Dreturn
+= false
+is_header_value	\x80high bytes\xFF
+= true
+is_header_value	\x0Bvertical tab
+= true
+normalize_header_value	\-
+= ""
+normalize_header_value	  text/html\x20\x20
+= "text/html"
+normalize_header_value	\n\x0D\t value \t\x0D\n
+= "value"
+normalize_header_value	\x0B value
+= "\x0B value"
+normalize_header_value	\x20\x20\x20
+= ""
+normalize_header_value	a b
+= "a b"
+isomorphic_encode	Content-Type	text/html
+= (Content-Type: text/html)
+isomorphic_encode	X-Caf\xC3\xA9	\xC3\xBF\xC3\xA0
+= (X-Caf\xE9: \xFF\xE0)
+is_forbidden_request_header	Accept-Charset	x
+= true
+is_forbidden_request_header	accept-encoding	gzip
+= true
+is_forbidden_request_header	DNT	1
+= true
+is_forbidden_request_header	Cookie2	x
+= true
+is_forbidden_request_header	Content-Type	text/plain
+= false
+is_forbidden_request_header	Proxy-Authorization	x
+= true
+is_forbidden_request_header	SEC-Fetch-Mode	cors
+= true
+is_forbidden_request_header	Proxy	x
+= false
+is_forbidden_request_header	Secret	x
+= false
+is_forbidden_request_header	X-HTTP-Method	GET
+= false
+is_forbidden_request_header	X-HTTP-Method	CONNECT
+= true
+is_forbidden_request_header	x-http-method-override	get, trace
+= true
+is_forbidden_request_header	X-Method-Override	"TRACK"
+= false
+is_forbidden_request_header	X-Method-Override	 track\x20
+= true
+is_forbidden_request_header	X-Method-Override	tracker
+= false
+is_forbidden_request_header	Via	x
+= true
+is_forbidden_response_header_name	Set-Cookie
+= true
+is_forbidden_response_header_name	set-cookie2
+= true
+is_forbidden_response_header_name	Set-Cookie3
+= false
+is_forbidden_response_header_name	Cookie
+= false
+decode_split	\-
+= [""]
+decode_split	nosniff
+= ["nosniff"]
+decode_split	text/html;", text/plain
+= ["text/html;", text/plain"]
+decode_split	text/html;"
+= ["text/html;""]
+decode_split	text/html;";charset=gbk
+= ["text/html;";charset=gbk"]
+decode_split	text/html;charset=gbk, text/plain
+= ["text/html;charset=gbk", "text/plain"]
+decode_split	"a, b", c
+= [""a, b"", "c"]
+decode_split	 a ,\tb\t, , c
+= ["a", "b", "", "c"]
+decode_split	,
+= ["", ""]
+decode_split	a,
+= ["a", ""]
+decode_split	"\\"x\\", y", z
+= [""\\"x\\", y"", "z"]
+decode_split	"unterminated
+= [""unterminated"]
+decode_split	"esc\\
+= [""esc\\"]
+decode_split	\xE9t\xE9, \xFF
+= ["\xC3\xA9t\xC3\xA9", "\xC3\xBF"]
+decode_split	x"y,z"w, v
+= ["x"y,z"w", "v"]
+extract_header_values	Access-Control-Expose-Headers	bb-8
+= ["bb-8"]
+extract_header_values	access-control-expose-headers	bb-8, no
+= ["bb-8", "no"]
+extract_header_values	Access-Control-Allow-Headers	*
+= ["*"]
+extract_header_values	Access-Control-Allow-Methods	'bb-8',bb-8
+= ["'bb-8'", "bb-8"]
+extract_header_values	Access-Control-Allow-Methods	,bb-8,
+= ["bb-8"]
+extract_header_values	Access-Control-Allow-Headers	\-
+= []
+extract_header_values	Access-Control-Request-Headers	\-
+= failure
+extract_header_values	Accept-Ranges	,   ,
+= failure
+extract_header_values	Accept-Ranges	bytes
+= ["bytes"]
+extract_header_values	Access-Control-Expose-Headers	foo , ,bar,charlie
+= ["foo", "bar", "charlie"]
+extract_header_values	Access-Control-Expose-Headers	no no
+= failure
+extract_header_values	Access-Control-Expose-Headers	"bb-8",bb-8
+= failure
+extract_header_values	Access-Control-Expose-Headers	@invalid,bb-8
+= failure
+extract_header_values	Access-Control-Request-Headers	bb-8\x0B
+= failure
+extract_header_values	Access-Control-Request-Headers	bb-8\x0C
+= failure
+extract_header_values	Access-Control-Expose-Headers	bb-8,  ,no
+= ["bb-8", "no"]
+extract_header_values	Access-Control-Expose-Headers	a\tb
+= failure
+extract_header_values	Access-Control-Expose-Headers	\ta\t,\nb\x0D
+= ["a", "b"]
+extract_header_values	Content-Type	text/html; charset=utf-8
+= ["text/html; charset=utf-8"]
+extract_header_values	Location	/a, /b
+= ["/a, /b"]
+extract_header_values	X-Anything	\-
+= [""]
+sorted_lowercase_set
+= []
+sorted_lowercase_set	b	A	c
+= ["a", "b", "c"]
+sorted_lowercase_set	X-Foo	x-foo	X-FOO	a
+= ["a", "x-foo"]
+sorted_lowercase_set	content-type	Accept	accept-language	Content-Language	_x	Z	z
+= ["_x", "accept", "accept-language", "content-language", "content-type", "z"]
+build_content_range	0	0	1
+= bytes 0-0/1
+build_content_range	500	999	1000
+= bytes 500-999/1000
+build_content_range	18446744073709551614	18446744073709551615	18446744073709551615
+= bytes 18446744073709551614-18446744073709551615/18446744073709551615
+parse_single_range	bytes=0-499	0
+= 0-499
+parse_single_range	bytes=500-	0
+= 500-null
+parse_single_range	bytes=-500	0
+= null-500
+parse_single_range	bytes=-	0
+= failure
+parse_single_range	bytes=5-4	0
+= failure
+parse_single_range	bytes=4-4	0
+= 4-4
+parse_single_range	bytes = 1 - 2	0
+= failure
+parse_single_range	bytes = 1 - 2	1
+= 1-2
+parse_single_range	bytes\t=\t1\t-\t	1
+= 1-null
+parse_single_range	Bytes=0-1	0
+= failure
+parse_single_range	bytes=0-1,3-4	0
+= failure
+parse_single_range	bytes=0-1 	1
+= failure
+parse_single_range	bytes=	0
+= failure
+parse_single_range	bytes	0
+= failure
+parse_single_range	bytesx=0-1	0
+= failure
+parse_single_range	bytes=00012-00013	0
+= 12-13
+parse_single_range	bytes=18446744073709551615-	0
+= 18446744073709551615-null
+parse_single_range	bytes=18446744073709551616-	0
+= failure
+parse_single_range	bytes=+1-2	0
+= failure
+is_method	GET
+= true
+is_method	PATCH
+= true
+is_method	M-SEARCH
+= true
+is_method	\-
+= false
+is_method	GET\x20
+= false
+is_method	GE:T
+= false
+is_cors_safelisted_method	GET
+= true
+is_cors_safelisted_method	HEAD
+= true
+is_cors_safelisted_method	POST
+= true
+is_cors_safelisted_method	post
+= false
+is_cors_safelisted_method	PUT
+= false
+is_forbidden_method	CONNECT
+= true
+is_forbidden_method	trace
+= true
+is_forbidden_method	Track
+= true
+is_forbidden_method	TRACKS
+= false
+is_forbidden_method	GET
+= false
+normalize_method	get
+= GET
+normalize_method	pOsT
+= POST
+normalize_method	delete
+= DELETE
+normalize_method	Options
+= OPTIONS
+normalize_method	head
+= HEAD
+normalize_method	put
+= PUT
+normalize_method	patch
+= patch
+normalize_method	Connect
+= Connect
+normalize_method	GETS
+= GETS
+token_code_points
+= 0000000000000000000000000000000001011111001101101111111111000000011111111111111111111111111000111111111111111111111111111110101000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+reason_phrase	100
+= Continue
+reason_phrase	101
+= Switching Protocols
+reason_phrase	102
+= Continue
+reason_phrase	199
+= Continue
+reason_phrase	200
+= OK
+reason_phrase	204
+= No Content
+reason_phrase	206
+= Partial Content
+reason_phrase	207
+= OK
+reason_phrase	299
+= OK
+reason_phrase	304
+= Not Modified
+reason_phrase	306
+= Multiple Choices
+reason_phrase	307
+= Temporary Redirect
+reason_phrase	308
+= Multiple Choices
+reason_phrase	399
+= Multiple Choices
+reason_phrase	404
+= Not Found
+reason_phrase	418
+= I'm a teapot
+reason_phrase	420
+= Bad Request
+reason_phrase	431
+= Request Header Fields Too Large
+reason_phrase	451
+= Unavailable For Legal Reasons
+reason_phrase	499
+= Bad Request
+reason_phrase	500
+= Internal Server Error
+reason_phrase	505
+= HTTP Version Not Supported
+reason_phrase	511
+= Internal Server Error
+reason_phrase	599
+= Internal Server Error
+header_list	headers	contains	x	get	x	length	unique	sort_combine	mime	content_range
+= [] ; false ; null ; null ; [] ; [] ; failure ; failure
+header_list	A	Content-Type	text/html	A	content-type	text/plain	headers	get	CONTENT-TYPE	decode_split	Content-Type	mime
+= [(Content-Type: text/html), (Content-Type: text/plain)] ; "text/html, text/plain" ; ["text/html", "text/plain"] ; text/plain
+header_list	A	A	1	A	b	2	A	a	3	A	B	4	headers	get	a	unique	sort_combine
+= [(A: 1), (b: 2), (A: 3), (b: 4)] ; "1, 3" ; ["A", "b"] ; [(a: 1, 3), (b: 2, 4)]
+header_list	A	Set-Cookie	a=1	A	X	y	A	set-cookie	b=2	A	Set-Cookie	c=3	sort_combine	unique
+= [(set-cookie: a=1), (set-cookie: b=2), (set-cookie: c=3), (x: y)] ; ["Set-Cookie", "X"]
+header_list	A	X	1	A	Y	2	A	x	3	A	X	4	S	x	new	headers
+= [(X: new), (Y: 2)]
+header_list	A	X	1	S	Z	z	headers
+= [(X: 1), (Z: z)]
+header_list	A	X	1	A	Y	2	A	x	3	C	X	extra	C	W	w	headers	sort_combine
+= [(X: 1, extra), (Y: 2), (X: 3), (W: w)] ; [(w: w), (x: 1, extra, 3), (y: 2)]
+header_list	A	X	1	A	Y	2	A	x	3	D	X	headers	D	nothing	headers	D	y	headers	contains	y
+= [(Y: 2)] ; [(Y: 2)] ; [] ; false
+header_list	A	Content-Length	42	length
+= 42
+header_list	A	Content-Length	42, 42	length
+= 42
+header_list	A	Content-Length	42	A	content-length	42	length
+= 42
+header_list	A	Content-Length	42	A	content-length	43	length
+= failure
+header_list	A	Content-Length		length
+= null
+header_list	A	Content-Length	 42 	length
+= 42
+header_list	A	Content-Length	+42	length
+= null
+header_list	A	Content-Length	4x2	length
+= null
+header_list	A	Content-Length	18446744073709551616	length
+= null
+header_list	A	Content-Length	"42"	length
+= null
+header_list	A	Content-Range	bytes 0-499/1000	content_range
+= 0-499/1000
+header_list	A	Content-Range	bytes 500-999/*	content_range
+= 500-999/null
+header_list	A	Content-Range	bytes=0-499/1000	content_range
+= failure
+header_list	A	Content-Range	bytes 0-499	content_range
+= failure
+header_list	A	Content-Range	bytes 0-499/1000 	content_range
+= failure
+header_list	A	Content-Range	bytes 1-0/5	content_range
+= 1-0/5
+header_list	A	Content-Range	bytes -1-2/5	content_range
+= failure
+header_list	A	Content-Range	bytes 0-1/2	A	Content-Range	bytes 3-4/5	content_range
+= failure
+header_list	A	Access-Control-Expose-Headers	a, b	A	access-control-expose-headers	c	extract_values	Access-Control-Expose-Headers
+= ["a", "b", "c"]
+header_list	A	Access-Control-Expose-Headers	a, b	A	access-control-expose-headers	c d	extract_values	Access-Control-Expose-Headers
+= failure
+header_list	A	Location	/x	extract_values	Location	extract_values	Missing
+= ["/x"] ; null
+header_list	A	Accept-Ranges	,	extract_values	Accept-Ranges
+= failure
+header_list	A	Content-Type	text/html; charset=gbk	mime	legacy_encoding	utf-8
+= text/html;charset=gbk ; GBK
+header_list	A	Content-Type	text/html	A	Content-Type	*/*	mime
+= text/html
+header_list	A	Content-Type	text/plain;charset=gbk	A	Content-Type	text/plain	mime	legacy_encoding	UTF-8
+= text/plain;charset=gbk ; GBK
+header_list	A	Content-Type	text/plain;charset=gbk, text/html	mime	legacy_encoding	windows-1252
+= text/html ; windows-1252
+header_list	A	Content-Type	text/html;charset=gbk	A	Content-Type	text/html;charset=shift_jis	mime
+= text/html;charset=shift_jis
+header_list	A	Content-Type	text/html;", text/plain	mime
+= text/html
+header_list	A	Content-Type	text/html;";charset=gbk	mime	legacy_encoding	utf-8
+= text/html;charset=gbk ; GBK
+header_list	A	Content-Type	text/html;charset="gbk"	mime	legacy_encoding	utf-8
+= text/html;charset=gbk ; GBK
+header_list	A	Content-Type	text/html;charset=nope	mime	legacy_encoding	utf-8
+= text/html;charset=nope ; utf-8
+header_list	A	Content-Type	bogus	mime	legacy_encoding	utf-8
+= failure ; utf-8
+header_list	A	Content-Type	*/*, bogus	mime
+= failure
+header_list	A	Content-Type	text/html	A	Content-Type	text/plain;charset=latin1	A	content-type	text/plain	mime	legacy_encoding	utf-8
+= text/plain;charset=latin1 ; windows-1252
+header_list	A	Content-Type		mime
+= failure
+header_list	A	Content-Type	text/plain;charset=gbk	A	Content-Type	text/plain	A	Content-Type	text/plain	mime
+= text/plain
+header_list	A	Content-Type	text/plain;charset=gbk	A	Content-Type	text/html	A	Content-Type	text/plain	mime
+= text/plain
+header_list	A	Content-Type	text/plain;charset=gbk	A	Content-Type	text/plain;charset=big5	mime
+= text/plain;charset=big5
+header_list	A	Content-Type	text/plain	A	Content-Type	text/plain;charset=big5	A	Content-Type	text/plain	mime
+= text/plain
+header_list	mime	legacy_encoding	ISO-8859-2
+= failure ; ISO-8859-2
+header_list	A	Accept	*/*	A	Accept-Language	en-US	A	X-Custom	1	A	Content-Type	application/json	A	Range	bytes=0-	cors_unsafe_names
+= ["content-type", "x-custom"]
+header_list	A	Accept	text/html	A	Content-Type	text/plain	cors_unsafe_names
+= []
+header_list	A	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Content-Language	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Zeta	1	cors_unsafe_names
+= ["zeta"]
+header_list	A	Vary	Accept-Encoding, Origin	A	vary	 *	vary
+= ["Accept-Encoding", "Origin", "*"]
+header_list	A	Vary	,a,,b ,	vary
+= ["a", "b"]
+cors_safelisted_request_header	Accept	*/*
+= true
+cors_safelisted_request_header	ACCEPT	text/html"
+= false
+cors_safelisted_request_header	Accept	text/html\x01
+= false
+cors_safelisted_request_header	Accept	tab\tok
+= true
+cors_safelisted_request_header	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+= true
+cors_safelisted_request_header	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+= true
+cors_safelisted_request_header	Accept-Language	en-US,en;q=0.9
+= true
+cors_safelisted_request_header	Content-Language	de-DE *
+= true
+cors_safelisted_request_header	Accept-Language	en_US
+= false
+cors_safelisted_request_header	Accept-Language	en/US
+= false
+cors_safelisted_request_header	Content-Type	text/plain
+= true
+cors_safelisted_request_header	content-type	TEXT/PLAIN; charset=utf-8
+= true
+cors_safelisted_request_header	Content-Type	application/x-www-form-urlencoded
+= true
+cors_safelisted_request_header	Content-Type	multipart/form-data; boundary=x
+= true
+cors_safelisted_request_header	Content-Type	application/json
+= false
+cors_safelisted_request_header	Content-Type	text/plain; x="a"
+= false
+cors_safelisted_request_header	Content-Type	bogus
+= false
+cors_safelisted_request_header	Content-Type	text/plain; charset=\xE9
+= true
+cors_safelisted_request_header	Range	bytes=0-
+= true
+cors_safelisted_request_header	Range	bytes=0-499
+= true
+cors_safelisted_request_header	Range	bytes=-500
+= false
+cors_safelisted_request_header	Range	bytes = 0-
+= false
+cors_safelisted_request_header	Range	bytes=0-1,2-3
+= false
+cors_safelisted_request_header	X-Custom	1
+= false
+cors_safelisted_request_header	Accept-Encoding	gzip
+= false
+cors_unsafe_bytes
+= 1111111110111111111111111111111100100000110000000000000000101011100000000000000000000000000111000000000000000000000000000001010100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+cors_non_wildcard	Authorization
+= true
+cors_non_wildcard	authorization
+= true
+cors_non_wildcard	Authorizations
+= false
+privileged_no_cors	Range
+= true
+privileged_no_cors	RANGE
+= true
+privileged_no_cors	Ranges
+= false
+cors_safelisted_response_header_name	Cache-Control
+= true
+cors_safelisted_response_header_name	content-language
+= true
+cors_safelisted_response_header_name	Content-Length
+= true
+cors_safelisted_response_header_name	CONTENT-TYPE
+= true
+cors_safelisted_response_header_name	Expires
+= true
+cors_safelisted_response_header_name	Last-Modified
+= true
+cors_safelisted_response_header_name	pragma
+= true
+cors_safelisted_response_header_name	X-Custom
+= false
+cors_safelisted_response_header_name	X-Custom	x-custom
+= true
+cors_safelisted_response_header_name	X-Custom	other	X-CUSTOM
+= true
+cors_safelisted_response_header_name	Set-Cookie	Set-Cookie
+= false
+cors_safelisted_response_header_name	set-cookie2	SET-COOKIE2	x
+= false
+cors_safelisted_response_header_name	Date	*
+= false
+no_cors_safelisted_name	Accept
+= true
+no_cors_safelisted_name	accept-language
+= true
+no_cors_safelisted_name	Content-Language
+= true
+no_cors_safelisted_name	Content-Type
+= true
+no_cors_safelisted_name	Range
+= false
+no_cors_safelisted_name	X-Custom
+= false
+no_cors_safelisted_header	Accept	*/*
+= true
+no_cors_safelisted_header	Content-Type	application/json
+= false
+no_cors_safelisted_header	Content-Type	text/plain
+= true
+no_cors_safelisted_header	Range	bytes=0-
+= false
+no_cors_safelisted_header	Accept-Language	en"US
+= false
+statuses
+= null: 101 103 204 205 304 ; ok: 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288 289 290 291 292 293 294 295 296 297 298 299 ; redirect: 301 302 303 307 308
+request_taint	https://a.example.com/
+= same-origin ; https://a.example.com ; https://a.example.com
+request_taint	https://a.example.com/	https://a.example.com/x
+= same-origin ; https://a.example.com ; https://a.example.com
+request_taint	https://a.example.com/	https://a.example.com/x	https://b.example.com/y
+= same-origin ; https://a.example.com ; https://a.example.com
+request_taint	https://a.example.com/	https://a.example.com/x	https://other.test/y
+= same-origin ; https://a.example.com ; https://a.example.com
+request_taint	https://other.test/	https://a.example.com/x	https://other.test/y
+= cross-site ; null ; null
+request_taint	https://b.example.com/	https://a.example.com/x	https://b.example.com/y	https://a.example.com/z
+= same-site ; null ; null
+request_taint	https://a.example.com/	https://a.example.com/x	http://a.example.com/y
+= same-origin ; https://a.example.com ; https://a.example.com
+request_taint	opaque	https://a.example.com/x	https://a.example.com/y
+= same-origin ; null ; null
+request_taint	opaque	https://a.example.com/x	https://b.example.com/y
+= same-site ; null ; null
+request_taint	opaque	https://a.example.com/x	https://c.test/y
+= cross-site ; null ; null
+request_taint	https://a.example.com:8443/	https://a.example.com/x
+= same-origin ; https://a.example.com:8443 ; https://a.example.com:8443
+request_origin_header	GET	cors	cors	no-referrer	https://a.test/	https://b.test/
+= [(Origin: https://a.test)]
+request_origin_header	GET	websocket	basic	no-referrer	https://a.test/	https://b.test/
+= [(Origin: https://a.test)]
+request_origin_header	GET	no-cors	basic	no-referrer	https://a.test/	https://b.test/
+= []
+request_origin_header	HEAD	no-cors	basic	no-referrer	https://a.test/	https://b.test/
+= []
+request_origin_header	POST	no-cors	basic	no-referrer	https://a.test/	https://b.test/
+= [(Origin: null)]
+request_origin_header	POST	no-cors	basic	unsafe-url	https://a.test/	https://b.test/
+= [(Origin: https://a.test)]
+request_origin_header	POST	no-cors	basic		https://a.test/	https://b.test/
+= [(Origin: https://a.test)]
+request_origin_header	POST	no-cors	basic	strict-origin	https://a.test/	http://b.test/
+= [(Origin: null)]
+request_origin_header	POST	no-cors	basic	strict-origin	https://a.test/	https://b.test/
+= [(Origin: https://a.test)]
+request_origin_header	POST	no-cors	basic	no-referrer-when-downgrade	http://a.test/	http://b.test/
+= [(Origin: http://a.test)]
+request_origin_header	POST	same-origin	basic	strict-origin-when-cross-origin	https://a.test/	http://a.test/
+= [(Origin: null)]
+request_origin_header	POST	no-cors	basic	same-origin	https://a.test/	https://a.test/x
+= [(Origin: https://a.test)]
+request_origin_header	POST	no-cors	basic	same-origin	https://a.test/	https://b.test/x
+= [(Origin: null)]
+request_origin_header	PUT	cors	basic	no-referrer	https://a.test/	https://b.test/
+= [(Origin: https://a.test)]
+request_origin_header	post	navigate	basic	origin	https://a.test/	https://a.test/	https://b.test/
+= [(Origin: https://a.test)]
+request_origin_header	POST	no-cors	basic	same-origin	https://a.test/	https://a.test/	https://b.test/
+= [(Origin: null)]
+request_origin_header	DELETE	no-cors	opaque	strict-origin	opaque	http://b.test/
+= [(Origin: null)]
+request_range	0	null
+= [(Range: bytes=0-)]
+request_range	5	10
+= [(Range: bytes=5-10)]
+request_range	7	7
+= [(Range: bytes=7-7)]
+request_range	18446744073709551615	null
+= [(Range: bytes=18446744073709551615-)]
+request_destinations
+= (empty):s--- ; audio:s--- ; audioworklet:s--j ; document:-nv- ; embed:-nv- ; font:s--- ; frame:-nv- ; iframe:-nv- ; image:s--- ; json:s--- ; manifest:s--- ; object:-nv- ; paintworklet:s--j ; report:-n-- ; script:s--j ; serviceworker:-n-j ; sharedworker:-n-j ; style:s--- ; track:s--- ; video:s--- ; webidentity:---- ; worker:-n-j ; xslt:s---
+translate_potential_destination	fetch
+= null
+translate_potential_destination	audioworklet
+= audioworklet
+translate_potential_destination	iframe
+= iframe
+translate_potential_destination	json
+= json
+translate_potential_destination	webidentity
+= webidentity
+translate_potential_destination	xslt
+= xslt
+request_modes
+= same-origin ; cors ; no-cors ; navigate ; websocket
+initiator_types
+= audio ; beacon ; body ; css ; early-hints ; embed ; fetch ; font ; frame ; iframe ; image ; img ; input ; link ; object ; ping ; script ; track ; video ; xmlhttprequest ; other
+priority	high
+= high
+priority	LOW
+= low
+priority	Auto
+= auto
+priority	\-
+= null
+priority	highest
+= null
+response_filter	none	-	Content-Type	text/html	Set-Cookie	a=1	X-Custom	1
+= default ; 200 ; "OK" ; [(Content-Type: text/html), (Set-Cookie: a=1), (X-Custom: 1)] ; 2 ; https://b.test/y ; true ; false ; false ; true ; false ; false ; null ; true
+response_filter	basic	-	Content-Type	text/html	Set-Cookie	a=1	set-cookie2	b=2	X-Custom	1
+= basic ; 200 ; "OK" ; [(Content-Type: text/html), (X-Custom: 1)] ; 2 ; https://b.test/y ; true ; false ; false ; true ; false ; false ; null ; true
+response_filter	cors	-	Content-Type	text/html	Cache-Control	no-cache	Set-Cookie	a=1	X-Custom	1	Date	today
+= cors ; 200 ; "OK" ; [(Content-Type: text/html), (Cache-Control: no-cache)] ; 2 ; https://b.test/y ; true ; false ; false ; true ; false ; false ; null ; true
+response_filter	cors	x-custom,Set-Cookie	Content-Type	text/html	Set-Cookie	a=1	X-Custom	1	Date	today
+= cors ; 200 ; "OK" ; [(Content-Type: text/html), (X-Custom: 1)] ; 2 ; https://b.test/y ; true ; false ; false ; true ; false ; false ; null ; true
+response_filter	cors	*	X-Custom	1	Content-Length	3
+= cors ; 200 ; "OK" ; [(Content-Length: 3)] ; 2 ; https://b.test/y ; true ; false ; false ; true ; false ; false ; null ; true
+response_filter	opaque	-	Content-Type	text/html
+= opaque ; 0 ; "" ; [] ; 0 ; null ; true ; false ; false ; false ; true ; false ; null ; true
+response_filter	opaqueredirect	-	Content-Type	text/html	Location	/next
+= opaqueredirect ; 0 ; "" ; [] ; 2 ; https://b.test/y ; true ; false ; false ; false ; true ; false ; null ; true
+network_error	plain
+= error ; 0 ; "" ; [] ; 0 ; null ; true ; true ; false ; false ; false ; false ; Something failed
+network_error	aborted
+= error ; 0 ; "" ; [] ; 0 ; null ; true ; true ; true ; false ; false ; true ; Fetch has been aborted
+location	200	https://a.test/x	-	/y
+= null
+location	301	https://a.test/x	-	/y
+= https://a.test/y
+location	302	https://a.test/dir/x	-	y?q=1
+= https://a.test/dir/y?q=1
+location	303	https://a.test/x	frag	/y
+= https://a.test/y#frag
+location	307	https://a.test/x	frag	/y#own
+= https://a.test/y#own
+location	308	https://a.test/x	-
+= null
+location	301	https://a.test/x	-	/y	/z
+= null
+location	301	https://a.test/x	-	https://b.test/other
+= https://b.test/other
+location	301	https://a.test/x	-	http://[bad
+= failure
+location	301	-	-	https://b.test/abs
+= https://b.test/abs
+location	301	-	-	relative
+= failure

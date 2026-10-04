@@ -1,0 +1,352 @@
+# Cases for the p2b fetch_http oracle: "<op>\t<arg>..." (\n, \t, \\ and \xHH escaped).
+# Header names and values (LibHTTP/Header.cpp).
+is_header_name	Content-Type
+is_header_name	X-Custom_Header
+is_header_name	\-
+is_header_name	Content Type
+is_header_name	Content:Type
+is_header_name	a!#$%&'*+-.^_`|~z09
+is_header_name	caf\xC3\xA9
+is_header_name	"quoted"
+is_header_value	\-
+is_header_value	text/html
+is_header_value	 leading
+is_header_value	trailing\t
+is_header_value	in side
+is_header_value	nul\x00byte
+is_header_value	new\nline
+is_header_value	carriage\x0Dreturn
+is_header_value	\x80high bytes\xFF
+is_header_value	\x0Bvertical tab
+normalize_header_value	\-
+normalize_header_value	  text/html\x20\x20
+normalize_header_value	\n\x0D\t value \t\x0D\n
+normalize_header_value	\x0B value
+normalize_header_value	\x20\x20\x20
+normalize_header_value	a b
+isomorphic_encode	Content-Type	text/html
+isomorphic_encode	X-Caf\xC3\xA9	\xC3\xBF\xC3\xA0
+# Forbidden request and response headers.
+is_forbidden_request_header	Accept-Charset	x
+is_forbidden_request_header	accept-encoding	gzip
+is_forbidden_request_header	DNT	1
+is_forbidden_request_header	Cookie2	x
+is_forbidden_request_header	Content-Type	text/plain
+is_forbidden_request_header	Proxy-Authorization	x
+is_forbidden_request_header	SEC-Fetch-Mode	cors
+is_forbidden_request_header	Proxy	x
+is_forbidden_request_header	Secret	x
+is_forbidden_request_header	X-HTTP-Method	GET
+is_forbidden_request_header	X-HTTP-Method	CONNECT
+is_forbidden_request_header	x-http-method-override	get, trace
+is_forbidden_request_header	X-Method-Override	"TRACK"
+is_forbidden_request_header	X-Method-Override	 track\x20
+is_forbidden_request_header	X-Method-Override	tracker
+is_forbidden_request_header	Via	x
+is_forbidden_response_header_name	Set-Cookie
+is_forbidden_response_header_name	set-cookie2
+is_forbidden_response_header_name	Set-Cookie3
+is_forbidden_response_header_name	Cookie
+# Getting, decoding and splitting.
+decode_split	\-
+decode_split	nosniff
+decode_split	text/html;", text/plain
+decode_split	text/html;"
+decode_split	text/html;";charset=gbk
+decode_split	text/html;charset=gbk, text/plain
+decode_split	"a, b", c
+decode_split	 a ,\tb\t, , c
+decode_split	,
+decode_split	a,
+decode_split	"\\"x\\", y", z
+decode_split	"unterminated
+decode_split	"esc\\
+decode_split	\xE9t\xE9, \xFF
+decode_split	x"y,z"w, v
+# Extracting header values.
+extract_header_values	Access-Control-Expose-Headers	bb-8
+extract_header_values	access-control-expose-headers	bb-8, no
+extract_header_values	Access-Control-Allow-Headers	*
+extract_header_values	Access-Control-Allow-Methods	'bb-8',bb-8
+extract_header_values	Access-Control-Allow-Methods	,bb-8,
+extract_header_values	Access-Control-Allow-Headers	\-
+extract_header_values	Access-Control-Request-Headers	\-
+extract_header_values	Accept-Ranges	,   ,
+extract_header_values	Accept-Ranges	bytes
+extract_header_values	Access-Control-Expose-Headers	foo , ,bar,charlie
+extract_header_values	Access-Control-Expose-Headers	no no
+extract_header_values	Access-Control-Expose-Headers	"bb-8",bb-8
+extract_header_values	Access-Control-Expose-Headers	@invalid,bb-8
+extract_header_values	Access-Control-Request-Headers	bb-8\x0B
+extract_header_values	Access-Control-Request-Headers	bb-8\x0C
+extract_header_values	Access-Control-Expose-Headers	bb-8,  ,no
+extract_header_values	Access-Control-Expose-Headers	a\tb
+extract_header_values	Access-Control-Expose-Headers	\ta\t,\nb\x0D
+extract_header_values	Content-Type	text/html; charset=utf-8
+extract_header_values	Location	/a, /b
+extract_header_values	X-Anything	\-
+# Sorted-lowercase sets.
+sorted_lowercase_set
+sorted_lowercase_set	b	A	c
+sorted_lowercase_set	X-Foo	x-foo	X-FOO	a
+sorted_lowercase_set	content-type	Accept	accept-language	Content-Language	_x	Z	z
+# Content ranges and range header values.
+build_content_range	0	0	1
+build_content_range	500	999	1000
+build_content_range	18446744073709551614	18446744073709551615	18446744073709551615
+parse_single_range	bytes=0-499	0
+parse_single_range	bytes=500-	0
+parse_single_range	bytes=-500	0
+parse_single_range	bytes=-	0
+parse_single_range	bytes=5-4	0
+parse_single_range	bytes=4-4	0
+parse_single_range	bytes = 1 - 2	0
+parse_single_range	bytes = 1 - 2	1
+parse_single_range	bytes\t=\t1\t-\t	1
+parse_single_range	Bytes=0-1	0
+parse_single_range	bytes=0-1,3-4	0
+parse_single_range	bytes=0-1 	1
+parse_single_range	bytes=	0
+parse_single_range	bytes	0
+parse_single_range	bytesx=0-1	0
+parse_single_range	bytes=00012-00013	0
+parse_single_range	bytes=18446744073709551615-	0
+parse_single_range	bytes=18446744073709551616-	0
+parse_single_range	bytes=+1-2	0
+# Methods.
+is_method	GET
+is_method	PATCH
+is_method	M-SEARCH
+is_method	\-
+is_method	GET\x20
+is_method	GE:T
+is_cors_safelisted_method	GET
+is_cors_safelisted_method	HEAD
+is_cors_safelisted_method	POST
+is_cors_safelisted_method	post
+is_cors_safelisted_method	PUT
+is_forbidden_method	CONNECT
+is_forbidden_method	trace
+is_forbidden_method	Track
+is_forbidden_method	TRACKS
+is_forbidden_method	GET
+normalize_method	get
+normalize_method	pOsT
+normalize_method	delete
+normalize_method	Options
+normalize_method	head
+normalize_method	put
+normalize_method	patch
+normalize_method	Connect
+normalize_method	GETS
+# HTTP token code points.
+token_code_points
+# Reason phrases.
+reason_phrase	100
+reason_phrase	101
+reason_phrase	102
+reason_phrase	199
+reason_phrase	200
+reason_phrase	204
+reason_phrase	206
+reason_phrase	207
+reason_phrase	299
+reason_phrase	304
+reason_phrase	306
+reason_phrase	307
+reason_phrase	308
+reason_phrase	399
+reason_phrase	404
+reason_phrase	418
+reason_phrase	420
+reason_phrase	431
+reason_phrase	451
+reason_phrase	499
+reason_phrase	500
+reason_phrase	505
+reason_phrase	511
+reason_phrase	599
+# Header lists: A(ppend) S(et) C(ombine) D(elete), then queries.
+header_list	headers	contains	x	get	x	length	unique	sort_combine	mime	content_range
+header_list	A	Content-Type	text/html	A	content-type	text/plain	headers	get	CONTENT-TYPE	decode_split	Content-Type	mime
+header_list	A	A	1	A	b	2	A	a	3	A	B	4	headers	get	a	unique	sort_combine
+header_list	A	Set-Cookie	a=1	A	X	y	A	set-cookie	b=2	A	Set-Cookie	c=3	sort_combine	unique
+header_list	A	X	1	A	Y	2	A	x	3	A	X	4	S	x	new	headers
+header_list	A	X	1	S	Z	z	headers
+header_list	A	X	1	A	Y	2	A	x	3	C	X	extra	C	W	w	headers	sort_combine
+header_list	A	X	1	A	Y	2	A	x	3	D	X	headers	D	nothing	headers	D	y	headers	contains	y
+header_list	A	Content-Length	42	length
+header_list	A	Content-Length	42, 42	length
+header_list	A	Content-Length	42	A	content-length	42	length
+header_list	A	Content-Length	42	A	content-length	43	length
+header_list	A	Content-Length		length
+header_list	A	Content-Length	 42 	length
+header_list	A	Content-Length	+42	length
+header_list	A	Content-Length	4x2	length
+header_list	A	Content-Length	18446744073709551616	length
+header_list	A	Content-Length	"42"	length
+header_list	A	Content-Range	bytes 0-499/1000	content_range
+header_list	A	Content-Range	bytes 500-999/*	content_range
+header_list	A	Content-Range	bytes=0-499/1000	content_range
+header_list	A	Content-Range	bytes 0-499	content_range
+header_list	A	Content-Range	bytes 0-499/1000 	content_range
+header_list	A	Content-Range	bytes 1-0/5	content_range
+header_list	A	Content-Range	bytes -1-2/5	content_range
+header_list	A	Content-Range	bytes 0-1/2	A	Content-Range	bytes 3-4/5	content_range
+header_list	A	Access-Control-Expose-Headers	a, b	A	access-control-expose-headers	c	extract_values	Access-Control-Expose-Headers
+header_list	A	Access-Control-Expose-Headers	a, b	A	access-control-expose-headers	c d	extract_values	Access-Control-Expose-Headers
+header_list	A	Location	/x	extract_values	Location	extract_values	Missing
+header_list	A	Accept-Ranges	,	extract_values	Accept-Ranges
+header_list	A	Content-Type	text/html; charset=gbk	mime	legacy_encoding	utf-8
+header_list	A	Content-Type	text/html	A	Content-Type	*/*	mime
+header_list	A	Content-Type	text/plain;charset=gbk	A	Content-Type	text/plain	mime	legacy_encoding	UTF-8
+header_list	A	Content-Type	text/plain;charset=gbk, text/html	mime	legacy_encoding	windows-1252
+header_list	A	Content-Type	text/html;charset=gbk	A	Content-Type	text/html;charset=shift_jis	mime
+header_list	A	Content-Type	text/html;", text/plain	mime
+header_list	A	Content-Type	text/html;";charset=gbk	mime	legacy_encoding	utf-8
+header_list	A	Content-Type	text/html;charset="gbk"	mime	legacy_encoding	utf-8
+header_list	A	Content-Type	text/html;charset=nope	mime	legacy_encoding	utf-8
+header_list	A	Content-Type	bogus	mime	legacy_encoding	utf-8
+header_list	A	Content-Type	*/*, bogus	mime
+header_list	A	Content-Type	text/html	A	Content-Type	text/plain;charset=latin1	A	content-type	text/plain	mime	legacy_encoding	utf-8
+header_list	A	Content-Type		mime
+header_list	A	Content-Type	text/plain;charset=gbk	A	Content-Type	text/plain	A	Content-Type	text/plain	mime
+header_list	A	Content-Type	text/plain;charset=gbk	A	Content-Type	text/html	A	Content-Type	text/plain	mime
+header_list	A	Content-Type	text/plain;charset=gbk	A	Content-Type	text/plain;charset=big5	mime
+header_list	A	Content-Type	text/plain	A	Content-Type	text/plain;charset=big5	A	Content-Type	text/plain	mime
+header_list	mime	legacy_encoding	ISO-8859-2
+header_list	A	Accept	*/*	A	Accept-Language	en-US	A	X-Custom	1	A	Content-Type	application/json	A	Range	bytes=0-	cors_unsafe_names
+header_list	A	Accept	text/html	A	Content-Type	text/plain	cors_unsafe_names
+header_list	A	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Content-Language	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa	A	Zeta	1	cors_unsafe_names
+header_list	A	Vary	Accept-Encoding, Origin	A	vary	 *	vary
+header_list	A	Vary	,a,,b ,	vary
+# CORS-safelisted request headers.
+cors_safelisted_request_header	Accept	*/*
+cors_safelisted_request_header	ACCEPT	text/html"
+cors_safelisted_request_header	Accept	text/html\x01
+cors_safelisted_request_header	Accept	tab\tok
+cors_safelisted_request_header	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cors_safelisted_request_header	Accept	aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+cors_safelisted_request_header	Accept-Language	en-US,en;q=0.9
+cors_safelisted_request_header	Content-Language	de-DE *
+cors_safelisted_request_header	Accept-Language	en_US
+cors_safelisted_request_header	Accept-Language	en/US
+cors_safelisted_request_header	Content-Type	text/plain
+cors_safelisted_request_header	content-type	TEXT/PLAIN; charset=utf-8
+cors_safelisted_request_header	Content-Type	application/x-www-form-urlencoded
+cors_safelisted_request_header	Content-Type	multipart/form-data; boundary=x
+cors_safelisted_request_header	Content-Type	application/json
+cors_safelisted_request_header	Content-Type	text/plain; x="a"
+cors_safelisted_request_header	Content-Type	bogus
+cors_safelisted_request_header	Content-Type	text/plain; charset=\xE9
+cors_safelisted_request_header	Range	bytes=0-
+cors_safelisted_request_header	Range	bytes=0-499
+cors_safelisted_request_header	Range	bytes=-500
+cors_safelisted_request_header	Range	bytes = 0-
+cors_safelisted_request_header	Range	bytes=0-1,2-3
+cors_safelisted_request_header	X-Custom	1
+cors_safelisted_request_header	Accept-Encoding	gzip
+cors_unsafe_bytes
+cors_non_wildcard	Authorization
+cors_non_wildcard	authorization
+cors_non_wildcard	Authorizations
+privileged_no_cors	Range
+privileged_no_cors	RANGE
+privileged_no_cors	Ranges
+cors_safelisted_response_header_name	Cache-Control
+cors_safelisted_response_header_name	content-language
+cors_safelisted_response_header_name	Content-Length
+cors_safelisted_response_header_name	CONTENT-TYPE
+cors_safelisted_response_header_name	Expires
+cors_safelisted_response_header_name	Last-Modified
+cors_safelisted_response_header_name	pragma
+cors_safelisted_response_header_name	X-Custom
+cors_safelisted_response_header_name	X-Custom	x-custom
+cors_safelisted_response_header_name	X-Custom	other	X-CUSTOM
+cors_safelisted_response_header_name	Set-Cookie	Set-Cookie
+cors_safelisted_response_header_name	set-cookie2	SET-COOKIE2	x
+cors_safelisted_response_header_name	Date	*
+no_cors_safelisted_name	Accept
+no_cors_safelisted_name	accept-language
+no_cors_safelisted_name	Content-Language
+no_cors_safelisted_name	Content-Type
+no_cors_safelisted_name	Range
+no_cors_safelisted_name	X-Custom
+no_cors_safelisted_header	Accept	*/*
+no_cors_safelisted_header	Content-Type	application/json
+no_cors_safelisted_header	Content-Type	text/plain
+no_cors_safelisted_header	Range	bytes=0-
+no_cors_safelisted_header	Accept-Language	en"US
+# Statuses.
+statuses
+# Requests: redirect-taint and serializing the origin.
+request_taint	https://a.example.com/
+request_taint	https://a.example.com/	https://a.example.com/x
+request_taint	https://a.example.com/	https://a.example.com/x	https://b.example.com/y
+request_taint	https://a.example.com/	https://a.example.com/x	https://other.test/y
+request_taint	https://other.test/	https://a.example.com/x	https://other.test/y
+request_taint	https://b.example.com/	https://a.example.com/x	https://b.example.com/y	https://a.example.com/z
+request_taint	https://a.example.com/	https://a.example.com/x	http://a.example.com/y
+request_taint	opaque	https://a.example.com/x	https://a.example.com/y
+request_taint	opaque	https://a.example.com/x	https://b.example.com/y
+request_taint	opaque	https://a.example.com/x	https://c.test/y
+request_taint	https://a.example.com:8443/	https://a.example.com/x
+# Requests: the Origin header.
+request_origin_header	GET	cors	cors	no-referrer	https://a.test/	https://b.test/
+request_origin_header	GET	websocket	basic	no-referrer	https://a.test/	https://b.test/
+request_origin_header	GET	no-cors	basic	no-referrer	https://a.test/	https://b.test/
+request_origin_header	HEAD	no-cors	basic	no-referrer	https://a.test/	https://b.test/
+request_origin_header	POST	no-cors	basic	no-referrer	https://a.test/	https://b.test/
+request_origin_header	POST	no-cors	basic	unsafe-url	https://a.test/	https://b.test/
+request_origin_header	POST	no-cors	basic		https://a.test/	https://b.test/
+request_origin_header	POST	no-cors	basic	strict-origin	https://a.test/	http://b.test/
+request_origin_header	POST	no-cors	basic	strict-origin	https://a.test/	https://b.test/
+request_origin_header	POST	no-cors	basic	no-referrer-when-downgrade	http://a.test/	http://b.test/
+request_origin_header	POST	same-origin	basic	strict-origin-when-cross-origin	https://a.test/	http://a.test/
+request_origin_header	POST	no-cors	basic	same-origin	https://a.test/	https://a.test/x
+request_origin_header	POST	no-cors	basic	same-origin	https://a.test/	https://b.test/x
+request_origin_header	PUT	cors	basic	no-referrer	https://a.test/	https://b.test/
+request_origin_header	post	navigate	basic	origin	https://a.test/	https://a.test/	https://b.test/
+request_origin_header	POST	no-cors	basic	same-origin	https://a.test/	https://a.test/	https://b.test/
+request_origin_header	DELETE	no-cors	opaque	strict-origin	opaque	http://b.test/
+# Requests: the Range header, destinations, modes, initiator types and priorities.
+request_range	0	null
+request_range	5	10
+request_range	7	7
+request_range	18446744073709551615	null
+request_destinations
+translate_potential_destination	fetch
+translate_potential_destination	audioworklet
+translate_potential_destination	iframe
+translate_potential_destination	json
+translate_potential_destination	webidentity
+translate_potential_destination	xslt
+request_modes
+initiator_types
+priority	high
+priority	LOW
+priority	Auto
+priority	\-
+priority	highest
+# Responses: filtered responses and network errors.
+response_filter	none	-	Content-Type	text/html	Set-Cookie	a=1	X-Custom	1
+response_filter	basic	-	Content-Type	text/html	Set-Cookie	a=1	set-cookie2	b=2	X-Custom	1
+response_filter	cors	-	Content-Type	text/html	Cache-Control	no-cache	Set-Cookie	a=1	X-Custom	1	Date	today
+response_filter	cors	x-custom,Set-Cookie	Content-Type	text/html	Set-Cookie	a=1	X-Custom	1	Date	today
+response_filter	cors	*	X-Custom	1	Content-Length	3
+response_filter	opaque	-	Content-Type	text/html
+response_filter	opaqueredirect	-	Content-Type	text/html	Location	/next
+network_error	plain
+network_error	aborted
+# Responses: the location URL.
+location	200	https://a.test/x	-	/y
+location	301	https://a.test/x	-	/y
+location	302	https://a.test/dir/x	-	y?q=1
+location	303	https://a.test/x	frag	/y
+location	307	https://a.test/x	frag	/y#own
+location	308	https://a.test/x	-
+location	301	https://a.test/x	-	/y	/z
+location	301	https://a.test/x	-	https://b.test/other
+location	301	https://a.test/x	-	http://[bad
+location	301	-	-	https://b.test/abs
+location	301	-	-	relative
