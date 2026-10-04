@@ -1,4 +1,4 @@
-"""Phase-1 scope: the regions of DESIGN.md §8.2 as file-stem patterns, and their packages/modules.
+"""Phase-1 and phase-2 scope: the regions of DESIGN.md §8.2 as file-stem patterns, and their packages/modules.
 
 A *stem* is a donor-relative path without extension (`Libraries/LibWeb/DOM/Node`,
 `Build/Libraries/LibWeb/CSS/PropertyID`, `AK/Vector`). The first region whose pattern matches a
@@ -248,6 +248,64 @@ REGIONS = [
     ('r13b', 'mathml_aria_misc', 'web', _w('MathML/*', 'ARIA/*', 'XLink/*') + [G + 'ARIA/*', G + 'MathML/*']),
 ]
 
+# Phase 2 (DESIGN.md §1.2, §8.2 "Phase 2"): loading. What P2's features reach from the ported phase-1
+# code: Fetch's infrastructure, fetching and HTTP layer (with LibHTTP's header list), the Loader,
+# Content Security Policy, the image, preload and CORS-request paths, the XML document builder and
+# referrer policy / secure contexts. The JS-facing Fetch API (Fetch/Body, BodyInit, Headers,
+# Request, Response, FetchMethod, Enums) and script fetching (HTML/Scripting/Fetching) are phase 3;
+# blob URLs, storage and file lists only scripting or user input reach. The XML parser itself is
+# luce-xml's and the image decoders are luce-png/luce-jpeg/... (§7.0): only the builder and the
+# ImageCodecPlugin seam (ported in phase 1) belong to the engine.
+P2_REGIONS = [
+    ('p2a', 'fetch_infrastructure', 'web', _w(
+        'Fetch/Infrastructure/ConnectionTimingInfo', 'Fetch/Infrastructure/FetchAlgorithms',
+        'Fetch/Infrastructure/FetchController', 'Fetch/Infrastructure/FetchParams',
+        'Fetch/Infrastructure/FetchRecord', 'Fetch/Infrastructure/FetchTimingInfo', 'Fetch/Infrastructure/HTTP',
+        'Fetch/Infrastructure/IncrementalReadLoopReadRequest', 'Fetch/Infrastructure/MimeTypeBlocking',
+        'Fetch/Infrastructure/NetworkPartitionKey', 'Fetch/Infrastructure/NoSniffBlocking',
+        'Fetch/Infrastructure/PortBlocking', 'Fetch/Infrastructure/RequestOrResponseBlocking',
+        'Fetch/Infrastructure/Task', 'Fetch/Infrastructure/URL', 'SecureContexts/*', 'ReferrerPolicy/*')),
+    ('p2b', 'fetch_http', 'web', _w('Fetch/Infrastructure/HTTP/*') + [
+        'Libraries/LibHTTP/' + n for n in ('HeaderList', 'Header', 'HTTP', 'Method', 'Status')]),
+    ('p2c', 'fetch_fetching', 'web', _w('Fetch/Fetching/*')),
+    # (LibCore's Resource and Promise are seams the Loader and navigation call; LibCore is not
+    # ported, its closure stubs are implemented here.)
+    ('p2d', 'loader_resources', 'web', _w('Loader/*', 'HTML/PotentialCORSRequest', 'HTML/PreloadEntry',
+                                          'HTML/NavigationObserver', 'HTML/BitmapDecodedImageData',
+                                          'XML/XMLDocumentBuilder') +
+     ['Libraries/LibCore/Resource', 'Libraries/LibCore/Promise']),
+    ('p2e', 'csp_policy', 'web', _w(
+        'ContentSecurityPolicy/BlockingAlgorithms', 'ContentSecurityPolicy/Policy',
+        'ContentSecurityPolicy/PolicyList', 'ContentSecurityPolicy/SerializedPolicy',
+        'ContentSecurityPolicy/Violation', 'ContentSecurityPolicy/SecurityPolicyViolationEvent',
+        'ContentSecurityPolicy/Directives/Directive', 'ContentSecurityPolicy/Directives/DirectiveFactory',
+        'ContentSecurityPolicy/Directives/Names', 'ContentSecurityPolicy/Directives/KeywordSources',
+        'ContentSecurityPolicy/Directives/KeywordTrustedTypes',
+        'ContentSecurityPolicy/Directives/SerializedDirective')),
+    ('p2f', 'csp_directives', 'web', _w('ContentSecurityPolicy/Directives/*')),
+]
+P1_REGIONS = list(REGIONS)
+P1_REGION_IDS = {r[0] for r in P1_REGIONS}
+REGIONS = P1_REGIONS + P2_REGIONS
+PHASE = 2
+# Libraries outside LibWeb's core whose files a phase's regions port (their types are full).
+PHASE_LIBS = {1: set(), 2: {'LibHTTP'}}
+
+
+def phase_of(region_id):
+    """1 or 2: the phase a region belongs to."""
+    return 1 if region_id in P1_REGION_IDS else 2
+
+
+def set_phase(phase):
+    """Plan as of a phase: phase 1's regions only, or phase 1's and phase 2's (the default). merge.py
+    compares the two plans to find what phase 2 adds."""
+    global REGIONS, PHASE
+    PHASE = phase
+    REGIONS = P1_REGIONS + (P2_REGIONS if phase >= 2 else [])
+    _cache.clear()
+
+
 # Declaration moves of DESIGN.md §4.1.3: C++ qualified name -> module that owns it.
 MOVES = {
     'Web::CSS::Important': 'css_syntax',
@@ -273,7 +331,7 @@ LIB_MODULE = [
     ('AK/', 'ak'), ('Libraries/LibGC/', 'gc'), ('Libraries/LibUnicode/', 'web_unicode'),
     ('Libraries/LibTextCodec/', 'text_codec'), ('Build/Libraries/LibTextCodec/', 'text_codec'),
     ('Libraries/LibURL/', 'web_url'), ('Build/Libraries/LibURL/', 'web_url'),
-    ('Libraries/LibGfx/Font/', 'web_fonts'), ('Libraries/LibGfx/', 'gfx'),
+    ('Libraries/LibGfx/Font/', 'web_fonts'), ('Libraries/LibGfx/', 'gfx'), ('Libraries/LibHTTP/', 'web'),
 ]
 
 _cache = {}

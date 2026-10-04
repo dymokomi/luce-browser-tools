@@ -49,14 +49,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 def prisma(package):
-    root = 'luce_browser_' + package
+    mods = ', '.join(f'"{m}"' for m in S.MODULES if S.PACKAGE_OF[m] == package)
+    # the flat layout: modules live in src/<module>/; `public` lists those other packages may import
     lines = ['#prisma 4.0', f'def package "luce-browser-{package}" {{',
              '    str owner = "dymokomi"', '    str version = "0.1.0"', '    str kind = "package"',
              '    str language = "luce-base"', f'    str description = "{DESCRIPTIONS[package]}"',
-             '    str readme = "README.md"', '']
-    for m in S.MODULES:
-        if S.PACKAGE_OF[m] == package:
-            lines += [f'    def export "{m}" {{', f'        str module = "{root}.{m}"', '    }', '']
+             '    str readme = "README.md"', f'    str[] public = [{mods}]', '']
     lines += ['    def dependency "luce-std" {', '        str owner = "dymokomi"', '        str version = "^0.1.0"',
               '        str path = "../luce-std"', '    }']
     for dep in S.PACKAGE_DEPS[package]:
@@ -115,7 +113,6 @@ MODULE_ROWS = {
 def test_sh(package):
     mods = [m for m in S.MODULES if S.PACKAGE_OF[m] == package and m not in S.FOREIGN_MODULES]
     foreign = [m for m in S.MODULES if S.PACKAGE_OF[m] == package and m in S.FOREIGN_MODULES]
-    root = 'luce_browser_' + package
     return f'''#!/bin/sh
 # Type-check every module of luce-browser-{package} (and run its tests once there are any).
 # Stops at the first failing step.
@@ -123,14 +120,14 @@ set -e
 cd "$(dirname "$0")"
 
 for module in {' '.join(mods)}; do
-    echo "== luce-base check src/{root}/$module"
-    luce-base check "src/{root}/$module"
+    echo "== luce-base check src/$module -W"
+    luce-base check "src/$module" -W
 done
 ''' + ''.join(f'''
 # {m}: written by hand (not generated); run its tests once it exists.
-if [ -f src/{root}/{m}/ORDER ]; then
-    echo "== luce-base test src/{root}/{m}"
-    luce-base test src/{root}/{m}
+if [ -f src/{m}/ORDER ]; then
+    echo "== luce-base test src/{m}"
+    luce-base test src/{m}
 fi
 ''' for m in foreign)
 

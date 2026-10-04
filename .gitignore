@@ -1,3 +1,5 @@
 compiler-issues/build/
 # Built oracle drivers (rebuild with each oracle's build.sh)
 oracles/**/oracle
+cache/
+skeleton/__pycache__/

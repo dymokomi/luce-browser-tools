@@ -213,7 +213,7 @@ class Planner:
 
     def mode(self, r):
         lib = lib_of(r.get('file', ''))
-        if lib not in CORE_LIBS:
+        if lib not in CORE_LIBS and lib not in S.PHASE_LIBS[S.PHASE]:
             return 'opaque'
         if lib == 'LibJS' and r['q'] not in ('JS::Cell', 'JS::Value'):
             return 'opaque'
@@ -253,7 +253,7 @@ class Planner:
                         if jc:
                             out.append(('base', None, jc[0]))
                     continue
-                if blib not in CORE_LIBS:
+                if blib not in CORE_LIBS and blib not in S.PHASE_LIBS[S.PHASE]:
                     continue
                 if not br['fields'] and not self.has_virtuals(bu) and not self.eff_bases(bu):
                     continue
@@ -492,6 +492,8 @@ class Planner:
         for usr, r in self.records.items():
             if not S.region_of(r['file']):
                 continue
+            if lib_of(r['file']) not in CORE_LIBS | S.PHASE_LIBS[S.PHASE]:
+                continue  # a seam library a region implements by hand (LibCore): its types stay opaque
             if r['kind'] == 'template':
                 if r['q'] in CONCRETE_TEMPLATES or r['q'] in SKIP_TEMPLATES:
                     continue
@@ -881,7 +883,7 @@ class Planner:
         if d.kind == 'variant' or d.kind == 'traits':
             return 'ak'
         f = d.file
-        if d.kind == 'opaque' and lib_of(f) not in CORE_LIBS:
+        if d.kind == 'opaque' and lib_of(f) not in CORE_LIBS | S.PHASE_LIBS[S.PHASE]:
             d.info['foreign'] = True
             return 'ak'
         if lib_of(f) == 'LibJS':

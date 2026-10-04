@@ -11,7 +11,7 @@ the agent briefs, so the work can move between machines.
 
 | Path | What |
 | --- | --- |
-| `skeleton/` | The libclang skeleton generator that produced the typed stubs of every `luce-browser-*` package from Ladybird 47c82b38d0 (`extract.py`, then `generate.py`). **Do not re-run `generate.py` over ported repositories**: it rewrites generated fragments. Its model cache (1.4 GB) is not kept; `extract.py -j 13` rebuilds it in about 3.5 minutes from the donor's `compile_commands.json`. |
+| `skeleton/` | The libclang skeleton generator that produced the typed stubs of every `luce-browser-*` package from Ladybird 47c82b38d0 (`extract.py`, then `generate.py`), and the phase-2 skeleton of the engine. It writes a scratch tree (`--out`, default `cache/out`), never a package repository; for a later phase it plans against the ported engine (`--baseline`, `--lower`: names and class ids, `baseline.py`) and `merge.py` brings over only what the phase adds (see `generate.py`'s docstring and DESIGN.md §4.4 "Later phases"). Its model cache (`cache/`, not kept) is rebuilt by `extract.py -j 13` in about 4 minutes from the donor's `compile_commands.json`. |
 | `oracles/luce-browser-foundation/` | e.g. `string_hash_oracle.cpp`: AK hash values pinned in foundation tests. |
 | `oracles/luce-browser-html/tokenizer/` | HTMLTokenizer oracle and the expected outputs pinned in html_syntax's tests. |
 | `oracles/luce-browser-render/` | `fonts/` (Skia/FreeType/HarfBuzz metrics, shaping and glyph paths via Ladybird's LibGfx), `player/` (DisplayListPlayerSkia scenes), `filters/` (Skia image filters), `text_path/`. |

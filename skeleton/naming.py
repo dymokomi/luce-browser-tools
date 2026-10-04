@@ -67,11 +67,21 @@ def drop_leading(prefix, name):
     return N.pascal(name)
 
 
+ANON = re.compile(r'\((unnamed|anonymous) (union|struct|enum|class)? ?at [^)]*\)')
+
+
+def clean_q(q):
+    """A C++ name as the namemap spells it (anonymous records without their source location)."""
+    return ANON.sub(r'(anonymous \2)', q or '')
+
+
 class Namer:
-    def __init__(self, planner):
+    def __init__(self, planner, baseline=None, baseline_module='web'):
         self.p = planner
         self.type_names = {}      # key -> name
         self.by_module = collections.defaultdict(dict)   # module -> name -> key
+        self.baseline = baseline  # baseline.Baseline of the ported package, or None
+        self.baseline_module = baseline_module
 
     # ---- types ---------------------------------------------------------------------------------
     def names(self, key):
@@ -155,6 +165,14 @@ class Namer:
             kref = self.p.traits_info[d.key]
             d.name = N.pascal(self.short_ref(kref)) + 'Traits'
         return d.name
+
+    def namemap_qs(self, d):
+        """The C++ names the namemap may give a declaration (a variant: by its members' short names
+        as the generator writes it, or by the alias a region wrote)."""
+        if d.kind == 'variant':
+            info = self.p.variant_info[d.key]
+            return ['Variant<' + ', '.join(self.short_ref(i) for i in info['items']) + '>'] + sorted(info['aliases'])
+        return [clean_q(d.q)]
 
     def record_by_q(self, q):
         if not hasattr(self, '_rec_by_q'):
@@ -244,6 +262,37 @@ class Namer:
                 d.name = cand
                 taken[module].add(cand)
         self.taken_types = taken
+        if self.baseline is not None:
+            self.apply_baseline_types(decls)
+
+    def apply_baseline_types(self, decls):
+        """Keep the ported package's type names: a declaration the namemap names keeps that name; a
+        new one never takes a name the baseline gives to something else."""
+        b = self.baseline
+        module = self.baseline_module
+        mine = [d for d in decls if d.module == module and d.kind != 'ovr']
+        qs = {d.key: self.namemap_qs(d) for d in mine}
+        known = {}
+        for d in mine:
+            for q in qs[d.key]:
+                name = b.type_name(q)
+                if name:
+                    d.name = name
+                    known[d.key] = name
+                    break
+        names = collections.Counter(d.name for d in mine)
+        taken = self.taken_types[module]
+        for d in mine:
+            if d.key in known:
+                continue
+            if all(b.taken_by_other(d.name, q) for q in qs[d.key]) or names[d.name] > 1 and d.name in b.names:
+                base = d.name
+                n = 2
+                while f'{base}{n}' in taken or b.has(f'{base}{n}'):
+                    n += 1
+                names[d.name] -= 1
+                d.name = f'{base}{n}'
+                taken.add(d.name)
 
     # ---- functions -----------------------------------------------------------------------------
     def fsnake(self, name):
@@ -309,6 +358,8 @@ class Namer:
         used = collections.defaultdict(set)
         for m, s in generated.items():
             used[m] |= s
+        b = self.baseline
+        by_q = collections.Counter(self.func_q(F) for F in p.funcs if F.module == self.baseline_module)
         for F in sorted(p.funcs, key=lambda F: (F.fn['file'], F.fn['line'], F.fn['q'])):
             if F.owner_key:
                 base = self.owner_snake(F) + '_' + F.word
@@ -317,14 +368,55 @@ class Namer:
             else:
                 base = self.free_prefix(F.module, ns_of(F.fn['q'])) + F.word
             base = N.safe(base)
+            fq = self.func_q(F)
+            mine = b is not None and F.module == self.baseline_module
+            if mine:
+                known = self.baseline_func_name(F, fq, by_q[fq], base)
+                if known is not None:
+                    used[F.module].add(known)
+                    F.name = known
+                    continue
             name = base
             n = 2
-            while name in used[F.module] or name in self.taken_types.get(F.module, ()):
+            while name in used[F.module] or name in self.taken_types.get(F.module, ()) or \
+                    mine and b.has(name) and b.owner.get(name) != fq:
                 name = f'{base}_{n}'
                 n += 1
             used[F.module].add(name)
             F.name = name
         self.used_funcs = used
+
+    def func_q(self, F):
+        """A function's C++ name as the namemap spells it."""
+        q = F.fn['q']
+        if F.env_key:
+            q += f' [{self.p.decls[F.env_key].name}]'
+        return q
+
+    def baseline_func_name(self, F, fq, count, base):
+        """The baseline's name of a function: the namemap row of its C++ name when there is one
+        function of that name, else the row at its definition's location, else the row spelled
+        as the generator would spell it."""
+        rows = self.baseline.func_names(fq)
+        if F.kind == 'impl':
+            # a virtual's body is `<class>_<method>_impl` beside its dispatcher; a closure stub a
+            # region wrote under the dispatcher's name is superseded by the two
+            rows = [r for r in rows if r[0].endswith('_impl')]
+        else:
+            rows = [r for r in rows if not r[0].endswith('_impl')]
+        if not rows:
+            return None
+        names = sorted({n for n, _, _ in rows})
+        if count == 1 and len(names) == 1:
+            return names[0]
+        d = self.p.defs.get(F.fn['usr'])
+        loc = f'{d["file"]}:{d["line"]}' if d else f'{F.fn["file"]}:{F.fn["line"]}'
+        at = sorted({n for n, l, _ in rows if l == loc})
+        if len(at) == 1:
+            return at[0]
+        if base in names:
+            return base
+        return None
 
     def short_param(self, ref, limit=30):
         if ref.kind == 'drop':

@@ -74,6 +74,7 @@ class Emitter:
         self.stats = collections.Counter()
         self.namemap = []
         self.extra_imports = collections.defaultdict(set)
+        self.baseline = None   # baseline.Baseline of the ported package (class ids, names)
 
     # ---- rendering helpers --------------------------------------------------------------------
     def names_cb(self, module):
@@ -157,7 +158,7 @@ class Emitter:
             f['blocks'].append(((v['line'], v['q'], v['usr']), self.emit_var(v, ref, module)))
         # functions by region
         funcs = [F for F in p.funcs if F.module == module]
-        funcs.sort(key=lambda F: (self.fn_sort_file(F), F.fn['line'], F.name))
+        funcs.sort(key=lambda F: (self.fn_sort_file(F), self.fn_line(F), F.name))
         for F in funcs:
             if F.region:
                 rid, rname, _ = F.region
@@ -170,12 +171,17 @@ class Emitter:
                 rel = 'stubs/' + rel
             f = frag(rel, title, None)
             f['files'].add(self.fn_file(F))
-            f['blocks'].append(((self.fn_sort_file(F), F.fn['line'], F.name), self.emit_func(F, module)))
+            f['blocks'].append(((self.fn_sort_file(F), self.fn_line(F), F.name), self.emit_func(F, module)))
         self.write_module(module, frags)
 
     def fn_file(self, F):
         d = self.p.defs.get(F.fn['usr'])
         return d['file'] if d and d.get('file') else F.fn['file']
+
+    def fn_line(self, F):
+        """The line of the function's definition (its C++ order), else of its declaration."""
+        d = self.p.defs.get(F.fn['usr'])
+        return d['line'] if d and d.get('line') else F.fn['line']
 
     def fn_sort_file(self, F):
         return S.stem(self.fn_file(F))
@@ -213,7 +219,7 @@ class Emitter:
     def emit_opaque(self, d, module):
         self.stats['opaque'] += 1
         self.namemap.append((d.q, module, d.name, self.loc(d), 'opaque'))
-        return [f'## {d.q or d.name} ({self.loc(d)}): opaque in this phase (not in the phase-1 closure).',
+        return [f'## {d.q or d.name} ({self.loc(d)}): opaque in this phase (not in the phase-{S.PHASE} closure).',
                 f'pub struct {d.name}:', '    pub var opaque_: u8', '']
 
     def field_lines(self, fields, module, owner_name, taken, owner_q=''):
@@ -614,7 +620,7 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
         out.append(f'## The vtable of {d.q}.')
         out.append(f'pub let {s}_vtable: {d.name}VTable = {self.vt_init(usr, usr, module)}')
         out.append('')
-        ids = p.class_ids.get(usr, (0, 0))
+        ids, shared_with = self.class_id_range(d)
         mixins_arg = ''
         if module == 'web' and p.is_cell(usr):
             mo = self.mixin_offsets(usr)
@@ -627,7 +633,11 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
                 out.append(f'pub let {s}_mixins: MixinOffsets = MixinOffsets({", ".join(parts)})')
                 out.append('')
                 mixins_arg = f', mixins = (const void*)&{s}_mixins'
-        out.append(f'## Class information of {d.q}: name, class-id range (pre-order), size, vtable.')
+        if shared_with is not None:
+            out.append(f'## Class information of {d.q}: name, the class id of {shared_with} (it shares its nearest')
+            out.append('## numbered ancestor\'s id and is recognized by its ClassInfo), size, vtable.')
+        else:
+            out.append(f'## Class information of {d.q}: name, class-id range (pre-order), size, vtable.')
         out.append(f'pub let {s}_class: {self.qual(module, "ak", "ClassInfo")} = '
                    f'{self.qual(module, "ak", "ClassInfo")}(name = "{d.q.split("::")[-1]}", '
                    f'first_id = {ids[0]}, last_id = {ids[1]}, size = sizeof({d.name}), '
@@ -649,10 +659,18 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
             return out
         iface = self.qual(module, rd.module, 'Is' + rd.name)
         rm = N.snake(rd.name)
-        out.append(f'## is<{d.q}>: the class-id range test.')
-        out.append(f'pub func is_{s}[P: {iface}](p: P*) -> bool:')
-        out.append(f'    let id = p.{rm}().class_id')
-        out.append(f'    return id >= {s}_class.first_id and id <= {s}_class.last_id')
+        if shared_with is not None:
+            classes = [s] + [N.snake(self.p.decls[('rec', u)].name) for u in self.new_descendants(usr)]
+            out.append(f'## is<{d.q}>: the cell\'s ClassInfo is its own' +
+                       (' or a subclass\'s.' if len(classes) > 1 else '.'))
+            out.append(f'pub func is_{s}[P: {iface}](p: P*) -> bool:')
+            out.append(f'    let class_info = p.{rm}().vtable.class_info')
+            out.append('    return ' + ' or '.join(f'class_info == &{c}_class' for c in classes))
+        else:
+            out.append(f'## is<{d.q}>: the class-id range test.')
+            out.append(f'pub func is_{s}[P: {iface}](p: P*) -> bool:')
+            out.append(f'    let id = p.{rm}().class_id')
+            out.append(f'    return id >= {s}_class.first_id and id <= {s}_class.last_id')
         out.append('')
         out.append(f'## as_if<{d.q}>.')
         out.append(f'pub func as_if_{s}[P: {iface}](p: P*) -> {d.name}*?:')
@@ -666,6 +684,52 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
         self.stats['vtables'] += 1
         out += self.creation_helpers(d, module)
         return out
+
+    def class_id_range(self, d):
+        """(first, last) class ids of a polymorphic class, and the ancestor whose id it shares (None
+        when it has its own range). Against a baseline, a ported class keeps its ids; a new class
+        whose hierarchy is numbered shares its nearest numbered ancestor's id (see baseline.py)."""
+        usr = d.key[1]
+        own = self.p.class_ids.get(usr, (0, 0))
+        b = self.baseline
+        if b is None or d.module != 'web':
+            return own, None
+        known = b.class_ids.get(N.snake(d.name) + '_class')
+        shared = None
+        u = self.p.primary(usr)
+        while u is not None and self.p.is_poly(u):
+            ad = self.p.decls.get(('rec', u))
+            if ad is not None:
+                key = N.snake(ad.name) + '_class'
+                ids = b.class_ids.get(key if ad.module == 'web' else f'{ad.module}.{key}')
+                if ids is not None:
+                    shared = ((ids[0], ids[0]), ad.q)
+                    break
+            u = self.p.primary(u)
+        if known is not None:
+            # a class a region declared by hand with an ancestor's id (or 0) shares that id
+            if shared is not None and (known == shared[0] or known == (0, 0)):
+                return shared
+            return known, None
+        if shared is not None:
+            return shared
+        return own, None
+
+    def new_descendants(self, usr):
+        """The full polymorphic classes below `usr` that the baseline does not number yet."""
+        out = []
+        for dd in self.p.decls.values():
+            if dd.kind != 'record' or dd.level != 'full' or dd.key[1] == usr or not self.p.is_poly(dd.key[1]):
+                continue
+            if self.class_id_range(dd)[1] is None:
+                continue
+            u = self.p.primary(dd.key[1])
+            while u is not None:
+                if u == usr:
+                    out.append(dd.key[1])
+                    break
+                u = self.p.primary(u)
+        return sorted(out, key=lambda x: self.p.records[x]['q'])
 
     def creation_helpers(self, d, module):
         """realm_create_<class> per constructor of a concrete cell class (DESIGN.md §2.3)."""
@@ -930,9 +994,25 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
             return ' -> unit!'
         return ' -> ' + self.R(ret, module)
 
+    def override_pnames(self, usr):
+        """Parameter names of some definition of the virtual `usr` (a pure virtual declared without
+        names takes them from an override's definition)."""
+        cache = self.__dict__.setdefault('_override_pnames', None)
+        if cache is None:
+            cache = {}
+            for vi in self.p.vinfo.values():
+                for fn, (iu, ifn) in vi['overrides']:
+                    d = self.p.defs.get(fn['usr'])
+                    if d and d.get('pnames') and all(d['pnames']):
+                        cache.setdefault(ifn['usr'], d['pnames'])
+            self._override_pnames = cache
+        return cache.get(usr)
+
     def param_names(self, F, module, reserve=()):
         d = self.p.defs.get(F.fn['usr'])
         pn = d.get('pnames') if d else None
+        if not pn or not all(pn):
+            pn = self.override_pnames(F.fn['usr']) or pn
         raw = []
         kept = getattr(F, 'kept', None) or list(range(len(F.params)))
         for i, (n, _) in enumerate(F.params):
@@ -1011,6 +1091,9 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
         pub = 'pub '
         if 'internal' in fn.get('flags', []) and not F.owner_key:
             lines.append('# internal linkage in C++: make it private when it is ported.')
+        elif F.owner_key and fn.get('access') == 'private' and F.kind != 'impl':
+            # (an unused module-private function is a warning, so the stub stays pub)
+            lines.append('# private in C++: make it module-private when it is ported.')
         lines.append(f'{pub}func {F.name}{gen}({", ".join(ps)}){ret}:')
         body = self.trivial_body(F, module, pnames)
         if body is None:
@@ -1037,6 +1120,9 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
         if ref.kind in ('opt',) or (ref.kind in ('ptr', 'func') and ref.nullable):
             if inner in ('', 'nullptr', 'OptionalNone', 'OptionalNone {}', 'OptionalNone { }', '{}', 'NULL'):
                 return 'none'
+            # `Optional<String> {}`, `Optional<T>()`, `GC::Ptr<T> {}`: the empty value
+            if re.fullmatch(r'(?:[\w:]+<.*>|OptionalNone)\s*(?:\{\s*\}|\(\s*\))', inner):
+                return 'none'
             if ref.kind == 'opt':
                 return self.default_value(text, ref.inner, module)
             return None
@@ -1049,6 +1135,11 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
             case = self.enum_case(ref.key, inner)
             if case is not None:
                 return f'{self.dname(ref.key, module)}.{case[0]}'
+        if ref.kind == 'decl' and ref.key[0] == 'variant' and re.fullmatch(r'(?:[\w:]+(?:<.*>)?\s*)?(?:\{\s*\}|\(\s*\))|Empty\s*\{\s*\}', inner):
+            # a default-constructed Variant<Empty, ...> holds Empty
+            first = self.p.variant_info[ref.key]['items'][0]
+            if first.kind == 'decl' and self.p.decls[first.key].q == 'AK::Empty':
+                return f'{self.dname(ref.key, module)}.empty'
         return None
 
     def trivial_body(self, F, module, pnames):
@@ -1085,8 +1176,8 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
 
     # ---- output ---------------------------------------------------------------------------------
     def write_module(self, module, frags):
-        pkg_root = PACKAGE_ROOT[self.package]
-        mdir = os.path.join(self.out, 'src', pkg_root, module)
+        # The flat package layout: a package's modules live directly under src/ (src/<module>/).
+        mdir = os.path.join(self.out, 'src', module)
         os.makedirs(mdir, exist_ok=True)
         order = ['module.lucb']
         support = self.support.get(module)
@@ -1123,14 +1214,7 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
             text = header_box(f['title'], desc) + content
             bodies[rel] = text
             order.append(rel)
-        # module.lucb with imports
-        imports = sorted(f'import {m}' for m in self.extra_imports.get(module, ()))
-        for m in S.MODULES:
-            if m in self.refs_used[module] and m != module:
-                if S.PACKAGE_OF[m] == self.package:
-                    imports.append(f'import {pkg_root}.{m} as {m}')
-                else:
-                    imports.append(f'import {m}')
+        imports = self.import_lines(module)
         mdesc = wrap_desc(MODULE_DESC.get(module, module)) + [''] + LICENSE_LINES
         mtext = header_box(f'{module} - {MODULE_TITLE.get(module, module)}', mdesc) + imports + ['']
         self.write(os.path.join(mdir, 'module.lucb'), mtext)
@@ -1141,6 +1225,23 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
             os.makedirs(os.path.dirname(path), exist_ok=True)
             self.write(path, text)
         self.write(os.path.join(mdir, 'ORDER'), order)
+
+    def import_lines(self, module):
+        """module.lucb's imports: the standard modules by name, a module of this package by its short
+        name, another package's modules as from-imports grouped per package (`from
+        luce_browser_foundation import ak, gc`)."""
+        lines = sorted(f'import {m}' for m in self.extra_imports.get(module, ()))
+        foreign = collections.OrderedDict()
+        for m in S.MODULES:
+            if m not in self.refs_used[module] or m == module:
+                continue
+            if S.PACKAGE_OF[m] == self.package:
+                lines.append(f'import {m}')
+            else:
+                foreign.setdefault(PACKAGE_ROOT[S.PACKAGE_OF[m]], []).append(m)
+        for root, mods in foreign.items():
+            lines.append(f'from {root} import {", ".join(mods)}')
+        return lines
 
     def write(self, path, lines):
         text = '\n'.join(lines).rstrip('\n') + '\n'

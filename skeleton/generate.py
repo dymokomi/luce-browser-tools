@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
-"""The luce-browser skeleton generator (DESIGN.md §4.4). Local tool; never committed.
+"""The luce-browser skeleton generator (DESIGN.md §4.4). Local tool; never committed to a package.
 
-    python3 extract.py                      # once per donor/build change: ../cache/model.json
-    python3 generate.py foundation css ...  # plan everything, emit the named packages
+    python3 extract.py -j 13                      # once per donor/build change: ../cache/model.json
+    python3 generate.py foundation css ...        # plan everything, emit the named packages
 
 Every package is planned together (one closure, one placement, one naming), so the packages
-agree with each other; only the named packages' files are (re)written. Output goes to
-/Users/sedov/Dev/luce_dev/luce-browser-<package>/ (src/, docs/namemap.tsv, docs/regions.tsv,
-docs/gc_fields.tsv); package.prisma, README, LICENSE, PIN and test.sh are written only when absent
-unless --meta is given.
+agree with each other; only the named packages are written, into --out (default ../cache/out,
+`luce-browser-<package>/` with the flat layout: src/<module>/, docs/namemap.tsv, regions.tsv,
+gc_fields.tsv; package.prisma, README, LICENSE, PIN and test.sh too).
+
+The generator never writes into a ported repository. A later phase is planned against the ported
+engine and merged (DESIGN.md §4.4 "Later phases"):
+
+    python3 generate.py engine --phase 1 --baseline ENGINE --lower PINS --out ../cache/out1
+    python3 generate.py engine --phase 2 --baseline ENGINE --lower PINS --out ../cache/out2
+    python3 merge.py --old ../cache/out1 --new ../cache/out2 --engine ENGINE
+
+--baseline keeps the engine's names and class ids (baseline.py); --lower is where the lower
+packages are checked out at bootstrap/PACKAGES's pins (their class ids); merge.py brings over only
+what phase 2 adds.
 """
 import argparse
 import collections
@@ -23,19 +33,25 @@ import scope as S  # noqa: E402
 from clangenv import CACHE, PIN, DONOR  # noqa: E402
 from plan import Planner, Decl, lib_of  # noqa: E402
 from naming import Namer  # noqa: E402
-from emit import Emitter, PACKAGE_ROOT  # noqa: E402
+from emit import Emitter  # noqa: E402
 from typemap import walk_refs, has_unmapped  # noqa: E402
 import support  # noqa: E402
+from baseline import Baseline  # noqa: E402
 import package_files  # noqa: E402
 
 ROOT = '/Users/sedov/Dev/luce_dev'
+# The default output: a scratch tree beside the cache, never the package repositories themselves.
+SCRATCH = os.path.join(CACHE, 'out')
 
 
 def log(msg):
     sys.stderr.write(msg + '\n')
 
 
-def build_plan():
+def build_plan(baseline=None, frozen=None):
+    """Plan, place and name. `frozen`: the declarations (key -> module) of the previous phase's plan;
+    against a baseline the lower packages are not regenerated, so a declaration new in this phase
+    that would land in one of them lives in the engine's `web` module instead."""
     t0 = time.time()
     p = Planner(CACHE + '/model.json', log)
     for name in support.OVR_AK:
@@ -57,6 +73,11 @@ def build_plan():
         need = {p.decls[k].module for k, bv in walk_refs(ref, True) if k in p.decls}
         v['_module'] = p.bump(origin, need | {origin})
     p.relocate_foreign()
+    if frozen is not None:
+        for d in p.decls.values():
+            if d.kind != 'ovr' and d.module != 'web' and frozen.get(d.key) != d.module:
+                log(f'phase {S.PHASE}: {d.q or d.key} is new here; it goes to web (the lower packages are frozen)')
+                d.module = 'web'
     # function lookup for vtables
     p.func_by_usr = {}
     for F in p.funcs:
@@ -65,7 +86,7 @@ def build_plan():
     assign_class_ids(p)
     p.mixin_usrs = {bu for d in p.decls.values() if d.kind == 'record' and d.level == 'full'
                     for role, t, bu in p.eff_bases(d.key[1]) if role == 'mixin'}
-    nm = Namer(p)
+    nm = Namer(p, baseline)
     nm.assign_types()
     generated = generated_names(p)
     nm.assign_funcs(generated)
@@ -161,12 +182,13 @@ def assign_class_ids(p):
 
 
 def emit_package(p, nm, package, args):
-    out = os.path.join(ROOT, f'luce-browser-{package}')
-    src = os.path.join(out, 'src', PACKAGE_ROOT[package])
+    out = os.path.join(args.out, f'luce-browser-{package}')
+    src = os.path.join(out, 'src')
     for m in S.MODULES:
         if S.PACKAGE_OF[m] == package and m not in S.FOREIGN_MODULES and os.path.isdir(os.path.join(src, m)):
             shutil.rmtree(os.path.join(src, m))
     em = Emitter(p, nm, package, out)
+    em.baseline = nm.baseline if package == 'engine' else None
     em.support = {}
     if package == 'foundation':
         em.support['ak'] = support.ak_support()
@@ -303,8 +325,25 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('packages', nargs='*', default=S.PACKAGES)
     ap.add_argument('--meta', action='store_true', help='rewrite package.prisma, README, LICENSE, test.sh')
+    ap.add_argument('--phase', type=int, default=2, choices=(1, 2),
+                    help='plan phase 1 only, or phases 1 and 2 (merge.py diffs the two)')
+    ap.add_argument('--baseline', default='',
+                    help='a ported luce-browser-engine checkout: keep its names and class ids (baseline.py)')
+    ap.add_argument('--lower', default='',
+                    help='where luce-browser-{foundation,css,html,render} are checked out at the pins '
+                         '(default: beside the baseline)')
+    ap.add_argument('--out', default=SCRATCH,
+                    help='where luce-browser-<package>/ is written (never a ported repository: the generator '
+                         'rewrites whole fragments; merge.py brings what is new into a repository)')
     args = ap.parse_args()
-    p, nm = build_plan()
+    baseline = Baseline(args.baseline, args.lower or None) if args.baseline else None
+    frozen = None
+    if baseline is not None and args.phase > 1:
+        S.set_phase(args.phase - 1)
+        prev, _ = build_plan(baseline)
+        frozen = {k: d.module for k, d in prev.decls.items()}
+    S.set_phase(args.phase)
+    p, nm = build_plan(baseline, frozen)
     report = open(os.path.join(CACHE, 'skipped.tsv'), 'w')
     for q, f, line, reason in sorted(set(p.skipped)):
         report.write(f'{q}\t{f}:{line}\t{reason}\n')

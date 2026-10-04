@@ -31,6 +31,13 @@ SPECIAL_TEMPLATES = (NONNULL_PTR | NULLABLE_PTR | WEAK | FALLIBLE | VECTORS | UN
                                                'AK::Array', 'AK::Tuple', 'AK::Function', 'GC::Function',
                                                'AK::HashMap', 'GC::RootHashMap', 'AK::OrderedHashMap',
                                                'AK::HashTable', 'AK::OrderedHashTable', 'GC::HeapHashTable'})
+# Records a `T const&` keeps by value (see Translator.is_small_value).
+SMALL_VALUES = {'AK::String', 'AK::FlyString', 'AK::StringView', 'AK::Utf16String', 'AK::Utf16View',
+                'AK::Utf16FlyString', 'AK::ByteString', 'AK::Utf8View', 'AK::Utf32View', 'AK::Duration',
+                'AK::UnixDateTime', 'AK::MonotonicTime', 'AK::Empty', 'AK::Error', 'URL::URL', 'URL::Origin',
+                'URL::Host', 'URL::Site', 'Web::DOM::QualifiedName', 'Web::CSSPixels', 'Web::DevicePixels',
+                'Web::CSSPixelFraction', 'Gfx::Color', 'Web::DOM::AbstractElement', 'JS::Value',
+                'Web::UniqueNodeID', 'AK::Badge'}
 INT_NAMES = {'u8', 'u16', 'u32', 'u64', 'i8', 'i16', 'i32', 'i64', 'usize', 'isize'}
 
 
@@ -146,7 +153,7 @@ class Translator:
                 return Ref('ptr', inner=B('void'), const=const)
             if self.is_reference_type(inner):
                 return Ref('ptr', inner=inner)
-            if k == 'rr' or (const and use in ('param', 'ret')):
+            if k == 'rr' or (const and use in ('param', 'ret') and self.is_small_value(inner)):
                 return inner
             return Ref('ptr', inner=inner, const=const)
         if k == 'a':
@@ -169,6 +176,28 @@ class Translator:
         if k == 'dep':
             return self.tr_dependent(ser, env, use)
         return unmapped(ser.get('s', '?'))
+
+    def is_small_value(self, ref):
+        """Whether a `T const&` parameter or result stays `T` by value (the regions' convention: the
+        immutable strings, URLs, origins, qualified names, pixel units, colors and geometry are passed
+        by value; every other struct and container `T const&` is `const T*`)."""
+        k = ref.kind
+        if k in ('b', 'ptr', 'func', 'opt', 'span', 'tparam', 'unmapped', 'drop', 'tuple', 'fallible'):
+            return True
+        if k == 'arr':
+            return False
+        if k != 'decl':
+            return True
+        kind = ref.key[0]
+        if kind in ('enum', 'variant', 'traits', 'inst'):
+            return True
+        if kind == 'ovr':
+            return ref.key[2] not in ('Vector', 'HashTable', 'OrderedHashTable', 'HashMap', 'OrderedHashMap',
+                                      'Checked')
+        if kind == 'rec':
+            r = self.m.records.get(ref.key[1]) or self.m.fwd.get(ref.key[1]) or {}
+            return r.get('q') in SMALL_VALUES
+        return False
 
     def is_reference_type(self, ref):
         """Cells and polymorphic objects are always handled by pointer."""
