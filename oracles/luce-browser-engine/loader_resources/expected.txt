@@ -1,0 +1,283 @@
+contains	ads.|tracker	ushers	\-	false
+contains	ads.|tracker	https://ads.example.com/x	\-	true
+contains	ads.|tracker	https://example.com/tracker.js	\-	true
+contains	ads.|tracker	abccab	\-	false
+contains	ads.|tracker	https://doubleclick.net/ad	\-	false
+contains	ads.|tracker	https://example.com/img/banner/1.png	\-	false
+contains	ads.|tracker	https://example.com/	\-	false
+contains	ads.|tracker	xy	\-	false
+contains	ads.|tracker	xyzz	\-	false
+contains	ads.|tracker	\-	\-	false
+contains	ads.|tracker	hishe	\-	false
+contains	ads.|tracker	aaaa	\-	false
+contains	ads.|tracker	bcbcb	\-	false
+contains	ads.|tracker	cbca	\-	false
+contains	ads.|tracker	https://pagead2.googlesyndication.com/	\-	false
+contains	ads.|tracker	HTTPS://ADS.EXAMPLE.COM/	\-	false
+contains	he|she|his|hers	ushers	\-	true
+contains	he|she|his|hers	https://ads.example.com/x	\-	false
+contains	he|she|his|hers	https://example.com/tracker.js	\-	false
+contains	he|she|his|hers	abccab	\-	false
+contains	he|she|his|hers	https://doubleclick.net/ad	\-	false
+contains	he|she|his|hers	https://example.com/img/banner/1.png	\-	false
+contains	he|she|his|hers	https://example.com/	\-	false
+contains	he|she|his|hers	xy	\-	false
+contains	he|she|his|hers	xyzz	\-	false
+contains	he|she|his|hers	\-	\-	false
+contains	he|she|his|hers	hishe	\-	true
+contains	he|she|his|hers	aaaa	\-	false
+contains	he|she|his|hers	bcbcb	\-	false
+contains	he|she|his|hers	cbca	\-	false
+contains	he|she|his|hers	https://pagead2.googlesyndication.com/	\-	false
+contains	he|she|his|hers	HTTPS://ADS.EXAMPLE.COM/	\-	false
+contains	a|ab|bc|bca|c|caa	ushers	\-	false
+contains	a|ab|bc|bca|c|caa	https://ads.example.com/x	\-	true
+contains	a|ab|bc|bca|c|caa	https://example.com/tracker.js	\-	true
+contains	a|ab|bc|bca|c|caa	abccab	\-	true
+contains	a|ab|bc|bca|c|caa	https://doubleclick.net/ad	\-	true
+contains	a|ab|bc|bca|c|caa	https://example.com/img/banner/1.png	\-	true
+contains	a|ab|bc|bca|c|caa	https://example.com/	\-	true
+contains	a|ab|bc|bca|c|caa	xy	\-	false
+contains	a|ab|bc|bca|c|caa	xyzz	\-	false
+contains	a|ab|bc|bca|c|caa	\-	\-	false
+contains	a|ab|bc|bca|c|caa	hishe	\-	false
+contains	a|ab|bc|bca|c|caa	aaaa	\-	true
+contains	a|ab|bc|bca|c|caa	bcbcb	\-	true
+contains	a|ab|bc|bca|c|caa	cbca	\-	true
+contains	a|ab|bc|bca|c|caa	https://pagead2.googlesyndication.com/	\-	true
+contains	a|ab|bc|bca|c|caa	HTTPS://ADS.EXAMPLE.COM/	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	ushers	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	https://ads.example.com/x	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	https://example.com/tracker.js	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	abccab	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	https://doubleclick.net/ad	\-	true
+contains	doubleclick.net/|/banner/|googlesyndication	https://example.com/img/banner/1.png	\-	true
+contains	doubleclick.net/|/banner/|googlesyndication	https://example.com/	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	xy	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	xyzz	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	\-	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	hishe	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	aaaa	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	bcbcb	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	cbca	\-	false
+contains	doubleclick.net/|/banner/|googlesyndication	https://pagead2.googlesyndication.com/	\-	true
+contains	doubleclick.net/|/banner/|googlesyndication	HTTPS://ADS.EXAMPLE.COM/	\-	false
+contains	xyz	ushers	\-	false
+contains	xyz	https://ads.example.com/x	\-	false
+contains	xyz	https://example.com/tracker.js	\-	false
+contains	xyz	abccab	\-	false
+contains	xyz	https://doubleclick.net/ad	\-	false
+contains	xyz	https://example.com/img/banner/1.png	\-	false
+contains	xyz	https://example.com/	\-	false
+contains	xyz	xy	\-	false
+contains	xyz	xyzz	\-	true
+contains	xyz	\-	\-	false
+contains	xyz	hishe	\-	false
+contains	xyz	aaaa	\-	false
+contains	xyz	bcbcb	\-	false
+contains	xyz	cbca	\-	false
+contains	xyz	https://pagead2.googlesyndication.com/	\-	false
+contains	xyz	HTTPS://ADS.EXAMPLE.COM/	\-	false
+contains	\-	ushers	\-	false
+contains	\-	https://ads.example.com/x	\-	false
+contains	\-	https://example.com/tracker.js	\-	false
+contains	\-	abccab	\-	false
+contains	\-	https://doubleclick.net/ad	\-	false
+contains	\-	https://example.com/img/banner/1.png	\-	false
+contains	\-	https://example.com/	\-	false
+contains	\-	xy	\-	false
+contains	\-	xyzz	\-	false
+contains	\-	\-	\-	false
+contains	\-	hishe	\-	false
+contains	\-	aaaa	\-	false
+contains	\-	bcbcb	\-	false
+contains	\-	cbca	\-	false
+contains	\-	https://pagead2.googlesyndication.com/	\-	false
+contains	\-	HTTPS://ADS.EXAMPLE.COM/	\-	false
+filtered	enabled	https://ads.example.com/x	\-	true
+filtered	enabled	https://example.com/tracker.js	\-	true
+filtered	enabled	data:text/html,ads.tracker	\-	false
+filtered	enabled	https://example.com/	\-	false
+filtered	enabled	file:///tmp/tracker.html	\-	true
+filtered	enabled	https://user:pass@ads.example.com:8080/p?q#f	\-	true
+filtered	disabled	https://ads.example.com/x	\-	false
+filtered	disabled	https://example.com/tracker.js	\-	false
+filtered	disabled	data:text/html,ads.tracker	\-	false
+filtered	disabled	https://example.com/	\-	false
+filtered	disabled	file:///tmp/tracker.html	\-	false
+filtered	disabled	https://user:pass@ads.example.com:8080/p?q#f	\-	false
+proxy	https://www.example.com/a	\-	\-	0 0.0.0.0 0
+proxy	http://abc.onion/x	\-	\-	0 0.0.0.0 0
+proxy	http://insecure.test/	\-	\-	0 0.0.0.0 0
+proxy	http://noport.test/	\-	\-	0 0.0.0.0 0
+proxy	https://other.org/	\-	\-	0 0.0.0.0 0
+cors	none	0	0	2 2 true -1 https://example.com/a.png
+cors	none	0	1	0 2 true -1 https://example.com/a.png
+cors	none	1	0	1 1 true -1 https://example.com/a.png
+cors	none	1	1	1 1 true -1 https://example.com/a.png
+cors	none	2	0	1 2 true -1 https://example.com/a.png
+cors	none	2	1	1 2 true -1 https://example.com/a.png
+cors	7	0	0	2 2 true 7 https://example.com/a.png
+cors	7	0	1	0 2 true 7 https://example.com/a.png
+cors	7	1	0	1 1 true 7 https://example.com/a.png
+cors	7	1	1	1 1 true 7 https://example.com/a.png
+cors	7	2	0	1 2 true 7 https://example.com/a.png
+cors	7	2	1	1 2 true 7 https://example.com/a.png
+cors	13	0	0	2 2 true 13 https://example.com/a.png
+cors	13	0	1	0 2 true 13 https://example.com/a.png
+cors	13	1	0	1 1 true 13 https://example.com/a.png
+cors	13	1	1	1 1 true 13 https://example.com/a.png
+cors	13	2	0	1 2 true 13 https://example.com/a.png
+cors	13	2	1	1 2 true 13 https://example.com/a.png
+cors	4	0	0	2 2 true 4 https://example.com/a.png
+cors	4	0	1	0 2 true 4 https://example.com/a.png
+cors	4	1	0	1 1 true 4 https://example.com/a.png
+cors	4	1	1	1 1 true 4 https://example.com/a.png
+cors	4	2	0	1 2 true 4 https://example.com/a.png
+cors	4	2	1	1 2 true 4 https://example.com/a.png
+cors	0	0	0	2 2 true 0 https://example.com/a.png
+cors	0	0	1	0 2 true 0 https://example.com/a.png
+cors	0	1	0	1 1 true 0 https://example.com/a.png
+cors	0	1	1	1 1 true 0 https://example.com/a.png
+cors	0	2	0	1 2 true 0 https://example.com/a.png
+cors	0	2	1	1 2 true 0 https://example.com/a.png
+translate	fetch	\-	\-	none
+translate	font	\-	\-	4
+translate	image	\-	\-	7
+translate	script	\-	\-	13
+translate	style	\-	\-	16
+translate	track	\-	\-	17
+translate	audio	\-	\-	empty
+translate	document	\-	\-	empty
+translate	\-	\-	\-	empty
+translate	Image	\-	\-	empty
+translate	worker	\-	\-	empty
+translate	(null)	\-	\-	empty
+preload_hash	https://example.com/a.png	-1	0 0	2596856161
+preload_hash	https://example.com/a.png	-1	0 2	4287362856
+preload_hash	https://example.com/a.png	-1	2 0	3249576339
+preload_hash	https://example.com/a.png	-1	2 2	3113656350
+preload_hash	https://example.com/a.png	0	0 0	2985922185
+preload_hash	https://example.com/a.png	0	0 2	2845999270
+preload_hash	https://example.com/a.png	0	2 0	1247186882
+preload_hash	https://example.com/a.png	0	2 2	187695090
+preload_hash	https://example.com/a.png	1	0 0	3606636543
+preload_hash	https://example.com/a.png	1	0 2	2648281174
+preload_hash	https://example.com/a.png	1	2 0	3132552855
+preload_hash	https://example.com/a.png	1	2 2	4242230764
+preload_hash	https://example.com/a.png	2	0 0	1156239484
+preload_hash	https://example.com/a.png	2	0 2	747633830
+preload_hash	https://example.com/a.png	2	2 0	3477607285
+preload_hash	https://example.com/a.png	2	2 2	520213114
+preload_hash	https://example.com/	-1	0 0	3943411775
+preload_hash	https://example.com/	-1	0 2	2257212040
+preload_hash	https://example.com/	-1	2 0	3253269905
+preload_hash	https://example.com/	-1	2 2	1164016318
+preload_hash	https://example.com/	0	0 0	2805531775
+preload_hash	https://example.com/	0	0 2	835512036
+preload_hash	https://example.com/	0	2 0	897397033
+preload_hash	https://example.com/	0	2 2	1213622671
+preload_hash	https://example.com/	1	0 0	2187039189
+preload_hash	https://example.com/	1	0 2	1767356213
+preload_hash	https://example.com/	1	2 0	225935868
+preload_hash	https://example.com/	1	2 2	384586926
+preload_hash	https://example.com/	2	0 0	798840414
+preload_hash	https://example.com/	2	0 2	3845526043
+preload_hash	https://example.com/	2	2 0	3776910936
+preload_hash	https://example.com/	2	2 2	3961222411
+preload_hash	file:///tmp/x.css	-1	0 0	3917168608
+preload_hash	file:///tmp/x.css	-1	0 2	567268486
+preload_hash	file:///tmp/x.css	-1	2 0	811243532
+preload_hash	file:///tmp/x.css	-1	2 2	2154860443
+preload_hash	file:///tmp/x.css	0	0 0	382624877
+preload_hash	file:///tmp/x.css	0	0 2	1077317346
+preload_hash	file:///tmp/x.css	0	2 0	1165351281
+preload_hash	file:///tmp/x.css	0	2 2	2183597719
+preload_hash	file:///tmp/x.css	1	0 0	975419912
+preload_hash	file:///tmp/x.css	1	0 2	162011366
+preload_hash	file:///tmp/x.css	1	2 0	2372684434
+preload_hash	file:///tmp/x.css	1	2 2	2447630948
+preload_hash	file:///tmp/x.css	2	0 0	3045333274
+preload_hash	file:///tmp/x.css	2	0 2	1885091339
+preload_hash	file:///tmp/x.css	2	2 0	4114384156
+preload_hash	file:///tmp/x.css	2	2 2	3464718153
+preload_hash	https://example.com/a.png#frag	-1	0 0	1195994220
+preload_hash	https://example.com/a.png#frag	-1	0 2	3439633509
+preload_hash	https://example.com/a.png#frag	-1	2 0	3195614924
+preload_hash	https://example.com/a.png#frag	-1	2 2	91497497
+preload_hash	https://example.com/a.png#frag	0	0 0	2570223987
+preload_hash	https://example.com/a.png#frag	0	0 2	1465781773
+preload_hash	https://example.com/a.png#frag	0	2 0	2779413861
+preload_hash	https://example.com/a.png#frag	0	2 2	95373612
+preload_hash	https://example.com/a.png#frag	1	0 0	3992115118
+preload_hash	https://example.com/a.png#frag	1	0 2	2497815956
+preload_hash	https://example.com/a.png#frag	1	2 0	1527784816
+preload_hash	https://example.com/a.png#frag	1	2 2	2415985317
+preload_hash	https://example.com/a.png#frag	2	0 0	2748641794
+preload_hash	https://example.com/a.png#frag	2	0 2	3523874158
+preload_hash	https://example.com/a.png#frag	2	2 0	970127153
+preload_hash	https://example.com/a.png#frag	2	2 2	3408628043
+mime	/a/b.html	\-	\-	text/html
+mime	/a/b.htm	\-	\-	text/html
+mime	x.png	\-	\-	image/png
+mime	x.PNG	\-	\-	application/octet-stream
+mime	photo.jpeg	\-	\-	image/jpeg
+mime	a.jpg	\-	\-	image/jpeg
+mime	style.css	\-	\-	text/css
+mime	s.js	\-	\-	application/javascript
+mime	m.mjs	\-	\-	application/javascript
+mime	d.json	\-	\-	application/json
+mime	f.woff	\-	\-	font/woff
+mime	f.woff2	\-	\-	font/woff2
+mime	f.ttf	\-	\-	font/ttf
+mime	f.otf	\-	\-	font/otf
+mime	notes.txt	\-	\-	text/plain
+mime	a.c	\-	\-	text/plain
+mime	a.cpp	\-	\-	text/plain
+mime	a.h	\-	\-	text/plain
+mime	.history	\-	\-	text/plain
+mime	x.svg	\-	\-	image/svg+xml
+mime	x.xhtml	\-	\-	application/xhtml+xml
+mime	x.xht	\-	\-	application/xhtml+xml
+mime	x.xml	\-	\-	text/xml
+mime	/dir/	\-	\-	text/html
+mime	noext	\-	\-	application/octet-stream
+mime	a.tar.gz	\-	\-	application/gzip
+mime	x.gif	\-	\-	image/gif
+mime	x.webp	\-	\-	image/webp
+mime	x.ico	\-	\-	image/x-icon
+mime	x.bmp	\-	\-	image/bmp
+mime	x.mp3	\-	\-	audio/mpeg
+mime	x.wav	\-	\-	audio/wav
+mime	x.webm	\-	\-	video/webm
+mime	x.pdf	\-	\-	application/pdf
+mime	x.zip	\-	\-	application/zip
+mime	archive.7z	\-	\-	application/x-7z-compressed
+mime	x.md	\-	\-	text/markdown
+mime	x.sh	\-	\-	text/x-shellscript
+mime	x.icc	\-	\-	application/vnd.iccprofile
+mime	x.tvg	\-	\-	image/tinyvg
+network_error	0	\-	\-	Unable to resolve proxy
+network_error	1	\-	\-	Unable to resolve host
+network_error	2	\-	\-	Unable to connect
+network_error	3	\-	\-	Timeout reached
+network_error	4	\-	\-	Too many redirects
+network_error	5	\-	\-	SSL handshake failed
+network_error	6	\-	\-	SSL verification failed
+network_error	7	\-	\-	The URL is not formatted properly
+network_error	8	\-	\-	Connection was closed before entire response was received
+network_error	9	\-	\-	Response could not be decoded with its Content-Encoding
+network_error	10	\-	\-	RequestServer is currently unavailable
+network_error	11	\-	\-	RequestServer encountered an error reading a cached HTTP response
+network_error	12	\-	\-	An unexpected network error occurred
+user_agent	\-	\-	\-	Mozilla/5.0 (macOS; AArch64) Ladybird/1.0 Chrome/146.0.0.0 AppleWebKit/537.36 Safari/537.36
+platform	\-	\-	\-	macOS AArch64
+last_modified	0	\-	\-	Thu, 01 Jan 1970 00:00:00 GMT
+last_modified	86399	\-	\-	Thu, 01 Jan 1970 23:59:59 GMT
+last_modified	951782400	\-	\-	Tue, 29 Feb 2000 00:00:00 GMT
+last_modified	1700000000	\-	\-	Tue, 14 Nov 2023 22:13:20 GMT
+last_modified	1791040470	\-	\-	Sat, 03 Oct 2026 15:14:30 GMT
+last_modified	2147483647	\-	\-	Tue, 19 Jan 2038 03:14:07 GMT
+error_page	https://example.com/missing	Request finished with error: Unable to connect	\-	<!doctype html>\n<html lang="en">\n    <head>\n        <meta charset="UTF-8" />\n        <title>Error!</title>\n        <style>\n            :root {\n                color-scheme: light dark;\n                font-family: system-ui, sans-serif;\n            }\n            body {\n                display: flex;\n                flex-direction: column;\n                align-items: center;\n                justify-content: center;\n                min-height: 100vh;\n                box-sizing: border-box;\n                margin: 0;\n                padding: 1rem;\n                text-align: center;\n            }\n            header {\n                display: flex;\n                flex-direction: column;\n                align-items: center;\n                gap: 2rem;\n                margin-bottom: 1rem;\n            }\n            svg {\n                height: 64px;\n                width: auto;\n                stroke: currentColor;\n                fill: none;\n                stroke-width: 1.5;\n                stroke-linecap: round;\n                stroke-linejoin: round;\n            }\n            h1 {\n                margin: 0;\n                font-size: 1.5rem;\n            }\n            p {\n                font-size: 1rem;\n                color: #555;\n            }\n        </style>\n    </head>\n    <body>\n        <header>\n            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.5 21.5">\n                <path d="M11.75.75h-9c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-13l-5-5z" />\n                <path d="M10.75.75v4c0 1.1.9 2 2 2h4M5.75 9.75v2M11.75 9.75v2M5.75 16.75c1-2.67 5-2.67 6 0" />\n            </svg>\n            <h1>Failed to load https://example.com/missing</h1>\n        </header>\n        <p>Request finished with error: Unable to connect</p>\n    </body>\n</html>\n
+error_page	file:///tmp/<a>&b.html	No such file or directory (errno=2)	\-	<!doctype html>\n<html lang="en">\n    <head>\n        <meta charset="UTF-8" />\n        <title>Error!</title>\n        <style>\n            :root {\n                color-scheme: light dark;\n                font-family: system-ui, sans-serif;\n            }\n            body {\n                display: flex;\n                flex-direction: column;\n                align-items: center;\n                justify-content: center;\n                min-height: 100vh;\n                box-sizing: border-box;\n                margin: 0;\n                padding: 1rem;\n                text-align: center;\n            }\n            header {\n                display: flex;\n                flex-direction: column;\n                align-items: center;\n                gap: 2rem;\n                margin-bottom: 1rem;\n            }\n            svg {\n                height: 64px;\n                width: auto;\n                stroke: currentColor;\n                fill: none;\n                stroke-width: 1.5;\n                stroke-linecap: round;\n                stroke-linejoin: round;\n            }\n            h1 {\n                margin: 0;\n                font-size: 1.5rem;\n            }\n            p {\n                font-size: 1rem;\n                color: #555;\n            }\n        </style>\n    </head>\n    <body>\n        <header>\n            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.5 21.5">\n                <path d="M11.75.75h-9c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-13l-5-5z" />\n                <path d="M10.75.75v4c0 1.1.9 2 2 2h4M5.75 9.75v2M11.75 9.75v2M5.75 16.75c1-2.67 5-2.67 6 0" />\n            </svg>\n            <h1>Failed to load file:///tmp/%3Ca%3E&amp;b.html</h1>\n        </header>\n        <p>No such file or directory (errno=2)</p>\n    </body>\n</html>\n
+error_page	http://x.test/"quoted"	<script>alert('x')</script>	\-	<!doctype html>\n<html lang="en">\n    <head>\n        <meta charset="UTF-8" />\n        <title>Error!</title>\n        <style>\n            :root {\n                color-scheme: light dark;\n                font-family: system-ui, sans-serif;\n            }\n            body {\n                display: flex;\n                flex-direction: column;\n                align-items: center;\n                justify-content: center;\n                min-height: 100vh;\n                box-sizing: border-box;\n                margin: 0;\n                padding: 1rem;\n                text-align: center;\n            }\n            header {\n                display: flex;\n                flex-direction: column;\n                align-items: center;\n                gap: 2rem;\n                margin-bottom: 1rem;\n            }\n            svg {\n                height: 64px;\n                width: auto;\n                stroke: currentColor;\n                fill: none;\n                stroke-width: 1.5;\n                stroke-linecap: round;\n                stroke-linejoin: round;\n            }\n            h1 {\n                margin: 0;\n                font-size: 1.5rem;\n            }\n            p {\n                font-size: 1rem;\n                color: #555;\n            }\n        </style>\n    </head>\n    <body>\n        <header>\n            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17.5 21.5">\n                <path d="M11.75.75h-9c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-13l-5-5z" />\n                <path d="M10.75.75v4c0 1.1.9 2 2 2h4M5.75 9.75v2M11.75 9.75v2M5.75 16.75c1-2.67 5-2.67 6 0" />\n            </svg>\n            <h1>Failed to load http://x.test/%22quoted%22</h1>\n        </header>\n        <p>&lt;script&gt;alert('x')&lt;/script&gt;</p>\n    </body>\n</html>\n
