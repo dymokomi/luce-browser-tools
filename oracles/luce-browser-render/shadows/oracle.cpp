@@ -70,5 +70,14 @@ int main()
     scene("shadow_inner", 40, 32, [](auto& r) {
         r.paint_inner_box_shadow({ .color = Gfx::Color(0, 60, 200, 255), .blur_radius = 6, .device_content_rect = { 4, 4, 32, 24 }, .content_corner_radii = {}, .outer_shadow_rect = { 0, 0, 40, 32 }, .inner_shadow_rect = { 9, 8, 24, 18 }, .inner_shadow_corner_radii = {} });
     });
+    // Inner shadows of rounded rectangles: SkPathOps' difference of the nested rounded
+    // rectangles (both contours, even-odd), drawn to a mask and blurred; with a square outer one,
+    // and without a blur.
+    scene("shadow_inner_rrect", 40, 32, [](auto& r) {
+        r.paint_inner_box_shadow({ .color = Gfx::Color(0, 60, 200, 255), .blur_radius = 6, .device_content_rect = { 4, 4, 32, 24 }, .content_corner_radii = radii(6, 4, 8, 3), .outer_shadow_rect = { 0, 0, 40, 32 }, .inner_shadow_rect = { 10, 9, 22, 16 }, .inner_shadow_corner_radii = radii(3, 2, 5, 1) });
+    });
+    scene("shadow_inner_rrect_sharp", 40, 32, [](auto& r) {
+        r.paint_inner_box_shadow({ .color = Gfx::Color(180, 40, 0, 200), .blur_radius = 0, .device_content_rect = { 4, 4, 32, 24 }, .content_corner_radii = radii(5, 5, 5, 5), .outer_shadow_rect = { 1, 1, 38, 30 }, .inner_shadow_rect = { 9, 8, 22, 16 }, .inner_shadow_corner_radii = radii(4, 4, 4, 4) });
+    });
     return 0;
 }

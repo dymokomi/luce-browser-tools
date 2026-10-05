@@ -4,6 +4,7 @@
 #include <AK/Vector.h>
 #include <core/SkBitmap.h>
 #include <LibGfx/Bitmap.h>
+#include <LibGfx/ColorSpace.h>
 #include <LibGfx/Filter.h>
 #include <LibGfx/FilterImpl.h>
 #include <LibGfx/ImmutableBitmap.h>
@@ -37,12 +38,14 @@ static sk_sp<SkImage> pattern_image(int w, int h)
     return bm.asImage();
 }
 
-static NonnullRefPtr<Gfx::ImmutableBitmap> pattern_bitmap(int w, int h)
+static NonnullRefPtr<Gfx::ImmutableBitmap> pattern_bitmap(int w, int h, Optional<Gfx::ColorSpace> color_space = {})
 {
     auto bitmap = MUST(Gfx::Bitmap::create(Gfx::BitmapFormat::BGRA8888, Gfx::AlphaType::Premultiplied, { w, h }));
     for (int j = 0; j < h; ++j)
         for (int i = 0; i < w; ++i)
             bitmap->scanline(j)[i] = pattern_pixel(i, j, w, h);
+    if (color_space.has_value())
+        return Gfx::ImmutableBitmap::create(bitmap, color_space.release_value());
     return Gfx::ImmutableBitmap::create(bitmap);
 }
 
@@ -54,6 +57,10 @@ struct Scene {
     float alpha { 1 };
     bool luma { false };
     bool backdrop { false };
+    // Restore with source-over (as Ladybird's ApplyEffects layers do) instead of kSrc: the same
+    // composite onto the transparent canvas, but FilterResult::draw takes drawSpecial's path
+    // rather than filling the device with the result's shader.
+    bool src_over { false };
 };
 
 // Content: the 10x8 pattern at (7, 8) and two solid rects, drawn under the CTM (non-AA).
@@ -75,7 +82,8 @@ static void run(Scene const& s, Filter const* filter)
     c->clipIRect(s.clip);
     c->setMatrix(s.ctm);
     SkPaint paint;
-    paint.setBlendMode(SkBlendMode::kSrc);
+    if (!s.src_over)
+        paint.setBlendMode(SkBlendMode::kSrc);
     if (s.alpha < 1)
         paint.setAlphaf(s.alpha);
     if (s.luma)
@@ -200,5 +208,32 @@ int main()
     scene({ .name = "compose" }, Filter::compose(Filter::blur(1, 1), Filter::color(Gfx::ColorFilterType::Grayscale, 1)));
     scene({ .name = "backdrop_blur", .clip = SkIRect::MakeLTRB(0, 4, 16, 18), .backdrop = true }, Filter::blur(2, 2));
     scene({ .name = "backdrop_invert", .clip = SkIRect::MakeLTRB(6, 6, 20, 20), .backdrop = true }, Filter::color(Gfx::ColorFilterType::Invert, 1));
+    // Displacements that land on integer coordinates (a black map, scale 1: every pixel
+    // samples the color input at (x, y), which nearest sampling's roundDownAtInteger takes
+    // from (x - 1, y - 1)), and the Screenshot test's turbulence displacements.
+    scene({ .name = "displacement_integer" }, Filter::displacement_map({}, Filter::flood(Gfx::Color(0, 0, 0, 255), 1), 1, Gfx::ChannelSelector::Red, Gfx::ChannelSelector::Red));
+    scene({ .name = "displacement_turbulence", .w = 48, .h = 48 }, Filter::displacement_map({}, Filter::turbulence(Gfx::TurbulenceType::Turbulence, 0.05f, 0.05f, 2, 0, { 0, 0 }), 30, Gfx::ChannelSelector::Red, Gfx::ChannelSelector::Green));
+    // A layer matrix with perspective: filters whose every node takes any matrix keep the
+    // whole CTM as the layer matrix (skif::Mapping::decomposeCTM), so offsets, images and
+    // shaders map through it.
+    SkMatrix persp = SkMatrix::MakeAll(1.1f, 0.15f, 1, -0.05f, 0.95f, 2, 0.006f, -0.004f, 1);
+    run({ .name = "content_persp", .w = 48, .h = 48, .ctm = persp }, nullptr);
+    scene({ .name = "persp_grayscale", .ctm = persp, .src_over = true }, Filter::color(Gfx::ColorFilterType::Grayscale, 0.7f));
+    scene({ .name = "persp_offset", .ctm = persp, .src_over = true }, Filter::offset(3, 2));
+    {
+        auto image = pattern_bitmap(10, 8);
+        scene({ .name = "persp_image", .ctm = persp, .src_over = true }, Filter::image(*image, { 0, 0, 10, 8 }, { 4, 3, 10, 8 }, Gfx::ScalingMode::Bilinear));
+    }
+    scene({ .name = "persp_turbulence", .ctm = persp, .src_over = true }, Filter::turbulence(Gfx::TurbulenceType::FractalNoise, 0.15f, 0.2f, 2, 3, { 0, 0 }));
+    // Images in another color space (SkImageFilters::Image of an SkImage tagged with it),
+    // converted to the sRGB layer after sampling: Display P3 (sRGB curve), and BT.709
+    // primaries with BT.470M's 2.2 gamma.
+    {
+        auto p3 = pattern_bitmap(10, 8, MUST(Gfx::ColorSpace::from_cicp({ Media::ColorPrimaries::SMPTE432, Media::TransferCharacteristics::SRGB, Media::MatrixCoefficients::BT709, Media::VideoFullRangeFlag::Full })));
+        scene({ .name = "image_p3_nearest" }, Filter::image(*p3, { 1, 1, 6, 5 }, { 3, 2, 12, 10 }, Gfx::ScalingMode::NearestNeighbor));
+        scene({ .name = "image_p3_offset" }, Filter::image(*p3, { 0, 0, 10, 8 }, { 5, 4, 10, 8 }, Gfx::ScalingMode::Bilinear));
+        auto gamma = pattern_bitmap(10, 8, MUST(Gfx::ColorSpace::from_cicp({ Media::ColorPrimaries::BT709, Media::TransferCharacteristics::BT470M, Media::MatrixCoefficients::BT709, Media::VideoFullRangeFlag::Full })));
+        scene({ .name = "image_gamma_blur" }, Filter::blur(1.5f, 1.5f, Filter::image(*gamma, { 0, 0, 10, 8 }, { 5, 4, 10, 8 }, Gfx::ScalingMode::Bilinear)));
+    }
     return 0;
 }

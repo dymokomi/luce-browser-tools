@@ -31,7 +31,7 @@ struct FakeFontConfig final : Gfx::SystemFontProvider {
 
 static NonnullRefPtr<Gfx::Typeface> load(char const* name)
 {
-    auto path = ByteString::formatted("/Users/sedov/Dev/luce_dev/luce-browser-render-fid2/tests/web_fonts/fonts/{}", name);
+    auto path = ByteString::formatted("/Users/sedov/Dev/luce_dev/luce-browser-render/tests/web_fonts/fonts/{}", name);
     auto file = MUST(Core::File::open(path, Core::File::OpenMode::Read));
     auto bytes = MUST(file->read_until_eof());
     return MUST(Gfx::Typeface::try_load_from_font_data(Gfx::FontData::create_from_byte_buffer(move(bytes))));
@@ -178,6 +178,38 @@ int main()
         auto text = Utf16String::from_utf8("Hi"sv);
         auto run = Gfx::shape_text({ 0, 0 }, 0, text.utf16_view(), *s16, Gfx::GlyphRun::TextType::Common);
         r.draw_glyph_run({ 4, 16 }, *run, Gfx::Color(0, 0, 0, 255), { 0, 0, 40, 24 }, 1.0, Gfx::Orientation::Horizontal);
+    });
+    // An affine 3D transform (rotateX without perspective, as clip-path-transformed's boxes
+    // have): Skia draws the rectangle with SkScan::AntiFillRect, the frame as a path.
+    scene("rotate_x_affine_rect", 32, 32, [](auto& r, auto& tree) {
+        auto t = tree.append(TransformData { rotate_x(0.98480775f, 0.17364818f), { 16, 15 } }, {});
+        r.set_accumulated_visual_context(t);
+        r.fill_rect({ 4, 5, 20, 15 }, Gfx::Color(128, 128, 128, 255));
+        Gfx::Path frame;
+        frame.move_to({ 2, 3 });
+        frame.line_to({ 26, 3 });
+        frame.line_to({ 26, 22 });
+        frame.line_to({ 2, 22 });
+        frame.close();
+        frame.move_to({ 4, 5 });
+        frame.line_to({ 24, 5 });
+        frame.line_to({ 24, 20 });
+        frame.line_to({ 4, 20 });
+        frame.close();
+        r.fill_path({ .path = frame, .paint_style_or_color = Gfx::Color(0, 0, 0, 255), .winding_rule = Gfx::WindingRule::EvenOdd });
+    });
+    // A blurred rounded-rectangle shadow under a quarter turn and under a mirror: SkRRect::
+    // transform keeps it a rounded rectangle (radii read back from the mapped contour), drawn
+    // through filterRRect's nine-patch.
+    scene("shadow_rrect_quarter_turn", 40, 40, [](auto& r, auto& tree) {
+        auto t = tree.append(TransformData { Gfx::FloatMatrix4x4(0, -1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), { 20, 20 } }, {});
+        r.set_accumulated_visual_context(t);
+        r.paint_outer_box_shadow({ .color = Gfx::Color(200, 0, 120, 255), .blur_radius = 6, .device_content_rect = { 3, 2, 30, 32 }, .content_corner_radii = {}, .shadow_rect = { 5, 4, 30, 32 }, .shadow_corner_radii = { { 6, 6 }, { 3, 3 }, { 8, 8 }, { 2, 2 } } });
+    });
+    scene("shadow_rrect_mirror", 40, 40, [](auto& r, auto& tree) {
+        auto t = tree.append(TransformData { Gfx::FloatMatrix4x4(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1), { 20, 20 } }, {});
+        r.set_accumulated_visual_context(t);
+        r.paint_outer_box_shadow({ .color = Gfx::Color(0, 90, 160, 255), .blur_radius = 5, .device_content_rect = { 3, 2, 30, 32 }, .content_corner_radii = {}, .shadow_rect = { 5, 4, 30, 32 }, .shadow_corner_radii = { { 7, 4 }, { 2, 2 }, { 5, 5 }, { 3, 6 } } });
     });
     return 0;
 }
