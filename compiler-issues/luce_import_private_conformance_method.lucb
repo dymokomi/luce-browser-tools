@@ -1,0 +1,32 @@
+# Compiler issue (Luce 0.12.3, luce-base 0.37.3): a Luce program cannot import a Base module in
+# which a `pub struct` conforms to a `pub interface` through a method that is not `pub`.
+#
+# Base accepts the module (`luce-base check` succeeds; a conformance needs no `pub` on its method),
+# and `luce-base describe` describes it, but Luce, reading the description, rejects the
+# conformance because the private method is not in it. luce-browser-foundation's ak has such
+# structs (FixedPointPrecision4 and its siblings, fixed_point_1.lucb), so no Luce program can
+# import a module of the luce-browser packages (luced-browser imports luce-browser-engine's
+# webview, which imports ak).
+#
+# Repro: this file as src/marker.lucb of a package whose src/main.luc is
+#
+#     import marker
+#
+#     pub func main(arguments: list[str]) -> int!:
+#         print(marker.answer())
+#         return 0
+#
+# Expected: `luce build src/main.luc` succeeds (the struct is not used, and its conformance is
+#           complete in Base).
+# Actual:   marker.lucb:1:1: the conformance to this interface lacks the method `precision`
+
+pub interface Precision:
+    func precision() -> usize
+
+pub struct Precision4: Precision:
+    var empty_: u8
+
+    func precision() -> usize: return 4
+
+pub func answer() -> i64:
+    return 4
