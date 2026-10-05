@@ -18,6 +18,6 @@ func main(arguments: str[]) -> i32!:
         try long.put("abcde")
     let text = long.view()
     var out = try strings.Builder.create()
-    discard(try out.write(f"[{text}]"))
+    _ = try out.write(f"[{text}]")
     print(f"field {text.length} bytes, written {out.view().length} bytes\n")
     return 0

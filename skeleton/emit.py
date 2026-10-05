@@ -407,7 +407,7 @@ pub struct {n}Children: luce.Iterable[{n}*, {n}ChildIterator]:
 pub struct {n}ChildIterator: luce.Iterator[{n}*]:
     pub var next_node: {n}*?
 
-    mutating func next() -> {n}*?:
+    func next() -> {n}*?:
         let node = self.next_node else return none
         self.next_node = node.tree_node.m_next_sibling
         return node
@@ -434,7 +434,7 @@ pub struct {n}SubtreeIterator: luce.Iterator[{n}*]:
     pub var started: bool
     pub var skip: bool
 
-    mutating func next() -> {n}*?:
+    func next() -> {n}*?:
         if not self.started:
             self.started = true
             self.current = self.root
@@ -458,7 +458,7 @@ pub struct {n}SubtreeIterator: luce.Iterator[{n}*]:
         return next
 
     ## Do not descend into the children of the node `next()` returned last.
-    mutating func skip_children():
+    func skip_children():
         self.skip = true
 
 ## The descendants of `node` in pre-order (not `node` itself).
@@ -628,7 +628,8 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
                 parts = []
                 for key, (au, fname, bu) in sorted(mo.items()):
                     ad = p.decls[('rec', au)]
-                    parts.append(f'{key} = offsetof({self.qual(module, ad.module, ad.name)}, {fname})')
+                    parts.append(f'{key} = memory.offset_of({self.qual(module, ad.module, ad.name)}, {fname})')
+                self.extra_imports[module].add('memory')
                 out.append(f'## Where {d.q}\'s stateful mixins live inside it (DESIGN.md §2.5).')
                 out.append(f'pub let {s}_mixins: MixinOffsets = MixinOffsets({", ".join(parts)})')
                 out.append('')
@@ -638,9 +639,10 @@ pub func {s}_inclusive_subtree(node: {n}*) -> {n}Subtree:
             out.append('## numbered ancestor\'s id and is recognized by its ClassInfo), size, vtable.')
         else:
             out.append(f'## Class information of {d.q}: name, class-id range (pre-order), size, vtable.')
+        self.extra_imports[module].add('memory')
         out.append(f'pub let {s}_class: {self.qual(module, "ak", "ClassInfo")} = '
                    f'{self.qual(module, "ak", "ClassInfo")}(name = "{d.q.split("::")[-1]}", '
-                   f'first_id = {ids[0]}, last_id = {ids[1]}, size = sizeof({d.name}), '
+                   f'first_id = {ids[0]}, last_id = {ids[1]}, size = memory.size_of({d.name}), '
                    f'vtable = (const void*)&{s}_vtable{mixins_arg})')
         out.append('')
         # the vtables of the polymorphic mixins inside this class, with its overrides (§2.5)

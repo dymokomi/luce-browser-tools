@@ -10,7 +10,7 @@ func fail() -> i64!:
 
 test "comment after catch in parentheses":
     var failed = false
-    discard(fail() catch failure: # comment on the catch line
+    _ = (fail() catch failure: # comment on the catch line
         failed = true
         recover 0)
     assert(failed)

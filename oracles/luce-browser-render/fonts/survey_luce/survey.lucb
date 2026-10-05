@@ -3,6 +3,7 @@ import c
 import memory
 import web_fonts
 import gfx
+import strings
 
 extern func fopen(path: c.str, mode: c.str) -> void*?
 extern func fclose(stream: void*) -> i32
@@ -10,7 +11,7 @@ extern func fread(buffer: void*, size: usize, count: usize, stream: void*) -> us
 
 func read_file(path: c.str) -> ak.ByteBuffer?:
     let stream = fopen(path, "rb") else return none
-    defer discard(fclose(stream))
+    defer _ = fclose(stream)
     var buffer: ak.ByteBuffer
     var chunk: u8[65536]
     while true:
@@ -53,7 +54,7 @@ func survey(path: str, tf: web_fonts.Typeface*):
     ak.string_builder_append(&line, "  ids:")
     for cp in cps:
         var number: u8[16]
-        let text = format(number, f" {web_fonts.typeface_glyph_id_for_code_point(tf, cp)}") else ""
+        let text = strings.format(number, f" {web_fonts.typeface_glyph_id_for_code_point(tf, cp)}") else ""
         ak.string_builder_append(&line, text)
     let ids = ak.string_builder_to_string(&line) else trap("?")
     print(ak.string_view_text(ak.string_bytes_as_string_view(&ids)))
@@ -71,7 +72,7 @@ func survey(path: str, tf: web_fonts.Typeface*):
         for g in ak.vector_span_const(&run.m_glyphs):
             var number: u8[16]
             let x = hex8(g.position.m_x.bits())
-            let text2 = format(number, f" {g.glyph_id}@") else ""
+            let text2 = strings.format(number, f" {g.glyph_id}@") else ""
             ak.string_builder_append(&out, text2)
             ak.string_builder_append(&out, (str)x.bytes[0..])
         let line2 = ak.string_builder_to_string(&out) else trap("?")

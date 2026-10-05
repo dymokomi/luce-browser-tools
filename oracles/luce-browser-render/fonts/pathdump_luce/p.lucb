@@ -1,6 +1,7 @@
 import ak
 import c
 import web_fonts
+import strings
 
 extern func fopen(path: c.str, mode: c.str) -> void*?
 extern func fclose(stream: void*) -> i32
@@ -16,7 +17,7 @@ pub func main(arguments: c.str[]) -> i32:
         if count == 0:
             break
         ak.byte_buffer_try_append_span_u8(&buffer, chunk[0..<count]) else return 1
-    discard(fclose(stream))
+    _ = fclose(stream)
     let tf = web_fonts.typeface_try_load_from_temporary_memory(ak.byte_buffer_bytes_const(&buffer)) else return 1
     let font = web_fonts.typeface_font(tf, 12.0)
     let cp = (u32)strtoul(arguments[2], none, 16)
@@ -40,10 +41,10 @@ pub func main(arguments: c.str[]) -> i32:
         ak.string_builder_construct(&line)
         var text: u8[256]
         var length: usize = 0
-        let head = format(text, f"{code}") else ""
+        let head = strings.format(text, f"{code}") else ""
         length = head.length
         for i in 0..<count:
-            let part = format(text[length..], f" {points[point + i].m_x.bits()},{points[point + i].m_y.bits()}") else ""
+            let part = strings.format(text[length..], f" {points[point + i].m_x.bits()},{points[point + i].m_y.bits()}") else ""
             length += part.length
         print((str)text[0..<length])
         point += count

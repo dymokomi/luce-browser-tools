@@ -6,14 +6,16 @@
 # Actual:   pick(u32) = 1, pick(u64) = 1   (luce-base 0.23.0)
 # Workaround: `let size = sizeof(T)` and test `size`.
 
+import memory
+
 func pick[T](value: const T*) -> usize:
-    if sizeof(T) % 8 == 0:
+    if memory.size_of(T) % 8 == 0:
         return 1
     else:
         return 2
 
 func pick_workaround[T](value: const T*) -> usize:
-    let size = sizeof(T)
+    let size = memory.size_of(T)
     if size % 8 == 0:
         return 1
     return 2
