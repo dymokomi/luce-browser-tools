@@ -1,0 +1,64 @@
+BMP has an invalid bpp: 0
+BMP has an invalid DIB
+cases/animation-loop0.gif: frames 6 animated true loop 0 size 2x1
+  frame 0: 2x1 duration 50 hash be9abf9b first ffff0000 00000000
+  frame 1: 2x1 duration 100 hash 7b08ff53 first ffff0000 ff00ff00
+  frame 2: 2x1 duration 100 hash 14b0dec3 first ff0000ff 00000000
+  frame 3: 2x1 duration 200 hash b070a519 first ffff0000 ff0000ff
+  frame 4: 2x1 duration 30 hash f454c81b first ff00ff00 ff0000ff
+  frame 5: 2x1 duration 70 hash f454c81b first ff00ff00 ff0000ff
+cases/animation-loop2.gif: frames 6 animated true loop 2 size 2x1
+  frame 0: 2x1 duration 50 hash be9abf9b first ffff0000 00000000
+  frame 1: 2x1 duration 100 hash 7b08ff53 first ffff0000 ff00ff00
+  frame 2: 2x1 duration 100 hash 14b0dec3 first ff0000ff 00000000
+  frame 3: 2x1 duration 200 hash b070a519 first ffff0000 ff0000ff
+  frame 4: 2x1 duration 30 hash f454c81b first ff00ff00 ff0000ff
+  frame 5: 2x1 duration 70 hash f454c81b first ff00ff00 ff0000ff
+cases/animation-noloop.gif: frames 6 animated true loop 1 size 2x1
+  frame 0: 2x1 duration 50 hash be9abf9b first ffff0000 00000000
+  frame 1: 2x1 duration 100 hash 7b08ff53 first ffff0000 ff00ff00
+  frame 2: 2x1 duration 100 hash 14b0dec3 first ff0000ff 00000000
+  frame 3: 2x1 duration 200 hash b070a519 first ffff0000 ff0000ff
+  frame 4: 2x1 duration 30 hash f454c81b first ff00ff00 ff0000ff
+  frame 5: 2x1 duration 70 hash f454c81b first ff00ff00 ff0000ff
+cases/ico-bmp-entries.ico: frames 1 animated false loop 0 size 2x1
+  frame 0: 2x1 duration 0 hash 0c741bc3 first ff0000ff 80808080
+cases/ico-png-and-bmp.ico: frames 1 animated false loop 0 size 1x1
+  frame 0: 1x1 duration 0 hash eec8fc45 first 80181008
+cases/png-in.bmp: no decoder
+cases/top-down.bmp: frames 1 animated false loop 0 size 2x2
+  frame 0: 2x2 duration 0 hash 26043aad first ffff0000 ff00ff00 ff0000ff ffffffff
+test-inputs/bmp/2x2x32_v4.bmp: frames 1 animated false loop 0 size 2x2
+  frame 0: 2x2 duration 0 hash 50c0069d first ffff0000 ffff0000 ffff0000 ffff0000
+test-inputs/bmp/bitmap.bmp: frames 1 animated false loop 0 size 399x400
+  frame 0: 399x400 duration 0 hash 03ebbbb5 first ffffffff ffffffff ffffffff ffffffff
+test-inputs/bmp/os2_3bpc.bmp: frames 1 animated false loop 0 size 300x200
+  frame 0: 300x200 duration 0 hash 29017f4c first ff000000 ffffffff ff000000 ff000000
+test-inputs/bmp/oss-fuzz-testcase-62541.bmp: frames 1 animated false loop 0 size 1x1
+  frame 0: error ICOImageDecoderPlugin: Decoding failed
+test-inputs/bmp/rgba32-1.bmp: frames 1 animated false loop 0 size 127x64
+  frame 0: 127x64 duration 0 hash f7e7aba3 first ffff0000 ffff0808 ffff1010 ffff1919
+test-inputs/bmp/too-many-palette-colors.bmp: frames 1 animated false loop 0 size 2x2
+  frame 0: 2x2 duration 0 hash 50c0069d first ffff0000 ffff0000 ffff0000 ffff0000
+test-inputs/cur/cursor.cur: frames 1 animated false loop 0 size 32x32
+  frame 0: 32x32 duration 0 hash 1dfbece1 first 00000000 00000000 00000000 00000000
+test-inputs/gif/corrupted.gif: frames 1 animated false loop 0 size 88x31
+  frame 0: 88x31 duration 100 hash ea5dc90d first fffcfcfc fffcfcfc fffcfcfc fffcfcfc
+test-inputs/gif/download-animation.gif: frames 3 animated true loop 0 size 292x32
+  frame 0: 292x32 duration 400 hash 5974dc75 first 00000000 00000000 00000000 00000000
+  frame 1: 292x32 duration 400 hash 2a523f97 first 00000000 00000000 00000000 00000000
+  frame 2: 292x32 duration 400 hash b0a3d89f first 00000000 00000000 00000000 00000000
+test-inputs/gif/minimal-1x1.gif: frames 1 animated false loop 1 size 1x1
+  frame 0: 1x1 duration 100 hash 4b95f515 first 00000000
+test-inputs/ico/malformed_maskless.ico: frames 1 animated false loop 0 size 16x16
+  frame 0: 16x16 duration 0 hash 13f0fdd2 first 00000000 00000000 00000000 00000000
+test-inputs/ico/oss-fuzz-testcase-62541.ico: frames 1 animated false loop 0 size 1x1
+  frame 0: error ICOImageDecoderPlugin: Decoding failed
+test-inputs/ico/oss-fuzz-testcase-63177.ico: frames 1 animated false loop 0 size 32x32
+  frame 0: error ICOImageDecoderPlugin: Decoding failed
+test-inputs/ico/oss-fuzz-testcase-63357.ico: frames 1 animated false loop 0 size 32x32
+  frame 0: error ICOImageDecoderPlugin: Decoding failed
+test-inputs/ico/serenity.ico: frames 1 animated false loop 0 size 16x16
+  frame 0: 16x16 duration 0 hash 13f0fdd2 first 00000000 00000000 00000000 00000000
+test-inputs/ico/yt-favicon.ico: frames 1 animated false loop 0 size 16x16
+  frame 0: 16x16 duration 0 hash 3c919117 first ffffffff ffcb9f5e ff6c390f ffffffff
