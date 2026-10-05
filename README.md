@@ -15,6 +15,9 @@ the agent briefs, so the work can move between machines.
 | `oracles/luce-browser-foundation/` | e.g. `string_hash_oracle.cpp`: AK hash values pinned in foundation tests. |
 | `oracles/luce-browser-html/tokenizer/` | HTMLTokenizer oracle and the expected outputs pinned in html_syntax's tests. |
 | `oracles/luce-browser-render/` | `fonts/` (Skia/FreeType/HarfBuzz metrics, shaping and glyph paths via Ladybird's LibGfx), `player/` (DisplayListPlayerSkia scenes), `filters/` (Skia image filters), `text_path/`. |
+| `oracles/luce-color/icc/` | `skcms_oracle.cpp`: skcms (the Skia pin's) dumping profiles as luce-color's `tests/icc_tool.lucb` does, built portable without contraction (the port's bit-exact reference) and as NEON; `skia_oracle.cpp`: SkColorSpace::Make, Ladybird's load_from_icc_bytes and images drawn from color spaces through libskia; `compare.py` holds two dumps against each other with tolerances. |
+| `oracles/luce-png/color/` | `libpng_oracle.c`: the color chunks (cICP, iCCP and its profile, sRGB, gAMA, cHRM) libpng 1.6.50 reads, as luce-png's `tests/color_tool.lucb` prints them. |
+| `oracles/luce-jpeg/icc/` | `libjpeg_oracle.c`: the ICC profile libjpeg-turbo's jpeg_read_icc_profile joins, read as Ladybird's JPEGLoader reads it, as luce-jpeg's `tests/icc_tool.lucb` prints it. |
 | `oracles/raster-skia/` | Renders the raster module's scenes with Skia m144 (the version Ladybird builds) to produce the reference PNGs. |
 | `oracles/luce-regex/` | Drivers comparing luce-regex (the RegExp engine luce-js uses) with QuickJS's C libregexp/libunicode (`oracle_driver.c` builds against a QuickJS checkout). |
 | `compiler-issues/` | Minimal `.lucb` reductions of luce-base bugs found by the browser ports. The tracked list is luce-js's `docs/COMPILER-REQUESTS.md`. |
