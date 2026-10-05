@@ -2,10 +2,13 @@
 # oracle's expected.txt: python3 gen_luce_cases.py > .../tests_fetch_http_cases.lucb
 # Region p2a's table (fetch/infrastructure/tests_fetch_infrastructure_cases.lucb) from
 # expected_p2a.txt: python3 gen_luce_cases.py p2a > .../tests_fetch_infrastructure_cases.lucb
+# Region p2c's table (fetch/fetching/tests_fetching_cases.lucb) from expected_p2c.txt:
+# python3 gen_luce_cases.py p2c > .../tests_fetching_cases.lucb
 import sys
 
 p2a = len(sys.argv) > 1 and sys.argv[1] == 'p2a'
-lines = open('expected_p2a.txt' if p2a else 'expected.txt', encoding='latin-1').read().split('\n')
+p2c = len(sys.argv) > 1 and sys.argv[1] == 'p2c'
+lines = open('expected_p2c.txt' if p2c else 'expected_p2a.txt' if p2a else 'expected.txt', encoding='latin-1').read().split('\n')
 
 
 def unescape(s):
@@ -56,6 +59,30 @@ while i < len(lines):
     i += 2
 
 out = sys.stdout
+if p2c:
+    out.write('''#==============================================================================================
+#
+#   tests_fetching_cases - Fetch/Fetching's checks and Fetch metadata headers pinned to the
+#   reference build
+#
+#   DESCRIPTION:
+#       Generated (a test vector table) from the output of a local oracle that runs the
+#       reference Ladybird build's Fetch/Fetching (the CORS check, the TAO check, appending the
+#       Fetch metadata headers) on the same inputs (luce-browser-tools,
+#       oracles/luce-browser-engine/fetch_http: cases_p2c.txt, oracle.cpp, gen_luce_cases.py
+#       p2c). Each case is an operation, its arguments separated by 0x1F, and the oracle's
+#       result line; tests_fetching_1 runs the operation and prints its result the way the
+#       oracle does.
+#
+#==============================================================================================
+
+''')
+    out.write('## The cases (generated).\n')
+    out.write('let fetch_fetching_cases: FetchHttpCase[%d] = [\n' % len(cases))
+    for op, args, expected in cases:
+        out.write('    FetchHttpCase(op = "%s", argument_count = %d, arguments = %s, expected = %s),\n' % (op, len(args), blit(b'\x1f'.join(args)), blit(expected)))
+    out.write(']\n')
+    sys.exit(0)
 if p2a:
     out.write('''#==============================================================================================
 #

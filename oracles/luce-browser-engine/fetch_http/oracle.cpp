@@ -6,6 +6,9 @@
 // an empty argument. The
 // output repeats the case line, then "= <result>" on the next line (escaped the same way).
 //
+// Region p2c extends it (run_p2c below) with Fetch/Fetching's CORS and TAO checks and the Fetch
+// metadata headers: cases_p2c.txt -> expected_p2c.txt.
+//
 // Region p2a extends it (run_p2a below) with Fetch/Infrastructure's data: URLs, bad ports, the
 // nosniff and MIME type blocking checks, timing infos, fetch controllers and params, and
 // ReferrerPolicy and SecureContexts: cases_p2a.txt -> expected_p2a.txt.
@@ -41,6 +44,8 @@
 #include <LibWeb/Fetch/Infrastructure/URL.h>
 #include <LibWeb/ReferrerPolicy/AbstractOperations.h>
 #include <LibWeb/SecureContexts/AbstractOperations.h>
+#include <LibWeb/Fetch/Fetching/Checks.h>
+#include <LibWeb/Fetch/Fetching/Fetching.h>
 #undef private
 
 using namespace Web::Fetch::Infrastructure;
@@ -357,8 +362,58 @@ static std::string state_name(FetchController::State s)
     return "?";
 }
 
+// ---- Region p2c ------------------------------------------------------------------------------
+
+static Request::CredentialsMode credentials_of(std::string const& s)
+{
+    if (s == "omit") return Request::CredentialsMode::Omit;
+    if (s == "same-origin") return Request::CredentialsMode::SameOrigin;
+    return Request::CredentialsMode::Include;
+}
+
+static std::string run_p2c(std::vector<std::string> const& f)
+{
+    auto const& op = f[0];
+    if (op == "cors_check") {
+        // credentials-mode origin [name value]...
+        auto request = Request::create(the_vm());
+        request->set_credentials_mode(credentials_of(f[1]));
+        request->set_origin(origin_of(f[2]));
+        auto response = response_with_headers(f, 3);
+        return Web::Fetch::Fetching::cors_check(request, response) ? "success" : "failure";
+    }
+    if (op == "tao_check") {
+        // timing-allow-failed mode origin current-url tainting [name value]...
+        auto request = Request::create(the_vm());
+        request->set_timing_allow_failed(f[1] == "true");
+        request->set_mode(mode_of(f[2]));
+        request->set_origin(origin_of(f[3]));
+        request->set_url(url(f[4]));
+        request->set_response_tainting(tainting_of(f[5]));
+        auto response = response_with_headers(f, 6);
+        return Web::Fetch::Fetching::tao_check(request, response) ? "success" : "failure";
+    }
+    if (op == "fetch_metadata") {
+        // origin mode destination user-activation url...
+        auto request = Request::create(the_vm());
+        request->set_origin(origin_of(f[1]));
+        request->set_mode(mode_of(f[2]));
+        request->set_destination(destination_of(f[3]));
+        request->set_user_activation(f[4] == "true");
+        Vector<URL::URL> urls;
+        for (size_t i = 5; i < f.size(); i++)
+            urls.append(url(f[i]));
+        request->set_url_list(move(urls));
+        Web::Fetch::Fetching::append_fetch_metadata_headers_for_request(request);
+        return headers(request->header_list()->headers());
+    }
+    return "unknown op " + op;
+}
+
 static std::string run_p2a(std::vector<std::string> const& f)
 {
+    if (f[0] == "cors_check" || f[0] == "tao_check" || f[0] == "fetch_metadata")
+        return run_p2c(f);
     auto const& op = f[0];
     auto a = [&](size_t i) { return sv(f[i]); };
     if (op == "data_url" || op == "data_url_complete") {

@@ -1,0 +1,1014 @@
+cors_check	omit	https://a.test
+= failure
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	*
+= success
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= success
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= success
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= success
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	https://a.test
+= success
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= success
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= success
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= success
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	http://a.test:8080
+= failure
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	null
+= failure
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	omit	https://a.test	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	omit	http://a.test:8080
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	*
+= success
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= success
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= success
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= success
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	https://a.test
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	http://a.test:8080
+= success
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	null
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	omit	http://a.test:8080	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	omit	opaque
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	*
+= success
+cors_check	omit	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= success
+cors_check	omit	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= success
+cors_check	omit	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= success
+cors_check	omit	opaque	Access-Control-Allow-Origin	https://a.test
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	http://a.test:8080
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	null
+= success
+cors_check	omit	opaque	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	omit	opaque	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	same-origin	https://a.test
+= failure
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	*
+= success
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= success
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= success
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= success
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	https://a.test
+= success
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= success
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= success
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= success
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	http://a.test:8080
+= failure
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	null
+= failure
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	same-origin	https://a.test	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	same-origin	http://a.test:8080
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	*
+= success
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= success
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= success
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= success
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	https://a.test
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	http://a.test:8080
+= success
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	null
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	same-origin	http://a.test:8080	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	same-origin	opaque
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	*
+= success
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= success
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= success
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= success
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	https://a.test
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	http://a.test:8080
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	null
+= success
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	same-origin	opaque	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	include	https://a.test
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	*
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= success
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	http://a.test:8080
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	null
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	*
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://a.test
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	http://a.test:8080
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	true
+= success
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	null
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	http://a.test:8080	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque
+= failure
+cors_check	include	opaque	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	opaque	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	*
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	*	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://a.test
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	http://a.test:8080
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	http://a.test:8080	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	null
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	true
+= success
+cors_check	include	opaque	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	null	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://A.test
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://A.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://a.test/
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://a.test/	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	*, *
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	*, *	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://b.test
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	TRUE
+= failure
+cors_check	include	opaque	Access-Control-Allow-Origin	https://b.test	Access-Control-Allow-Credentials	false
+= failure
+cors_check	include	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Origin	https://a.test	Access-Control-Allow-Credentials	true
+= failure
+cors_check	omit	https://a.test	access-control-allow-origin	*
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	basic
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://b.test
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	null
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	cors
+= failure
+tao_check	false	cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	null
+= failure
+tao_check	false	cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	opaque
+= failure
+tao_check	false	cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	null
+= failure
+tao_check	false	cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	basic
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://b.test
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	null
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	cors
+= failure
+tao_check	false	cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	null
+= failure
+tao_check	false	cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	opaque
+= failure
+tao_check	false	cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	null
+= failure
+tao_check	false	cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	cors	opaque	https://a.test/	basic
+= success
+tao_check	false	cors	opaque	https://a.test/	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	cors	opaque	https://a.test/	basic	Timing-Allow-Origin	https://b.test
+= success
+tao_check	false	cors	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	opaque	https://a.test/	basic	Timing-Allow-Origin	null
+= success
+tao_check	false	cors	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	cors	opaque	https://a.test/	cors
+= failure
+tao_check	false	cors	opaque	https://a.test/	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test
+= failure
+tao_check	false	cors	opaque	https://a.test/	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	cors	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	opaque	https://a.test/	cors	Timing-Allow-Origin	null
+= success
+tao_check	false	cors	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= failure
+tao_check	false	cors	opaque	https://a.test/	opaque
+= failure
+tao_check	false	cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test
+= failure
+tao_check	false	cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	null
+= success
+tao_check	false	cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= failure
+tao_check	false	no-cors	https://a.test	https://a.test/x	basic
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://b.test
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	null
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	cors
+= failure
+tao_check	false	no-cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	no-cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	null
+= failure
+tao_check	false	no-cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	opaque
+= failure
+tao_check	false	no-cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	no-cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	null
+= failure
+tao_check	false	no-cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	basic
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://b.test
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	null
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	cors
+= failure
+tao_check	false	no-cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	no-cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	null
+= failure
+tao_check	false	no-cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	opaque
+= failure
+tao_check	false	no-cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	no-cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	null
+= failure
+tao_check	false	no-cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	no-cors	opaque	https://a.test/	basic
+= success
+tao_check	false	no-cors	opaque	https://a.test/	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	no-cors	opaque	https://a.test/	basic	Timing-Allow-Origin	https://b.test
+= success
+tao_check	false	no-cors	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	opaque	https://a.test/	basic	Timing-Allow-Origin	null
+= success
+tao_check	false	no-cors	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	no-cors	opaque	https://a.test/	cors
+= failure
+tao_check	false	no-cors	opaque	https://a.test/	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test
+= failure
+tao_check	false	no-cors	opaque	https://a.test/	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	no-cors	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	opaque	https://a.test/	cors	Timing-Allow-Origin	null
+= success
+tao_check	false	no-cors	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= failure
+tao_check	false	no-cors	opaque	https://a.test/	opaque
+= failure
+tao_check	false	no-cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	no-cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test
+= failure
+tao_check	false	no-cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	no-cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	no-cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	null
+= success
+tao_check	false	no-cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= failure
+tao_check	false	navigate	https://a.test	https://a.test/x	basic
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://b.test
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	null
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	cors
+= failure
+tao_check	false	navigate	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	navigate	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	null
+= failure
+tao_check	false	navigate	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	opaque
+= failure
+tao_check	false	navigate	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	navigate	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	null
+= failure
+tao_check	false	navigate	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	basic
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	null
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	cors
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	null
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	opaque
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	null
+= failure
+tao_check	false	navigate	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= success
+tao_check	false	navigate	opaque	https://a.test/	basic
+= failure
+tao_check	false	navigate	opaque	https://a.test/	basic	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test
+= failure
+tao_check	false	navigate	opaque	https://a.test/	basic	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	navigate	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	opaque	https://a.test/	basic	Timing-Allow-Origin	null
+= success
+tao_check	false	navigate	opaque	https://a.test/	basic	Timing-Allow-Origin	https://a.test,https://b.test
+= failure
+tao_check	false	navigate	opaque	https://a.test/	cors
+= failure
+tao_check	false	navigate	opaque	https://a.test/	cors	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test
+= failure
+tao_check	false	navigate	opaque	https://a.test/	cors	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	navigate	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	opaque	https://a.test/	cors	Timing-Allow-Origin	null
+= success
+tao_check	false	navigate	opaque	https://a.test/	cors	Timing-Allow-Origin	https://a.test,https://b.test
+= failure
+tao_check	false	navigate	opaque	https://a.test/	opaque
+= failure
+tao_check	false	navigate	opaque	https://a.test/	opaque	Timing-Allow-Origin	*
+= success
+tao_check	false	navigate	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test
+= failure
+tao_check	false	navigate	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://b.test
+= failure
+tao_check	false	navigate	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test, *
+= success
+tao_check	false	navigate	opaque	https://a.test/	opaque	Timing-Allow-Origin	null
+= success
+tao_check	false	navigate	opaque	https://a.test/	opaque	Timing-Allow-Origin	https://a.test,https://b.test
+= failure
+tao_check	true	cors	https://a.test	https://a.test/x	basic
+= failure
+tao_check	true	cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	cors	https://a.test	https://a.test/x	cors
+= failure
+tao_check	true	cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	cors	https://a.test	https://a.test/x	opaque
+= failure
+tao_check	true	cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	*
+= failure
+tao_check	true	cors	https://a.test	https://b.test/x	basic
+= failure
+tao_check	true	cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	cors	https://a.test	https://b.test/x	cors
+= failure
+tao_check	true	cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	cors	https://a.test	https://b.test/x	opaque
+= failure
+tao_check	true	cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	*
+= failure
+tao_check	true	cors	opaque	https://a.test/	basic
+= failure
+tao_check	true	cors	opaque	https://a.test/	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	cors	opaque	https://a.test/	cors
+= failure
+tao_check	true	cors	opaque	https://a.test/	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	cors	opaque	https://a.test/	opaque
+= failure
+tao_check	true	cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	https://a.test	https://a.test/x	basic
+= failure
+tao_check	true	no-cors	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	https://a.test	https://a.test/x	cors
+= failure
+tao_check	true	no-cors	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	https://a.test	https://a.test/x	opaque
+= failure
+tao_check	true	no-cors	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	https://a.test	https://b.test/x	basic
+= failure
+tao_check	true	no-cors	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	https://a.test	https://b.test/x	cors
+= failure
+tao_check	true	no-cors	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	https://a.test	https://b.test/x	opaque
+= failure
+tao_check	true	no-cors	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	opaque	https://a.test/	basic
+= failure
+tao_check	true	no-cors	opaque	https://a.test/	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	opaque	https://a.test/	cors
+= failure
+tao_check	true	no-cors	opaque	https://a.test/	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	no-cors	opaque	https://a.test/	opaque
+= failure
+tao_check	true	no-cors	opaque	https://a.test/	opaque	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	https://a.test	https://a.test/x	basic
+= failure
+tao_check	true	navigate	https://a.test	https://a.test/x	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	https://a.test	https://a.test/x	cors
+= failure
+tao_check	true	navigate	https://a.test	https://a.test/x	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	https://a.test	https://a.test/x	opaque
+= failure
+tao_check	true	navigate	https://a.test	https://a.test/x	opaque	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	https://a.test	https://b.test/x	basic
+= failure
+tao_check	true	navigate	https://a.test	https://b.test/x	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	https://a.test	https://b.test/x	cors
+= failure
+tao_check	true	navigate	https://a.test	https://b.test/x	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	https://a.test	https://b.test/x	opaque
+= failure
+tao_check	true	navigate	https://a.test	https://b.test/x	opaque	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	opaque	https://a.test/	basic
+= failure
+tao_check	true	navigate	opaque	https://a.test/	basic	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	opaque	https://a.test/	cors
+= failure
+tao_check	true	navigate	opaque	https://a.test/	cors	Timing-Allow-Origin	*
+= failure
+tao_check	true	navigate	opaque	https://a.test/	opaque
+= failure
+tao_check	true	navigate	opaque	https://a.test/	opaque	Timing-Allow-Origin	*
+= failure
+fetch_metadata	https://a.test	cors	-	false	https://a.test/
+= [(Sec-Fetch-Dest: empty), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: same-origin)]
+fetch_metadata	https://a.test	no-cors	image	false	https://a.test/
+= [(Sec-Fetch-Dest: image), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: same-origin)]
+fetch_metadata	https://a.test	navigate	document	true	https://a.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: same-origin), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	navigate	document	false	https://a.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: same-origin)]
+fetch_metadata	https://a.test	navigate	iframe	true	https://a.test/
+= [(Sec-Fetch-Dest: iframe), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: same-origin), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	same-origin	script	true	https://a.test/
+= [(Sec-Fetch-Dest: script), (Sec-Fetch-Mode: same-origin), (Sec-Fetch-Site: same-origin)]
+fetch_metadata	https://a.test	cors	style	false	https://a.test/
+= [(Sec-Fetch-Dest: style), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: same-origin)]
+fetch_metadata	https://a.test	no-cors	font	false	https://a.test/
+= [(Sec-Fetch-Dest: font), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: same-origin)]
+fetch_metadata	https://a.test	cors	-	false	https://a.test/	https://b.a.test/
+= [(Sec-Fetch-Dest: empty), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: same-site)]
+fetch_metadata	https://a.test	no-cors	image	false	https://a.test/	https://b.a.test/
+= [(Sec-Fetch-Dest: image), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: same-site)]
+fetch_metadata	https://a.test	navigate	document	true	https://a.test/	https://b.a.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: same-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	navigate	document	false	https://a.test/	https://b.a.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: same-site)]
+fetch_metadata	https://a.test	navigate	iframe	true	https://a.test/	https://b.a.test/
+= [(Sec-Fetch-Dest: iframe), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: same-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	same-origin	script	true	https://a.test/	https://b.a.test/
+= [(Sec-Fetch-Dest: script), (Sec-Fetch-Mode: same-origin), (Sec-Fetch-Site: same-site)]
+fetch_metadata	https://a.test	cors	style	false	https://a.test/	https://b.a.test/
+= [(Sec-Fetch-Dest: style), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: same-site)]
+fetch_metadata	https://a.test	no-cors	font	false	https://a.test/	https://b.a.test/
+= [(Sec-Fetch-Dest: font), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: same-site)]
+fetch_metadata	https://a.test	cors	-	false	https://a.test/	https://b.test/
+= [(Sec-Fetch-Dest: empty), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	image	false	https://a.test/	https://b.test/
+= [(Sec-Fetch-Dest: image), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	document	true	https://a.test/	https://b.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	navigate	document	false	https://a.test/	https://b.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	iframe	true	https://a.test/	https://b.test/
+= [(Sec-Fetch-Dest: iframe), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	same-origin	script	true	https://a.test/	https://b.test/
+= [(Sec-Fetch-Dest: script), (Sec-Fetch-Mode: same-origin), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	style	false	https://a.test/	https://b.test/
+= [(Sec-Fetch-Dest: style), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	font	false	https://a.test/	https://b.test/
+= [(Sec-Fetch-Dest: font), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	-	false	https://a.test/	https://a.test:444/	https://c.b.test/
+= [(Sec-Fetch-Dest: empty), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	image	false	https://a.test/	https://a.test:444/	https://c.b.test/
+= [(Sec-Fetch-Dest: image), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	document	true	https://a.test/	https://a.test:444/	https://c.b.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	navigate	document	false	https://a.test/	https://a.test:444/	https://c.b.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	iframe	true	https://a.test/	https://a.test:444/	https://c.b.test/
+= [(Sec-Fetch-Dest: iframe), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	same-origin	script	true	https://a.test/	https://a.test:444/	https://c.b.test/
+= [(Sec-Fetch-Dest: script), (Sec-Fetch-Mode: same-origin), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	style	false	https://a.test/	https://a.test:444/	https://c.b.test/
+= [(Sec-Fetch-Dest: style), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	font	false	https://a.test/	https://a.test:444/	https://c.b.test/
+= [(Sec-Fetch-Dest: font), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	-	false	http://a.test/
+= []
+fetch_metadata	https://a.test	no-cors	image	false	http://a.test/
+= []
+fetch_metadata	https://a.test	navigate	document	true	http://a.test/
+= []
+fetch_metadata	https://a.test	navigate	document	false	http://a.test/
+= []
+fetch_metadata	https://a.test	navigate	iframe	true	http://a.test/
+= []
+fetch_metadata	https://a.test	same-origin	script	true	http://a.test/
+= []
+fetch_metadata	https://a.test	cors	style	false	http://a.test/
+= []
+fetch_metadata	https://a.test	no-cors	font	false	http://a.test/
+= []
+fetch_metadata	https://a.test	cors	-	false	http://localhost/
+= [(Sec-Fetch-Dest: empty), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	image	false	http://localhost/
+= [(Sec-Fetch-Dest: image), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	document	true	http://localhost/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	navigate	document	false	http://localhost/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	iframe	true	http://localhost/
+= [(Sec-Fetch-Dest: iframe), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	same-origin	script	true	http://localhost/
+= [(Sec-Fetch-Dest: script), (Sec-Fetch-Mode: same-origin), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	style	false	http://localhost/
+= [(Sec-Fetch-Dest: style), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	font	false	http://localhost/
+= [(Sec-Fetch-Dest: font), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	-	false	https://a.test/	http://a.test/
+= [(Sec-Fetch-Dest: empty), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	image	false	https://a.test/	http://a.test/
+= [(Sec-Fetch-Dest: image), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	document	true	https://a.test/	http://a.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	navigate	document	false	https://a.test/	http://a.test/
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	iframe	true	https://a.test/	http://a.test/
+= [(Sec-Fetch-Dest: iframe), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	same-origin	script	true	https://a.test/	http://a.test/
+= [(Sec-Fetch-Dest: script), (Sec-Fetch-Mode: same-origin), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	style	false	https://a.test/	http://a.test/
+= [(Sec-Fetch-Dest: style), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	font	false	https://a.test/	http://a.test/
+= [(Sec-Fetch-Dest: font), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	-	false	file:///tmp/x
+= [(Sec-Fetch-Dest: empty), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	image	false	file:///tmp/x
+= [(Sec-Fetch-Dest: image), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	document	true	file:///tmp/x
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	navigate	document	false	file:///tmp/x
+= [(Sec-Fetch-Dest: document), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	navigate	iframe	true	file:///tmp/x
+= [(Sec-Fetch-Dest: iframe), (Sec-Fetch-Mode: navigate), (Sec-Fetch-Site: cross-site), (Sec-Fetch-User: ?1)]
+fetch_metadata	https://a.test	same-origin	script	true	file:///tmp/x
+= [(Sec-Fetch-Dest: script), (Sec-Fetch-Mode: same-origin), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	cors	style	false	file:///tmp/x
+= [(Sec-Fetch-Dest: style), (Sec-Fetch-Mode: cors), (Sec-Fetch-Site: cross-site)]
+fetch_metadata	https://a.test	no-cors	font	false	file:///tmp/x
+= [(Sec-Fetch-Dest: font), (Sec-Fetch-Mode: no-cors), (Sec-Fetch-Site: cross-site)]
