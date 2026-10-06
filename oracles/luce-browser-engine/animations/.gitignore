@@ -1,3 +1,5 @@
 # The built oracle (rebuild with build.sh) and its object list
 oracle
 libweb_objects.txt
+build.log
+err.txt
