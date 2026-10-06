@@ -59,7 +59,7 @@ os.makedirs(os.path.join(WORK, 'Text', 'expected'))
 shutil.copy(os.path.join(DONOR, 'Tests/LibWeb/Text/input/include.js'), os.path.join(WORK, 'Text', 'input'))
 open(os.path.join(WORK, 'Text', 'input', 'selector_matching.html'), 'w').write(html)
 open(os.path.join(WORK, 'Text', 'expected', 'selector_matching.txt'), 'w').write('')
-subprocess.run([os.path.join(DONOR, 'Build/release/bin/test-web'), '--test-path', WORK, '--rebaseline', '-f', 'Text/input/selector_matching.html'],
+subprocess.run([os.path.join(DONOR, 'Build/release/bin/test-web'), '--test-path', WORK, '--results-dir', os.path.join(WORK, 'results'), '--rebaseline', '-f', 'Text/input/selector_matching.html'],
                cwd=DONOR, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 expected = open(os.path.join(WORK, 'Text', 'expected', 'selector_matching.txt'), encoding='utf-8').read()
 shutil.copy(os.path.join(WORK, 'Text', 'expected', 'selector_matching.txt'), os.path.join(HERE, 'matching_expected.txt'))
@@ -117,3 +117,6 @@ for (markup, queries), result in zip(cases, results):
     e = ''.join(l + '\n' for l in result)
     out.write('    TestSelectorEngineCase(markup = %s, queries = %s, expected = %s),\n' % (lit(markup), lit(q), lit(e)))
 out.write(']\n')
+
+# test-web wrote its results under WORK; nothing of this run stays behind.
+shutil.rmtree(WORK, ignore_errors=True)

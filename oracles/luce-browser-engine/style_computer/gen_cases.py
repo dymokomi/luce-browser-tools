@@ -60,7 +60,7 @@ os.makedirs(os.path.join(WORK, 'Text', 'expected'))
 shutil.copy(os.path.join(DONOR, 'Tests/LibWeb/Text/input/include.js'), os.path.join(WORK, 'Text', 'input'))
 open(os.path.join(WORK, 'Text', 'input', 'style_computer.html'), 'w').write(html)
 open(os.path.join(WORK, 'Text', 'expected', 'style_computer.txt'), 'w').write('')
-subprocess.run([os.path.join(DONOR, 'Build/release/bin/test-web'), '--test-path', WORK, '--rebaseline', '-f', 'Text/input/style_computer.html'],
+subprocess.run([os.path.join(DONOR, 'Build/release/bin/test-web'), '--test-path', WORK, '--results-dir', os.path.join(WORK, 'results'), '--rebaseline', '-f', 'Text/input/style_computer.html'],
                cwd=DONOR, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 expected = open(os.path.join(WORK, 'Text', 'expected', 'style_computer.txt'), encoding='utf-8').read()
 shutil.copy(os.path.join(WORK, 'Text', 'expected', 'style_computer.txt'), os.path.join(HERE, 'expected.txt'))
@@ -114,3 +114,6 @@ for c, result in zip(cases, results):
     e = ''.join(l + '\n' for l in result)
     out.write('    TestStyleComputerCase(css = %s, markup = %s, queries = %s, expected = %s),\n' % (lit(c['css']), lit(c['tree']), lit(q), lit(e)))
 out.write(']\n')
+
+# test-web wrote its results under WORK; nothing of this run stays behind.
+shutil.rmtree(WORK, ignore_errors=True)
