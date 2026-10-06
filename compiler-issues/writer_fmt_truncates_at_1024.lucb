@@ -10,14 +10,23 @@
 # Expected: "field 1500 bytes, written 1502 bytes".
 # Actual:   "field 1500 bytes, written 1024 bytes".
 
-import strings
+import io
+
+## A Writer that counts the bytes it is given (strings.Builder, where this was found, has
+## left luce-base; any Writer shows it).
+struct Counter: io.Writer:
+    var count: usize
+
+    func write(data: const u8[]) -> usize!:
+        self.count += data.length
+        return data.length
 
 func main(arguments: str[]) -> i32!:
-    var long = try strings.Builder.create()
-    for index in 0..<300:
-        try long.put("abcde")
-    let text = long.view()
-    var out = try strings.Builder.create()
+    var long: u8[1500]
+    for index in 0..<long.length:
+        long[index] = 97
+    let text = (str)long[0..]
+    var out = Counter(count = 0)
     _ = try out.write(f"[{text}]")
-    print(f"field {text.length} bytes, written {out.view().length} bytes\n")
+    print(f"field {text.length} bytes, written {out.count} bytes\n")
     return 0
