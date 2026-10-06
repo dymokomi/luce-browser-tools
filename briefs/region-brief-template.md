@@ -15,5 +15,5 @@ Definition of done:
 - Calls into other regions' functions go to their stubs; fix a stub's SIGNATURE (not body) only if clearly wrong, and report it.
 - Commit on your branch with messages ending:
 SESSION_TRAILER
-- Compiler: use the release named in the package's bootstrap/BASE (COMPILER is on the PATH you are given). Write the most intuitive code. When the compiler rejects or miscompiles it, reduce it to /Users/sedov/Dev/luce_dev/luce-browser-tools/compiler-issues/<name>.lucb (expected vs actual) and report it; the compiler gets fixed, the port does not work around it. Only if you are blocked, add a minimal temporary workaround tagged `# LUCE-BUG: <name>` and say so.
+- Compiler: luce-base main, built (COMPILER is on the PATH you are given). Write the most intuitive code. When the compiler rejects or miscompiles it, reduce it to /Users/sedov/Dev/luce_dev/luce-browser-tools/compiler-issues/<name>.lucb (expected vs actual) and report it; the compiler gets fixed, the port does not work around it. Only if you are blocked, add a minimal temporary workaround tagged `# LUCE-BUG: <name>` and say so.
 Final report (concise): fragments, tests ported/added and results, signature/type changes other regions must know, deviations, compiler issues, commit hash.

@@ -12,12 +12,12 @@ gc_fields.tsv; package.prisma, README, LICENSE, PIN and test.sh too).
 The generator never writes into a ported repository. A later phase is planned against the ported
 engine and merged (DESIGN.md §4.4 "Later phases"):
 
-    python3 generate.py engine --phase 1 --baseline ENGINE --lower PINS --out ../cache/out1
-    python3 generate.py engine --phase 2 --baseline ENGINE --lower PINS --out ../cache/out2
+    python3 generate.py engine --phase 1 --baseline ENGINE --lower LOWER --out ../cache/out1
+    python3 generate.py engine --phase 2 --baseline ENGINE --lower LOWER --out ../cache/out2
     python3 merge.py --old ../cache/out1 --new ../cache/out2 --engine ENGINE
 
 --baseline keeps the engine's names and class ids (baseline.py); --lower is where the lower
-packages are checked out at bootstrap/PACKAGES's pins (their class ids); merge.py brings over only
+packages are checked out, at main (their class ids); merge.py brings over only
 what phase 2 adds.
 """
 import argparse
