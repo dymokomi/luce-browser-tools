@@ -1,0 +1,69 @@
+# Coordinator follow-ups (luce-browser)
+- Embedder font database: C-heap FontDatabase caching fonts allocated in a VM heap is a hazard; make it managed memory kept alive by the VM (p1_seams note). Owner: r57/web_test or the luced-browser embedder.
+- Skeleton generator rerun (if ever): class ids for Realm/JsNativeFunction/JsCompletion/HtmlEventHandler/CSSKeyframe(s)Rule, class_name in vtables (r13/r14/r19/r37 notes).
+- After next Luce release: drop LUCE-BUG tags enum_case_context_from_generic_argument (html_element_1), local_array_of_views_returned_by_value (color_function_descriptor), array_length_constant_expression (4 sites, once fixed).
+- Conservative blob scan keeps dequeued microtask slots alive until overwritten (p1_seams note) — fine, but tests can't expect immediate collection.
+- Audit module-global caches against DESIGN §3.3 rule 7 (statics allocate from memory.heap, never store managed pointers): css_length_style_value_zero_px, counter-style statics (decimal/disc), html_batching_dispatcher_s_dispatcher, animated-image session registry, ErrorReporter, css initial-value caches (r33), CSS-wide keyword statics (r34). Font fix agent flagged these.
+- foundation ak: arg_f32/arg_f64 round a tie in the last printed digit up; AK rounds to even (144.203125f → 144.20313 vs 144.20312). r45 found it; fix in ak format.
+- render web_fonts: SerenitySans ascent at 0px font-size is 0 in the port, non-zero in Ladybird (baseline 0.296875) — font-size-zero, percentage-font-size cases wait.
+- luce-std shared checkout was left mid-migration by another session (2026-10-03); gate via scratchpad/gate.sh (clean worktrees at pins).
+- On landing the flat layout: update luce-browser-tools oracles (css_values_units/style_values_1 gen_luce_expected.py, render fonts/regen.sh) and the skeleton/oracle gen scripts that write src/<pkg>/... paths; bump luce-browser-engine pins of foundation/css/html/render.
+- skeleton generator (emit.py:1089, generate.py:165) still writes src/<pkg_root>/<module> and old-style imports; update to the flat layout (src/<module>, qualified cross-package imports) before the next P2/P3 skeleton run.
+- luce-browser-tools oracles/luce-browser-render/fonts/gen_tests.cpp writes one tests_oracle.lucb; after the luce-fonts move it must be split: face/glyph/metrics/path -> luce-fonts opentype tests, shaping+WOFF -> luce-fonts shaping tests, blob bounds/intercepts -> render.
+- luce-png a6ae4bb / luce-raster cea1c62 emit 5 check -W warnings (engine test.sh tolerates other packages' warnings since p2/tests); fix in luce-png/luce-raster.
+- http(s) loads block the event loop (event-loop seam can't watch sockets) — add socket readiness to the Core event-loop seam (p2d note). Set-Cookie traps in http_parse_cookie (P3 stub).
+- luce-svg/luce-ui/luce-image alignment (compress ^0.7, fonts ^0.6, color ^0.6, png ^0.8, jpeg ^0.8): LUCED_3D is doing it, luce-svg included, after the owner OKs the batch; it will send the versions.
+- FIXED 5141632: SVG-as-image CI crashes were relayout_svg_root's `LayoutState = ---` + a construct that set only the subtree root.
+- Audit the 345 `var x: <EngineType> = ---` declarations: each must be followed by a construct that writes every field (or drop the `---`). Asked LUCED_3D for a poison-fill debug build mode to flush these out via web_test. Repro tool: scratchpad/stress_one.sh (200 runs, 32-way via xargs).
+- DONE: render 0.4.2 verified from the registry with Luce 0.12.2, using a scratch HOME install (`curl … | env HOME=$S/h sh`). Browser repos repinned to ca8b9ad + luce-std 647af31; luce-color/png/jpeg get repinned with the ICC branches.
+- ICC not yet color-managed: canvas drawImage (gfx/painter_raster), image filters (cpu_filter_nodes), BMP/ICO-embedded images. render display_list/cpu_filter_color.lucb has its own NEON approx_powf (could share raster's).
+- fid2 deviations: filters under perspective use the affine part only; inner shadows on non-rect shapes use a coverage difference (no path booleans); rrect transforms scale+translate only; cbrt/atan2 off-macOS 1-level tolerance in gradient tests.
+- Remaining Screenshot 4: clip-path-transformed (≤7 levels), svg-feDisplacementMap-channel-selectors, svg-filters-lb-website, svg-stroke-styles. Ref fails: scripting-print-script, jpegxl ×2 (no decoder: luce-jxl?).
+- luce-png 16-bit → 8-bit rounds where libpng keeps the high byte (off by 1 vs Ladybird); luce-png refuses zlib data past the last row and duplicate tRNS where libpng warns. Decide per Ladybird fidelity vs luced-2d.
+- luce-webp: no SIMD (1.7–1.9x libwebp scalar), no incremental decode, no dithering (Ladybird doesn't enable it).
+- Package test runners default to the sibling ../luce-base checkout: always pass LUCE_BASE/LUCE_STD (or --base) when gating.
+- fid3 deviations: inner shadows of touching or crossing shapes need Skia path ops (not ported). In filter layers, nested image blits and the legacy blitters' shader paths are missing, and rotated nearest images skip edge coverage on lowp. Dash trimming on pixmaps over 8191 px uses the whole clip.
+- Probe method: render scratch pages with the reference test-web --rebaseline and with our web_test --root (scratchpad fid3/probe.sh) to get a Skia baseline for any page.
+- Before p2/net lands in luce-std: tell LUCED_3D first (it keeps the compilers' luce-std pins in step). luce-ui wish list from the shell agent: send it to LUCED_3D, which will schedule it after the alignment pass.
+- p2/net remaining: an async DNS client with a cache, like RequestServer's (getaddrinfo now runs on a thread per lookup, and ensure_connection(ResolveOnly) does nothing). luce-tls can't tell a certificate failure apart, so it reports SSLHandshakeFailed rather than SSLVerificationFailed. Not done: HTTP/2, proxies, an HTTP cache, cookies (Set-Cookie is a P3 stub). The older p2d HTTP tests run with the C heap current; ak's byte buffers live in the newest VM heap, so those tests should run with the VM heap current, as the new ones do.
+- luced-browser next milestone:
+  - unported traps on real sites: AudioTrackList on GitHub and Wikipedia; EasingFunction on ladybird.org; JS::Object::create on python.org; lobste.rs stays blank (not investigated);
+  - cookie storage; keyboard selection and editing; typing into form fields; favicons, context menus, find, zoom;
+  - a GPU page path instead of the per-frame texture upload, and a socket-watching UI wait instead of the 4 ms poll.
+- Webview test pitfall: frames are timed at 16 ms, so headless tests must run turns for real time.
+- Compiler bug (private conformance method across the Luce boundary) sent to LUCED_3D; luce-ui wish list sent too.
+- Owner (2026-10-05): stay 0.x, minor bumps and caret waves like luced-2d/3d. The luce-std ^0.6 wave is published (compress 0.8, color 0.7, crypto 0.5, regex 0.6, png 0.9, jpeg 0.9, fonts 0.7, tls 0.6, foundation/css/html 0.5, render 0.6, js 0.5). The engine moves on branch wave/std06 (4a56081, gate green apart from the webview flake). luced-browser waits for LUCED_3D's UI stack on std ^0.6.
+- After Luce 0.13 / luce-base 0.38: drop the webview_api facade (the private-conformance bug is fixed there) and repin.
+- Alignment landed: luce-ui 0.15.2, luce-image 0.43.1, luce-svg 0.8.1. luce-ui and luce-window minors are coming with the wish list.
+- Webview test lesson: Ladybird paints only when something changed, so tests wait for the named page's load_finished (webview_finished_load_url) and then force a frame with webview_take_screenshot, as test-web does. A new view's first load_finished is about:blank.
+- Published 2026-10-05: luce-browser-engine 0.5.0 (8580de4) and luced-browser 0.2.0 (da67916), both verified from the registry. Next: luce-ui 0.18 (skipped presents redrawn, title getter, TextField editing shortcuts) when LUCED_3D pings; drop the webview_api facade after Luce 0.13.
+- After the anim and sites branches land: pin Luce 0.13.0 (luce-base 0.38.0; private witness methods fixed) and drop the webview_api facade. With 0.13, luc test runs every imported module's tests, so expect bigger counts.
+- Check against Ladybird: on a click, does the focus scroll from mousedown run before the release's fragment navigation in every case? A late focus scroll (heavy load) would scroll a real page back to the link. The webview test now syncs between press and release.
+- Webview embedding: webview_destroy only hides a page, so closed tabs keep a rendering task every frame (CPU), and several views on one loop let a press and its release interleave with other pages' rendering tasks.
+  - Ladybird runs one WebContent process per tab, and process exit drops all of a page's state and queued tasks.
+  - The in-process analogue: destroy_top_level_traversable plus removing every queued task whose document belongs to that page. Doing only the first froze rendering (a stale rendering task blocks has_rendering_tasks). Agent trace: scratchpad/frag/run2.log.
+- 2026-10-06 after crash: CI now tracks main of every dependency. scratchpad/gate.sh was rewritten (fresh workspace, luce-base main built and cached by sha, checkout_main.py, repo=ref overrides). Engine main is red since the sweep: Luce 0.13 runs imported modules' tests in one process, exposing per-process statics. Agent working on fix/vm-statics (+ fix/one-font-provider).
+- luce-std 588b21b / luce-ui 55ac5c4: on_crash returns Reference[crash.Hook]; Application.close removes its hooks. When landing luced-browser app/tab-lifecycle, take the result (let hook = app.on_crash(...)) and make sure it builds against main.
+- Landed 2026-10-06: vm-statics (engine 1bc3cc6, foundation 120fae5); tab lifecycle (engine 2e3d24f, luced-browser c943bc8: hidden tabs don't render, closed tabs torn down, crash window + tab recovery).
+- Windows: luce-browser-engine/-foundation/-html don't link (localtime_r, gmtime_r, timegm, pthread_getattr* are POSIX-only); use luce-std equivalents or platform branches.
+- luce-browser-render arc_tiny test fails on Linux (old toolchain too).
+- Performance (owner, 2026-10-06: "slowest browser, scrolling ~1 fps"). Profile: every scroll replays the whole display list on the CPU (blur_box_step, inner box shadow, filters, blend), fmaf goes through a dylib stub, and webview_copy_frame copies the full frame. Options: CPU quick wins (Skia's SkMaskCache-style blur mask cache, an fma intrinsic, scroll by shifting pixels) and a GPU display-list player on luce-gpu (Ladybird's Skia GPU path). Awaiting the owner's choice.
+- GPU player landed 2026-10-07 (render 4d0a4f6, engine 8397986, luced-browser 729108c), on by default. Design: render docs/GPU.md. Next:
+  - M2: gradients, opacity, scale transforms, inner/text shadows, mipmaps.
+  - M3: raster budget and prefetch, binning, instanced glyphs, p95 < 8 ms.
+  - M4 memory: mapped fonts (the engine sits at 1.4 GB idle because PathFontProvider reads every system font), no back store, free display lists.
+  - M5: nested clips, filters, 3D.
+  - luce-gpu requests are with LUCE_LANG.
+- GPU M1b landed 2026-10-07: luce-gpu items 1-7; player adoption (render b9653a0, engine 74fba0c, luced-browser 0dc5f9e, luce-ui 225d60f).
+  - GPU time is ~0.2-0.4 ms per frame, so main-thread CPU time (CPU fallback tiles, e.g. gnu.org: 85) dominates.
+  - Open: compute blur/coverage for shadow and path tiles; gradients/opacity/transforms (M2); mip filter vs Skia (gnu.org pixel diffs up to 93 on fine lines); shader SPIR-V 90 KiB over the 40 KiB budget; elliptical-corner instancing; Windows encoded-window check.
+- Memory pass landed 2026-10-07: startup 11 MiB, blank 58, HN 103, Wikipedia 372, Verge 548 (target 400).
+  - Remaining: style storage (78 MiB, Ladybird's design); AK hash buckets carry ordered links even when unordered (~18 MiB on the Verge); GC cached blocks (126); CPU-tile garbage (GPU agent told); Metal driver memory ~400 MiB from per-draw buffers (LUCE_LANG asked); luce-std files.map requested.
+  - tests/memory guards the budgets; scroll_bench --census gives the breakdown.
+- GPU M2 landed 2026-10-07 (render cc4520c..1165a4f, engine 17568dd, 8718ab1). No CPU tiles on 6 of 7 pages; the Verge has 4 (drop-shadow filter). GPU-mode web_test: Ref 780 (= CPU), Screenshot 44 (CPU 65).
+  - Next M3: raster budget and prefetch (HN p95 18.5 ms), filters (layers larger than a tile, SkBlurImageFilter), text shadows, clip paths, luminance masks, patterns, color-managed images.
+  - Also: blend modes across compositor planes; GPU-mode Screenshot misses just outside the tight bounds; bench GPU column after one command buffer per frame; shader size 53 KiB (u32-array-as-code compiler issue sent to LUCE_LANG); the CPU raster's oval isn't translation-invariant (up to 30 levels).
+- scroll_bench GPU column: use only the surface frame's Frame.submission() (since luce-gpu d5821ed it covers all that frame's uploads and texture frames); don't sum per-submission times. Restore the 45° conic test once fragment shaders default to no fast math.
+- Filters/blurs: fragment passes, not compute (compute costs ~160 MB of Metal driver memory). The 45° conic test can return (luce-gpu 90ff86e).
+- The 45° conic still differs with IEEE fragment shaders (luce-gpu 90ff86e), so it isn't fast math. Likely the shader's atan2 vs Skia's polynomial atan approximation in its conic stage: port Skia's approximation into stages.glsl, then restore 45°.
+- DONE: dark mode follows the system live (luced-browser f2c7e65, luce-ui appearance/on_appearance). The light title bar in dark mode is LUCE_LANG's SDK-version fix.
